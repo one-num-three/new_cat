@@ -1,0 +1,112 @@
+<!--pages/map/map.wxml-->
+<view class="map-container">
+  <!-- 地图 - 独立层，确保手势正常 -->
+  <!-- show-location="true" 显示系统定位指示器（蓝色水滴） -->
+  <!-- markers 只显示其他玩家，不显示自己 -->
+  <map
+    id="gameMap"
+    class="game-map"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    scale="{{scale}}"
+    markers="{{markers}}"
+    show-location="{{true}}"
+    enable-satellite="false"
+    enable-overlooking="true"
+    enable-zoom="true"
+    enable-scroll="true"
+    enable-rotate="true"
+    bindregionchange="onRegionChange"
+    bindtap="onMapTap"
+    bindmarkertap="onMarkerTap"
+  />
+
+  <!-- 顶部信息层 -->
+  <view class="top-layer">
+    <!-- 记分板（小、左上角、可收起） -->
+    <view class="score-board-mini" wx:if="{{players.length > 0}}">
+      <view class="score-header" bindtap="toggleScoreBoard">
+        <text class="score-icon">🏆</text>
+        <text class="score-toggle">{{showScoreBoard ? '▼' : '▶'}}</text>
+      </view>
+      <view class="score-list-mini" wx:if="{{showScoreBoard}}">
+        <view class="score-item-mini" wx:for="{{players}}" wx:key="id">
+          <text class="score-role-mini">{{item.role === 'cat' ? '🐱' : '🐭'}}</text>
+          <text class="score-name-mini">{{item.nickname}}</text>
+          <text class="score-points-mini">{{item.score || 0}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 角色提示 -->
+    <view class="role-tip" wx:if="{{showRoleTip}}">
+      <text wx:if="{{playerRole === 'cat'}}">🐱 你是猫 · 抓住所有老鼠</text>
+      <text wx:else>🐭 你是鼠 · 躲避猫的追捕</text>
+      <view class="close-tip" bindtap="hideRoleTip">×</view>
+    </view>
+
+    <!-- 游戏信息 -->
+    <view class="game-info">
+      <text>⏱️ {{countdown}}s</text>
+      <text>👥 {{players.length}}人</text>
+    </view>
+  </view>
+
+  <!-- 道具商店弹窗 -->
+  <view class="shop-modal" wx:if="{{showShop}}">
+    <view class="shop-mask" bindtap="onCloseShop"></view>
+    <view class="shop-content">
+      <view class="shop-header">
+        <text class="shop-title">🛒 道具商店</text>
+        <text class="shop-score">💰 {{myScore}}分</text>
+        <view class="shop-close" bindtap="onCloseShop">×</view>
+      </view>
+      <view class="shop-list">
+        <view class="shop-item" wx:for="{{shopItems}}" wx:key="id">
+          <view class="shop-item-icon">{{item.icon}}</view>
+          <view class="shop-item-info">
+            <text class="shop-item-name">{{item.name}}</text>
+            <text class="shop-item-desc">{{item.desc}}</text>
+          </view>
+          <view class="shop-item-price">{{item.price}}分</view>
+          <view class="shop-item-btn" bindtap="onBuyItem" data-item="{{item.id}}">
+            <text>购买</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 左侧按钮层 -->
+  <view class="left-layer">
+    <!-- 猫：扫码抓人按钮 -->
+    <view class="action-btn scan-btn" wx:if="{{playerRole === 'cat'}}" bindtap="onScanQRCode">
+      <text>📷 扫码抓人</text>
+    </view>
+
+    <!-- 鼠：二维码按钮 -->
+    <view class="action-btn qrcode-btn" wx:if="{{playerRole === 'mouse' && !isCaught}}" bindtap="onShowQRCode">
+      <text>🐭 我的二维码</text>
+    </view>
+
+    <!-- 道具商店按钮（所有玩家可用） -->
+    <view class="action-btn shop-btn" bindtap="onOpenShop">
+      <text>🛒 商店</text>
+    </view>
+  </view>
+
+  <!-- 右侧按钮层 -->
+  <view class="right-layer">
+    <!-- 结束按钮 -->
+    <view class="action-btn end-btn" bindtap="onEndGame">
+      <text>结束</text>
+    </view>
+
+    <!-- 地图缩放控制 -->
+    <view class="zoom-controls">
+      <view class="zoom-btn" bindtap="onZoomIn">+</view>
+      <view class="zoom-btn" bindtap="onZoomOut">−</view>
+      <view class="locate-btn" bindtap="onBackToLocation">📍</view>
+    </view>
+  </view>
+</view>

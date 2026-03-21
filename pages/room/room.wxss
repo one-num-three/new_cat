@@ -1,0 +1,515 @@
+/* pages/room/room.wxss - 房间等待页面样式 */
+
+.container {
+  padding: 30rpx;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+}
+
+/* 房间头部 */
+.room-header {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.room-id-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.room-label {
+  color: #888;
+  font-size: 28rpx;
+}
+
+.room-id {
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 4rpx;
+}
+
+.copy-btn {
+  background: #3498db;
+  color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+
+.room-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+}
+
+.status-dot {
+  width: 16rpx;
+  height: 16rpx;
+  background: #2ecc71;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-text {
+  color: #2ecc71;
+  font-size: 28rpx;
+}
+
+/* 玩家列表区域 */
+.players-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.player-count {
+  color: #3498db;
+  font-size: 28rpx;
+}
+
+.players-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.player-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16rpx;
+  padding: 20rpx;
+  gap: 20rpx;
+}
+
+.player-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  overflow: hidden;
+}
+
+.player-avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.player-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.player-nickname {
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.player-join-time {
+  color: #888;
+  font-size: 24rpx;
+}
+
+.player-badge {
+  background: linear-gradient(135deg, #f39c12, #e74c3c);
+  color: #fff;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.empty-slot {
+  padding: 60rpx 0;
+  text-align: center;
+}
+
+.empty-text {
+  color: #888;
+  font-size: 28rpx;
+}
+
+/* 游戏设置区域 */
+.settings-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.setting-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.setting-label {
+  color: #aaa;
+  font-size: 26rpx;
+}
+
+.setting-value {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 底部操作区 */
+.action-bar {
+  margin-bottom: 30rpx;
+}
+
+.btn-start {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+  border: none;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.btn-start::after {
+  border: none;
+}
+
+.btn-subtitle {
+  font-size: 24rpx;
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+.waiting-tip {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+}
+
+.tip-icon {
+  font-size: 40rpx;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.tip-text {
+  color: #aaa;
+  font-size: 30rpx;
+}
+
+/* 分享区域 */
+.share-section {
+  margin-top: 40rpx;
+}
+
+.btn-share {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 2rpx solid rgba(255, 255, 255, 0.2);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.btn-share::after {
+  border: none;
+}
+
+.share-icon {
+  font-size: 32rpx;
+}
+
+/* 设置区域样式 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.edit-btn {
+  color: #3498db;
+  font-size: 26rpx;
+  padding: 8rpx 16rpx;
+  background: rgba(52, 152, 219, 0.2);
+  border-radius: 20rpx;
+}
+
+.setting-item.full-width {
+  grid-column: 1 / -1;
+}
+
+/* 设置弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 24rpx;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.modal-close {
+  color: #888;
+  font-size: 40rpx;
+  padding: 0 10rpx;
+}
+
+.modal-body {
+  padding: 30rpx;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.setting-row-label {
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.stepper-btn {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: rgba(52, 152, 219, 0.3);
+  color: #fff;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper-btn:active {
+  background: rgba(52, 152, 219, 0.5);
+}
+
+.stepper-value {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  min-width: 120rpx;
+  text-align: center;
+}
+
+.setting-tip {
+  color: #888;
+  font-size: 24rpx;
+  display: block;
+  margin-top: -20rpx;
+  margin-bottom: 20rpx;
+}
+
+.modal-footer {
+  display: flex;
+  padding: 30rpx;
+  gap: 20rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-cancel,
+.btn-confirm {
+  flex: 1;
+  border-radius: 16rpx;
+  font-size: 30rpx;
+  padding: 24rpx;
+}
+
+.btn-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-cancel::after {
+  border: none;
+}
+
+.btn-confirm {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: #fff;
+  border: none;
+}
+
+.btn-confirm::after {
+  border: none;
+}
+
+/* 身份选择区域（开发模式） */
+.role-select-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border: 2rpx dashed rgba(255, 193, 7, 0.5);
+}
+
+.dev-badge {
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  color: #000;
+  padding: 4rpx 12rpx;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+}
+
+.role-options {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.role-option {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16rpx;
+  padding: 30rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.role-option.selected {
+  border-color: #3498db;
+  background: rgba(52, 152, 219, 0.2);
+}
+
+.role-option:active {
+  transform: scale(0.98);
+}
+
+.role-icon {
+  font-size: 60rpx;
+}
+
+.role-name {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.role-desc {
+  color: #888;
+  font-size: 24rpx;
+}
+
+/* 已选择身份提示 */
+.selected-role-tip {
+  background: rgba(52, 152, 219, 0.2);
+  border-radius: 16rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  margin-bottom: 30rpx;
+}
+
+.selected-role-tip .tip-icon {
+  font-size: 36rpx;
+  animation: none;
+}
+
+.selected-role-tip .tip-text {
+  color: #3498db;
+  font-size: 28rpx;
+}

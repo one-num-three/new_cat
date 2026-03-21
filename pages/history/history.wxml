@@ -1,0 +1,92 @@
+<!--pages/history/history.wxml-->
+<view class="container">
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <text class="stat-num">{{totalGames}}</text>
+      <text class="stat-label">总场次</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-num win">{{winCount}}</text>
+      <text class="stat-label">胜利</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-num lose">{{lossCount}}</text>
+      <text class="stat-label">失败</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-num">{{winRate}}%</text>
+      <text class="stat-label">胜率</text>
+    </view>
+  </view>
+
+  <!-- 历史列表 -->
+  <view class="history-section">
+    <view class="section-title">
+      <text>游戏记录</text>
+      <text class="subtitle" wx:if="{{totalGames > 0}}">共 {{totalGames}} 场</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{!isLoading && historyList.length === 0}}">
+      <text class="empty-icon"></text>
+      <text class="empty-text">还没有游戏记录</text>
+      <text class="empty-subtext">快去创建或加入一场游戏吧！</text>
+      <button class="btn-primary" bindtap="onBackToHome">去玩游戏</button>
+    </view>
+
+    <!-- 历史列表 -->
+    <view class="history-list" wx:else>
+      <view 
+        class="history-item" 
+        wx:for="{{historyList}}" 
+        wx:key="gameId"
+        bindtap="onViewDetail"
+        data-index="{{index}}"
+      >
+        <!-- 角色标识 -->
+        <view class="role-badge {{item.role}}">
+          <text>{{item.roleText}}</text>
+        </view>
+
+        <!-- 游戏信息 -->
+        <view class="game-info">
+          <view class="game-header">
+            <text class="game-id">房间 {{item.roomId}}</text>
+            <text class="game-time">{{item.formattedDate}}</text>
+          </view>
+          <view class="game-details">
+            <text class="detail-item">
+              <text class="detail-icon">⏱</text>
+              {{item.durationText}}
+            </text>
+            <text class="detail-item" wx:if="{{item.role === 'cat'}}">
+              <text class="detail-icon"></text>
+              抓住 {{item.catchCount || 0}} 只
+            </text>
+            <text class="detail-item" wx:if="{{item.role === 'mouse'}}">
+              <text class="detail-icon"></text>
+              {{item.isCaught ? '被抓住' : '存活成功'}}
+            </text>
+          </view>
+        </view>
+
+        <!-- 结果 -->
+        <view class="result-badge {{item.resultClass}}">
+          <text>{{item.resultText}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="loading-more" wx:if="{{isLoading}}">
+      <text>加载中...</text>
+    </view>
+    <view class="no-more" wx:if="{{!hasMore && historyList.length > 0}}">
+      <text>没有更多记录了</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/room/room",
+    "pages/profile/profile",
+    "pages/qrcode/qrcode",
+    "pages/history/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2c3e50",
+    "navigationBarTitleText": "猫鼠游戏",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于在地图上显示你的位置，以便进行游戏"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "startLocationUpdate",
+    "startLocationUpdateBackground",
+    "onLocationChange"
+  ],
+  "requiredBackgroundModes": ["location"],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

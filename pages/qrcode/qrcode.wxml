@@ -1,0 +1,52 @@
+<!--pages/qrcode/qrcode.wxml-->
+<view class="qrcode-container">
+  <view class="qrcode-card">
+    <view class="qrcode-title">🐭 我的二维码</view>
+    <view class="qrcode-subtitle">向猫展示此二维码</view>
+    
+    <!-- 二维码区域 -->
+    <view class="qrcode-image-wrapper" bindlongpress="onLongPress">
+      <!-- 预缓存的本地图片（秒开） -->
+      <image 
+        wx:if="{{qrCodePath}}"
+        class="qrcode-image" 
+        src="{{qrCodePath}}" 
+        mode="aspectFit"
+        show-menu-by-longpress="{{true}}"
+      />
+      
+      <!-- 网络图片（备用） -->
+      <image 
+        wx:elif="{{qrCodeUrl}}"
+        class="qrcode-image" 
+        src="{{qrCodeUrl}}" 
+        mode="aspectFit"
+        bindload="onImageLoad"
+        binderror="onImageError"
+        show-menu-by-longpress="{{true}}"
+      />
+      
+      <!-- 加载提示 -->
+      <view wx:if="{{loading && !qrCodePath}}" class="qrcode-loading">
+        <text>⏳ 生成中...</text>
+      </view>
+    </view>
+    
+    <!-- 玩家信息 -->
+    <view class="player-info" wx:if="{{qrData}}">
+      <text class="nickname">{{qrData.nickname}}</text>
+      <text class="role-tag">🐭 老鼠</text>
+    </view>
+    
+    <!-- 重要提示 -->
+    <view class="warning-tip">
+      ⚠️ 被猫扫到即被抓住！
+    </view>
+    
+    <!-- 操作按钮 -->
+    <view class="actions">
+      <button class="btn-save" bindtap="saveToAlbum">💾 保存到相册</button>
+      <button class="btn-back" bindtap="onBack">返回游戏</button>
+    </view>
+  </view>
+</view>

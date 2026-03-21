@@ -1,0 +1,17 @@
+{
+  "name": "cat-mouse-server",
+  "version": "0.1.0-alpha",
+  "description": "猫鼠游戏小程序后端服务器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

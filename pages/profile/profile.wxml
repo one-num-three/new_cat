@@ -1,0 +1,56 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 未登录状态 -->
+  <block wx:if="{{!isLoggedIn}}">
+    <view class="login-card">
+      <view class="avatar-placeholder">👤</view>
+      <text class="login-title">登录猫鼠游戏</text>
+      <text class="login-desc">使用微信一键登录，开始游戏</text>
+      
+      <button class="btn-wechat" bindtap="onWechatLogin">
+        <text>微信登录</text>
+      </button>
+    </view>
+  </block>
+
+  <!-- 已登录状态 -->
+  <block wx:else>
+    <view class="user-card">
+      <view class="avatar">{{userInfo.avatarUrl ? '' : '👤'}}</view>
+      <image class="avatar-img" wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" mode="aspectFill"/>
+      <text class="nickname">{{userInfo.nickname || '玩家'}}</text>
+      
+      <view class="stats">
+        <view class="stat-item">
+          <text class="stat-num">0</text>
+          <text class="stat-label">游戏次数</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-num">0</text>
+          <text class="stat-label">胜利次数</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-num">0%</text>
+          <text class="stat-label">胜率</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="menu-list">
+      <view class="menu-item" bindtap="onViewHistory">
+        <text> 游戏历史</text>
+        <text>›</text>
+      </view>
+      <view class="menu-item">
+        <text>️ 设置</text>
+        <text>›</text>
+      </view>
+      <view class="menu-item">
+        <text>❓ 帮助</text>
+        <text>›</text>
+      </view>
+    </view>
+
+    <button class="btn-logout" bindtap="onLogout">退出登录</button>
+  </block>
+</view>

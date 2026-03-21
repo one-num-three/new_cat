@@ -1,0 +1,337 @@
+/* pages/map/map.wxss */
+.map-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.game-map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 顶部信息层 */
+.top-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.top-layer > view {
+  pointer-events: auto;
+}
+
+/* 记分板（小、左上角、可收起） */
+.score-board-mini {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10rpx;
+  padding: 10rpx 15rpx;
+  color: #fff;
+  min-width: 120rpx;
+  max-width: 280rpx;
+}
+
+.score-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  padding: 5rpx 0;
+}
+
+.score-icon {
+  font-size: 28rpx;
+}
+
+.score-toggle {
+  font-size: 20rpx;
+  margin-left: 10rpx;
+}
+
+.score-list-mini {
+  margin-top: 10rpx;
+  border-top: 1rpx solid rgba(255,255,255,0.2);
+  padding-top: 10rpx;
+}
+
+.score-item-mini {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  padding: 4rpx 0;
+  gap: 8rpx;
+}
+
+.score-role-mini {
+  font-size: 24rpx;
+}
+
+.score-name-mini {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100rpx;
+}
+
+.score-points-mini {
+  font-weight: bold;
+  color: #f1c40f;
+  font-size: 22rpx;
+}
+
+/* 道具商店 */
+.shop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.shop-content {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 20rpx;
+  width: 80%;
+  max-height: 70vh;
+  overflow: hidden;
+  border: 2rpx solid rgba(255,255,255,0.1);
+}
+
+.shop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 2rpx solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.3);
+}
+
+.shop-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.shop-score {
+  font-size: 28rpx;
+  color: #f1c40f;
+  font-weight: bold;
+}
+
+.shop-close {
+  font-size: 40rpx;
+  color: #888;
+  padding: 0 10rpx;
+}
+
+.shop-list {
+  padding: 20rpx;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.shop-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+  gap: 15rpx;
+}
+
+.shop-item-icon {
+  font-size: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+.shop-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5rpx;
+}
+
+.shop-item-name {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: bold;
+}
+
+.shop-item-desc {
+  font-size: 22rpx;
+  color: #888;
+}
+
+.shop-item-price {
+  font-size: 26rpx;
+  color: #f1c40f;
+  font-weight: bold;
+  background: rgba(241,196,15,0.2);
+  padding: 8rpx 15rpx;
+  border-radius: 20rpx;
+}
+
+.shop-item-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 15rpx 25rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.shop-item-btn:active {
+  opacity: 0.8;
+}
+
+.shop-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.role-tip {
+  margin: 80rpx 30rpx 20rpx;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.close-tip {
+  font-size: 40rpx;
+  padding: 0 10rpx;
+}
+
+.game-info {
+  margin: 0 auto;
+  width: fit-content;
+  background: rgba(255,255,255,0.9);
+  padding: 15rpx 30rpx;
+  border-radius: 30rpx;
+  display: flex;
+  gap: 30rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 左侧按钮层 */
+.left-layer {
+  position: absolute;
+  left: 30rpx;
+  bottom: 200rpx;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+/* 右侧按钮层 */
+.right-layer {
+  position: absolute;
+  right: 30rpx;
+  bottom: 200rpx;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  align-items: flex-end;
+}
+
+/* 通用按钮样式 */
+.action-btn {
+  padding: 20rpx 30rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  box-shadow: 0 5rpx 20rpx rgba(0,0,0,0.2);
+}
+
+/* 扫码按钮（猫） */
+.scan-btn {
+  background: #667eea;
+}
+
+/* 二维码按钮（鼠） */
+.qrcode-btn {
+  background: #f0932b;
+}
+
+/* 道具按钮 */
+.item-btn {
+  background: #fff;
+  color: #333;
+}
+
+/* 结束按钮 */
+.end-btn {
+  background: #ff4757;
+}
+
+/* 缩放控制 */
+.zoom-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  margin-top: 30rpx;
+}
+
+.zoom-btn,
+.locate-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 5rpx 20rpx rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.locate-btn {
+  font-size: 36rpx;
+}
+
+.zoom-btn:active,
+.locate-btn:active {
+  background: #f0f0f0;
+  transform: scale(0.95);
+}
