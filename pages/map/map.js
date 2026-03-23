@@ -409,9 +409,15 @@ Page({
     
     this.stopStatusPoll();
     
-    const myRole = this.data.playerRole;
+    // 使用服务器返回的角色（更可靠），而不是本地缓存的 playerRole
+    const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
+    const myRole = myPlayer?.role || this.data.playerRole;
     const winner = res.winner;
     const isWin = winner === myRole;
+    
+    // 调试日志
+    console.log('[游戏结束] myRole:', myRole, 'winner:', winner, 'isWin:', isWin);
+    console.log('[游戏结束] playerRole:', this.data.playerRole, 'myPlayer.role:', myPlayer?.role);
     
     // 根据玩家角色和结果定制消息
     let title = '';
