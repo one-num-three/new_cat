@@ -236,8 +236,9 @@ Page({
     wx.showLoading({ title: '创建中...' });
     try {
       const playerId = 'player_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+      const nickname = wx.getStorageSync('nickname') || '玩家' + Math.floor(Math.random() * 10000);
       const res = await gameAPI.createRoom(this.data.gameSettings);
-      await gameAPI.joinRoom(res.roomId, playerId, '我', this.data.selectedRole, true);
+      await gameAPI.joinRoom(res.roomId, playerId, nickname, this.data.selectedRole, true);
       
       this.pregenerateQRCode(res.roomId, playerId);
       
@@ -299,7 +300,8 @@ Page({
     wx.showLoading({ title: '加入中...' });
     try {
       const playerId = 'player_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
-      const res = await gameAPI.joinRoom(this.data.roomId, playerId, '我', this.data.selectedRole);
+      const nickname = wx.getStorageSync('nickname') || '玩家' + Math.floor(Math.random() * 10000);
+      const res = await gameAPI.joinRoom(this.data.roomId, playerId, nickname, this.data.selectedRole);
       
       this.pregenerateQRCode(this.data.roomId, playerId);
       
