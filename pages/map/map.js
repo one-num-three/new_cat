@@ -9,6 +9,7 @@ Page({
     markers: [],
     circles: [], // 视野范围圆圈
     goldenShieldCircles: [], // 金身保护圈
+    bombardCircles: [], // 轰炸区域
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
     hasEagleEye: false, // 是否激活鹰眼
@@ -16,6 +17,8 @@ Page({
     hasGoldenShield: false, // 是否激活金身
     inGoldenShield: false, // 是否在金身保护圈内
     goldenShieldExpiresAt: 0, // 金身过期时间
+    selectingBombard: false, // 是否正在选择轰炸点
+    bombardZones: [], // 轰炸区域列表
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -31,7 +34,8 @@ Page({
     shopItems: [
       { id: 'invisible', icon: '👻', name: '隐身', price: 15, desc: '15秒内对其他玩家隐藏' },
       { id: 'eagleEye', icon: '🦅', name: '鹰眼', price: 20, desc: '10秒内视野范围+50%' },
-      { id: 'goldenShield', icon: '🛡️', name: '金身', price: 30, desc: '3分钟保护圈，圈内不可被抓' }
+      { id: 'goldenShield', icon: '🛡️', name: '金身', price: 30, desc: '3分钟保护圈，圈内不可被抓' },
+      { id: 'bombard', icon: '💣', name: '轰炸', price: 40, desc: '选择轰炸点，30秒后圈内-50分' }
     ],
     isLocationReady: false,
     lastLocationTime: 0,
@@ -405,8 +409,12 @@ Page({
           allPlayers: res.allPlayers || mergedPlayers, // 所有玩家（用于记分板）
           events: res.events || [],
           visionRange: res.settings?.visionRange || 200,
-          goldenShields: res.goldenShields || [] // 金身保护圈列表
+          goldenShields: res.goldenShields || [], // 金身保护圈列表
+          bombardZones: res.bombardZones || [] // 轰炸区域列表
         });
+        
+        // 更新轰炸区域显示
+        this.updateBombardCircles();
         
         // 检测新事件，显示弹幕
         const events = res.events || [];
@@ -1062,6 +1070,15 @@ Page({
           goldenShieldExpiresAt: Date.now() + effect.duration * 1000
         });
         break;
+      case 'bombard_select':
+        // 进入轰炸点选择模式
+        wx.showToast({
+          title: '💣 请点击地图选择轰炸点',
+          icon: 'none',
+          duration: 3000
+        });
+        this.setData({ selectingBombard: true });
+        break;
     }
   },
 
@@ -1212,6 +1229,79 @@ Page({
   // 地图点击
   onMapTap(e) {
     console.log('[地图] 点击', e.detail);
+    
+    // 如果正在选择轰炸点
+    if (this.data.selectingBombard && e.detail && e.detail.latitude) {
+      this.setBombardTarget(e.detail.latitude, e.detail.longitude);
+      return;
+    }
+  },
+
+  // 设置轰炸目标点
+  async setBombardTarget(latitude, longitude) {
+    if (!this.data.selectingBombard) return;
+    
+    this.setData({ selectingBombard: false });
+    
+    wx.showLoading({ title: '设置轰炸点...' });
+    
+    try {
+      const res = await gameAPI.setBombardTarget(
+        this.data.gameId,
+        this.data.playerId,
+        latitude,
+        longitude
+      );
+      
+      wx.hideLoading();
+      
+      if (res.success) {
+        wx.showModal({
+          title: '💣 轰炸点已设置',
+          content: `轰炸将在 30 秒后引爆！\n半径 200 米内的玩家将扣除 50 积分`,
+          showCancel: false
+        });
+        
+        // 更新轰炸区域列表
+        this.updateBombardCircles();
+      }
+    } catch (err) {
+      wx.hideLoading();
+      wx.showToast({ title: err.message || '设置失败', icon: 'none' });
+    }
+  },
+  
+  // 取消轰炸选择
+  cancelBombardSelect() {
+    this.setData({ selectingBombard: false });
+    wx.showToast({ title: '已取消', icon: 'none' });
+  },
+
+  // 更新轰炸区域显示
+  updateBombardCircles() {
+    const bombardZones = this.data.bombardZones || [];
+    const bombardCircles = [];
+    
+    bombardZones.forEach(zone => {
+      if (zone.status === 'pending') {
+        // 计算剩余时间
+        const remainingMs = zone.detonateAt - Date.now();
+        const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
+        
+        bombardCircles.push({
+          id: zone.id,
+          latitude: zone.center.latitude,
+          longitude: zone.center.longitude,
+          radius: zone.radius,
+          color: '#FF000020', // 红色半透明
+          fillColor: '#FF000010',
+          strokeWidth: 4,
+          strokeColor: '#FF0000',
+        });
+      }
+    });
+    
+    this.setData({ bombardCircles });
   },
 
   // 放大地图

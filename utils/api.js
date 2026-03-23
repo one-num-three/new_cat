@@ -248,6 +248,15 @@ export const gameAPI = {
       method: 'POST',
       data: { playerId }
     });
+  },
+  
+  // 设置轰炸目标点
+  setBombardTarget(gameId, playerId, latitude, longitude) {
+    return request({ 
+      url: `/api/game/${gameId}/bombard`, 
+      method: 'POST',
+      data: { playerId, latitude, longitude }
+    });
   }
 };
 

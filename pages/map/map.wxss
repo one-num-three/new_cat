@@ -528,3 +528,30 @@
   0%, 100% { transform: translateX(-50%) scale(1); }
   50% { transform: translateX(-50%) scale(1.05); }
 }
+
+/* 轰炸选择提示 */
+.bombard-select-tip {
+  position: absolute;
+  top: 200rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  background: rgba(255, 0, 0, 0.9);
+  color: #fff;
+  padding: 20rpx 40rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 30rpx;
+  box-shadow: 0 0 30rpx rgba(255, 0, 0, 0.5);
+  animation: pulse 1.5s infinite;
+}
+
+.bombard-select-tip .cancel-btn {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
