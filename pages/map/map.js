@@ -76,13 +76,25 @@ Page({
   },
 
   onHide() {
-    // 页面隐藏时暂停更新（但后台定位继续）
+    // 页面隐藏时暂停更新（熄屏、切换应用等不算掉线）
     this.stopLocationUpdate();
   },
 
   onUnload() {
+    // 页面卸载时标记为掉线（用户离开地图页面）
     this.stopLocationUpdate();
     this.stopStatusPoll();
+    this.notifyLeave();
+  },
+
+  notifyLeave() {
+    // 通知服务器用户离开游戏
+    if (this.data.gameId && this.data.playerId) {
+      console.log('[离开] 通知服务器，用户离开游戏');
+      gameAPI.leaveGame(this.data.gameId, this.data.playerId).catch(e => {
+        console.error('[离开] 通知失败', e);
+      });
+    }
   },
 
   // ==================== 位置相关 ====================
@@ -428,13 +440,22 @@ Page({
         // 构建标记数据
         const isMe = player.id === myId;
         const isCaught = player.role === 'mouse' && player.isCaught;
+        const isOffline = player.isOffline;
         const score = player.score || 0;
         
         // 构建显示内容
         let content = '';
         let bgColor = '';
         
-        if (player.role === 'cat') {
+        if (isOffline) {
+          // 掉线玩家
+          if (player.role === 'cat') {
+            content = `🐱💤 ${player.nickname}`;
+          } else {
+            content = `🐭💤 ${player.nickname}`;
+          }
+          bgColor = '#999'; // 灰色表示掉线
+        } else if (player.role === 'cat') {
           content = `🐱 ${player.nickname}`;
           bgColor = '#FF6B6B';
           if (player.catchCount > 0) {
@@ -450,8 +471,8 @@ Page({
           }
         }
         
-        // 积分显示（可选）
-        if (score > 0) {
+        // 积分显示（掉线玩家不显示积分）
+        if (score > 0 && !isOffline) {
           content += ` · ${score}分`;
         }
         
