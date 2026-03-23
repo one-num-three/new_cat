@@ -15,6 +15,8 @@ Page({
     gameStatus: 'waiting', // waiting, playing, ended
     countdown: 600,
     players: [],
+    allPlayers: [], // 所有玩家（用于记分板）
+    showAllPlayers: false, // 是否展开显示所有玩家
     showRoleTip: true,
     showScreenTip: true, // 亮屏提示
     showScoreBoard: true, // 记分板展开状态
@@ -391,6 +393,7 @@ Page({
         this.setData({
           gameStatus: res.status,
           players: mergedPlayers,
+          allPlayers: res.allPlayers || mergedPlayers, // 所有玩家（用于记分板）
           events: res.events || [],
           visionRange: res.settings?.visionRange || 200
         });
@@ -916,6 +919,11 @@ Page({
   // 切换记分板显示/隐藏
   toggleScoreBoard() {
     this.setData({ showScoreBoard: !this.data.showScoreBoard });
+  },
+
+  // 展开/收起所有玩家
+  toggleAllPlayers() {
+    this.setData({ showAllPlayers: !this.data.showAllPlayers });
   },
 
   // 打开道具商店

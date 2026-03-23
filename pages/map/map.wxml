@@ -37,16 +37,22 @@
   <!-- 顶部信息层 -->
   <view class="top-layer">
     <!-- 记分板（小、左上角、可收起） -->
-    <view class="score-board-mini" wx:if="{{players.length > 0}}">
+    <view class="score-board-mini" wx:if="{{allPlayers.length > 0}}">
       <view class="score-header" bindtap="toggleScoreBoard">
         <text class="score-icon">🏆</text>
         <text class="score-toggle">{{showScoreBoard ? '▼' : '▶'}}</text>
       </view>
       <view class="score-list-mini" wx:if="{{showScoreBoard}}">
-        <view class="score-item-mini {{item.isOffline ? 'offline' : ''}}" wx:for="{{players}}" wx:key="id">
+        <!-- 默认显示前5个玩家 -->
+        <view class="score-item-mini {{item.isOffline ? 'offline' : ''}}" wx:for="{{allPlayers}}" wx:key="id" wx:if="{{index < 5 || showAllPlayers}}">
+          <text class="score-rank-mini">{{index + 1}}</text>
           <text class="score-role-mini">{{item.role === 'cat' ? (item.isOffline ? '🐱💤' : '🐱') : (item.isOffline ? '🐭💤' : '🐭')}}</text>
           <text class="score-name-mini">{{item.nickname}}</text>
           <text class="score-points-mini">{{item.score || 0}}</text>
+        </view>
+        <!-- 展开/收起按钮 -->
+        <view class="score-expand-btn" wx:if="{{allPlayers.length > 5}}" bindtap="toggleAllPlayers">
+          <text>{{showAllPlayers ? '收起' : '展开全部 (' + allPlayers.length + '人)'}}</text>
         </view>
       </view>
     </view>
