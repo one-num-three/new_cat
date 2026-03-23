@@ -12,6 +12,7 @@ Page({
     bombardCircles: [], // 轰炸区域
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
+    displayVisionRange: 200, // 显示用的四舍五入值
     hasEagleEye: false, // 是否激活鹰眼
     eagleEyeStacks: 0, // 鹰眼层数
     hasGoldenShield: false, // 是否激活金身
@@ -734,6 +735,7 @@ Page({
     this.setData({ 
       circles: [glowCircle, visionCircle, innerCircle],
       actualVisionRange: actualVisionRange, // 实际视野范围（用于显示）
+      displayVisionRange: Math.round(actualVisionRange), // 显示用的四舍五入值
       hasEagleEye: hasEagleEye, // 鹰眼状态
       eagleEyeStacks: eagleEyeStacks // 鹰眼层数
     });

@@ -30,7 +30,7 @@
 
   <!-- 视野范围提示 -->
   <view class="vision-hint-bar {{hasEagleEye ? 'eagle-eye-active' : ''}} {{inGoldenShield ? 'golden-shield-active' : ''}}" wx:if="{{gameStatus === 'playing'}}">
-    <text>👁️ 视野: {{actualVisionRange}}米 {{playerRole === 'cat' ? '(猫+30%)' : ''}}</text>
+    <text>👁️ 视野: {{displayVisionRange}}米 {{playerRole === 'cat' ? '(猫+30%)' : ''}}</text>
     <text wx:if="{{hasEagleEye}}"> 🦅鹰眼×{{eagleEyeStacks}}</text>
     <text wx:if="{{inGoldenShield}}"> 🛡️金身保护中</text>
   </view>
