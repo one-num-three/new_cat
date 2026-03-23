@@ -28,7 +28,7 @@
     <view class="bombard-overlay-content">
       <view class="bombard-title">💣 选择轰炸点</view>
       <view class="bombard-desc">轻触地图选择打击位置</view>
-      <view class="bombard-info">半径 200米 | 伤害 50积分 | 30秒后引爆</view>
+      <view class="bombard-info">半径 150米 | 伤害 50积分 | 30秒后引爆</view>
     </view>
     <view class="bombard-cancel" catchtap="cancelBombardSelect">取消</view>
   </view>
