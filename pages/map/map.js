@@ -999,6 +999,9 @@ Page({
     const prevInShield = this.data.inGoldenShield;
     const prevHasShield = this.data.hasGoldenShield;
     
+    // 如果刚开启金身（之前没有），跳过出圈检测
+    const justActivated = !prevHasShield && hasGoldenShield;
+    
     if (prevHasShield && !hasGoldenShield) {
       // 金身时间结束
       wx.showToast({
@@ -1006,13 +1009,18 @@ Page({
         icon: 'none',
         duration: 2000
       });
-    } else if (hasGoldenShield && prevInShield && !inGoldenShield) {
-      // 离开了保护圈
+    } else if (hasGoldenShield && prevInShield && !inGoldenShield && !justActivated) {
+      // 离开了保护圈（且不是刚开启的）
       wx.showToast({
         title: '⚠️ 已离开金身保护圈！',
         icon: 'none',
         duration: 2000
       });
+    }
+    
+    // 如果刚开启金身但还没计算出位置，默认在圈内
+    if (hasGoldenShield && !inGoldenShield && justActivated) {
+      inGoldenShield = true;
     }
     
     this.setData({
@@ -1269,6 +1277,7 @@ Page({
         });
         this.setData({ 
           hasGoldenShield: true,
+          inGoldenShield: true, // 刚开启时默认在圈内
           goldenShieldExpiresAt: Date.now() + effect.duration * 1000
         });
         break;
