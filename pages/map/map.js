@@ -550,7 +550,7 @@ Page({
     
     const markers = this.data.players
       .filter(p => {
-        // 必须有位置
+        // 必须有位置才能显示 marker
         if (!p.latitude || !p.longitude) return false;
         // 隐身的玩家不显示（除了自己，且在隐身时间内）
         if (p.items?.invisible > Date.now() && p.id !== myId) return false;
@@ -574,7 +574,7 @@ Page({
           } else {
             content = `🐭💤 ${player.nickname}`;
           }
-          bgColor = '#999'; // 灰色表示掉线
+          bgColor = '#888888'; // 深灰色表示掉线
         } else if (player.role === 'cat') {
           content = `🐱 ${player.nickname}`;
           bgColor = '#FF6B6B';
@@ -612,8 +612,8 @@ Page({
             display: 'ALWAYS',
             fontSize: isMe ? 14 : 12
           },
-          // 自己的标记有特殊边框
-          alpha: isCaught ? 0.5 : 1
+          // 掉线玩家半透明
+          alpha: isOffline ? 0.6 : (isCaught ? 0.5 : 1)
         };
         
         return marker;

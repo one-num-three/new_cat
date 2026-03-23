@@ -72,6 +72,10 @@
   gap: 8rpx;
 }
 
+.score-item-mini.offline {
+  opacity: 0.6;
+}
+
 .score-role-mini {
   font-size: 24rpx;
 }

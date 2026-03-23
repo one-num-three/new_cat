@@ -43,8 +43,8 @@
         <text class="score-toggle">{{showScoreBoard ? '▼' : '▶'}}</text>
       </view>
       <view class="score-list-mini" wx:if="{{showScoreBoard}}">
-        <view class="score-item-mini" wx:for="{{players}}" wx:key="id">
-          <text class="score-role-mini">{{item.role === 'cat' ? '🐱' : '🐭'}}</text>
+        <view class="score-item-mini {{item.isOffline ? 'offline' : ''}}" wx:for="{{players}}" wx:key="id">
+          <text class="score-role-mini">{{item.role === 'cat' ? (item.isOffline ? '🐱💤' : '🐱') : (item.isOffline ? '🐭💤' : '🐭')}}</text>
           <text class="score-name-mini">{{item.nickname}}</text>
           <text class="score-points-mini">{{item.score || 0}}</text>
         </view>
