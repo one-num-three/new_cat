@@ -308,9 +308,27 @@ Page({
           return p;
         });
         
-        // 检查自己是否被抓（老鼠）
+        // 检查角色变化（老鼠被抓后变成猫）
         const myPlayer = mergedPlayers.find(p => p.id === this.data.playerId);
-        if (myPlayer?.isCaught && !this.data.isCaught) {
+        const previousRole = this.data.playerRole;
+
+        // 角色从老鼠变成猫 = 被抓后变身
+        if (previousRole === 'mouse' && myPlayer?.role === 'cat') {
+          console.log('[角色转换] 你变成猫了！');
+          this.setData({
+            playerRole: 'cat',
+            isCaught: false,
+            myScore: myPlayer.score || 0
+          });
+          wx.showModal({
+            title: '🐱 你变成猫了！',
+            content: `你被抓住了，现在你是一只猫！\n获得 ${myPlayer.score || 0} 积分，去抓其他老鼠吧！`,
+            showCancel: false
+          });
+          // 猫不需要预加载二维码，直接使用扫码功能即可
+        }
+        // 兼容旧的被抓逻辑（如果服务器还在用 isCaught 字段）
+        else if (myPlayer?.isCaught && !this.data.isCaught && myPlayer?.role !== 'cat') {
           this.setData({ isCaught: true });
           wx.showModal({
             title: '😢 你被抓住了！',
@@ -318,30 +336,31 @@ Page({
             showCancel: false
           });
         }
-        
+
         // 更新状态
         this.setData({
           gameStatus: res.status,
           countdown: res.countdown,
           players: mergedPlayers
         });
-        
+
         // 更新商店积分
         if (this.data.showShop && myPlayer) {
           this.setData({ myScore: myPlayer.score || 0 });
         }
-        
+
         // 如果角色还未分配，从服务器获取
         if (!this.data.playerRole && myPlayer?.role) {
           this.setData({ playerRole: myPlayer.role });
           if (myPlayer.role === 'mouse') {
             this.preloadQRCode();
           }
+          // 猫不需要预加载二维码，直接使用扫码功能即可
         }
-        
+
         // 刷新地图标记
         this.updateMarkers();
-        
+
         // 检查游戏是否结束
         if (res.status === 'ended') {
           this.onGameEnded(res);
@@ -608,9 +627,16 @@ Page({
             qrData.playerId
           );
           
+          // 抓人成功的提示
+          let content = `你已抓住 ${qrData.nickname}！`;
+          if (result.transformed) {
+            content += `\n${qrData.nickname} 变成了猫！`;
+          }
+          content += `\n共抓住 ${result.catchCount} 只，剩余 ${result.remaining} 只老鼠`;
+          
           wx.showModal({
             title: '🎉 抓住成功！',
-            content: `你已抓住 ${qrData.nickname}，共抓住 ${result.catchCount} 只老鼠，剩余 ${result.remaining} 只`,
+            content: content,
             showCancel: false
           });
           
