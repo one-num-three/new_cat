@@ -417,6 +417,11 @@ Page({
           bombardZones: res.bombardZones || [] // 轰炸区域列表
         });
         
+        // 更新视野圈（每次状态更新后都要重新计算，以反映鹰眼等效果）
+        if (this.data.latitude && this.data.longitude) {
+          this.updateVisionCircle(this.data.latitude, this.data.longitude);
+        }
+        
         // 更新轰炸区域显示
         this.updateBombardCircles();
         
@@ -675,13 +680,17 @@ Page({
     const myPlayer = this.data.allPlayers.find(p => p.id === this.data.playerId) ||
                      this.data.players.find(p => p.id === this.data.playerId);
     
+    console.log('[视野圈] myPlayer:', myPlayer ? JSON.stringify({ id: myPlayer.id, role: myPlayer.role, items: myPlayer.items }) : 'not found');
+    
     // 计算实际视野范围
     let actualVisionRange = baseVisionRange;
+    let baseRangeForRole = baseVisionRange; // 基础视野（不含鹰眼）
     let eagleEyeStacks = 0;
     
     // 猫的视野比老鼠大30%
     if (this.data.playerRole === 'cat') {
       actualVisionRange = baseVisionRange * 1.3;
+      baseRangeForRole = baseVisionRange * 1.3;
     }
     
     // 鹰眼技能：每层+50%（可叠加）
@@ -710,17 +719,46 @@ Page({
       });
     }
     
-    // 视野范围圆圈（只显示一个主圈）
-    const visionCircle = {
-      latitude: latitude,
-      longitude: longitude,
-      radius: actualVisionRange,
-      color: hasEagleEye ? '#FFD700' : '#00D9C4', // 边框颜色
-      fillColor: hasEagleEye ? '#FFD70015' : '#4ECDC415', // 填充颜色（带透明度）
-      strokeWidth: 3
-    };
+    // 视野范围圆圈
+    const circles = [];
     
-    const circles = [visionCircle];
+    if (hasEagleEye) {
+      // 鹰眼激活：显示两个圈
+      // 1. 基础视野圈（原来的范围，青色）
+      const baseVisionCircle = {
+        latitude: latitude,
+        longitude: longitude,
+        radius: baseRangeForRole,
+        color: '#4ECDC4',
+        fillColor: '#4ECDC408',
+        strokeWidth: 2
+      };
+      
+      // 2. 鹰眼扩大后的视野圈（金色）
+      const eagleEyeCircle = {
+        latitude: latitude,
+        longitude: longitude,
+        radius: actualVisionRange,
+        color: '#FFD700',
+        fillColor: '#FFD70015',
+        strokeWidth: 4
+      };
+      
+      circles.push(baseVisionCircle, eagleEyeCircle);
+      console.log('[视野圈] 鹰眼激活! 基础圈:', baseRangeForRole, '扩大圈:', actualVisionRange, '层数:', eagleEyeStacks);
+    } else {
+      // 普通状态：只显示一个圈
+      const visionCircle = {
+        latitude: latitude,
+        longitude: longitude,
+        radius: actualVisionRange,
+        color: '#00D9C4',
+        fillColor: '#4ECDC415',
+        strokeWidth: 3
+      };
+      circles.push(visionCircle);
+    }
+    
     console.log('[视野圈] 生成的 circles:', JSON.stringify(circles));
     
     this.setData({ 
