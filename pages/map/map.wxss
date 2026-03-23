@@ -232,6 +232,18 @@
   font-size: 28rpx;
 }
 
+.screen-tip {
+  margin: 10rpx 30rpx 20rpx;
+  background: rgba(255, 152, 0, 0.9);
+  color: #fff;
+  padding: 15rpx 25rpx;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+}
+
 .close-tip {
   font-size: 40rpx;
   padding: 0 10rpx;

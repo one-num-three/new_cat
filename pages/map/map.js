@@ -16,6 +16,7 @@ Page({
     countdown: 600,
     players: [],
     showRoleTip: true,
+    showScreenTip: true, // 亮屏提示
     showScoreBoard: true, // 记分板展开状态
     showShop: false, // 道具商店显示状态
     shopItems: [
@@ -56,6 +57,12 @@ Page({
   onReady() {
     this.mapCtx = wx.createMapContext('gameMap');
     
+    // 保持屏幕常亮
+    wx.setKeepScreenOn({
+      keepScreenOn: true
+    });
+    console.log('[屏幕] 设置常亮');
+    
     // show-location="true" 会显示系统的蓝色定位指示器
     // markers 只用于显示其他玩家，不添加自己
     
@@ -90,6 +97,11 @@ Page({
     this.stopLocationUpdate();
     this.stopStatusPoll();
     this.stopLocalCountdown();
+    
+    // 关闭屏幕常亮
+    wx.setKeepScreenOn({
+      keepScreenOn: false
+    });
   },
 
   // ==================== 位置相关 ====================
@@ -895,6 +907,10 @@ Page({
 
   hideRoleTip() {
     this.setData({ showRoleTip: false });
+  },
+
+  hideScreenTip() {
+    this.setData({ showScreenTip: false });
   },
 
   // 切换记分板显示/隐藏

@@ -57,6 +57,12 @@
       <text wx:else>🐭 你是鼠 · 躲避猫的追捕</text>
       <view class="close-tip" bindtap="hideRoleTip">×</view>
     </view>
+    
+    <!-- 亮屏提示 -->
+    <view class="screen-tip" wx:if="{{showScreenTip && gameStatus === 'playing'}}">
+      <text>⚠️ 请保持屏幕常亮，否则可能被判定掉线</text>
+      <view class="close-tip" bindtap="hideScreenTip">×</view>
+    </view>
 
     <!-- 游戏信息 -->
     <view class="game-info">
