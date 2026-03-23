@@ -458,11 +458,14 @@ Page({
     const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
     const myRole = myPlayer?.role || this.data.playerRole;
     const winner = res.winner;
+    const winReason = res.winReason;
     const isWin = winner === myRole;
     
     // 调试日志
-    console.log('[游戏结束] myRole:', myRole, 'winner:', winner, 'isWin:', isWin);
-    console.log('[游戏结束] playerRole:', this.data.playerRole, 'myPlayer.role:', myPlayer?.role);
+    console.log('[游戏结束] myRole:', myRole, 'winner:', winner, 'winReason:', winReason, 'isWin:', isWin);
+    
+    // 获取结束原因描述
+    const reasonText = this.getWinReasonText(winReason, winner);
     
     // 根据玩家角色和结果定制消息
     let title = '';
@@ -474,10 +477,10 @@ Page({
         const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
         const catchCount = myPlayer?.catchCount || 0;
         const score = myPlayer?.score || 0;
-        content = `你抓住了 ${catchCount} 只老鼠！\n最终积分：${score} 分`;
+        content = `${reasonText}\n\n你抓住了 ${catchCount} 只老鼠！\n最终积分：${score} 分`;
       } else {
         title = '😢 猫失败了';
-        content = '老鼠成功存活到了最后...\n下次再努力吧！';
+        content = `${reasonText}\n\n下次再努力吧！`;
       }
     } else {
       // 老鼠
@@ -485,14 +488,14 @@ Page({
         title = '🎉 老鼠获胜！';
         const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
         const score = myPlayer?.score || 0;
-        content = `你成功存活到了最后！\n最终积分：${score} 分`;
+        content = `${reasonText}\n\n你成功存活！\n最终积分：${score} 分`;
       } else {
         title = '😢 老鼠失败';
         const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
         if (myPlayer?.isCaught) {
-          content = '你被猫抓住了...\n下次躲得更好一点吧！';
+          content = `${reasonText}\n\n你被猫抓住了...\n下次躲得更好一点吧！`;
         } else {
-          content = '其他老鼠都被抓住了...\n下次再努力吧！';
+          content = `${reasonText}\n\n下次再努力吧！`;
         }
       }
     }
@@ -506,6 +509,18 @@ Page({
         wx.navigateBack({ delta: 2 }); // 返回到首页
       }
     });
+  },
+
+  // 获取结束原因描述
+  getWinReasonText(winReason, winner) {
+    const reasons = {
+      'time_up': '⏱️ 时间到！老鼠成功存活',
+      'all_mice_caught': '🐱 所有老鼠被抓',
+      'cats_offline': '💤 所有猫已离线',
+      'mice_offline_or_caught': '💤 所有老鼠已离线或被抓'
+    };
+    
+    return reasons[winReason] || (winner === 'cat' ? '🐱 猫获胜' : '🐭 老鼠获胜');
   },
 
   stopStatusPoll() {
