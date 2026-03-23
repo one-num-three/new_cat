@@ -298,15 +298,17 @@ Page({
 
   // 上报位置到服务器
   async uploadLocation(latitude, longitude) {
+    console.log('[位置上报] 开始上报', latitude, longitude);
     try {
-      await gameAPI.updateLocation(
+      const result = await gameAPI.updateLocation(
         this.data.gameId,
         this.data.playerId,
         latitude,
         longitude
       );
+      console.log('[位置上报] 成功', result);
     } catch (err) {
-      console.error('[位置] 上报失败', err);
+      console.error('[位置上报] 失败', err);
     }
   },
 
