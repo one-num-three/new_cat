@@ -257,6 +257,15 @@ export const gameAPI = {
       method: 'POST',
       data: { playerId, latitude, longitude }
     });
+  },
+  
+  // 取消轰炸并返还积分
+  cancelBombard(gameId, playerId) {
+    return request({ 
+      url: `/api/game/${gameId}/bombard/cancel`, 
+      method: 'POST',
+      data: { playerId }
+    });
   }
 };
 

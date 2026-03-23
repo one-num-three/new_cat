@@ -1339,13 +1339,13 @@ Page({
 
   // 显示轰炸预览
   showBombardPreview(latitude, longitude) {
-    // 显示预览圆圈（200米半径）
+    // 显示预览圆圈（200米半径，黄色）
     const previewCircle = {
       latitude: latitude,
       longitude: longitude,
       radius: 200,
-      color: '#FF0000',
-      fillColor: '#FF000030',
+      color: '#FFCC00',
+      fillColor: '#FFCC0030',
       strokeWidth: 3
     };
     
@@ -1418,7 +1418,17 @@ Page({
   },
   
   // 取消轰炸选择
-  cancelBombardSelect() {
+  async cancelBombardSelect() {
+    // 调用后端返还积分
+    try {
+      const res = await gameAPI.cancelBombard(this.data.gameId, this.data.playerId);
+      if (res.success) {
+        this.setData({ myScore: res.remainingScore });
+      }
+    } catch (err) {
+      console.error('[取消轰炸] 返还积分失败', err);
+    }
+    
     this.setData({ 
       selectingBombard: false,
       bombardPreviewCircle: null,
@@ -1427,7 +1437,7 @@ Page({
       showBombardConfirm: false
     });
     this.mergeAllCircles();
-    wx.showToast({ title: '已取消轰炸', icon: 'none' });
+    wx.showToast({ title: '已取消，积分已返还', icon: 'none' });
   },
 
   // 更新轰炸区域显示
@@ -1442,21 +1452,21 @@ Page({
         const remainingMs = zone.detonateAt - Date.now();
         const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
         
-        // 根据剩余时间改变颜色
-        let circleColor = '#FF0000';
-        let fillColor = '#FF000020';
+        // 根据剩余时间改变颜色：黄色 -> 橙色 -> 红色
+        let circleColor = '#FFCC00'; // 默认黄色
+        let fillColor = '#FFCC0020';
         let strokeWidth = 4;
         
         if (remainingSec <= 10) {
-          // 最后10秒：更亮
-          circleColor = '#FF3333';
-          fillColor = '#FF000030';
+          // 最后10秒：橙色
+          circleColor = '#FF8800';
+          fillColor = '#FF880030';
           strokeWidth = 5;
         }
         if (remainingSec <= 5) {
-          // 最后5秒：橙色警告
-          circleColor = '#FF8800';
-          fillColor = '#FF880030';
+          // 最后5秒：红色警告
+          circleColor = '#FF0000';
+          fillColor = '#FF000040';
           strokeWidth = 6;
         }
         

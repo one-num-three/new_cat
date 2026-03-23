@@ -644,7 +644,7 @@
   border-radius: 16rpx;
   padding: 12rpx 20rpx;
   margin-bottom: 10rpx;
-  border: 2rpx solid #FF4444;
+  border: 2rpx solid #FFCC00;
 }
 
 .bombard-timer-content {
@@ -658,13 +658,13 @@
 }
 
 .bombard-timer-sec {
-  color: #FF4444;
+  color: #FFCC00;
   font-size: 32rpx;
   font-weight: bold;
 }
 
 .bombard-timer-sec.urgent {
-  color: #FF8800;
+  color: #FF0000;
   animation: blink 0.5s infinite;
 }
 
