@@ -17,7 +17,7 @@ Page({
       gameDuration: 10, // 分钟
       mapRange: 1000, // 米
       revealTime: 3, // 分钟
-      visionRange: 800 // 米
+      visionRange: 200 // 米
     },
     gameSettings: {
       catCount: 1,
@@ -25,7 +25,7 @@ Page({
       gameDuration: 600, // 10 分钟 = 600 秒
       mapRange: 1000, // 1000 米范围
       revealTime: 180, // 3 分钟 = 180 秒
-      visionRange: 800 // 默认 800 米视野
+      visionRange: 200 // 默认 200 米视野
     }
   },
 
@@ -180,7 +180,7 @@ Page({
         gameDuration: (settings.gameDuration || 600) / 60,
         mapRange: settings.mapRange || 1000,
         revealTime: (settings.revealTime || 180) / 60,
-        visionRange: settings.visionRange || 800
+        visionRange: settings.visionRange || 200
       },
       showSettingsModal: true
     });
