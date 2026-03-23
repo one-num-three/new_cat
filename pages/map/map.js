@@ -76,12 +76,12 @@ Page({
   },
 
   onHide() {
-    // 页面隐藏时暂停更新（熄屏、切换应用等不算掉线）
-    this.stopLocationUpdate();
+    // 页面隐藏时保持位置更新（熄屏、切换应用等继续更新位置）
+    // 不停止位置更新！
   },
 
   onUnload() {
-    // 页面卸载时标记为掉线（用户离开地图页面）
+    // 页面卸载时才停止更新
     this.stopLocationUpdate();
     this.stopStatusPoll();
     this.notifyLeave();
