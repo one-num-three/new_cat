@@ -23,6 +23,7 @@ Page({
     bombardPreviewCircle: null, // 轰炸预览圆圈
     bombardPreviewLat: null, // 预览点纬度
     bombardPreviewLng: null, // 预览点经度
+    showBombardConfirm: false, // 是否显示轰炸确认框
     bombardZones: [], // 轰炸区域列表
     gameId: null,
     playerId: null,
@@ -1240,6 +1241,12 @@ Page({
       wx.hideLoading();
       
       if (res.success) {
+        // 关闭商店
+        this.setData({ 
+          showShop: false,
+          myScore: res.remainingScore 
+        });
+        
         // 处理道具效果
         if (res.effect) {
           this.handleItemEffect(res.effect);
@@ -1249,7 +1256,6 @@ Page({
             icon: 'success' 
           });
         }
-        this.setData({ myScore: res.remainingScore });
       }
     } catch (err) {
       wx.hideLoading();
@@ -1307,39 +1313,39 @@ Page({
       longitude: longitude,
       radius: 200,
       color: '#FF0000',
-      fillColor: '#FF000020',
+      fillColor: '#FF000030',
       strokeWidth: 3
     };
     
     this.setData({
       bombardPreviewCircle: previewCircle,
       bombardPreviewLat: latitude,
-      bombardPreviewLng: longitude
+      bombardPreviewLng: longitude,
+      showBombardConfirm: true
     });
     
     // 更新圆圈显示（包含预览圈）
     this.mergeAllCircles();
-    
-    // 弹出确认框
-    wx.showModal({
-      title: '💣 确认轰炸点',
-      content: `确认在此位置设置轰炸点？\n30秒后引爆，半径200米内玩家将扣除50积分。`,
-      confirmText: '确认轰炸',
-      cancelText: '重新选择',
-      success: (res) => {
-        if (res.confirm) {
-          this.setBombardTarget(latitude, longitude);
-        } else {
-          // 取消预览，继续选择
-          this.setData({
-            bombardPreviewCircle: null,
-            bombardPreviewLat: null,
-            bombardPreviewLng: null
-          });
-          this.mergeAllCircles();
-        }
-      }
+  },
+  
+  // 确认轰炸
+  onConfirmBombard() {
+    const { bombardPreviewLat, bombardPreviewLng } = this.data;
+    if (bombardPreviewLat && bombardPreviewLng) {
+      this.setData({ showBombardConfirm: false });
+      this.setBombardTarget(bombardPreviewLat, bombardPreviewLng);
+    }
+  },
+  
+  // 重新选择轰炸点
+  onReselectBombard() {
+    this.setData({
+      bombardPreviewCircle: null,
+      bombardPreviewLat: null,
+      bombardPreviewLng: null,
+      showBombardConfirm: false
     });
+    this.mergeAllCircles();
   },
 
   // 设置轰炸目标点
@@ -1385,7 +1391,8 @@ Page({
       selectingBombard: false,
       bombardPreviewCircle: null,
       bombardPreviewLat: null,
-      bombardPreviewLng: null
+      bombardPreviewLng: null,
+      showBombardConfirm: false
     });
     this.mergeAllCircles();
     wx.showToast({ title: '已取消轰炸', icon: 'none' });

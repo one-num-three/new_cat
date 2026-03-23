@@ -31,6 +31,15 @@
     </view>
     <view class="bombard-cancel" catchtap="cancelBombardSelect">取消</view>
   </view>
+  
+  <!-- 轰炸确认按钮 -->
+  <view class="bombard-confirm-bar" wx:if="{{showBombardConfirm}}">
+    <view class="bombard-confirm-hint">💣 已选择轰炸点，确认设置？</view>
+    <view class="bombard-confirm-btns">
+      <view class="bombard-reselect-btn" catchtap="onReselectBombard">重新选择</view>
+      <view class="bombard-confirm-btn" catchtap="onConfirmBombard">确认轰炸</view>
+    </view>
+  </view>
 
   <!-- 视野范围提示 -->
   <view class="vision-hint-bar {{hasEagleEye ? 'eagle-eye-active' : ''}} {{inGoldenShield ? 'golden-shield-active' : ''}}" wx:if="{{gameStatus === 'playing'}}">
