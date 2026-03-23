@@ -21,7 +21,8 @@ Page({
     ],
     isLocationReady: false,
     lastLocationTime: 0,
-    isCaught: false // 是否被抓住（老鼠）
+    isCaught: false, // 是否被抓住（老鼠）
+    rejoining: false // 是否正在尝试重新加入
   },
 
   mapCtx: null,
@@ -289,6 +290,27 @@ Page({
         
         // 智能合并玩家数据
         const serverPlayers = res.players || [];
+        
+        // 检查自己是否在玩家列表中（可能被踢出了）
+        const myServerPlayer = serverPlayers.find(p => p.id === this.data.playerId);
+        if (!myServerPlayer && res.status === 'playing' && !this.data.rejoining) {
+          // 自己不在列表中，尝试重新加入
+          console.log('[重新加入] 自己不在玩家列表中，尝试重新加入');
+          this.setData({ rejoining: true });
+          
+          try {
+            const rejoinRes = await gameAPI.rejoinGame(this.data.gameId, this.data.playerId);
+            if (rejoinRes.success) {
+              console.log('[重新加入] 成功！恢复积分:', rejoinRes.player.score);
+              wx.showToast({ title: '已重新加入', icon: 'success' });
+            }
+          } catch (rejoinErr) {
+            console.log('[重新加入] 失败:', rejoinErr.message);
+          }
+          
+          this.setData({ rejoining: false });
+          return; // 等下次轮询获取更新后的状态
+        }
         
         // 获取自己当前的位置（从本地 players 获取）
         const localPlayers = this.data.players;

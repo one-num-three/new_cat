@@ -156,6 +156,15 @@ export const gameAPI = {
     });
   },
   
+  // 重新加入游戏（被踢出的玩家恢复积分）
+  rejoinGame(roomId, playerId) {
+    return request({ 
+      url: `/api/game/room/${roomId}/rejoin`, 
+      method: 'POST',
+      data: { playerId }
+    });
+  },
+  
   // 获取房间信息
   getRoomInfo(roomId) {
     return request({ url: `/api/game/room/${roomId}` });
