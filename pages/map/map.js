@@ -393,7 +393,8 @@ Page({
         
         // 检查游戏是否结束
         if (res.status === 'ended') {
-          this.onGameEnded(res);
+          // 传递最新的玩家数据，而不是依赖 this.data.players
+          this.onGameEnded(res, myPlayer);
         }
       } catch (err) {
         console.error('[状态] 轮询失败', err);
@@ -402,22 +403,22 @@ Page({
   },
 
   // 游戏结束处理
-  onGameEnded(res) {
+  onGameEnded(res, currentPlayer) {
     // 防止重复触发
     if (this.data.gameEnded) return;
     this.setData({ gameEnded: true });
     
     this.stopStatusPoll();
     
-    // 使用服务器返回的角色（更可靠），而不是本地缓存的 playerRole
-    const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
+    // 优先使用传入的玩家数据，其次从 this.data.players 获取
+    const myPlayer = currentPlayer || this.data.players.find(p => p.id === this.data.playerId);
     const myRole = myPlayer?.role || this.data.playerRole;
     const winner = res.winner;
     const isWin = winner === myRole;
     
     // 调试日志
     console.log('[游戏结束] myRole:', myRole, 'winner:', winner, 'isWin:', isWin);
-    console.log('[游戏结束] playerRole:', this.data.playerRole, 'myPlayer.role:', myPlayer?.role);
+    console.log('[游戏结束] playerRole:', this.data.playerRole, 'myPlayer?.role:', myPlayer?.role);
     
     // 根据玩家角色和结果定制消息
     let title = '';
