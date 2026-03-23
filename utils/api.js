@@ -212,12 +212,28 @@ export const gameAPI = {
     });
   },
   
-  // 扫码抓住老鼠
-  catchPlayer(gameId, catcherId, caughtId) {
+  // 扫码抓住老鼠（传递位置避免多实例数据不同步）
+  catchPlayer(gameId, catcherId, caughtId, catcherLat, catcherLng, caughtLat, caughtLng) {
     return request({ 
       url: `/api/game/${gameId}/catch`, 
       method: 'POST',
-      data: { catcherId, caughtId }
+      data: { 
+        catcherId, 
+        caughtId,
+        catcherLat,
+        catcherLng,
+        caughtLat,
+        caughtLng
+      }
+    });
+  },
+  
+  // 离开游戏（掉线）
+  leaveGame(gameId, playerId) {
+    return request({ 
+      url: `/api/game/${gameId}/leave`, 
+      method: 'POST',
+      data: { playerId }
     });
   }
 };
