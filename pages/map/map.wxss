@@ -247,6 +247,130 @@
   gap: 30rpx;
   font-size: 26rpx;
   color: #333;
+  align-items: center;
+}
+
+.history-btn {
+  margin-left: 10rpx;
+  font-size: 30rpx;
+}
+
+/* 弹幕区域 */
+.danmaku-area {
+  position: absolute;
+  top: 180rpx;
+  left: 30rpx;
+  right: 30rpx;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: 15rpx;
+  pointer-events: none;
+}
+
+.danmaku-item {
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 15rpx 25rpx;
+  border-radius: 25rpx;
+  font-size: 26rpx;
+  opacity: 0;
+  transform: translateY(-20rpx);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.danmaku-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 历史记录弹窗 */
+.history-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.history-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.history-content {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 20rpx;
+  width: 85%;
+  max-height: 70vh;
+  overflow: hidden;
+  border: 2rpx solid rgba(255,255,255,0.1);
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 2rpx solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.3);
+}
+
+.history-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.history-close {
+  font-size: 40rpx;
+  color: #888;
+  padding: 0 10rpx;
+}
+
+.history-list {
+  padding: 20rpx;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  padding: 20rpx;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.history-time {
+  font-size: 22rpx;
+  color: #888;
+  min-width: 100rpx;
+}
+
+.history-msg {
+  font-size: 26rpx;
+  color: #fff;
+  flex: 1;
+}
+
+.history-empty {
+  text-align: center;
+  color: #888;
+  padding: 60rpx;
+  font-size: 28rpx;
 }
 
 /* 左侧按钮层 */

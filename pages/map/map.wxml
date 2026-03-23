@@ -21,6 +21,13 @@
     bindmarkertap="onMarkerTap"
   />
 
+  <!-- 弹幕区域 -->
+  <view class="danmaku-area">
+    <view class="danmaku-item {{item.show ? 'show' : ''}}" wx:for="{{danmakuList}}" wx:key="time">
+      {{item.message}}
+    </view>
+  </view>
+
   <!-- 顶部信息层 -->
   <view class="top-layer">
     <!-- 记分板（小、左上角、可收起） -->
@@ -49,6 +56,8 @@
     <view class="game-info">
       <text>⏱️ {{countdown}}s</text>
       <text>👥 {{players.length}}人</text>
+      <!-- 历史记录按钮 -->
+      <text class="history-btn" bindtap="onShowHistory">📜</text>
     </view>
   </view>
 
@@ -107,6 +116,26 @@
       <view class="zoom-btn" bindtap="onZoomIn">+</view>
       <view class="zoom-btn" bindtap="onZoomOut">−</view>
       <view class="locate-btn" bindtap="onBackToLocation">📍</view>
+    </view>
+  </view>
+
+  <!-- 历史记录弹窗 -->
+  <view class="history-modal" wx:if="{{showHistory}}">
+    <view class="history-mask" bindtap="onCloseHistory"></view>
+    <view class="history-content">
+      <view class="history-header">
+        <text class="history-title">📜 战况记录</text>
+        <view class="history-close" bindtap="onCloseHistory">×</view>
+      </view>
+      <view class="history-list">
+        <view class="history-item" wx:for="{{events}}" wx:key="time">
+          <text class="history-time">{{item.timeText}}</text>
+          <text class="history-msg">{{item.message}}</text>
+        </view>
+        <view class="history-empty" wx:if="{{events.length === 0}}">
+          暂无战况记录
+        </view>
+      </view>
     </view>
   </view>
 </view>

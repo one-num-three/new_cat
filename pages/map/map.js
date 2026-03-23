@@ -22,7 +22,11 @@ Page({
     isLocationReady: false,
     lastLocationTime: 0,
     isCaught: false, // 是否被抓住（老鼠）
-    rejoining: false // 是否正在尝试重新加入
+    rejoining: false, // 是否正在尝试重新加入
+    danmakuList: [], // 弹幕列表
+    events: [], // 事件历史
+    showHistory: false, // 历史记录弹窗
+    lastEventTime: 0 // 上次事件时间，用于检测新事件
   },
 
   mapCtx: null,
@@ -352,8 +356,23 @@ Page({
         this.setData({
           gameStatus: res.status,
           countdown: res.countdown,
-          players: mergedPlayers
+          players: mergedPlayers,
+          events: res.events || []
         });
+        
+        // 检测新事件，显示弹幕
+        const events = res.events || [];
+        const lastEventTime = this.data.lastEventTime;
+        events.forEach(event => {
+          if (event.time > lastEventTime) {
+            this.showDanmaku(event);
+          }
+        });
+        // 更新最后事件时间
+        if (events.length > 0) {
+          const maxTime = Math.max(...events.map(e => e.time));
+          this.setData({ lastEventTime: maxTime });
+        }
         
         // 更新商店积分
         if (this.data.showShop && myPlayer) {
@@ -733,6 +752,44 @@ Page({
         }
       }
     });
+  },
+
+  // ==================== 弹幕和历史记录 ====================
+
+  // 显示弹幕
+  showDanmaku(event) {
+    const danmakuList = this.data.danmakuList;
+    danmakuList.push({
+      ...event,
+      show: true
+    });
+    
+    // 最多保留5条弹幕
+    if (danmakuList.length > 5) {
+      danmakuList.shift();
+    }
+    
+    this.setData({ danmakuList });
+    
+    // 3秒后隐藏
+    setTimeout(() => {
+      const list = this.data.danmakuList;
+      const index = list.findIndex(d => d.time === event.time);
+      if (index !== -1) {
+        list[index].show = false;
+        this.setData({ danmakuList: list });
+      }
+    }, 3000);
+  },
+
+  // 显示历史记录
+  onShowHistory() {
+    this.setData({ showHistory: true });
+  },
+
+  // 关闭历史记录
+  onCloseHistory() {
+    this.setData({ showHistory: false });
   },
 
   hideRoleTip() {
