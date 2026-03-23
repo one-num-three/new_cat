@@ -24,7 +24,7 @@
 
   <!-- 视野范围提示 -->
   <view class="vision-hint-bar" wx:if="{{gameStatus === 'playing'}}">
-    <text>👁️ 视野范围: {{visionRange}}米</text>
+    <text>👁️ 视野范围: {{actualVisionRange}}米 {{playerRole === 'cat' ? '(猫+30%)' : ''}}</text>
   </view>
 
   <!-- 弹幕区域 -->

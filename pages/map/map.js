@@ -8,7 +8,8 @@ Page({
     scale: 16,
     markers: [],
     circles: [], // 视野范围圆圈
-    visionRange: 200, // 视野范围（米）
+    visionRange: 200, // 视野范围（米）- 基础值（老鼠）
+    actualVisionRange: 200, // 实际视野范围（考虑角色加成）
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -629,13 +630,19 @@ Page({
   updateVisionCircle(latitude, longitude) {
     if (!latitude || !longitude) return;
     
-    const visionRange = this.data.visionRange || 200;
+    const baseVisionRange = this.data.visionRange || 200;
+    
+    // 猫的视野比老鼠大30%
+    let actualVisionRange = baseVisionRange;
+    if (this.data.playerRole === 'cat') {
+      actualVisionRange = baseVisionRange * 1.3;
+    }
     
     // 视野范围圆圈（主圆）- 明显的样式
     const visionCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: visionRange,
+      radius: actualVisionRange,
       color: '#4ECDC420', // 圆内淡青色
       fillColor: '#4ECDC410',
       strokeWidth: 4,
@@ -646,7 +653,7 @@ Page({
     const glowCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: visionRange + 15,
+      radius: actualVisionRange + 15,
       color: '#00000000',
       fillColor: '#00000000',
       strokeWidth: 2,
@@ -654,7 +661,8 @@ Page({
     };
     
     this.setData({ 
-      circles: [glowCircle, visionCircle]
+      circles: [glowCircle, visionCircle],
+      actualVisionRange: actualVisionRange // 实际视野范围（用于显示）
     });
   },
 
