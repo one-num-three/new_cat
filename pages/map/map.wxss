@@ -665,12 +665,18 @@
 
 .bombard-timer-sec.urgent {
   color: #FF0000;
-  animation: blink 0.5s infinite;
+  -webkit-animation: blink 0.3s infinite;
+  animation: blink 0.3s infinite;
+}
+
+@-webkit-keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.3; }
 }
 
 /* 引爆动画 */

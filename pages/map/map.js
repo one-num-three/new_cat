@@ -26,6 +26,7 @@ Page({
     showBombardConfirm: false, // 是否显示轰炸确认框
     bombardZones: [], // 轰炸区域列表
     bombardTimers: [], // 轰炸倒计时列表
+    bombardTimerInterval: null, // 轰炸倒计时定时器
     showExplosion: false, // 是否显示引爆动画
     lastDetonatedZone: null // 最近引爆的轰炸区
     gameId: null,
@@ -121,6 +122,7 @@ Page({
     this.stopLocationUpdate();
     this.stopStatusPoll();
     this.stopLocalCountdown();
+    this.stopBombardTimer();
     
     // 关闭屏幕常亮
     wx.setKeepScreenOn({
@@ -431,6 +433,9 @@ Page({
         
         // 更新轰炸区域显示
         this.updateBombardCircles();
+        
+        // 启动轰炸倒计时本地更新（每秒）
+        this.startBombardTimer();
         
         // 检测引爆事件（轰炸区域从有到无，或者有detonated事件）
         const newBombardZones = res.bombardZones || [];
@@ -816,6 +821,31 @@ Page({
     
     console.log('[圆圈合并] allCircles 数量:', allCircles.length);
     this.setData({ allCircles });
+  },
+  
+  // 启动轰炸倒计时本地更新
+  startBombardTimer() {
+    // 先清除旧的
+    if (this.data.bombardTimerInterval) {
+      clearInterval(this.data.bombardTimerInterval);
+    }
+    
+    // 只有活跃轰炸区时才启动
+    if (this.data.bombardZones && this.data.bombardZones.length > 0) {
+      const interval = setInterval(() => {
+        this.updateBombardCircles();
+      }, 1000);
+      
+      this.setData({ bombardTimerInterval: interval });
+    }
+  },
+  
+  // 停止轰炸倒计时
+  stopBombardTimer() {
+    if (this.data.bombardTimerInterval) {
+      clearInterval(this.data.bombardTimerInterval);
+      this.setData({ bombardTimerInterval: null });
+    }
   },
   
   // 显示引爆动画
