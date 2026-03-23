@@ -301,7 +301,12 @@ Page({
           try {
             const rejoinRes = await gameAPI.rejoinGame(this.data.gameId, this.data.playerId);
             if (rejoinRes.success) {
-              console.log('[重新加入] 成功！恢复积分:', rejoinRes.player.score);
+              console.log('[重新加入] 成功！恢复角色:', rejoinRes.player.role, '积分:', rejoinRes.player.score);
+              // 立即更新角色
+              this.setData({ 
+                playerRole: rejoinRes.player.role,
+                isCaught: rejoinRes.player.isCaught || false
+              });
               wx.showToast({ title: '已重新加入', icon: 'success' });
             }
           } catch (rejoinErr) {
