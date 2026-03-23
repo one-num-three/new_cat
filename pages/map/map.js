@@ -76,27 +76,13 @@ Page({
   },
 
   onHide() {
-    // 页面隐藏时保持位置更新（熄屏、切换应用等继续更新位置）
-    // 不停止位置更新！
+    // 页面隐藏时不做任何操作，位置持续更新
   },
 
   onUnload() {
-    // 页面卸载时才停止更新
+    // 页面卸载时停止更新（掉线由服务器通过位置上报检测）
     this.stopLocationUpdate();
     this.stopStatusPoll();
-    this.notifyLeave();
-  },
-
-  notifyLeave() {
-    // 只有游戏进行中才通知离开
-    if (this.data.gameId && this.data.playerId && this.data.gameStatus === 'playing') {
-      console.log('[离开] 游戏进行中，通知服务器用户离开');
-      gameAPI.leaveGame(this.data.gameId, this.data.playerId).catch(e => {
-        console.error('[离开] 通知失败', e);
-      });
-    } else {
-      console.log('[离开] 游戏未进行中，不通知服务器', this.data.gameStatus);
-    }
   },
 
   // ==================== 位置相关 ====================
