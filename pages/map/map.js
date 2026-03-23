@@ -29,6 +29,7 @@ Page({
     bombardTimers: [], // 轰炸倒计时列表
     bombardTimerInterval: null, // 轰炸倒计时定时器
     hasActiveBombard: false, // 是否有活跃的轰炸
+    _urgentMode: false, // 是否处于紧急模式（最后5秒）
     showExplosion: false, // 是否显示引爆动画
     explosionLat: null, // 引爆点纬度
     explosionLng: null, // 引爆点经度
@@ -1611,6 +1612,18 @@ Page({
     
     // 合并所有圆圈
     this.mergeAllCircles();
+    
+    // 检查是否需要调整定时器频率（进入/退出紧急状态时重启定时器）
+    const hasUrgentBombard = bombardTimers.some(t => t.remainingSec <= 5);
+    if (hasUrgentBombard && !this.data._urgentMode) {
+      // 进入紧急模式，重启定时器以更快的频率更新
+      this.setData({ _urgentMode: true });
+      this.stopBombardTimer();
+      this.startBombardTimer();
+    } else if (!hasUrgentBombard && this.data._urgentMode) {
+      // 退出紧急模式
+      this.setData({ _urgentMode: false });
+    }
   },
   
   // 获取倒计时图标（用canvas动态生成或返回预设）
