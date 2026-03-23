@@ -1,14 +1,29 @@
 // pages/index/index.js
-const app = getApp();
+const { systemAPI } = require('../../utils/api');
 
 Page({
   data: {
     hasGame: false,
-    gameInfo: null
+    gameInfo: null,
+    serverVersion: '',
+    serverVersionDate: ''
   },
 
   onLoad() {
-    console.log('首页加载，服务器地址:', app.globalData.serverUrl);
+    this.fetchVersion();
+  },
+
+  // 获取服务器版本
+  async fetchVersion() {
+    try {
+      const res = await systemAPI.getVersion();
+      this.setData({
+        serverVersion: res.version || '',
+        serverVersionDate: res.versionDate || ''
+      });
+    } catch (e) {
+      console.log('[版本] 获取失败', e);
+    }
   },
 
   // 创建游戏

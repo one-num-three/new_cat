@@ -213,27 +213,11 @@ export const gameAPI = {
   },
   
   // 扫码抓住老鼠
-  catchPlayer(gameId, catcherId, caughtId, catcherLat, catcherLng, caughtLat, caughtLng) {
+  catchPlayer(gameId, catcherId, caughtId) {
     return request({ 
       url: `/api/game/${gameId}/catch`, 
       method: 'POST',
-      data: { 
-        catcherId, 
-        caughtId,
-        catcherLat,  // 猫的当前位置
-        catcherLng,
-        caughtLat,   // 老鼠的当前位置
-        caughtLng
-      }
-    });
-  },
-  
-  // 离开游戏（掉线）
-  leaveGame(gameId, playerId) {
-    return request({ 
-      url: `/api/game/${gameId}/leave`, 
-      method: 'POST',
-      data: { playerId }
+      data: { catcherId, caughtId }
     });
   }
 };
@@ -253,6 +237,14 @@ export const userAPI = {
   // 更新用户信息
   updateUserInfo(data) {
     return request({ url: '/api/user/profile', method: 'PUT', data });
+  }
+};
+
+// 系统相关 API
+export const systemAPI = {
+  // 获取服务器版本
+  getVersion() {
+    return request({ url: '/api/version' });
   }
 };
 

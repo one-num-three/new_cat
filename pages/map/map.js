@@ -83,20 +83,6 @@ Page({
   onUnload() {
     this.stopLocationUpdate();
     this.stopStatusPoll();
-    // 通知服务器用户离开
-    this.notifyLeave();
-  },
-
-  notifyLeave() {
-    // 只有在游戏进行中才通知离开
-    if (this.data.gameId && this.data.playerId && this.data.gameStatus === 'playing') {
-      try {
-        gameAPI.leaveGame(this.data.gameId, this.data.playerId);
-        console.log('[离开] 已通知服务器');
-      } catch (e) {
-        console.error('[离开] 通知失败', e);
-      }
-    }
   },
 
   // ==================== 位置相关 ====================
@@ -168,8 +154,8 @@ Page({
   // 位置更新回调
   onLocationUpdate(res) {
     const now = Date.now();
-    // 限制上报频率（最多每 200 毫秒一次，让标记更快跟随）
-    if (now - this.data.lastLocationTime < 200) {
+    // 限制上报频率（最多每 500 毫秒一次，提高响应速度）
+    if (now - this.data.lastLocationTime < 500) {
       return;
     }
 
@@ -177,44 +163,35 @@ Page({
     
     console.log('[位置] 更新', latitude, longitude);
     
-    // 更新时间戳
+    // 注意：不要更新 this.data.latitude/longitude
+    // 因为那会强制地图中心移动！
+    // 只更新时间戳
     this.setData({
       lastLocationTime: now
     });
     
-    // 快速更新自己的 marker 位置（不等服务器轮询）
-    const myId = this.data.playerId;
-    const myRole = this.data.playerRole || 'mouse';
-    const markers = this.data.markers;
-    const myMarkerIndex = markers.findIndex(m => m.id === myId);
+    // 更新自己的标记位置
+    this.updateMyMarker(latitude, longitude);
     
-    if (myMarkerIndex !== -1) {
-      // 直接更新自己的 marker 位置
-      const newMarkers = [...markers];
-      newMarkers[myMarkerIndex] = {
-        ...newMarkers[myMarkerIndex],
-        latitude: latitude,
-        longitude: longitude
-      };
-      this.setData({ markers: newMarkers });
-    } else {
-      // 还没有自己的 marker，需要创建
-      this.updateMyMarkerFull(latitude, longitude);
-    }
-    
-    // 同时更新 players 数组（用于后续服务器同步）
+    // 创建新的 players 数组
     let players = [...this.data.players];
-    const myIndex = players.findIndex(p => p.id === myId);
+    const myIndex = players.findIndex(p => p.id === this.data.playerId);
+    
+    // 确保有自己的角色信息
+    const myRole = this.data.playerRole || 'mouse';
     
     if (myIndex !== -1) {
+      // 已存在，更新位置（创建新对象）
       players[myIndex] = {
         ...players[myIndex],
         latitude: latitude,
-        longitude: longitude
+        longitude: longitude,
+        role: players[myIndex].role || myRole // 确保有角色
       };
-    } else if (myId) {
+    } else if (this.data.playerId) {
+      // 不存在，添加自己
       players.push({
-        id: myId,
+        id: this.data.playerId,
         nickname: '我',
         role: myRole,
         latitude: latitude,
@@ -222,55 +199,60 @@ Page({
         score: 0
       });
     }
-    this.setData({ players });
+    
+    // 生成 markers（确保自己始终显示）
+    const myId = this.data.playerId;
+    const markers = players
+      .filter(p => p.latitude && p.longitude)
+      .map((player) => {
+        const isMe = player.id === myId;
+        const isCaught = player.role === 'mouse' && player.isCaught;
+        const score = player.score || 0;
+        
+        let content = '';
+        let bgColor = '';
+        
+        if (player.role === 'cat') {
+          content = `🐱 ${player.nickname}`;
+          bgColor = '#FF6B6B';
+          if (player.catchCount > 0) content += ` x${player.catchCount}`;
+        } else {
+          if (isCaught) {
+            content = `🐭❌ ${player.nickname}`;
+            bgColor = '#999';
+          } else {
+            content = `🐭 ${player.nickname}`;
+            bgColor = '#4ECDC4';
+          }
+        }
+        
+        if (score > 0) content += ` · ${score}分`;
+        
+        return {
+          id: player.id,
+          latitude: player.latitude,
+          longitude: player.longitude,
+          width: isMe ? 50 : 40,
+          height: isMe ? 50 : 40,
+          title: player.nickname,
+          callout: {
+            content: content,
+            padding: 8,
+            borderRadius: 5,
+            bgColor: bgColor,
+            color: '#fff',
+            display: 'ALWAYS',
+            fontSize: isMe ? 14 : 12
+          },
+          alpha: isCaught ? 0.5 : 1
+        };
+      });
+    
+    // 一次性更新 players 和 markers
+    this.setData({ players, markers });
     
     // 上报到服务器
     this.uploadLocation(latitude, longitude);
-  },
-  
-  // 完整创建自己的 marker（首次）
-  updateMyMarkerFull(latitude, longitude) {
-    const myId = this.data.playerId;
-    const myRole = this.data.playerRole || 'mouse';
-    const myPlayer = this.data.players.find(p => p.id === myId);
-    const score = myPlayer?.score || 0;
-    const catchCount = myPlayer?.catchCount || 0;
-    
-    let content = '';
-    let bgColor = '';
-    
-    if (myRole === 'cat') {
-      content = `🐱 我`;
-      bgColor = '#FF6B6B';
-      if (catchCount > 0) content += ` x${catchCount}`;
-    } else {
-      content = `🐭 我`;
-      bgColor = '#4ECDC4';
-    }
-    
-    if (score > 0) content += ` · ${score}分`;
-    
-    const myMarker = {
-      id: myId,
-      latitude: latitude,
-      longitude: longitude,
-      width: 50,
-      height: 50,
-      title: '我',
-      callout: {
-        content: content,
-        padding: 8,
-        borderRadius: 5,
-        bgColor: bgColor,
-        color: '#fff',
-        display: 'ALWAYS',
-        fontSize: 14
-      },
-      alpha: 1
-    };
-    
-    const markers = [...this.data.markers, myMarker];
-    this.setData({ markers });
   },
 
   // 上报位置到服务器
@@ -322,27 +304,9 @@ Page({
           return p;
         });
         
-        // 检查角色变化（老鼠被抓后变成猫）
+        // 检查自己是否被抓（老鼠）
         const myPlayer = mergedPlayers.find(p => p.id === this.data.playerId);
-        const previousRole = this.data.playerRole;
-
-        // 角色从老鼠变成猫 = 被抓后变身
-        if (previousRole === 'mouse' && myPlayer?.role === 'cat') {
-          console.log('[角色转换] 你变成猫了！');
-          this.setData({
-            playerRole: 'cat',
-            isCaught: false,
-            myScore: myPlayer.score || 0
-          });
-          wx.showModal({
-            title: '🐱 你变成猫了！',
-            content: `你被抓住了，现在你是一只猫！\n获得 ${myPlayer.score || 0} 积分，去抓其他老鼠吧！`,
-            showCancel: false
-          });
-          // 猫不需要预加载二维码，直接使用扫码功能即可
-        }
-        // 兼容旧的被抓逻辑（如果服务器还在用 isCaught 字段）
-        else if (myPlayer?.isCaught && !this.data.isCaught && myPlayer?.role !== 'cat') {
+        if (myPlayer?.isCaught && !this.data.isCaught) {
           this.setData({ isCaught: true });
           wx.showModal({
             title: '😢 你被抓住了！',
@@ -350,31 +314,30 @@ Page({
             showCancel: false
           });
         }
-
+        
         // 更新状态
         this.setData({
           gameStatus: res.status,
           countdown: res.countdown,
           players: mergedPlayers
         });
-
+        
         // 更新商店积分
         if (this.data.showShop && myPlayer) {
           this.setData({ myScore: myPlayer.score || 0 });
         }
-
+        
         // 如果角色还未分配，从服务器获取
         if (!this.data.playerRole && myPlayer?.role) {
           this.setData({ playerRole: myPlayer.role });
           if (myPlayer.role === 'mouse') {
             this.preloadQRCode();
           }
-          // 猫不需要预加载二维码，直接使用扫码功能即可
         }
-
+        
         // 刷新地图标记
         this.updateMarkers();
-
+        
         // 检查游戏是否结束
         if (res.status === 'ended') {
           this.onGameEnded(res);
@@ -465,22 +428,13 @@ Page({
         // 构建标记数据
         const isMe = player.id === myId;
         const isCaught = player.role === 'mouse' && player.isCaught;
-        const isOffline = player.isOffline;
         const score = player.score || 0;
         
         // 构建显示内容
         let content = '';
         let bgColor = '';
         
-        if (isOffline) {
-          // 掉线玩家
-          if (player.role === 'cat') {
-            content = `🐱💤 ${player.nickname}`;
-          } else {
-            content = `🐭💤 ${player.nickname}`;
-          }
-          bgColor = '#999'; // 灰色表示掉线
-        } else if (player.role === 'cat') {
+        if (player.role === 'cat') {
           content = `🐱 ${player.nickname}`;
           bgColor = '#FF6B6B';
           if (player.catchCount > 0) {
@@ -497,7 +451,7 @@ Page({
         }
         
         // 积分显示（可选）
-        if (score > 0 && !isOffline) {
+        if (score > 0) {
           content += ` · ${score}分`;
         }
         
@@ -643,29 +597,16 @@ Page({
             return;
           }
           
-          // 调用抓住 API（传递猫和老鼠的当前位置，避免多实例数据不同步）
-          const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
-          const mousePlayer = this.data.players.find(p => p.id === qrData.playerId);
+          // 调用抓住 API
           const result = await gameAPI.catchPlayer(
             this.data.gameId,
             this.data.playerId,
-            qrData.playerId,
-            myPlayer?.latitude,   // 猫的当前位置
-            myPlayer?.longitude,
-            mousePlayer?.latitude, // 老鼠的当前位置
-            mousePlayer?.longitude
+            qrData.playerId
           );
-          
-          // 抓人成功的提示
-          let content = `你已抓住 ${qrData.nickname}！`;
-          if (result.transformed) {
-            content += `\n${qrData.nickname} 变成了猫！`;
-          }
-          content += `\n共抓住 ${result.catchCount} 只，剩余 ${result.remaining} 只老鼠`;
           
           wx.showModal({
             title: '🎉 抓住成功！',
-            content: content,
+            content: `你已抓住 ${qrData.nickname}，共抓住 ${result.catchCount} 只老鼠，剩余 ${result.remaining} 只`,
             showCancel: false
           });
           

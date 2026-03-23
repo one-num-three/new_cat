@@ -43,5 +43,6 @@
   <!-- 底部说明 -->
   <view class="footer">
     <text class="tip">🎮 线下进行，线上显示位置</text>
+    <text class="version" wx:if="{{serverVersion}}">v{{serverVersion}} ({{serverVersionDate}})</text>
   </view>
 </view>
