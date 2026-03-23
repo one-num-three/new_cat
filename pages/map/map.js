@@ -7,6 +7,8 @@ Page({
     longitude: 118.7968,
     scale: 16,
     markers: [],
+    circles: [], // 视野范围圆圈
+    visionRange: 200, // 视野范围（米）
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -109,6 +111,8 @@ Page({
         // 不再自动移动地图中心，让用户可以自由查看其他玩家
         // 立即更新自己的标记
         this.updateMyMarker(res.latitude, res.longitude);
+        // 更新视野圆圈
+        this.updateVisionCircle(res.latitude, res.longitude);
       },
       fail: (err) => {
         console.error('[位置] 初始位置获取失败', err);
@@ -177,6 +181,9 @@ Page({
     
     // 更新自己的标记位置
     this.updateMyMarker(latitude, longitude);
+    
+    // 更新视野范围圆圈
+    this.updateVisionCircle(latitude, longitude);
     
     // 创建新的 players 数组
     let players = [...this.data.players];
@@ -372,7 +379,8 @@ Page({
         this.setData({
           gameStatus: res.status,
           players: mergedPlayers,
-          events: res.events || []
+          events: res.events || [],
+          visionRange: res.settings?.visionRange || 200
         });
         
         // 检测新事件，显示弹幕
@@ -585,6 +593,40 @@ Page({
       });
 
     this.setData({ markers });
+  },
+
+  // 更新视野范围圆圈
+  updateVisionCircle(latitude, longitude) {
+    if (!latitude || !longitude) return;
+    
+    const visionRange = this.data.visionRange || 200;
+    
+    // 视野范围圆圈（主圆）
+    const visionCircle = {
+      latitude: latitude,
+      longitude: longitude,
+      radius: visionRange,
+      color: '#4ECDC415', // 圆内颜色（淡青色半透明）
+      fillColor: '#4ECDC408', // 填充颜色（更淡）
+      strokeWidth: 3,
+      strokeColor: '#4ECDC4AA', // 边框颜色（青色半透明）
+    };
+    
+    // 外围警示圈（表示视野边界外的迷雾区域）
+    const fogCircle = {
+      latitude: latitude,
+      longitude: longitude,
+      radius: visionRange + 30,
+      color: '#00000000',
+      fillColor: '#00000000',
+      strokeWidth: 2,
+      strokeColor: '#FF6B6B40', // 淡红色边界警示
+      strokeDashArray: [10, 10], // 虚线（如果支持）
+    };
+    
+    this.setData({ 
+      circles: [fogCircle, visionCircle]
+    });
   },
 
   // ==================== 扫码相关 ====================

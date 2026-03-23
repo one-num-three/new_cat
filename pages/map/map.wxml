@@ -10,6 +10,7 @@
     longitude="{{longitude}}"
     scale="{{scale}}"
     markers="{{markers}}"
+    circles="{{circles}}"
     show-location="{{true}}"
     enable-satellite="false"
     enable-overlooking="true"
@@ -20,6 +21,15 @@
     bindtap="onMapTap"
     bindmarkertap="onMarkerTap"
   />
+
+  <!-- 视野范围遮罩 -->
+  <view class="vision-overlay" wx:if="{{gameStatus === 'playing'}}">
+    <view class="vision-corner vision-corner-tl"></view>
+    <view class="vision-corner vision-corner-tr"></view>
+    <view class="vision-corner vision-corner-bl"></view>
+    <view class="vision-corner vision-corner-br"></view>
+    <view class="vision-hint-bottom">👁️ 视野范围: {{visionRange}}米</view>
+  </view>
 
   <!-- 弹幕区域 -->
   <view class="danmaku-area">
