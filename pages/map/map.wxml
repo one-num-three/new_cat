@@ -10,7 +10,7 @@
     longitude="{{longitude}}"
     scale="{{scale}}"
     markers="{{markers}}"
-    circles="{{circles.concat(goldenShieldCircles).concat(bombardCircles)}}"
+    circles="{{allCircles}}"
     show-location="{{true}}"
     enable-satellite="false"
     enable-overlooking="true"

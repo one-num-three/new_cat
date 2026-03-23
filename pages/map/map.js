@@ -10,6 +10,7 @@ Page({
     circles: [], // 视野范围圆圈
     goldenShieldCircles: [], // 金身保护圈
     bombardCircles: [], // 轰炸区域
+    allCircles: [], // 所有圆圈的合并数组
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
     displayVisionRange: 200, // 显示用的四舍五入值
@@ -658,9 +659,15 @@ Page({
 
   // 更新视野范围圆圈
   updateVisionCircle(latitude, longitude) {
-    if (!latitude || !longitude) return;
+    console.log('[视野圈] updateVisionCircle 被调用', latitude, longitude);
+    
+    if (!latitude || !longitude) {
+      console.log('[视野圈] 没有经纬度，跳过');
+      return;
+    }
     
     const baseVisionRange = this.data.visionRange || 200;
+    console.log('[视野圈] baseVisionRange:', baseVisionRange);
     
     // 找到自己的玩家信息
     const myPlayer = this.data.allPlayers.find(p => p.id === this.data.playerId) ||
@@ -684,6 +691,8 @@ Page({
         actualVisionRange = actualVisionRange * 1.5;
       }
     }
+    
+    console.log('[视野圈] actualVisionRange:', actualVisionRange, 'playerRole:', this.data.playerRole);
     
     // 检查鹰眼状态是否变化
     const prevHasEagleEye = this.data.hasEagleEye;
@@ -719,16 +728,35 @@ Page({
       strokeWidth: 2
     };
     
+    const circles = [glowCircle, visionCircle];
+    console.log('[视野圈] 生成的 circles:', JSON.stringify(circles));
+    
     this.setData({ 
-      circles: [glowCircle, visionCircle],
+      circles: circles,
       actualVisionRange: actualVisionRange, // 实际视野范围（用于显示）
       displayVisionRange: Math.round(actualVisionRange), // 显示用的四舍五入值
       hasEagleEye: hasEagleEye, // 鹰眼状态
       eagleEyeStacks: eagleEyeStacks // 鹰眼层数
     });
     
+    console.log('[视野圈] setData 完成，circles:', this.data.circles);
+    
     // 更新金身保护圈
     this.updateGoldenShields(latitude, longitude);
+    
+    // 合并所有圆圈
+    this.mergeAllCircles();
+  },
+  
+  // 合并所有圆圈
+  mergeAllCircles() {
+    const allCircles = [
+      ...this.data.circles,
+      ...this.data.goldenShieldCircles,
+      ...this.data.bombardCircles
+    ];
+    console.log('[圆圈合并] allCircles 数量:', allCircles.length);
+    this.setData({ allCircles });
   },
 
   // 更新金身保护圈
@@ -810,6 +838,9 @@ Page({
       inGoldenShield,
       goldenShieldExpiresAt
     });
+    
+    // 合并所有圆圈
+    this.mergeAllCircles();
   },
 
   // 计算两点距离（米）
@@ -1289,6 +1320,9 @@ Page({
     });
     
     this.setData({ bombardCircles });
+    
+    // 合并所有圆圈
+    this.mergeAllCircles();
   },
 
   // 放大地图
