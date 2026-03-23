@@ -282,6 +282,9 @@ Page({
 
   // 开始轮询游戏状态
   startStatusPoll() {
+    // 先停止旧的轮询，避免重复
+    this.stopStatusPoll();
+    
     this.statusPollTimer = setInterval(async () => {
       try {
         const res = await gameAPI.getGameStatus(this.data.gameId);
