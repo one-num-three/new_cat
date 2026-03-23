@@ -1457,14 +1457,21 @@ Page({
   
   // 取消轰炸选择
   async cancelBombardSelect() {
+    console.log('[取消轰炸] 开始，gameId:', this.data.gameId, 'playerId:', this.data.playerId);
+    
     // 调用后端返还积分
     try {
       const res = await gameAPI.cancelBombard(this.data.gameId, this.data.playerId);
+      console.log('[取消轰炸] 后端返回:', res);
       if (res.success) {
         this.setData({ myScore: res.remainingScore });
+        wx.showToast({ title: `已返还40积分`, icon: 'success' });
+      } else {
+        wx.showToast({ title: res.message || '返还失败', icon: 'none' });
       }
     } catch (err) {
       console.error('[取消轰炸] 返还积分失败', err);
+      wx.showToast({ title: '返还积分失败', icon: 'none' });
     }
     
     this.setData({ 
@@ -1475,7 +1482,6 @@ Page({
       showBombardConfirm: false
     });
     this.mergeAllCircles();
-    wx.showToast({ title: '已取消，积分已返还', icon: 'none' });
   },
 
   // 更新轰炸区域显示
