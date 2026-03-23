@@ -638,30 +638,41 @@ Page({
       actualVisionRange = baseVisionRange * 1.3;
     }
     
-    // 视野范围圆圈（主圆）- 明显的样式
+    // 视野范围圆圈（主圆）- 更明显的样式
     const visionCircle = {
       latitude: latitude,
       longitude: longitude,
       radius: actualVisionRange,
-      color: '#4ECDC420', // 圆内淡青色
-      fillColor: '#4ECDC410',
-      strokeWidth: 4,
-      strokeColor: '#4ECDC4FF', // 不透明青色边框
+      color: '#4ECDC440', // 圆内淡青色填充
+      fillColor: '#4ECDC420',
+      strokeWidth: 6, // 更粗的边框
+      strokeColor: '#00D9C4', // 更亮的青色边框
     };
     
     // 外围光晕效果
     const glowCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: actualVisionRange + 15,
+      radius: actualVisionRange + 20,
+      color: '#00000000',
+      fillColor: '#00000000',
+      strokeWidth: 3,
+      strokeColor: '#4ECDC480',
+    };
+    
+    // 内圈（更亮的边缘）
+    const innerCircle = {
+      latitude: latitude,
+      longitude: longitude,
+      radius: actualVisionRange - 5,
       color: '#00000000',
       fillColor: '#00000000',
       strokeWidth: 2,
-      strokeColor: '#4ECDC460',
+      strokeColor: '#00FFD0',
     };
     
     this.setData({ 
-      circles: [glowCircle, visionCircle],
+      circles: [glowCircle, visionCircle, innerCircle],
       actualVisionRange: actualVisionRange // 实际视野范围（用于显示）
     });
   },
