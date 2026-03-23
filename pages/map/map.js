@@ -32,6 +32,8 @@ Page({
   mapCtx: null,
   locationUpdateTimer: null,
   statusPollTimer: null,
+  countdownTimer: null, // 本地倒计时定时器
+  serverCountdown: 0, // 服务器同步的倒计时
 
   onLoad(options) {
     console.log('[地图页] onLoad', options);
@@ -85,6 +87,7 @@ Page({
     // 页面卸载时停止更新（掉线由服务器通过位置上报检测）
     this.stopLocationUpdate();
     this.stopStatusPoll();
+    this.stopLocalCountdown();
   },
 
   // ==================== 位置相关 ====================
@@ -288,6 +291,9 @@ Page({
     // 先停止旧的轮询，避免重复
     this.stopStatusPoll();
     
+    // 启动本地倒计时（每秒减 1）
+    this.startLocalCountdown();
+    
     this.statusPollTimer = setInterval(async () => {
       try {
         // 传递当前位置用于视野过滤
@@ -352,10 +358,19 @@ Page({
           });
         }
         
-        // 更新状态
+        // 同步服务器倒计时（用于校准本地倒计时）
+        const serverCountdown = res.countdown;
+        const localCountdown = this.data.countdown;
+        
+        // 如果本地倒计时和服务器差距超过 2 秒，强制同步
+        if (Math.abs(localCountdown - serverCountdown) > 2) {
+          console.log('[倒计时] 同步服务器:', localCountdown, '→', serverCountdown);
+          this.setData({ countdown: serverCountdown });
+        }
+        
+        // 更新状态（不直接更新 countdown，让本地倒计时自己减）
         this.setData({
           gameStatus: res.status,
-          countdown: res.countdown,
           players: mergedPlayers,
           events: res.events || []
         });
@@ -393,32 +408,53 @@ Page({
         
         // 检查游戏是否结束
         if (res.status === 'ended') {
-          // 传递最新的玩家数据，而不是依赖 this.data.players
-          this.onGameEnded(res, myPlayer);
+          this.onGameEnded(res);
         }
       } catch (err) {
         console.error('[状态] 轮询失败', err);
       }
-    }, 1500); // 每 1.5 秒轮询一次（提高实时性）
+    }, 2000); // 每 2 秒轮询一次（用于同步状态）
+  },
+
+  // 启动本地倒计时
+  startLocalCountdown() {
+    // 先停止旧的
+    this.stopLocalCountdown();
+    
+    this.countdownTimer = setInterval(() => {
+      const countdown = this.data.countdown;
+      if (countdown > 0) {
+        this.setData({ countdown: countdown - 1 });
+      }
+    }, 1000); // 每秒减 1
+  },
+
+  // 停止本地倒计时
+  stopLocalCountdown() {
+    if (this.countdownTimer) {
+      clearInterval(this.countdownTimer);
+      this.countdownTimer = null;
+    }
   },
 
   // 游戏结束处理
-  onGameEnded(res, currentPlayer) {
+  onGameEnded(res) {
     // 防止重复触发
     if (this.data.gameEnded) return;
     this.setData({ gameEnded: true });
     
     this.stopStatusPoll();
+    this.stopLocalCountdown();
     
-    // 优先使用传入的玩家数据，其次从 this.data.players 获取
-    const myPlayer = currentPlayer || this.data.players.find(p => p.id === this.data.playerId);
+    // 使用服务器返回的角色（更可靠），而不是本地缓存的 playerRole
+    const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
     const myRole = myPlayer?.role || this.data.playerRole;
     const winner = res.winner;
     const isWin = winner === myRole;
     
     // 调试日志
     console.log('[游戏结束] myRole:', myRole, 'winner:', winner, 'isWin:', isWin);
-    console.log('[游戏结束] playerRole:', this.data.playerRole, 'myPlayer?.role:', myPlayer?.role);
+    console.log('[游戏结束] playerRole:', this.data.playerRole, 'myPlayer.role:', myPlayer?.role);
     
     // 根据玩家角色和结果定制消息
     let title = '';
@@ -469,6 +505,7 @@ Page({
       clearInterval(this.statusPollTimer);
       this.statusPollTimer = null;
     }
+    this.stopLocalCountdown();
   },
 
   // ==================== 地图标记 ====================
