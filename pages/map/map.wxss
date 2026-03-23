@@ -235,6 +235,15 @@
   opacity: 0.8;
 }
 
+.shop-item-btn.disabled {
+  background: #555;
+  color: #888;
+}
+
+.shop-item.disabled {
+  opacity: 0.5;
+}
+
 .shop-btn {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }

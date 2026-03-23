@@ -126,15 +126,17 @@
         <view class="shop-close" bindtap="onCloseShop">×</view>
       </view>
       <view class="shop-list">
-        <view class="shop-item" wx:for="{{shopItems}}" wx:key="id">
+        <view class="shop-item {{item.id === 'bombard' && hasActiveBombard ? 'disabled' : ''}}" wx:for="{{shopItems}}" wx:key="id">
           <view class="shop-item-icon">{{item.icon}}</view>
           <view class="shop-item-info">
             <text class="shop-item-name">{{item.name}}</text>
-            <text class="shop-item-desc">{{item.desc}}</text>
+            <text class="shop-item-desc">{{item.id === 'bombard' && hasActiveBombard ? '已有轰炸进行中' : item.desc}}</text>
           </view>
           <view class="shop-item-price">{{item.price}}分</view>
-          <view class="shop-item-btn" bindtap="onBuyItem" data-item="{{item.id}}">
-            <text>购买</text>
+          <view class="shop-item-btn {{item.id === 'bombard' && hasActiveBombard ? 'disabled' : ''}}" 
+                bindtap="{{item.id === 'bombard' && hasActiveBombard ? '' : 'onBuyItem'}}" 
+                data-item="{{item.id}}">
+            <text>{{item.id === 'bombard' && hasActiveBombard ? '等待' : '购买'}}</text>
           </view>
         </view>
       </view>

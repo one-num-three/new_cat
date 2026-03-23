@@ -27,6 +27,7 @@ Page({
     bombardZones: [], // 轰炸区域列表
     bombardTimers: [], // 轰炸倒计时列表
     bombardTimerInterval: null, // 轰炸倒计时定时器
+    hasActiveBombard: false, // 是否有活跃的轰炸
     showExplosion: false, // 是否显示引爆动画
     lastDetonatedZone: null // 最近引爆的轰炸区
     gameId: null,
@@ -423,7 +424,8 @@ Page({
           events: res.events || [],
           visionRange: res.settings?.visionRange || 200,
           goldenShields: res.goldenShields || [], // 金身保护圈列表
-          bombardZones: res.bombardZones || [] // 轰炸区域列表
+          bombardZones: res.bombardZones || [], // 轰炸区域列表
+          hasActiveBombard: (res.bombardZones || []).some(z => z.status === 'pending') // 是否有活跃轰炸
         });
         
         // 更新视野圈（每次状态更新后都要重新计算，以反映鹰眼等效果）
