@@ -35,12 +35,13 @@
       <view wx:if="{{loading && !qrCodePath}}" class="qrcode-loading">
         <text>⏳ 生成中...</text>
       </view>
-      
-      <!-- 金身遮罩 -->
-      <view class="golden-shield-overlay" wx:if="{{hasGoldenShield}}">
-        <text>🛡️</text>
-        <text>保护中</text>
-      </view>
+    </view>
+    
+    <!-- 金身完全遮罩（覆盖整个二维码区域） -->
+    <view class="golden-shield-full-overlay" wx:if="{{hasGoldenShield}}" catchtouchmove="preventTouch">
+      <view class="shield-icon">🛡️</view>
+      <view class="shield-title">金身保护中</view>
+      <view class="shield-desc">圈内无法被扫码抓住</view>
     </view>
     
     <!-- 玩家信息 -->

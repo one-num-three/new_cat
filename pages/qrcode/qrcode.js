@@ -46,6 +46,11 @@ Page({
       }
     }
   },
+  
+  // 阻止触摸穿透
+  preventTouch() {
+    return false;
+  },
 
   // 生成二维码
   generateQRCode(data) {

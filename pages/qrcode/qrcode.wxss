@@ -73,7 +73,40 @@
   font-size: 28rpx;
 }
 
-/* 金身遮罩 */
+/* 金身完全遮罩 - 覆盖整个二维码区域 */
+.golden-shield-full-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.95) 0%, rgba(255, 165, 0, 0.95) 100%);
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.shield-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.shield-title {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.shield-desc {
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 旧的金身遮罩样式保留 */
 .golden-shield-overlay {
   position: absolute;
   top: 0;
