@@ -33,7 +33,7 @@ Page({
     showExplosion: false, // 是否显示引爆动画
     explosionLat: null, // 引爆点纬度
     explosionLng: null, // 引爆点经度
-    lastDetonatedZone: null // 最近引爆的轰炸区
+    lastDetonatedZone: null, // 最近引爆的轰炸区
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
