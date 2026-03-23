@@ -463,6 +463,22 @@ Page({
         // 启动轰炸倒计时本地更新（每秒）
         this.startBombardTimer();
         
+        // 检测新事件，显示弹幕（先获取events）
+        const events = res.events || [];
+        const lastEventTime = this.data.lastEventTime;
+        
+        events.forEach(event => {
+          if (event.time > lastEventTime) {
+            console.log('[弹幕] 新事件:', event);
+            this.showDanmaku(event);
+          }
+        });
+        // 更新最后事件时间
+        if (events.length > 0) {
+          const maxTime = Math.max(...events.map(e => e.time));
+          this.setData({ lastEventTime: maxTime });
+        }
+        
         // 检测引爆事件（轰炸区域从有到无，或者有detonated事件）
         const newBombardZones = res.bombardZones || [];
         
@@ -488,20 +504,6 @@ Page({
               this.showExplosionAnimation();
             }
           });
-        }
-        
-        // 检测新事件，显示弹幕
-        const events = res.events || [];
-        const lastEventTime = this.data.lastEventTime;
-        events.forEach(event => {
-          if (event.time > lastEventTime) {
-            this.showDanmaku(event);
-          }
-        });
-        // 更新最后事件时间
-        if (events.length > 0) {
-          const maxTime = Math.max(...events.map(e => e.time));
-          this.setData({ lastEventTime: maxTime });
         }
         
         // 更新商店积分
