@@ -7,6 +7,7 @@ Page({
     longitude: 118.7968,
     scale: 16,
     markers: [],
+    allMarkers: [], // 所有标记（包括玩家和爆炸动画）
     circles: [], // 视野范围圆圈
     goldenShieldCircles: [], // 金身保护圈
     bombardCircles: [], // 轰炸区域
@@ -29,6 +30,8 @@ Page({
     bombardTimerInterval: null, // 轰炸倒计时定时器
     hasActiveBombard: false, // 是否有活跃的轰炸
     showExplosion: false, // 是否显示引爆动画
+    explosionLat: null, // 引爆点纬度
+    explosionLng: null, // 引爆点经度
     lastDetonatedZone: null // 最近引爆的轰炸区
     gameId: null,
     playerId: null,
@@ -447,14 +450,26 @@ Page({
         
         // 检查是否有新引爆的区域
         if (prevBombardZones.length > 0 && newBombardZones.length < prevBombardZones.length) {
-          // 有轰炸区消失了（引爆完成）
-          this.showExplosionAnimation();
+          // 有轰炸区消失了（引爆完成），获取引爆位置
+          const detonatedZone = prevBombardZones.find(z => !newBombardZones.find(nz => nz.id === z.id));
+          if (detonatedZone && detonatedZone.center) {
+            this.showExplosionAnimation(detonatedZone.center.latitude, detonatedZone.center.longitude);
+          } else {
+            this.showExplosionAnimation();
+          }
         }
         
         // 检查是否有detonated事件
         const detonatedEvents = events.filter(e => e.type === 'bombardHit' && e.time > this.data.lastEventTime);
         if (detonatedEvents.length > 0) {
-          this.showExplosionAnimation();
+          // 从detonatedEvents中获取位置（如果有的话）
+          detonatedEvents.forEach(e => {
+            if (e.center) {
+              this.showExplosionAnimation(e.center.latitude, e.center.longitude);
+            } else {
+              this.showExplosionAnimation();
+            }
+          });
         }
         
         // 检测新事件，显示弹幕
@@ -693,7 +708,28 @@ Page({
         return marker;
       });
 
-    this.setData({ markers });
+    // 添加引爆动画标记
+    if (this.data.showExplosion && this.data.explosionLat && this.data.explosionLng) {
+      markers.push({
+        id: 'explosion_marker',
+        latitude: this.data.explosionLat,
+        longitude: this.data.explosionLng,
+        width: 30,
+        height: 30,
+        callout: {
+          content: '💥',
+          color: '#FF0000',
+          fontSize: 40,
+          borderRadius: 50,
+          bgColor: '#FFFFFF00',
+          padding: 0,
+          display: 'ALWAYS'
+        },
+        anchor: { x: 0.5, y: 0.5 }
+      });
+    }
+
+    this.setData({ markers, allMarkers: markers });
   },
 
   // 更新视野范围圆圈
@@ -833,15 +869,27 @@ Page({
     const hasActive = this.data.bombardZones && 
                       this.data.bombardZones.some(z => z.status === 'pending');
     
+    // 检查是否有最后5秒的轰炸（需要更快更新实现闪烁）
+    const hasUrgentBombard = this.data.bombardZones && 
+                             this.data.bombardZones.some(z => 
+                               z.status === 'pending' && 
+                               (z.detonateAt - Date.now()) <= 5000
+                             );
+    
     if (hasActive) {
-      // 有活跃轰炸区，确保定时器在运行
-      if (!this.data.bombardTimerInterval) {
-        console.log('[轰炸定时器] 启动');
-        const interval = setInterval(() => {
-          this.updateBombardCircles();
-        }, 1000);
-        this.setData({ bombardTimerInterval: interval });
+      // 根据是否有紧急轰炸决定更新频率
+      const updateInterval = hasUrgentBombard ? 100 : 500; // 紧急时100ms，否则500ms
+      
+      // 如果已有定时器但间隔不对，重新创建
+      if (this.data.bombardTimerInterval) {
+        clearInterval(this.data.bombardTimerInterval);
       }
+      
+      const interval = setInterval(() => {
+        this.updateBombardCircles();
+      }, updateInterval);
+      
+      this.setData({ bombardTimerInterval: interval });
     } else {
       // 没有活跃轰炸区，停止定时器
       this.stopBombardTimer();
@@ -857,15 +905,23 @@ Page({
   },
   
   // 显示引爆动画
-  showExplosionAnimation() {
-    this.setData({ showExplosion: true });
+  showExplosionAnimation(lat, lng) {
+    this.setData({ 
+      showExplosion: true,
+      explosionLat: lat,
+      explosionLng: lng
+    });
     
     // 播放震动
     wx.vibrateShort({ type: 'heavy' });
     
     // 2秒后隐藏动画
     setTimeout(() => {
-      this.setData({ showExplosion: false });
+      this.setData({ 
+        showExplosion: false,
+        explosionLat: null,
+        explosionLng: null
+      });
     }, 2000);
   },
 
@@ -1489,11 +1545,12 @@ Page({
     const bombardZones = this.data.bombardZones || [];
     const bombardCircles = [];
     const bombardTimers = []; // 倒计时数据
+    const now = Date.now();
     
     bombardZones.forEach(zone => {
       if (zone.status === 'pending') {
         // 计算剩余时间
-        const remainingMs = zone.detonateAt - Date.now();
+        const remainingMs = zone.detonateAt - now;
         const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
         
         // 根据剩余时间改变颜色：黄色 -> 橙色 -> 红色
@@ -1501,7 +1558,20 @@ Page({
         let fillColor = '#FFD70025';
         let strokeWidth = 4;
         
-        if (remainingSec <= 20 && remainingSec > 10) {
+        // 最后5秒闪烁效果
+        const isFlashing = remainingSec <= 5;
+        if (isFlashing) {
+          // 使用时间来控制闪烁（每300ms切换）
+          const flashPhase = Math.floor((now % 600) / 300);
+          if (flashPhase === 0) {
+            fillColor = '#FF000060'; // 高亮
+            circleColor = '#FF0000';
+          } else {
+            fillColor = '#FF000020'; // 暗淡
+            circleColor = '#CC0000';
+          }
+          strokeWidth = 6;
+        } else if (remainingSec <= 20 && remainingSec > 10) {
           // 10-20秒：橙黄色
           circleColor = '#FFA500';
           fillColor = '#FFA50025';
@@ -1511,11 +1581,6 @@ Page({
           circleColor = '#FF6600';
           fillColor = '#FF660030';
           strokeWidth = 5;
-        } else if (remainingSec <= 5) {
-          // 最后5秒：红色警告
-          circleColor = '#FF0000';
-          fillColor = '#FF000040';
-          strokeWidth = 6;
         }
         
         bombardCircles.push({
