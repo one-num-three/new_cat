@@ -60,8 +60,10 @@ Page({
     // 初始化位置
     this.initLocation();
     
-    // 启动游戏状态轮询
-    this.startStatusPoll();
+    // 启动游戏状态轮询（只在 onReady 启动一次）
+    if (!this.statusPollTimer) {
+      this.startStatusPoll();
+    }
   },
 
   onShow() {
@@ -69,10 +71,7 @@ Page({
     if (this.data.isLocationReady) {
       this.startLocationUpdate();
     }
-    // 确保状态轮询在运行
-    if (!this.statusPollTimer) {
-      this.startStatusPoll();
-    }
+    // 注意：不再重复启动轮询，onReady 已经启动了
   },
 
   onHide() {
