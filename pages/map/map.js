@@ -1344,6 +1344,13 @@ Page({
 
   // 显示弹幕
   showDanmaku(event) {
+    console.log('[弹幕] showDanmaku 被调用:', event);
+    
+    if (!event.message) {
+      console.warn('[弹幕] 事件没有 message 字段:', event);
+      return;
+    }
+    
     const danmakuList = this.data.danmakuList;
     danmakuList.push({
       ...event,
@@ -1355,6 +1362,7 @@ Page({
       danmakuList.shift();
     }
     
+    console.log('[弹幕] 当前弹幕列表:', danmakuList);
     this.setData({ danmakuList });
     
     // 3秒后隐藏
