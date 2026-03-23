@@ -704,36 +704,23 @@ Page({
       latitude: latitude,
       longitude: longitude,
       radius: actualVisionRange,
-      color: hasEagleEye ? '#FFD70040' : '#4ECDC440', // 鹰眼时金色
-      fillColor: hasEagleEye ? '#FFD70020' : '#4ECDC420',
-      strokeWidth: 6,
-      strokeColor: hasEagleEye ? '#FFD700' : '#00D9C4', // 鹰眼时金色边框
+      color: hasEagleEye ? '#FFD700' : '#00D9C4', // 边框颜色
+      fillColor: hasEagleEye ? '#FFD70020' : '#4ECDC420', // 填充颜色（带透明度）
+      strokeWidth: 4
     };
     
     // 外围光晕效果
     const glowCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: actualVisionRange + 20,
-      color: '#00000000',
+      radius: actualVisionRange + 15,
+      color: hasEagleEye ? '#FFD70060' : '#4ECDC460',
       fillColor: '#00000000',
-      strokeWidth: 3,
-      strokeColor: hasEagleEye ? '#FFD70080' : '#4ECDC480',
-    };
-    
-    // 内圈（更亮的边缘）
-    const innerCircle = {
-      latitude: latitude,
-      longitude: longitude,
-      radius: actualVisionRange - 5,
-      color: '#00000000',
-      fillColor: '#00000000',
-      strokeWidth: 2,
-      strokeColor: hasEagleEye ? '#FFFF00' : '#00FFD0',
+      strokeWidth: 2
     };
     
     this.setData({ 
-      circles: [glowCircle, visionCircle, innerCircle],
+      circles: [glowCircle, visionCircle],
       actualVisionRange: actualVisionRange, // 实际视野范围（用于显示）
       displayVisionRange: Math.round(actualVisionRange), // 显示用的四舍五入值
       hasEagleEye: hasEagleEye, // 鹰眼状态
@@ -764,10 +751,9 @@ Page({
             latitude: shield.center.latitude,
             longitude: shield.center.longitude,
             radius: shield.radius,
-            color: '#FFD70030', // 金色半透明
-            fillColor: '#FFD70015',
-            strokeWidth: 3,
-            strokeColor: '#FFD700',
+            color: '#FFD700', // 金色边框
+            fillColor: '#FFD70020', // 金色半透明填充
+            strokeWidth: 3
           });
         }
       }
@@ -1295,10 +1281,9 @@ Page({
           latitude: zone.center.latitude,
           longitude: zone.center.longitude,
           radius: zone.radius,
-          color: '#FF000020', // 红色半透明
-          fillColor: '#FF000010',
-          strokeWidth: 4,
-          strokeColor: '#FF0000',
+          color: '#FF0000', // 红色边框
+          fillColor: '#FF000015', // 红色半透明填充
+          strokeWidth: 4
         });
       }
     });
