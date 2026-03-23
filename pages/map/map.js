@@ -25,6 +25,9 @@ Page({
     bombardPreviewLng: null, // 预览点经度
     showBombardConfirm: false, // 是否显示轰炸确认框
     bombardZones: [], // 轰炸区域列表
+    bombardTimers: [], // 轰炸倒计时列表
+    showExplosion: false, // 是否显示引爆动画
+    lastDetonatedZone: null // 最近引爆的轰炸区
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -429,6 +432,22 @@ Page({
         // 更新轰炸区域显示
         this.updateBombardCircles();
         
+        // 检测引爆事件（轰炸区域从有到无，或者有detonated事件）
+        const newBombardZones = res.bombardZones || [];
+        const prevBombardZones = this.data.bombardZones || [];
+        
+        // 检查是否有新引爆的区域
+        if (prevBombardZones.length > 0 && newBombardZones.length < prevBombardZones.length) {
+          // 有轰炸区消失了（引爆完成）
+          this.showExplosionAnimation();
+        }
+        
+        // 检查是否有detonated事件
+        const detonatedEvents = events.filter(e => e.type === 'bombardHit' && e.time > this.data.lastEventTime);
+        if (detonatedEvents.length > 0) {
+          this.showExplosionAnimation();
+        }
+        
         // 检测新事件，显示弹幕
         const events = res.events || [];
         const lastEventTime = this.data.lastEventTime;
@@ -797,6 +816,19 @@ Page({
     
     console.log('[圆圈合并] allCircles 数量:', allCircles.length);
     this.setData({ allCircles });
+  },
+  
+  // 显示引爆动画
+  showExplosionAnimation() {
+    this.setData({ showExplosion: true });
+    
+    // 播放震动
+    wx.vibrateShort({ type: 'heavy' });
+    
+    // 2秒后隐藏动画
+    setTimeout(() => {
+      this.setData({ showExplosion: false });
+    }, 2000);
   },
 
   // 更新金身保护圈
@@ -1402,6 +1434,7 @@ Page({
   updateBombardCircles() {
     const bombardZones = this.data.bombardZones || [];
     const bombardCircles = [];
+    const bombardTimers = []; // 倒计时数据
     
     bombardZones.forEach(zone => {
       if (zone.status === 'pending') {
@@ -1409,22 +1442,59 @@ Page({
         const remainingMs = zone.detonateAt - Date.now();
         const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
         
+        // 根据剩余时间改变颜色
+        let circleColor = '#FF0000';
+        let fillColor = '#FF000020';
+        let strokeWidth = 4;
+        
+        if (remainingSec <= 10) {
+          // 最后10秒：更亮
+          circleColor = '#FF3333';
+          fillColor = '#FF000030';
+          strokeWidth = 5;
+        }
+        if (remainingSec <= 5) {
+          // 最后5秒：橙色警告
+          circleColor = '#FF8800';
+          fillColor = '#FF880030';
+          strokeWidth = 6;
+        }
+        
         bombardCircles.push({
           id: zone.id,
           latitude: zone.center.latitude,
           longitude: zone.center.longitude,
           radius: zone.radius,
-          color: '#FF0000', // 红色边框
-          fillColor: '#FF000015', // 红色半透明填充
-          strokeWidth: 4
+          color: circleColor,
+          fillColor: fillColor,
+          strokeWidth: strokeWidth
+        });
+        
+        // 保存倒计时数据
+        bombardTimers.push({
+          id: zone.id,
+          latitude: zone.center.latitude,
+          longitude: zone.center.longitude,
+          remainingSec: remainingSec,
+          playerName: zone.playerName
         });
       }
     });
     
-    this.setData({ bombardCircles });
+    this.setData({ 
+      bombardCircles,
+      bombardTimers
+    });
     
     // 合并所有圆圈
     this.mergeAllCircles();
+  },
+  
+  // 获取倒计时图标（用canvas动态生成或返回预设）
+  getTimerIcon(seconds) {
+    // 返回一个带数字的红色圆形图标
+    // 由于小程序限制，我们用文字标记代替
+    return '/images/timer-bg.png'; // 需要准备一张背景图
   },
 
   // 放大地图

@@ -40,6 +40,22 @@
       <view class="bombard-confirm-btn" catchtap="onConfirmBombard">确认轰炸</view>
     </view>
   </view>
+  
+  <!-- 轰炸倒计时显示 -->
+  <view class="bombard-timers">
+    <view class="bombard-timer-item" wx:for="{{bombardTimers}}" wx:key="id">
+      <view class="bombard-timer-content">
+        <text class="bombard-timer-icon">💣</text>
+        <text class="bombard-timer-sec {{item.remainingSec <= 5 ? 'urgent' : ''}}">{{item.remainingSec}}s</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 引爆动画 -->
+  <view class="bombard-explosion {{showExplosion ? 'show' : ''}}" wx:if="{{showExplosion}}">
+    <view class="explosion-circle"></view>
+    <view class="explosion-text">💥 轰炸引爆！</view>
+  </view>
 
   <!-- 视野范围提示 -->
   <view class="vision-hint-bar {{hasEagleEye ? 'eagle-eye-active' : ''}} {{inGoldenShield ? 'golden-shield-active' : ''}}" wx:if="{{gameStatus === 'playing'}}">

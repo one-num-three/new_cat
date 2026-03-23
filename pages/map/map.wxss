@@ -630,3 +630,109 @@
   font-size: 30rpx;
   font-weight: bold;
 }
+
+/* 轰炸倒计时 */
+.bombard-timers {
+  position: absolute;
+  top: 120rpx;
+  right: 20rpx;
+  z-index: 15;
+}
+
+.bombard-timer-item {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 16rpx;
+  padding: 12rpx 20rpx;
+  margin-bottom: 10rpx;
+  border: 2rpx solid #FF4444;
+}
+
+.bombard-timer-content {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.bombard-timer-icon {
+  font-size: 32rpx;
+}
+
+.bombard-timer-sec {
+  color: #FF4444;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.bombard-timer-sec.urgent {
+  color: #FF8800;
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 引爆动画 */
+.bombard-explosion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bombard-explosion.show {
+  animation: explosionIn 2s ease-out forwards;
+}
+
+@keyframes explosionIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+.explosion-circle {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FF4444 0%, #FF8800 50%, transparent 70%);
+  animation: pulseRing 0.5s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.explosion-text {
+  margin-top: 30rpx;
+  font-size: 48rpx;
+  color: #FF4444;
+  font-weight: bold;
+  text-shadow: 0 0 20rpx rgba(255, 68, 68, 0.8);
+}
