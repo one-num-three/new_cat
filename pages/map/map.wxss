@@ -460,68 +460,15 @@
   transform: scale(0.95);
 }
 
-/* 视野范围遮罩层 */
-.vision-mask-wrapper {
+/* 视野范围遮罩 Canvas */
+.vision-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
-  pointer-events: none;
-}
-
-.vm-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 25%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.vm-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 25%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.vm-middle {
-  position: absolute;
-  top: 25%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-}
-
-.vm-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.vm-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.vm-center {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 80%;
-  height: 100%;
-  background: transparent;
+  pointer-events: none; /* 不阻挡触摸事件 */
 }
 
 /* 视野范围提示条 */

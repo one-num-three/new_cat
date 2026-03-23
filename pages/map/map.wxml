@@ -22,19 +22,14 @@
     bindmarkertap="onMarkerTap"
   />
 
-  <!-- 视野范围遮罩层 - 使用 cover-view 覆盖在地图上 -->
-  <cover-view class="vision-mask-wrapper" wx:if="{{gameStatus === 'playing'}}">
-    <!-- 上方遮罩 -->
-    <cover-view class="vm-top"></cover-view>
-    <!-- 下方遮罩 -->
-    <cover-view class="vm-bottom"></cover-view>
-    <!-- 中间行：左侧遮罩 + 可见区 + 右侧遮罩 -->
-    <cover-view class="vm-middle">
-      <cover-view class="vm-left"></cover-view>
-      <cover-view class="vm-center"></cover-view>
-      <cover-view class="vm-right"></cover-view>
-    </cover-view>
-  </cover-view>
+  <!-- 视野范围遮罩层 - canvas 绘制圆形挖空 -->
+  <canvas 
+    type="2d"
+    id="visionCanvas"
+    class="vision-canvas"
+    canvas-id="visionCanvas"
+    wx:if="{{gameStatus === 'playing'}}"
+  ></canvas>
   
   <!-- 视野范围提示 -->
   <view class="vision-hint-bar" wx:if="{{gameStatus === 'playing'}}">

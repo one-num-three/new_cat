@@ -10,6 +10,9 @@ Page({
     circles: [], // 视野范围圆圈
     visionRange: 200, // 视野范围（米）
     gameId: null,
+    screenWidth: 375, // 屏幕宽度
+    screenHeight: 667, // 屏幕高度
+    visionCanvasReady: false, // canvas 是否准备好
     playerId: null,
     playerRole: null, // 游戏开始时分配
     gameStatus: 'waiting', // waiting, playing, ended
@@ -36,6 +39,8 @@ Page({
   statusPollTimer: null,
   countdownTimer: null, // 本地倒计时定时器
   serverCountdown: 0, // 服务器同步的倒计时
+  visionCanvasCtx: null, // canvas 上下文
+  lastVisionRange: 0, // 上次的视野范围（用于检测变化）
 
   onLoad(options) {
     console.log('[地图页] onLoad', options);
@@ -56,6 +61,13 @@ Page({
   onReady() {
     this.mapCtx = wx.createMapContext('gameMap');
     
+    // 获取屏幕尺寸
+    const systemInfo = wx.getSystemInfoSync();
+    this.setData({
+      screenWidth: systemInfo.windowWidth,
+      screenHeight: systemInfo.windowHeight
+    });
+    
     // show-location="true" 会显示系统的蓝色定位指示器
     // markers 只用于显示其他玩家，不添加自己
     
@@ -66,6 +78,9 @@ Page({
     
     // 初始化位置
     this.initLocation();
+    
+    // 初始化视野遮罩 canvas
+    this.initVisionCanvas();
     
     // 启动游戏状态轮询（只在 onReady 启动一次）
     if (!this.statusPollTimer) {
@@ -376,12 +391,21 @@ Page({
         }
         
         // 更新状态（不直接更新 countdown，让本地倒计时自己减）
+        const newVisionRange = res.settings?.visionRange || 200;
+        const visionChanged = newVisionRange !== this.data.visionRange;
+        
         this.setData({
           gameStatus: res.status,
           players: mergedPlayers,
           events: res.events || [],
-          visionRange: res.settings?.visionRange || 200
+          visionRange: newVisionRange
         });
+        
+        // 视野范围变化时重绘遮罩
+        if (visionChanged && this.data.visionCanvasReady) {
+          console.log('[Canvas] 视野范围变化，重绘遮罩', newVisionRange);
+          this.drawVisionMask();
+        }
         
         // 检测新事件，显示弹幕
         const events = res.events || [];
@@ -601,6 +625,9 @@ Page({
     
     const visionRange = this.data.visionRange || 200;
     
+    // 更新 canvas 遮罩
+    this.drawVisionMask();
+    
     // 视野范围圆圈（主圆）- 更明显的样式
     const visionCircle = {
       latitude: latitude,
@@ -626,6 +653,102 @@ Page({
     this.setData({ 
       circles: [glowCircle, visionCircle]
     });
+  },
+
+  // ==================== 视野遮罩 Canvas ====================
+
+  // 初始化视野遮罩 canvas
+  initVisionCanvas() {
+    const query = wx.createSelectorQuery();
+    query.select('#visionCanvas')
+      .fields({ node: true, size: true })
+      .exec((res) => {
+        if (!res[0]) {
+          console.log('[Canvas] 未找到 canvas 节点');
+          return;
+        }
+        
+        const canvas = res[0].node;
+        const ctx = canvas.getContext('2d');
+        
+        const dpr = wx.getSystemInfoSync().pixelRatio;
+        canvas.width = res[0].width * dpr;
+        canvas.height = res[0].height * dpr;
+        ctx.scale(dpr, dpr);
+        
+        this.visionCanvasCtx = ctx;
+        this.visionCanvas = canvas;
+        this.canvasWidth = res[0].width;
+        this.canvasHeight = res[0].height;
+        
+        console.log('[Canvas] 初始化成功', this.canvasWidth, this.canvasHeight);
+        this.setData({ visionCanvasReady: true });
+        
+        // 初始绘制
+        this.drawVisionMask();
+      });
+  },
+
+  // 绘制视野遮罩（全屏黑色 + 圆形挖空）
+  drawVisionMask() {
+    if (!this.visionCanvasCtx || !this.visionCanvas) {
+      return;
+    }
+    
+    const ctx = this.visionCanvasCtx;
+    const width = this.canvasWidth;
+    const height = this.canvasHeight;
+    const visionRange = this.data.visionRange || 200;
+    const scale = this.data.scale || 16;
+    
+    // 计算像素半径
+    // 地图 scale 16 时，大约 1 像素 ≈ 2.5 米
+    // scale 每增加 1，每像素代表约一半距离
+    const metersPerPixel = 2.5 * Math.pow(2, 16 - scale);
+    const pixelRadius = visionRange / metersPerPixel;
+    
+    console.log('[Canvas] 绘制遮罩', 'visionRange:', visionRange, 'scale:', scale, 'pixelRadius:', pixelRadius);
+    
+    // 清空画布
+    ctx.clearRect(0, 0, width, height);
+    
+    // 绘制全屏黑色半透明遮罩
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    ctx.fillRect(0, 0, width, height);
+    
+    // 挖空圆形区域（使用 destination-out 混合模式）
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-out';
+    
+    // 圆心在屏幕中心（玩家位置）
+    const centerX = width / 2;
+    const centerY = height / 2;
+    
+    // 绘制圆形（完全透明）
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, pixelRadius, 0, 2 * Math.PI);
+    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+    ctx.fill();
+    
+    ctx.restore();
+    
+    // 绘制圆形边缘渐变（模糊效果）
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-out';
+    
+    const gradient = ctx.createRadialGradient(
+      centerX, centerY, pixelRadius - 10,
+      centerX, centerY, pixelRadius + 10
+    );
+    gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.3)');
+    
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, pixelRadius + 10, 0, 2 * Math.PI);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+    
+    ctx.restore();
   },
 
   // ==================== 扫码相关 ====================
@@ -946,9 +1069,17 @@ Page({
         
         this.mapCtx.getScale({
           success: (res) => {
+            const oldScale = this.data.scale;
+            const newScale = res.scale;
             this.setData({
-              scale: res.scale
+              scale: newScale
             });
+            
+            // 缩放变化时重绘遮罩
+            if (oldScale !== newScale && this.data.visionCanvasReady) {
+              console.log('[Canvas] 地图缩放变化，重绘遮罩', oldScale, '→', newScale);
+              this.drawVisionMask();
+            }
           }
         });
       }
@@ -962,14 +1093,26 @@ Page({
 
   // 放大地图
   onZoomIn() {
-    const newScale = Math.min(20, this.data.scale + 2);
+    const oldScale = this.data.scale;
+    const newScale = Math.min(20, oldScale + 2);
     this.setData({ scale: newScale });
+    
+    // 缩放变化时重绘遮罩
+    if (this.data.visionCanvasReady) {
+      setTimeout(() => this.drawVisionMask(), 100);
+    }
   },
 
   // 缩小地图
   onZoomOut() {
-    const newScale = Math.max(5, this.data.scale - 2);
+    const oldScale = this.data.scale;
+    const newScale = Math.max(5, oldScale - 2);
     this.setData({ scale: newScale });
+    
+    // 缩放变化时重绘遮罩
+    if (this.data.visionCanvasReady) {
+      setTimeout(() => this.drawVisionMask(), 100);
+    }
   },
 
   // 定位回当前位置
