@@ -88,12 +88,14 @@ Page({
   },
 
   notifyLeave() {
-    // 通知服务器用户离开游戏
-    if (this.data.gameId && this.data.playerId) {
-      console.log('[离开] 通知服务器，用户离开游戏');
+    // 只有游戏进行中才通知离开
+    if (this.data.gameId && this.data.playerId && this.data.gameStatus === 'playing') {
+      console.log('[离开] 游戏进行中，通知服务器用户离开');
       gameAPI.leaveGame(this.data.gameId, this.data.playerId).catch(e => {
         console.error('[离开] 通知失败', e);
       });
+    } else {
+      console.log('[离开] 游戏未进行中，不通知服务器', this.data.gameStatus);
     }
   },
 
