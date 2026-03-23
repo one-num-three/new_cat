@@ -457,8 +457,10 @@ Page({
         });
         
         // 更新视野圈（每次状态更新后都要重新计算，以反映鹰眼等效果）
-        if (this.data.latitude && this.data.longitude) {
-          this.updateVisionCircle(this.data.latitude, this.data.longitude);
+        // 使用 players 数组中自己的最新位置，而不是 this.data.latitude（初始位置）
+        const myPlayerForVision = mergedPlayers.find(p => p.id === this.data.playerId);
+        if (myPlayerForVision?.latitude && myPlayerForVision?.longitude) {
+          this.updateVisionCircle(myPlayerForVision.latitude, myPlayerForVision.longitude);
         }
         
         // 更新轰炸区域显示
