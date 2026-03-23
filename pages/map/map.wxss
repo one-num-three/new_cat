@@ -755,3 +755,90 @@
   font-weight: bold;
   text-shadow: 0 0 20rpx rgba(255, 68, 68, 0.8);
 }
+
+/* 任务点提示条 */
+.task-point-bar {
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 128, 0, 0.9);
+  color: #fff;
+  padding: 15rpx 30rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.task-point-bar.in-range {
+  background: rgba(0, 200, 0, 0.95);
+  box-shadow: 0 0 20rpx rgba(0, 255, 0, 0.5);
+  animation: taskPulse 1s infinite;
+}
+
+@keyframes taskPulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.task-icon {
+  font-size: 28rpx;
+}
+
+.task-text {
+  font-weight: bold;
+}
+
+.task-reward {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 4rpx 12rpx;
+  border-radius: 15rpx;
+  font-size: 22rpx;
+}
+
+.task-status {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4rpx 12rpx;
+  border-radius: 15rpx;
+}
+
+.task-hint {
+  font-size: 22rpx;
+}
+
+/* 任务完成按钮 */
+.task-complete-btn {
+  position: absolute;
+  bottom: 300rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #00C851 0%, #00A844 100%);
+  color: #fff;
+  padding: 25rpx 50rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  z-index: 25;
+  box-shadow: 0 10rpx 30rpx rgba(0, 200, 81, 0.5);
+  animation: taskBtnPulse 1.5s infinite;
+}
+
+@keyframes taskBtnPulse {
+  0%, 100% { 
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 10rpx 30rpx rgba(0, 200, 81, 0.5);
+  }
+  50% { 
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 15rpx 40rpx rgba(0, 200, 81, 0.7);
+  }
+}

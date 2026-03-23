@@ -59,6 +59,23 @@
     <text wx:if="{{hasEagleEye}}"> 🦅鹰眼×{{eagleEyeStacks}}</text>
     <text wx:if="{{inGoldenShield}}"> 🛡️金身保护中</text>
   </view>
+  
+  <!-- 任务点提示 -->
+  <view class="task-point-bar {{inTaskPoint ? 'in-range' : ''}}" wx:if="{{taskPoint && taskPoint.status === 'active'}}">
+    <view class="task-info">
+      <text class="task-icon">📍</text>
+      <text class="task-text">任务点</text>
+      <text class="task-reward">+{{taskPoint.reward}}分</text>
+    </view>
+    <view class="task-status" wx:if="{{inTaskPoint}}">
+      <text class="task-hint">✅ 在范围内</text>
+    </view>
+  </view>
+  
+  <!-- 任务完成按钮 -->
+  <view class="task-complete-btn" wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}" bindtap="onCompleteTask">
+    <text>✅ 完成任务 +50分</text>
+  </view>
 
   <!-- 弹幕区域 -->
   <view class="danmaku-area">

@@ -34,6 +34,9 @@ Page({
     explosionLat: null, // 引爆点纬度
     explosionLng: null, // 引爆点经度
     lastDetonatedZone: null, // 最近引爆的轰炸区
+    taskPoint: null, // 当前任务点
+    taskPointCircle: null, // 任务点圆圈
+    inTaskPoint: false, // 是否在任务点范围内
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -449,7 +452,8 @@ Page({
           bombardZones: res.bombardZones || [], // 轰炸区域列表
           hasActiveBombard: (res.bombardZones || []).some(z => z.status === 'pending'), // 是否有活跃轰炸
           catCount: activeCats,
-          mouseCount: activeMice
+          mouseCount: activeMice,
+          taskPoint: res.taskPoint || null // 任务点
         });
         
         // 更新视野圈（每次状态更新后都要重新计算，以反映鹰眼等效果）
@@ -459,6 +463,9 @@ Page({
         
         // 更新轰炸区域显示
         this.updateBombardCircles();
+        
+        // 更新任务点显示
+        this.updateTaskPointCircle();
         
         // 启动轰炸倒计时本地更新（每秒）
         this.startBombardTimer();
@@ -886,6 +893,11 @@ Page({
       allCircles.push(this.data.bombardPreviewCircle);
     }
     
+    // 添加任务点圆圈
+    if (this.data.taskPointCircle) {
+      allCircles.push(this.data.taskPointCircle);
+    }
+    
     console.log('[圆圈合并] allCircles 数量:', allCircles.length);
     this.setData({ allCircles });
   },
@@ -946,6 +958,90 @@ Page({
       this.setData({ bombardTimerInterval: null });
     }
   },
+  
+  // ==================== 任务点系统 ====================
+  
+  // 更新任务点圆圈
+  updateTaskPointCircle() {
+    const taskPoint = this.data.taskPoint;
+    const taskPointCircle = null;
+    let inTaskPoint = false;
+    
+    if (taskPoint && taskPoint.status === 'active') {
+      // 创建任务点圆圈
+      const circle = {
+        latitude: taskPoint.center.latitude,
+        longitude: taskPoint.center.longitude,
+        radius: taskPoint.radius,
+        color: '#00FF00', // 绿色边框
+        fillColor: '#00FF0020', // 绿色半透明
+        strokeWidth: 3
+      };
+      
+      // 检查自己是否在任务点范围内
+      if (this.data.latitude && this.data.longitude) {
+        const distance = this.calculateDistance(
+          taskPoint.center.latitude, taskPoint.center.longitude,
+          this.data.latitude, this.data.longitude
+        );
+        inTaskPoint = distance <= taskPoint.radius;
+      }
+      
+      this.setData({ 
+        taskPointCircle: circle,
+        inTaskPoint
+      });
+    } else {
+      this.setData({ 
+        taskPointCircle: null,
+        inTaskPoint: false
+      });
+    }
+    
+    // 合并圆圈
+    this.mergeAllCircles();
+  },
+  
+  // 完成任务
+  async onCompleteTask() {
+    if (!this.data.inTaskPoint) {
+      wx.showToast({ title: '不在任务范围内', icon: 'none' });
+      return;
+    }
+    
+    const taskPoint = this.data.taskPoint;
+    if (!taskPoint || taskPoint.status !== 'active') {
+      wx.showToast({ title: '任务已过期', icon: 'none' });
+      return;
+    }
+    
+    // 检查是否已完成
+    if (taskPoint.completedBy && taskPoint.completedBy.includes(this.data.playerId)) {
+      wx.showToast({ title: '你已完成过任务', icon: 'none' });
+      return;
+    }
+    
+    wx.showLoading({ title: '完成任务中...' });
+    
+    try {
+      const res = await gameAPI.completeTask(this.data.gameId, this.data.playerId);
+      wx.hideLoading();
+      
+      if (res.success) {
+        wx.showToast({ 
+          title: `✅ +${res.reward}积分`, 
+          icon: 'success',
+          duration: 2000
+        });
+        this.setData({ myScore: res.remainingScore });
+      }
+    } catch (err) {
+      wx.hideLoading();
+      wx.showToast({ title: err.message || '完成任务失败', icon: 'none' });
+    }
+  },
+  
+  // ==================== 引爆动画 ====================
   
   // 显示引爆动画
   showExplosionAnimation(lat, lng) {

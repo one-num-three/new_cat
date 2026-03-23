@@ -266,6 +266,15 @@ export const gameAPI = {
       method: 'POST',
       data: { playerId }
     });
+  },
+  
+  // 完成任务
+  completeTask(gameId, playerId) {
+    return request({ 
+      url: `/api/game/${gameId}/task/complete`, 
+      method: 'POST',
+      data: { playerId }
+    });
   }
 };
 
