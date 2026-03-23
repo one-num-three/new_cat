@@ -17,9 +17,7 @@ Page({
     showScoreBoard: true, // 记分板展开状态
     showShop: false, // 道具商店显示状态
     shopItems: [
-      { id: 'speed', icon: '⚡', name: '加速', price: 15, desc: '30秒内移动速度提升' },
-      { id: 'invisible', icon: '👻', name: '隐身', price: 15, desc: '15秒内对其他玩家隐藏' },
-      { id: 'radar', icon: '📡', name: '雷达', price: 15, desc: '显示所有玩家位置' }
+      { id: 'invisible', icon: '👻', name: '隐身', price: 15, desc: '15秒内对其他玩家隐藏' }
     ],
     isLocationReady: false,
     lastLocationTime: 0,
@@ -645,10 +643,9 @@ Page({
 
   onUseItem() {
     wx.showActionSheet({
-      itemList: ['加速 ⚡', '隐身 👻', '雷达 📡'],
+      itemList: ['隐身 👻'],
       success: async (res) => {
-        const items = ['speed', 'invisible', 'radar'];
-        const itemId = items[res.tapIndex];
+        const itemId = 'invisible';
         
         try {
           const result = await gameAPI.useItem(
@@ -675,25 +672,6 @@ Page({
   // 处理道具效果
   handleItemEffect(effect) {
     switch (effect.type) {
-      case 'radar':
-        // 雷达显示所有玩家位置
-        if (effect.players && effect.players.length > 0) {
-          wx.showModal({
-            title: '📡 雷达扫描',
-            content: `发现 ${effect.players.length} 名玩家`,
-            showCancel: false
-          });
-        }
-        break;
-        
-      case 'speed':
-        wx.showToast({
-          title: '⚡ 加速 30 秒',
-          icon: 'success',
-          duration: 2000
-        });
-        break;
-        
       case 'invisible':
         wx.showToast({
           title: '👻 隐身 15 秒',
@@ -763,14 +741,7 @@ Page({
         this.setData({ myScore: res.remainingScore });
         
         // 如果是雷达，显示效果
-        if (itemId === 'radar' && res.effect.players) {
-          wx.showModal({
-            title: '📡 雷达扫描结果',
-            content: `发现 ${res.effect.players.length} 名玩家`,
-            showCancel: false
-          });
         }
-      }
     } catch (err) {
       wx.hideLoading();
       wx.showToast({ title: err.message || '购买失败', icon: 'none' });
