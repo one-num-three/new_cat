@@ -29,7 +29,7 @@ Page({
     bombardTimers: [], // 轰炸倒计时列表
     bombardTimerInterval: null, // 轰炸倒计时定时器
     hasActiveBombard: false, // 是否有活跃的轰炸
-    _urgentMode: false, // 是否处于紧急模式（最后5秒）
+    _currentInterval: 0, // 当前定时器间隔
     showExplosion: false, // 是否显示引爆动画
     explosionLat: null, // 引爆点纬度
     explosionLng: null, // 引爆点经度
@@ -870,27 +870,43 @@ Page({
     const hasActive = this.data.bombardZones && 
                       this.data.bombardZones.some(z => z.status === 'pending');
     
-    // 检查是否有最后5秒的轰炸（需要更快更新实现闪烁）
-    const hasUrgentBombard = this.data.bombardZones && 
-                             this.data.bombardZones.some(z => 
-                               z.status === 'pending' && 
-                               (z.detonateAt - Date.now()) <= 5000
-                             );
-    
     if (hasActive) {
+      // 检查是否有最后5秒的轰炸（需要更快更新实现闪烁）
+      const hasUrgentBombard = this.data.bombardZones && 
+                               this.data.bombardZones.some(z => 
+                                 z.status === 'pending' && 
+                                 (z.detonateAt - Date.now()) <= 5000
+                               );
+      
       // 根据是否有紧急轰炸决定更新频率
-      const updateInterval = hasUrgentBombard ? 100 : 500; // 紧急时100ms，否则500ms
+      const updateInterval = hasUrgentBombard ? 100 : 500;
       
-      // 如果已有定时器但间隔不对，重新创建
+      // 如果已有定时器，检查是否需要调整频率
       if (this.data.bombardTimerInterval) {
-        clearInterval(this.data.bombardTimerInterval);
+        // 定时器已存在，检查是否需要调整频率
+        if (this.data._currentInterval !== updateInterval) {
+          // 需要调整频率，重新创建定时器
+          console.log('[轰炸定时器] 调整频率:', this.data._currentInterval, '->', updateInterval);
+          clearInterval(this.data.bombardTimerInterval);
+          const interval = setInterval(() => {
+            this.updateBombardCircles();
+          }, updateInterval);
+          this.setData({ 
+            bombardTimerInterval: interval,
+            _currentInterval: updateInterval
+          });
+        }
+      } else {
+        // 没有定时器，创建新的
+        console.log('[轰炸定时器] 启动，频率:', updateInterval);
+        const interval = setInterval(() => {
+          this.updateBombardCircles();
+        }, updateInterval);
+        this.setData({ 
+          bombardTimerInterval: interval,
+          _currentInterval: updateInterval
+        });
       }
-      
-      const interval = setInterval(() => {
-        this.updateBombardCircles();
-      }, updateInterval);
-      
-      this.setData({ bombardTimerInterval: interval });
     } else {
       // 没有活跃轰炸区，停止定时器
       this.stopBombardTimer();
@@ -1612,18 +1628,6 @@ Page({
     
     // 合并所有圆圈
     this.mergeAllCircles();
-    
-    // 检查是否需要调整定时器频率（进入/退出紧急状态时重启定时器）
-    const hasUrgentBombard = bombardTimers.some(t => t.remainingSec <= 5);
-    if (hasUrgentBombard && !this.data._urgentMode) {
-      // 进入紧急模式，重启定时器以更快的频率更新
-      this.setData({ _urgentMode: true });
-      this.stopBombardTimer();
-      this.startBombardTimer();
-    } else if (!hasUrgentBombard && this.data._urgentMode) {
-      // 退出紧急模式
-      this.setData({ _urgentMode: false });
-    }
   },
   
   // 获取倒计时图标（用canvas动态生成或返回预设）
