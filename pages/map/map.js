@@ -620,11 +620,17 @@ Page({
             return;
           }
           
-          // 调用抓住 API
+          // 调用抓住 API（传递猫和老鼠的当前位置，避免多实例数据不同步）
+          const myPlayer = this.data.players.find(p => p.id === this.data.playerId);
+          const mousePlayer = this.data.players.find(p => p.id === qrData.playerId);
           const result = await gameAPI.catchPlayer(
             this.data.gameId,
             this.data.playerId,
-            qrData.playerId
+            qrData.playerId,
+            myPlayer?.latitude,   // 猫的当前位置
+            myPlayer?.longitude,
+            mousePlayer?.latitude, // 老鼠的当前位置
+            mousePlayer?.longitude
           );
           
           // 抓人成功的提示

@@ -213,11 +213,18 @@ export const gameAPI = {
   },
   
   // 扫码抓住老鼠
-  catchPlayer(gameId, catcherId, caughtId) {
+  catchPlayer(gameId, catcherId, caughtId, catcherLat, catcherLng, caughtLat, caughtLng) {
     return request({ 
       url: `/api/game/${gameId}/catch`, 
       method: 'POST',
-      data: { catcherId, caughtId }
+      data: { 
+        catcherId, 
+        caughtId,
+        catcherLat,  // 猫的当前位置
+        catcherLng,
+        caughtLat,   // 老鼠的当前位置
+        caughtLng
+      }
     });
   }
 };
