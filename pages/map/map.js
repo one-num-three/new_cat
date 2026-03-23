@@ -417,6 +417,9 @@ Page({
         }
         
         // 更新状态（不直接更新 countdown，让本地倒计时自己减）
+        // 先保存旧的轰炸区域用于引爆检测
+        const prevBombardZones = this.data.bombardZones || [];
+        
         this.setData({
           gameStatus: res.status,
           players: mergedPlayers,
@@ -441,7 +444,6 @@ Page({
         
         // 检测引爆事件（轰炸区域从有到无，或者有detonated事件）
         const newBombardZones = res.bombardZones || [];
-        const prevBombardZones = this.data.bombardZones || [];
         
         // 检查是否有新引爆的区域
         if (prevBombardZones.length > 0 && newBombardZones.length < prevBombardZones.length) {
@@ -827,18 +829,22 @@ Page({
   
   // 启动轰炸倒计时本地更新
   startBombardTimer() {
-    // 先清除旧的
-    if (this.data.bombardTimerInterval) {
-      clearInterval(this.data.bombardTimerInterval);
-    }
+    // 检查是否有活跃轰炸区
+    const hasActive = this.data.bombardZones && 
+                      this.data.bombardZones.some(z => z.status === 'pending');
     
-    // 只有活跃轰炸区时才启动
-    if (this.data.bombardZones && this.data.bombardZones.length > 0) {
-      const interval = setInterval(() => {
-        this.updateBombardCircles();
-      }, 1000);
-      
-      this.setData({ bombardTimerInterval: interval });
+    if (hasActive) {
+      // 有活跃轰炸区，确保定时器在运行
+      if (!this.data.bombardTimerInterval) {
+        console.log('[轰炸定时器] 启动');
+        const interval = setInterval(() => {
+          this.updateBombardCircles();
+        }, 1000);
+        this.setData({ bombardTimerInterval: interval });
+      }
+    } else {
+      // 没有活跃轰炸区，停止定时器
+      this.stopBombardTimer();
     }
   },
   
@@ -1371,13 +1377,13 @@ Page({
 
   // 显示轰炸预览
   showBombardPreview(latitude, longitude) {
-    // 显示预览圆圈（200米半径，黄色）
+    // 显示预览圆圈（200米半径，金黄色）
     const previewCircle = {
       latitude: latitude,
       longitude: longitude,
       radius: 200,
-      color: '#FFCC00',
-      fillColor: '#FFCC0030',
+      color: '#FFD700',
+      fillColor: '#FFD70030',
       strokeWidth: 3
     };
     
@@ -1485,17 +1491,21 @@ Page({
         const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
         
         // 根据剩余时间改变颜色：黄色 -> 橙色 -> 红色
-        let circleColor = '#FFCC00'; // 默认黄色
-        let fillColor = '#FFCC0020';
+        let circleColor = '#FFD700'; // 默认黄色（金黄色更明显）
+        let fillColor = '#FFD70025';
         let strokeWidth = 4;
         
-        if (remainingSec <= 10) {
-          // 最后10秒：橙色
-          circleColor = '#FF8800';
-          fillColor = '#FF880030';
+        if (remainingSec <= 20 && remainingSec > 10) {
+          // 10-20秒：橙黄色
+          circleColor = '#FFA500';
+          fillColor = '#FFA50025';
+          strokeWidth = 4;
+        } else if (remainingSec <= 10 && remainingSec > 5) {
+          // 5-10秒：橙色
+          circleColor = '#FF6600';
+          fillColor = '#FF660030';
           strokeWidth = 5;
-        }
-        if (remainingSec <= 5) {
+        } else if (remainingSec <= 5) {
           // 最后5秒：红色警告
           circleColor = '#FF0000';
           fillColor = '#FF000040';

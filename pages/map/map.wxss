@@ -667,7 +667,7 @@
 }
 
 .bombard-timer-sec {
-  color: #FFCC00;
+  color: #FFD700;
   font-size: 32rpx;
   font-weight: bold;
 }
