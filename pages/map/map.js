@@ -710,27 +710,17 @@ Page({
       });
     }
     
-    // 视野范围圆圈（主圆）- 更明显的样式
+    // 视野范围圆圈（只显示一个主圈）
     const visionCircle = {
       latitude: latitude,
       longitude: longitude,
       radius: actualVisionRange,
       color: hasEagleEye ? '#FFD700' : '#00D9C4', // 边框颜色
-      fillColor: hasEagleEye ? '#FFD70020' : '#4ECDC420', // 填充颜色（带透明度）
-      strokeWidth: 4
+      fillColor: hasEagleEye ? '#FFD70015' : '#4ECDC415', // 填充颜色（带透明度）
+      strokeWidth: 3
     };
     
-    // 外围光晕效果
-    const glowCircle = {
-      latitude: latitude,
-      longitude: longitude,
-      radius: actualVisionRange + 15,
-      color: hasEagleEye ? '#FFD70060' : '#4ECDC460',
-      fillColor: '#00000000',
-      strokeWidth: 2
-    };
-    
-    const circles = [glowCircle, visionCircle];
+    const circles = [visionCircle];
     console.log('[视野圈] 生成的 circles:', JSON.stringify(circles));
     
     this.setData({ 
