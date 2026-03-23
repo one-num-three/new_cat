@@ -7,6 +7,22 @@
     <text class="subtitle">线下实景追逐 · 线上实时定位</text>
   </view>
 
+  <!-- 昵称设置 -->
+  <view class="nickname-section">
+    <text class="nickname-label">👤 我的昵称</text>
+    <view class="nickname-input-wrap">
+      <input 
+        class="nickname-input" 
+        value="{{nickname}}" 
+        placeholder="请输入昵称" 
+        maxlength="10"
+        bindinput="onNicknameInput"
+        bindblur="onNicknameBlur"
+      />
+      <text class="nickname-count">{{nickname.length}}/10</text>
+    </view>
+  </view>
+
   <!-- 游戏操作区 -->
   <view class="game-actions">
     <view class="action-card" bindtap="onCreateGame">
@@ -32,7 +48,7 @@
     </view>
     <view class="tip-item">
       <text class="tip-icon">🎒</text>
-      <text class="tip-text">使用道具：加速、隐身、雷达</text>
+      <text class="tip-text">使用道具：隐身</text>
     </view>
     <view class="tip-item">
       <text class="tip-icon">⏱️</text>

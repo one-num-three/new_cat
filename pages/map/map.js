@@ -379,8 +379,9 @@ Page({
           this.setData({ myScore: myPlayer.score || 0 });
         }
         
-        // 如果角色还未分配，从服务器获取
-        if (!this.data.playerRole && myPlayer?.role) {
+        // 如果角色发生变化（比如被抓变猫），更新角色
+        if (myPlayer?.role && this.data.playerRole !== myPlayer.role) {
+          console.log('[角色变化]', this.data.playerRole, '→', myPlayer.role);
           this.setData({ playerRole: myPlayer.role });
           if (myPlayer.role === 'mouse') {
             this.preloadQRCode();
