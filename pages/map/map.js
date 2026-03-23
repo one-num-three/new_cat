@@ -1230,14 +1230,17 @@ Page({
       wx.hideLoading();
       
       if (res.success) {
-        wx.showToast({ 
-          title: `购买${res.itemName}成功！剩余${res.remainingScore}分`, 
-          icon: 'success' 
-        });
-        this.setData({ myScore: res.remainingScore });
-        
-        // 如果是雷达，显示效果
+        // 处理道具效果
+        if (res.effect) {
+          this.handleItemEffect(res.effect);
+        } else {
+          wx.showToast({ 
+            title: `购买${res.itemName}成功！`, 
+            icon: 'success' 
+          });
         }
+        this.setData({ myScore: res.remainingScore });
+      }
     } catch (err) {
       wx.hideLoading();
       wx.showToast({ title: err.message || '购买失败', icon: 'none' });
