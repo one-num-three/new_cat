@@ -226,6 +226,15 @@ export const gameAPI = {
         caughtLng
       }
     });
+  },
+  
+  // 离开游戏（掉线）
+  leaveGame(gameId, playerId) {
+    return request({ 
+      url: `/api/game/${gameId}/leave`, 
+      method: 'POST',
+      data: { playerId }
+    });
   }
 };
 
