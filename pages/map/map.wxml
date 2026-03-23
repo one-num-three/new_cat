@@ -22,13 +22,26 @@
     bindmarkertap="onMarkerTap"
   />
 
-  <!-- 视野范围遮罩 -->
-  <view class="vision-overlay" wx:if="{{gameStatus === 'playing'}}">
-    <view class="vision-corner vision-corner-tl"></view>
-    <view class="vision-corner vision-corner-tr"></view>
-    <view class="vision-corner vision-corner-bl"></view>
-    <view class="vision-corner vision-corner-br"></view>
-    <view class="vision-hint-bottom">👁️ 视野范围: {{visionRange}}米</view>
+  <!-- 视野范围遮罩层 -->
+  <cover-view class="vision-mask-container" wx:if="{{gameStatus === 'playing'}}">
+    <!-- 顶部遮罩 -->
+    <cover-view class="vision-mask-top"></cover-view>
+    <!-- 底部遮罩 -->
+    <cover-view class="vision-mask-bottom"></cover-view>
+    <!-- 左侧遮罩 -->
+    <cover-view class="vision-mask-left"></cover-view>
+    <!-- 右侧遮罩 -->
+    <cover-view class="vision-mask-right"></cover-view>
+    <!-- 四角额外遮罩（模拟圆形边界） -->
+    <cover-view class="vision-mask-corner vision-mask-corner-tl"></cover-view>
+    <cover-view class="vision-mask-corner vision-mask-corner-tr"></cover-view>
+    <cover-view class="vision-mask-corner vision-mask-corner-bl"></cover-view>
+    <cover-view class="vision-mask-corner vision-mask-corner-br"></cover-view>
+  </cover-view>
+
+  <!-- 视野范围提示 -->
+  <view class="vision-hint-bar" wx:if="{{gameStatus === 'playing'}}">
+    <text>👁️ 视野范围: {{visionRange}}米 (圈内可见)</text>
   </view>
 
   <!-- 弹幕区域 -->

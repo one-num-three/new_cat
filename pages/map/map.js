@@ -601,31 +601,30 @@ Page({
     
     const visionRange = this.data.visionRange || 200;
     
-    // 视野范围圆圈（主圆）
+    // 视野范围圆圈（主圆）- 更明显的样式
     const visionCircle = {
       latitude: latitude,
       longitude: longitude,
       radius: visionRange,
-      color: '#4ECDC415', // 圆内颜色（淡青色半透明）
-      fillColor: '#4ECDC408', // 填充颜色（更淡）
-      strokeWidth: 3,
-      strokeColor: '#4ECDC4AA', // 边框颜色（青色半透明）
+      color: '#4ECDC430', // 圆内淡青色半透明
+      fillColor: '#4ECDC415', // 填充颜色
+      strokeWidth: 5,
+      strokeColor: '#4ECDC4FF', // 边框颜色（不透明青色，更明显）
     };
     
-    // 外围警示圈（表示视野边界外的迷雾区域）
-    const fogCircle = {
+    // 外围光晕效果
+    const glowCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: visionRange + 30,
+      radius: visionRange + 20,
       color: '#00000000',
       fillColor: '#00000000',
-      strokeWidth: 2,
-      strokeColor: '#FF6B6B40', // 淡红色边界警示
-      strokeDashArray: [10, 10], // 虚线（如果支持）
+      strokeWidth: 3,
+      strokeColor: '#4ECDC480', // 青色光晕
     };
     
     this.setData({ 
-      circles: [fogCircle, visionCircle]
+      circles: [glowCircle, visionCircle]
     });
   },
 
