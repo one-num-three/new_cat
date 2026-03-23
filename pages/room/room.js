@@ -16,14 +16,16 @@ Page({
       mouseCount: 5,
       gameDuration: 10, // 分钟
       mapRange: 1000, // 米
-      revealTime: 3 // 分钟
+      revealTime: 3, // 分钟
+      visionRange: 800 // 米
     },
     gameSettings: {
       catCount: 1,
       mouseCount: 5,
       gameDuration: 600, // 10 分钟 = 600 秒
       mapRange: 1000, // 1000 米范围
-      revealTime: 180 // 3 分钟 = 180 秒
+      revealTime: 180, // 3 分钟 = 180 秒
+      visionRange: 800 // 默认 800 米视野
     }
   },
 
@@ -141,6 +143,9 @@ Page({
       const revealTimeText = res.settings && res.settings.revealTime
         ? (res.settings.revealTime / 60) + '分钟'
         : '3 分钟';
+      const visionRangeText = res.settings && res.settings.visionRange
+        ? res.settings.visionRange + '米'
+        : '800米';
       
       this.setData({ 
         roomInfo: res, 
@@ -148,7 +153,8 @@ Page({
         isOwner: this.data.isOwner || (currentPlayer && currentPlayer.isOwner),
         durationText: durationText,
         rangeText: rangeText,
-        revealTimeText: revealTimeText
+        revealTimeText: revealTimeText,
+        visionRangeText: visionRangeText
       });
     } catch (err) {
       console.error('加载房间失败', err);
@@ -173,7 +179,8 @@ Page({
         mouseCount: settings.mouseCount || 5,
         gameDuration: (settings.gameDuration || 600) / 60,
         mapRange: settings.mapRange || 1000,
-        revealTime: (settings.revealTime || 180) / 60
+        revealTime: (settings.revealTime || 180) / 60,
+        visionRange: settings.visionRange || 800
       },
       showSettingsModal: true
     });
@@ -205,7 +212,8 @@ Page({
         mouseCount: this.data.tempSettings.mouseCount,
         gameDuration: this.data.tempSettings.gameDuration * 60,
         mapRange: this.data.tempSettings.mapRange,
-        revealTime: this.data.tempSettings.revealTime * 60
+        revealTime: this.data.tempSettings.revealTime * 60,
+        visionRange: this.data.tempSettings.visionRange
       };
       
       await gameAPI.updateRoomSettings(this.data.roomId, settings);

@@ -95,6 +95,10 @@
         <text class="setting-label">🎭 揭秘时间</text>
         <text class="setting-value">{{revealTimeText}}</text>
       </view>
+      <view class="setting-item full-width">
+        <text class="setting-label">👁️ 视野范围</text>
+        <text class="setting-value">{{visionRangeText}}</text>
+      </view>
     </view>
   </view>
 
@@ -157,6 +161,17 @@
           </view>
         </view>
         <text class="setting-tip">游戏开始后多久公开身份（0=立即揭秘）</text>
+        
+        <!-- 视野范围 -->
+        <view class="setting-row">
+          <text class="setting-row-label">👁️ 视野范围</text>
+          <view class="stepper">
+            <view class="stepper-btn" bindtap="onDecrease" data-field="visionRange" data-min="200" data-max="2000" data-step="100">−</view>
+            <text class="stepper-value">{{tempSettings.visionRange}}米</text>
+            <view class="stepper-btn" bindtap="onIncrease" data-field="visionRange" data-min="200" data-max="2000" data-step="100">+</view>
+          </view>
+        </view>
+        <text class="setting-tip">不同阵营玩家的可视距离（同阵营互相可见）</text>
       </view>
       
       <view class="modal-footer">

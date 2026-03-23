@@ -189,9 +189,13 @@ export const gameAPI = {
     });
   },
   
-  // 获取游戏状态
-  getGameStatus(gameId) {
-    return request({ url: `/api/game/${gameId}/status` });
+  // 获取游戏状态（带视野过滤）
+  getGameStatus(gameId, playerId, latitude, longitude) {
+    let url = `/api/game/${gameId}/status`;
+    if (playerId && latitude && longitude) {
+      url += `?playerId=${playerId}&latitude=${latitude}&longitude=${longitude}`;
+    }
+    return request({ url });
   },
   
   // 更新位置

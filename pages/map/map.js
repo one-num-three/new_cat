@@ -286,7 +286,13 @@ Page({
     
     this.statusPollTimer = setInterval(async () => {
       try {
-        const res = await gameAPI.getGameStatus(this.data.gameId);
+        // 传递当前位置用于视野过滤
+        const res = await gameAPI.getGameStatus(
+          this.data.gameId, 
+          this.data.playerId, 
+          this.data.latitude, 
+          this.data.longitude
+        );
         
         // 智能合并玩家数据
         const serverPlayers = res.players || [];
@@ -447,8 +453,8 @@ Page({
       .filter(p => {
         // 必须有位置
         if (!p.latitude || !p.longitude) return false;
-        // 隐身的玩家不显示（除了自己）
-        if (p.items?.invisible > 0 && p.id !== myId) return false;
+        // 隐身的玩家不显示（除了自己，且在隐身时间内）
+        if (p.items?.invisible > Date.now() && p.id !== myId) return false;
         return true;
       })
       .map((player) => {
