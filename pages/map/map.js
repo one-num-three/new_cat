@@ -1459,11 +1459,11 @@ Page({
 
   // 显示轰炸预览
   showBombardPreview(latitude, longitude) {
-    // 显示预览圆圈（200米半径，金黄色）
+    // 显示预览圆圈（150米半径，金黄色）
     const previewCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: 200,
+      radius: 150,
       color: '#FFD700',
       fillColor: '#FFD70030',
       strokeWidth: 3
@@ -1524,7 +1524,7 @@ Page({
       if (res.success) {
         wx.showModal({
           title: '💣 轰炸点已设置',
-          content: `轰炸将在 30 秒后引爆！\n半径 200 米内的玩家将扣除 50 积分`,
+          content: `轰炸将在 30 秒后引爆！\n半径 150 米内的玩家将扣除 50 积分`,
           showCancel: false
         });
         
