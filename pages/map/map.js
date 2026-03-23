@@ -1128,8 +1128,8 @@ Page({
       nickname: '我'
     };
     
-    // 添加金身状态
-    const hasGoldenShield = this.data.hasGoldenShield;
+    // 使用 inGoldenShield（是否在保护圈内）而不是 hasGoldenShield
+    const inGoldenShield = this.data.inGoldenShield;
     
     // 尝试使用预缓存
     try {
@@ -1137,7 +1137,7 @@ Page({
       if (app && app.globalData && app.globalData.qrCodePath) {
         console.log('[二维码] 使用预缓存:', app.globalData.qrCodePath);
         wx.navigateTo({
-          url: `/pages/qrcode/qrcode?cached=1&data=${encodeURIComponent(JSON.stringify(app.globalData.qrCodeData || qrData))}&path=${encodeURIComponent(app.globalData.qrCodePath)}&goldenShield=${hasGoldenShield ? 1 : 0}`
+          url: `/pages/qrcode/qrcode?cached=1&data=${encodeURIComponent(JSON.stringify(app.globalData.qrCodeData || qrData))}&path=${encodeURIComponent(app.globalData.qrCodePath)}&goldenShield=${inGoldenShield ? 1 : 0}`
         });
         return;
       }
@@ -1148,7 +1148,7 @@ Page({
     // 没有缓存，实时生成
     const qrText = JSON.stringify(qrData);
     wx.navigateTo({
-      url: `/pages/qrcode/qrcode?data=${encodeURIComponent(qrText)}&goldenShield=${hasGoldenShield ? 1 : 0}`
+      url: `/pages/qrcode/qrcode?data=${encodeURIComponent(qrText)}&goldenShield=${inGoldenShield ? 1 : 0}`
     });
   },
 
