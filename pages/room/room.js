@@ -17,7 +17,7 @@ Page({
       gameDuration: 10, // 分钟
       mapRange: 1000, // 米
       revealTime: 3, // 分钟
-      visionRange: 200 // 米
+      visionRange: 200 // 米（默认 200）
     },
     gameSettings: {
       catCount: 1,

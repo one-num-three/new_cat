@@ -166,9 +166,9 @@
         <view class="setting-row">
           <text class="setting-row-label">👁️ 视野范围</text>
           <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="visionRange" data-min="200" data-max="2000" data-step="100">−</view>
+            <view class="stepper-btn" bindtap="onDecrease" data-field="visionRange" data-min="50" data-max="2000" data-step="50">−</view>
             <text class="stepper-value">{{tempSettings.visionRange}}米</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="visionRange" data-min="200" data-max="2000" data-step="100">+</view>
+            <view class="stepper-btn" bindtap="onIncrease" data-field="visionRange" data-min="50" data-max="2000" data-step="50">+</view>
           </view>
         </view>
         <text class="setting-tip">不同阵营玩家的可视距离（同阵营互相可见）</text>
