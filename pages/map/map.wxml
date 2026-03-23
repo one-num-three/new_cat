@@ -11,6 +11,7 @@
     scale="{{scale}}"
     markers="{{markers}}"
     circles="{{circles}}"
+    polygons="{{visionPolygons}}"
     show-location="{{true}}"
     enable-satellite="false"
     enable-overlooking="true"
@@ -22,15 +23,6 @@
     bindmarkertap="onMarkerTap"
   />
 
-  <!-- 视野范围遮罩层 - canvas 绘制圆形挖空 -->
-  <canvas 
-    type="2d"
-    id="visionCanvas"
-    class="vision-canvas"
-    canvas-id="visionCanvas"
-    wx:if="{{gameStatus === 'playing'}}"
-  ></canvas>
-  
   <!-- 视野范围提示 -->
   <view class="vision-hint-bar" wx:if="{{gameStatus === 'playing'}}">
     <text>👁️ 视野范围: {{visionRange}}米</text>
