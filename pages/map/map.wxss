@@ -508,3 +508,10 @@
   border: 2rpx solid #4ECDC4;
   box-shadow: 0 0 20rpx rgba(78, 205, 196, 0.5);
 }
+
+.vision-hint-bar.eagle-eye-active {
+  background: rgba(255, 215, 0, 0.9);
+  color: #333;
+  border: 2rpx solid #FFD700;
+  box-shadow: 0 0 30rpx rgba(255, 215, 0, 0.8);
+}

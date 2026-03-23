@@ -10,6 +10,7 @@ Page({
     circles: [], // 视野范围圆圈
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
+    hasEagleEye: false, // 是否激活鹰眼
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -23,7 +24,8 @@ Page({
     showScoreBoard: true, // 记分板展开状态
     showShop: false, // 道具商店显示状态
     shopItems: [
-      { id: 'invisible', icon: '👻', name: '隐身', price: 15, desc: '15秒内对其他玩家隐藏' }
+      { id: 'invisible', icon: '👻', name: '隐身', price: 15, desc: '15秒内对其他玩家隐藏' },
+      { id: 'eagleEye', icon: '🦅', name: '鹰眼', price: 20, desc: '10秒内视野范围+50%' }
     ],
     isLocationReady: false,
     lastLocationTime: 0,
@@ -644,10 +646,22 @@ Page({
     
     const baseVisionRange = this.data.visionRange || 200;
     
-    // 猫的视野比老鼠大30%
+    // 找到自己的玩家信息
+    const myPlayer = this.data.allPlayers.find(p => p.id === this.data.playerId) ||
+                     this.data.players.find(p => p.id === this.data.playerId);
+    
+    // 计算实际视野范围
     let actualVisionRange = baseVisionRange;
+    
+    // 猫的视野比老鼠大30%
     if (this.data.playerRole === 'cat') {
       actualVisionRange = baseVisionRange * 1.3;
+    }
+    
+    // 鹰眼技能：视野额外+50%
+    const hasEagleEye = myPlayer?.items?.eagleEye && myPlayer.items.eagleEye > Date.now();
+    if (hasEagleEye) {
+      actualVisionRange = actualVisionRange * 1.5;
     }
     
     // 视野范围圆圈（主圆）- 更明显的样式
@@ -655,10 +669,10 @@ Page({
       latitude: latitude,
       longitude: longitude,
       radius: actualVisionRange,
-      color: '#4ECDC440', // 圆内淡青色填充
-      fillColor: '#4ECDC420',
-      strokeWidth: 6, // 更粗的边框
-      strokeColor: '#00D9C4', // 更亮的青色边框
+      color: hasEagleEye ? '#FFD70040' : '#4ECDC440', // 鹰眼时金色
+      fillColor: hasEagleEye ? '#FFD70020' : '#4ECDC420',
+      strokeWidth: 6,
+      strokeColor: hasEagleEye ? '#FFD700' : '#00D9C4', // 鹰眼时金色边框
     };
     
     // 外围光晕效果
@@ -669,7 +683,7 @@ Page({
       color: '#00000000',
       fillColor: '#00000000',
       strokeWidth: 3,
-      strokeColor: '#4ECDC480',
+      strokeColor: hasEagleEye ? '#FFD70080' : '#4ECDC480',
     };
     
     // 内圈（更亮的边缘）
@@ -680,12 +694,13 @@ Page({
       color: '#00000000',
       fillColor: '#00000000',
       strokeWidth: 2,
-      strokeColor: '#00FFD0',
+      strokeColor: hasEagleEye ? '#FFFF00' : '#00FFD0',
     };
     
     this.setData({ 
       circles: [glowCircle, visionCircle, innerCircle],
-      actualVisionRange: actualVisionRange // 实际视野范围（用于显示）
+      actualVisionRange: actualVisionRange, // 实际视野范围（用于显示）
+      hasEagleEye: hasEagleEye // 鹰眼状态
     });
   },
 
@@ -877,6 +892,14 @@ Page({
           icon: 'success',
           duration: 2000
         });
+        break;
+      case 'eagleEye':
+        wx.showToast({
+          title: '🦅 鹰眼启动！视野+50%',
+          icon: 'success',
+          duration: 2000
+        });
+        // 鹰眼效果会在下次轮询时自动更新视野圆圈
         break;
     }
   },
