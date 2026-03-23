@@ -11,6 +11,7 @@ Page({
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
     hasEagleEye: false, // 是否激活鹰眼
+    eagleEyeStacks: 0, // 鹰眼层数
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -652,16 +653,35 @@ Page({
     
     // 计算实际视野范围
     let actualVisionRange = baseVisionRange;
+    let eagleEyeStacks = 0;
     
     // 猫的视野比老鼠大30%
     if (this.data.playerRole === 'cat') {
       actualVisionRange = baseVisionRange * 1.3;
     }
     
-    // 鹰眼技能：视野额外+50%
+    // 鹰眼技能：每层+50%（可叠加）
     const hasEagleEye = myPlayer?.items?.eagleEye && myPlayer.items.eagleEye > Date.now();
     if (hasEagleEye) {
-      actualVisionRange = actualVisionRange * 1.5;
+      eagleEyeStacks = myPlayer.items.eagleEyeCount || 1;
+      // 每层乘以1.5
+      for (let i = 0; i < eagleEyeStacks; i++) {
+        actualVisionRange = actualVisionRange * 1.5;
+      }
+    }
+    
+    // 检查鹰眼状态是否变化
+    const prevHasEagleEye = this.data.hasEagleEye;
+    const prevStacks = this.data.eagleEyeStacks || 0;
+    
+    // 鹰眼消失时提示
+    if (prevHasEagleEye && !hasEagleEye) {
+      console.log('[鹰眼] 效果已消失');
+      wx.showToast({
+        title: '🦅 鹰眼效果已消失',
+        icon: 'none',
+        duration: 1500
+      });
     }
     
     // 视野范围圆圈（主圆）- 更明显的样式
@@ -700,7 +720,8 @@ Page({
     this.setData({ 
       circles: [glowCircle, visionCircle, innerCircle],
       actualVisionRange: actualVisionRange, // 实际视野范围（用于显示）
-      hasEagleEye: hasEagleEye // 鹰眼状态
+      hasEagleEye: hasEagleEye, // 鹰眼状态
+      eagleEyeStacks: eagleEyeStacks // 鹰眼层数
     });
   },
 
@@ -894,12 +915,12 @@ Page({
         });
         break;
       case 'eagleEye':
+        const stacks = effect.stacks || 1;
         wx.showToast({
-          title: '🦅 鹰眼启动！视野+50%',
+          title: `🦅 鹰眼启动！视野+${stacks * 50}%`,
           icon: 'success',
           duration: 2000
         });
-        // 鹰眼效果会在下次轮询时自动更新视野圆圈
         break;
     }
   },
