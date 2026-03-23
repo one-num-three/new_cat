@@ -529,29 +529,59 @@
   50% { transform: translateX(-50%) scale(1.05); }
 }
 
-/* 轰炸选择提示 */
-.bombard-select-tip {
+/* 轰炸选择遮罩 */
+.bombard-overlay {
   position: absolute;
-  top: 200rpx;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 30;
-  background: rgba(255, 0, 0, 0.9);
-  color: #fff;
-  padding: 20rpx 40rpx;
-  border-radius: 30rpx;
-  font-size: 28rpx;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 30rpx;
-  box-shadow: 0 0 30rpx rgba(255, 0, 0, 0.5);
-  animation: pulse 1.5s infinite;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 0, 0, 0.15);
+  z-index: 20;
+  pointer-events: none;
 }
 
-.bombard-select-tip .cancel-btn {
-  background: rgba(255, 255, 255, 0.3);
-  padding: 10rpx 20rpx;
+.bombard-overlay-content {
+  position: absolute;
+  top: 150rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
   border-radius: 20rpx;
+  padding: 30rpx 50rpx;
+  text-align: center;
+  border: 2rpx solid #FF4444;
+  pointer-events: auto;
+}
+
+.bombard-title {
+  font-size: 36rpx;
+  color: #FF4444;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.bombard-desc {
+  font-size: 28rpx;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.bombard-info {
   font-size: 24rpx;
+  color: #aaa;
+}
+
+.bombard-cancel {
+  position: absolute;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 20rpx 60rpx;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  pointer-events: auto;
 }

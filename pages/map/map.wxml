@@ -22,10 +22,14 @@
     bindmarkertap="onMarkerTap"
   />
   
-  <!-- 轰炸选择提示 -->
-  <view class="bombard-select-tip" wx:if="{{selectingBombard}}">
-    <text>💣 点击地图选择轰炸点</text>
-    <view class="cancel-btn" bindtap="cancelBombardSelect">取消</view>
+  <!-- 轰炸选择遮罩 -->
+  <view class="bombard-overlay" wx:if="{{selectingBombard}}">
+    <view class="bombard-overlay-content">
+      <view class="bombard-title">💣 选择轰炸点</view>
+      <view class="bombard-desc">轻触地图选择打击位置</view>
+      <view class="bombard-info">半径 200米 | 伤害 50积分 | 30秒后引爆</view>
+    </view>
+    <view class="bombard-cancel" catchtap="cancelBombardSelect">取消</view>
   </view>
 
   <!-- 视野范围提示 -->
