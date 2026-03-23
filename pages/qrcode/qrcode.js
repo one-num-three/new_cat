@@ -4,10 +4,16 @@ Page({
     qrData: null,
     qrCodeUrl: '',
     qrCodePath: '', // 预缓存的本地路径
-    loading: true
+    loading: true,
+    hasGoldenShield: false // 是否有金身保护
   },
 
   onLoad(options) {
+    // 接收金身状态
+    if (options.goldenShield === '1') {
+      this.setData({ hasGoldenShield: true });
+    }
+    
     // 优先使用预缓存的二维码
     if (options.cached === '1' && options.path) {
       console.log('[二维码] 使用预缓存');

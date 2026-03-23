@@ -8,10 +8,14 @@ Page({
     scale: 16,
     markers: [],
     circles: [], // 视野范围圆圈
+    goldenShieldCircles: [], // 金身保护圈
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
     hasEagleEye: false, // 是否激活鹰眼
     eagleEyeStacks: 0, // 鹰眼层数
+    hasGoldenShield: false, // 是否激活金身
+    inGoldenShield: false, // 是否在金身保护圈内
+    goldenShieldExpiresAt: 0, // 金身过期时间
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -26,7 +30,8 @@ Page({
     showShop: false, // 道具商店显示状态
     shopItems: [
       { id: 'invisible', icon: '👻', name: '隐身', price: 15, desc: '15秒内对其他玩家隐藏' },
-      { id: 'eagleEye', icon: '🦅', name: '鹰眼', price: 20, desc: '10秒内视野范围+50%' }
+      { id: 'eagleEye', icon: '🦅', name: '鹰眼', price: 20, desc: '10秒内视野范围+50%' },
+      { id: 'goldenShield', icon: '🛡️', name: '金身', price: 30, desc: '3分钟保护圈，圈内不可被抓' }
     ],
     isLocationReady: false,
     lastLocationTime: 0,
@@ -399,7 +404,8 @@ Page({
           players: mergedPlayers,
           allPlayers: res.allPlayers || mergedPlayers, // 所有玩家（用于记分板）
           events: res.events || [],
-          visionRange: res.settings?.visionRange || 200
+          visionRange: res.settings?.visionRange || 200,
+          goldenShields: res.goldenShields || [] // 金身保护圈列表
         });
         
         // 检测新事件，显示弹幕
@@ -723,6 +729,104 @@ Page({
       hasEagleEye: hasEagleEye, // 鹰眼状态
       eagleEyeStacks: eagleEyeStacks // 鹰眼层数
     });
+    
+    // 更新金身保护圈
+    this.updateGoldenShields(latitude, longitude);
+  },
+
+  // 更新金身保护圈
+  updateGoldenShields(myLat, myLng) {
+    const goldenShields = this.data.goldenShields || [];
+    const goldenShieldCircles = [];
+    const GOLDEN_SHIELD_VISIBLE_RADIUS = 500; // 500米内可见金身圈
+    
+    goldenShields.forEach(shield => {
+      // 检查是否在可见范围内
+      if (shield.center && myLat && myLng) {
+        const distance = this.calculateDistance(
+          myLat, myLng,
+          shield.center.latitude, shield.center.longitude
+        );
+        
+        if (distance <= GOLDEN_SHIELD_VISIBLE_RADIUS) {
+          // 在可见范围内，添加保护圈
+          goldenShieldCircles.push({
+            latitude: shield.center.latitude,
+            longitude: shield.center.longitude,
+            radius: shield.radius,
+            color: '#FFD70030', // 金色半透明
+            fillColor: '#FFD70015',
+            strokeWidth: 3,
+            strokeColor: '#FFD700',
+          });
+        }
+      }
+    });
+    
+    // 检查自己是否有金身，以及是否在保护圈内
+    const myPlayer = this.data.allPlayers.find(p => p.id === this.data.playerId) ||
+                     this.data.players.find(p => p.id === this.data.playerId);
+    
+    let hasGoldenShield = false;
+    let inGoldenShield = false;
+    let goldenShieldExpiresAt = 0;
+    
+    if (myPlayer?.items?.goldenShield && myPlayer.items.goldenShield > Date.now()) {
+      hasGoldenShield = true;
+      goldenShieldExpiresAt = myPlayer.items.goldenShield;
+      
+      // 检查是否在保护圈内
+      const center = myPlayer.items.goldenShieldCenter;
+      const radius = myPlayer.items.goldenShieldRadius || 50;
+      
+      if (center && myLat && myLng) {
+        const distanceFromCenter = this.calculateDistance(
+          center.latitude, center.longitude,
+          myLat, myLng
+        );
+        inGoldenShield = distanceFromCenter <= radius;
+      }
+    }
+    
+    // 检测金身失效或出圈
+    const prevInShield = this.data.inGoldenShield;
+    const prevHasShield = this.data.hasGoldenShield;
+    
+    if (prevHasShield && !hasGoldenShield) {
+      // 金身时间结束
+      wx.showToast({
+        title: '🛡️ 金身效果已消失',
+        icon: 'none',
+        duration: 2000
+      });
+    } else if (hasGoldenShield && prevInShield && !inGoldenShield) {
+      // 离开了保护圈
+      wx.showToast({
+        title: '⚠️ 已离开金身保护圈！',
+        icon: 'none',
+        duration: 2000
+      });
+    }
+    
+    this.setData({
+      goldenShieldCircles,
+      hasGoldenShield,
+      inGoldenShield,
+      goldenShieldExpiresAt
+    });
+  },
+
+  // 计算两点距离（米）
+  calculateDistance(lat1, lng1, lat2, lng2) {
+    const R = 6371000; // 地球半径（米）
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
   },
 
   // ==================== 扫码相关 ====================
@@ -784,6 +888,28 @@ Page({
       return;
     }
     
+    // 检查金身状态
+    if (this.data.inGoldenShield) {
+      wx.showModal({
+        title: '🛡️ 金身保护中',
+        content: '你正在金身保护圈内，无法被扫码抓住！\n\n离开保护圈后，二维码才能被扫描。',
+        showCancel: true,
+        cancelText: '知道了',
+        confirmText: '仍要查看',
+        success: (res) => {
+          if (res.confirm) {
+            this.navigateToQRCode();
+          }
+        }
+      });
+      return;
+    }
+    
+    this.navigateToQRCode();
+  },
+  
+  // 跳转到二维码页面
+  navigateToQRCode() {
     // 生成二维码数据
     const qrData = {
       gameId: this.data.gameId,
@@ -792,13 +918,16 @@ Page({
       nickname: '我'
     };
     
+    // 添加金身状态
+    const hasGoldenShield = this.data.hasGoldenShield;
+    
     // 尝试使用预缓存
     try {
       const app = getApp();
       if (app && app.globalData && app.globalData.qrCodePath) {
         console.log('[二维码] 使用预缓存:', app.globalData.qrCodePath);
         wx.navigateTo({
-          url: `/pages/qrcode/qrcode?cached=1&data=${encodeURIComponent(JSON.stringify(app.globalData.qrCodeData || qrData))}&path=${encodeURIComponent(app.globalData.qrCodePath)}`
+          url: `/pages/qrcode/qrcode?cached=1&data=${encodeURIComponent(JSON.stringify(app.globalData.qrCodeData || qrData))}&path=${encodeURIComponent(app.globalData.qrCodePath)}&goldenShield=${hasGoldenShield ? 1 : 0}`
         });
         return;
       }
@@ -809,7 +938,7 @@ Page({
     // 没有缓存，实时生成
     const qrText = JSON.stringify(qrData);
     wx.navigateTo({
-      url: `/pages/qrcode/qrcode?data=${encodeURIComponent(qrText)}`
+      url: `/pages/qrcode/qrcode?data=${encodeURIComponent(qrText)}&goldenShield=${hasGoldenShield ? 1 : 0}`
     });
   },
 
@@ -920,6 +1049,17 @@ Page({
           title: `🦅 鹰眼启动！视野+${stacks * 50}%`,
           icon: 'success',
           duration: 2000
+        });
+        break;
+      case 'goldenShield':
+        wx.showToast({
+          title: `🛡️ 金身开启！圈内保护`,
+          icon: 'success',
+          duration: 2000
+        });
+        this.setData({ 
+          hasGoldenShield: true,
+          goldenShieldExpiresAt: Date.now() + effect.duration * 1000
         });
         break;
     }

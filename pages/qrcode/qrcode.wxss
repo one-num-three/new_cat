@@ -17,6 +17,11 @@
   max-width: 600rpx;
 }
 
+.qrcode-card.golden-shield {
+  border: 6rpx solid #FFD700;
+  box-shadow: 0 0 40rpx rgba(255, 215, 0, 0.6);
+}
+
 .qrcode-title {
   font-size: 40rpx;
   font-weight: bold;
@@ -27,7 +32,18 @@
 .qrcode-subtitle {
   font-size: 28rpx;
   color: #666;
-  margin-bottom: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 金身保护横幅 */
+.golden-shield-banner {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #333;
+  padding: 16rpx 30rpx;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  font-weight: bold;
+  font-size: 26rpx;
 }
 
 .qrcode-image-wrapper {
@@ -40,6 +56,11 @@
   justify-content: center;
   align-items: center;
   border: 4rpx solid #667eea;
+  position: relative;
+}
+
+.qrcode-image-wrapper.protected {
+  border-color: #FFD700;
 }
 
 .qrcode-image {
@@ -50,6 +71,25 @@
 .qrcode-loading {
   color: #999;
   font-size: 28rpx;
+}
+
+/* 金身遮罩 */
+.golden-shield-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rpx;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
 }
 
 .player-info {
@@ -72,6 +112,22 @@
   padding: 8rpx 20rpx;
   border-radius: 30rpx;
   font-size: 24rpx;
+}
+
+.warning-tip {
+  background: #fff3cd;
+  color: #856404;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  margin-bottom: 40rpx;
+  border: 1rpx solid #ffeeba;
+}
+
+.warning-tip.protected-tip {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
 }
 
 .tip {

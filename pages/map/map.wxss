@@ -515,3 +515,16 @@
   border: 2rpx solid #FFD700;
   box-shadow: 0 0 30rpx rgba(255, 215, 0, 0.8);
 }
+
+.vision-hint-bar.golden-shield-active {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #333;
+  border: 2rpx solid #FFD700;
+  box-shadow: 0 0 30rpx rgba(255, 215, 0, 0.8);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+}

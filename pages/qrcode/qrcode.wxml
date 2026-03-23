@@ -1,11 +1,16 @@
 <!--pages/qrcode/qrcode.wxml-->
 <view class="qrcode-container">
-  <view class="qrcode-card">
+  <view class="qrcode-card {{hasGoldenShield ? 'golden-shield' : ''}}">
     <view class="qrcode-title">🐭 我的二维码</view>
     <view class="qrcode-subtitle">向猫展示此二维码</view>
     
+    <!-- 金身保护提示 -->
+    <view class="golden-shield-banner" wx:if="{{hasGoldenShield}}">
+      <text>🛡️ 金身保护中 - 圈内不可被抓</text>
+    </view>
+    
     <!-- 二维码区域 -->
-    <view class="qrcode-image-wrapper" bindlongpress="onLongPress">
+    <view class="qrcode-image-wrapper {{hasGoldenShield ? 'protected' : ''}}" bindlongpress="onLongPress">
       <!-- 预缓存的本地图片（秒开） -->
       <image 
         wx:if="{{qrCodePath}}"
@@ -30,6 +35,12 @@
       <view wx:if="{{loading && !qrCodePath}}" class="qrcode-loading">
         <text>⏳ 生成中...</text>
       </view>
+      
+      <!-- 金身遮罩 -->
+      <view class="golden-shield-overlay" wx:if="{{hasGoldenShield}}">
+        <text>🛡️</text>
+        <text>保护中</text>
+      </view>
     </view>
     
     <!-- 玩家信息 -->
@@ -39,8 +50,9 @@
     </view>
     
     <!-- 重要提示 -->
-    <view class="warning-tip">
-      ⚠️ 被猫扫到即被抓住！
+    <view class="warning-tip {{hasGoldenShield ? 'protected-tip' : ''}}">
+      <text wx:if="{{hasGoldenShield}}">🛡️ 你正在金身保护圈内，猫无法扫码抓住你！</text>
+      <text wx:else>⚠️ 被猫扫到即被抓住！</text>
     </view>
     
     <!-- 操作按钮 -->
