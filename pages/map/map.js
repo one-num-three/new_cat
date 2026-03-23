@@ -8,7 +8,6 @@ Page({
     scale: 16,
     markers: [],
     circles: [], // 视野范围圆圈
-    visionPolygons: [], // 视野外多边形遮罩
     visionRange: 200, // 视野范围（米）
     gameId: null,
     playerId: null,
@@ -596,107 +595,37 @@ Page({
     this.setData({ markers });
   },
 
-  // 更新视野范围圆圈和遮罩
+  // 更新视野范围圆圈
   updateVisionCircle(latitude, longitude) {
     if (!latitude || !longitude) return;
     
     const visionRange = this.data.visionRange || 200;
     
-    // 视野范围圆圈（主圆）- 更明显的样式
+    // 视野范围圆圈（主圆）- 明显的样式
     const visionCircle = {
       latitude: latitude,
       longitude: longitude,
       radius: visionRange,
-      color: '#4ECDC430', // 圆内淡青色半透明
-      fillColor: '#4ECDC415', // 填充颜色
-      strokeWidth: 5,
-      strokeColor: '#4ECDC4FF', // 边框颜色（不透明青色，更明显）
+      color: '#4ECDC420', // 圆内淡青色
+      fillColor: '#4ECDC410',
+      strokeWidth: 4,
+      strokeColor: '#4ECDC4FF', // 不透明青色边框
     };
     
     // 外围光晕效果
     const glowCircle = {
       latitude: latitude,
       longitude: longitude,
-      radius: visionRange + 20,
+      radius: visionRange + 15,
       color: '#00000000',
       fillColor: '#00000000',
-      strokeWidth: 3,
-      strokeColor: '#4ECDC480', // 青色光晕
+      strokeWidth: 2,
+      strokeColor: '#4ECDC460',
     };
     
-    // 使用 polygons 绘制圆形外的遮罩区域
-    // 绘制四个矩形：上、下、左、右
-    const visionPolygons = this.generateVisionMaskPolygons(latitude, longitude, visionRange);
-    
     this.setData({ 
-      circles: [glowCircle, visionCircle],
-      visionPolygons: visionPolygons
+      circles: [glowCircle, visionCircle]
     });
-  },
-
-  // 生成视野遮罩多边形（四个矩形覆盖圆形外的区域）
-  generateVisionMaskPolygons(centerLat, centerLng, radiusMeters) {
-    // 计算经纬度偏移
-    // 1度纬度 ≈ 111km，1度经度 ≈ 111km * cos(lat)
-    const latOffset = radiusMeters / 111000; // 纬度偏移（度）
-    const lngOffset = radiusMeters / (111000 * Math.cos(centerLat * Math.PI / 180)); // 经度偏移（度）
-    
-    // 大范围边界（足够覆盖屏幕可见区域）
-    const farOffset = 0.1; // 约 11km
-    
-    // 四个矩形多边形
-    const polygons = [
-      // 上方遮罩（圆形上方到远处）
-      {
-        points: [
-          { latitude: centerLat + latOffset, longitude: centerLng - farOffset },
-          { latitude: centerLat + farOffset, longitude: centerLng - farOffset },
-          { latitude: centerLat + farOffset, longitude: centerLng + farOffset },
-          { latitude: centerLat + latOffset, longitude: centerLng + farOffset }
-        ],
-        fillColor: '#00000080', // 半透明黑色
-        strokeColor: '#00000000',
-        strokeWidth: 0
-      },
-      // 下方遮罩
-      {
-        points: [
-          { latitude: centerLat - farOffset, longitude: centerLng - farOffset },
-          { latitude: centerLat - latOffset, longitude: centerLng - farOffset },
-          { latitude: centerLat - latOffset, longitude: centerLng + farOffset },
-          { latitude: centerLat - farOffset, longitude: centerLng + farOffset }
-        ],
-        fillColor: '#00000080',
-        strokeColor: '#00000000',
-        strokeWidth: 0
-      },
-      // 左方遮罩
-      {
-        points: [
-          { latitude: centerLat - latOffset, longitude: centerLng - farOffset },
-          { latitude: centerLat + latOffset, longitude: centerLng - farOffset },
-          { latitude: centerLat + latOffset, longitude: centerLng - lngOffset },
-          { latitude: centerLat - latOffset, longitude: centerLng - lngOffset }
-        ],
-        fillColor: '#00000080',
-        strokeColor: '#00000000',
-        strokeWidth: 0
-      },
-      // 右方遮罩
-      {
-        points: [
-          { latitude: centerLat - latOffset, longitude: centerLng + lngOffset },
-          { latitude: centerLat + latOffset, longitude: centerLng + lngOffset },
-          { latitude: centerLat + latOffset, longitude: centerLng + farOffset },
-          { latitude: centerLat - latOffset, longitude: centerLng + farOffset }
-        ],
-        fillColor: '#00000080',
-        strokeColor: '#00000000',
-        strokeWidth: 0
-      }
-    ];
-    
-    return polygons;
   },
 
   // ==================== 扫码相关 ====================

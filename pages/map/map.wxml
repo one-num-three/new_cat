@@ -11,7 +11,6 @@
     scale="{{scale}}"
     markers="{{markers}}"
     circles="{{circles}}"
-    polygons="{{visionPolygons}}"
     show-location="{{true}}"
     enable-satellite="false"
     enable-overlooking="true"
