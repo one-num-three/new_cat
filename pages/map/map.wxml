@@ -105,8 +105,8 @@
 
     <!-- 游戏信息 -->
     <view class="game-info">
-      <text>⏱️ {{countdown}}s</text>
-      <text>👥 {{players.length}}人</text>
+      <text>⏱️ {{countdownText}}</text>
+      <text>👥 {{catCount}}猫{{mouseCount}}鼠</text>
       <!-- 历史记录按钮 -->
       <text class="history-btn" bindtap="onShowHistory">📜</text>
     </view>

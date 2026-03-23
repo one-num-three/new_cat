@@ -39,6 +39,9 @@ Page({
     playerRole: null, // 游戏开始时分配
     gameStatus: 'waiting', // waiting, playing, ended
     countdown: 600,
+    countdownText: '10:00', // 格式化的倒计时文本
+    catCount: 0, // 猫数量
+    mouseCount: 0, // 老鼠数量
     players: [],
     allPlayers: [], // 所有玩家（用于记分板）
     showAllPlayers: false, // 是否展开显示所有玩家
@@ -414,11 +417,23 @@ Page({
         const serverCountdown = res.countdown;
         const localCountdown = this.data.countdown;
         
+        // 格式化倒计时
+        const minutes = Math.floor(serverCountdown / 60);
+        const seconds = serverCountdown % 60;
+        const countdownText = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        
         // 如果本地倒计时和服务器差距超过 2 秒，强制同步
         if (Math.abs(localCountdown - serverCountdown) > 2) {
           console.log('[倒计时] 同步服务器:', localCountdown, '→', serverCountdown);
-          this.setData({ countdown: serverCountdown });
+          this.setData({ countdown: serverCountdown, countdownText });
+        } else {
+          this.setData({ countdownText });
         }
+        
+        // 计算猫和鼠的数量（不包括掉线的）
+        const allPlayers = res.allPlayers || mergedPlayers;
+        const activeCats = allPlayers.filter(p => p.role === 'cat' && !p.isOffline).length;
+        const activeMice = allPlayers.filter(p => p.role === 'mouse' && !p.isOffline && !p.isCaught).length;
         
         // 更新状态（不直接更新 countdown，让本地倒计时自己减）
         // 先保存旧的轰炸区域用于引爆检测
@@ -432,7 +447,9 @@ Page({
           visionRange: res.settings?.visionRange || 200,
           goldenShields: res.goldenShields || [], // 金身保护圈列表
           bombardZones: res.bombardZones || [], // 轰炸区域列表
-          hasActiveBombard: (res.bombardZones || []).some(z => z.status === 'pending') // 是否有活跃轰炸
+          hasActiveBombard: (res.bombardZones || []).some(z => z.status === 'pending'), // 是否有活跃轰炸
+          catCount: activeCats,
+          mouseCount: activeMice
         });
         
         // 更新视野圈（每次状态更新后都要重新计算，以反映鹰眼等效果）
@@ -522,7 +539,14 @@ Page({
     this.countdownTimer = setInterval(() => {
       const countdown = this.data.countdown;
       if (countdown > 0) {
-        this.setData({ countdown: countdown - 1 });
+        const newCountdown = countdown - 1;
+        const minutes = Math.floor(newCountdown / 60);
+        const seconds = newCountdown % 60;
+        const countdownText = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        this.setData({ 
+          countdown: newCountdown,
+          countdownText
+        });
       }
     }, 1000); // 每秒减 1
   },
