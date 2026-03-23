@@ -88,10 +88,14 @@ Page({
   },
 
   notifyLeave() {
-    try {
-      gameAPI.leaveGame(this.data.gameId, this.data.playerId);
-    } catch (e) {
-      console.error('[离开] 通知失败', e);
+    // 只有在游戏进行中才通知离开
+    if (this.data.gameId && this.data.playerId && this.data.gameStatus === 'playing') {
+      try {
+        gameAPI.leaveGame(this.data.gameId, this.data.playerId);
+        console.log('[离开] 已通知服务器');
+      } catch (e) {
+        console.error('[离开] 通知失败', e);
+      }
     }
   },
 
