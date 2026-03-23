@@ -460,84 +460,68 @@
   transform: scale(0.95);
 }
 
-/* 视野范围遮罩层 - 全屏半透明黑色 */
-.vision-mask-container {
+/* 视野范围遮罩层 */
+.vision-mask-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   pointer-events: none;
 }
 
-/* 全屏遮罩 - 通过四个方向组合 */
-.vision-mask-top,
-.vision-mask-bottom,
-.vision-mask-left,
-.vision-mask-right {
+.vm-top {
   position: absolute;
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.vision-mask-top {
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 25%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.vision-mask-bottom {
+.vm-bottom {
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 25%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.vision-mask-left {
+.vm-middle {
+  position: absolute;
   top: 25%;
   left: 0;
-  width: 15%;
+  width: 100%;
   height: 50%;
 }
 
-.vision-mask-right {
-  top: 25%;
-  right: 0;
-  width: 15%;
-  height: 50%;
-}
-
-/* 四角遮罩 - 模拟圆形边界 */
-.vision-mask-corner {
+.vm-left {
   position: absolute;
-  width: 25%;
-  height: 25%;
-  background: rgba(0, 0, 0, 0.35);
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.vision-mask-corner-tl {
-  top: 25%;
-  left: 15%;
-  border-radius: 0 0 100rpx 0;
+.vm-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.vision-mask-corner-tr {
-  top: 25%;
-  right: 15%;
-  border-radius: 0 0 0 100rpx;
-}
-
-.vision-mask-corner-bl {
-  bottom: 25%;
-  left: 15%;
-  border-radius: 0 100rpx 0 0;
-}
-
-.vision-mask-corner-br {
-  bottom: 25%;
-  right: 15%;
-  border-radius: 100rpx 0 0 0;
+.vm-center {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  background: transparent;
 }
 
 /* 视野范围提示条 */
