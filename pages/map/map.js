@@ -230,6 +230,20 @@ Page({
     wx.showToast({ title: '已清除', icon: 'success' });
   },
 
+  // 启动持续定位
+  startLocationUpdate() {
+    console.log('[地图页] 启动持续定位');
+    wx.startLocationUpdate({
+      type: 'gcj02',
+      success: () => {
+        console.log('[地图页] 持续定位启动成功');
+      },
+      fail: (err) => {
+        console.error('[地图页] 持续定位启动失败', err);
+      }
+    });
+  },
+
   onHide() {
     // 页面隐藏时不做任何操作，位置持续更新
   },
