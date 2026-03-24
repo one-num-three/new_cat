@@ -2116,6 +2116,12 @@ Page({
     
     wx.showLoading({ title: '领取中...' });
     
+    // 调试：显示发送的数据
+    console.log('[领取] pendingReward:', pendingReward);
+    console.log('[领取] taskType:', pendingReward.taskType);
+    console.log('[领取] attempts:', pendingReward.attempts);
+    console.log('[领取] reward:', pendingReward.reward);
+    
     try {
       const res = await gameAPI.completeTask(this.data.gameId, this.data.playerId, {
         taskType: pendingReward.taskType,
