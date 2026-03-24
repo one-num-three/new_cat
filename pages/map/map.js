@@ -2001,16 +2001,25 @@ Page({
     }
     
     const taskPoint = this.data.taskPoint;
-    if (!taskPoint) return;
+    if (!taskPoint) {
+      console.log('[任务] 没有任务点');
+      return;
+    }
+    
+    // 调试：显示任务点完整信息
+    console.log('[任务] 任务点信息:', JSON.stringify(taskPoint));
+    console.log('[任务] taskType:', taskPoint.taskType);
     
     const taskType = taskPoint.taskType || 'guessNumber';
     console.log('[任务] 进入任务，类型:', taskType);
     
     if (taskType === 'quiz') {
+      console.log('[任务] 跳转到趣味问答');
       wx.navigateTo({
         url: `/pages/quiz/quiz?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
       });
     } else {
+      console.log('[任务] 跳转到猜数字');
       wx.navigateTo({
         url: `/pages/task/task?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
       });

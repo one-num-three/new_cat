@@ -78,6 +78,7 @@
     <text>pendingTaskReward: {{pendingTaskReward ? '有' : '无'}}</text>
     <text wx:if="{{pendingTaskReward}}">\n  reward: {{pendingTaskReward.reward}}</text>
     <text>\ntaskPoint: {{taskPoint ? '有' : '无'}}</text>
+    <text wx:if="{{taskPoint}}">\n  taskType: {{taskPoint.taskType || '无'}}</text>
     <text>\ninTaskPoint: {{inTaskPoint}}</text>
     <text>\ncanClaimTask: {{canClaimTask}}</text>
   </view>
