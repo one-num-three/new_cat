@@ -857,7 +857,6 @@
 /* 猜数字任务入口按钮 */
 .guess-number-btn {
   position: absolute;
-  top: 140rpx;
   right: 20rpx;
   background: linear-gradient(135deg, #00C851 0%, #2ECC71 100%);
   color: #fff;
@@ -903,7 +902,6 @@
 /* 待领取奖励提示条 */
 .pending-reward-bar {
   position: absolute;
-  top: 80rpx;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);

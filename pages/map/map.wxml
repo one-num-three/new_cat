@@ -78,7 +78,7 @@
   </view>
   
   <!-- 待领取奖励提示 -->
-  <view class="pending-reward-bar" wx:if="{{pendingTaskReward && !inTaskPoint}}">
+  <view class="pending-reward-bar" style="top: {{rewardBarTop}}rpx;" wx:if="{{pendingTaskReward && !inTaskPoint}}">
     <text class="pending-icon">🎁</text>
     <text class="pending-text">待领取奖励: +{{pendingTaskReward.reward}}分</text>
     <text class="pending-hint">请返回任务点领取</text>
@@ -86,6 +86,7 @@
   
   <!-- 任务按钮（根据任务类型显示） -->
   <view class="guess-number-btn {{pendingTaskReward ? 'reward-mode' : ''}} {{canClaimTask === false ? 'disabled' : ''}}" 
+        style="top: {{taskBtnTop}}rpx;"
         wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}" 
         bindtap="{{pendingTaskReward ? 'onClaimReward' : 'onEnterTask'}}">
     <text wx:if="{{pendingTaskReward}}">🎁 领取 +{{pendingTaskReward.reward}}分</text>

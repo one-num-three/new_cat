@@ -12,6 +12,13 @@ Page({
     goldenShieldCircles: [], // 金身保护圈
     bombardCircles: [], // 轰炸区域
     allCircles: [], // 所有圆圈的合并数组
+    // 状态栏和胶囊按钮适配
+    statusBarHeight: 20,
+    navBarHeight: 44,
+    menuButtonTop: 50,
+    // 任务按钮位置（动态计算）
+    taskBtnTop: 140,
+    rewardBarTop: 80,
     visionRange: 200, // 视野范围（米）- 基础值（老鼠）
     actualVisionRange: 200, // 实际视野范围（考虑角色加成）
     displayVisionRange: 200, // 显示用的四舍五入值
@@ -79,6 +86,9 @@ Page({
   onLoad(options) {
     console.log('[地图页] onLoad', options);
     
+    // 获取系统信息，适配不同屏幕
+    this.initNavBarPosition();
+    
     if (options.gameId) {
       this.setData({ 
         gameId: options.gameId,
@@ -89,6 +99,35 @@ Page({
       if (options.role) {
         this.setData({ playerRole: options.role });
       }
+    }
+  },
+  
+  // 初始化导航栏位置（适配不同机型）
+  initNavBarPosition() {
+    try {
+      const systemInfo = wx.getSystemInfoSync();
+      const menuButton = wx.getMenuButtonBoundingClientRect();
+      
+      const statusBarHeight = systemInfo.statusBarHeight || 20;
+      const navBarHeight = (menuButton.top - statusBarHeight) * 2 + menuButton.height;
+      const menuButtonTop = menuButton.top;
+      
+      // 任务按钮位置：在胶囊按钮下方一点
+      const taskBtnTop = menuButtonTop + menuButton.height + 15;
+      // 待领取提示条位置：比任务按钮高一点
+      const rewardBarTop = menuButtonTop + 10;
+      
+      console.log('[适配] statusBarHeight:', statusBarHeight, 'navBarHeight:', navBarHeight, 'taskBtnTop:', taskBtnTop);
+      
+      this.setData({
+        statusBarHeight,
+        navBarHeight,
+        menuButtonTop,
+        taskBtnTop,
+        rewardBarTop
+      });
+    } catch (e) {
+      console.error('[适配] 获取系统信息失败:', e);
     }
   },
 
