@@ -168,18 +168,39 @@ Page({
       const storageValue = wx.getStorageSync('pendingTaskReward');
       console.log('[地图页] Storage:', storageValue);
       
-      // 更新调试显示
-      this.setData({ 
-        debugStorageValue: storageValue ? JSON.stringify(storageValue) : 'null'
-      });
-      
-      // 设置 pendingTaskReward
-      if (storageValue && storageValue.reward) {
+      // 检查是否过期（超过30分钟的奖励自动清除）
+      if (storageValue && storageValue.guessedAt) {
+        const age = Date.now() - storageValue.guessedAt;
+        const maxAge = 30 * 60 * 1000; // 30分钟
+        
+        if (age > maxAge) {
+          console.log('[地图页] 奖励已过期，自动清除');
+          wx.removeStorageSync('pendingTaskReward');
+          this.setData({ 
+            pendingTaskReward: null,
+            debugStorageValue: '已过期清除'
+          });
+        } else {
+          // 有效奖励
+          console.log('[地图页] ✅ 有待领取奖励:', storageValue.reward);
+          this.setData({ 
+            pendingTaskReward: storageValue,
+            debugStorageValue: JSON.stringify(storageValue)
+          });
+        }
+      } else if (storageValue && storageValue.reward) {
+        // 有奖励但没有时间戳，也显示
         console.log('[地图页] ✅ 有待领取奖励:', storageValue.reward);
-        this.setData({ pendingTaskReward: storageValue });
+        this.setData({ 
+          pendingTaskReward: storageValue,
+          debugStorageValue: JSON.stringify(storageValue)
+        });
       } else {
         console.log('[地图页] ❌ 无待领取奖励');
-        this.setData({ pendingTaskReward: null });
+        this.setData({ 
+          pendingTaskReward: null,
+          debugStorageValue: 'null'
+        });
       }
     } catch (e) {
       console.error('[地图页] Storage读取错误:', e);
@@ -698,6 +719,10 @@ Page({
     
     this.stopStatusPoll();
     this.stopLocalCountdown();
+    
+    // 游戏结束，清除待领取奖励
+    wx.removeStorageSync('pendingTaskReward');
+    console.log('[游戏结束] 已清除 pendingTaskReward');
     
     // 使用服务器返回的角色（更可靠），而不是本地缓存的 playerRole
     const myPlayer = this.data.allPlayers.find(p => p.id === this.data.playerId) || 
