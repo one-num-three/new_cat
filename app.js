@@ -51,6 +51,8 @@ App({
     roomId: null,
     qrCodePath: null,  // 二维码预缓存路径
     qrCodeData: null,  // 二维码数据
+    pendingTaskReward: null, // 待领取的任务奖励
+    qrCodeExpireTime: 0,  // 二维码过期时间
     
     // ========== 环境配置 ==========
     // 开发环境：使用 HTTP IP（真机调试时关闭域名校验）

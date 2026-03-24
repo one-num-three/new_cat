@@ -227,7 +227,16 @@ Page({
     
     // 保存待领取奖励到全局数据
     const app = getApp();
-    if (app && app.globalData) {
+    console.log('[猜数字] ========== onGameWon ==========');
+    console.log('[猜数字] app:', app);
+    console.log('[猜数字] app.globalData:', app?.globalData);
+    
+    if (app) {
+      // 确保 globalData 存在
+      if (!app.globalData) {
+        app.globalData = {};
+      }
+      
       app.globalData.pendingTaskReward = {
         taskType: 'guessNumber',
         attempts: attempts,
@@ -235,6 +244,15 @@ Page({
         reward: reward,
         guessedAt: Date.now()
       };
+      
+      console.log('[猜数字] ✅ 已设置 pendingTaskReward:', app.globalData.pendingTaskReward);
+      
+      // 验证设置成功
+      setTimeout(() => {
+        console.log('[猜数字] 验证 pendingTaskReward:', app.globalData.pendingTaskReward);
+      }, 100);
+    } else {
+      console.log('[猜数字] ❌ app 不存在！');
     }
     
     // 显示提示弹窗
