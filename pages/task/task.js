@@ -6,6 +6,7 @@ Page({
     devMode: true,     // 开发模式：显示答案
     gameId: null,
     playerId: null,
+    taskPointId: '',   // 任务点ID
     answer: '',        // 谜底（4位数字）
     inputValue: '',    // 用户输入
     attempts: 0,       // 尝试次数
@@ -30,22 +31,30 @@ Page({
     // 检查是否已有待领取奖励（从 Storage 读取）
     const pendingReward = wx.getStorageSync('pendingTaskReward');
     if (pendingReward) {
-      console.log('[任务页] 已有待领取奖励，不能开始新游戏');
-      wx.showModal({
-        title: '提示',
-        content: '你还有待领取的奖励，请先返回任务点领取',
-        showCancel: false,
-        success: () => {
-          wx.navigateBack();
-        }
-      });
-      return;
+      // 检查是否是同一个任务点的奖励
+      if (pendingReward.taskPointId === options.taskPointId) {
+        console.log('[任务页] 同一任务点已有待领取奖励');
+        wx.showModal({
+          title: '提示',
+          content: '你还有待领取的奖励，请先返回任务点领取',
+          showCancel: false,
+          success: () => {
+            wx.navigateBack();
+          }
+        });
+        return;
+      } else {
+        // 不同任务点，清除旧奖励
+        console.log('[任务页] 不同任务点，清除旧奖励');
+        wx.removeStorageSync('pendingTaskReward');
+      }
     }
     
     if (options.gameId && options.playerId) {
       this.setData({
         gameId: options.gameId,
-        playerId: options.playerId
+        playerId: options.playerId,
+        taskPointId: options.taskPointId || ''
       });
       
       // 从服务器获取谜底
@@ -244,6 +253,7 @@ Page({
     
     // 保存待领取奖励（使用 Storage 更可靠）
     const pendingReward = {
+      taskPointId: this.data.taskPointId,  // 关联任务点ID
       taskType: 'guessNumber',
       attempts: attempts,
       timeUsed: elapsedSeconds,

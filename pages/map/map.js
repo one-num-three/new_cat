@@ -1996,8 +1996,16 @@ Page({
     // 检查是否已有待领取奖励（从 Storage 读取）
     const pendingReward = wx.getStorageSync('pendingTaskReward');
     if (pendingReward) {
-      wx.showToast({ title: '请先领取上一次奖励', icon: 'none' });
-      return;
+      // 检查是否是同一个任务点的奖励
+      const taskPoint = this.data.taskPoint;
+      if (taskPoint && pendingReward.taskPointId === taskPoint.id) {
+        wx.showToast({ title: '请先领取上一次奖励', icon: 'none' });
+        return;
+      } else {
+        // 不同任务点，清除旧奖励
+        console.log('[任务] 不同任务点，清除旧奖励');
+        wx.removeStorageSync('pendingTaskReward');
+      }
     }
     
     const taskPoint = this.data.taskPoint;
@@ -2009,19 +2017,21 @@ Page({
     // 调试：显示任务点完整信息
     console.log('[任务] 任务点信息:', JSON.stringify(taskPoint));
     console.log('[任务] taskType:', taskPoint.taskType);
+    console.log('[任务] taskPointId:', taskPoint.id);
     
     const taskType = taskPoint.taskType || 'guessNumber';
-    console.log('[任务] 进入任务，类型:', taskType);
+    const taskPointId = taskPoint.id;
+    console.log('[任务] 进入任务，类型:', taskType, 'ID:', taskPointId);
     
     if (taskType === 'quiz') {
       console.log('[任务] 跳转到趣味问答');
       wx.navigateTo({
-        url: `/pages/quiz/quiz?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
+        url: `/pages/quiz/quiz?gameId=${this.data.gameId}&playerId=${this.data.playerId}&taskPointId=${taskPointId}`
       });
     } else {
       console.log('[任务] 跳转到猜数字');
       wx.navigateTo({
-        url: `/pages/task/task?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
+        url: `/pages/task/task?gameId=${this.data.gameId}&playerId=${this.data.playerId}&taskPointId=${taskPointId}`
       });
     }
   },
@@ -2046,6 +2056,16 @@ Page({
       return;
     }
     
+    // 验证任务点ID是否匹配
+    const taskPoint = this.data.taskPoint;
+    if (taskPoint && pendingReward.taskPointId && pendingReward.taskPointId !== taskPoint.id) {
+      console.log('[领取] 任务点不匹配，清除旧奖励');
+      wx.removeStorageSync('pendingTaskReward');
+      this.setData({ pendingTaskReward: null });
+      wx.showToast({ title: '任务点已变化，请重新游戏', icon: 'none' });
+      return;
+    }
+    
     wx.showLoading({ title: '领取中...' });
     
     try {
@@ -2053,7 +2073,8 @@ Page({
         taskType: pendingReward.taskType,
         attempts: pendingReward.attempts,
         timeUsed: pendingReward.timeUsed,
-        reward: pendingReward.reward
+        reward: pendingReward.reward,
+        taskPointId: pendingReward.taskPointId
       });
       
       wx.hideLoading();
