@@ -89,11 +89,6 @@
     <text wx:else>{{taskPoint.taskType === 'quiz' ? '🎯 趣味问答' : '🎯 猜数字'}}</text>
   </view>
 
-  <!-- 任务完成按钮 -->
-  <view class="task-complete-btn" wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}" bindtap="onCompleteTask">
-    <text>✅ 完成任务 +50分</text>
-  </view>
-
   <!-- 弹幕区域 -->
   <view class="danmaku-area">
     <view class="danmaku-item {{item.show ? 'show' : ''}}" wx:for="{{danmakuList}}" wx:key="time">
