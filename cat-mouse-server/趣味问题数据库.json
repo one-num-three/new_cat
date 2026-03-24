@@ -1,0 +1,4470 @@
+{
+  "meta": {
+    "title": "大学生趣味知识竞赛题库",
+    "version": "1.0",
+    "created": "2026-03-24",
+    "totalQuestions": 210,
+    "categories": [
+      {
+        "id": "biology",
+        "name": "生命科学",
+        "icon": "🧬",
+        "count": 30
+      },
+      {
+        "id": "physics",
+        "name": "物理天文",
+        "icon": "🌌",
+        "count": 30
+      },
+      {
+        "id": "history",
+        "name": "历史文化",
+        "icon": "🏛️",
+        "count": 30
+      },
+      {
+        "id": "geography",
+        "name": "地理探索",
+        "icon": "🌍",
+        "count": 30
+      },
+      {
+        "id": "chemistry",
+        "name": "化学元素",
+        "icon": "🧪",
+        "count": 30
+      },
+      {
+        "id": "literature",
+        "name": "文学艺术",
+        "icon": "🎭",
+        "count": 30
+      },
+      {
+        "id": "challenge",
+        "name": "终极挑战",
+        "icon": "🏆",
+        "count": 30
+      }
+    ],
+    "globalStats": {
+      "totalCalls": 0,
+      "totalCorrect": 0,
+      "totalWrong": 0,
+      "overallAccuracy": 0.0
+    }
+  },
+  "questions": [
+    {
+      "id": "bio_001",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体中最大的细胞是？",
+      "options": {
+        "A": "神经细胞",
+        "B": "卵细胞",
+        "C": "肝细胞",
+        "D": "脂肪细胞"
+      },
+      "answer": "B",
+      "explanation": "卵细胞，直径约0.1-0.2毫米，是人体唯一肉眼可见的细胞。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_002",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "DNA的双螺旋结构是由谁发现的？",
+      "options": {
+        "A": "孟德尔",
+        "B": "达尔文",
+        "C": "沃森和克里克",
+        "D": "巴斯德"
+      },
+      "answer": "C",
+      "explanation": "沃森和克里克，1953年发现，获1962年诺贝尔生理学或医学奖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_003",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "章鱼有几个心脏？",
+      "options": {
+        "A": "1个",
+        "B": "2个",
+        "C": "3个",
+        "D": "4个"
+      },
+      "answer": "C",
+      "explanation": "3个，1个主心脏+2个鳃心脏。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_004",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "光合作用产生的氧气来源于？",
+      "options": {
+        "A": "二氧化碳",
+        "B": "水",
+        "C": "葡萄糖",
+        "D": "叶绿素"
+      },
+      "answer": "B",
+      "explanation": "水，水被光解产生氧气。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_005",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体有多少块骨骼？",
+      "options": {
+        "A": "196块",
+        "B": "206块",
+        "C": "216块",
+        "D": "226块"
+      },
+      "answer": "B",
+      "explanation": "206块，成人标准骨骼数量。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_006",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪种动物几乎无法倒退行走？",
+      "options": {
+        "A": "狮子",
+        "B": "袋鼠",
+        "C": "长颈鹿",
+        "D": "考拉"
+      },
+      "answer": "B",
+      "explanation": "袋鼠，后腿无法独立移动，只能一起跳跃前进，几乎无法倒退。马、鸵鸟等倒退也很困难，但袋鼠尤为突出。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_007",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人类基因组计划完成于哪一年？",
+      "options": {
+        "A": "2000年",
+        "B": "2003年",
+        "C": "2005年",
+        "D": "2010年"
+      },
+      "answer": "B",
+      "explanation": "2003年，人类基因组测序工作基本完成。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_008",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体最大的器官是？",
+      "options": {
+        "A": "肝脏",
+        "B": "皮肤",
+        "C": "大脑",
+        "D": "心脏"
+      },
+      "answer": "B",
+      "explanation": "皮肤，成人皮肤面积约1.5-2平方米。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_009",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪个不是基本味觉？",
+      "options": {
+        "A": "酸",
+        "B": "甜",
+        "C": "苦",
+        "D": "辣"
+      },
+      "answer": "D",
+      "explanation": "辣，辣是一种痛觉而非味觉。基本味觉是酸甜苦咸鲜。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_010",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "蜗牛可以睡多久？",
+      "options": {
+        "A": "最多1个月",
+        "B": "最多1年",
+        "C": "最多3年",
+        "D": "最多5年"
+      },
+      "answer": "C",
+      "explanation": "最多3年，在不利环境下可长时间休眠。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_011",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人类最长的神经是？",
+      "options": {
+        "A": "视神经",
+        "B": "坐骨神经",
+        "C": "迷走神经",
+        "D": "三叉神经"
+      },
+      "answer": "B",
+      "explanation": "坐骨神经，从下背部延伸到脚，是人体最粗大的神经。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_012",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "蚊子吸血的是公蚊子还是母蚊子？",
+      "options": {
+        "A": "公蚊子",
+        "B": "母蚊子",
+        "C": "都吸血",
+        "D": "都不吸血"
+      },
+      "answer": "B",
+      "explanation": "母蚊子，只有母蚊子为了产卵才吸血，公蚊子吸食花蜜。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_013",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人类的大脑约重多少克？",
+      "options": {
+        "A": "约500克",
+        "B": "约1400克",
+        "C": "约2000克",
+        "D": "约2500克"
+      },
+      "answer": "B",
+      "explanation": "约1400克，约占体重的2%。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_014",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "蜂蜜在什么条件下可以长期保存不变质？",
+      "options": {
+        "A": "含有防腐剂",
+        "B": "密封良好且含糖量极高、水分极低",
+        "C": "含有抗生素",
+        "D": "经过高温处理"
+      },
+      "answer": "B",
+      "explanation": "密封良好且含糖量极高、水分极低，细菌无法生存。但若暴露在空气中吸收水分或受污染，仍可能发酵变质。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_015",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体最硬的物质是？",
+      "options": {
+        "A": "骨骼",
+        "B": "牙釉质",
+        "C": "指甲",
+        "D": "头发"
+      },
+      "answer": "B",
+      "explanation": "牙釉质，莫氏硬度约5，是人体最坚硬的部分。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_016",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪种生物的DNA与人类最接近？",
+      "options": {
+        "A": "猴子",
+        "B": "黑猩猩",
+        "C": "大猩猩",
+        "D": "猩猩"
+      },
+      "answer": "B",
+      "explanation": "黑猩猩，DNA相似度约98.8%。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_017",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人一生中眨眼大约多少次？",
+      "options": {
+        "A": "约1亿次",
+        "B": "约3亿次",
+        "C": "约5亿次",
+        "D": "约10亿次"
+      },
+      "answer": "C",
+      "explanation": "约5亿次，每分钟眨眼15-20次。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_018",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人类心脏一天大约跳动多少次？",
+      "options": {
+        "A": "约5万次",
+        "B": "约10万次",
+        "C": "约15万次",
+        "D": "约20万次"
+      },
+      "answer": "B",
+      "explanation": "约10万次，每分钟约70次。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_019",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪个器官有再生能力？",
+      "options": {
+        "A": "心脏",
+        "B": "肝脏",
+        "C": "大脑",
+        "D": "肾脏"
+      },
+      "answer": "B",
+      "explanation": "肝脏，即使切除75%也能再生恢复。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_020",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体含水量最高的器官是？",
+      "options": {
+        "A": "大脑",
+        "B": "心脏",
+        "C": "肺",
+        "D": "眼球"
+      },
+      "answer": "D",
+      "explanation": "眼球，整体含水量约98%（玻璃体含水量可达98%以上），是人体含水量最高的器官。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_021",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "蜜蜂跳\"8\"字舞是为了？",
+      "options": {
+        "A": "求偶",
+        "B": "告诉同伴蜜源位置",
+        "C": "警告危险",
+        "D": "表达快乐"
+      },
+      "answer": "B",
+      "explanation": "告诉同伴蜜源位置，这是蜜蜂的沟通方式。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_022",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人类有几种血型系统？",
+      "options": {
+        "A": "1种",
+        "B": "2种",
+        "C": "30多种",
+        "D": "无数种"
+      },
+      "answer": "C",
+      "explanation": "30多种，ABO和Rh是最重要的两个系统。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_023",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体内最多的元素是？",
+      "options": {
+        "A": "碳",
+        "B": "氧",
+        "C": "氢",
+        "D": "氮"
+      },
+      "answer": "B",
+      "explanation": "氧，约占体重的65%（主要是水）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_024",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人打喷嚏的速度可达多少？",
+      "options": {
+        "A": "每小时50公里",
+        "B": "每小时100公里",
+        "C": "每小时160公里",
+        "D": "每小时200公里"
+      },
+      "answer": "C",
+      "explanation": "每小时160公里左右。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_025",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪种动物有三个眼睑？",
+      "options": {
+        "A": "猫",
+        "B": "鸟",
+        "C": "骆驼",
+        "D": "以上都是"
+      },
+      "answer": "D",
+      "explanation": "以上都是，第三眼睑用于保护眼睛。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_026",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体的红血球寿命约为？",
+      "options": {
+        "A": "30天",
+        "B": "60天",
+        "C": "120天",
+        "D": "365天"
+      },
+      "answer": "C",
+      "explanation": "120天，之后在脾脏被分解。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_027",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人类小肠的长度约为？",
+      "options": {
+        "A": "2-3米",
+        "B": "5-6米",
+        "C": "6-7米",
+        "D": "8-9米"
+      },
+      "answer": "C",
+      "explanation": "6-7米，是消化道中最长的部分。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_028",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪种动物的血液是蓝色的？",
+      "options": {
+        "A": "蜘蛛",
+        "B": "章鱼",
+        "C": "蜗牛",
+        "D": "以上都是"
+      },
+      "answer": "D",
+      "explanation": "以上都是，它们的血液含血蓝蛋白（铜基）而非血红蛋白。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_029",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "人体的DNA总长度约为？",
+      "options": {
+        "A": "1米",
+        "B": "10米",
+        "C": "1公里",
+        "D": "2米左右展开可达数米"
+      },
+      "answer": "D",
+      "explanation": "每个细胞DNA展开约2米，所有细胞DNA连起来可绕太阳系多圈。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "bio_030",
+      "category": "biology",
+      "categoryName": "生命科学",
+      "categoryIcon": "🧬",
+      "question": "下列哪个不是哺乳动物？",
+      "options": {
+        "A": "鲸鱼",
+        "B": "蝙蝠",
+        "C": "鸭嘴兽",
+        "D": "鲨鱼"
+      },
+      "answer": "D",
+      "explanation": "鲨鱼，是鱼类。鲸鱼、蝙蝠、鸭嘴兽都是哺乳动物。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_001",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "如果你能以光速旅行，从地球到月球大约需要多长时间？",
+      "options": {
+        "A": "约1秒",
+        "B": "约1.3秒",
+        "C": "约8分钟",
+        "D": "约1小时"
+      },
+      "answer": "B",
+      "explanation": "约1.3秒，地月距离约38.4万公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_002",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "爱因斯坦因什么获得诺贝尔物理学奖？",
+      "options": {
+        "A": "相对论",
+        "B": "光电效应",
+        "C": "质能方程",
+        "D": "布朗运动"
+      },
+      "answer": "B",
+      "explanation": "光电效应，1921年获奖。相对论当时争议较大。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_003",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "声音在以下哪种介质中传播最快？",
+      "options": {
+        "A": "空气",
+        "B": "水",
+        "C": "钢铁",
+        "D": "真空"
+      },
+      "answer": "C",
+      "explanation": "钢铁，约5000m/s。声音无法在真空中传播。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_004",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "宇宙中最丰富的元素是？",
+      "options": {
+        "A": "氧",
+        "B": "碳",
+        "C": "氢",
+        "D": "氦"
+      },
+      "answer": "C",
+      "explanation": "氢，约占宇宙质量的75%。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_005",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "太阳系中最大的行星是？",
+      "options": {
+        "A": "地球",
+        "B": "土星",
+        "C": "木星",
+        "D": "天王星"
+      },
+      "answer": "C",
+      "explanation": "木星，质量是地球的318倍。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_006",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "光年是什么单位？",
+      "options": {
+        "A": "时间单位",
+        "B": "距离单位",
+        "C": "速度单位",
+        "D": "亮度单位"
+      },
+      "answer": "B",
+      "explanation": "距离单位，光走一年的距离，约9.46万亿公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_007",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "太阳系中自转最慢的行星是？",
+      "options": {
+        "A": "水星",
+        "B": "金星",
+        "C": "地球",
+        "D": "火星"
+      },
+      "answer": "B",
+      "explanation": "金星，自转一周约243天，比公转还慢。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_008",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "第一个进入太空的人是？",
+      "options": {
+        "A": "阿姆斯特朗",
+        "B": "加加林",
+        "C": "杨利伟",
+        "D": "格伦"
+      },
+      "answer": "B",
+      "explanation": "加加林，1961年4月12日进入太空。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_009",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "人类首次登月是在哪一年？",
+      "options": {
+        "A": "1965年",
+        "B": "1969年",
+        "C": "1972年",
+        "D": "1975年"
+      },
+      "answer": "B",
+      "explanation": "1969年，阿波罗11号任务。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_010",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "除太阳外，离地球最近的恒星是？",
+      "options": {
+        "A": "天狼星",
+        "B": "比邻星",
+        "C": "织女星",
+        "D": "北极星"
+      },
+      "answer": "B",
+      "explanation": "比邻星，距离约4.24光年。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_011",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "引力波于哪一年首次被直接探测到？",
+      "options": {
+        "A": "2010年",
+        "B": "2015年",
+        "C": "2018年",
+        "D": "2020年"
+      },
+      "answer": "B",
+      "explanation": "2015年，LIGO探测到来自黑洞合并的引力波。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_012",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "黑洞的\"事件视界\"是指？",
+      "options": {
+        "A": "黑洞的中心",
+        "B": "光无法逃逸的边界",
+        "C": "黑洞的外环",
+        "D": "黑洞的质量"
+      },
+      "answer": "B",
+      "explanation": "光无法逃逸的边界，超过这个边界连光都无法逃脱。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_013",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "地球是太阳系第几颗行星？",
+      "options": {
+        "A": "第一颗",
+        "B": "第二颗",
+        "C": "第三颗",
+        "D": "第四颗"
+      },
+      "answer": "C",
+      "explanation": "第三颗，水金地火木土天海。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_014",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "相对论是谁提出的？",
+      "options": {
+        "A": "牛顿",
+        "B": "爱因斯坦",
+        "C": "霍金",
+        "D": "玻尔"
+      },
+      "answer": "B",
+      "explanation": "爱因斯坦，1905年狭义相对论，1915年广义相对论。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_015",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "原子核由什么组成？",
+      "options": {
+        "A": "电子和质子",
+        "B": "质子和中子",
+        "C": "电子和中子",
+        "D": "只有质子"
+      },
+      "answer": "B",
+      "explanation": "质子和中子，电子在核外运动。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_016",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "以下哪个不是黄道十二宫星座？",
+      "options": {
+        "A": "狮子座",
+        "B": "猎户座",
+        "C": "天蝎座",
+        "D": "双子座"
+      },
+      "answer": "B",
+      "explanation": "猎户座，不是黄道星座。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_017",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "太阳的能源来自于？",
+      "options": {
+        "A": "燃烧",
+        "B": "核裂变",
+        "C": "核聚变",
+        "D": "化学反应"
+      },
+      "answer": "C",
+      "explanation": "核聚变，氢聚变成氦释放能量。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_018",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "冥王星被降级为什么？",
+      "options": {
+        "A": "小行星",
+        "B": "矮行星",
+        "C": "彗星",
+        "D": "卫星"
+      },
+      "answer": "B",
+      "explanation": "矮行星，2006年被重新分类。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_019",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "月球绕地球公转一周约需？",
+      "options": {
+        "A": "1天",
+        "B": "7天",
+        "C": "27天",
+        "D": "365天"
+      },
+      "answer": "C",
+      "explanation": "约27.3天（恒星月）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_020",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "光的三原色是？",
+      "options": {
+        "A": "红黄蓝",
+        "B": "红绿蓝",
+        "C": "红黄绿",
+        "D": "蓝黄绿"
+      },
+      "answer": "B",
+      "explanation": "红绿蓝（RGB），颜料三原色是红黄蓝。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_021",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "以下哪种辐射穿透力最强？",
+      "options": {
+        "A": "α射线",
+        "B": "β射线",
+        "C": "γ射线",
+        "D": "红外线"
+      },
+      "answer": "C",
+      "explanation": "γ射线，需要厚铅板才能阻挡。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_022",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "牛顿第一定律又称为什么？",
+      "options": {
+        "A": "万有引力定律",
+        "B": "惯性定律",
+        "C": "作用力与反作用力定律",
+        "D": "加速度定律"
+      },
+      "answer": "B",
+      "explanation": "惯性定律，物体保持静止或匀速直线运动状态。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_023",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "银河系的形状是？",
+      "options": {
+        "A": "球形",
+        "B": "椭圆形",
+        "C": "螺旋形",
+        "D": "不规则形"
+      },
+      "answer": "C",
+      "explanation": "螺旋形，是一个棒旋星系。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_024",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "哈勃太空望远镜发射于哪一年？",
+      "options": {
+        "A": "1985年",
+        "B": "1990年",
+        "C": "1995年",
+        "D": "2000年"
+      },
+      "answer": "B",
+      "explanation": "1990年，以天文学家埃德温·哈勃命名。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_025",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "宇宙的年龄约为？",
+      "options": {
+        "A": "46亿年",
+        "B": "100亿年",
+        "C": "138亿年",
+        "D": "200亿年"
+      },
+      "answer": "C",
+      "explanation": "约138亿年，根据宇宙微波背景辐射测量。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_026",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "太阳系中卫星最多的行星是？",
+      "options": {
+        "A": "木星",
+        "B": "土星",
+        "C": "天王星",
+        "D": "海王星"
+      },
+      "answer": "B",
+      "explanation": "土星，已确认146颗卫星（截至2024年）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_027",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "E=mc²这个公式表示什么？",
+      "options": {
+        "A": "能量守恒",
+        "B": "质能等价",
+        "C": "动量守恒",
+        "D": "电荷守恒"
+      },
+      "answer": "B",
+      "explanation": "质能等价，质量和能量可以相互转化。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_028",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "第一颗人造卫星是？",
+      "options": {
+        "A": "阿波罗号",
+        "B": "东方号",
+        "C": "斯普特尼克1号",
+        "D": "挑战者号"
+      },
+      "answer": "C",
+      "explanation": "斯普特尼克1号，1957年苏联发射。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_029",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "白矮星是恒星演化的哪个阶段？",
+      "options": {
+        "A": "初期",
+        "B": "中期",
+        "C": "晚期",
+        "D": "出生前"
+      },
+      "answer": "C",
+      "explanation": "晚期，中小质量恒星演化末期。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "phy_030",
+      "category": "physics",
+      "categoryName": "物理天文",
+      "categoryIcon": "🌌",
+      "question": "以下哪个是量子力学的基本原理？",
+      "options": {
+        "A": "确定性",
+        "B": "不确定性",
+        "C": "连续性",
+        "D": "可预测性"
+      },
+      "answer": "B",
+      "explanation": "不确定性，海森堡不确定性原理。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_001",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "\"我思故我在\"是谁的名言？",
+      "options": {
+        "A": "亚里士多德",
+        "B": "柏拉图",
+        "C": "笛卡尔",
+        "D": "康德"
+      },
+      "answer": "C",
+      "explanation": "笛卡尔，法国哲学家，近代哲学之父。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_002",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "中国历史上在位时间最长的皇帝是？",
+      "options": {
+        "A": "秦始皇",
+        "B": "汉武帝",
+        "C": "康熙帝",
+        "D": "乾隆帝"
+      },
+      "answer": "C",
+      "explanation": "康熙帝，在位61年（1661-1722）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_003",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "《蒙娜丽莎》目前收藏于哪个博物馆？",
+      "options": {
+        "A": "大英博物馆",
+        "B": "卢浮宫",
+        "C": "大都会博物馆",
+        "D": "乌菲兹美术馆"
+      },
+      "answer": "B",
+      "explanation": "卢浮宫，巴黎。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_004",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "世界上第一台电子计算机ENIAC诞生于哪一年？",
+      "options": {
+        "A": "1936年",
+        "B": "1946年",
+        "C": "1956年",
+        "D": "1966年"
+      },
+      "answer": "B",
+      "explanation": "1946年，美国宾夕法尼亚大学。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_005",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "文艺复兴起源于哪个国家？",
+      "options": {
+        "A": "法国",
+        "B": "英国",
+        "C": "意大利",
+        "D": "德国"
+      },
+      "answer": "C",
+      "explanation": "意大利，14世纪始于佛罗伦萨。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_006",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "四大文明古国不包括？",
+      "options": {
+        "A": "古埃及",
+        "B": "古印度",
+        "C": "古希腊",
+        "D": "古中国"
+      },
+      "answer": "C",
+      "explanation": "古希腊，四大文明古国是古埃及、古巴比伦、古印度、古中国。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_007",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "第一次世界大战爆发于哪一年？",
+      "options": {
+        "A": "1912年",
+        "B": "1914年",
+        "C": "1918年",
+        "D": "1939年"
+      },
+      "answer": "B",
+      "explanation": "1914年，持续到1918年。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_008",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "中国最后一个封建王朝是？",
+      "options": {
+        "A": "明朝",
+        "B": "清朝",
+        "C": "元朝",
+        "D": "宋朝"
+      },
+      "answer": "B",
+      "explanation": "清朝，1644-1912年。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_009",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "\"知识就是力量\"是谁的名言？",
+      "options": {
+        "A": "笛卡尔",
+        "B": "培根",
+        "C": "牛顿",
+        "D": "伏尔泰"
+      },
+      "answer": "B",
+      "explanation": "培根，英国哲学家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_010",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "万里长城始建于哪个朝代？",
+      "options": {
+        "A": "秦朝",
+        "B": "汉朝",
+        "C": "战国时期",
+        "D": "明朝"
+      },
+      "answer": "C",
+      "explanation": "战国时期，各诸侯国开始修建，秦朝连接加固。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_011",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "拿破仑是哪国人？",
+      "options": {
+        "A": "法国",
+        "B": "意大利",
+        "C": "科西嘉岛（当时属热那亚）",
+        "D": "西班牙"
+      },
+      "answer": "C",
+      "explanation": "科西嘉岛，出生时属于热那亚，后割让给法国。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_012",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "中国四大发明不包括？",
+      "options": {
+        "A": "造纸术",
+        "B": "印刷术",
+        "C": "青铜器",
+        "D": "火药"
+      },
+      "answer": "C",
+      "explanation": "青铜器，四大发明是造纸术、印刷术、指南针、火药。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_013",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "古罗马帝国灭亡于哪一年？",
+      "options": {
+        "A": "395年",
+        "B": "410年",
+        "C": "476年",
+        "D": "527年"
+      },
+      "answer": "C",
+      "explanation": "476年，西罗马帝国灭亡。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_014",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "工业革命首先发生在哪个国家？",
+      "options": {
+        "A": "法国",
+        "B": "德国",
+        "C": "英国",
+        "D": "美国"
+      },
+      "answer": "C",
+      "explanation": "英国，18世纪60年代开始。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_015",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "孔子是哪个时期的人？",
+      "options": {
+        "A": "春秋时期",
+        "B": "战国时期",
+        "C": "秦朝",
+        "D": "汉朝"
+      },
+      "answer": "A",
+      "explanation": "春秋时期，公元前551-479年。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_016",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "美国独立宣言发表于哪一年？",
+      "options": {
+        "A": "1774年",
+        "B": "1776年",
+        "C": "1783年",
+        "D": "1789年"
+      },
+      "answer": "B",
+      "explanation": "1776年，7月4日发表。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_017",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "法国大革命爆发于哪一年？",
+      "options": {
+        "A": "1776年",
+        "B": "1789年",
+        "C": "1799年",
+        "D": "1804年"
+      },
+      "answer": "B",
+      "explanation": "1789年，攻占巴士底狱。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_018",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "成吉思汗建立了哪个帝国？",
+      "options": {
+        "A": "元朝",
+        "B": "蒙古帝国",
+        "C": "金朝",
+        "D": "辽朝"
+      },
+      "answer": "B",
+      "explanation": "蒙古帝国，忽必烈后来建立了元朝。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_019",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "埃及金字塔建于哪个时期？",
+      "options": {
+        "A": "公元前3000年左右",
+        "B": "公元前2500年左右",
+        "C": "公元前1000年左右",
+        "D": "公元前后"
+      },
+      "answer": "B",
+      "explanation": "公元前2500年左右，古王国时期。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_020",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "二战结束于哪一年？",
+      "options": {
+        "A": "1944年",
+        "B": "1945年",
+        "C": "1946年",
+        "D": "1947年"
+      },
+      "answer": "B",
+      "explanation": "1945年，日本投降。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_021",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "丝绸之路是谁开辟的？",
+      "options": {
+        "A": "班超",
+        "B": "张骞",
+        "C": "郑和",
+        "D": "玄奘"
+      },
+      "answer": "B",
+      "explanation": "张骞，西汉时期出使西域。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_022",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "美索不达米亚文明位于今天的哪里？",
+      "options": {
+        "A": "埃及",
+        "B": "伊拉克",
+        "C": "伊朗",
+        "D": "土耳其"
+      },
+      "answer": "B",
+      "explanation": "伊拉克，两河流域。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_023",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "玛雅文明位于哪个洲？",
+      "options": {
+        "A": "南美洲",
+        "B": "北美洲",
+        "C": "中美洲",
+        "D": "非洲"
+      },
+      "answer": "C",
+      "explanation": "中美洲，主要在墨西哥和中美地区。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_024",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "联合国成立于哪一年？",
+      "options": {
+        "A": "1944年",
+        "B": "1945年",
+        "C": "1946年",
+        "D": "1948年"
+      },
+      "answer": "B",
+      "explanation": "1945年，10月24日正式成立。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_025",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "柏林墙倒塌于哪一年？",
+      "options": {
+        "A": "1987年",
+        "B": "1989年",
+        "C": "1991年",
+        "D": "1993年"
+      },
+      "answer": "B",
+      "explanation": "1989年，11月9日。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_026",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "中国抗日战争持续了多少年？",
+      "options": {
+        "A": "8年",
+        "B": "14年",
+        "C": "15年",
+        "D": "4年"
+      },
+      "answer": "B",
+      "explanation": "14年，从1931年九一八事变到1945年。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_027",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "活字印刷术是谁发明的？",
+      "options": {
+        "A": "蔡伦",
+        "B": "毕昇",
+        "C": "张衡",
+        "D": "祖冲之"
+      },
+      "answer": "B",
+      "explanation": "毕昇，北宋时期发明活字印刷术。雕版印刷术更早，发明者不详。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_028",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "特洛伊战争发生在哪里？",
+      "options": {
+        "A": "希腊",
+        "B": "土耳其",
+        "C": "意大利",
+        "D": "埃及"
+      },
+      "answer": "B",
+      "explanation": "土耳其，特洛伊城在小亚细亚。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_029",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "中国科举制度始于哪个朝代？",
+      "options": {
+        "A": "汉朝",
+        "B": "隋朝",
+        "C": "唐朝",
+        "D": "宋朝"
+      },
+      "answer": "B",
+      "explanation": "隋朝，隋炀帝时期确立。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "his_030",
+      "category": "history",
+      "categoryName": "历史文化",
+      "categoryIcon": "🏛️",
+      "question": "文明冲突论是谁提出的？",
+      "options": {
+        "A": "亨廷顿",
+        "B": "福山",
+        "C": "布热津斯基",
+        "D": "基辛格"
+      },
+      "answer": "A",
+      "explanation": "亨廷顿，1996年发表《文明的冲突》。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_001",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "地球上最深的海沟是？",
+      "options": {
+        "A": "波多黎各海沟",
+        "B": "日本海沟",
+        "C": "马里亚纳海沟",
+        "D": "秘鲁-智利海沟"
+      },
+      "answer": "C",
+      "explanation": "马里亚纳海沟，最深处约11034米。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_002",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "以下哪个国家横跨两大洲？",
+      "options": {
+        "A": "伊朗",
+        "B": "土耳其",
+        "C": "沙特阿拉伯",
+        "D": "伊拉克"
+      },
+      "answer": "B",
+      "explanation": "土耳其，横跨欧洲和亚洲。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_003",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "赤道经过的大洲数量是？",
+      "options": {
+        "A": "2个",
+        "B": "3个",
+        "C": "4个",
+        "D": "5个"
+      },
+      "answer": "B",
+      "explanation": "3个，南美洲、非洲、亚洲（印尼）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_004",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上使用人数最多的语言是？",
+      "options": {
+        "A": "英语",
+        "B": "西班牙语",
+        "C": "汉语（普通话）",
+        "D": "印地语"
+      },
+      "answer": "C",
+      "explanation": "汉语，以母语使用者计算约9.2亿人。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_005",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上国土面积最大的国家是？",
+      "options": {
+        "A": "加拿大",
+        "B": "中国",
+        "C": "美国",
+        "D": "俄罗斯"
+      },
+      "answer": "D",
+      "explanation": "俄罗斯，约1709万平方公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_006",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上海拔最高的山峰是？",
+      "options": {
+        "A": "乔戈里峰",
+        "B": "珠穆朗玛峰",
+        "C": "干城章嘉峰",
+        "D": "洛子峰"
+      },
+      "answer": "B",
+      "explanation": "珠穆朗玛峰，海拔8848.86米。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_007",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上面积最大的沙漠是？",
+      "options": {
+        "A": "撒哈拉沙漠",
+        "B": "戈壁沙漠",
+        "C": "阿拉伯沙漠",
+        "D": "南极沙漠"
+      },
+      "answer": "D",
+      "explanation": "南极沙漠，约1400万平方公里（南极洲本身）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_008",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上最长的河流是？",
+      "options": {
+        "A": "亚马逊河",
+        "B": "尼罗河",
+        "C": "长江",
+        "D": "密西西比河"
+      },
+      "answer": "B",
+      "explanation": "尼罗河，约6650公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_009",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "地球表面面积最大的海洋是？",
+      "options": {
+        "A": "大西洋",
+        "B": "太平洋",
+        "C": "印度洋",
+        "D": "北冰洋"
+      },
+      "answer": "B",
+      "explanation": "太平洋，约1.65亿平方公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_010",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "以下哪个城市没举办过夏季奥运会？",
+      "options": {
+        "A": "东京",
+        "B": "北京",
+        "C": "曼谷",
+        "D": "伦敦"
+      },
+      "answer": "C",
+      "explanation": "曼谷，从未举办过奥运会。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_011",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上人口最多的国家是？",
+      "options": {
+        "A": "印度",
+        "B": "中国",
+        "C": "美国",
+        "D": "印度尼西亚"
+      },
+      "answer": "A",
+      "explanation": "印度，2023年超过中国。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_012",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上最大的岛屿是？",
+      "options": {
+        "A": "新几内亚岛",
+        "B": "婆罗洲",
+        "C": "格陵兰岛",
+        "D": "马达加斯加"
+      },
+      "answer": "C",
+      "explanation": "格陵兰岛，约216万平方公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_013",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "中国有几个直辖市？",
+      "options": {
+        "A": "3个",
+        "B": "4个",
+        "C": "5个",
+        "D": "6个"
+      },
+      "answer": "B",
+      "explanation": "4个，北京、上海、天津、重庆。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_014",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "地球距离太阳最近的时候是？",
+      "options": {
+        "A": "春分",
+        "B": "夏至",
+        "C": "秋分",
+        "D": "冬至"
+      },
+      "answer": "D",
+      "explanation": "冬至，1月初到达近日点。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_015",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上面积最大的淡水湖是？",
+      "options": {
+        "A": "贝加尔湖",
+        "B": "苏必利尔湖",
+        "C": "维多利亚湖",
+        "D": "坦噶尼喀湖"
+      },
+      "answer": "B",
+      "explanation": "苏必利尔湖，面积约8.2万平方公里。贝加尔湖蓄水量最大（约2.36万立方公里），但面积较小。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_016",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "以下哪个是内陆国？",
+      "options": {
+        "A": "泰国",
+        "B": "蒙古",
+        "C": "越南",
+        "D": "韩国"
+      },
+      "answer": "B",
+      "explanation": "蒙古，没有海岸线。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_017",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上最高的高原是？",
+      "options": {
+        "A": "青藏高原",
+        "B": "巴西高原",
+        "C": "伊朗高原",
+        "D": "德干高原"
+      },
+      "answer": "A",
+      "explanation": "青藏高原，平均海拔4000米以上。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_018",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上流经国家最多的河流是？",
+      "options": {
+        "A": "多瑙河",
+        "B": "尼罗河",
+        "C": "亚马逊河",
+        "D": "莱茵河"
+      },
+      "answer": "A",
+      "explanation": "多瑙河，流经10个国家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_019",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "以下哪个不是联合国的官方语言？",
+      "options": {
+        "A": "阿拉伯语",
+        "B": "西班牙语",
+        "C": "葡萄牙语",
+        "D": "俄语"
+      },
+      "answer": "C",
+      "explanation": "葡萄牙语，联合国6种官方语言：中英法俄西阿。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_020",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上最深淡水湖是？",
+      "options": {
+        "A": "贝加尔湖",
+        "B": "苏必利尔湖",
+        "C": "坦噶尼喀湖",
+        "D": "马拉维湖"
+      },
+      "answer": "A",
+      "explanation": "贝加尔湖，最深处约1637米。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_021",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "撒哈拉沙漠位于哪个洲？",
+      "options": {
+        "A": "亚洲",
+        "B": "非洲",
+        "C": "欧洲",
+        "D": "大洋洲"
+      },
+      "answer": "B",
+      "explanation": "非洲，世界最大的热沙漠。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_022",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上最小的国家是？",
+      "options": {
+        "A": "摩纳哥",
+        "B": "梵蒂冈",
+        "C": "圣马力诺",
+        "D": "列支敦士登"
+      },
+      "answer": "B",
+      "explanation": "梵蒂冈，面积0.44平方公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_023",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "亚马逊雨林主要位于哪个国家？",
+      "options": {
+        "A": "委内瑞拉",
+        "B": "哥伦比亚",
+        "C": "巴西",
+        "D": "秘鲁"
+      },
+      "answer": "C",
+      "explanation": "巴西，约60%的亚马逊雨林在巴西境内。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_024",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "地球上最大的珊瑚礁在哪里？",
+      "options": {
+        "A": "马尔代夫",
+        "B": "大堡礁",
+        "C": "红海",
+        "D": "加勒比海"
+      },
+      "answer": "B",
+      "explanation": "大堡礁，澳大利亚东北海岸。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_025",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "巴拿马运河连接哪两个大洋？",
+      "options": {
+        "A": "大西洋和印度洋",
+        "B": "太平洋和印度洋",
+        "C": "大西洋和太平洋",
+        "D": "北冰洋和大西洋"
+      },
+      "answer": "C",
+      "explanation": "大西洋和太平洋。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_026",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上海拔最低的地方是？",
+      "options": {
+        "A": "吐鲁番盆地",
+        "B": "死海",
+        "C": "里海",
+        "D": "红海"
+      },
+      "answer": "B",
+      "explanation": "死海，约-430米。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_027",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "以下哪个国家不属于欧洲？",
+      "options": {
+        "A": "瑞士",
+        "B": "奥地利",
+        "C": "哈萨克斯坦",
+        "D": "捷克"
+      },
+      "answer": "C",
+      "explanation": "哈萨克斯坦，主要在中亚，小部分在欧洲。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_028",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上最大的半岛是？",
+      "options": {
+        "A": "印度半岛",
+        "B": "阿拉伯半岛",
+        "C": "中南半岛",
+        "D": "朝鲜半岛"
+      },
+      "answer": "B",
+      "explanation": "阿拉伯半岛，约300万平方公里。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_029",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "尼罗河注入哪个海？",
+      "options": {
+        "A": "红海",
+        "B": "地中海",
+        "C": "阿拉伯海",
+        "D": "黑海"
+      },
+      "answer": "B",
+      "explanation": "地中海。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "geo_030",
+      "category": "geography",
+      "categoryName": "地理探索",
+      "categoryIcon": "🌍",
+      "question": "世界上火山最多的国家是？",
+      "options": {
+        "A": "日本",
+        "B": "印度尼西亚",
+        "C": "美国",
+        "D": "意大利"
+      },
+      "answer": "B",
+      "explanation": "印度尼西亚，有超过130座活火山。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_001",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "元素周期表中原子序数为1的元素是？",
+      "options": {
+        "A": "氦",
+        "B": "氢",
+        "C": "锂",
+        "D": "铍"
+      },
+      "answer": "B",
+      "explanation": "氢，最轻的元素。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_002",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪种金属在常温下呈液态？",
+      "options": {
+        "A": "铅",
+        "B": "锡",
+        "C": "汞",
+        "D": "锌"
+      },
+      "answer": "C",
+      "explanation": "汞，熔点-38.8°C。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_003",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "钻石的化学成分是？",
+      "options": {
+        "A": "硅",
+        "B": "二氧化碳",
+        "C": "碳",
+        "D": "二氧化硅"
+      },
+      "answer": "C",
+      "explanation": "碳，钻石和石墨是碳的同素异形体。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_004",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "空气中含量最多的气体是？",
+      "options": {
+        "A": "氧气",
+        "B": "氮气",
+        "C": "二氧化碳",
+        "D": "氩气"
+      },
+      "answer": "B",
+      "explanation": "氮气，约占78%。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_005",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "下列哪个不是稀有气体？",
+      "options": {
+        "A": "氦",
+        "B": "氖",
+        "C": "氮",
+        "D": "氩"
+      },
+      "answer": "C",
+      "explanation": "氮，不是稀有气体。稀有气体包括氦氖氪氙氡。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_006",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "水的化学式是？",
+      "options": {
+        "A": "H2O",
+        "B": "CO2",
+        "C": "NaCl",
+        "D": "H2SO4"
+      },
+      "answer": "A",
+      "explanation": "H2O，两个氢原子一个氧原子。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_007",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "元素周期表的发明者是？",
+      "options": {
+        "A": "居里夫人",
+        "B": "门捷列夫",
+        "C": "道尔顿",
+        "D": "拉瓦锡"
+      },
+      "answer": "B",
+      "explanation": "门捷列夫，1869年发表。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_008",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "人体必需的微量元素不包括？",
+      "options": {
+        "A": "铁",
+        "B": "锌",
+        "C": "铅",
+        "D": "碘"
+      },
+      "answer": "C",
+      "explanation": "铅，有毒重金属，不是必需元素。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_009",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "酸碱中和反应的产物是？",
+      "options": {
+        "A": "盐和水",
+        "B": "氧气和氢气",
+        "C": "二氧化碳和水",
+        "D": "盐和氧气"
+      },
+      "answer": "A",
+      "explanation": "盐和水。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_010",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "元素周期表中第几族是稀有气体？",
+      "options": {
+        "A": "第17族",
+        "B": "第18族",
+        "C": "第1族",
+        "D": "第2族"
+      },
+      "answer": "B",
+      "explanation": "第18族（原VIIIA族）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_011",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "氧气的化学符号是？",
+      "options": {
+        "A": "O",
+        "B": "O2",
+        "C": "O3",
+        "D": "H2O"
+      },
+      "answer": "B",
+      "explanation": "O2，氧气是双原子分子。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_012",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪种元素是放射性元素？",
+      "options": {
+        "A": "铁",
+        "B": "铜",
+        "C": "铀",
+        "D": "铝"
+      },
+      "answer": "C",
+      "explanation": "铀，天然放射性元素。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_013",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "乙醇的化学式是？",
+      "options": {
+        "A": "CH4",
+        "B": "C2H5OH",
+        "C": "CH3COOH",
+        "D": "C6H12O6"
+      },
+      "answer": "B",
+      "explanation": "C2H5OH，酒精的主要成分。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_014",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "金的化学符号是？",
+      "options": {
+        "A": "Ag",
+        "B": "Au",
+        "C": "Cu",
+        "D": "Fe"
+      },
+      "answer": "B",
+      "explanation": "Au，来自拉丁语Aurum。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_015",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪种是最活泼的金属？",
+      "options": {
+        "A": "钠",
+        "B": "钾",
+        "C": "钙",
+        "D": "镁"
+      },
+      "answer": "B",
+      "explanation": "钾，碱金属中非常活泼。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_016",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "人体骨骼主要含有的矿物质是？",
+      "options": {
+        "A": "铁",
+        "B": "钙",
+        "C": "锌",
+        "D": "铜"
+      },
+      "answer": "B",
+      "explanation": "钙，羟基磷灰石是主要成分。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_017",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "臭氧的化学式是？",
+      "options": {
+        "A": "O",
+        "B": "O2",
+        "C": "O3",
+        "D": "CO2"
+      },
+      "answer": "C",
+      "explanation": "O3，三个氧原子组成。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_018",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪个不是有机化合物？",
+      "options": {
+        "A": "葡萄糖",
+        "B": "乙醇",
+        "C": "食盐",
+        "D": "蛋白质"
+      },
+      "answer": "C",
+      "explanation": "食盐，氯化钠是无机物。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_019",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "铁生锈是哪种化学反应？",
+      "options": {
+        "A": "燃烧",
+        "B": "氧化",
+        "C": "还原",
+        "D": "分解"
+      },
+      "answer": "B",
+      "explanation": "氧化，铁与氧气和水反应。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_020",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "pH值7表示什么？",
+      "options": {
+        "A": "酸性",
+        "B": "碱性",
+        "C": "中性",
+        "D": "强酸"
+      },
+      "answer": "C",
+      "explanation": "中性，pH小于7酸性，大于7碱性。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_021",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "银的化学符号是？",
+      "options": {
+        "A": "Ag",
+        "B": "Au",
+        "C": "Al",
+        "D": "Ar"
+      },
+      "answer": "A",
+      "explanation": "Ag，来自拉丁语Argentum。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_022",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪个元素是非金属？",
+      "options": {
+        "A": "铁",
+        "B": "钠",
+        "C": "硫",
+        "D": "镁"
+      },
+      "answer": "C",
+      "explanation": "硫，黄色非金属元素。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_023",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "碳酸饮料中的气体是？",
+      "options": {
+        "A": "氧气",
+        "B": "氮气",
+        "C": "二氧化碳",
+        "D": "氢气"
+      },
+      "answer": "C",
+      "explanation": "二氧化碳，CO2。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_024",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "居里夫人发现了哪两种元素？",
+      "options": {
+        "A": "铀和钚",
+        "B": "钋和镭",
+        "C": "氡和氙",
+        "D": "钫和锎"
+      },
+      "answer": "B",
+      "explanation": "钋和镭，1898年发现。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_025",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "水的沸点在标准气压下是？",
+      "options": {
+        "A": "90°C",
+        "B": "100°C",
+        "C": "110°C",
+        "D": "0°C"
+      },
+      "answer": "B",
+      "explanation": "100°C，一个标准大气压下。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_026",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪个是碱性物质？",
+      "options": {
+        "A": "醋",
+        "B": "柠檬汁",
+        "C": "肥皂水",
+        "D": "胃酸"
+      },
+      "answer": "C",
+      "explanation": "肥皂水，pH值通常在8-10。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_027",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "元素周期表中目前有多少种元素？",
+      "options": {
+        "A": "108种",
+        "B": "112种",
+        "C": "118种",
+        "D": "120种"
+      },
+      "answer": "C",
+      "explanation": "118种，截至2024年。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_028",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "以下哪个是卤素？",
+      "options": {
+        "A": "氧",
+        "B": "硫",
+        "C": "氯",
+        "D": "氮"
+      },
+      "answer": "C",
+      "explanation": "氯，卤素还包括氟、溴、碘、砹。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_029",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "干冰是什么物质？",
+      "options": {
+        "A": "冰",
+        "B": "固态二氧化碳",
+        "C": "固态氮气",
+        "D": "固态氧气"
+      },
+      "answer": "B",
+      "explanation": "固态二氧化碳，CO2(s)。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "che_030",
+      "category": "chemistry",
+      "categoryName": "化学元素",
+      "categoryIcon": "🧪",
+      "question": "铜在潮湿空气中会变成什么颜色？",
+      "options": {
+        "A": "黑色",
+        "B": "绿色",
+        "C": "红色",
+        "D": "黄色"
+      },
+      "answer": "B",
+      "explanation": "绿色，形成碱式碳酸铜（铜绿）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_001",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《百年孤独》的作者是？",
+      "options": {
+        "A": "博尔赫斯",
+        "B": "加西亚·马尔克斯",
+        "C": "略萨",
+        "D": "科塔萨尔"
+      },
+      "answer": "B",
+      "explanation": "加西亚·马尔克斯，哥伦比亚作家，1982年获诺贝尔文学奖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_002",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "中国四大名著中篇幅最长的是？",
+      "options": {
+        "A": "《三国演义》",
+        "B": "《水浒传》",
+        "C": "《西游记》",
+        "D": "《红楼梦》"
+      },
+      "answer": "D",
+      "explanation": "《红楼梦》，约73万字。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_003",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "莎士比亚的故乡在哪个国家？",
+      "options": {
+        "A": "法国",
+        "B": "德国",
+        "C": "英国",
+        "D": "意大利"
+      },
+      "answer": "C",
+      "explanation": "英国，斯特拉特福镇。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_004",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "\"诗仙\"是指哪位诗人？",
+      "options": {
+        "A": "杜甫",
+        "B": "李白",
+        "C": "白居易",
+        "D": "王维"
+      },
+      "answer": "B",
+      "explanation": "李白，诗风豪放飘逸。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_005",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《战争与和平》的作者是？",
+      "options": {
+        "A": "陀思妥耶夫斯基",
+        "B": "托尔斯泰",
+        "C": "屠格涅夫",
+        "D": "契诃夫"
+      },
+      "answer": "B",
+      "explanation": "托尔斯泰，俄国作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_006",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "中国古代\"四大发明\"中与文化传播最相关的是？",
+      "options": {
+        "A": "指南针",
+        "B": "火药",
+        "C": "造纸术和印刷术",
+        "D": "青铜器"
+      },
+      "answer": "C",
+      "explanation": "造纸术和印刷术。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_007",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《神曲》的作者是？",
+      "options": {
+        "A": "薄伽丘",
+        "B": "但丁",
+        "C": "彼特拉克",
+        "D": "塞万提斯"
+      },
+      "answer": "B",
+      "explanation": "但丁，意大利诗人。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_008",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "鲁迅原名是？",
+      "options": {
+        "A": "周树人",
+        "B": "周作人",
+        "C": "周建人",
+        "D": "周恩来"
+      },
+      "answer": "A",
+      "explanation": "周树人，字豫才。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_009",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "\"悲剧之父\"是指？",
+      "options": {
+        "A": "索福克勒斯",
+        "B": "欧里庇得斯",
+        "C": "埃斯库罗斯",
+        "D": "阿里斯托芬"
+      },
+      "answer": "C",
+      "explanation": "埃斯库罗斯，古希腊悲剧作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_010",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《悲惨世界》的作者是？",
+      "options": {
+        "A": "巴尔扎克",
+        "B": "雨果",
+        "C": "福楼拜",
+        "D": "莫泊桑"
+      },
+      "answer": "B",
+      "explanation": "雨果，法国作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_011",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《红楼梦》前80回作者是谁？",
+      "options": {
+        "A": "高鹗",
+        "B": "曹雪芹",
+        "C": "吴承恩",
+        "D": "罗贯中"
+      },
+      "answer": "B",
+      "explanation": "曹雪芹，后40回一般认为由高鹗续写。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_012",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "文艺复兴时期\"文坛三杰\"不包括？",
+      "options": {
+        "A": "但丁",
+        "B": "彼特拉克",
+        "C": "薄伽丘",
+        "D": "米开朗基罗"
+      },
+      "answer": "D",
+      "explanation": "米开朗基罗，是美术三杰之一。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_013",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《老人与海》的作者是？",
+      "options": {
+        "A": "海明威",
+        "B": "福克纳",
+        "C": "菲茨杰拉德",
+        "D": "斯坦贝克"
+      },
+      "answer": "A",
+      "explanation": "海明威，1954年获诺贝尔文学奖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_014",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "\"《诗经》六义\"不包括？",
+      "options": {
+        "A": "风",
+        "B": "雅",
+        "C": "颂",
+        "D": "论"
+      },
+      "answer": "D",
+      "explanation": "论，六义是风雅颂赋比兴。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_015",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《悲惨世界》的主人公是？",
+      "options": {
+        "A": "冉·阿让",
+        "B": "于连",
+        "C": "包法利夫人",
+        "D": "高老头"
+      },
+      "answer": "A",
+      "explanation": "冉·阿让。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_016",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "被称为\"短篇小说之王\"的是？",
+      "options": {
+        "A": "莫泊桑",
+        "B": "契诃夫",
+        "C": "欧·亨利",
+        "D": "马克·吐温"
+      },
+      "answer": "A",
+      "explanation": "莫泊桑，法国作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_017",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《变形记》的作者是？",
+      "options": {
+        "A": "卡夫卡",
+        "B": "昆德拉",
+        "C": "茨威格",
+        "D": "里尔克"
+      },
+      "answer": "A",
+      "explanation": "卡夫卡，奥地利作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_018",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "唐宋八大家不包括？",
+      "options": {
+        "A": "韩愈",
+        "B": "柳宗元",
+        "C": "李白",
+        "D": "苏轼"
+      },
+      "answer": "C",
+      "explanation": "李白，唐宋八大家指散文家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_019",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《傲慢与偏见》的作者是？",
+      "options": {
+        "A": "勃朗特",
+        "B": "简·奥斯汀",
+        "C": "狄更斯",
+        "D": "萨克雷"
+      },
+      "answer": "B",
+      "explanation": "简·奥斯汀，英国女作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_020",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "中国第一部白话小说是？",
+      "options": {
+        "A": "《红楼梦》",
+        "B": "《水浒传》",
+        "C": "《狂人日记》",
+        "D": "《阿Q正传》"
+      },
+      "answer": "C",
+      "explanation": "《狂人日记》，鲁迅1918年发表。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_021",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《局外人》的作者是？",
+      "options": {
+        "A": "萨特",
+        "B": "加缪",
+        "C": "波伏娃",
+        "D": "罗兰"
+      },
+      "answer": "B",
+      "explanation": "加缪，1957年获诺贝尔文学奖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_022",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "\"但丁的《神曲》\"分为几部分？",
+      "options": {
+        "A": "两部分",
+        "B": "三部分",
+        "C": "四部分",
+        "D": "五部分"
+      },
+      "answer": "B",
+      "explanation": "三部分：地狱、炼狱、天堂。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_023",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "巴金\"激流三部曲\"不包括？",
+      "options": {
+        "A": "《家》",
+        "B": "《春》",
+        "C": "《秋》",
+        "D": "《冬》"
+      },
+      "answer": "D",
+      "explanation": "《冬》，只有家春秋三部。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_024",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《麦田里的守望者》作者是？",
+      "options": {
+        "A": "塞林格",
+        "B": "海明威",
+        "C": "菲茨杰拉德",
+        "D": "福克纳"
+      },
+      "answer": "A",
+      "explanation": "塞林格，美国作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_025",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "中国最长的叙事诗是？",
+      "options": {
+        "A": "《木兰辞》",
+        "B": "《孔雀东南飞》",
+        "C": "《长恨歌》",
+        "D": "《琵琶行》"
+      },
+      "answer": "B",
+      "explanation": "《孔雀东南飞》，约1700多字。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_026",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "希腊神话中的文艺女神是？",
+      "options": {
+        "A": "缪斯",
+        "B": "雅典娜",
+        "C": "阿佛洛狄忒",
+        "D": "阿尔忒弥斯"
+      },
+      "answer": "A",
+      "explanation": "缪斯，共九位。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_027",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《围城》的作者是？",
+      "options": {
+        "A": "鲁迅",
+        "B": "钱钟书",
+        "C": "老舍",
+        "D": "沈从文"
+      },
+      "answer": "B",
+      "explanation": "钱钟书，1947年发表。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_028",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "荷马史诗包括哪两部？",
+      "options": {
+        "A": "《伊利亚特》和《奥德赛》",
+        "B": "《神曲》和《变形记》",
+        "C": "《伊利亚特》和《神谱》",
+        "D": "《奥德赛》和《俄狄浦斯王》"
+      },
+      "answer": "A",
+      "explanation": "《伊利亚特》和《奥德赛》。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_029",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "以下哪个是意识流小说代表作家？",
+      "options": {
+        "A": "狄更斯",
+        "B": "伍尔夫",
+        "C": "托尔斯泰",
+        "D": "雨果"
+      },
+      "answer": "B",
+      "explanation": "伍尔夫，英国女作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "lit_030",
+      "category": "literature",
+      "categoryName": "文学艺术",
+      "categoryIcon": "🎭",
+      "question": "《1984》的作者是？",
+      "options": {
+        "A": "赫胥黎",
+        "B": "奥威尔",
+        "C": "扎米亚京",
+        "D": "布拉德伯里"
+      },
+      "answer": "B",
+      "explanation": "奥威尔，英国作家。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_001",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "图灵奖是哪个领域的最高荣誉？",
+      "options": {
+        "A": "物理学",
+        "B": "计算机科学",
+        "C": "数学",
+        "D": "经济学"
+      },
+      "answer": "B",
+      "explanation": "计算机科学，被誉为\"计算机界诺贝尔奖\"。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_002",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪个定律预测了晶体管数量每两年翻一番？",
+      "options": {
+        "A": "摩尔定律",
+        "B": "墨菲定律",
+        "C": "帕金森定律",
+        "D": "彼得原理"
+      },
+      "answer": "A",
+      "explanation": "摩尔定律，1965年由戈登·摩尔提出。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_003",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "互联网的前身ARPANET建立于哪一年？",
+      "options": {
+        "A": "1965年",
+        "B": "1969年",
+        "C": "1975年",
+        "D": "1983年"
+      },
+      "answer": "B",
+      "explanation": "1969年，美国国防部高级研究计划局建立。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_004",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "第一个登上月球的人是？",
+      "options": {
+        "A": "奥尔德林",
+        "B": "阿姆斯特朗",
+        "C": "柯林斯",
+        "D": "格伦"
+      },
+      "answer": "B",
+      "explanation": "阿姆斯特朗，1969年阿波罗11号任务。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_005",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "CRISPR技术用于什么领域？",
+      "options": {
+        "A": "人工智能",
+        "B": "基因编辑",
+        "C": "量子计算",
+        "D": "核聚变"
+      },
+      "answer": "B",
+      "explanation": "基因编辑，2020年诺贝尔化学奖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_006",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "量子计算机使用什么进行计算？",
+      "options": {
+        "A": "电子",
+        "B": "光子",
+        "C": "量子比特",
+        "D": "原子"
+      },
+      "answer": "C",
+      "explanation": "量子比特（qubit）。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_007",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪种动物有最强的再生能力？",
+      "options": {
+        "A": "蜥蜴",
+        "B": "海星",
+        "C": "蝾螈",
+        "D": "涡虫"
+      },
+      "answer": "D",
+      "explanation": "涡虫，切成279份都能再生出完整的个体。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_008",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "世界上最深的钻探深度是？",
+      "options": {
+        "A": "5公里",
+        "B": "7公里",
+        "C": "12公里",
+        "D": "20公里"
+      },
+      "answer": "C",
+      "explanation": "约12公里，科拉超深钻孔。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_009",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "费米悖论是关于什么的？",
+      "options": {
+        "A": "量子力学",
+        "B": "外星文明",
+        "C": "黑洞",
+        "D": "时间旅行"
+      },
+      "answer": "B",
+      "explanation": "外星文明，为何我们还没发现外星人。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_010",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "暗物质占宇宙物质总量的约多少？",
+      "options": {
+        "A": "5%",
+        "B": "27%",
+        "C": "68%",
+        "D": "95%"
+      },
+      "answer": "B",
+      "explanation": "27%，暗能量约占68%，普通物质仅约5%。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_011",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "熵增加表示什么？",
+      "options": {
+        "A": "有序度增加",
+        "B": "无序度增加",
+        "C": "能量增加",
+        "D": "温度增加"
+      },
+      "answer": "B",
+      "explanation": "无序度增加，热力学第二定律。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_012",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪个是博弈论中的经典问题？",
+      "options": {
+        "A": "薛定谔的猫",
+        "B": "囚徒困境",
+        "C": "蝴蝶效应",
+        "D": "破窗效应"
+      },
+      "answer": "B",
+      "explanation": "囚徒困境，博弈论经典模型。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_013",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "全球变暖的主要温室气体是？",
+      "options": {
+        "A": "氧气",
+        "B": "氮气",
+        "C": "二氧化碳",
+        "D": "氩气"
+      },
+      "answer": "C",
+      "explanation": "二氧化碳，还有甲烷、水蒸气等。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_014",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "人体基因组有多少对染色体？",
+      "options": {
+        "A": "22对",
+        "B": "23对",
+        "C": "24对",
+        "D": "46对"
+      },
+      "answer": "B",
+      "explanation": "23对，共46条染色体。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_015",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪个不是人工智能的应用？",
+      "options": {
+        "A": "图像识别",
+        "B": "自然语言处理",
+        "C": "算术运算",
+        "D": "自动驾驶"
+      },
+      "answer": "C",
+      "explanation": "算术运算，这是传统计算而非AI特有。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_016",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "诺贝尔奖不包括哪个领域？",
+      "options": {
+        "A": "物理",
+        "B": "数学",
+        "C": "化学",
+        "D": "文学"
+      },
+      "answer": "B",
+      "explanation": "数学，数学最高奖是菲尔兹奖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_017",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "世界首例基因编辑婴儿事件发生在哪一年？",
+      "options": {
+        "A": "2015年",
+        "B": "2018年",
+        "C": "2020年",
+        "D": "2022年"
+      },
+      "answer": "B",
+      "explanation": "2018年，贺建奎事件。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_018",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "人类已探测到的最深海洋生物生活在多深？",
+      "options": {
+        "A": "5000米",
+        "B": "8000米",
+        "C": "10000米",
+        "D": "11000米"
+      },
+      "answer": "D",
+      "explanation": "约11000米，马里亚纳海沟发现的生命。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_019",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "大脑中负责记忆的关键区域是？",
+      "options": {
+        "A": "小脑",
+        "B": "海马体",
+        "C": "脑干",
+        "D": "额叶"
+      },
+      "answer": "B",
+      "explanation": "海马体，对记忆形成至关重要。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_020",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪个是可控核聚变的燃料？",
+      "options": {
+        "A": "铀-235",
+        "B": "氘和氚",
+        "C": "钚-239",
+        "D": "碳-14"
+      },
+      "answer": "B",
+      "explanation": "氘和氚，氢的同位素。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_021",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "阿尔法围棋(AlphaGo)战胜李世石是哪一年？",
+      "options": {
+        "A": "2014年",
+        "B": "2016年",
+        "C": "2018年",
+        "D": "2020年"
+      },
+      "answer": "B",
+      "explanation": "2016年，4:1战胜。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_022",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "人类探测器首次飞越冥王星是哪一年？",
+      "options": {
+        "A": "2006年",
+        "B": "2015年",
+        "C": "2018年",
+        "D": "2020年"
+      },
+      "answer": "B",
+      "explanation": "2015年，新视野号。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_023",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪个不是基本相互作用力？",
+      "options": {
+        "A": "引力",
+        "B": "电磁力",
+        "C": "摩擦力",
+        "D": "强核力"
+      },
+      "answer": "C",
+      "explanation": "摩擦力，是电磁力的宏观表现。四种基本力是引力、电磁力、强核力、弱核力。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_024",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "宇宙微波背景辐射的温度约为？",
+      "options": {
+        "A": "0K",
+        "B": "2.7K",
+        "C": "3K",
+        "D": "300K"
+      },
+      "answer": "B",
+      "explanation": "约2.7K，宇宙大爆炸的余晖。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_025",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "端粒酶的作用是？",
+      "options": {
+        "A": "分解蛋白质",
+        "B": "延长染色体端粒",
+        "C": "修复DNA",
+        "D": "合成RNA"
+      },
+      "answer": "B",
+      "explanation": "延长染色体端粒，与细胞衰老相关。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_026",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "以下哪个是图灵测试的目的？",
+      "options": {
+        "A": "测试计算机速度",
+        "B": "测试机器是否具有智能",
+        "C": "测试网络安全",
+        "D": "测试存储容量"
+      },
+      "answer": "B",
+      "explanation": "测试机器是否具有智能。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_027",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "人类大脑的神经元数量约为？",
+      "options": {
+        "A": "10亿",
+        "B": "100亿",
+        "C": "860亿",
+        "D": "1000亿"
+      },
+      "answer": "C",
+      "explanation": "约860亿个神经元。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_028",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "截至2026年初，以下哪个是世界上运行速度最快的超级计算机？",
+      "options": {
+        "A": "Summit",
+        "B": "富岳",
+        "C": "El Capitan",
+        "D": "神威·太湖之光"
+      },
+      "answer": "C",
+      "explanation": "El Capitan（酋长岩），美国劳伦斯利弗莫尔国家实验室，峰值性能约1.74-2.75 exaFLOPS，2024年11月登顶TOP500榜单。超级计算机排名每年更新两次，请以最新榜单为准。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_029",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "普朗克常数与哪个物理理论相关？",
+      "options": {
+        "A": "相对论",
+        "B": "量子力学",
+        "C": "热力学",
+        "D": "电磁学"
+      },
+      "answer": "B",
+      "explanation": "量子力学，能量量子化的基础。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    },
+    {
+      "id": "cha_030",
+      "category": "challenge",
+      "categoryName": "终极挑战",
+      "categoryIcon": "🏆",
+      "question": "\"薛定谔的猫\"实验说明了什么？",
+      "options": {
+        "A": "猫有九条命",
+        "B": "量子叠加态",
+        "C": "相对论",
+        "D": "进化论"
+      },
+      "answer": "B",
+      "explanation": "量子叠加态，观测导致波函数坍缩。",
+      "stats": {
+        "callCount": 0,
+        "correctCount": 0,
+        "wrongCount": 0,
+        "accuracyRate": 0.0
+      }
+    }
+  ]
+}

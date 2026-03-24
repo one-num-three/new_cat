@@ -282,6 +282,13 @@ export const gameAPI = {
     return request({ 
       url: `/api/game/${gameId}/task/riddle/${playerId}`
     });
+  },
+  
+  // 获取趣味问答题目
+  getQuizQuestions(gameId, playerId) {
+    return request({ 
+      url: `/api/game/${gameId}/task/quiz/${playerId}`
+    });
   }
 };
 

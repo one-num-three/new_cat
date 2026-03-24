@@ -6,7 +6,8 @@
     "pages/profile/profile",
     "pages/qrcode/qrcode",
     "pages/history/history",
-    "pages/task/task"
+    "pages/task/task",
+    "pages/quiz/quiz"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -5,12 +5,25 @@ const http = require('http');
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
 const NodeCache = require('node-cache');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
 // 中间件
 app.use(cors());
 app.use(express.json());
+
+// 加载题库
+let questionBank = null;
+try {
+  const questionPath = path.join(__dirname, '趣味问题数据库.json');
+  const questionData = fs.readFileSync(questionPath, 'utf-8');
+  questionBank = JSON.parse(questionData);
+  console.log('[题库] 加载成功，共', questionBank.questions.length, '道题目');
+} catch (err) {
+  console.error('[题库] 加载失败:', err);
+}
 
 // 缓存存储（生产环境建议用 Redis）
 const roomCache = new NodeCache({ stdTTL: 3600 }); // 房间数据 1 小时过期
@@ -720,6 +733,74 @@ app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
   }
 });
 
+// 获取趣味问答题目
+app.get('/api/game/:gameId/task/quiz/:playerId', (req, res) => {
+  try {
+    const { gameId, playerId } = req.params;
+    const room = roomCache.get(gameId);
+    
+    if (!room) {
+      return res.status(404).json({ success: false, message: '游戏不存在' });
+    }
+    
+    const player = room.players.find(p => p.id === playerId);
+    if (!player) {
+      return res.status(404).json({ success: false, message: '玩家不存在' });
+    }
+    
+    // 检查题库是否加载
+    if (!questionBank || !questionBank.questions) {
+      return res.status(500).json({ success: false, message: '题库未加载' });
+    }
+    
+    // 如果玩家已有题目，返回已有的（保证同一局游戏题目不变）
+    if (player.quizQuestions && player.quizQuestions.length === 5) {
+      return res.json({
+        success: true,
+        questions: player.quizQuestions
+      });
+    }
+    
+    // 随机选择5道不同的题目
+    const allQuestions = questionBank.questions;
+    const selectedQuestions = [];
+    const usedIndices = new Set();
+    
+    while (selectedQuestions.length < 5 && selectedQuestions.length < allQuestions.length) {
+      const randomIndex = Math.floor(Math.random() * allQuestions.length);
+      if (!usedIndices.has(randomIndex)) {
+        usedIndices.add(randomIndex);
+        const q = allQuestions[randomIndex];
+        // 不返回正确答案给前端
+        selectedQuestions.push({
+          id: q.id,
+          category: q.category,
+          categoryName: q.categoryName,
+          categoryIcon: q.categoryIcon,
+          question: q.question,
+          options: q.options,
+          answer: q.answer, // 前端需要知道答案来判断对错
+          explanation: q.explanation
+        });
+      }
+    }
+    
+    // 保存到玩家数据
+    player.quizQuestions = selectedQuestions;
+    roomCache.set(gameId, room);
+    
+    console.log('[问答] 为玩家', playerId, '生成5道题目');
+    
+    res.json({
+      success: true,
+      questions: selectedQuestions
+    });
+  } catch (error) {
+    console.error('[获取题目失败]', error);
+    res.status(500).json({ success: false, message: '获取题目失败' });
+  }
+});
+
 // 生成任务点
 function generateTaskPoint(room) {
   const now = Date.now();
@@ -742,6 +823,10 @@ function generateTaskPoint(room) {
   const catSlots = Math.max(1, Math.ceil(catCount * 0.5));
   const mouseSlots = Math.max(1, Math.ceil(mouseCount * 0.3));
   
+  // 随机选择任务类型：'guessNumber' 或 'quiz'
+  const taskTypes = ['guessNumber', 'quiz'];
+  const taskType = taskTypes[Math.floor(Math.random() * taskTypes.length)];
+  
   return {
     id: `task_${now}`,
     center: { latitude: centerLat, longitude: centerLng },
@@ -749,7 +834,8 @@ function generateTaskPoint(room) {
     status: 'active',
     createdAt: now,
     expiresAt: now + 3 * 60 * 1000, // 3分钟后消失
-    reward: 50,
+    taskType: taskType, // 任务类型
+    reward: taskType === 'guessNumber' ? 50 : 50, // 基础奖励
     // 领取名额
     catSlots: catSlots,
     mouseSlots: mouseSlots,
@@ -885,7 +971,6 @@ app.post('/api/game/:gameId/task/complete', (req, res) => {
 });
 
 // ========== HTTPS 配置 ==========
-const fs = require('fs');
 const https = require('https');
 
 // SSL 证书路径（复用 campus-link.fit 证书）

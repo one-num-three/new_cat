@@ -1,0 +1,105 @@
+<!--pages/quiz/quiz.wxml-->
+<view class="quiz-container">
+  <!-- 标题 -->
+  <view class="quiz-header">
+    <text class="quiz-title">🎯 趣味问答</text>
+    <text class="quiz-subtitle">答对5题赢积分！</text>
+  </view>
+
+  <!-- 进度和得分 -->
+  <view class="quiz-status">
+    <view class="status-item">
+      <text class="status-label">题目</text>
+      <text class="status-value">{{currentQuestion}}/5</text>
+    </view>
+    <view class="status-item">
+      <text class="status-label">累计得分</text>
+      <text class="status-value score">{{accumulatedScore}}分</text>
+    </view>
+  </view>
+
+  <!-- 题目区域 -->
+  <view class="question-area" wx:if="{{currentQuestionData && !showResult}}">
+    <!-- 分类标签 -->
+    <view class="category-tag">
+      <text>{{currentQuestionData.categoryIcon}} {{currentQuestionData.categoryName}}</text>
+    </view>
+    
+    <!-- 题目 -->
+    <view class="question-text">
+      <text>{{currentQuestionData.question}}</text>
+    </view>
+    
+    <!-- 选项 -->
+    <view class="options-list">
+      <view 
+        class="option-item {{selectedOption === 'A' ? 'selected' : ''}} {{answered && currentQuestionData.answer === 'A' ? 'correct' : ''}} {{answered && selectedOption === 'A' && currentQuestionData.answer !== 'A' ? 'wrong' : ''}}"
+        bindtap="onSelectOption"
+        data-option="A"
+      >
+        <text class="option-letter">A</text>
+        <text class="option-text">{{currentQuestionData.options.A}}</text>
+      </view>
+      <view 
+        class="option-item {{selectedOption === 'B' ? 'selected' : ''}} {{answered && currentQuestionData.answer === 'B' ? 'correct' : ''}} {{answered && selectedOption === 'B' && currentQuestionData.answer !== 'B' ? 'wrong' : ''}}"
+        bindtap="onSelectOption"
+        data-option="B"
+      >
+        <text class="option-letter">B</text>
+        <text class="option-text">{{currentQuestionData.options.B}}</text>
+      </view>
+      <view 
+        class="option-item {{selectedOption === 'C' ? 'selected' : ''}} {{answered && currentQuestionData.answer === 'C' ? 'correct' : ''}} {{answered && selectedOption === 'C' && currentQuestionData.answer !== 'C' ? 'wrong' : ''}}"
+        bindtap="onSelectOption"
+        data-option="C"
+      >
+        <text class="option-letter">C</text>
+        <text class="option-text">{{currentQuestionData.options.C}}</text>
+      </view>
+      <view 
+        class="option-item {{selectedOption === 'D' ? 'selected' : ''}} {{answered && currentQuestionData.answer === 'D' ? 'correct' : ''}} {{answered && selectedOption === 'D' && currentQuestionData.answer !== 'D' ? 'wrong' : ''}}"
+        bindtap="onSelectOption"
+        data-option="D"
+      >
+        <text class="option-letter">D</text>
+        <text class="option-text">{{currentQuestionData.options.D}}</text>
+      </view>
+    </view>
+    
+    <!-- 解析（答完后显示） -->
+    <view class="explanation" wx:if="{{answered && showExplanation}}">
+      <text class="explanation-title">{{selectedOption === currentQuestionData.answer ? '✅ 回答正确！' : '❌ 回答错误'}}</text>
+      <text class="explanation-text">{{currentQuestionData.explanation}}</text>
+    </view>
+    
+    <!-- 倒计时 -->
+    <view class="countdown-bar">
+      <view class="countdown-progress" style="width: {{countdownPercent}}%"></view>
+      <text class="countdown-text">⏱️ {{countdown}}秒</text>
+    </view>
+  </view>
+
+  <!-- 游戏结束弹窗 -->
+  <view class="game-end-modal" wx:if="{{showResult}}">
+    <view class="modal-mask"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">🎉 问答结束！</text>
+      </view>
+      <view class="modal-body">
+        <view class="modal-item">
+          <text class="modal-label">答对题数</text>
+          <text class="modal-value">{{correctCount}}/5</text>
+        </view>
+        <view class="modal-item">
+          <text class="modal-label">获得积分</text>
+          <text class="modal-value reward">+{{accumulatedScore}}分</text>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="modal-btn restart" bindtap="onRestart">再玩一次</button>
+        <button class="modal-btn back" bindtap="onBack">返回游戏</button>
+      </view>
+    </view>
+  </view>
+</view>

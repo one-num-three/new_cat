@@ -64,7 +64,7 @@
   <view class="task-point-bar {{inTaskPoint ? 'in-range' : ''}}" wx:if="{{taskPoint && taskPoint.status === 'active'}}">
     <view class="task-info">
       <text class="task-icon">📍</text>
-      <text class="task-text">任务点</text>
+      <text class="task-text">{{taskPoint.taskType === 'quiz' ? '趣味问答' : '猜数字'}}</text>
       <text class="task-reward">+{{taskPoint.reward}}分</text>
     </view>
     <view class="task-slots">
@@ -80,13 +80,13 @@
     <text class="pending-hint">请返回任务点领取</text>
   </view>
   
-  <!-- 任务按钮（根据状态和名额显示） -->
+  <!-- 任务按钮（根据任务类型显示） -->
   <view class="guess-number-btn {{pendingTaskReward ? 'reward-mode' : ''}} {{canClaimTask === false ? 'disabled' : ''}}" 
         wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}" 
-        bindtap="{{pendingTaskReward ? 'onClaimReward' : 'onEnterGuessGame'}}">
+        bindtap="{{pendingTaskReward ? 'onClaimReward' : 'onEnterTask'}}">
     <text wx:if="{{pendingTaskReward}}">🎁 领取 +{{pendingTaskReward.reward}}分</text>
     <text wx:elif="{{canClaimTask === false}}">{{playerRole === 'cat' ? '🐱名额已满' : '🐭名额已满'}}</text>
-    <text wx:else>🎯 猜数字</text>
+    <text wx:else>{{taskPoint.taskType === 'quiz' ? '🎯 趣味问答' : '🎯 猜数字'}}</text>
   </view>
 
   <!-- 任务完成按钮 -->

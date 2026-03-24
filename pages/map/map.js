@@ -1837,12 +1837,23 @@ Page({
     });
   },
   
-  // 进入猜数字游戏
-  onEnterGuessGame() {
-    console.log('[任务] 进入猜数字游戏');
-    wx.navigateTo({
-      url: `/pages/task/task?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
-    });
+  // 进入任务游戏（根据任务类型跳转）
+  onEnterTask() {
+    const taskPoint = this.data.taskPoint;
+    if (!taskPoint) return;
+    
+    const taskType = taskPoint.taskType || 'guessNumber';
+    console.log('[任务] 进入任务，类型:', taskType);
+    
+    if (taskType === 'quiz') {
+      wx.navigateTo({
+        url: `/pages/quiz/quiz?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
+      });
+    } else {
+      wx.navigateTo({
+        url: `/pages/task/task?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
+      });
+    }
   },
   
   // 领取任务奖励
