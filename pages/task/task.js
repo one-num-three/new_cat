@@ -58,28 +58,26 @@ Page({
   
   // 从服务器加载谜底
   async loadRiddle() {
+    console.log('[猜数字] loadRiddle 开始');
     try {
       const res = await gameAPI.getTaskRiddle(this.data.gameId, this.data.playerId);
+      console.log('[猜数字] getTaskRiddle 返回:', res);
       if (res.success) {
-        console.log('[任务] 获取谜底成功');
+        console.log('[猜数字] ✅ 获取谜底成功:', res.riddle);
         this.setData({
           answer: res.riddle
         });
+      } else {
+        console.log('[猜数字] ❌ 获取谜底失败:', res.message);
       }
     } catch (err) {
-      console.error('[任务] 获取谜底失败，使用本地生成', err);
+      console.error('[猜数字] 获取谜底失败，使用本地生成', err);
       // 如果获取失败，使用本地生成
       this.generateAnswer();
     }
   },
-
-  onUnload() {
-    // 清理定时器
-    this.stopCooldownTimer();
-    this.stopElapsedTimer();
-  },
-
-  // 生成4位不重复数字的谜底
+  
+  // 本地生成谜底（备用）
   generateAnswer() {
     const digits = [];
     while (digits.length < 4) {
@@ -89,8 +87,14 @@ Page({
       }
     }
     const answer = digits.join('');
-    console.log('[任务] 谜底:', answer);
+    console.log('[猜数字] 本地生成谜底:', answer);
     this.setData({ answer });
+  },
+
+  onUnload() {
+    // 清理定时器
+    this.stopCooldownTimer();
+    this.stopElapsedTimer();
   },
 
   // 输入变化
@@ -108,10 +112,17 @@ Page({
 
   // 提交猜测
   onSubmit() {
+    console.log('[猜数字] ========== onSubmit ==========');
+    console.log('[猜数字] inputValue:', this.data.inputValue);
+    console.log('[猜数字] answer:', this.data.answer);
+    console.log('[猜数字] cooldown:', this.data.cooldown);
+    console.log('[猜数字] gameEnded:', this.data.gameEnded);
+    
     const { inputValue, answer, cooldown, gameEnded } = this.data;
     
     // 检查是否可以提交
     if (cooldown > 0 || gameEnded) {
+      console.log('[猜数字] 不能提交: cooldown或gameEnded');
       return;
     }
     
@@ -131,6 +142,7 @@ Page({
         correct++;
       }
     }
+    console.log('[猜数字] 正确个数:', correct);
     
     // 更新状态
     const attempts = this.data.attempts + 1;
@@ -149,10 +161,12 @@ Page({
     
     // 检查是否猜对
     if (correct === 4) {
+      console.log('[猜数字] ✅ 猜对了！调用 onGameWon');
       this.onGameWon();
       return;
     }
     
+    console.log('[猜数字] 没猜对，开始冷却');
     // 开始冷却
     this.startCooldown();
   },
@@ -207,6 +221,7 @@ Page({
 
   // 游戏胜利（猜对，但不发放奖励，需要返回任务点领取）
   async onGameWon() {
+    console.log('[猜数字] ========== onGameWon 开始 ==========');
     this.stopElapsedTimer();
     this.stopCooldownTimer();
     
@@ -222,6 +237,8 @@ Page({
       reward = 75; // 10次内猜中，奖励75分
     }
     
+    console.log('[猜数字] attempts:', attempts, 'reward:', reward);
+    
     // 播放震动
     wx.vibrateShort({ type: 'heavy' });
     
@@ -234,18 +251,29 @@ Page({
       guessedAt: Date.now()
     };
     
-    // 同时保存到 globalData 和 Storage
-    const app = getApp();
-    if (app) {
-      if (!app.globalData) {
-        app.globalData = {};
-      }
-      app.globalData.pendingTaskReward = pendingReward;
-    }
+    console.log('[猜数字] 准备保存 pendingReward:', pendingReward);
     
-    // 保存到本地存储（更可靠）
-    wx.setStorageSync('pendingTaskReward', pendingReward);
-    console.log('[猜数字] ✅ 已保存待领取奖励:', pendingReward);
+    try {
+      // 保存到本地存储
+      wx.setStorageSync('pendingTaskReward', pendingReward);
+      console.log('[猜数字] ✅ setStorageSync 调用成功');
+      
+      // 验证保存成功
+      const saved = wx.getStorageSync('pendingTaskReward');
+      console.log('[猜数字] 验证读取:', saved);
+      
+      // 同时保存到 globalData
+      const app = getApp();
+      if (app) {
+        if (!app.globalData) {
+          app.globalData = {};
+        }
+        app.globalData.pendingTaskReward = pendingReward;
+        console.log('[猜数字] 也保存到 globalData');
+      }
+    } catch (e) {
+      console.error('[猜数字] 保存失败:', e);
+    }
     
     // 显示提示弹窗
     wx.showModal({
@@ -254,6 +282,7 @@ Page({
       showCancel: false,
       confirmText: '返回地图',
       success: () => {
+        console.log('[猜数字] 用户点击返回地图');
         wx.navigateBack();
       }
     });
