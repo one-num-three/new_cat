@@ -45,11 +45,14 @@ Page({
   // 获取服务器版本
   async fetchVersion() {
     try {
+      console.log('[版本] 开始获取...');
       const res = await systemAPI.getVersion();
+      console.log('[版本] 服务器返回:', res);
       this.setData({
         serverVersion: res.version || '',
         serverVersionDate: res.versionDate || ''
       });
+      console.log('[版本] 设置完成:', res.version, res.versionDate);
     } catch (e) {
       console.log('[版本] 获取失败', e);
     }
