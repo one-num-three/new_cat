@@ -6,6 +6,22 @@
   box-sizing: border-box;
 }
 
+/* 开发模式：显示答案 */
+.dev-answer {
+  position: fixed;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 193, 7, 0.9);
+  color: #333;
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  z-index: 999;
+  box-shadow: 0 4rpx 15rpx rgba(255, 193, 7, 0.5);
+}
+
 /* 标题区 */
 .task-header {
   text-align: center;

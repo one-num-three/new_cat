@@ -1,5 +1,10 @@
 <!--pages/quiz/quiz.wxml-->
 <view class="quiz-container">
+  <!-- 开发模式：显示答案 -->
+  <view class="dev-answer" wx:if="{{devMode && currentQuestionData}}">
+    <text>🔧 DEV: 答案 {{currentQuestionData.answer}}</text>
+  </view>
+
   <!-- 标题 -->
   <view class="quiz-header">
     <text class="quiz-title">🎯 趣味问答</text>

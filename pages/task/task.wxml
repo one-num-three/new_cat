@@ -1,5 +1,10 @@
 <!--pages/task/task.wxml-->
 <view class="task-container">
+  <!-- 开发模式：显示答案 -->
+  <view class="dev-answer" wx:if="{{devMode}}">
+    <text>🔧 DEV: 答案 {{answer}}</text>
+  </view>
+
   <!-- 标题 -->
   <view class="task-header">
     <text class="task-title">🎯 猜数字任务</text>
