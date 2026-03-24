@@ -168,33 +168,37 @@ Page({
       const storageValue = wx.getStorageSync('pendingTaskReward');
       console.log('[地图页] Storage:', storageValue);
       
-      // 检查是否过期（超过30分钟的奖励自动清除）
-      if (storageValue && storageValue.guessedAt) {
-        const age = Date.now() - storageValue.guessedAt;
-        const maxAge = 30 * 60 * 1000; // 30分钟
-        
-        if (age > maxAge) {
-          console.log('[地图页] 奖励已过期，自动清除');
+      // 检查任务点是否还存在
+      const taskPoint = this.data.taskPoint;
+      const taskPointActive = taskPoint && taskPoint.status === 'active';
+      
+      if (storageValue && storageValue.reward) {
+        // 如果任务点已消失，清除待领取奖励
+        if (!taskPointActive) {
+          console.log('[地图页] 任务点已消失，清除待领取奖励');
           wx.removeStorageSync('pendingTaskReward');
           this.setData({ 
             pendingTaskReward: null,
-            debugStorageValue: '已过期清除'
+            debugStorageValue: '任务点消失已清除'
           });
-        } else {
-          // 有效奖励
+        } 
+        // 如果任务点ID不匹配，也清除
+        else if (storageValue.taskPointId && taskPoint.id && storageValue.taskPointId !== taskPoint.id) {
+          console.log('[地图页] 任务点ID不匹配，清除待领取奖励');
+          wx.removeStorageSync('pendingTaskReward');
+          this.setData({ 
+            pendingTaskReward: null,
+            debugStorageValue: '任务点变化已清除'
+          });
+        }
+        // 有效奖励
+        else {
           console.log('[地图页] ✅ 有待领取奖励:', storageValue.reward);
           this.setData({ 
             pendingTaskReward: storageValue,
             debugStorageValue: JSON.stringify(storageValue)
           });
         }
-      } else if (storageValue && storageValue.reward) {
-        // 有奖励但没有时间戳，也显示
-        console.log('[地图页] ✅ 有待领取奖励:', storageValue.reward);
-        this.setData({ 
-          pendingTaskReward: storageValue,
-          debugStorageValue: JSON.stringify(storageValue)
-        });
       } else {
         console.log('[地图页] ❌ 无待领取奖励');
         this.setData({ 
@@ -1170,11 +1174,20 @@ Page({
         taskPointRemaining
       });
     } else {
+      // 任务点消失，清除待领取奖励
+      const pendingReward = this.data.pendingTaskReward;
+      if (pendingReward) {
+        console.log('[地图页] 任务点消失，清除待领取奖励');
+        wx.removeStorageSync('pendingTaskReward');
+      }
+      
       this.setData({ 
         taskPointCircle: null,
         inTaskPoint: false,
         canClaimTask: false,
-        taskPointRemaining: ''
+        taskPointRemaining: '',
+        pendingTaskReward: null,
+        debugStorageValue: '任务点消失已清除'
       });
     }
     
