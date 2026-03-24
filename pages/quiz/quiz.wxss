@@ -452,3 +452,11 @@
   font-size: 24rpx;
   color: #4CAF50;
 }
+
+/* 结果消息 */
+.result-message {
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 32rpx;
+  color: #FFD700;
+}
