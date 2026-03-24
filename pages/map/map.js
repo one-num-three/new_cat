@@ -44,6 +44,7 @@ Page({
     taskPoint: null, // 当前任务点
     taskPointCircle: null, // 任务点圆圈
     inTaskPoint: false, // 是否在任务点范围内
+    taskPointRemaining: '', // 任务点剩余时间
     pendingTaskReward: null, // 待领取的任务奖励
     canClaimTask: true, // 当前玩家是否还能领取任务奖励
     gameId: null,
@@ -1016,6 +1017,7 @@ Page({
     const taskPointCircle = null;
     let inTaskPoint = false;
     let canClaimTask = true;
+    let taskPointRemaining = '';
     
     if (taskPoint && taskPoint.status === 'active') {
       // 创建任务点圆圈
@@ -1035,6 +1037,15 @@ Page({
           this.data.latitude, this.data.longitude
         );
         inTaskPoint = distance <= taskPoint.radius;
+      }
+      
+      // 计算剩余时间
+      if (taskPoint.expiresAt) {
+        const now = Date.now();
+        const remaining = Math.max(0, Math.floor((taskPoint.expiresAt - now) / 1000));
+        const minutes = Math.floor(remaining / 60);
+        const seconds = remaining % 60;
+        taskPointRemaining = `${minutes}:${seconds.toString().padStart(2, '0')}`;
       }
       
       // 检查自己是否还能领取
@@ -1058,13 +1069,15 @@ Page({
       this.setData({ 
         taskPointCircle: circle,
         inTaskPoint,
-        canClaimTask
+        canClaimTask,
+        taskPointRemaining
       });
     } else {
       this.setData({ 
         taskPointCircle: null,
         inTaskPoint: false,
-        canClaimTask: false
+        canClaimTask: false,
+        taskPointRemaining: ''
       });
     }
     
