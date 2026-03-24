@@ -1,5 +1,9 @@
 <!--pages/map/map.wxml-->
-<view class="map-container">
+<page-container 
+  class="map-container" 
+  disableSwipeBack="{{true}}"
+  disableScroll="{{false}}"
+>
   <!-- 地图 - 独立层，确保手势正常 -->
   <!-- show-location="true" 显示系统定位指示器（蓝色水滴） -->
   <!-- markers 只显示其他玩家，不显示自己 -->
@@ -220,4 +224,4 @@
       </view>
     </view>
   </view>
-</view>
+</page-container>
