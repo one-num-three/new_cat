@@ -74,23 +74,34 @@
   </view>
   
   <!-- 待领取奖励提示 -->
-  <view class="pending-reward-bar" style="top: {{rewardBarTop}}rpx;" wx:if="{{pendingTaskReward && !inTaskPoint}}">
+  <view class="pending-reward-bar" style="top: {{rewardBarTop}}rpx;" wx:if="{{pendingTaskReward && taskPoint && taskPoint.status === 'active' && !inTaskPoint}}">
     <text class="pending-icon">🎁</text>
     <text class="pending-text">待领取奖励: +{{pendingTaskReward.reward}}分</text>
     <text class="pending-hint">请返回任务点领取</text>
   </view>
   
-  <!-- 任务按钮（根据任务类型显示） -->
+  <!-- 任务按钮 -->
   <view class="task-btn-wrapper" 
         style="top: {{taskBtnTop}}rpx;"
         wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}">
-    <view class="guess-number-btn {{pendingTaskReward ? 'reward-mode' : ''}} {{canClaimTask === false ? 'disabled' : ''}}" 
-          bindtap="{{pendingTaskReward ? 'onClaimReward' : 'onEnterTask'}}">
-      <text wx:if="{{pendingTaskReward}}">🎁 领取 +{{pendingTaskReward.reward}}分</text>
-      <text wx:elif="{{canClaimTask === false}}">{{playerRole === 'cat' ? '🐱名额已满' : '🐭名额已满'}}</text>
-      <text wx:else>{{taskPoint.taskType === 'quiz' ? '🎯 趣味问答' : '🎯 猜数字'}}</text>
+    <!-- 有待领取奖励 -->
+    <view class="guess-number-btn reward-mode" wx:if="{{pendingTaskReward}}" bindtap="onClaimReward">
+      <text>🎁 领取 +{{pendingTaskReward.reward}}分</text>
     </view>
-    <text class="task-remaining" wx:if="{{taskPointRemaining && !pendingTaskReward}}">⏱️ 剩余 {{taskPointRemaining}}</text>
+    <!-- 名额已满 -->
+    <view wx:elif="{{canClaimTask === false}}">
+      <view class="guess-number-btn disabled">
+        <text>{{playerRole === 'cat' ? '🐱名额已满' : '🐭名额已满'}}</text>
+      </view>
+      <text class="task-remaining">⏱️ 剩余 {{taskPointRemaining}}</text>
+    </view>
+    <!-- 可以玩游戏 -->
+    <view wx:else>
+      <view class="guess-number-btn" bindtap="onEnterTask">
+        <text>{{taskPoint.taskType === 'quiz' ? '🎯 趣味问答' : '🎯 猜数字'}}</text>
+      </view>
+      <text class="task-remaining">⏱️ 剩余 {{taskPointRemaining}}</text>
+    </view>
   </view>
 
   <!-- 弹幕区域 -->
