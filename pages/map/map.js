@@ -162,16 +162,19 @@ Page({
 
   onShow() {
     console.log('[地图页] ========== onShow ==========');
+    console.log('[地图页] 时间:', new Date().toLocaleTimeString());
     
     // 页面显示时恢复位置更新
     if (this.data.isLocationReady) {
       this.startLocationUpdate();
     }
     
-    // 直接从 Storage 读取并显示（调试用）
+    // 直接从 Storage 读取
+    console.log('[地图页] 准备读取 Storage...');
+    
     try {
       const storageValue = wx.getStorageSync('pendingTaskReward');
-      console.log('[地图页] Storage 原始值:', storageValue);
+      console.log('[地图页] Storage 读取结果:', storageValue);
       console.log('[地图页] Storage 类型:', typeof storageValue);
       
       // 更新调试显示
@@ -179,14 +182,24 @@ Page({
         debugStorageValue: storageValue ? JSON.stringify(storageValue) : 'null'
       });
       
-      if (storageValue && typeof storageValue === 'object' && storageValue.reward) {
-        console.log('[地图页] ✅ 有效奖励，设置 pendingTaskReward');
-        this.setData({ pendingTaskReward: storageValue });
+      if (storageValue) {
+        console.log('[地图页] Storage 有值，检查有效性...');
+        console.log('[地图页] storageValue.reward:', storageValue.reward);
+        console.log('[地图页] storageValue.taskType:', storageValue.taskType);
         
-        // 立即检查是否在任务点范围内
-        this.checkTaskPointRange();
+        if (storageValue.reward !== undefined) {
+          console.log('[地图页] ✅ 有效奖励，设置到 data');
+          this.setData({ pendingTaskReward: storageValue });
+          console.log('[地图页] 设置后 this.data.pendingTaskReward:', this.data.pendingTaskReward);
+          
+          // 立即检查是否在任务点范围内
+          this.checkTaskPointRange();
+        } else {
+          console.log('[地图页] ❌ 奖励无效（没有 reward 字段）');
+          this.setData({ pendingTaskReward: null });
+        }
       } else {
-        console.log('[地图页] ❌ 无有效奖励');
+        console.log('[地图页] ❌ Storage 为空或 null');
         this.setData({ pendingTaskReward: null });
       }
     } catch (e) {
@@ -197,9 +210,8 @@ Page({
       });
     }
     
+    console.log('[地图页] ========== onShow 结束 ==========');
     console.log('[地图页] 最终 pendingTaskReward:', this.data.pendingTaskReward);
-    console.log('[地图页] inTaskPoint:', this.data.inTaskPoint);
-    console.log('[地图页] taskPoint:', this.data.taskPoint);
   },
   
   // 检查是否在任务点范围内
