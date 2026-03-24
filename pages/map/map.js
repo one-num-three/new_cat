@@ -1930,6 +1930,12 @@ Page({
   
   // 进入任务游戏（根据任务类型跳转）
   onEnterTask() {
+    // 检查是否已有待领取奖励
+    if (this.data.pendingTaskReward) {
+      wx.showToast({ title: '请先领取上一次奖励', icon: 'none' });
+      return;
+    }
+    
     const taskPoint = this.data.taskPoint;
     if (!taskPoint) return;
     

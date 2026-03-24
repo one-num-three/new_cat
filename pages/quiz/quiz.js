@@ -24,6 +24,21 @@ Page({
   onLoad(options) {
     console.log('[问答页] onLoad', options);
     
+    // 检查是否已有待领取奖励
+    const app = getApp();
+    if (app && app.globalData && app.globalData.pendingTaskReward) {
+      console.log('[问答页] 已有待领取奖励，不能开始新游戏');
+      wx.showModal({
+        title: '提示',
+        content: '你还有待领取的奖励，请先返回任务点领取',
+        showCancel: false,
+        success: () => {
+          wx.navigateBack();
+        }
+      });
+      return;
+    }
+    
     if (options.gameId && options.playerId) {
       this.setData({
         gameId: options.gameId,
