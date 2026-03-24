@@ -583,23 +583,47 @@ Page({
         const activeCats = allPlayers.filter(p => p.role === 'cat' && !p.isOffline).length;
         const activeMice = allPlayers.filter(p => p.role === 'mouse' && !p.isOffline && !p.isCaught).length;
         
-        // 更新状态（不直接更新 countdown，让本地倒计时自己减）
+        // 【重要】在 setData 之前保存本地的 claimedBy 记录
+        const localClaimedBy = this.data.taskPoint?.claimedBy || [];
+        
         // 先保存旧的轰炸区域用于引爆检测
         const prevBombardZones = this.data.bombardZones || [];
         
+        // 更新状态
         this.setData({
           gameStatus: res.status,
           players: mergedPlayers,
-          allPlayers: res.allPlayers || mergedPlayers, // 所有玩家（用于记分板）
+          allPlayers: res.allPlayers || mergedPlayers,
           events: res.events || [],
           visionRange: res.settings?.visionRange || 200,
-          goldenShields: res.goldenShields || [], // 金身保护圈列表
-          bombardZones: res.bombardZones || [], // 轰炸区域列表
-          hasActiveBombard: (res.bombardZones || []).some(z => z.status === 'pending'), // 是否有活跃轰炸
+          goldenShields: res.goldenShields || [],
+          bombardZones: res.bombardZones || [],
+          hasActiveBombard: (res.bombardZones || []).some(z => z.status === 'pending'),
           catCount: activeCats,
           mouseCount: activeMice,
-          taskPoint: res.taskPoint || null // 任务点
+          taskPoint: res.taskPoint || null
         });
+        
+        // 如果本地有领取记录，合并到服务器返回的数据中（防止被覆盖）
+        if (res.taskPoint && localClaimedBy.length > 0) {
+          const serverClaimedBy = res.taskPoint.claimedBy || [];
+          const myPlayerId = this.data.playerId;
+          
+          // 如果我在本地记录中但不在服务器记录中，添加进去
+          if (localClaimedBy.includes(myPlayerId) && !serverClaimedBy.includes(myPlayerId)) {
+            console.log('[任务点] 保留本地领取记录');
+            const mergedClaimedBy = [...serverClaimedBy, myPlayerId];
+            this.setData({
+              'taskPoint.claimedBy': mergedClaimedBy
+            });
+          }
+        }
+        
+        // 调试：检查 claimedBy
+        if (res.taskPoint) {
+          console.log('[任务点] claimedBy:', this.data.taskPoint?.claimedBy);
+          console.log('[任务点] 我已领取:', (this.data.taskPoint?.claimedBy || []).includes(this.data.playerId));
+        }
         
         // 更新视野圈（每次状态更新后都要重新计算，以反映鹰眼等效果）
         // 使用 players 数组中自己的最新位置，而不是 this.data.latitude（初始位置）
@@ -2118,6 +2142,7 @@ Page({
           if (!currentTaskPoint.claimedBy.includes(this.data.playerId)) {
             currentTaskPoint.claimedBy.push(this.data.playerId);
           }
+          console.log('[领取] 更新本地 claimedBy:', currentTaskPoint.claimedBy);
           this.setData({ 
             pendingTaskReward: null,
             taskPoint: currentTaskPoint,
