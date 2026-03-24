@@ -259,11 +259,23 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
     const { catCount, mouseCount } = room.settings;
     const shuffled = [...room.players].sort(() => Math.random() - 0.5);
     
+    // 获取谜底模式：默认'different'（不同谜底）
+    const riddleMode = room.settings.riddleMode || 'different';
+    
+    // 如果是统一谜底，先生成一个
+    let sharedRiddle = null;
+    if (riddleMode === 'same') {
+      sharedRiddle = generateRiddle();
+      console.log('[谜底] 统一模式，共享谜底:', sharedRiddle);
+    }
+    
     // 分配猫角色
     for (let i = 0; i < Math.min(catCount, shuffled.length); i++) {
       shuffled[i].role = 'cat';
       shuffled[i].items = { speed: 1, invisible: 0, radar: 0 }; // 猫初始 1 个加速
       shuffled[i].catchCount = 0;
+      // 分配谜底
+      shuffled[i].taskRiddle = riddleMode === 'same' ? sharedRiddle : generateRiddle();
     }
     
     // 分配鼠角色
@@ -271,6 +283,8 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
       shuffled[i].role = 'mouse';
       shuffled[i].items = { speed: 0, invisible: 0, radar: 1 }; // 老鼠初始 1 个雷达
       shuffled[i].isCaught = false;
+      // 分配谜底
+      shuffled[i].taskRiddle = riddleMode === 'same' ? sharedRiddle : generateRiddle();
     }
     
     room.status = 'playing';
@@ -294,7 +308,7 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
       endTime: room.endTime
     });
     
-    console.log('[游戏开始] roomId:', roomId, '猫:', catCount, '鼠:', mouseCount);
+    console.log('[游戏开始] roomId:', roomId, '猫:', catCount, '鼠:', mouseCount, '谜底模式:', riddleMode);
     
     res.json({
       success: true,
@@ -306,6 +320,18 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
     res.status(500).json({ success: false, message: '开始失败' });
   }
 });
+
+// 生成4位不重复数字谜底
+function generateRiddle() {
+  const digits = [];
+  while (digits.length < 4) {
+    const digit = Math.floor(Math.random() * 10);
+    if (!digits.includes(digit)) {
+      digits.push(digit);
+    }
+  }
+  return digits.join('');
+}
 
 // ========== 游戏相关 ==========
 
@@ -327,13 +353,20 @@ app.get('/api/game/:gameId/status', (req, res) => {
     roomCache.set(gameId, room);
   }
   
+  // 更新任务点状态
+  const taskPoint = updateTaskPoint(room);
+  if (taskPoint !== room.taskPoint) {
+    roomCache.set(gameId, room);
+  }
+  
   res.json({
     success: true,
     status: room.status,
     playerRole: req.query.playerRole || null, // 实际应从 token 获取
     players: room.players,
     countdown,
-    settings: room.settings
+    settings: room.settings,
+    taskPoint: taskPoint
   });
 });
 
@@ -644,6 +677,210 @@ app.get('/api/game/history/:userId', (req, res) => {
   } catch (error) {
     console.error('[获取历史失败]', error);
     res.status(500).json({ success: false, message: '获取失败' });
+  }
+});
+
+// ========== 任务系统 ==========
+
+// 获取玩家的任务谜底
+app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
+  try {
+    const { gameId, playerId } = req.params;
+    const room = roomCache.get(gameId);
+    
+    if (!room) {
+      return res.status(404).json({ success: false, message: '游戏不存在' });
+    }
+    
+    const player = room.players.find(p => p.id === playerId);
+    if (!player) {
+      return res.status(404).json({ success: false, message: '玩家不存在' });
+    }
+    
+    // 返回玩家的谜底（游戏开始时已分配）
+    if (player.taskRiddle) {
+      return res.json({
+        success: true,
+        riddle: player.taskRiddle
+      });
+    }
+    
+    // 如果没有谜底（游戏未开始或其他情况），生成一个临时的
+    const riddle = generateRiddle();
+    player.taskRiddle = riddle;
+    roomCache.set(gameId, room);
+    
+    res.json({
+      success: true,
+      riddle: riddle
+    });
+  } catch (error) {
+    console.error('[获取谜底失败]', error);
+    res.status(500).json({ success: false, message: '获取谜底失败' });
+  }
+});
+
+// 生成任务点
+function generateTaskPoint(room) {
+  const now = Date.now();
+  const players = room.players.filter(p => !p.isOffline);
+  
+  // 计算所有在线玩家的几何中心
+  const activePlayers = players.filter(p => p.latitude && p.longitude);
+  if (activePlayers.length === 0) return null;
+  
+  const sumLat = activePlayers.reduce((sum, p) => sum + p.latitude, 0);
+  const sumLng = activePlayers.reduce((sum, p) => sum + p.longitude, 0);
+  const centerLat = sumLat / activePlayers.length;
+  const centerLng = sumLng / activePlayers.length;
+  
+  // 计算猫和鼠的数量
+  const catCount = players.filter(p => p.role === 'cat').length;
+  const mouseCount = players.filter(p => p.role === 'mouse' && !p.isCaught).length;
+  
+  // 计算领取名额：猫50%最少1个，鼠30%最少1个
+  const catSlots = Math.max(1, Math.ceil(catCount * 0.5));
+  const mouseSlots = Math.max(1, Math.ceil(mouseCount * 0.3));
+  
+  return {
+    id: `task_${now}`,
+    center: { latitude: centerLat, longitude: centerLng },
+    radius: 25,
+    status: 'active',
+    createdAt: now,
+    expiresAt: now + 3 * 60 * 1000, // 3分钟后消失
+    reward: 50,
+    // 领取名额
+    catSlots: catSlots,
+    mouseSlots: mouseSlots,
+    // 已领取记录
+    catClaimed: 0,
+    mouseClaimed: 0,
+    claimedBy: [] // 记录谁已领取，防止重复
+  };
+}
+
+// 获取游戏状态时更新任务点
+function updateTaskPoint(room) {
+  const now = Date.now();
+  
+  // 如果没有任务点，开局10秒后生成
+  if (!room.taskPoint && room.startTime && now - room.startTime > 10000) {
+    room.taskPoint = generateTaskPoint(room);
+    if (room.taskPoint) {
+      console.log('[任务点] 生成:', room.taskPoint.id);
+    }
+  }
+  
+  // 检查任务点是否过期或两边都领完
+  if (room.taskPoint && room.taskPoint.status === 'active') {
+    const task = room.taskPoint;
+    const expired = now >= task.expiresAt;
+    const catFull = task.catClaimed >= task.catSlots;
+    const mouseFull = task.mouseClaimed >= task.mouseSlots;
+    
+    if (expired) {
+      console.log('[任务点] 过期消失:', task.id);
+      room.taskPoint = null;
+    } else if (catFull && mouseFull) {
+      console.log('[任务点] 全部领完消失:', task.id);
+      room.taskPoint = null;
+    }
+  }
+  
+  return room.taskPoint;
+}
+
+// 完成任务（猜数字游戏）
+app.post('/api/game/:gameId/task/complete', (req, res) => {
+  try {
+    const { gameId } = req.params;
+    const { playerId, taskType, attempts, timeUsed, reward } = req.body;
+    const room = roomCache.get(gameId);
+    
+    if (!room) {
+      return res.status(404).json({ success: false, message: '游戏不存在' });
+    }
+    
+    const player = room.players.find(p => p.id === playerId);
+    if (!player) {
+      return res.status(404).json({ success: false, message: '玩家不存在' });
+    }
+    
+    // 检查任务点是否存在
+    const task = room.taskPoint;
+    if (!task || task.status !== 'active') {
+      return res.status(400).json({ success: false, message: '任务点已消失' });
+    }
+    
+    // 检查是否已领取过
+    if (task.claimedBy && task.claimedBy.includes(playerId)) {
+      return res.status(400).json({ success: false, message: '你已经领取过了' });
+    }
+    
+    // 检查名额
+    if (player.role === 'cat') {
+      if (task.catClaimed >= task.catSlots) {
+        return res.status(400).json({ success: false, message: '猫的领取名额已用完' });
+      }
+    } else {
+      if (task.mouseClaimed >= task.mouseSlots) {
+        return res.status(400).json({ success: false, message: '鼠的领取名额已用完' });
+      }
+    }
+    
+    // 计算奖励积分
+    let taskReward = reward || 50;
+    if (taskType === 'guessNumber') {
+      if (attempts <= 5) {
+        taskReward = 100;
+      } else if (attempts <= 10) {
+        taskReward = 75;
+      } else {
+        taskReward = 50;
+      }
+    }
+    
+    // 更新领取记录
+    task.claimedBy = task.claimedBy || [];
+    task.claimedBy.push(playerId);
+    
+    if (player.role === 'cat') {
+      task.catClaimed++;
+    } else {
+      task.mouseClaimed++;
+    }
+    
+    // 增加玩家积分
+    player.score = (player.score || 0) + taskReward;
+    roomCache.set(gameId, room);
+    
+    console.log(`[任务完成] ${player.nickname}(${player.role}) 领取奖励，剩余名额 猫:${task.catSlots - task.catClaimed} 鼠:${task.mouseSlots - task.mouseClaimed}`);
+    
+    // 广播任务完成事件
+    io.to(`room_${gameId}`).emit('taskCompleted', {
+      playerId,
+      playerName: player.nickname,
+      playerRole: player.role,
+      taskType,
+      reward: taskReward,
+      // 剩余名额
+      catRemaining: task.catSlots - task.catClaimed,
+      mouseRemaining: task.mouseSlots - task.mouseClaimed
+    });
+    
+    res.json({
+      success: true,
+      message: '任务完成',
+      reward: taskReward,
+      remainingScore: player.score,
+      // 返回剩余名额
+      catRemaining: task.catSlots - task.catClaimed,
+      mouseRemaining: task.mouseSlots - task.mouseClaimed
+    });
+  } catch (error) {
+    console.error('[任务完成失败]', error);
+    res.status(500).json({ success: false, message: '任务完成失败' });
   }
 });
 

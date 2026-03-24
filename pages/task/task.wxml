@@ -1,0 +1,109 @@
+<!--pages/task/task.wxml-->
+<view class="task-container">
+  <!-- 标题 -->
+  <view class="task-header">
+    <text class="task-title">🎯 猜数字任务</text>
+    <text class="task-subtitle">猜出4位神秘数字，赢取积分！</text>
+  </view>
+
+  <!-- 游戏状态 -->
+  <view class="game-status">
+    <view class="status-item">
+      <text class="status-label">尝试次数</text>
+      <text class="status-value">{{attempts}}</text>
+    </view>
+    <view class="status-item">
+      <text class="status-label">用时</text>
+      <text class="status-value">{{elapsedTime}}</text>
+    </view>
+  </view>
+
+  <!-- 结果反馈区 -->
+  <view class="result-area">
+    <view class="result-hint" wx:if="{{lastResult !== null}}">
+      <text class="result-label">上次结果</text>
+      <view class="result-value">
+        <text class="result-number">{{lastResult}}</text>
+        <text class="result-unit">个正确</text>
+      </view>
+    </view>
+    <view class="result-hint placeholder" wx:else>
+      <text class="result-label">输入4位数字开始游戏</text>
+    </view>
+  </view>
+
+  <!-- 猜测记录 -->
+  <view class="history-area" wx:if="{{guessHistory.length > 0}}">
+    <view class="history-title">猜测记录</view>
+    <scroll-view class="history-list" scroll-y="true">
+      <view class="history-item" wx:for="{{guessHistory}}" wx:key="index">
+        <text class="history-guess">{{item.guess}}</text>
+        <text class="history-result">→ {{item.result}}个正确</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 输入区 -->
+  <view class="input-area">
+    <view class="input-row">
+      <input 
+        class="guess-input {{cooldown > 0 ? 'disabled' : ''}}"
+        type="number"
+        maxlength="4"
+        placeholder="请输入4位数字"
+        value="{{inputValue}}"
+        bindinput="onInputChange"
+        disabled="{{cooldown > 0 || gameEnded}}"
+      />
+    </view>
+    
+    <!-- 冷却提示 -->
+    <view class="cooldown-hint" wx:if="{{cooldown > 0}}">
+      <text class="cooldown-text">⏱️ 等待 {{cooldown}} 秒后可再次尝试</text>
+      <view class="cooldown-bar">
+        <view class="cooldown-progress" style="width: {{(5 - cooldown) / 5 * 100}}%"></view>
+      </view>
+    </view>
+    
+    <!-- 提交按钮 -->
+    <button 
+      class="submit-btn {{cooldown > 0 || !canSubmit ? 'disabled' : ''}}" 
+      bindtap="onSubmit"
+      disabled="{{cooldown > 0 || !canSubmit || gameEnded}}"
+    >
+      {{cooldown > 0 ? '冷却中...' : '提交猜测'}}
+    </button>
+  </view>
+
+  <!-- 游戏结束弹窗 -->
+  <view class="game-end-modal" wx:if="{{showResult}}">
+    <view class="modal-mask"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <text class="modal-title">🎉 恭喜猜对！</text>
+      </view>
+      <view class="modal-body">
+        <view class="modal-item">
+          <text class="modal-label">谜底</text>
+          <text class="modal-value answer">{{answer}}</text>
+        </view>
+        <view class="modal-item">
+          <text class="modal-label">尝试次数</text>
+          <text class="modal-value">{{attempts}} 次</text>
+        </view>
+        <view class="modal-item">
+          <text class="modal-label">用时</text>
+          <text class="modal-value">{{elapsedTime}}</text>
+        </view>
+        <view class="modal-item">
+          <text class="modal-label">获得积分</text>
+          <text class="modal-value reward">+{{reward}} 分</text>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="modal-btn restart" bindtap="onRestart">再玩一次</button>
+        <button class="modal-btn back" bindtap="onBack">返回游戏</button>
+      </view>
+    </view>
+  </view>
+</view>

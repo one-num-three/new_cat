@@ -67,11 +67,28 @@
       <text class="task-text">任务点</text>
       <text class="task-reward">+{{taskPoint.reward}}分</text>
     </view>
-    <view class="task-status" wx:if="{{inTaskPoint}}">
-      <text class="task-hint">✅ 在范围内</text>
+    <view class="task-slots">
+      <text class="slot-cat">🐱{{taskPoint.catSlots - taskPoint.catClaimed}}/{{taskPoint.catSlots}}</text>
+      <text class="slot-mouse">🐭{{taskPoint.mouseSlots - taskPoint.mouseClaimed}}/{{taskPoint.mouseSlots}}</text>
     </view>
   </view>
   
+  <!-- 待领取奖励提示 -->
+  <view class="pending-reward-bar" wx:if="{{pendingTaskReward && !inTaskPoint}}">
+    <text class="pending-icon">🎁</text>
+    <text class="pending-text">待领取奖励: +{{pendingTaskReward.reward}}分</text>
+    <text class="pending-hint">请返回任务点领取</text>
+  </view>
+  
+  <!-- 任务按钮（根据状态和名额显示） -->
+  <view class="guess-number-btn {{pendingTaskReward ? 'reward-mode' : ''}} {{canClaimTask === false ? 'disabled' : ''}}" 
+        wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}" 
+        bindtap="{{pendingTaskReward ? 'onClaimReward' : 'onEnterGuessGame'}}">
+    <text wx:if="{{pendingTaskReward}}">🎁 领取 +{{pendingTaskReward.reward}}分</text>
+    <text wx:elif="{{canClaimTask === false}}">{{playerRole === 'cat' ? '🐱名额已满' : '🐭名额已满'}}</text>
+    <text wx:else>🎯 猜数字</text>
+  </view>
+
   <!-- 任务完成按钮 -->
   <view class="task-complete-btn" wx:if="{{inTaskPoint && taskPoint && taskPoint.status === 'active'}}" bindtap="onCompleteTask">
     <text>✅ 完成任务 +50分</text>

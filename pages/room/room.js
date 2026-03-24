@@ -11,6 +11,8 @@ Page({
     showSettingsModal: false,
     devMode: true, // 开发模式：允许选择身份，上线后改为 false
     selectedRole: '', // 用户选择的角色：'cat' 或 'mouse'
+    // 谜底选择（房主设置）
+    riddleMode: 'different', // 'same' 统一谜底, 'different' 不同谜底
     tempSettings: {
       catCount: 1,
       mouseCount: 5,
@@ -213,7 +215,8 @@ Page({
         gameDuration: this.data.tempSettings.gameDuration * 60,
         mapRange: this.data.tempSettings.mapRange,
         revealTime: this.data.tempSettings.revealTime * 60,
-        visionRange: this.data.tempSettings.visionRange
+        visionRange: this.data.tempSettings.visionRange,
+        riddleMode: this.data.riddleMode  // 谜底模式
       };
       
       await gameAPI.updateRoomSettings(this.data.roomId, settings);
@@ -301,7 +304,7 @@ Page({
     try {
       const playerId = 'player_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
       const nickname = wx.getStorageSync('nickname') || '玩家' + Math.floor(Math.random() * 10000);
-      const res = await gameAPI.joinRoom(this.data.roomId, playerId, nickname, this.data.selectedRole);
+      const res = await gameAPI.joinRoom(this.data.roomId, playerId, nickname, this.data.selectedRole, false);
       
       this.pregenerateQRCode(this.data.roomId, playerId);
       
@@ -420,5 +423,17 @@ Page({
       title: role === 'cat' ? '选择了猫 🐱' : '选择了鼠 🐭', 
       icon: 'none' 
     });
+  },
+
+  // ==================== 谜底选择（房主设置）====================
+
+  onSelectRiddleMode(e) {
+    const mode = e.currentTarget.dataset.mode;
+    this.setData({ riddleMode: mode });
+  },
+
+  // 获取当前设置的谜底模式
+  getRiddleMode() {
+    return this.data.riddleMode;
   }
 });

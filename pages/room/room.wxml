@@ -68,6 +68,33 @@
     <text class="tip-text">你选择了：{{selectedRole === 'cat' ? '猫' : '鼠'}}</text>
   </view>
 
+  <!-- 谜底选择区域（仅房主可见） -->
+  <view class="riddle-section" wx:if="{{isOwner && roomInfo}}">
+    <view class="section-header">
+      <text class="section-title">🎯 任务谜底设置</text>
+    </view>
+    <view class="riddle-options">
+      <!-- 统一谜底 -->
+      <view class="riddle-option {{riddleMode === 'same' ? 'selected' : ''}}" bindtap="onSelectRiddleMode" data-mode="same">
+        <view class="riddle-header">
+          <text class="riddle-radio">{{riddleMode === 'same' ? '✓' : ''}}</text>
+          <text class="riddle-title">统一谜底</text>
+        </view>
+        <text class="riddle-desc">所有人的谜底相同</text>
+      </view>
+      
+      <!-- 不同谜底 -->
+      <view class="riddle-option {{riddleMode === 'different' ? 'selected' : ''}}" bindtap="onSelectRiddleMode" data-mode="different">
+        <view class="riddle-header">
+          <text class="riddle-radio">{{riddleMode === 'different' ? '✓' : ''}}</text>
+          <text class="riddle-title">不同谜底</text>
+        </view>
+        <text class="riddle-desc">每个人随机生成不同谜底</text>
+      </view>
+    </view>
+    <text class="riddle-notice">⚠️ 玩家不会看到谜底，只能通过猜测得知</text>
+  </view>
+
   <!-- 游戏设置（仅房主可见） -->
   <view class="settings-section" wx:if="{{isOwner && roomInfo}}">
     <view class="section-header">

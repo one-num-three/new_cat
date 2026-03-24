@@ -268,12 +268,19 @@ export const gameAPI = {
     });
   },
   
-  // 完成任务
-  completeTask(gameId, playerId) {
+  // 完成任务（支持猜数字游戏）
+  completeTask(gameId, playerId, taskData) {
     return request({ 
       url: `/api/game/${gameId}/task/complete`, 
       method: 'POST',
-      data: { playerId }
+      data: { playerId, ...taskData }
+    });
+  },
+  
+  // 获取玩家的任务谜底
+  getTaskRiddle(gameId, playerId) {
+    return request({ 
+      url: `/api/game/${gameId}/task/riddle/${playerId}`
     });
   }
 };

@@ -764,13 +764,13 @@
   transform: translateX(-50%);
   background: rgba(0, 128, 0, 0.9);
   color: #fff;
-  padding: 15rpx 30rpx;
-  border-radius: 30rpx;
-  font-size: 26rpx;
+  padding: 12rpx 20rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
   z-index: 20;
   display: flex;
   align-items: center;
-  gap: 20rpx;
+  gap: 16rpx;
 }
 
 .task-point-bar.in-range {
@@ -781,17 +781,17 @@
 
 @keyframes taskPulse {
   0%, 100% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.05); }
+  50% { transform: translateX(-50%) scale(1.03); }
 }
 
 .task-info {
   display: flex;
   align-items: center;
-  gap: 10rpx;
+  gap: 8rpx;
 }
 
 .task-icon {
-  font-size: 28rpx;
+  font-size: 26rpx;
 }
 
 .task-text {
@@ -805,14 +805,25 @@
   font-size: 22rpx;
 }
 
-.task-status {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 4rpx 12rpx;
-  border-radius: 15rpx;
+.task-slots {
+  display: flex;
+  gap: 12rpx;
+  padding-left: 12rpx;
+  border-left: 2rpx solid rgba(255,255,255,0.3);
 }
 
-.task-hint {
+.slot-cat, .slot-mouse {
   font-size: 22rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 12rpx;
+}
+
+.slot-cat {
+  background: rgba(255, 107, 107, 0.4);
+}
+
+.slot-mouse {
+  background: rgba(78, 205, 196, 0.4);
 }
 
 /* 任务完成按钮 */
@@ -841,4 +852,83 @@
     transform: translateX(-50%) scale(1.05);
     box-shadow: 0 15rpx 40rpx rgba(0, 200, 81, 0.7);
   }
+}
+
+/* 猜数字任务入口按钮 */
+.guess-number-btn {
+  position: absolute;
+  top: 140rpx;
+  right: 20rpx;
+  background: linear-gradient(135deg, #00C851 0%, #2ECC71 100%);
+  color: #fff;
+  padding: 16rpx 28rpx;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  z-index: 20;
+  box-shadow: 0 6rpx 20rpx rgba(46, 204, 113, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.guess-number-btn:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+.guess-number-btn.reward-mode {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  box-shadow: 0 6rpx 25rpx rgba(255, 215, 0, 0.6);
+  animation: rewardPulse 1s infinite;
+}
+
+.guess-number-btn.disabled {
+  background: linear-gradient(135deg, #888 0%, #666 100%);
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+@keyframes rewardPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 6rpx 25rpx rgba(255, 215, 0, 0.6);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 10rpx 35rpx rgba(255, 215, 0, 0.8);
+  }
+}
+
+/* 待领取奖励提示条 */
+.pending-reward-bar {
+  position: absolute;
+  top: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #333;
+  padding: 12rpx 24rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  box-shadow: 0 4rpx 15rpx rgba(255, 215, 0, 0.5);
+}
+
+.pending-icon {
+  font-size: 28rpx;
+}
+
+.pending-text {
+  font-weight: bold;
+}
+
+.pending-hint {
+  font-size: 22rpx;
+  color: #666;
+  padding-left: 10rpx;
+  border-left: 2rpx solid rgba(0,0,0,0.2);
 }

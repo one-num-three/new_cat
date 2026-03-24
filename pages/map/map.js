@@ -37,6 +37,8 @@ Page({
     taskPoint: null, // 当前任务点
     taskPointCircle: null, // 任务点圆圈
     inTaskPoint: false, // 是否在任务点范围内
+    pendingTaskReward: null, // 待领取的任务奖励
+    canClaimTask: true, // 当前玩家是否还能领取任务奖励
     gameId: null,
     playerId: null,
     playerRole: null, // 游戏开始时分配
@@ -121,7 +123,13 @@ Page({
     if (this.data.isLocationReady) {
       this.startLocationUpdate();
     }
-    // 注意：不再重复启动轮询，onReady 已经启动了
+    
+    // 检查是否有待领取的任务奖励
+    const app = getApp();
+    if (app && app.globalData && app.globalData.pendingTaskReward) {
+      console.log('[地图页] 检测到待领取奖励:', app.globalData.pendingTaskReward);
+      this.setData({ pendingTaskReward: app.globalData.pendingTaskReward });
+    }
   },
 
   onHide() {
@@ -968,6 +976,7 @@ Page({
     const taskPoint = this.data.taskPoint;
     const taskPointCircle = null;
     let inTaskPoint = false;
+    let canClaimTask = true;
     
     if (taskPoint && taskPoint.status === 'active') {
       // 创建任务点圆圈
@@ -989,14 +998,29 @@ Page({
         inTaskPoint = distance <= taskPoint.radius;
       }
       
+      // 检查自己是否还能领取
+      const myRole = this.data.playerRole;
+      if (myRole === 'cat') {
+        canClaimTask = taskPoint.catClaimed < taskPoint.catSlots;
+      } else {
+        canClaimTask = taskPoint.mouseClaimed < taskPoint.mouseSlots;
+      }
+      
+      // 检查是否已经领取过
+      if (taskPoint.claimedBy && taskPoint.claimedBy.includes(this.data.playerId)) {
+        canClaimTask = false;
+      }
+      
       this.setData({ 
         taskPointCircle: circle,
-        inTaskPoint
+        inTaskPoint,
+        canClaimTask
       });
     } else {
       this.setData({ 
         taskPointCircle: null,
-        inTaskPoint: false
+        inTaskPoint: false,
+        canClaimTask: false
       });
     }
     
@@ -1811,5 +1835,73 @@ Page({
         });
       }
     });
+  },
+  
+  // 进入猜数字游戏
+  onEnterGuessGame() {
+    console.log('[任务] 进入猜数字游戏');
+    wx.navigateTo({
+      url: `/pages/task/task?gameId=${this.data.gameId}&playerId=${this.data.playerId}`
+    });
+  },
+  
+  // 领取任务奖励
+  async onClaimReward() {
+    const pendingReward = this.data.pendingTaskReward;
+    if (!pendingReward) {
+      wx.showToast({ title: '没有待领取的奖励', icon: 'none' });
+      return;
+    }
+    
+    // 检查是否在任务点范围内
+    if (!this.data.inTaskPoint) {
+      wx.showToast({ title: '请进入任务点范围', icon: 'none' });
+      return;
+    }
+    
+    // 检查名额是否已满
+    if (!this.data.canClaimTask) {
+      wx.showToast({ title: '领取名额已满', icon: 'none' });
+      return;
+    }
+    
+    wx.showLoading({ title: '领取中...' });
+    
+    try {
+      const res = await gameAPI.completeTask(this.data.gameId, this.data.playerId, {
+        taskType: pendingReward.taskType,
+        attempts: pendingReward.attempts,
+        timeUsed: pendingReward.timeUsed,
+        reward: pendingReward.reward
+      });
+      
+      wx.hideLoading();
+      
+      if (res.success) {
+        // 清除待领取奖励
+        const app = getApp();
+        if (app && app.globalData) {
+          app.globalData.pendingTaskReward = null;
+        }
+        
+        this.setData({ pendingTaskReward: null });
+        
+        wx.showToast({
+          title: `🎉 +${pendingReward.reward}积分`,
+          icon: 'success',
+          duration: 2000
+        });
+        
+        // 播放震动
+        wx.vibrateShort({ type: 'medium' });
+        
+        console.log('[任务] 奖励领取成功:', pendingReward.reward);
+      } else {
+        wx.showToast({ title: res.message || '领取失败', icon: 'none' });
+      }
+    } catch (err) {
+      wx.hideLoading();
+      wx.showToast({ title: err.message || '领取失败', icon: 'none' });
+    }
   }
 })

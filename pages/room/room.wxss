@@ -513,3 +513,123 @@
   color: #3498db;
   font-size: 28rpx;
 }
+
+/* 谜底选择区域 */
+.riddle-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border: 2rpx solid rgba(78, 205, 196, 0.3);
+}
+
+.riddle-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.riddle-option {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.riddle-option.selected {
+  border-color: #4ECDC4;
+  background: rgba(78, 205, 196, 0.15);
+}
+
+.riddle-header {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.riddle-radio {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  border: 2rpx solid #4ECDC4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4ECDC4;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.riddle-option.selected .riddle-radio {
+  background: #4ECDC4;
+  color: #fff;
+}
+
+.riddle-title {
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.riddle-desc {
+  color: #888;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  margin-left: 52rpx;
+}
+
+.riddle-input-area {
+  margin-top: 20rpx;
+  margin-left: 52rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.riddle-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2rpx solid rgba(255, 255, 255, 0.2);
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 16rpx;
+  font-family: monospace;
+}
+
+.riddle-input.valid {
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+}
+
+.riddle-input.invalid {
+  border-color: #e74c3c;
+}
+
+.riddle-hint {
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.riddle-input.valid + .riddle-hint {
+  color: #2ecc71;
+}
+
+.riddle-input.invalid + .riddle-hint {
+  color: #e74c3c;
+}
+
+.riddle-notice {
+  display: block;
+  margin-top: 20rpx;
+  padding: 16rpx 20rpx;
+  background: rgba(255, 193, 7, 0.15);
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  color: #ffc107;
+  text-align: center;
+}
