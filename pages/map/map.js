@@ -4,6 +4,7 @@ const { gameAPI } = require('../../utils/api');
 Page({
   data: {
     devMode: true,     // 开发模式：显示调试信息
+    debugStorageValue: '', // 调试用：Storage内容
     latitude: 32.0584,
     longitude: 118.7968,
     scale: 16,
@@ -160,28 +161,45 @@ Page({
   },
 
   onShow() {
+    console.log('[地图页] ========== onShow ==========');
+    
     // 页面显示时恢复位置更新
     if (this.data.isLocationReady) {
       this.startLocationUpdate();
     }
     
-    // 检查是否有待领取的任务奖励（从 Storage 读取）
-    const pendingReward = wx.getStorageSync('pendingTaskReward');
-    console.log('[地图页] ========== onShow ==========');
-    console.log('[地图页] Storage pendingTaskReward:', pendingReward);
+    // 直接从 Storage 读取并显示（调试用）
+    try {
+      const storageValue = wx.getStorageSync('pendingTaskReward');
+      console.log('[地图页] Storage 原始值:', storageValue);
+      console.log('[地图页] Storage 类型:', typeof storageValue);
+      
+      // 更新调试显示
+      this.setData({ 
+        debugStorageValue: storageValue ? JSON.stringify(storageValue) : 'null'
+      });
+      
+      if (storageValue && typeof storageValue === 'object' && storageValue.reward) {
+        console.log('[地图页] ✅ 有效奖励，设置 pendingTaskReward');
+        this.setData({ pendingTaskReward: storageValue });
+        
+        // 立即检查是否在任务点范围内
+        this.checkTaskPointRange();
+      } else {
+        console.log('[地图页] ❌ 无有效奖励');
+        this.setData({ pendingTaskReward: null });
+      }
+    } catch (e) {
+      console.error('[地图页] 读取 Storage 失败:', e);
+      this.setData({ 
+        pendingTaskReward: null,
+        debugStorageValue: '读取失败: ' + e.message
+      });
+    }
+    
+    console.log('[地图页] 最终 pendingTaskReward:', this.data.pendingTaskReward);
     console.log('[地图页] inTaskPoint:', this.data.inTaskPoint);
     console.log('[地图页] taskPoint:', this.data.taskPoint);
-    
-    if (pendingReward) {
-      console.log('[地图页] ✅ 从Storage读取到待领取奖励');
-      this.setData({ pendingTaskReward: pendingReward });
-      
-      // 立即检查是否在任务点范围内
-      this.checkTaskPointRange();
-    } else {
-      console.log('[地图页] ❌ Storage中没有待领取奖励');
-      this.setData({ pendingTaskReward: null });
-    }
   },
   
   // 检查是否在任务点范围内
@@ -208,6 +226,17 @@ Page({
         console.log('[地图页] 获取位置失败');
       }
     });
+  },
+  
+  // 调试：清除 Storage
+  onDebugClearStorage() {
+    wx.removeStorageSync('pendingTaskReward');
+    this.setData({ 
+      pendingTaskReward: null,
+      debugStorageValue: '已清除'
+    });
+    console.log('[地图页] 已清除 pendingTaskReward');
+    wx.showToast({ title: '已清除', icon: 'success' });
   },
 
   onHide() {

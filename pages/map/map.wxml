@@ -74,12 +74,21 @@
   </view>
   
   <!-- 开发模式调试信息 -->
-  <view class="debug-info" wx:if="{{devMode}}" style="position:fixed;top:100rpx;left:20rpx;background:rgba(0,0,0,0.8);color:#0f0;padding:20rpx;font-size:22rpx;z-index:999;border-radius:10rpx;">
+  <view class="debug-info" wx:if="{{devMode}}" style="position:fixed;top:100rpx;left:20rpx;background:rgba(0,0,0,0.9);color:#0f0;padding:20rpx;font-size:20rpx;z-index:999;border-radius:10rpx;max-width:90%;">
     <text>pendingTaskReward: {{pendingTaskReward ? '有' : '无'}}</text>
+    <text wx:if="{{pendingTaskReward}}">\n  reward: {{pendingTaskReward.reward}}</text>
     <text>\ntaskPoint: {{taskPoint ? '有' : '无'}}</text>
-    <text>\ntaskPoint.status: {{taskPoint ? taskPoint.status : 'null'}}</text>
     <text>\ninTaskPoint: {{inTaskPoint}}</text>
     <text>\ncanClaimTask: {{canClaimTask}}</text>
+  </view>
+  
+  <!-- 调试：直接显示Storage内容 -->
+  <view class="debug-storage" wx:if="{{devMode}}" style="position:fixed;top:320rpx;left:20rpx;background:rgba(0,0,0,0.9);color:#ff0;padding:20rpx;font-size:20rpx;z-index:999;border-radius:10rpx;">
+    <text>Storage pendingTaskReward:</text>
+    <text>\n{{debugStorageValue || 'null'}}</text>
+    <view style="margin-top:10rpx;">
+      <text style="background:#f00;padding:5rpx 10rpx;border-radius:5rpx;" bindtap="onDebugClearStorage">清除Storage</text>
+    </view>
   </view>
   
   <!-- 待领取奖励提示 -->
