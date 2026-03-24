@@ -92,17 +92,41 @@
         <text class="modal-title">🎉 问答结束！</text>
       </view>
       <view class="modal-body">
-        <view class="modal-item">
-          <text class="modal-label">答对题数</text>
-          <text class="modal-value">{{correctCount}}/5</text>
+        <view class="result-summary">
+          <view class="summary-item">
+            <text class="summary-label">答对题数</text>
+            <text class="summary-value">{{correctCount}}/5</text>
+          </view>
+          <view class="summary-item">
+            <text class="summary-label">获得积分</text>
+            <text class="summary-value reward">+{{accumulatedScore}}分</text>
+          </view>
         </view>
-        <view class="modal-item">
-          <text class="modal-label">获得积分</text>
-          <text class="modal-value reward">+{{accumulatedScore}}分</text>
+        
+        <!-- 详细战绩 -->
+        <view class="result-detail">
+          <text class="detail-title">📊 答题详情</text>
+          <view class="question-result" wx:for="{{questions}}" wx:key="id">
+            <view class="question-header">
+              <text class="question-num">第{{index + 1}}题</text>
+              <text class="question-cat">{{item.categoryIcon}} {{item.categoryName}}</text>
+              <text class="question-status {{item.userAnswer === item.answer ? 'correct' : 'wrong'}}">
+                {{item.userAnswer === item.answer ? '✓ 正确' : '✗ 错误'}}
+              </text>
+            </view>
+            <text class="question-text">{{item.question}}</text>
+            <view class="answer-info">
+              <text class="your-answer {{item.userAnswer === item.answer ? 'correct' : 'wrong'}}">
+                你的答案: {{item.options[item.userAnswer] || '未作答'}}
+              </text>
+              <text class="correct-answer" wx:if="{{item.userAnswer !== item.answer}}">
+                正确答案: {{item.options[item.answer]}}
+              </text>
+            </view>
+          </view>
         </view>
       </view>
       <view class="modal-footer">
-        <button class="modal-btn restart" bindtap="onRestart">再玩一次</button>
         <button class="modal-btn back" bindtap="onBack">返回游戏</button>
       </view>
     </view>

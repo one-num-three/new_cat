@@ -137,8 +137,13 @@ Page({
     
     this.stopCountdown();
     
-    const { currentQuestionData, selectedOption } = this.data;
+    const { currentQuestionData, selectedOption, currentQuestion, questions } = this.data;
     const isCorrect = selectedOption === currentQuestionData.answer;
+    
+    // 保存用户答案到题目中
+    if (questions[currentQuestion]) {
+      questions[currentQuestion].userAnswer = selectedOption;
+    }
     
     if (isCorrect) {
       this.setData({
@@ -149,7 +154,8 @@ Page({
     
     this.setData({ 
       answered: true,
-      showExplanation: true
+      showExplanation: true,
+      questions: questions
     });
     
     // 等待3秒后进入下一题
