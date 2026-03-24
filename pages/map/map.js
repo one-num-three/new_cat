@@ -166,10 +166,44 @@ Page({
     
     // 检查是否有待领取的任务奖励
     const app = getApp();
+    console.log('[地图页] onShow - globalData:', app?.globalData);
+    console.log('[地图页] onShow - pendingTaskReward:', app?.globalData?.pendingTaskReward);
+    console.log('[地图页] onShow - inTaskPoint:', this.data.inTaskPoint);
+    console.log('[地图页] onShow - taskPoint:', this.data.taskPoint);
+    
     if (app && app.globalData && app.globalData.pendingTaskReward) {
       console.log('[地图页] 检测到待领取奖励:', app.globalData.pendingTaskReward);
       this.setData({ pendingTaskReward: app.globalData.pendingTaskReward });
+      
+      // 立即检查是否在任务点范围内
+      this.checkTaskPointRange();
     }
+  },
+  
+  // 检查是否在任务点范围内
+  checkTaskPointRange() {
+    const taskPoint = this.data.taskPoint;
+    if (!taskPoint || taskPoint.status !== 'active') {
+      console.log('[地图页] 任务点不存在或已过期');
+      return;
+    }
+    
+    // 获取当前位置
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        const distance = this.calculateDistance(
+          taskPoint.center.latitude, taskPoint.center.longitude,
+          res.latitude, res.longitude
+        );
+        const inTaskPoint = distance <= taskPoint.radius;
+        console.log('[地图页] 距离任务点:', distance, '米, inTaskPoint:', inTaskPoint);
+        this.setData({ inTaskPoint });
+      },
+      fail: () => {
+        console.log('[地图页] 获取位置失败');
+      }
+    });
   },
 
   onHide() {
