@@ -2018,6 +2018,12 @@ Page({
       return;
     }
     
+    // 检查名额是否已满
+    if (!this.data.canClaimTask) {
+      wx.showToast({ title: '领取名额已满', icon: 'none' });
+      return;
+    }
+    
     // 检查是否已有待领取奖励（从 Storage 读取）
     const pendingReward = wx.getStorageSync('pendingTaskReward');
     if (pendingReward) {
