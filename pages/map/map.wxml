@@ -65,11 +65,11 @@
     <view class="task-info">
       <text class="task-icon">📍</text>
       <text class="task-text">{{taskPoint.taskType === 'quiz' ? '趣味问答' : '猜数字'}}</text>
-      <text class="task-reward">+{{taskPoint.reward}}分</text>
+      <text class="task-reward">+{{taskPoint.reward || 50}}分</text>
     </view>
     <view class="task-slots">
-      <text class="slot-cat">🐱{{taskPoint.catSlots - taskPoint.catClaimed}}/{{taskPoint.catSlots}}</text>
-      <text class="slot-mouse">🐭{{taskPoint.mouseSlots - taskPoint.mouseClaimed}}/{{taskPoint.mouseSlots}}</text>
+      <text class="slot-cat">🐱{{(taskPoint.catSlots || 1) - (taskPoint.catClaimed || 0)}}/{{taskPoint.catSlots || 1}}</text>
+      <text class="slot-mouse">🐭{{(taskPoint.mouseSlots || 1) - (taskPoint.mouseClaimed || 0)}}/{{taskPoint.mouseSlots || 1}}</text>
     </view>
   </view>
   

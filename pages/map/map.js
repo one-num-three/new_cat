@@ -1000,10 +1000,15 @@ Page({
       
       // 检查自己是否还能领取
       const myRole = this.data.playerRole;
+      const catSlots = taskPoint.catSlots || 1;
+      const catClaimed = taskPoint.catClaimed || 0;
+      const mouseSlots = taskPoint.mouseSlots || 1;
+      const mouseClaimed = taskPoint.mouseClaimed || 0;
+      
       if (myRole === 'cat') {
-        canClaimTask = taskPoint.catClaimed < taskPoint.catSlots;
+        canClaimTask = catClaimed < catSlots;
       } else {
-        canClaimTask = taskPoint.mouseClaimed < taskPoint.mouseSlots;
+        canClaimTask = mouseClaimed < mouseSlots;
       }
       
       // 检查是否已经领取过
