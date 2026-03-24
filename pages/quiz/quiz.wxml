@@ -10,7 +10,7 @@
   <view class="quiz-status">
     <view class="status-item">
       <text class="status-label">题目</text>
-      <text class="status-value">{{currentQuestion}}/5</text>
+      <text class="status-value">{{currentQuestion + 1}}/5</text>
     </view>
     <view class="status-item">
       <text class="status-label">累计得分</text>
