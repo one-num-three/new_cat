@@ -161,57 +161,36 @@ Page({
   },
 
   onShow() {
-    console.log('[地图页] ========== onShow ==========');
-    console.log('[地图页] 时间:', new Date().toLocaleTimeString());
+    console.log('[地图页] ========== onShow 开始 ==========');
     
-    // 页面显示时恢复位置更新
-    if (this.data.isLocationReady) {
-      this.startLocationUpdate();
-    }
-    
-    // 直接从 Storage 读取
-    console.log('[地图页] 准备读取 Storage...');
-    
+    // 【最重要】先读取 Storage，处理待领取奖励
     try {
       const storageValue = wx.getStorageSync('pendingTaskReward');
-      console.log('[地图页] Storage 读取结果:', storageValue);
-      console.log('[地图页] Storage 类型:', typeof storageValue);
+      console.log('[地图页] Storage:', storageValue);
       
       // 更新调试显示
       this.setData({ 
         debugStorageValue: storageValue ? JSON.stringify(storageValue) : 'null'
       });
       
-      if (storageValue) {
-        console.log('[地图页] Storage 有值，检查有效性...');
-        console.log('[地图页] storageValue.reward:', storageValue.reward);
-        console.log('[地图页] storageValue.taskType:', storageValue.taskType);
-        
-        if (storageValue.reward !== undefined) {
-          console.log('[地图页] ✅ 有效奖励，设置到 data');
-          this.setData({ pendingTaskReward: storageValue });
-          console.log('[地图页] 设置后 this.data.pendingTaskReward:', this.data.pendingTaskReward);
-          
-          // 立即检查是否在任务点范围内
-          this.checkTaskPointRange();
-        } else {
-          console.log('[地图页] ❌ 奖励无效（没有 reward 字段）');
-          this.setData({ pendingTaskReward: null });
-        }
+      // 设置 pendingTaskReward
+      if (storageValue && storageValue.reward) {
+        console.log('[地图页] ✅ 有待领取奖励:', storageValue.reward);
+        this.setData({ pendingTaskReward: storageValue });
       } else {
-        console.log('[地图页] ❌ Storage 为空或 null');
+        console.log('[地图页] ❌ 无待领取奖励');
         this.setData({ pendingTaskReward: null });
       }
     } catch (e) {
-      console.error('[地图页] 读取 Storage 失败:', e);
-      this.setData({ 
-        pendingTaskReward: null,
-        debugStorageValue: '读取失败: ' + e.message
-      });
+      console.error('[地图页] Storage读取错误:', e);
+    }
+    
+    // 然后才恢复位置更新
+    if (this.data.isLocationReady) {
+      this.startLocationUpdate();
     }
     
     console.log('[地图页] ========== onShow 结束 ==========');
-    console.log('[地图页] 最终 pendingTaskReward:', this.data.pendingTaskReward);
   },
   
   // 检查是否在任务点范围内
