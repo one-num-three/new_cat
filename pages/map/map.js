@@ -2006,12 +2006,23 @@ Page({
   
   // 进入任务游戏（根据任务类型跳转）
   onEnterTask() {
+    const taskPoint = this.data.taskPoint;
+    if (!taskPoint) {
+      console.log('[任务] 没有任务点');
+      return;
+    }
+    
+    // 检查是否已经领取过这个任务点
+    if (taskPoint.claimedBy && taskPoint.claimedBy.includes(this.data.playerId)) {
+      wx.showToast({ title: '你已经领取过这个任务了', icon: 'none' });
+      return;
+    }
+    
     // 检查是否已有待领取奖励（从 Storage 读取）
     const pendingReward = wx.getStorageSync('pendingTaskReward');
     if (pendingReward) {
       // 检查是否是同一个任务点的奖励
-      const taskPoint = this.data.taskPoint;
-      if (taskPoint && pendingReward.taskPointId === taskPoint.id) {
+      if (pendingReward.taskPointId === taskPoint.id) {
         wx.showToast({ title: '请先领取上一次奖励', icon: 'none' });
         return;
       } else {
@@ -2019,12 +2030,6 @@ Page({
         console.log('[任务] 不同任务点，清除旧奖励');
         wx.removeStorageSync('pendingTaskReward');
       }
-    }
-    
-    const taskPoint = this.data.taskPoint;
-    if (!taskPoint) {
-      console.log('[任务] 没有任务点');
-      return;
     }
     
     // 调试：显示任务点完整信息
@@ -2100,7 +2105,21 @@ Page({
           app.globalData.pendingTaskReward = null;
         }
         
-        this.setData({ pendingTaskReward: null });
+        // 更新本地 taskPoint 的 claimedBy（防止再次进入）
+        const currentTaskPoint = this.data.taskPoint;
+        if (currentTaskPoint) {
+          currentTaskPoint.claimedBy = currentTaskPoint.claimedBy || [];
+          if (!currentTaskPoint.claimedBy.includes(this.data.playerId)) {
+            currentTaskPoint.claimedBy.push(this.data.playerId);
+          }
+          this.setData({ 
+            pendingTaskReward: null,
+            taskPoint: currentTaskPoint,
+            canClaimTask: false  // 标记为不能再领取
+          });
+        } else {
+          this.setData({ pendingTaskReward: null });
+        }
         
         wx.showToast({
           title: `🎉 +${pendingReward.reward}积分`,
