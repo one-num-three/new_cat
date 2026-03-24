@@ -3,6 +3,7 @@ const { gameAPI } = require('../../utils/api');
 
 Page({
   data: {
+    devMode: true,     // 开发模式：显示调试信息
     latitude: 32.0584,
     longitude: 118.7968,
     scale: 16,
@@ -166,17 +167,20 @@ Page({
     
     // 检查是否有待领取的任务奖励
     const app = getApp();
-    console.log('[地图页] onShow - globalData:', app?.globalData);
-    console.log('[地图页] onShow - pendingTaskReward:', app?.globalData?.pendingTaskReward);
-    console.log('[地图页] onShow - inTaskPoint:', this.data.inTaskPoint);
-    console.log('[地图页] onShow - taskPoint:', this.data.taskPoint);
+    console.log('[地图页] ========== onShow ==========');
+    console.log('[地图页] pendingTaskReward:', app?.globalData?.pendingTaskReward);
+    console.log('[地图页] inTaskPoint:', this.data.inTaskPoint);
+    console.log('[地图页] taskPoint:', this.data.taskPoint);
+    console.log('[地图页] canClaimTask:', this.data.canClaimTask);
     
     if (app && app.globalData && app.globalData.pendingTaskReward) {
-      console.log('[地图页] 检测到待领取奖励:', app.globalData.pendingTaskReward);
+      console.log('[地图页] ✅ 设置 pendingTaskReward');
       this.setData({ pendingTaskReward: app.globalData.pendingTaskReward });
       
       // 立即检查是否在任务点范围内
       this.checkTaskPointRange();
+    } else {
+      console.log('[地图页] ❌ 没有 pendingTaskReward');
     }
   },
   
