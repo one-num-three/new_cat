@@ -82,6 +82,7 @@
     <text>\n实际视野: {{actualVisionRange || visionRange}}米</text>
     <text>\ninTaskPoint: {{inTaskPoint}}</text>
     <text>\ncanClaimTask: {{canClaimTask}}</text>
+    <text>\n当前位置: {{currentLatitude ? '有' : '无'}}</text>
   </view>
   
   <!-- 调试：直接显示Storage内容 -->

@@ -7,6 +7,8 @@ Page({
     debugStorageValue: '', // 调试用：Storage内容
     latitude: 32.0584,
     longitude: 118.7968,
+    currentLatitude: null,  // 实时位置（用于距离计算）
+    currentLongitude: null, // 实时位置（用于距离计算）
     scale: 16,
     markers: [],
     allMarkers: [], // 所有标记（包括玩家和爆炸动画）
@@ -226,22 +228,40 @@ Page({
       return;
     }
     
-    // 获取当前位置
-    wx.getLocation({
-      type: 'gcj02',
-      success: (res) => {
-        const distance = this.calculateDistance(
-          taskPoint.center.latitude, taskPoint.center.longitude,
-          res.latitude, res.longitude
-        );
-        const inTaskPoint = distance <= taskPoint.radius;
-        console.log('[地图页] 距离任务点:', distance, '米, inTaskPoint:', inTaskPoint);
-        this.setData({ inTaskPoint });
-      },
-      fail: () => {
-        console.log('[地图页] 获取位置失败');
-      }
-    });
+    // 使用实时位置
+    const currentLat = this.data.currentLatitude;
+    const currentLng = this.data.currentLongitude;
+    
+    if (currentLat && currentLng) {
+      const distance = this.calculateDistance(
+        taskPoint.center.latitude, taskPoint.center.longitude,
+        currentLat, currentLng
+      );
+      const inTaskPoint = distance <= taskPoint.radius;
+      console.log('[地图页] 距离任务点:', distance, '米, inTaskPoint:', inTaskPoint);
+      this.setData({ inTaskPoint });
+    } else {
+      // 如果没有实时位置，尝试获取
+      wx.getLocation({
+        type: 'gcj02',
+        success: (res) => {
+          const distance = this.calculateDistance(
+            taskPoint.center.latitude, taskPoint.center.longitude,
+            res.latitude, res.longitude
+          );
+          const inTaskPoint = distance <= taskPoint.radius;
+          console.log('[地图页] 距离任务点:', distance, '米, inTaskPoint:', inTaskPoint);
+          this.setData({ 
+            inTaskPoint,
+            currentLatitude: res.latitude,
+            currentLongitude: res.longitude
+          });
+        },
+        fail: () => {
+          console.log('[地图页] 获取位置失败');
+        }
+      });
+    }
   },
   
   // 调试：清除 Storage
@@ -368,9 +388,11 @@ Page({
     
     // 注意：不要更新 this.data.latitude/longitude
     // 因为那会强制地图中心移动！
-    // 只更新时间戳
+    // 但要更新实时位置（用于任务点判定）
     this.setData({
-      lastLocationTime: now
+      lastLocationTime: now,
+      currentLatitude: latitude,
+      currentLongitude: longitude
     });
     
     // 更新自己的标记位置
@@ -1155,13 +1177,17 @@ Page({
         strokeWidth: 3
       };
       
-      // 检查自己是否在任务点范围内
-      if (this.data.latitude && this.data.longitude) {
+      // 检查自己是否在任务点范围内（使用实时位置）
+      const currentLat = this.data.currentLatitude || this.data.latitude;
+      const currentLng = this.data.currentLongitude || this.data.longitude;
+      
+      if (currentLat && currentLng) {
         const distance = this.calculateDistance(
           taskPoint.center.latitude, taskPoint.center.longitude,
-          this.data.latitude, this.data.longitude
+          currentLat, currentLng
         );
         inTaskPoint = distance <= taskPoint.radius;
+        console.log('[任务点] 距离:', distance, '米, 半径:', taskPoint.radius, '米, inTaskPoint:', inTaskPoint);
       }
       
       // 计算剩余时间
