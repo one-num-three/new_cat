@@ -24,9 +24,9 @@ Page({
   onLoad(options) {
     console.log('[问答页] onLoad', options);
     
-    // 检查是否已有待领取奖励
-    const app = getApp();
-    if (app && app.globalData && app.globalData.pendingTaskReward) {
+    // 检查是否已有待领取奖励（从 Storage 读取）
+    const pendingReward = wx.getStorageSync('pendingTaskReward');
+    if (pendingReward) {
       console.log('[问答页] 已有待领取奖励，不能开始新游戏');
       wx.showModal({
         title: '提示',
@@ -167,16 +167,26 @@ Page({
     
     this.setData({ showResult: true });
     
-    // 保存待领取奖励
+    // 保存待领取奖励（使用 Storage 更可靠）
+    const pendingReward = {
+      taskType: 'quiz',
+      correctCount: this.data.correctCount,
+      reward: this.data.accumulatedScore,
+      completedAt: Date.now()
+    };
+    
+    // 同时保存到 globalData 和 Storage
     const app = getApp();
-    if (app && app.globalData) {
-      app.globalData.pendingTaskReward = {
-        taskType: 'quiz',
-        correctCount: this.data.correctCount,
-        reward: this.data.accumulatedScore,
-        completedAt: Date.now()
-      };
+    if (app) {
+      if (!app.globalData) {
+        app.globalData = {};
+      }
+      app.globalData.pendingTaskReward = pendingReward;
     }
+    
+    // 保存到本地存储
+    wx.setStorageSync('pendingTaskReward', pendingReward);
+    console.log('[趣味问答] ✅ 已保存待领取奖励:', pendingReward);
     
     wx.vibrateShort({ type: 'medium' });
   },

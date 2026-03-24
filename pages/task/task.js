@@ -27,9 +27,9 @@ Page({
   onLoad(options) {
     console.log('[任务页] onLoad', options);
     
-    // 检查是否已有待领取奖励
-    const app = getApp();
-    if (app && app.globalData && app.globalData.pendingTaskReward) {
+    // 检查是否已有待领取奖励（从 Storage 读取）
+    const pendingReward = wx.getStorageSync('pendingTaskReward');
+    if (pendingReward) {
       console.log('[任务页] 已有待领取奖励，不能开始新游戏');
       wx.showModal({
         title: '提示',
@@ -225,35 +225,27 @@ Page({
     // 播放震动
     wx.vibrateShort({ type: 'heavy' });
     
-    // 保存待领取奖励到全局数据
-    const app = getApp();
-    console.log('[猜数字] ========== onGameWon ==========');
-    console.log('[猜数字] app:', app);
-    console.log('[猜数字] app.globalData:', app?.globalData);
+    // 保存待领取奖励（使用 Storage 更可靠）
+    const pendingReward = {
+      taskType: 'guessNumber',
+      attempts: attempts,
+      timeUsed: elapsedSeconds,
+      reward: reward,
+      guessedAt: Date.now()
+    };
     
+    // 同时保存到 globalData 和 Storage
+    const app = getApp();
     if (app) {
-      // 确保 globalData 存在
       if (!app.globalData) {
         app.globalData = {};
       }
-      
-      app.globalData.pendingTaskReward = {
-        taskType: 'guessNumber',
-        attempts: attempts,
-        timeUsed: elapsedSeconds,
-        reward: reward,
-        guessedAt: Date.now()
-      };
-      
-      console.log('[猜数字] ✅ 已设置 pendingTaskReward:', app.globalData.pendingTaskReward);
-      
-      // 验证设置成功
-      setTimeout(() => {
-        console.log('[猜数字] 验证 pendingTaskReward:', app.globalData.pendingTaskReward);
-      }, 100);
-    } else {
-      console.log('[猜数字] ❌ app 不存在！');
+      app.globalData.pendingTaskReward = pendingReward;
     }
+    
+    // 保存到本地存储（更可靠）
+    wx.setStorageSync('pendingTaskReward', pendingReward);
+    console.log('[猜数字] ✅ 已保存待领取奖励:', pendingReward);
     
     // 显示提示弹窗
     wx.showModal({

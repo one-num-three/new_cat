@@ -165,22 +165,22 @@ Page({
       this.startLocationUpdate();
     }
     
-    // 检查是否有待领取的任务奖励
-    const app = getApp();
+    // 检查是否有待领取的任务奖励（从 Storage 读取）
+    const pendingReward = wx.getStorageSync('pendingTaskReward');
     console.log('[地图页] ========== onShow ==========');
-    console.log('[地图页] pendingTaskReward:', app?.globalData?.pendingTaskReward);
+    console.log('[地图页] Storage pendingTaskReward:', pendingReward);
     console.log('[地图页] inTaskPoint:', this.data.inTaskPoint);
     console.log('[地图页] taskPoint:', this.data.taskPoint);
-    console.log('[地图页] canClaimTask:', this.data.canClaimTask);
     
-    if (app && app.globalData && app.globalData.pendingTaskReward) {
-      console.log('[地图页] ✅ 设置 pendingTaskReward');
-      this.setData({ pendingTaskReward: app.globalData.pendingTaskReward });
+    if (pendingReward) {
+      console.log('[地图页] ✅ 从Storage读取到待领取奖励');
+      this.setData({ pendingTaskReward: pendingReward });
       
       // 立即检查是否在任务点范围内
       this.checkTaskPointRange();
     } else {
-      console.log('[地图页] ❌ 没有 pendingTaskReward');
+      console.log('[地图页] ❌ Storage中没有待领取奖励');
+      this.setData({ pendingTaskReward: null });
     }
   },
   
@@ -1934,8 +1934,9 @@ Page({
   
   // 进入任务游戏（根据任务类型跳转）
   onEnterTask() {
-    // 检查是否已有待领取奖励
-    if (this.data.pendingTaskReward) {
+    // 检查是否已有待领取奖励（从 Storage 读取）
+    const pendingReward = wx.getStorageSync('pendingTaskReward');
+    if (pendingReward) {
       wx.showToast({ title: '请先领取上一次奖励', icon: 'none' });
       return;
     }
@@ -1990,7 +1991,8 @@ Page({
       wx.hideLoading();
       
       if (res.success) {
-        // 清除待领取奖励
+        // 清除待领取奖励（同时清除 Storage 和 globalData）
+        wx.removeStorageSync('pendingTaskReward');
         const app = getApp();
         if (app && app.globalData) {
           app.globalData.pendingTaskReward = null;
