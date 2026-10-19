@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "reopened": [
+    {
+      "file": "DIFF_FILE",
+      "bytes": 80195,
+      "sha256": "428e9c6180fc223560008dcfccb7c4309ac2b38d9fa976f0d03716562005ada2"
+    },
+    {
+      "file": "VERIFICATION.txt",
+      "bytes": 8059,
+      "sha256": "a1872f0bbe4b6bd13d4503b9c0d2fe0b2cf02394145888d8f1fa28bdda7f2cf7"
+    },
+    {
+      "file": "ROLLBACK.sh",
+      "bytes": 130,
+      "sha256": "7789a537ec809bccf33205d156a377cfb4c7f17f00f23d8ac0aef54237598770"
+    },
+    {
+      "file": "README.md",
+      "bytes": 574,
+      "sha256": "85d2b13501fdc6d4286008700c23663fb7fd089b92c37c22bb1dd8a7dea44f0f"
+    },
+    {
+      "file": "visual/compare.html",
+      "bytes": 9083,
+      "sha256": "4319c0bcdc73ef19d5442da7d77a7eb3c73905d49f6cfcbf803651454d3007e3"
+    },
+    {
+      "file": "visual/AUDIT.md",
+      "bytes": 700,
+      "sha256": "cc9290b63c95d348ea47f7d0311f91036c8b016e3cb7a4b16642da78f3d32cbb"
+    },
+    {
+      "file": "interaction-summary.json",
+      "bytes": 981,
+      "sha256": "00e3b92a9efda5d834f3e85a9a35969c73e9590317165962ac95438913e1365f"
+    },
+    {
+      "file": "package-audit.json",
+      "bytes": 357,
+      "sha256": "4063a284fa3e479d4dfed368f3082d20d5952ae587b15478263c14d405c04daa"
+    }
+  ],
+  "baselineAndRollbackHashes": 22,
+  "liveChangedFiles": 19,
+  "modifiedFiles": 120,
+  "modifiedBytes": 2088251,
+  "deletedDuplicateFiles": 248,
+  "deletedDuplicateBytes": 100335333,
+  "retainedDuplicatesVerified": true,
+  "pending": [
+    "remaining972 confirmed history files not deleted",
+    "large drawer close revalidation",
+    "real-device/GPS/system fonts"
+  ]
+}

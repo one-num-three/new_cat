@@ -1,0 +1,35 @@
+PACK_AUDIT_PASS
+Export: D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\MODIFIED_FILE
+Files: 119
+Raw bytes: 2085252 / 2097152; remaining: 11900
+All export/live SHA-256 equal: true
+Registered pages/components: 6/3
+Resolved asset paths: 68
+localTestIdentities: false
+Inventory SHA-256: a1a1d8c4fb0c7e8ecac972ec74a23c8d9d1ac4e983597d5d9f1200ae8d070a5d
+
+PASS export-live-sha256
+PASS raw-directory-under-2MiB
+PASS project-ignore-identical
+PASS export-contains-no-project-ignored-files
+PASS package-copy-plan-exact
+PASS registered-page-component-files
+PASS local-import-dependency-closure
+PASS wxml-custom-tags-registered
+PASS static-and-dynamic-bundled-assets-exist
+PASS qr-runtime-image-producer-accounted-for
+PASS intentional-omissions-consistent
+PASS embedded-font-identical-and-licensed
+PASS test-identities-disabled
+PASS expected-asset-families
+PASS export-and-live-stable-during-audit
+
+Intentional omissions:
+assets/pixel-v1/ui-variable.woff source-retained=true absent=true project-ignore=true runtime-reference=false
+assets/pixel-v1/button-create-minus.png source-retained=true absent=true project-ignore=true runtime-reference=false
+assets/pixel-v1/button-create-plus.png source-retained=true absent=true project-ignore=true runtime-reference=false
+assets/pixel-v1/rules-icon-capture.png source-retained=true absent=true project-ignore=true runtime-reference=false
+
+Dynamic QR image: runtime-created from authenticated token response, not a packaged file.
+Read-only audit; no SDK invoked; no ZIP created.
+Final IDE screenshots are not asserted by this audit.

@@ -1,0 +1,100 @@
+当前：新版像素UI / 已替换代码并完成自动回归 / 修后IDE全量截图与交互待磁盘空间恢复
+VERSION=pixel-day-native-v1
+BRANCH=master (no new branch, no reset, no commit, no upload/deploy)
+CHANGED_FIELDS=app.pages + pages/venue/venue; app.usingComponents.pixel-action; utils/presentation.js stateArt/roleArt/parkArt; pages/map/map.js artMode display-only; native WXML/WXSS and nav; package file/ignore lists.
+RULE_VERSION=pilot-0.2 unchanged; server remains authority; production map remains authorized native map.
+
+FOUR ARTIFACTS (absolute):
+MODIFIED_FILE=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\MODIFIED_FILE (unpacked runnable mini-program, 119 files)
+DIFF_FILE=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\DIFF_FILE (text diff of saved dirty baseline; new binaries identified by SHA, retained assets provided)
+VERIFICATION.txt=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\VERIFICATION.txt
+ROLLBACK.sh=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\ROLLBACK.sh (executable via Git Bash, accepts isolated marked fixture only)
+
+BASELINE
+cwd=D:\cat-mouse-miniprogram\cat-mouse-server
+command=npm test
+input=saved pre-change uncommitted code, 31 existing regression cases
+literal output tail:
+1..31
+# tests 31
+# pass 31
+# fail 0
+# duration_ms 14528.7912
+EXIT_STATUS=0
+full output=baseline-tests.txt
+Saved baseline=33 files, SHA manifest b5953497ee187de27bf88341c0ea26d7acd7b972d853e7b439a8d00b8b606980.
+Room and QR markup baseline recovery provenance is recorded: previous verified CURRENT byte copy, checked against previous changes.json after-SHA; not substituted from Git HEAD.
+
+MODIFIED
+cwd=D:\cat-mouse-miniprogram
+TEMP=D:/cat-mouse-miniprogram/reports/2026-10-13/xuanwu-ui-v1/test-tmp
+TMP=same as TEMP
+command=npm --prefix cat-mouse-server test
+input=current native pixel UI, unchanged server authority, 75 tests (31 existing + 44 new)
+literal output tail:
+1..75
+# tests 75
+# pass 75
+# fail 0
+# duration_ms 13179.427
+EXIT_STATUS=0
+full output=modified-tests-final.txt
+
+ROLLBACK
+cwd=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1
+command=D:/Program Files/Git/bin/bash.exe -c './ROLLBACK.sh "$1"' -- 'D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\rollback-fixture'
+input=this report's isolated marked rollback-fixture; baseline33; current bytes copied and backed up before restoring
+literal output/result:
+BASELINE_SHA_VALIDATED=33/33
+CURRENT_BYTES_BACKED_UP=33/33
+ROLLBACK_RESTORED=33/33
+LIVE_WRITES=0
+EXIT_STATUS=0
+Restored test cwd=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\rollback-fixture\cat-mouse-server
+NODE_PATH=D:\cat-mouse-miniprogram\cat-mouse-server\node_modules
+TEMP/TMP/TMPDIR=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\rollback-fixture\test-temp
+command=node --test v2/client.test.js v2/dev-preview.test.js v2/integration.test.js v2/presentation.test.js v2/rules.test.js
+input=restored old source; newly added pixel-ui/venue-ui test files excluded from old fixture
+literal result:
+1..31
+# tests 31
+# pass 31
+# fail 0
+# duration_ms 12357.1495
+EXIT_STATUS=0
+Restored behavior/status=old five-page registration and faithful art mapping, old 31 behavior regressions pass; live repository and MODIFIED_FILE remain pixel UI.
+Guard negative input=D:/cat-mouse-miniprogram; output=ROLLBACK_GUARD target must be this report rollback-fixture; EXIT_STATUS=1 (expected guard rejection).
+Full commands/outputs/env and restored hashes=rollback-VERIFICATION.txt, rollback-execution.json, rollback-verification.json.
+
+ASSETS / BUILD
+command=node scripts/build-pixel-runtime.cjs --verify
+literal=PIXEL_RUNTIME_VERIFY_PASS pngs=65 pngBytes=763445 pngTarget=650000 withinTarget=false pngBudget=790000 withinBudget=true paletteMax=64 fontBytes=107816 originals=unchanged html=unchanged
+EXIT_STATUS=0
+command=node scripts/build-xuanwu-runtime.cjs --verify
+literal=XUANWU_ART_PASS source=unchanged dimensions=1154x1363 bytes=1045507 calibrated=false
+EXIT_STATUS=0
+These deterministic derivative builders used installed Sharp 0.35.5 / libvips 8.18.7. npm test verifies locked assets with built-in Node byte/hash/PNG checks; no image regeneration required for preview.
+command=./scripts/package-release.ps1 -DirectoryOnly -OutputDirectory 'D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1'
+literal=Created directory: D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\MODIFIED_FILE
+EXIT_STATUS=0
+Export reopened audit=PACK_AUDIT_PASS; 119 files; 2085252 raw bytes; 11900 below local 2097152-byte envelope; all export/live SHA equal, 6 pages/3 components/32 dependencies/68 asset paths valid; localTestIdentities=false.
+Raw-file size is not a verified WeChat upload-package size. No ZIP produced, no upload attempted.
+Official offline compilers: WXML 9 files EXIT_STATUS=0; WXSS 12 including imported styles EXIT_STATUS=0. Exact executable/arguments in compile-results.json. First WXSS invocation omitted 3 imports, exited1; corrected invocation passed, both logs preserved. Not a live IDE build certification.
+command=git diff --check
+EXIT_STATUS=0 (existing LF/CRLF normalization warnings only).
+Diff comparison=33 saved baseline files, 28 changed/5 unchanged, 94 new files. CURRENT_FILE preserves 127 task source/dependency artifacts. Historical user changes not reset.
+
+VISUAL / INTERACTION — NOT FINAL ACCEPTANCE
+First complete render scripts:
+node scripts/pixel-ui-review.cjs <pixel-native-v1/normal> normal
+node scripts/pixel-ui-review.cjs <pixel-native-v1/large> large
+node scripts/pixel-ui-review.cjs <pixel-native-v1/narrow> narrow
+Each EXIT_STATUS=0; literal endings PIXEL_UI_PASS=17 MODE=normal / MODE=large / MODE=narrow respectively. 51 rendered screenshots; intrinsic art ratios, card grid, button bounds, authorized-state clocks checked.
+These precede the last six visual refinements. Portable copies/reference comparison=visual/compare.html; phase labeling=visual/STATUS.md and AUDIT.md.
+Normal/large host=390x844; large is app fontScale1.3. Narrow is 320x693 CONTENT within a 390-wide IDE host, not a real 320-wide phone. All evidence preserves aspect ratios and explicit canvas limitations.
+Final recapture: venue/home/gallery/create succeeded, ready rendered0/8 failed; a second transport attempt failed. Those partial frames are separate in partial-final-normal, never merged into the 51-pass set.
+Independent SDK capture probe EXIT_STATUS=1 with literal captureScreen:fail Error: ENOSPC: no space left on device, write. C drive Free=0 observed. Official CLI project compile-cache cleaning exited0, Free remained0. No window moved/resized; no user files deleted or relocated.
+Last visual source corrections=code cat/mouse art, blue large-code action, offline reconnect heading, paused freeze copy, semantic large-title lines, drawer role avatars/icons. Full post-fix screenshots still pending.
+Interaction script initially EXIT_STATUS=1 (null component during DOM access). Route/component waits and scroll-end checks prepared in scripts/pixel-interaction.cjs; final run not completed. Pan/zoom/component lifecycle unit tests pass but are not native touch verification.
+Pending=final17x3 screenshots, native clicks/pan/error-retry/scroll-bottom reachability; real devices/system text sizes; actual login/GPS/scan; v3 geographic calibration. Do not label these PASS.
+NEXT=free approximately1GB on C, recompile current split-screen IDE, run capture and interaction scripts with outputs on D; compare actual final frames before any UI release.

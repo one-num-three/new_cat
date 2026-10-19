@@ -1,0 +1,47 @@
+{
+  "route": "pages/venue/venue",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "error": "",
+  "controller": "function",
+  "hasSelf": false,
+  "geoData": {
+    "points": [],
+    "regions": []
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "error",
+    "error": "验证：模拟画布中断",
+    "camera": {
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 2948.356429303279
+    },
+    "width": 366,
+    "height": 605.5546875,
+    "pins": [],
+    "drawCount": 1,
+    "lastDrawMs": 13,
+    "omitted": 0
+  }
+}

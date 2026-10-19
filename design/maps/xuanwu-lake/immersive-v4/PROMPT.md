@@ -1,0 +1,9 @@
+# 沉浸地图生图提示词
+
+工具：内置 image_gen；参考为v3原稿；实际输出1254×1254（不冒称请求的2048）。原图、生成PNG均保留。
+
+```text
+Use case: precise-object-edit / stylized-concept. Asset type: ONE large full-bleed raster background for a mobile game illustration-map viewer, NOT a UI mockup. Edit target/reference: the attached existing top-down Xuanwu Lake Huan/Ying islands pixel-art map. Create a high-resolution SQUARE 2048×2048 (or larger square) extended map artwork in exactly the same sunny 16-bit painterly pixel-art style, bright turquoise rippled water, yellow-green lawns, dense little shaded trees, cream paths, terracotta tiled buildings and long roofed corridor. Preserve the existing islands' recognizable outline, inner lake, all visible bridge connections, winding footpaths, central island and roofed corridor arrangement; do not invent new land or change the geography. Keep their orientation upright exactly as the reference; no rotation or perspective tilt. OUTPAINT / expand the surrounding lake on all four sides so the entire existing land-and-path composition sits comfortably inside the new square with a substantial continuous water margin, about 70% of the square width and 82% height for the land. Continue the SAME finely textured pixel-water all the way to every edge; no flat turquoise strips, no blank bands, no gradients, no borders, no phone frame, no UI, no labels, no letters, no text, no markers, no characters, no arrows, no watermark. Add crisp, consistent small pixel detail at the larger resolution while retaining the warm sunny reference's palette and scale. This is artwork, not surveyed GPS data. Deliver only the single seamless-looking map illustration, suitable for uniform cover cropping and slow camera panning.
+```
+
+后续同风格补图保持晴日16-bit像素、水纹/草地/树木/红瓦一致，先查库；图像为艺术导览，未地理配准，不叠加玩家坐标。模型扩绘的桥端小岛不作为实测地理事实。

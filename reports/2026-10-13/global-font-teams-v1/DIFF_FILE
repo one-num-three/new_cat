@@ -1,0 +1,1621 @@
+--- baseline/README.md
++++ modified/README.md
+@@ -88,3 +88,12 @@
+ ```
+ 
+ 自动化测试涵盖身份、权限、人数、动态码、时间、并发、可见性、数据库写失败、重启恢复和旧结果保留。60 人脚本包含每 2 秒位置上报、状态读取、WebSocket 推送及部分重连；默认仍是本地嵌入式数据库仿真，不代表真机、公网或自有服务器容量。当前证据与未执行项目见 [WORK_LOG.md](WORK_LOG.md)。部署和真机试点见 [RELEASE.md](RELEASE.md)。
++
++
++## 2026-10-13 全页字体与可配置人数
++- 六个已注册页面和公共组件采用Fusion Pixel12px比例简中版，字重400；实时按钮文字不用旧PNG烘焙字。原插画/地图保持宽高比和原稿文字；昵称未覆盖字符后备字体。静态539字形/21640B，原字体与OFL锁定，运行目录附完整继承许可。人数输入静止时用像素值层，聚焦时保留真实原生输入/光标，不伪造可编辑控件。
++- 创建页独立填写总人数、猫数、鼠数，默认8/2/6；正整数、各至少1人、加和相等；总数2–60为配置边界，不是并发或场地安全容量承诺。主试点仍6–12人。创建后锁定配置，不开放局中改阵营。
++- 显式cats/mice登记pilot-0.3；旧total-only请求保留pilot-0.2。服务端人数分配与捕获目标使用已存配置，旧房间不迁移，历史结果不覆盖。细则RULES_PILOT_0_3.md。
++- 验证：基线84/84，修改88/88；全部1770种有效组合和非法值矩阵；真实HTTP三身份自定义1猫2鼠，目标2，越权开始拒绝，规则/取消结果数据库持久化与重启恢复。微信IDE正常17状态，大字3/窄内容3及10/3/7自定义完整演示流程实际截图。后续静止输入字体/短位置按钮修正另有最终截图。大字为应用1.3，窄为390模拟器内320内容，真机另验。
++- 自查：创建仍鉴权，禁止winner/role等未知字段，玩家管理权限不增加；并发/抓捕/截止/位置授权回归保持；前后端均校验数量；无新定位timer/监听，图片无轴向压缩，规则结果同源；没有线上发布或数据库变更。线上旧服务需同步后端后才支持新请求字段。
++- 交付与命令证据：reports/2026-10-13/global-font-teams-v1。下一步：真机编辑光标/字号，更新服务器之后微信登录真实8人样例；人数配比尚未做场地平衡验证。
+--- baseline/RELEASE.md
++++ modified/RELEASE.md
+@@ -95,3 +95,12 @@
+ ## 发布门槛
+ 
+ 真实微信授权码、平台服务类目/隐私资料验收、真机定位和扫码、公网链路与长时间稳态负载及场地安全检查尚待完成。实际系统 PostgreSQL 的备份恢复与服务器 60 人短时同机测试已执行，但不能据此承诺公网并发。发布包可由 `scripts/package-release.ps1` 生成，仍需在微信开发者工具和目标设备检查。
++
++
++## 2026-10-13 全页字体与可配置人数
++- 六个已注册页面和公共组件采用Fusion Pixel12px比例简中版，字重400；实时按钮文字不用旧PNG烘焙字。原插画/地图保持宽高比和原稿文字；昵称未覆盖字符后备字体。静态539字形/21640B，原字体与OFL锁定，运行目录附完整继承许可。人数输入静止时用像素值层，聚焦时保留真实原生输入/光标，不伪造可编辑控件。
++- 创建页独立填写总人数、猫数、鼠数，默认8/2/6；正整数、各至少1人、加和相等；总数2–60为配置边界，不是并发或场地安全容量承诺。主试点仍6–12人。创建后锁定配置，不开放局中改阵营。
++- 显式cats/mice登记pilot-0.3；旧total-only请求保留pilot-0.2。服务端人数分配与捕获目标使用已存配置，旧房间不迁移，历史结果不覆盖。细则RULES_PILOT_0_3.md。
++- 验证：基线84/84，修改88/88；全部1770种有效组合和非法值矩阵；真实HTTP三身份自定义1猫2鼠，目标2，越权开始拒绝，规则/取消结果数据库持久化与重启恢复。微信IDE正常17状态，大字3/窄内容3及10/3/7自定义完整演示流程实际截图。后续静止输入字体/短位置按钮修正另有最终截图。大字为应用1.3，窄为390模拟器内320内容，真机另验。
++- 自查：创建仍鉴权，禁止winner/role等未知字段，玩家管理权限不增加；并发/抓捕/截止/位置授权回归保持；前后端均校验数量；无新定位timer/监听，图片无轴向压缩，规则结果同源；没有线上发布或数据库变更。线上旧服务需同步后端后才支持新请求字段。
++- 交付与命令证据：reports/2026-10-13/global-font-teams-v1。下一步：真机编辑光标/字号，更新服务器之后微信登录真实8人样例；人数配比尚未做场地平衡验证。
+--- baseline/WORK_LOG.md
++++ modified/WORK_LOG.md
+@@ -281,3 +281,12 @@
+ - 自查：身份、权限、胜负、并发/超时、定位可见性均无业务改动；dev页仍develop门控；无新监听/定时器/网络；按钮路由和其他页正常；pilot-0.2不变；只增加约11KB嵌入WXSS；普通玩家无新增指令入口。
+ - 已复查diff，保留原2文件SHA并在标记隔离副本回滚2/2，旧字体恢复，live仍新版。四项交付与原/新截图见reports/2026-10-13/fusion-font-v1。写reports会触发IDE重编译，最终导航在写入结束后进行，不移动分屏。
+ - 下一步：用户选定字体后再评估全页字符覆盖和按钮/图片烘焙文字一致性；真机栅格效果待验。本轮不全站替换。
++
++
++## 2026-10-13 全页字体与可配置人数
++- 六个已注册页面和公共组件采用Fusion Pixel12px比例简中版，字重400；实时按钮文字不用旧PNG烘焙字。原插画/地图保持宽高比和原稿文字；昵称未覆盖字符后备字体。静态539字形/21640B，原字体与OFL锁定，运行目录附完整继承许可。人数输入静止时用像素值层，聚焦时保留真实原生输入/光标，不伪造可编辑控件。
++- 创建页独立填写总人数、猫数、鼠数，默认8/2/6；正整数、各至少1人、加和相等；总数2–60为配置边界，不是并发或场地安全容量承诺。主试点仍6–12人。创建后锁定配置，不开放局中改阵营。
++- 显式cats/mice登记pilot-0.3；旧total-only请求保留pilot-0.2。服务端人数分配与捕获目标使用已存配置，旧房间不迁移，历史结果不覆盖。细则RULES_PILOT_0_3.md。
++- 验证：基线84/84，修改88/88；全部1770种有效组合和非法值矩阵；真实HTTP三身份自定义1猫2鼠，目标2，越权开始拒绝，规则/取消结果数据库持久化与重启恢复。微信IDE正常17状态，大字3/窄内容3及10/3/7自定义完整演示流程实际截图。后续静止输入字体/短位置按钮修正另有最终截图。大字为应用1.3，窄为390模拟器内320内容，真机另验。
++- 自查：创建仍鉴权，禁止winner/role等未知字段，玩家管理权限不增加；并发/抓捕/截止/位置授权回归保持；前后端均校验数量；无新定位timer/监听，图片无轴向压缩，规则结果同源；没有线上发布或数据库变更。线上旧服务需同步后端后才支持新请求字段。
++- 交付与命令证据：reports/2026-10-13/global-font-teams-v1。下一步：真机编辑光标/字号，更新服务器之后微信登录真实8人样例；人数配比尚未做场地平衡验证。
+--- baseline/scripts/package-release.ps1
++++ modified/scripts/package-release.ps1
+@@ -27,7 +27,7 @@
+ 
+ try {
+   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
+-  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue')
++  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue')
+   foreach ($item in $miniFiles) {
+     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
+       throw "Required miniprogram source is missing: $item"
+--- baseline/utils/pixel-theme.wxss
++++ modified/utils/pixel-theme.wxss
+@@ -1,8 +1,9 @@
++@import "./fusion-font.wxss";
+ @import "./pixel-font.wxss";
+ @import "./pixel-art-ratios.wxss";
+-page{background:#fcf8ed;color:#050b14;font-family:ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;font-weight:450;line-height:1.45}
+-view,scroll-view,button,input{box-sizing:border-box}button,input{font-family:inherit}button::after{border:0}button[disabled]{opacity:.52}
+-.screen{position:relative;width:var(--vw,100vw);min-height:var(--vh,100vh);box-sizing:border-box}.muted{color:#666}.orangeNumber{color:#ff6500}.label{font-weight:750}
++page{background:#fcf8ed;color:#050b14;font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;font-weight:400;line-height:1.45}
++view,scroll-view,button,input{box-sizing:border-box}button,input{font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif}button::after{border:0}button[disabled]{opacity:.52}
++.screen{position:relative;width:var(--vw,100vw);min-height:var(--vh,100vh);box-sizing:border-box}.muted{color:#666}.orangeNumber{color:#ff6500}.label{font-weight:400}
+ .pixelPaper{background:#fcf9f0;border:2px solid #e8dfce;box-shadow:0 2px 0 #e8dfce;border-radius:3px}
+ .textButton{background:transparent;color:#384b38;font-size:15px;line-height:1.5;padding:10px;margin:0}
+ .error{display:block;padding:10px 12px;margin:10px 14px;background:#ffedd9;color:#a3381b;border:1px solid #e5b38d;font-size:14px;line-height:1.5}
+--- baseline/pages/dev/dev.wxss
++++ modified/pages/dev/dev.wxss
+@@ -1,6 +1,6 @@
+ @import "../../utils/pixel-theme.wxss";
+-@import "./fusion-font.wxss";
+-.devScreen{width:var(--vw,100vw);min-height:var(--vh,100vh);padding:calc(var(--nav-height) + 12px) 16px max(24px,env(safe-area-inset-bottom));background:#fcf8ed}.devTitle{display:block;font-size:calc(27px*var(--font-scale));font-weight:750;line-height:1.25}.devDescription{display:block;font-size:16px;color:#4f713b;margin-top:8px}.devNote{display:block;font-size:12px;color:#777;margin-top:5px}.venuePreviewEntry,.homeButton{display:block;width:100%!important;padding:12px;margin:15px 0 0;background:#e8efda;color:#21432b;border:3px solid #273d27;border-radius:2px;font-size:calc(16px*var(--font-scale));line-height:1.4;font-weight:750}.previewGroup{margin-top:18px}.groupTitle{display:block;font-size:calc(19px*var(--font-scale));font-weight:750;margin-bottom:8px}.previewGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.previewItem{display:flex;align-items:center;gap:7px;width:100%!important;margin:0!important;padding:11px 9px;background:#fcf9f0;border:2px solid #e5dbca;border-radius:2px;min-height:50px;font-size:calc(14px*var(--font-scale));line-height:1.4;text-align:left}.entryNumber{font-size:11px;color:#b37a31;flex:none}.entryTitle{flex:1;min-width:0;font-weight:550}.entryArrow{font-size:24px;color:#4c623e;flex:none}.fontLarge .previewGrid{grid-template-columns:1fr}.narrowCanvas .previewItem{padding:9px 6px;gap:5px;font-size:13px}.homeButton{background:#fcf8ed;color:#050b14;margin-top:20px}
++
++.devScreen{width:var(--vw,100vw);min-height:var(--vh,100vh);padding:calc(var(--nav-height) + 12px) 16px max(24px,env(safe-area-inset-bottom));background:#fcf8ed}.devTitle{display:block;font-size:calc(27px*var(--font-scale));font-weight:400;line-height:1.25}.devDescription{display:block;font-size:16px;color:#4f713b;margin-top:8px}.devNote{display:block;font-size:12px;color:#777;margin-top:5px}.venuePreviewEntry,.homeButton{display:block;width:100%!important;padding:12px;margin:15px 0 0;background:#e8efda;color:#21432b;border:3px solid #273d27;border-radius:2px;font-size:calc(16px*var(--font-scale));line-height:1.4;font-weight:400}.previewGroup{margin-top:18px}.groupTitle{display:block;font-size:calc(19px*var(--font-scale));font-weight:400;margin-bottom:8px}.previewGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.previewItem{display:flex;align-items:center;gap:7px;width:100%!important;margin:0!important;padding:11px 9px;background:#fcf9f0;border:2px solid #e5dbca;border-radius:2px;min-height:50px;font-size:calc(14px*var(--font-scale));line-height:1.4;text-align:left}.entryNumber{font-size:11px;color:#b37a31;flex:none}.entryTitle{flex:1;min-width:0;font-weight:400}.entryArrow{font-size:24px;color:#4c623e;flex:none}.fontLarge .previewGrid{grid-template-columns:1fr}.narrowCanvas .previewItem{padding:9px 6px;gap:5px;font-size:13px}.homeButton{background:#fcf8ed;color:#050b14;margin-top:20px}
+ 
+ /* Trial only: inherited family plus explicit button family; no synthetic bold. */
+-.devScreen,.devScreen button,.devScreen text{font-family:CatMouseFusionTrial,ParkReplicaUI,sans-serif;font-weight:400}.devTitle{font-size:calc(24px*var(--font-scale));line-height:1.5}.fontTrialLabel{display:block;margin-top:8px;color:#496b35;font-size:12px;line-height:1.5}
++.devScreen,.devScreen button,.devScreen text{font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;font-weight:400}.devTitle{font-size:calc(24px*var(--font-scale));line-height:1.5}.fontTrialLabel{display:block;margin-top:8px;color:#496b35;font-size:12px;line-height:1.5}
+--- baseline/pages/index/index.wxss
++++ modified/pages/index/index.wxss
+@@ -1,20 +1,20 @@
+ @import "../../utils/pixel-theme.wxss";
+-.homeScreen{--vw:100vw;--vh:100vh;box-sizing:border-box;width:100%;min-height:var(--vh);padding-top:var(--nav-height,64px);background:#fcf8ed;color:#050b14;font-family:ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}
++.homeScreen{--vw:100vw;--vh:100vh;box-sizing:border-box;width:100%;min-height:var(--vh);padding-top:var(--nav-height,64px);background:#fcf8ed;color:#050b14;font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}
+ .homeHero,.homeFooter{display:block;width:100%;height:auto}
+ .homeForm{padding:30rpx 31rpx 0;box-sizing:border-box}
+ .paperFrame{position:relative;box-sizing:border-box;background:#fcf9f0;border:3rpx solid #e8dfce;clip-path:polygon(14rpx 0,calc(100% - 14rpx) 0,calc(100% - 14rpx) 4rpx,calc(100% - 6rpx) 4rpx,calc(100% - 6rpx) 10rpx,100% 10rpx,100% calc(100% - 10rpx),calc(100% - 6rpx) calc(100% - 10rpx),calc(100% - 6rpx) calc(100% - 4rpx),calc(100% - 14rpx) calc(100% - 4rpx),calc(100% - 14rpx) 100%,14rpx 100%,14rpx calc(100% - 4rpx),6rpx calc(100% - 4rpx),6rpx calc(100% - 10rpx),0 calc(100% - 10rpx),0 10rpx,6rpx 10rpx,6rpx 4rpx,14rpx 4rpx)}
+ .homeField{display:flex;align-items:center;gap:18rpx;min-height:116rpx;padding:16rpx 18rpx;margin-bottom:16rpx}
+-.fieldLabel{flex:0 0 25%;min-width:0;font-size:calc(35rpx * var(--font-scale));font-weight:750;line-height:1.4;white-space:nowrap;text-align:center}
+-.homeInput{display:block;flex:1;min-width:0;box-sizing:border-box;height:calc(78rpx * var(--font-scale));min-height:42px;margin:0;padding:0 22rpx;border:3rpx solid #cdc7be;border-radius:7rpx;background:#fcfbf7;color:#424146;font-family:ParkReplicaUI,"PingFang SC",sans-serif;font-size:calc(36rpx * var(--font-scale));font-weight:550;line-height:1.4}
+-.fieldPlaceholder{color:#aaa9aa;font-weight:550}
++.fieldLabel{flex:0 0 25%;min-width:0;font-size:calc(35rpx * var(--font-scale));font-weight:400;line-height:1.4;white-space:nowrap;text-align:center}
++.homeInput{display:block;flex:1;min-width:0;box-sizing:border-box;height:calc(78rpx * var(--font-scale));min-height:42px;margin:0;padding:0 22rpx;border:3rpx solid #cdc7be;border-radius:7rpx;background:#fcfbf7;color:#424146;font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif;font-size:calc(36rpx * var(--font-scale));font-weight:400;line-height:1.4}
++.fieldPlaceholder{color:#aaa9aa;font-weight:400}
+ .homeActions{display:flex;flex-direction:column;gap:8rpx;margin:18rpx -5rpx 0}
+ .formError{display:block;margin:18rpx 0 0;padding:16rpx 18rpx;border:2rpx solid #e8b295;background:#ffedd9;color:#a53b1e;font-size:calc(25rpx * var(--font-scale));line-height:1.55;overflow-wrap:break-word}
+ .homeFooter{margin-top:10rpx}
+ .homeExtra{padding:0 31rpx calc(24rpx + env(safe-area-inset-bottom));box-sizing:border-box}
+-.resumeBand{display:flex;align-items:center;justify-content:space-between;gap:12rpx;width:100%;margin:0 0 20rpx;padding:18rpx 20rpx;box-sizing:border-box;border:2rpx solid #adc393;border-radius:0;background:#e7eed9;color:#2c5834;text-align:left;font-size:calc(26rpx * var(--font-scale));font-weight:550;line-height:1.45}
++.resumeBand{display:flex;align-items:center;justify-content:space-between;gap:12rpx;width:100%;margin:0 0 20rpx;padding:18rpx 20rpx;box-sizing:border-box;border:2rpx solid #adc393;border-radius:0;background:#e7eed9;color:#2c5834;text-align:left;font-size:calc(26rpx * var(--font-scale));font-weight:400;line-height:1.45}
+ .resumeBand text:first-child{flex:1;min-width:0}.resumeBand text:last-child{flex:none}.resumeBand[disabled]{background:#f1ecdf;color:#747368}
+ .venueEntry{display:flex;align-items:center;justify-content:space-between;gap:20rpx;width:100%;margin:12rpx 0 0;padding:20rpx 24rpx;color:#285b32;text-align:left;line-height:1.45;border-radius:0}
+-.venueEntryCopy{min-width:0;flex:1}.venueEntryTitle{display:block;font-size:calc(29rpx * var(--font-scale));font-weight:750}.venueEntryHint{display:block;margin-top:5rpx;color:#6a7663;font-size:calc(24rpx * var(--font-scale));font-weight:400}.entryArrow{font-size:44rpx;font-weight:750;flex:none}
++.venueEntryCopy{min-width:0;flex:1}.venueEntryTitle{display:block;font-size:calc(29rpx * var(--font-scale));font-weight:400}.venueEntryHint{display:block;margin-top:5rpx;color:#6a7663;font-size:calc(24rpx * var(--font-scale));font-weight:400}.entryArrow{font-size:44rpx;font-weight:400;flex:none}
+ .devLink{width:auto;min-height:44px;margin:8rpx auto 0;padding:14rpx;background:transparent;color:#737466;font-size:calc(24rpx * var(--font-scale));font-weight:400;line-height:1.6;text-decoration:underline;border-radius:0}
+ .homeScreen button::after{border:0}.homeScreen button:active{opacity:.8}
+ .narrowCanvas .homeInput{padding-left:14rpx;padding-right:14rpx;font-size:calc(33rpx * var(--font-scale))}
+--- baseline/pages/map/map.wxss
++++ modified/pages/map/map.wxss
+@@ -1,17 +1,17 @@
+ @import "../../utils/pixel-theme.wxss";
+ .mapPage{position:relative;box-sizing:border-box;width:var(--vw,100vw);min-height:var(--vh,100vh);padding-top:var(--nav-height,64px);background:#fcf8ed;color:#050b14;--font-scale:1}.playPage{height:var(--vh);display:flex;flex-direction:column;overflow:hidden}.documentPage{padding-bottom:max(20px,var(--safe-bottom),env(safe-area-inset-bottom))}
+-.roleBand{display:flex;align-items:center;gap:14px;padding:8px 20px;background:#ff9b2b;flex:none}.roleBand.role-mouse{background:#27b1ef}.roleArt{width:calc(var(--vw)*.16);height:calc(var(--vw)*.15);flex:none}.roleCopy{flex:1;min-width:0}.roleTitle{display:block;font-size:calc(var(--vw)*.078*var(--font-scale));font-weight:750;line-height:1.2;letter-spacing:.5px;color:#101115;-webkit-text-stroke:.5px #fff;paint-order:stroke fill}.roleSubtitle{display:block;font-size:calc(12px*var(--font-scale));line-height:1.3;margin-top:4px;font-weight:550}.state-captured .roleBand{filter:saturate(.5)}
+-.hudStack{display:flex;flex:none;margin:9px 9px 0;padding:8px 5px;background:#fcf9f0}.hudClock,.hudCount{width:50%;text-align:center;min-width:0}.hudCount{border-left:1px solid #e5d9c6}.state-cat .hudClock{order:2;border-left:1px solid #e5d9c6}.state-cat .hudCount{order:1;border-left:0}.statLabel{display:block;font-size:calc(15px*var(--font-scale));font-weight:550;line-height:1.3}.clock,.hudValue{display:block;font-size:calc(var(--vw)*.092);font-weight:900;line-height:1.1;margin-top:3px;font-variant-numeric:tabular-nums}.hudValue{white-space:nowrap}
+-.mapModeBar{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 12px 5px;flex:none}.mapModeTitle{display:block;font-size:12px;font-weight:750;color:#305837}.mapModeHint{display:block;font-size:10px;color:#68675e;line-height:1.4}.mapModeButton{width:auto!important;margin:0!important;min-height:36px;padding:6px 9px;flex:none;line-height:1.3;background:#e8efda;border:2px solid #415c37;border-radius:2px;color:#264b2e;font-size:12px;font-weight:550}
+-.mapCanvas{position:relative;flex:1 1 0;min-height:140px;margin:0 10px;overflow:hidden;background:#0abce9;border:2px solid #e5dbca}.mapCanvas venue-art,.gameMap{display:block;width:100%;height:100%}.bottomPanel{flex:0 1 auto;min-height:0;max-height:48%;overflow:auto;padding:6px 10px max(12px,var(--safe-bottom),env(safe-area-inset-bottom))}.mapNotice{display:block;font-size:calc(14px*var(--font-scale));font-weight:550;text-align:center;padding:5px 3px}.splitActions{display:grid;grid-template-columns:1.15fr 1fr;gap:3px;align-items:center}.stackActions,.resultActions,.statusActions{display:flex;flex-direction:column;gap:7px}.liveActions{margin-top:5px}
+-.hidingPanel{display:flex;align-items:center;gap:8px;padding:0 7px 0 0;margin-bottom:6px}.hidingArt{display:block;width:60%;height:auto;flex:none}.hidingPanel>view{flex:1;min-width:0}.statusTitle{display:block;font-size:calc(23px*var(--font-scale));font-weight:750;line-height:1.3}.bodyCopy{display:block;font-size:calc(14px*var(--font-scale));font-weight:450;line-height:1.5;white-space:normal}.hidingPanel .statusTitle{font-size:calc(20px*var(--font-scale))}.hidingPanel .bodyCopy{font-size:calc(13px*var(--font-scale))}.capturedPanel{text-align:center;padding:8px;margin:0 0 7px}.capturedPanel .statusTitle{color:#dc6311}
+-.warningPanel{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px;margin-bottom:5px;border:2px solid #ffc48f;background:#ffedd9;color:#da3a12}.warningMark{font-size:37px;font-weight:900}.warningTitle{display:block;font-size:calc(21px*var(--font-scale));font-weight:750}.warningPanel .bodyCopy{font-size:calc(12px*var(--font-scale))}
++.roleBand{display:flex;align-items:center;gap:14px;padding:8px 20px;background:#ff9b2b;flex:none}.roleBand.role-mouse{background:#27b1ef}.roleArt{width:calc(var(--vw)*.16);height:calc(var(--vw)*.15);flex:none}.roleCopy{flex:1;min-width:0}.roleTitle{display:block;font-size:calc(var(--vw)*.078*var(--font-scale));font-weight:400;line-height:1.2;letter-spacing:.5px;color:#101115;-webkit-text-stroke:.5px #fff;paint-order:stroke fill}.roleSubtitle{display:block;font-size:calc(12px*var(--font-scale));line-height:1.3;margin-top:4px;font-weight:400}.state-captured .roleBand{filter:saturate(.5)}
++.hudStack{display:flex;flex:none;margin:9px 9px 0;padding:8px 5px;background:#fcf9f0}.hudClock,.hudCount{width:50%;text-align:center;min-width:0}.hudCount{border-left:1px solid #e5d9c6}.state-cat .hudClock{order:2;border-left:1px solid #e5d9c6}.state-cat .hudCount{order:1;border-left:0}.statLabel{display:block;font-size:calc(15px*var(--font-scale));font-weight:400;line-height:1.3}.clock,.hudValue{display:block;font-size:calc(var(--vw)*.092);font-weight:400;line-height:1.1;margin-top:3px;font-variant-numeric:tabular-nums}.hudValue{white-space:nowrap}
++.mapModeBar{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 12px 5px;flex:none}.mapModeTitle{display:block;font-size:12px;font-weight:400;color:#305837}.mapModeHint{display:block;font-size:10px;color:#68675e;line-height:1.4}.mapModeButton{width:auto!important;margin:0!important;min-height:36px;padding:6px 9px;flex:none;line-height:1.3;background:#e8efda;border:2px solid #415c37;border-radius:2px;color:#264b2e;font-size:12px;font-weight:400}
++.mapCanvas{position:relative;flex:1 1 0;min-height:140px;margin:0 10px;overflow:hidden;background:#0abce9;border:2px solid #e5dbca}.mapCanvas venue-art,.gameMap{display:block;width:100%;height:100%}.bottomPanel{flex:0 1 auto;min-height:0;max-height:48%;overflow:auto;padding:6px 10px max(12px,var(--safe-bottom),env(safe-area-inset-bottom))}.mapNotice{display:block;font-size:calc(14px*var(--font-scale));font-weight:400;text-align:center;padding:5px 3px}.splitActions{display:grid;grid-template-columns:1.15fr 1fr;gap:3px;align-items:center}.stackActions,.resultActions,.statusActions{display:flex;flex-direction:column;gap:7px}.liveActions{margin-top:5px}
++.hidingPanel{display:flex;align-items:center;gap:8px;padding:0 7px 0 0;margin-bottom:6px}.hidingArt{display:block;width:60%;height:auto;flex:none}.hidingPanel>view{flex:1;min-width:0}.statusTitle{display:block;font-size:calc(23px*var(--font-scale));font-weight:400;line-height:1.3}.bodyCopy{display:block;font-size:calc(14px*var(--font-scale));font-weight:400;line-height:1.5;white-space:normal}.hidingPanel .statusTitle{font-size:calc(20px*var(--font-scale))}.hidingPanel .bodyCopy{font-size:calc(13px*var(--font-scale))}.capturedPanel{text-align:center;padding:8px;margin:0 0 7px}.capturedPanel .statusTitle{color:#dc6311}
++.warningPanel{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px;margin-bottom:5px;border:2px solid #ffc48f;background:#ffedd9;color:#da3a12}.warningMark{font-size:37px;font-weight:400}.warningTitle{display:block;font-size:calc(21px*var(--font-scale));font-weight:400}.warningPanel .bodyCopy{font-size:calc(12px*var(--font-scale))}
+ .pauseHero,.resultHero{display:block;width:100%;height:auto}.pauseHero{margin-top:8px}.statusMessage{text-align:center;padding:14px 20px 8px}.statusMessage .bodyCopy{margin-top:6px}.statusActions{margin:5px 14px 0}.waitingHost{text-align:center;display:block;padding:13px;font-size:calc(15px*var(--font-scale));color:#65635b}
+-.terminalContent{padding:8px 15px 0}.resultStats{padding:13px 10px;text-align:center}.resultReason{display:block;font-size:calc(21px*var(--font-scale));font-weight:750;margin-bottom:8px}.resultStatRow{display:flex;justify-content:space-evenly;align-items:center;gap:8px}.resultStatRow>view{min-width:0}.statValue{font-size:calc(var(--vw)*.12);font-weight:900;line-height:1.2;white-space:nowrap}.statusBadge{display:inline-block;background:#278253;color:#fff;padding:5px 12px;border-radius:5px;font-size:calc(21px*var(--font-scale));font-weight:750;margin-top:6px}.state-mouseWin .statusBadge{background:#737771}.state-cancelled .statusBadge{background:#7c7b77}.resultActions{margin-top:12px}.resultActions pixel-action:last-child{max-width:76%;align-self:center}.recordNote{text-align:center;display:block;font-size:12px;line-height:1.4;color:#666;margin-top:10px}.resultMap{height:180px;margin-top:10px;overflow:hidden;border:2px solid #e9dfcd}
+-.drawerMask{position:fixed;inset:0;background:#18261877;z-index:20}.drawer{position:fixed;bottom:0;left:0;width:var(--vw,100vw);height:78%;background:#fcf8ed;border-top:3px solid #11151a;border-radius:18px 18px 0 0;z-index:21;overflow:hidden}.drawerHandle{width:43px;height:5px;margin:9px auto 3px;border-radius:3px;background:#cac5b9}.drawerHeader{display:flex;align-items:center;gap:8px;padding:0 16px;height:52px;font-size:calc(27px*var(--font-scale));font-weight:750}.drawerLogo{width:33px;height:36px;flex:none}.drawerClose{width:43px;flex:none;margin-left:auto}.drawerBody{height:calc(100% - 69px)}.drawerContent{padding:6px 14px max(24px,var(--safe-bottom),env(safe-area-inset-bottom))}.squadColumns{display:grid;grid-template-columns:.85fr 1.3fr;gap:6px}.squad{background:#fcf9f0;border:1px solid #f2dab4;border-radius:8px;overflow:hidden}.miceGroup{border-color:#c2e1f2}.squadHead{display:flex;align-items:center;gap:4px;background:#ffbd76;padding:6px;font-size:calc(15px*var(--font-scale));font-weight:750}.miceGroup .squadHead{background:#a8ddf8}.squadHead image{width:30px;height:30px;flex:none}.teamGrid{padding:6px}.mouseGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px}.teamMember{display:flex;gap:4px;align-items:center;padding:5px 0;min-width:0}.teamMember image{width:32px;height:37px;flex:none}.teamMember>view{min-width:0;flex:1}.rosterName{display:block;font-size:calc(12px*var(--font-scale));font-weight:550;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rosterState{display:block;font-size:10px;line-height:1.4;color:#328343}.rosterState.caught{color:#777}.eventGroup,.rulesGroup{margin:12px 3px}.sectionHeading{display:block;font-size:calc(17px*var(--font-scale));font-weight:750;margin-bottom:6px}.eventRow{display:flex;gap:12px;margin:5px 0;padding-left:12px;border-left:3px solid #ff9b2b;font-size:calc(13px*var(--font-scale));line-height:1.5}.drawerContent>pixel-action{margin-top:7px}.advancedRules{border-top:1px solid #ded4c2;margin-top:16px;padding-top:12px}.advancedRules .bodyCopy{font-size:12px;color:#65685c}.emptyState{padding:50px 20px;text-align:center}.emptyState>text{display:block;margin-bottom:12px}
++.terminalContent{padding:8px 15px 0}.resultStats{padding:13px 10px;text-align:center}.resultReason{display:block;font-size:calc(21px*var(--font-scale));font-weight:400;margin-bottom:8px}.resultStatRow{display:flex;justify-content:space-evenly;align-items:center;gap:8px}.resultStatRow>view{min-width:0}.statValue{font-size:calc(var(--vw)*.12);font-weight:400;line-height:1.2;white-space:nowrap}.statusBadge{display:inline-block;background:#278253;color:#fff;padding:5px 12px;border-radius:5px;font-size:calc(21px*var(--font-scale));font-weight:400;margin-top:6px}.state-mouseWin .statusBadge{background:#737771}.state-cancelled .statusBadge{background:#7c7b77}.resultActions{margin-top:12px}.resultActions pixel-action:last-child{max-width:76%;align-self:center}.recordNote{text-align:center;display:block;font-size:12px;line-height:1.4;color:#666;margin-top:10px}.resultMap{height:180px;margin-top:10px;overflow:hidden;border:2px solid #e9dfcd}
++.drawerMask{position:fixed;inset:0;background:#18261877;z-index:20}.drawer{position:fixed;bottom:0;left:0;width:var(--vw,100vw);height:78%;background:#fcf8ed;border-top:3px solid #11151a;border-radius:18px 18px 0 0;z-index:21;overflow:hidden}.drawerHandle{width:43px;height:5px;margin:9px auto 3px;border-radius:3px;background:#cac5b9}.drawerHeader{display:flex;align-items:center;gap:8px;padding:0 16px;height:52px;font-size:calc(27px*var(--font-scale));font-weight:400}.drawerLogo{width:33px;height:36px;flex:none}.drawerClose{width:43px;flex:none;margin-left:auto}.drawerBody{height:calc(100% - 69px)}.drawerContent{padding:6px 14px max(24px,var(--safe-bottom),env(safe-area-inset-bottom))}.squadColumns{display:grid;grid-template-columns:.85fr 1.3fr;gap:6px}.squad{background:#fcf9f0;border:1px solid #f2dab4;border-radius:8px;overflow:hidden}.miceGroup{border-color:#c2e1f2}.squadHead{display:flex;align-items:center;gap:4px;background:#ffbd76;padding:6px;font-size:calc(15px*var(--font-scale));font-weight:400}.miceGroup .squadHead{background:#a8ddf8}.squadHead image{width:30px;height:30px;flex:none}.teamGrid{padding:6px}.mouseGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px}.teamMember{display:flex;gap:4px;align-items:center;padding:5px 0;min-width:0}.teamMember image{width:32px;height:37px;flex:none}.teamMember>view{min-width:0;flex:1}.rosterName{display:block;font-size:calc(12px*var(--font-scale));font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rosterState{display:block;font-size:10px;line-height:1.4;color:#328343}.rosterState.caught{color:#777}.eventGroup,.rulesGroup{margin:12px 3px}.sectionHeading{display:block;font-size:calc(17px*var(--font-scale));font-weight:400;margin-bottom:6px}.eventRow{display:flex;gap:12px;margin:5px 0;padding-left:12px;border-left:3px solid #ff9b2b;font-size:calc(13px*var(--font-scale));line-height:1.5}.drawerContent>pixel-action{margin-top:7px}.advancedRules{border-top:1px solid #ded4c2;margin-top:16px;padding-top:12px}.advancedRules .bodyCopy{font-size:12px;color:#65685c}.emptyState{padding:50px 20px;text-align:center}.emptyState>text{display:block;margin-bottom:12px}
+ .fontLarge .roleTitle{font-size:calc(var(--vw)*.073*var(--font-scale))}.fontLarge .roleSubtitle{font-size:12px}.fontLarge .splitActions{grid-template-columns:1fr}.fontLarge .bottomPanel{max-height:47%}.fontLarge .hidingPanel .bodyCopy{font-size:14px}.fontLarge .mouseGrid{grid-template-columns:1fr}.fontLarge .squadColumns{grid-template-columns:1fr 1fr}.narrowCanvas .roleBand{padding-left:10px;padding-right:10px;gap:8px}.narrowCanvas .mapModeHint{max-width:195px}.narrowCanvas .teamMember image{width:25px;height:30px}
+ 
+-.state-catWin .resultStatRow{flex-direction:column}.state-catWin .statValue{font-size:calc(var(--vw)*.18)}.state-catWin .resultStatus{display:flex;justify-content:center;align-items:center;gap:18px;width:100%;padding:9px;border:1px solid #e8dfce}.state-catWin .statusBadge{margin-top:0}.resultStats{display:flex;flex-direction:column}.state-mouseWin .resultReason{order:2;margin:7px 0 0;font-size:14px;font-weight:450}
++.state-catWin .resultStatRow{flex-direction:column}.state-catWin .statValue{font-size:calc(var(--vw)*.18)}.state-catWin .resultStatus{display:flex;justify-content:center;align-items:center;gap:18px;width:100%;padding:9px;border:1px solid #e8dfce}.state-catWin .statusBadge{margin-top:0}.resultStats{display:flex;flex-direction:column}.state-mouseWin .resultReason{order:2;margin:7px 0 0;font-size:14px;font-weight:400}
+ 
+ .fontLarge .drawerClose{width:94px}.fontLarge .drawerHeader{height:74px}.fontLarge .drawerBody{height:calc(100% - 91px)}
+ 
+--- baseline/pages/qrcode/qrcode.wxss
++++ modified/pages/qrcode/qrcode.wxss
+@@ -1,17 +1,17 @@
+ @import "../../utils/pixel-theme.wxss";
+ 
+ page{background:#fcf8ed;color:#050b14}
+-.codeScreen{width:100%;box-sizing:border-box;background:#fcf8ed;color:#050b14;font-family:ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;font-weight:400;text-align:center;--font-scale:1;--vw:100vw}
++.codeScreen{width:100%;box-sizing:border-box;background:#fcf8ed;color:#050b14;font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;font-weight:400;text-align:center;--font-scale:1;--vw:100vw}
+ .navSpace{width:100%;flex:none}
+ .codeRole{display:block;width:100%;height:auto}
+ .codePaper{position:relative;margin:19rpx 18rpx 16rpx;padding:21rpx 20rpx 17rpx;box-sizing:border-box;background:#e9dfcd;clip-path:polygon(20rpx 0,calc(100% - 20rpx) 0,calc(100% - 20rpx) 6rpx,calc(100% - 10rpx) 6rpx,calc(100% - 10rpx) 14rpx,100% 14rpx,100% calc(100% - 16rpx),calc(100% - 9rpx) calc(100% - 16rpx),calc(100% - 9rpx) calc(100% - 7rpx),calc(100% - 20rpx) calc(100% - 7rpx),calc(100% - 20rpx) 100%,20rpx 100%,20rpx calc(100% - 6rpx),10rpx calc(100% - 6rpx),10rpx calc(100% - 15rpx),0 calc(100% - 15rpx),0 15rpx,9rpx 15rpx,9rpx 7rpx,20rpx 7rpx)}
+ .codePaper::before{content:"";position:absolute;inset:4rpx;background:#fcf9f0;clip-path:inherit;pointer-events:none}
+ .codePaper>view,.codePaper>text{position:relative;z-index:1}
+ .codeHeader{position:relative}
+-.codeTitle{display:inline-block;position:relative;margin:0 auto;background:#ff9c36;padding:9rpx 18rpx 12rpx;max-width:100%;box-sizing:border-box;color:#050b14;font-size:calc(72rpx * var(--font-scale));font-weight:750;line-height:1.25;box-shadow:8rpx 0 #ff9c36,-8rpx 0 #ff9c36}
++.codeTitle{display:inline-block;position:relative;margin:0 auto;background:#ff9c36;padding:9rpx 18rpx 12rpx;max-width:100%;box-sizing:border-box;color:#050b14;font-size:calc(72rpx * var(--font-scale));font-weight:400;line-height:1.25;box-shadow:8rpx 0 #ff9c36,-8rpx 0 #ff9c36}
+ .codeTitle::before,.codeTitle::after{content:"";position:absolute;left:7rpx;right:7rpx;height:5rpx;background:#ff9c36}
+ .codeTitle::before{top:-5rpx}.codeTitle::after{bottom:-5rpx}
+-.heading{display:block;margin:20rpx 0 5rpx;font-size:calc(71rpx * var(--font-scale));font-weight:750;line-height:1.25;letter-spacing:-1rpx}
++.heading{display:block;margin:20rpx 0 5rpx;font-size:calc(71rpx * var(--font-scale));font-weight:400;line-height:1.25;letter-spacing:-1rpx}
+ .lineBreak{display:block}
+ .codeHints{margin:0 0 15rpx}
+ .codeHint{display:block;font-size:calc(38rpx * var(--font-scale));font-weight:400;line-height:1.3}
+@@ -21,16 +21,16 @@
+ .qr{display:block;width:calc(var(--vw) * .49);height:calc(var(--vw) * .49);flex:none;background:#fff}
+ .qrDemo{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7rpx 0 1rpx}
+ .demoArt{display:block;width:100%;height:auto;margin:7rpx 0 10rpx}
+-.demoTitle{display:block;font-size:calc(72rpx * var(--font-scale));font-weight:750;line-height:1.2}
++.demoTitle{display:block;font-size:calc(72rpx * var(--font-scale));font-weight:400;line-height:1.2}
+ .demoCaption{display:block;margin-top:4rpx;color:#666;font-size:calc(34rpx * var(--font-scale));font-weight:400;line-height:1.3}
+ .refreshInfo{display:block;margin:17rpx 0 16rpx;font-size:calc(34rpx * var(--font-scale));font-weight:400;line-height:1.4;font-variant-numeric:tabular-nums}
+ .qrState{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(var(--vw) * .42);gap:20rpx;max-width:100%}
+-.qrStateMark{display:flex;align-items:center;justify-content:center;width:70rpx;height:70rpx;border:5rpx solid #d84315;color:#d84315;font-size:50rpx;font-weight:900;line-height:1}
++.qrStateMark{display:flex;align-items:center;justify-content:center;width:70rpx;height:70rpx;border:5rpx solid #d84315;color:#d84315;font-size:50rpx;font-weight:400;line-height:1}
+ .qrLoading{display:block;color:#666;font-size:calc(29rpx * var(--font-scale));font-weight:400;line-height:1.5}
+ .loadingPixels{display:flex;gap:12rpx}.loadingPixels view{width:14rpx;height:14rpx;background:#dbbf8e}.loadingPixels view:nth-child(2){background:#bf9759}.loadingPixels view:nth-child(3){background:#ff9c36}
+ .codeError{display:block;margin:20rpx 0 0;padding:16rpx 14rpx;background:#fff0dd;border:3rpx solid #ffd4a6;color:#ae3210;font-size:calc(28rpx * var(--font-scale));font-weight:400;line-height:1.5;text-align:left;word-break:break-all}
+ .safetyNote{display:flex;align-items:center;justify-content:center;gap:17rpx;box-sizing:border-box;min-height:98rpx;margin:19rpx 0 0;padding:15rpx 13rpx;background:#ffefdc;border:3rpx solid #ffd6aa;box-shadow:0 -3rpx 0 -1rpx #ffd6aa,0 3rpx 0 -1rpx #ffd6aa;color:#d53612}
+-.safetyMark{display:flex;align-items:center;justify-content:center;flex:none;width:56rpx;height:58rpx;background:#dd3812;color:white;font-size:calc(48rpx * var(--font-scale));font-weight:900;line-height:1;clip-path:polygon(42% 0,58% 0,100% 87%,100% 100%,0 100%,0 87%)}
++.safetyMark{display:flex;align-items:center;justify-content:center;flex:none;width:56rpx;height:58rpx;background:#dd3812;color:white;font-size:calc(48rpx * var(--font-scale));font-weight:400;line-height:1;clip-path:polygon(42% 0,58% 0,100% 87%,100% 100%,0 100%,0 87%)}
+ .safetyMark text{padding-top:9rpx}
+ .safetyCopy{font-size:calc(31rpx * var(--font-scale));font-weight:400;line-height:1.4;text-align:left}
+ .backAction{margin:19rpx -4rpx 0}
+--- baseline/pages/room/room.js
++++ modified/pages/room/room.js
+@@ -1,18 +1,22 @@
+ const presentation=require('../../utils/presentation');
++const teams=require('../../utils/team-config');
+ const api = require('../../utils/v2'); const location = require('../../utils/location-v2'); const preview = require('../../utils/dev-preview');
+ Page({
+   onResize(e) { this.setData(presentation.resize(e)); },
+-  data:{ roomId:'', code:'', roster:[], rules:null, owner:false, total:8, totals:[6,7,8,9,10,11,12], venue:null, catsCount:2, targetCount:4, ready:false, readyCount:0, canStart:false, startHint:'等待伙伴加入', error:'', loading:false, match:null, devPreview:false },
++  data:{ roomId:'', code:'', roster:[], rules:null, owner:false, total:8, totals:[6,7,8,9,10,11,12], venue:null, catsCount:2, miceCount:6, teamError:'', editingField:'', targetCount:4, ready:false, readyCount:0, canStart:false, startHint:'等待伙伴加入', error:'', loading:false, match:null, devPreview:false },
+   onLoad(options) { this.setData({...presentation.metrics(),catsCount:2,targetCount:4}); this.devPreview=preview.accepts(options.devPreview);if(options.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.creating=options.mode==='create' || options.devPreview==='create' && this.devPreview;this.setData({roomId:options.roomId || '',devPreview:this.devPreview}); if (this.creating && api.config.localTestIdentities && !this.devPreview) this.setData({totals:[2,6,7,8,9,10,11,12]}); },
+-  async onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.applyRoom(preview.roomData(this.creating?'create':'ready'));return;}this.updateTitle();const run=this.lifecycle;if(this.data.roomId) { try { await api.session();if(!this.active || run!==this.lifecycle)return; if(/^[0-9A-F]{10}$/.test(this.data.roomId)) { const r=await api.join(this.data.roomId,wx.getStorageSync('nickname') || '玩家');if(!this.active || run!==this.lifecycle)return;this.setData({roomId:r.roomId}); wx.setStorageSync('v2RoomId',r.roomId); } this.retryAttempt=0;this.begin(); } catch(e) { if(this.active && run===this.lifecycle){this.setData({error:'连接房间失败：'+e.message});this.scheduleRetry(e);} } } },
++  async onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.applyRoom(this.previewRoom || preview.roomData(this.creating?'create':'ready'));return;}this.updateTitle();const run=this.lifecycle;if(this.data.roomId) { try { await api.session();if(!this.active || run!==this.lifecycle)return; if(/^[0-9A-F]{10}$/.test(this.data.roomId)) { const r=await api.join(this.data.roomId,wx.getStorageSync('nickname') || '玩家');if(!this.active || run!==this.lifecycle)return;this.setData({roomId:r.roomId}); wx.setStorageSync('v2RoomId',r.roomId); } this.retryAttempt=0;this.begin(); } catch(e) { if(this.active && run===this.lifecycle){this.setData({error:'连接房间失败：'+e.message});this.scheduleRetry(e);} } } },
+   updateTitle(){wx.setNavigationBarTitle?.({title:this.data.roomId?'房间准备':'创建活动'});},
+-  applyRoom(changes){const roster=changes.roster || this.data.roster,total=changes.rules?.total || this.data.rules?.total || this.data.total,readyCount=roster.filter(p=>p.ready).length;const catsCount=changes.rules?.cats || (total===2?1:total<=8?2:3);this.setData({...changes,catsCount,targetCount:Math.ceil((total-catsCount)*.6),readyCount,canStart:roster.length===total && readyCount===total,startHint:roster.length<total?'还差 '+(total-roster.length)+' 位伙伴':readyCount<total?'还有 '+(total-readyCount)+' 人未准备':'人数到齐，已全部准备'});this.updateTitle();},
++  applyRoom(changes){if(this.devPreview)this.previewRoom={...this.previewRoom,...changes};const roster=changes.roster || this.data.roster,total=changes.rules?.total || this.data.rules?.total || this.data.total,readyCount=roster.filter(p=>p.ready).length;const catsCount=changes.rules?.cats ?? this.data.catsCount;this.setData({...changes,total,catsCount,miceCount:changes.rules?.mice ?? this.data.miceCount,targetCount:Math.ceil((total-catsCount)*.6),readyCount,canStart:roster.length===total && readyCount===total,startHint:roster.length<total?'还差 '+(total-roster.length)+' 位伙伴':readyCount<total?'还有 '+(total-readyCount)+' 人未准备':'人数到齐，已全部准备'});this.updateTitle();},
+   onHide() { this.stop(); }, onUnload() { this.stop(); },
+   stop() { this.active=false;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.pollTimer);clearInterval(this.locTimer);clearTimeout(this.retryTimer);this.pollTimer=null;this.locTimer=null;this.retryTimer=null;this.locationPromise=null; },
+   scheduleRetry(error) { if(!this.active || this.retryTimer || error.code && !/^HTTP_5/.test(error.code))return;const delay=Math.min(15000,3000*2**Math.min(this.retryAttempt||0,3));this.retryAttempt=(this.retryAttempt||0)+1;this.retryTimer=setTimeout(()=>{this.retryTimer=null;if(this.active)this.onShow();},delay); },
+   selectTotal(e) { const total=this.data.totals[Number(e.detail.value)],catsCount=total===2?1:total<=8?2:3;this.setData({total,catsCount,targetCount:Math.ceil((total-catsCount)*.6)}); },
++  teamFocus(e){this.setData({editingField:e.currentTarget.dataset.field});},
++  teamBlur(){this.setData({editingField:''});},
++  teamInput(e){const field=e.currentTarget.dataset.field;if(!['total','catsCount','miceCount'].includes(field))return;const value=e.detail.value===''?'':Number(e.detail.value);const next={...this.data,[field]:value};this.setData({[field]:value,error:'',teamError:teams.validate(next.total,next.catsCount,next.miceCount),targetCount:Number.isInteger(next.miceCount)&&next.miceCount>0?Math.ceil(next.miceCount*.6):0});},
+   chooseVenue() { if(this.devPreview){this.setData({venue:{lat:32.0584,lng:118.7968,radiusM:200,confirmed:true}});return;}wx.getLocation({type:'gcj02',isHighAccuracy:true,success:p=>this.setData({venue:{lat:p.latitude,lng:p.longitude,radiusM:200,confirmed:true}}),fail:()=>this.setData({error:'无法获取位置，请先授权定位'})}); },
+-  async create() { if(this.devPreview){if(!this.data.venue){this.setData({error:'请先确认演示场地'});return;}this.applyRoom(preview.roomData('ready'));this.creating=false;wx.pageScrollTo?.({scrollTop:0,duration:0});return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const r=await api.create({ total:this.data.total, venue:this.data.venue, nickname:wx.getStorageSync('nickname') }); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code});wx.pageScrollTo?.({scrollTop:0,duration:0});this.updateTitle(); this.begin(); } catch(e) { this.setData({error:e.message}); } finally { this.setData({loading:false}); } },
++  async create() { const teamError=teams.validate(this.data.total,this.data.catsCount,this.data.miceCount);if(teamError){this.setData({teamError,error:teamError});return;}if(this.devPreview){if(!this.data.venue){this.setData({error:'请先确认演示场地'});return;}const sample=preview.roomData('ready');sample.rules={...sample.rules,total:this.data.total,cats:this.data.catsCount,mice:this.data.miceCount,version:'pilot-0.3'};sample.roster=Array.from({length:this.data.total},(_,i)=>({id:i?'dev-player-'+i:'dev-me',nickname:i?'伙伴'+i:'我 · 演示',ready:true}));this.applyRoom(sample);this.creating=false;wx.pageScrollTo?.({scrollTop:0,duration:0});return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const r=await api.create({ total:this.data.total, cats:this.data.catsCount, mice:this.data.miceCount, venue:this.data.venue, nickname:wx.getStorageSync('nickname') }); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code});wx.pageScrollTo?.({scrollTop:0,duration:0});this.updateTitle(); this.begin(); } catch(e) { this.setData({error:e.message}); } finally { this.setData({loading:false}); } },
+   requestLocation() { if(this.locationPromise)return this.locationPromise;const run=this.lifecycle,task=location.once(this.data.roomId,()=>this.active && run===this.lifecycle);this.locationPromise=task;task.then(()=>{if(this.locationPromise===task)this.locationPromise=null;},()=>{if(this.locationPromise===task)this.locationPromise=null;});return task; },
+   begin() { if(!this.active || this.pollTimer) return; this.refresh(); this.pollTimer=setInterval(()=>this.refresh(),2000); this.locTimer=setInterval(()=>this.requestLocation().catch(()=>{}),4000); this.requestLocation().catch(()=>{if(this.active)this.setData({error:'定位不可用，暂时不能准备'});}); },
+   async refresh() { if(this.fetching || !this.active) return; this.fetching=true; try { const s=await api.room(this.data.roomId); if(!this.active) return; if(this.data.match && s.version<this.data.matchVersion) return; const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId')); this.applyRoom({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,error:''}); if(s.match && !['FINISHED','CANCELLED'].includes(s.match.phase)) { this.stop(); wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)}); } } catch(e) { if(this.active)this.setData({error:'连接中断，正在自动重试：'+e.message}); } finally { this.fetching=false; } },
+--- baseline/pages/room/room.wxml
++++ modified/pages/room/room.wxml
+@@ -4,17 +4,15 @@
+   <view wx:if="{{!roomId}}" class="createContent">
+     <view class="paperFrame totalCard">
+       <text class="sectionLabel">本局人数</text>
+-      <picker class="totalPicker" range="{{totals}}" value="{{totals[0]===2?(total===2?0:total-5):total-6}}" bindchange="selectTotal" aria-label="选择本局人数">
+-        <view class="countControl paperFrame"><text class="countValue">{{total}}<text class="countUnit">人</text></text><view class="countAffordance"><text>选择人数</text><view class="pickerArrow"></view></view></view>
+-      </picker>
+-      <view class="teamSplit"><view class="teamNumber"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text>{{catsCount}}猫</text></view><view class="splitDivider"></view><view class="teamNumber"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" aria-hidden="true" /><text>{{total-catsCount}}鼠</text></view></view>
++      <view class="teamInputs"><view class="teamField"><text>总人数</text><input type="number" value="{{total}}" maxlength="2" data-field="total" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='total'?'editing':''}}" aria-label="总人数" /><text wx:if="{{editingField!=='total'}}" class="teamValue" aria-hidden="true">{{total}}</text></view><view class="teamField"><text>猫人数</text><input type="number" value="{{catsCount}}" maxlength="2" data-field="catsCount" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='catsCount'?'editing':''}}" aria-label="猫人数" /><text wx:if="{{editingField!=='catsCount'}}" class="teamValue" aria-hidden="true">{{catsCount}}</text></view><view class="teamField"><text>鼠人数</text><input type="number" value="{{miceCount}}" maxlength="2" data-field="miceCount" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='miceCount'?'editing':''}}" aria-label="鼠人数" /><text wx:if="{{editingField!=='miceCount'}}" class="teamValue" aria-hidden="true">{{miceCount}}</text></view></view>
++      <text class="teamHint">猫 + 鼠 = 总人数 · 各至少1人 · 总计2–60人</text><text wx:if="{{teamError}}" class="roomError" role="alert">{{teamError}}</text>
+     </view>
+     <view class="paperFrame venueCard">
+-      <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重新确认位置':'使用当前位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
++      <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重选位置':'确认位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
+       <view class="venueGuide"><image class="venueGuideImage" src="/assets/maps/xuanwu-lake-v4.jpg" mode="aspectFit" aria-label="玄武湖环洲与樱洲场地导览" /><text class="guideCaption">玄武湖 · 场地导览</text><text class="guideFootnote">示意图不代表定位结果</text></view>
+     </view>
+     <view class="paperFrame rulesCard"><text class="sectionLabel">规则摘要</text><view class="rulesGrid"><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">30秒</text><text class="ruleLabel">躲藏时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">6分钟</text><text class="ruleLabel">追逐时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">抓满{{targetCount}}人</text><text class="ruleLabel">猫获胜</text></view></view><view class="rulesNote"><text class="noteMark" aria-hidden="true">!</text><text>倒计时结束未达标时，鼠获胜</text></view></view>
+-    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" /></view>
++    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError}}" font-scale="{{fontScale}}" bindaction="create" /></view>
+   </view>
+   <view wx:else class="readyContent">
+     <view class="paperFrame inviteCard"><text class="sectionLabel inviteLabel">房间码</text><view class="codeRow"><text class="roomCode" selectable>{{code || '同步中'}}</text><view class="copyAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-copy.png" label="复制" tone="plain" disabled="{{!code}}" font-scale="{{fontScale}}" bindaction="copy" /></view></view><text class="inviteHint">分享房间码，邀请好友加入</text></view>
+--- baseline/pages/room/room.wxss
++++ modified/pages/room/room.wxss
+@@ -1,20 +1,27 @@
+ @import "../../utils/pixel-theme.wxss";
+-.roomScreen{--vw:100vw;--vh:100vh;box-sizing:border-box;width:100%;min-height:var(--vh);padding-top:var(--nav-height,64px);padding-bottom:calc(20rpx + env(safe-area-inset-bottom));background:#fcf8ed;color:#050b14;font-family:ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}
++.roomScreen{--vw:100vw;--vh:100vh;box-sizing:border-box;width:100%;min-height:var(--vh);padding-top:var(--nav-height,64px);padding-bottom:calc(20rpx + env(safe-area-inset-bottom));background:#fcf8ed;color:#050b14;font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}
+ .roomHero{display:block;width:100%;height:auto}
+ .createContent{padding:12rpx 17rpx 0;box-sizing:border-box}.readyContent{padding:10rpx 27rpx 0;box-sizing:border-box}
+ .paperFrame{position:relative;box-sizing:border-box;background:#fcf9f0;border:3rpx solid #e8dfce;clip-path:polygon(14rpx 0,calc(100% - 14rpx) 0,calc(100% - 14rpx) 4rpx,calc(100% - 6rpx) 4rpx,calc(100% - 6rpx) 10rpx,100% 10rpx,100% calc(100% - 10rpx),calc(100% - 6rpx) calc(100% - 10rpx),calc(100% - 6rpx) calc(100% - 4rpx),calc(100% - 14rpx) calc(100% - 4rpx),calc(100% - 14rpx) 100%,14rpx 100%,14rpx calc(100% - 4rpx),6rpx calc(100% - 4rpx),6rpx calc(100% - 10rpx),0 calc(100% - 10rpx),0 10rpx,6rpx 10rpx,6rpx 4rpx,14rpx 4rpx)}
+-.sectionLabel{display:block;font-size:calc(34rpx * var(--font-scale));font-weight:750;line-height:1.35}
+-.totalCard{padding:13rpx 20rpx 15rpx}.totalPicker{display:block;width:58%;min-width:210rpx;margin:-2rpx auto 10rpx}.countControl{display:flex;justify-content:center;align-items:center;gap:20rpx;padding:5rpx 20rpx;min-height:92rpx}.countValue{font-size:calc(79rpx * var(--font-scale));font-weight:900;line-height:1.06;white-space:nowrap;font-variant-numeric:tabular-nums}.countUnit{font-size:.72em;margin-left:5rpx}.countAffordance{display:flex;flex-direction:column;align-items:center;gap:10rpx;flex:none;font-size:calc(21rpx * var(--font-scale));line-height:1.4;color:#746e5e;font-weight:550}.pickerArrow{width:13rpx;height:13rpx;border-right:4rpx solid #ff7c14;border-bottom:4rpx solid #ff7c14;transform:rotate(45deg)}
+-.teamSplit{display:flex;align-items:center;justify-content:center;gap:35rpx;min-height:72rpx;background:#f2e9d8;padding:5rpx 10rpx;box-sizing:border-box}.teamNumber{display:flex;align-items:center;justify-content:center;gap:18rpx;min-width:0;flex:1;font-size:calc(44rpx * var(--font-scale));font-weight:750;line-height:1.2}.teamNumber image{display:block;flex:none;width:67rpx;height:64rpx}.splitDivider{height:43rpx;width:2rpx;background:#d4c8b2;flex:none}
+-.venueCard{display:flex;align-items:stretch;gap:16rpx;margin-top:15rpx;padding:16rpx 18rpx}.venueCopy{display:flex;flex-direction:column;justify-content:space-between;gap:12rpx;flex:1;min-width:0}.venueHeading{font-size:calc(31rpx * var(--font-scale))}.venueState{display:flex;align-items:center;gap:12rpx;min-height:100rpx}.venueStateCopy{min-width:0;flex:1}.venueTitle{display:block;font-size:calc(30rpx * var(--font-scale));line-height:1.4;font-weight:750}.venueHint{display:block;font-size:calc(22rpx * var(--font-scale));line-height:1.45;font-weight:550;margin-top:6rpx}.locationPin{position:relative;flex:none;width:29rpx;height:29rpx;border:5rpx solid #050b14;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#c3c0b7;margin:0 3rpx 12rpx 4rpx}.locationPin::after{content:"";position:absolute;inset:7rpx;background:#fcf8ed;border-radius:50%;border:2rpx solid #050b14}.locationPin.confirmed{background:#5dab58}.venueGuide{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 51%;min-width:0;background:#f1efdc;box-sizing:border-box;padding:7rpx 7rpx 9rpx}.venueGuideImage{display:block;width:100%;height:226rpx}.guideCaption{font-size:calc(22rpx * var(--font-scale));font-weight:750;line-height:1.35;margin-top:5rpx;text-align:center}.guideFootnote{font-size:calc(18rpx * var(--font-scale));font-weight:400;line-height:1.4;color:#727466;text-align:center;margin-top:3rpx}
+-.rulesCard{margin-top:15rpx;padding:12rpx 20rpx 12rpx}.rulesGrid{display:flex;align-items:stretch;margin-top:11rpx}.ruleItem{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;flex:1;min-width:0;box-sizing:border-box;padding:0 6rpx;text-align:center}.ruleItem+.ruleItem{border-left:2rpx solid #e8dfce}.ruleItem image{display:block;width:67rpx;height:72rpx;margin-bottom:4rpx}.ruleValue{display:block;font-size:calc(37rpx * var(--font-scale));font-weight:750;line-height:1.25;white-space:nowrap}.ruleLabel{display:block;font-size:calc(27rpx * var(--font-scale));font-weight:550;line-height:1.4}.rulesNote{display:flex;align-items:center;gap:17rpx;justify-content:center;border-top:2rpx dashed #e3d7c0;padding-top:11rpx;margin-top:14rpx;font-size:calc(25rpx * var(--font-scale));font-weight:550;line-height:1.45}.noteMark{display:flex;align-items:center;justify-content:center;flex:none;width:36rpx;height:36rpx;background:#ff821c;color:#fff;font-size:31rpx;font-weight:900;border-radius:9rpx}.createAction{margin:13rpx -1rpx 0}
+-.inviteCard{padding:10rpx 21rpx 13rpx;text-align:center}.inviteLabel{font-size:calc(32rpx * var(--font-scale));text-align:center}.codeRow{display:flex;align-items:center;justify-content:center;gap:13rpx;min-width:0;margin:1rpx 0 2rpx}.roomCode{display:block;min-width:0;font-size:calc(70rpx * var(--font-scale));font-weight:900;line-height:1.22;letter-spacing:-1.5rpx;font-variant-numeric:tabular-nums;white-space:nowrap}.copyAction{display:block;flex:none;width:76rpx}.inviteHint{display:block;color:#666468;font-size:calc(27rpx * var(--font-scale));line-height:1.45;font-weight:550}
+-.roomRules{padding:10rpx 15rpx 12rpx;margin-top:11rpx}.roomRuleNumbers{display:flex;align-items:center;justify-content:space-between;gap:12rpx}.readyTeam{display:flex;align-items:center;gap:12rpx;min-width:0;flex:1;font-size:calc(32rpx * var(--font-scale));font-weight:750;white-space:nowrap;line-height:1.25}.readyTeam image{display:block;flex:none;width:65rpx;height:65rpx}.orangeNumber{color:#ff710c;font-size:calc(53rpx * var(--font-scale));font-weight:900;line-height:1.15}.targetNumber{display:flex;align-items:center;justify-content:center;gap:12rpx;min-width:0;flex:1;border-left:2rpx solid #e2d6c0;font-size:calc(29rpx * var(--font-scale));font-weight:750;line-height:1.3;white-space:nowrap}.roomRuleText{display:block;margin-top:7rpx;text-align:center;white-space:pre-line;font-size:calc(24rpx * var(--font-scale));font-weight:400;line-height:1.4;color:#626066}
+-.rosterHeader{padding:17rpx 8rpx 6rpx}.rosterHeading{display:flex;align-items:baseline;justify-content:space-between;gap:12rpx}.rosterHeading .sectionLabel{font-size:calc(31rpx * var(--font-scale));white-space:nowrap}.readyCount{font-size:calc(25rpx * var(--font-scale));font-weight:750;color:#787b6b;line-height:1.4;text-align:right}.readyCount.allReady{color:#17631c}.rosterHint{display:block;color:#626066;font-size:calc(23rpx * var(--font-scale));font-weight:400;line-height:1.4;margin-top:1rpx}
+-.rosterGrid{display:flex;flex-wrap:wrap;gap:7rpx 10rpx}.playerCard{display:flex;align-items:center;gap:8rpx;flex:0 0 calc(50% - 5rpx);width:calc(50% - 5rpx);min-width:0;min-height:74rpx;padding:4rpx 10rpx}.playerAvatar{display:block;flex:none;width:63rpx;height:59rpx}.playerName{display:block;flex:1;min-width:0;font-size:calc(29rpx * var(--font-scale));font-weight:750;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.readyBadge{display:block;flex:none;box-sizing:border-box;border-radius:14rpx;padding:5rpx 12rpx;font-size:calc(24rpx * var(--font-scale));font-weight:750;line-height:1.4;white-space:nowrap}.isReady{background:#4a9a44;color:#fff}.notReady{background:#e8e2d5;color:#787363}.emptyRoster{padding:28rpx 18rpx;font-size:calc(27rpx * var(--font-scale));line-height:1.55;color:#717164;text-align:center}.readySummary,.ownerHint{display:block;text-align:center;color:#727365;font-size:calc(25rpx * var(--font-scale));font-weight:550;line-height:1.45;margin-top:13rpx}.roomActions{display:flex;flex-direction:column;gap:8rpx;margin:9rpx -3rpx 0}.ownerHint{margin:3rpx 8rpx 5rpx}.roomError{display:block;padding:16rpx 18rpx;margin:16rpx 27rpx 0;background:#ffedd9;border:2rpx solid #e8b295;color:#a53b1e;font-size:calc(25rpx * var(--font-scale));line-height:1.55;overflow-wrap:break-word}
++.sectionLabel{display:block;font-size:calc(34rpx * var(--font-scale));font-weight:400;line-height:1.35}
++.totalCard{padding:13rpx 20rpx 15rpx}.totalPicker{display:block;width:58%;min-width:210rpx;margin:-2rpx auto 10rpx}.countControl{display:flex;justify-content:center;align-items:center;gap:20rpx;padding:5rpx 20rpx;min-height:92rpx}.countValue{font-size:calc(79rpx * var(--font-scale));font-weight:400;line-height:1.06;white-space:nowrap;font-variant-numeric:tabular-nums}.countUnit{font-size:.72em;margin-left:5rpx}.countAffordance{display:flex;flex-direction:column;align-items:center;gap:10rpx;flex:none;font-size:calc(21rpx * var(--font-scale));line-height:1.4;color:#746e5e;font-weight:400}.pickerArrow{width:13rpx;height:13rpx;border-right:4rpx solid #ff7c14;border-bottom:4rpx solid #ff7c14;transform:rotate(45deg)}
++.teamSplit{display:flex;align-items:center;justify-content:center;gap:35rpx;min-height:72rpx;background:#f2e9d8;padding:5rpx 10rpx;box-sizing:border-box}.teamNumber{display:flex;align-items:center;justify-content:center;gap:18rpx;min-width:0;flex:1;font-size:calc(44rpx * var(--font-scale));font-weight:400;line-height:1.2}.teamNumber image{display:block;flex:none;width:67rpx;height:64rpx}.splitDivider{height:43rpx;width:2rpx;background:#d4c8b2;flex:none}
++.venueCard{display:flex;align-items:stretch;gap:16rpx;margin-top:15rpx;padding:16rpx 18rpx}.venueCopy{display:flex;flex-direction:column;justify-content:space-between;gap:12rpx;flex:1;min-width:0}.venueHeading{font-size:calc(31rpx * var(--font-scale))}.venueState{display:flex;align-items:center;gap:12rpx;min-height:100rpx}.venueStateCopy{min-width:0;flex:1}.venueTitle{display:block;font-size:calc(30rpx * var(--font-scale));line-height:1.4;font-weight:400}.venueHint{display:block;font-size:calc(22rpx * var(--font-scale));line-height:1.45;font-weight:400;margin-top:6rpx}.locationPin{position:relative;flex:none;width:29rpx;height:29rpx;border:5rpx solid #050b14;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#c3c0b7;margin:0 3rpx 12rpx 4rpx}.locationPin::after{content:"";position:absolute;inset:7rpx;background:#fcf8ed;border-radius:50%;border:2rpx solid #050b14}.locationPin.confirmed{background:#5dab58}.venueGuide{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:0 0 51%;min-width:0;background:#f1efdc;box-sizing:border-box;padding:7rpx 7rpx 9rpx}.venueGuideImage{display:block;width:100%;height:226rpx}.guideCaption{font-size:calc(22rpx * var(--font-scale));font-weight:400;line-height:1.35;margin-top:5rpx;text-align:center}.guideFootnote{font-size:calc(18rpx * var(--font-scale));font-weight:400;line-height:1.4;color:#727466;text-align:center;margin-top:3rpx}
++.rulesCard{margin-top:15rpx;padding:12rpx 20rpx 12rpx}.rulesGrid{display:flex;align-items:stretch;margin-top:11rpx}.ruleItem{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;flex:1;min-width:0;box-sizing:border-box;padding:0 6rpx;text-align:center}.ruleItem+.ruleItem{border-left:2rpx solid #e8dfce}.ruleItem image{display:block;width:67rpx;height:72rpx;margin-bottom:4rpx}.ruleValue{display:block;font-size:calc(37rpx * var(--font-scale));font-weight:400;line-height:1.25;white-space:nowrap}.ruleLabel{display:block;font-size:calc(27rpx * var(--font-scale));font-weight:400;line-height:1.4}.rulesNote{display:flex;align-items:center;gap:17rpx;justify-content:center;border-top:2rpx dashed #e3d7c0;padding-top:11rpx;margin-top:14rpx;font-size:calc(25rpx * var(--font-scale));font-weight:400;line-height:1.45}.noteMark{display:flex;align-items:center;justify-content:center;flex:none;width:36rpx;height:36rpx;background:#ff821c;color:#fff;font-size:31rpx;font-weight:400;border-radius:9rpx}.createAction{margin:13rpx -1rpx 0}
++.inviteCard{padding:10rpx 21rpx 13rpx;text-align:center}.inviteLabel{font-size:calc(32rpx * var(--font-scale));text-align:center}.codeRow{display:flex;align-items:center;justify-content:center;gap:13rpx;min-width:0;margin:1rpx 0 2rpx}.roomCode{display:block;min-width:0;font-size:calc(70rpx * var(--font-scale));font-weight:400;line-height:1.22;letter-spacing:-1.5rpx;font-variant-numeric:tabular-nums;white-space:nowrap}.copyAction{display:block;flex:none;width:76rpx}.inviteHint{display:block;color:#666468;font-size:calc(27rpx * var(--font-scale));line-height:1.45;font-weight:400}
++.roomRules{padding:10rpx 15rpx 12rpx;margin-top:11rpx}.roomRuleNumbers{display:flex;align-items:center;justify-content:space-between;gap:12rpx}.readyTeam{display:flex;align-items:center;gap:12rpx;min-width:0;flex:1;font-size:calc(32rpx * var(--font-scale));font-weight:400;white-space:nowrap;line-height:1.25}.readyTeam image{display:block;flex:none;width:65rpx;height:65rpx}.orangeNumber{color:#ff710c;font-size:calc(53rpx * var(--font-scale));font-weight:400;line-height:1.15}.targetNumber{display:flex;align-items:center;justify-content:center;gap:12rpx;min-width:0;flex:1;border-left:2rpx solid #e2d6c0;font-size:calc(29rpx * var(--font-scale));font-weight:400;line-height:1.3;white-space:nowrap}.roomRuleText{display:block;margin-top:7rpx;text-align:center;white-space:pre-line;font-size:calc(24rpx * var(--font-scale));font-weight:400;line-height:1.4;color:#626066}
++.rosterHeader{padding:17rpx 8rpx 6rpx}.rosterHeading{display:flex;align-items:baseline;justify-content:space-between;gap:12rpx}.rosterHeading .sectionLabel{font-size:calc(31rpx * var(--font-scale));white-space:nowrap}.readyCount{font-size:calc(25rpx * var(--font-scale));font-weight:400;color:#787b6b;line-height:1.4;text-align:right}.readyCount.allReady{color:#17631c}.rosterHint{display:block;color:#626066;font-size:calc(23rpx * var(--font-scale));font-weight:400;line-height:1.4;margin-top:1rpx}
++.rosterGrid{display:flex;flex-wrap:wrap;gap:7rpx 10rpx}.playerCard{display:flex;align-items:center;gap:8rpx;flex:0 0 calc(50% - 5rpx);width:calc(50% - 5rpx);min-width:0;min-height:74rpx;padding:4rpx 10rpx}.playerAvatar{display:block;flex:none;width:63rpx;height:59rpx}.playerName{display:block;flex:1;min-width:0;font-size:calc(29rpx * var(--font-scale));font-weight:400;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.readyBadge{display:block;flex:none;box-sizing:border-box;border-radius:14rpx;padding:5rpx 12rpx;font-size:calc(24rpx * var(--font-scale));font-weight:400;line-height:1.4;white-space:nowrap}.isReady{background:#4a9a44;color:#fff}.notReady{background:#e8e2d5;color:#787363}.emptyRoster{padding:28rpx 18rpx;font-size:calc(27rpx * var(--font-scale));line-height:1.55;color:#717164;text-align:center}.readySummary,.ownerHint{display:block;text-align:center;color:#727365;font-size:calc(25rpx * var(--font-scale));font-weight:400;line-height:1.45;margin-top:13rpx}.roomActions{display:flex;flex-direction:column;gap:8rpx;margin:9rpx -3rpx 0}.ownerHint{margin:3rpx 8rpx 5rpx}.roomError{display:block;padding:16rpx 18rpx;margin:16rpx 27rpx 0;background:#ffedd9;border:2rpx solid #e8b295;color:#a53b1e;font-size:calc(25rpx * var(--font-scale));line-height:1.55;overflow-wrap:break-word}
+ .fontLarge .totalPicker{width:74%;margin-top:9rpx}.fontLarge .venueCard{flex-wrap:wrap}.fontLarge .venueCopy{flex-basis:100%}.fontLarge .venueGuide{flex-basis:100%;padding:10rpx}.fontLarge .venueGuideImage{height:270rpx}.fontLarge .venueState{min-height:0;padding:7rpx 0}.fontLarge .ruleValue{font-size:calc(32rpx * var(--font-scale))}.fontLarge .rulesNote{align-items:flex-start}.fontLarge .roomRuleNumbers{flex-wrap:wrap;gap:10rpx}.fontLarge .readyTeam,.fontLarge .targetNumber{flex-basis:100%;justify-content:center}.fontLarge .targetNumber{border-left:0;border-top:2rpx solid #e2d6c0;padding-top:8rpx}.fontLarge .rosterHeading{flex-wrap:wrap;gap:3rpx}.fontLarge .roomCode{font-size:calc(58rpx * var(--font-scale))}.fontLarge .copyAction{width:94rpx}.fontLarge .playerCard{flex-wrap:wrap;gap:4rpx 7rpx;padding:7rpx 10rpx}.fontLarge .playerAvatar{width:56rpx;height:55rpx}.fontLarge .playerName{font-size:calc(28rpx * var(--font-scale))}.fontLarge .readyBadge{margin-left:auto;font-size:calc(23rpx * var(--font-scale));padding:3rpx 10rpx}.narrowCanvas .venueCard{gap:10rpx;padding-left:14rpx;padding-right:14rpx}.narrowCanvas .venueHeading{font-size:calc(29rpx * var(--font-scale))}.narrowCanvas .venueTitle{font-size:calc(28rpx * var(--font-scale))}.narrowCanvas .readyTeam{gap:8rpx}.narrowCanvas .targetNumber{gap:8rpx;font-size:calc(27rpx * var(--font-scale))}.narrowCanvas .playerCard{gap:5rpx;padding-left:7rpx;padding-right:7rpx}.narrowCanvas .playerAvatar{width:54rpx;height:56rpx}.narrowCanvas .readyBadge{font-size:calc(23rpx * var(--font-scale));padding-left:8rpx;padding-right:8rpx}
+ 
+ .roomScreen{width:var(--vw,100vw)}
+ .rosterGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.playerCard{width:100%;min-width:0}
+ 
+ .fontLarge .codeRow{flex-wrap:wrap}.fontLarge .copyAction{width:110px}
++
++.teamInputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}.teamField{min-width:0}.teamField text{display:block;font-size:14px;margin-bottom:6px}.teamField input{width:100%;height:48px;border:2px solid #273d27;background:#fffdf4;text-align:center;font-size:24px}.teamHint{display:block;margin-top:12px;font-size:12px;line-height:1.8;color:#496b35}
++
++.teamField input{font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;font-weight:400}.copyAction .nativeAction{padding:6px 2px;font-size:calc(14px * var(--action-scale,1))}.copyAction .actionLabel{white-space:nowrap}
++
++/* Native input editing retains its real caret; idle values use the UI font. */
++.teamField{position:relative}.teamField input{color:transparent}.teamField input.editing{color:#050b14}.teamField .teamValue{position:absolute;left:2px;right:2px;bottom:2px;height:44px;line-height:44px;margin:0;text-align:center;font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;font-size:24px;pointer-events:none}
+--- baseline/pages/venue/venue.wxss
++++ modified/pages/venue/venue.wxss
+@@ -2,8 +2,8 @@
+ 
+ .venueScreen{display:flex;flex-direction:column;box-sizing:border-box;width:var(--vw,100vw);height:var(--vh,100vh);min-height:0;overflow:hidden;padding-top:var(--nav-height,64px);padding-bottom:max(var(--safe-bottom,0px),env(safe-area-inset-bottom));background:#F5FAF1}
+ .venueHeading{display:flex;align-items:center;justify-content:space-between;flex:none;gap:10px;padding:8px 16px 10px}
+-.venueSubtitle{flex:1;min-width:0;font-size:calc(14px * var(--font-scale));font-weight:600;line-height:1.5;color:#476451}
+-.venueBack{display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box;min-width:76px;min-height:44px;margin:0;padding:8px 13px;border:1px solid #AFCBAB;border-radius:12px;background:#fff;color:#175C35;font-size:calc(14px * var(--font-scale));font-weight:700;line-height:1.3}
++.venueSubtitle{flex:1;min-width:0;font-size:calc(14px * var(--font-scale));font-weight:400;line-height:1.5;color:#476451}
++.venueBack{display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box;min-width:76px;min-height:44px;margin:0;padding:8px 13px;border:1px solid #AFCBAB;border-radius:12px;background:#fff;color:#175C35;font-size:calc(14px * var(--font-scale));font-weight:400;line-height:1.3}
+ .venueFrame{flex:1;min-height:0;margin:0 12px 12px}
+ .venueFrame venue-art{display:block;width:100%;height:100%;min-height:0}
+ .narrowCanvas .venueHeading{padding-left:12px;padding-right:12px;gap:6px}
+--- baseline/components/nav-bar/nav-bar.wxss
++++ modified/components/nav-bar/nav-bar.wxss
+@@ -1,2 +1,2 @@
+-.nativeNav{position:absolute;top:0;left:0;right:0;z-index:10;color:#050b14;pointer-events:none}.navLine{position:relative;display:flex;align-items:center;justify-content:flex-start;padding-left:16px;gap:9px}.navLogo{width:29px;height:29px;flex:none}.navTitle{font-family:ParkReplicaUI,"PingFang SC",sans-serif;font-size:19px;font-weight:750;max-width:58%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.navTitle.withBack{margin-left:27px;max-width:48%}.navBack{position:absolute;left:7px;top:0;width:34px!important;height:100%;display:flex;align-items:center;justify-content:center;line-height:1;padding:0!important;margin:0!important;background:transparent;color:#253329;font-size:35px;pointer-events:auto}.navBack::after{border:0}.navPreview{font-size:10px;color:#75806b;font-weight:450;margin-left:0}
++.nativeNav{position:absolute;top:0;left:0;right:0;z-index:10;color:#050b14;pointer-events:none}.navLine{position:relative;display:flex;align-items:center;justify-content:flex-start;padding-left:16px;gap:9px}.navLogo{width:29px;height:29px;flex:none}.navTitle{font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif;font-size:19px;font-weight:400;max-width:58%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.navTitle.withBack{margin-left:27px;max-width:48%}.navBack{position:absolute;left:7px;top:0;width:34px!important;height:100%;display:flex;align-items:center;justify-content:center;line-height:1;padding:0!important;margin:0!important;background:transparent;color:#253329;font-size:35px;pointer-events:auto}.navBack::after{border:0}.navPreview{font-size:10px;color:#75806b;font-weight:400;margin-left:0}
+ .navTitle{max-width:calc(100% - 144px)}.navTitle.withBack{max-width:calc(100% - 155px)}
+--- baseline/components/pixel-action/pixel-action.wxml
++++ modified/components/pixel-action/pixel-action.wxml
+@@ -1,4 +1 @@
+-<button class="pixelAction {{fontScale>1.15 || dynamic || loading || artFailed || !skin?'nativeAction':'sourceAction'}} tone-{{tone}}" style="--action-scale:{{fontScale}}" disabled="{{disabled || loading}}" loading="{{loading}}" bindtap="activate" hover-class="actionPressed" aria-label="{{label}}">
+- <image wx:if="{{skin && !dynamic && !loading && !artFailed && fontScale<=1.15}}" class="actionArt" style="aspect-ratio:{{artWidth}} / {{artHeight}};height:auto" src="{{skin}}" mode="widthFix" bindload="loaded" binderror="failed" aria-hidden="true" />
+- <text wx:else class="actionLabel">{{label}}</text>
+-</button>
++<button class="pixelAction nativeAction tone-{{tone}}" style="--action-scale:{{fontScale}}" disabled="{{disabled || loading}}" loading="{{loading}}" bindtap="activate" hover-class="actionPressed" aria-label="{{label}}"><text class="actionLabel">{{label}}</text></button>
+--- baseline/components/pixel-action/pixel-action.wxss
++++ modified/components/pixel-action/pixel-action.wxss
+@@ -1 +1 @@
+-:host{display:block;min-width:0;width:100%}.pixelAction{position:relative;display:flex;align-items:center;justify-content:center;width:100%!important;margin:0!important;box-sizing:border-box;font-family:ParkReplicaUI,"PingFang SC",sans-serif;font-weight:750;line-height:1.25;border-radius:0;min-height:44px}.pixelAction::after{border:0}.sourceAction{padding:0;background:transparent;overflow:visible}.actionArt{display:block;width:100%;height:auto!important}.nativeAction{padding:12px 14px;color:#fff;background:#fb8018;border:3px solid #11151a;box-shadow:inset 0 3px #ffffff4d,inset 0 -4px #00000025;font-size:calc(20px * var(--action-scale,1));clip-path:polygon(7px 0,calc(100% - 7px) 0,calc(100% - 7px) 3px,100% 3px,100% calc(100% - 7px),calc(100% - 3px) calc(100% - 7px),calc(100% - 3px) 100%,7px 100%,7px calc(100% - 3px),0 calc(100% - 3px),0 7px,3px 7px,3px 0)}.nativeAction.tone-blue{background:#1196ed}.nativeAction.tone-green{background:#2d864c}.nativeAction.tone-red{background:#e44832}.nativeAction.tone-plain,.nativeAction.tone-neutral{background:#fcf8ed;color:#050b14}.actionLabel{display:block;white-space:normal;text-align:center}.actionPressed{opacity:.85}.pixelAction[disabled]{opacity:.45;filter:saturate(.4)}
++:host{display:block;min-width:0;width:100%}.pixelAction{position:relative;display:flex;align-items:center;justify-content:center;width:100%!important;margin:0!important;box-sizing:border-box;font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif;font-weight:400;line-height:1.25;border-radius:0;min-height:44px}.pixelAction::after{border:0}.sourceAction{padding:0;background:transparent;overflow:visible}.actionArt{display:block;width:100%;height:auto!important}.nativeAction{padding:12px 14px;color:#fff;background:#fb8018;border:3px solid #11151a;box-shadow:inset 0 3px #ffffff4d,inset 0 -4px #00000025;font-size:calc(20px * var(--action-scale,1));clip-path:polygon(7px 0,calc(100% - 7px) 0,calc(100% - 7px) 3px,100% 3px,100% calc(100% - 7px),calc(100% - 3px) calc(100% - 7px),calc(100% - 3px) 100%,7px 100%,7px calc(100% - 3px),0 calc(100% - 3px),0 7px,3px 7px,3px 0)}.nativeAction.tone-blue{background:#1196ed}.nativeAction.tone-green{background:#2d864c}.nativeAction.tone-red{background:#e44832}.nativeAction.tone-plain,.nativeAction.tone-neutral{background:#fcf8ed;color:#050b14}.actionLabel{display:block;white-space:normal;text-align:center}.actionPressed{opacity:.85}.pixelAction[disabled]{opacity:.45;filter:saturate(.4)}
+--- baseline/components/venue-art/venue-art.wxss
++++ modified/components/venue-art/venue-art.wxss
+@@ -1 +1 @@
+-:host{display:block;width:100%;height:100%;min-height:0}.venueArt{position:relative;overflow:hidden;width:100%;height:100%;min-height:0}.venueViewport{position:absolute;inset:0;overflow:hidden}.venueImage{position:absolute;left:0;top:0;display:block;transform-origin:0 0;will-change:transform}.venueTourHint{position:absolute;left:10px;top:10px;padding:5px 9px;background:#fcf8ede6;color:#24342d;font-size:11px;border-radius:3px;pointer-events:none}.venueDock{position:absolute;right:9px;bottom:25px;display:grid;grid-template-columns:44px 44px;gap:4px}.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px!important;min-height:44px;margin:0;padding:0;border:1px solid #617664;border-radius:5px;background:#fcf8edef;color:#173d2a;font-size:24px;line-height:1;font-weight:550}.venueControl::after,.venueRetry::after{border:0}.venueReset,.venueTour{font-size:12px}.venueControl[disabled]{opacity:.45}.venueAttribution{position:absolute;left:6px;bottom:5px;color:#153d50;font-size:9px;text-shadow:0 1px 2px #fff,1px 0 2px #fff;pointer-events:none}.venueStatus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#fcf8ed;color:#24342d;font-size:14px}.venueRetry{min-height:44px;padding:8px 20px;background:#fff;border:1px solid #617664;border-radius:4px;font-size:14px}
++:host{display:block;width:100%;height:100%;min-height:0}.venueArt{position:relative;overflow:hidden;width:100%;height:100%;min-height:0}.venueViewport{position:absolute;inset:0;overflow:hidden}.venueImage{position:absolute;left:0;top:0;display:block;transform-origin:0 0;will-change:transform}.venueTourHint{position:absolute;left:10px;top:10px;padding:5px 9px;background:#fcf8ede6;color:#24342d;font-size:11px;border-radius:3px;pointer-events:none}.venueDock{position:absolute;right:9px;bottom:25px;display:grid;grid-template-columns:44px 44px;gap:4px}.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px!important;min-height:44px;margin:0;padding:0;border:1px solid #617664;border-radius:5px;background:#fcf8edef;color:#173d2a;font-size:24px;line-height:1;font-weight:400}.venueControl::after,.venueRetry::after{border:0}.venueReset,.venueTour{font-size:12px}.venueControl[disabled]{opacity:.45}.venueAttribution{position:absolute;left:6px;bottom:5px;color:#153d50;font-size:9px;text-shadow:0 1px 2px #fff,1px 0 2px #fff;pointer-events:none}.venueStatus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#fcf8ed;color:#24342d;font-size:14px}.venueRetry{min-height:44px;padding:8px 20px;background:#fff;border:1px solid #617664;border-radius:4px;font-size:14px}
+--- baseline/cat-mouse-server/v2/dev-preview.test.js
++++ modified/cat-mouse-server/v2/dev-preview.test.js
+@@ -15,7 +15,7 @@
+   const wx={getStorageSync:()=>undefined,setStorageSync:fail('storage'),getLocation:fail('gps'),connectSocket:fail('socket'),scanCode:fail('camera'),request:fail('request'),navigateTo:x=>events.push(x.url),navigateBack:()=>events.push('back'),redirectTo:x=>events.push(x.url),reLaunch:x=>events.push(x.url)};
+   const api={config:{mode:'local',localTestIdentities:false},session:fail('session'),room:fail('room'),create:fail('create'),join:fail('join'),ready:fail('ready'),start:fail('start'),pause:fail('pause'),resume:fail('resume'),cancel:fail('cancel'),leave:fail('leave'),token:fail('token')};
+   const loc={start:fail('location-start'),once:fail('location-once'),stop:fail('location-stop')};
+-  const requireMock=p=>p.includes('presentation')?require('../../utils/presentation'):p.includes('dev-preview')?preview:p.includes('location-v2')?loc:p.includes('snapshot-v2')?{shouldApply:()=>true}:api;
++  const requireMock=p=>p.includes('team-config')?require('../../utils/team-config'):p.includes('presentation')?require('../../utils/presentation'):p.includes('dev-preview')?preview:p.includes('location-v2')?loc:p.includes('snapshot-v2')?{shouldApply:()=>true}:api;
+   vm.runInNewContext(source('pages/'+name+'/'+name+'.js'),{Page:x=>result=x,require:requireMock,wx,Date,Math,Number,Error,Promise,JSON,encodeURIComponent,setInterval:fail('interval'),clearInterval:()=>{},setTimeout:fail('timeout'),clearTimeout:()=>{},console});
+   result.setData=function(changes){Object.assign(this.data,changes);};
+   return result;
+--- baseline/cat-mouse-server/v2/fusion-font.test.js
++++ modified/cat-mouse-server/v2/fusion-font.test.js
+@@ -3,27 +3,25 @@
+ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+ const root=path.resolve(__dirname,'../..');
+ const read=p=>fs.readFileSync(path.join(root,p),'utf8');
+-const folder='design/2026-10-13/fusion-font-v1/';
++const folder='design/2026-10-13/global-font-v1/';
+ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+ 
+-test('Fusion trial is imported only on dev page, never global or gameplay pages',()=>{
+- const css=read('pages/dev/dev.wxss');
+- assert.match(css,/@import "\.\/fusion-font\.wxss"/);
+- assert.match(css,/\.devScreen,\.devScreen button,\.devScreen text\{font-family:CatMouseFusionTrial,ParkReplicaUI,sans-serif;font-weight:400\}/);
+- for(const name of ['index','room','map','qrcode','venue'])assert.doesNotMatch(read(`pages/${name}/${name}.wxss`),/CatMouseFusionTrial|fusion-font/);
+- assert.doesNotMatch(read('utils/pixel-theme.wxss'),/CatMouseFusionTrial|fusion-font/);
+- if(fs.existsSync(path.join(root,'app.wxss')))assert.doesNotMatch(read('app.wxss'),/CatMouseFusionTrial|fusion-font/);
++test('Fusion UI is shared on all six registered pages and native button labels',()=>{
++ const theme=read('utils/pixel-theme.wxss');assert.match(theme,/@import "\.\/fusion-font\.wxss"/);assert.match(theme,/font-family:CatMouseFusionUI,ParkReplicaUI/);
++ for(const p of JSON.parse(read('app.json')).pages)assert.match(read(p+'.wxss'),/pixel-theme/);
++ for(const p of ['pages/index/index.wxss','pages/room/room.wxss','components/nav-bar/nav-bar.wxss','components/pixel-action/pixel-action.wxss'])assert.match(read(p),/CatMouseFusionUI/);
++ assert.doesNotMatch(read('components/pixel-action/pixel-action.wxml'),/<image/);assert.match(read('components/pixel-action/pixel-action.wxml'),/{{label}}/);
+ });
+ 
+ test('font source and embedded subset are locked and OFL preserved',()=>{
+  const m=JSON.parse(read(folder+'manifest.json'));
+- assert.equal(m.globalRollout,false);assert.equal(m.scope,'pages/dev');assert.equal(m.version,'2026.09.25');
+- for(const [name,hash] of [['upstream-zh-hans.woff',m.sourceSha256],['dev-subset.woff',m.subsetSha256]])assert.equal(sha(fs.readFileSync(path.join(root,folder,name))),hash);
+- const css=read('pages/dev/fusion-font.wxss');assert.equal(sha(Buffer.from(css)),m.wxssSha256);
++ assert.equal(m.globalRollout,true);assert.equal(m.scope,'registered-pages-and-components');assert.equal(m.version,'2026.09.25');
++ for(const [name,hash] of [['../fusion-font-v1/upstream-zh-hans.woff',m.sourceSha256],['ui-subset.woff',m.subsetSha256]])assert.equal(sha(fs.readFileSync(path.join(root,folder,name))),hash);
++ const css=read('utils/fusion-font.wxss');assert.equal(sha(Buffer.from(css)),m.wxssSha256);
+  const embedded=Buffer.from(css.match(/base64,([^\"]+)/)[1],'base64');
+  assert.equal(sha(embedded),m.subsetSha256);assert.equal(embedded.toString('ascii',0,4),'wOFF');
+  assert.ok(embedded.length<40000,'page static subset stays small');
+- assert.match(read(folder+'OFL.txt'),/SIL OPEN FONT LICENSE Version 1.1/);
++ assert.match(read('design/2026-10-13/fusion-font-v1/OFL.txt'),/SIL OPEN FONT LICENSE Version 1.1/);
+ });
+ 
+ test('all static Chinese labels in the trial are covered; arrow explicitly falls back',()=>{
+@@ -32,5 +30,5 @@
+  const labels=read('pages/dev/dev.wxml')+JSON.stringify(groups);
+  for(const char of labels.match(/[\u3400-\u9fff]/g))assert.ok(m.coverage.includes(char),char);
+  assert.deepEqual(m.fallbackCharacters,['›']);
+- assert.match(read('pages/dev/dev.wxml'),/字体试样 · Fusion Pixel 12px/);
++
+ });
+--- baseline/cat-mouse-server/v2/pixel-ui.test.js
++++ modified/cat-mouse-server/v2/pixel-ui.test.js
+@@ -33,7 +33,7 @@
+   const loc=guarded(options.loc||{},'loc.');
+   vm.runInNewContext(read('pages/'+name+'/'+name+'.js'),{
+     Page:value=>page=value,wx,Date,Math,Number,Error,Promise,JSON,encodeURIComponent,
+-    require:name=>name.includes('presentation')?require('../../utils/presentation'):name.includes('snapshot-v2')?{shouldApply:()=>true}:name.includes('location-v2')?loc:name.includes('dev-preview')?(options.preview||{}):api,
++    require:name=>name.includes('team-config')?require('../../utils/team-config'):name.includes('presentation')?require('../../utils/presentation'):name.includes('snapshot-v2')?{shouldApply:()=>true}:name.includes('location-v2')?loc:name.includes('dev-preview')?(options.preview||{}):api,
+     setTimeout:reject('setTimeout'),setInterval:reject('setInterval'),clearTimeout:reject('clearTimeout'),clearInterval:reject('clearInterval')
+   });
+   page.setData=patch=>Object.assign(page.data,patch);return {page,effects};
+@@ -72,14 +72,8 @@
+   f.instance.failed();f.instance.loaded({detail:{width:388,height:130}});assert.equal(f.instance.data.artFailed,false);assert.equal(f.instance.data.artWidth,388);assert.equal(f.instance.data.artHeight,130);
+ });
+ 
+-test('normal pixel action uses one complete width-fixed button and its intrinsic aspect ratio',()=>{
+-  const w=read('components/pixel-action/pixel-action.wxml'),images=tags(w,'image');
+-  assert.equal(images.length,1);assert.equal(attr(images[0],'mode'),'widthFix');assert.equal(attr(images[0],'src'),'{{skin}}');
+-  assert.match(attr(images[0],'style'),/aspect-ratio:{{artWidth}} \/ {{artHeight}};height:auto/);
+-  assert.match(read('components/pixel-action/pixel-action.wxss'),/\.actionArt\{[^}]*width:100%;[^}]*height:auto!important/);
+-  assert.doesNotMatch(w,/scaleToFill|aspectFill|background-image/);
+-  const normal={skin:'button.png',dynamic:false,loading:false,artFailed:false,fontScale:1};
+-  assert.equal(expr(attr(images[0],'wx:if'),normal),true);
++test('normal pixel action uses live selected-font text without rasterized labels',()=>{
++ const w=read('components/pixel-action/pixel-action.wxml');assert.equal(tags(w,'image').length,0);assert.equal(tags(w,'text').length,1);assert.match(w,/class="actionLabel">{{label}}/);assert.match(w,/nativeAction/);assert.match(read('components/pixel-action/pixel-action.wxss'),/CatMouseFusionUI/);
+   const m=manifest();for(const record of m.records.filter(item=>item.kind==='button')){
+     const [x,y,width,height]=record.crop,[rx,ry,rw,rh]=record.rect;
+     assert.ok(x<=rx&&y<=ry&&x+width>=rx+rw&&y+height>=ry+rh,record.id+' retains the complete button rectangle');
+@@ -87,15 +81,8 @@
+   }
+ });
+ 
+-test('large text, loading, dynamic labels and failed or absent skins render native wrapping text',()=>{
+-  const w=read('components/pixel-action/pixel-action.wxml'),image=tags(w,'image')[0];
+-  const base={skin:'button.png',dynamic:false,loading:false,artFailed:false,fontScale:1};
+-  for(const patch of [{fontScale:1.3},{dynamic:true},{loading:true},{artFailed:true},{skin:''}]){
+-    const state={...base,...patch};assert.ok(!expr(attr(image,'wx:if'),state),JSON.stringify(patch));
+-    const condition=attr(tags(w,'button')[0],'class').match(/{{(.+?)}}/)[1];assert.equal(vm.runInNewContext(condition,state),'nativeAction');
+-  }
+-  assert.match(w,/<text wx:else class="actionLabel">{{label}}<\/text>/);
+-  const css=read('components/pixel-action/pixel-action.wxss');
++test('large text and dynamic labels render native wrapping text with disabled gating',()=>{
++ const w=read('components/pixel-action/pixel-action.wxml'),css=read('components/pixel-action/pixel-action.wxss');assert.match(w,/{{label}}/);assert.match(w,/disabled="{{disabled \|\| loading}}"/);
+   assert.match(css,/\.actionLabel\{[^}]*white-space:normal/);
+   assert.match(css,/\.nativeAction\{[^}]*padding:12px 14px/);
+   assert.doesNotMatch(css.match(/\.nativeAction\{([^}]+)\}/)[1],/(?:^|;)height:|max-height:|white-space:nowrap|overflow:hidden/);
+@@ -113,7 +100,7 @@
+   }
+   assert.match(read('pages/index/index.wxml'),/<input\b[^>]*bindinput="nameInput"/);
+   assert.match(read('pages/index/index.wxml'),/<input\b[^>]*bindinput="codeInput"/);
+-  assert.match(read('pages/room/room.wxml'),/<picker\b[^>]*bindchange="selectTotal"/);
++  for(const field of ['total','catsCount','miceCount'])assert.ok(read('pages/room/room.wxml').includes('data-field="'+field+'"'));
+ });
+ 
+ test('all pixel controls bind existing handlers with an accessible label and scalable text',()=>{
+@@ -130,8 +117,8 @@
+ 
+ test('dynamic room and terminal action labels use native text when source-button copy would be wrong',()=>{
+   const cases=[
+-    ['room','chooseVenue',{venue:null},'使用当前位置',true],
+-    ['room','chooseVenue',{venue:{confirmed:true}},'重新确认位置',false],
++    ['room','chooseVenue',{venue:null},'确认位置',true],
++    ['room','chooseVenue',{venue:{confirmed:true}},'重选位置',false],
+     ['room','start',{canStart:false},'等待所有人准备',true],
+     ['room','start',{canStart:true},'开始30秒躲藏',false],
+     ['room','toggleReady',{ready:false},'定位并准备',true],
+--- baseline/cat-mouse-server/v2/rules.js
++++ modified/cat-mouse-server/v2/rules.js
+@@ -1,7 +1,13 @@
+ const RULES = Object.freeze({ version: 'pilot-0.2', hidingMs: 30000, chasingMs: 360000, intelMs: 30000, tokenMs: 15000, pauseBudgetMs: 60000 });
+ const catsFor = n => n <= 8 ? 2 : 3;
+ const targetFor = mice => Math.ceil(mice * .6);
+-function preset(n, localTest = false) {
++function preset(n, localTest = false, teams) {
++  if (teams !== undefined) {
++    if (!Number.isInteger(n) || n < 2 || n > 60) throw new Error('INVALID_PRESET');
++    const { cats, mice } = teams;
++    if (!Number.isInteger(cats) || !Number.isInteger(mice) || cats < 1 || mice < 1 || cats + mice !== n) throw new Error('INVALID_TEAMS');
++    return { ...RULES, version:'pilot-0.3', total:n, cats, mice };
++  }
+   if (!Number.isInteger(n) || !(n >= 6 && n <= 12 || localTest && n === 2)) throw new Error('INVALID_PRESET');
+   return { total: n, cats: n === 2 ? 1 : catsFor(n), mice: n - (n === 2 ? 1 : catsFor(n)), ...RULES };
+ }
+--- baseline/cat-mouse-server/v2/service.js
++++ modified/cat-mouse-server/v2/service.js
+@@ -17,8 +17,9 @@
+     }
+   }
+   async create(actor, input) {
+-    const keys = Object.keys(input || {}); if (keys.some(k => !['total', 'venue', 'nickname'].includes(k))) fail('INVALID_CONFIG');
+-    const rules = preset(input.total, this.localTest);
++    const keys = Object.keys(input || {}); if (keys.some(k => !['total', 'cats', 'mice', 'venue', 'nickname'].includes(k))) fail('INVALID_CONFIG');
++    const custom = keys.includes('cats') || keys.includes('mice');
++    const rules = preset(input.total, this.localTest, custom ? {cats:input.cats,mice:input.mice} : undefined);
+     const v = input.venue;
+     if (!v || !v.confirmed || !Number.isFinite(v.lat) || !Number.isFinite(v.lng) || Math.abs(v.lat)>90 || Math.abs(v.lng)>180 || !Number.isInteger(v.radiusM) || v.radiusM < 100 || v.radiusM > 500) fail('INVALID_VENUE');
+     const state = { version: 1, rules, venue: { lat: v.lat, lng: v.lng, radiusM: v.radiusM, confirmed: true }, members: [{ id: actor, nickname: name(input.nickname), ready: false }], match: null, history: [] };
+--- /dev/null
++++ modified/scripts/build-global-font.py
+@@ -0,0 +1,62 @@
++"""One-page Fusion Pixel trial; original upstream and OFL preserved in design/."""
++from pathlib import Path
++import base64, hashlib, json, re, sys
++from fontTools import subset
++from fontTools.ttLib import TTFont
++
++root = Path(__file__).resolve().parents[1]
++folder = root / 'design/2026-10-13/global-font-v1'
++source = root / 'design/2026-10-13/fusion-font-v1/upstream-zh-hans.woff'
++folder.mkdir(parents=True,exist_ok=True)
++output = root / 'utils/fusion-font.wxss'
++sha = lambda b: hashlib.sha256(b).hexdigest()
++if '--verify' in sys.argv:
++    manifest = json.loads((folder / 'manifest.json').read_text(encoding='utf8'))
++    assert sha(source.read_bytes()) == manifest['sourceSha256']
++    assert sha(output.read_bytes()) == manifest['wxssSha256']
++    print('FUSION_FONT_VERIFY_PASS scope=registered-pages-and-components version=2026.09.25')
++    sys.exit(0)
++
++pages = json.loads((root / 'app.json').read_text(encoding='utf8'))['pages']
++inputs = [root / (p + ext) for p in pages for ext in ['.wxml','.js']]
++inputs += list((root / 'components').rglob('*.wxml')) + list((root / 'components').rglob('*.js')) + list((root / 'utils').glob('*.js'))
++words = ''.join(p.read_text(encoding='utf8') for p in inputs)
++font = TTFont(source)
++raw_words = words
++words = ''.join(sorted(set(c for c in raw_words if ord(c) >= 32 and ord(c) in font.getBestCmap())))
++assert all(ord(c) in font.getBestCmap() for c in re.findall(r'[\u3400-\u9fff]', raw_words))
++words += ''.join(chr(n) for n in range(32, 127)) + '·'
++font = TTFont(source)
++missing = sorted(set(words) - set(map(chr, font.getBestCmap())))
++assert not missing, missing
++options = subset.Options()
++options.recalc_timestamp = False
++options.name_IDs = [0, 1, 2, 3, 4, 6, 13, 14]
++options.name_legacy = True
++options.name_languages = ['*']
++subsetter = subset.Subsetter(options=options)
++subsetter.populate(text=words)
++subsetter.subset(font)
++# Distinct subset name; never redistribute a modified font under the original name.
++for name in font['name'].names:
++    if name.nameID in [1, 3, 4, 6]:
++        name.string = 'CatMouseFusionUI'.encode(name.getEncoding())
++if 'CFF ' in font:
++    cff = font['CFF '].cff
++    cff.fontNames = ['CatMouseFusionUI']
++    cff.topDictIndex[0].FullName = 'CatMouseFusionUI'
++    cff.topDictIndex[0].FamilyName = 'CatMouseFusionUI'
++font.flavor = 'woff'
++runtime = folder / 'ui-subset.woff'
++font.save(runtime)
++data = base64.b64encode(runtime.read_bytes()).decode('ascii')
++output.write_text('/* Fusion Pixel 12px proportional zh-Hans, v2026.09.25. SIL OFL1.1; original and licenses: design/2026-10-13/fusion-font-v1. Global static-label subset; dynamic user text falls back to ParkReplicaUI. */\n@font-face{font-family:CatMouseFusionUI;font-style:normal;font-weight:400;src:url("data:font/woff;base64,' + data + '") format("woff");font-display:swap;}\n', encoding='utf8')
++manifest = dict(family='CatMouseFusionUI', upstreamFamily='Fusion Pixel', version='2026.09.25',
++    variant='12px-proportional-zh_hans', scope='registered-pages-and-components', license='OFL-1.1',
++    sourceUrl='https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.25',
++    sourceSha256=sha(source.read_bytes()), subsetSha256=sha(runtime.read_bytes()),
++    wxssSha256=sha(output.read_bytes()), bytes=runtime.stat().st_size,
++    glyphCount=len(font.getBestCmap()), coverage=sorted(set(words)),
++    fallback='ParkReplicaUI', fallbackCharacters=['›'], globalRollout=True)
++(folder / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf8')
++print(f'FUSION_FONT_BUILT bytes={manifest["bytes"]} glyphs={manifest["glyphCount"]} scope=registered-pages-and-components')
+--- /dev/null
++++ modified/scripts/custom-teams-review.cjs
+@@ -0,0 +1,16 @@
++const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
++const automator=require('../cat-mouse-server/node_modules/miniprogram-automator'),shot=require('./wechat-screenshot.cjs');
++const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});const wait=ms=>new Promise(r=>setTimeout(r,ms));
++(async()=>{const mp=await automator.connect({wsEndpoint:'ws://127.0.0.1:9420'});try{
++ await mp.callWxMethod('reLaunch',{url:'/pages/room/room?devPreview=create'});await wait(1800);let p=await mp.currentPage();
++ assert.equal(p.path,'pages/room/room');
++ await (await p.$('[data-field="total"]')).input('10');await wait(300);assert.ok(await p.data('teamError'));
++ await shot(mp,path.join(out,'invalid-sum.png'));
++ await (await p.$('[data-field="catsCount"]')).input('3');await (await p.$('[data-field="miceCount"]')).input('7');await wait(300);
++ assert.equal(await p.data('teamError'),'');assert.equal(await p.data('targetCount'),5);await shot(mp,path.join(out,'custom-create.png'));
++ const components=await p.$$('.pixelControl');await (await components[0].$('.pixelAction')).tap();await wait(300);await (await components[1].$('.pixelAction')).tap();await wait(500);
++ assert.equal((await p.data('rules')).cats,3);assert.equal((await p.data('rules')).mice,7);assert.equal((await p.data('roster')).length,10);assert.equal(await p.data('targetCount'),5);
++ await shot(mp,path.join(out,'custom-ready.png'));
++ fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({status:'PASS',total:10,cats:3,mice:7,target:5,roster:10,scope:'IDE sample UI only, real HTTP database flow separately tested'},null,2));
++ console.log('CUSTOM_TEAMS_UI_PASS total=10 cats=3 mice=7 target=5');
++ }finally{mp.disconnect();}})().catch(e=>{console.error(e);process.exitCode=1;});
+--- /dev/null
++++ modified/utils/fusion-font.wxss
+@@ -0,0 +1,2 @@
++/* Fusion Pixel 12px proportional zh-Hans, v2026.09.25. SIL OFL1.1; original and licenses: design/2026-10-13/fusion-font-v1. Global static-label subset; dynamic user text falls back to ParkReplicaUI. */
++@font-face{font-family:CatMouseFusionUI;font-style:normal;font-weight:400;src:url("data:font/woff;base64,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e4MDg1cHvzzh5BO+9vCJh7/lxIedeMWJP3rEqY/4xiMnH/muR/78UY1HLZ90yEnXPXq/R88+Oho/bvwt4xsTz5u4Z/LEyasn/2fq4qlvTo9Mv39mcOYVM9+snlx9c/X+2lztG/UX1TcaVzb2nHzxybed/KvHNB5z4ymjp+w65ZZT9z/1qad+8NT/OO2o0y497b7Tq6ffekbujF1n3HTG/86eNnvzXGHu6XNfnZ+ev2lhYuGLiw9bvL55cPMdzd889szH/tfjnva47zz+MY//xhP2fcJ5T/jnJ57wxCuf+Ke/+uiTHvWkDz3px08+/sl//ZSDn3LFU36w9KSlG5baT33lUz/1tOrT3v20259+xNMvf/r3nvHIZ7znGQ+c+aozf/HMi5755Wft86yXPesLz37Ys//mOYc85wvPPem5P3reY5/3zXAu/PLzD3r+tS846gXRC0994R0veuKL7j3rJWddf9YDL37xiz/94l+dffrZV57Td84zz/ncuWPnXnFu+7yzz/vhS85/yT0vfeZL7zl/4fwvvuyMl9318isvqF7whVcc+oobLjz+wjMv/NRFuYvOv+h7Fz/i4nddvHrJWZf87JUnvfIzl1Yvfc+la5edddmXdlV3ffzywy5//eXxq57wqq+9+vmv/u5rdl0xeMWXX/uY137rtfHy/PLNVx505Yded/TrbrmqftWHX3/w6696/dYbrn/jUW/8ypue96afvfkJb/7yW855y2/eesFb47dd9baftBZbX2n98e2vfvvv3vGGd/zX1XNXf+DqP7zzhe/8+jWHXPPBdw2/633v3u/d73vPIe/5yLXHXvuWazffe857v/6+U9/3neua1/3rX1/+/qPff+0Hjv/AzR889YP/8aHLPjz84duvf8kNxRuef8NdH3nKR+7/aP2j3//YJR/75483P/6nTyx94p9vPPvGn3/yHZ864lPX3XT4TR+7+bCbr/70QZ9+3ae/+ZkTP7PrM7/7m/P+5nufPe2zn/3cQz53zefWP//RW/pvefctm194zRce+OJFX/z2rU++9f4vnfOl33/5mr8d/dvrV2or//2Vy/7uuL+78avlr1741a2vvea2fW57520P3H7Z7f/29+f9/Y//z3O/fvDXb77jxDs+fOfEnfdEp0SfjDb/4ep/+MU3zvjGV+468K5n3HXj3Q+5+513t7/57G9+6lv9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") format("woff");font-display:swap;}
+--- /dev/null
++++ modified/utils/team-config.js
+@@ -0,0 +1,9 @@
++// UI validation mirrors authoritative pilot-0.3 server rules; never decides roles/winner.
++function validate(total,cats,mice){
++ if(![total,cats,mice].every(Number.isInteger))return '人数请填写整数';
++ if(total<2||total>60)return '总人数请填写2–60人';
++ if(cats<1||mice<1)return '猫和鼠至少各1人';
++ if(cats+mice!==total)return '猫人数 + 鼠人数必须等于总人数';
++ return '';
++}
++module.exports={validate};
+--- /dev/null
++++ modified/cat-mouse-server/v2/custom-teams.test.js
+@@ -0,0 +1,50 @@
++const {test}=require('node:test'),assert=require('node:assert/strict');
++const {preset,targetFor}=require('./rules');
++const {validate}=require('../../utils/team-config');
++test('custom pilot-0.3 accepts arbitrary positive team split, keeps legacy defaults',()=>{
++ for(let total=2;total<=60;total++)for(let cats=1;cats<total;cats++){
++  const mice=total-cats,r=preset(total,false,{cats,mice});assert.equal(r.version,'pilot-0.3');
++  assert.equal(r.cats+r.mice,r.total);assert.equal(r.cats,cats);assert.equal(targetFor(mice),Math.ceil(mice*.6));assert.equal(validate(total,cats,mice),'');
++ }
++ assert.equal(preset(8).version,'pilot-0.2');assert.equal(preset(8).cats,2);
++});
++test('client and authority reject invalid, missing and noninteger team configurations',()=>{
++ for(const [total,cats,mice] of [[8,3,6],[8,0,8],[8,8,0],[1,1,0],[61,1,60],[8,1.5,6.5],[8,'2',6],[8,2,undefined],[NaN,2,6],[8,Infinity,6],[8,-1,9]]){
++  assert.throws(()=>preset(total,false,{cats,mice}));assert.ok(validate(total,cats,mice));
++ }
++});
++test('room UI blocks invalid sums and submits all three chosen counts unchanged',async()=>{
++ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');let page;const calls=[];
++ const api={config:{},create:async p=>{calls.push(p);return {roomId:'new-room',code:'ABCDEF1234'};}};
++ vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../../pages/room/room.js'),'utf8'),{Page:p=>page=p,Number,Math,Error,wx:{getStorageSync:()=> '房主',setStorageSync(){},pageScrollTo(){},setNavigationBarTitle(){}},require:p=>p.includes('team-config')?{validate}:p.includes('presentation')?{}:p.includes('dev-preview')?{}:api});
++ page.setData=p=>Object.assign(page.data,p);page.begin=()=>{};page.data.venue={lat:32,lng:118,radiusM:200,confirmed:true};
++ const input=(field,value)=>page.teamInput({currentTarget:{dataset:{field}},detail:{value}});
++ input('total','10');await page.create();assert.equal(calls.length,0);assert.ok(page.data.teamError);
++ input('catsCount','3');input('miceCount','7');assert.equal(page.data.teamError,'');assert.equal(page.data.targetCount,5);
++ await page.create();assert.equal(calls.length,1);assert.equal(calls[0].total,10);assert.equal(calls[0].cats,3);assert.equal(calls[0].mice,7);
++ input('catsCount','');assert.ok(page.data.teamError);await page.create();assert.equal(calls.length,1);
++});
++test('HTTP custom teams persist, assign exact roles and quota; unknown authority fields rejected',async()=>{
++ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
++ const {createServer}=require('./server');
++ const env={NODE_ENV:'test',ENABLE_LOCAL_TEST_IDENTITIES:'true',DATA_DIR:fs.mkdtempSync(path.join(os.tmpdir(),'catmouse-custom-'))};
++ let ctx,now=Date.now();
++ const boot=async()=>{ctx=await createServer({env,now:()=>now});ctx.server.listen(0,'127.0.0.1');await new Promise(r=>ctx.server.once('listening',r));};
++ const req=async(method,url,body,token)=>{const res=await fetch('http://127.0.0.1:'+ctx.server.address().port+url,{method,headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:body===undefined?undefined:JSON.stringify(body)});return {status:res.status,data:await res.json()};};
++ const close=async()=>ctx.close();
++ try{
++  await boot();const players=[];for(let i=0;i<3;i++)players.push((await req('POST','/api/v2/session/test',{})).data);
++  const venue={lat:32,lng:118,radiusM:200,confirmed:true};
++  assert.equal((await req('POST','/api/v2/rooms',{total:3,cats:1,mice:1,venue},players[0].token)).data.error,'INVALID_TEAMS');
++  assert.equal((await req('POST','/api/v2/rooms',{total:3,cats:1,mice:2,winner:'cat_win',venue},players[0].token)).data.error,'INVALID_CONFIG');
++  const room=(await req('POST','/api/v2/rooms',{total:3,cats:1,mice:2,venue,nickname:'房主'},players[0].token)).data,id=room.roomId;
++  for(const p of players.slice(1))assert.equal((await req('POST',`/api/v2/rooms/${id}/join`,{nickname:'伙伴'},p.token)).status,200);
++  for(const p of players){await req('POST',`/api/v2/rooms/${id}/location`,{lat:32,lng:118,accuracy:5,sampledAt:now,sampleSeq:1,coordinateSystem:'gcj02'},p.token);await req('POST',`/api/v2/rooms/${id}/ready`,{ready:true},p.token);}
++  assert.equal((await req('POST',`/api/v2/rooms/${id}/start`,{},players[1].token)).status,403);
++  const start=(await req('POST',`/api/v2/rooms/${id}/start`,{},players[0].token)).data;
++  assert.equal(start.rules.version,'pilot-0.3');assert.equal(start.match.target,2);assert.equal(start.roster.filter(p=>p.role==='cat').length,1);assert.equal(start.roster.filter(p=>p.role==='mouse').length,2);
++  await req('POST',`/api/v2/rooms/${id}/cancel`,{},players[0].token);await close();ctx=null;await boot();
++  const restored=(await req('GET',`/api/v2/rooms/${id}`,undefined,players[0].token)).data;
++  assert.equal(restored.rules.cats,1);assert.equal(restored.rules.mice,2);assert.equal(restored.match.phase,'CANCELLED');assert.equal(restored.match.id,start.match.id);
++ }finally{if(ctx)await close();}
++});
+--- /dev/null
++++ modified/RULES_PILOT_0_3.md
+@@ -0,0 +1,23 @@
++# 可配置阵营试点规则 · pilot-0.3
++
++登记日期：2026-10-13。按用户本轮要求开放人数分配，不覆盖旧规则记录，也不声称已经平衡。
++
++- 创建时分别填写总人数、猫人数、鼠人数。默认8 / 2 / 6。
++- 三项必须为整数，猫鼠各至少1人，猫数 + 鼠数 = 总人数。
++- 当前单房配置上限60人，下限2人；这是输入/资源边界，不是服务器并发或场地安全容量保证。首场真实试点仍建议6–12人。
++- 新客户端显式提交三项时服务端登记pilot-0.3；旧客户端仅传total时仍按历史pilot-0.2预设验证。已有房间/对局保持创建时规则，不批量改数据库。
++- 服务端按配置随机分配精确猫鼠人数。捕获目标仍为ceil(开局鼠数 × 60%)；30秒躲藏、6分钟追逐、捕获出局、动态码、失联暂停与唯一终局不变。
++- 人数在创建页设置，创建后锁定；要换配置请创建新房间。本轮不开放局中变更阵营、指定赢家或普通玩家修改房间规则。
++- 数量不匹配、空值、负数、小数、缺少任一阵营字段或超范围会被客户端提示，并由服务端再次拒绝。
++
++## 字体
++
++所有已注册页面和原生组件的实时文字使用Fusion Pixel 12px比例简中版，常规字重400，保持原画面与地图图像的宽高比例。按钮文字改为实时字体绘制，避免旧PNG内烘焙的按钮字继续混用。插画/大标题图中的烘焙文字仍属于原始图稿，不通过CSS拉伸或伪装替换。
++
++静态标签子集源自官方2026.09.25发行版，原字体、OFL及继承许可留在design/2026-10-13/fusion-font-v1，全球子集记录在design/2026-10-13/global-font-v1。动态昵称和未覆盖符号使用后备字体。
++
++## 验证入口
++
++微信开发工具首页→界面调试台→创建活动，可独立输入10/3/7，确认演示场地后创建，查看10人名单与捕获5人的摘要。演示不向服务器发游戏指令。
++
++真实后端回归：`npm --prefix cat-mouse-server test`。使用临时本地数据库和明确测试身份环境，不访问线上数据。线上服务要同步本轮后端后才能接收新字段，本轮没有自动部署。
+--- /dev/null
++++ modified/assets/pixel-v1/FUSION-FONT-LICENSE.txt
+@@ -0,0 +1,406 @@
++Fusion Pixel 2026.09.25 / renamed static subset CatMouseFusionUI.
++Source: https://github.com/TakWolf/fusion-pixel-font
++
++OFL.txt
++Fusion Pixel Font
++https://github.com/TakWolf/fusion-pixel-font
++
++Copyright (c) 2022, TakWolf (https://takwolf.com).
++
++This Font Software is licensed under the SIL Open Font License, Version 1.1.
++This license is copied below, and is also available with a FAQ at:
++https://openfontlicense.org
++
++
++-----------------------------------------------------------
++SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
++-----------------------------------------------------------
++
++PREAMBLE
++The goals of the Open Font License (OFL) are to stimulate worldwide
++development of collaborative font projects, to support the font creation
++efforts of academic and linguistic communities, and to provide a free and
++open framework in which fonts may be shared and improved in partnership
++with others.
++
++The OFL allows the licensed fonts to be used, studied, modified and
++redistributed freely as long as they are not sold by themselves. The
++fonts, including any derivative works, can be bundled, embedded,
++redistributed and/or sold with any software provided that any reserved
++names are not used by derivative works. The fonts and derivatives,
++however, cannot be released under any other type of license. The
++requirement for fonts to remain under this license does not apply
++to any document created using the fonts or their derivatives.
++
++DEFINITIONS
++"Font Software" refers to the set of files released by the Copyright
++Holder(s) under this license and clearly marked as such. This may
++include source files, build scripts and documentation.
++
++"Reserved Font Name" refers to any names specified as such after the
++copyright statement(s).
++
++"Original Version" refers to the collection of Font Software components as
++distributed by the Copyright Holder(s).
++
++"Modified Version" refers to any derivative made by adding to, deleting,
++or substituting -- in part or in whole -- any of the components of the
++Original Version, by changing formats or by porting the Font Software to a
++new environment.
++
++"Author" refers to any designer, engineer, programmer, technical
++writer or other person who contributed to the Font Software.
++
++PERMISSION & CONDITIONS
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of the Font Software, to use, study, copy, merge, embed, modify,
++redistribute, and sell modified and unmodified copies of the Font
++Software, subject to the following conditions:
++
++1) Neither the Font Software nor any of its individual components,
++in Original or Modified Versions, may be sold by itself.
++
++2) Original or Modified Versions of the Font Software may be bundled,
++redistributed and/or sold with any software, provided that each copy
++contains the above copyright notice and this license. These can be
++included either as stand-alone text files, human-readable headers or
++in the appropriate machine-readable metadata fields within text or
++binary files as long as those fields can be easily viewed by the user.
++
++3) No Modified Version of the Font Software may use the Reserved Font
++Name(s) unless explicit written permission is granted by the corresponding
++Copyright Holder. This restriction only applies to the primary font name as
++presented to the users.
++
++4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
++Software shall not be used to promote, endorse or advertise any
++Modified Version, except to acknowledge the contribution(s) of the
++Copyright Holder(s) and the Author(s) or with their explicit written
++permission.
++
++5) The Font Software, modified or unmodified, in part or in whole,
++must be distributed entirely under this license, and must not be
++distributed under any other license. The requirement for fonts to
++remain under this license does not apply to any document created
++using the Font Software.
++
++TERMINATION
++This license becomes null and void if any of the above conditions are
++not met.
++
++DISCLAIMER
++THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
++OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
++COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
++INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
++DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
++OTHER DEALINGS IN THE FONT SOFTWARE.
++
++
++LICENSES/ark-pixel/OFL.txt
++Ark Pixel Font
++https://github.com/TakWolf/ark-pixel-font
++
++Copyright (c) 2021, TakWolf (https://takwolf.com).
++
++This Font Software is licensed under the SIL Open Font License, Version 1.1.
++This license is copied below, and is also available with a FAQ at:
++https://openfontlicense.org
++
++
++-----------------------------------------------------------
++SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
++-----------------------------------------------------------
++
++PREAMBLE
++The goals of the Open Font License (OFL) are to stimulate worldwide
++development of collaborative font projects, to support the font creation
++efforts of academic and linguistic communities, and to provide a free and
++open framework in which fonts may be shared and improved in partnership
++with others.
++
++The OFL allows the licensed fonts to be used, studied, modified and
++redistributed freely as long as they are not sold by themselves. The
++fonts, including any derivative works, can be bundled, embedded,
++redistributed and/or sold with any software provided that any reserved
++names are not used by derivative works. The fonts and derivatives,
++however, cannot be released under any other type of license. The
++requirement for fonts to remain under this license does not apply
++to any document created using the fonts or their derivatives.
++
++DEFINITIONS
++"Font Software" refers to the set of files released by the Copyright
++Holder(s) under this license and clearly marked as such. This may
++include source files, build scripts and documentation.
++
++"Reserved Font Name" refers to any names specified as such after the
++copyright statement(s).
++
++"Original Version" refers to the collection of Font Software components as
++distributed by the Copyright Holder(s).
++
++"Modified Version" refers to any derivative made by adding to, deleting,
++or substituting -- in part or in whole -- any of the components of the
++Original Version, by changing formats or by porting the Font Software to a
++new environment.
++
++"Author" refers to any designer, engineer, programmer, technical
++writer or other person who contributed to the Font Software.
++
++PERMISSION & CONDITIONS
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of the Font Software, to use, study, copy, merge, embed, modify,
++redistribute, and sell modified and unmodified copies of the Font
++Software, subject to the following conditions:
++
++1) Neither the Font Software nor any of its individual components,
++in Original or Modified Versions, may be sold by itself.
++
++2) Original or Modified Versions of the Font Software may be bundled,
++redistributed and/or sold with any software, provided that each copy
++contains the above copyright notice and this license. These can be
++included either as stand-alone text files, human-readable headers or
++in the appropriate machine-readable metadata fields within text or
++binary files as long as those fields can be easily viewed by the user.
++
++3) No Modified Version of the Font Software may use the Reserved Font
++Name(s) unless explicit written permission is granted by the corresponding
++Copyright Holder. This restriction only applies to the primary font name as
++presented to the users.
++
++4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
++Software shall not be used to promote, endorse or advertise any
++Modified Version, except to acknowledge the contribution(s) of the
++Copyright Holder(s) and the Author(s) or with their explicit written
++permission.
++
++5) The Font Software, modified or unmodified, in part or in whole,
++must be distributed entirely under this license, and must not be
++distributed under any other license. The requirement for fonts to
++remain under this license does not apply to any document created
++using the Font Software.
++
++TERMINATION
++This license becomes null and void if any of the above conditions are
++not met.
++
++DISCLAIMER
++THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
++OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
++COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
++INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
++DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
++OTHER DEALINGS IN THE FONT SOFTWARE.
++
++
++LICENSES/cubic-11/OFL.txt
++[Cubic 11]
++These fonts are free software.
++Unlimited permission is granted to use, copy, and distribute them, with or without modification, either commercially or noncommercially.
++THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
++此字型是免費的。
++無論您是否進行對本字型進行商業或非商業性修改，均可無限制地使用，複製和分發它們。
++本字型的衍生品之授權必須與此字型相同，且不作任何擔保。
++[JF Dot M+H 12]
++Copyright(c) 2005 M+ FONTS PROJECT
++[M+ BITMAP FONTS]
++Copyright (C) 2002-2004 COZ
++These fonts are free software.
++Unlimited permission is granted to use, copy, and distribute it, with or without modification, either commercially and noncommercially.
++THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
++これらのフォントはフリー（自由な）ソフトウエアです。
++あらゆる改変の有無に関わらず、また商業的な利用であっても、自由にご利用、複製、再配布することができますが、全て無保証とさせていただきます。
++
++This Font Software is licensed under the SIL Open Font License, Version 1.1.
++This license is copied below, and is also available with a FAQ at:
++https://scripts.sil.org/OFL
++
++
++-----------------------------------------------------------
++SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
++-----------------------------------------------------------
++
++PREAMBLE
++The goals of the Open Font License (OFL) are to stimulate worldwide
++development of collaborative font projects, to support the font creation
++efforts of academic and linguistic communities, and to provide a free and
++open framework in which fonts may be shared and improved in partnership
++with others.
++
++The OFL allows the licensed fonts to be used, studied, modified and
++redistributed freely as long as they are not sold by themselves. The
++fonts, including any derivative works, can be bundled, embedded, 
++redistributed and/or sold with any software provided that any reserved
++names are not used by derivative works. The fonts and derivatives,
++however, cannot be released under any other type of license. The
++requirement for fonts to remain under this license does not apply
++to any document created using the fonts or their derivatives.
++
++DEFINITIONS
++"Font Software" refers to the set of files released by the Copyright
++Holder(s) under this license and clearly marked as such. This may
++include source files, build scripts and documentation.
++
++"Reserved Font Name" refers to any names specified as such after the
++copyright statement(s).
++
++"Original Version" refers to the collection of Font Software components as
++distributed by the Copyright Holder(s).
++
++"Modified Version" refers to any derivative made by adding to, deleting,
++or substituting -- in part or in whole -- any of the components of the
++Original Version, by changing formats or by porting the Font Software to a
++new environment.
++
++"Author" refers to any designer, engineer, programmer, technical
++writer or other person who contributed to the Font Software.
++
++PERMISSION & CONDITIONS
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of the Font Software, to use, study, copy, merge, embed, modify,
++redistribute, and sell modified and unmodified copies of the Font
++Software, subject to the following conditions:
++
++1) Neither the Font Software nor any of its individual components,
++in Original or Modified Versions, may be sold by itself.
++
++2) Original or Modified Versions of the Font Software may be bundled,
++redistributed and/or sold with any software, provided that each copy
++contains the above copyright notice and this license. These can be
++included either as stand-alone text files, human-readable headers or
++in the appropriate machine-readable metadata fields within text or
++binary files as long as those fields can be easily viewed by the user.
++
++3) No Modified Version of the Font Software may use the Reserved Font
++Name(s) unless explicit written permission is granted by the corresponding
++Copyright Holder. This restriction only applies to the primary font name as
++presented to the users.
++
++4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
++Software shall not be used to promote, endorse or advertise any
++Modified Version, except to acknowledge the contribution(s) of the
++Copyright Holder(s) and the Author(s) or with their explicit written
++permission.
++
++5) The Font Software, modified or unmodified, in part or in whole,
++must be distributed entirely under this license, and must not be
++distributed under any other license. The requirement for fonts to
++remain under this license does not apply to any document created
++using the Font Software.
++
++TERMINATION
++This license becomes null and void if any of the above conditions are
++not met.
++
++DISCLAIMER
++THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
++OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
++COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
++INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
++DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
++OTHER DEALINGS IN THE FONT SOFTWARE.
++
++
++LICENSES/galmuri/LICENSE.txt
++Copyright (c) 2019–2025 Lee Minseo (quiple@quiple.dev)
++
++This font software is licensed under the SIL Open Font License, Version 1.1.
++This license is copied below, and is also available with a FAQ at:
++https://openfontlicense.org
++
++
++-----------------------------------------------------------
++SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
++-----------------------------------------------------------
++
++PREAMBLE
++The goals of the Open Font License (OFL) are to stimulate worldwide
++development of collaborative font projects, to support the font creation
++efforts of academic and linguistic communities, and to provide a free and
++open framework in which fonts may be shared and improved in partnership
++with others.
++
++The OFL allows the licensed fonts to be used, studied, modified and
++redistributed freely as long as they are not sold by themselves. The
++fonts, including any derivative works, can be bundled, embedded,
++redistributed and/or sold with any software provided that any reserved
++names are not used by derivative works. The fonts and derivatives,
++however, cannot be released under any other type of license. The
++requirement for fonts to remain under this license does not apply
++to any document created using the fonts or their derivatives.
++
++DEFINITIONS
++"Font Software" refers to the set of files released by the Copyright
++Holder(s) under this license and clearly marked as such. This may
++include source files, build scripts and documentation.
++
++"Reserved Font Name" refers to any names specified as such after the
++copyright statement(s).
++
++"Original Version" refers to the collection of Font Software components as
++distributed by the Copyright Holder(s).
++
++"Modified Version" refers to any derivative made by adding to, deleting,
++or substituting -- in part or in whole -- any of the components of the
++Original Version, by changing formats or by porting the Font Software to a
++new environment.
++
++"Author" refers to any designer, engineer, programmer, technical
++writer or other person who contributed to the Font Software.
++
++PERMISSION & CONDITIONS
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of the Font Software, to use, study, copy, merge, embed, modify,
++redistribute, and sell modified and unmodified copies of the Font
++Software, subject to the following conditions:
++
++1) Neither the Font Software nor any of its individual components,
++in Original or Modified Versions, may be sold by itself.
++
++2) Original or Modified Versions of the Font Software may be bundled,
++redistributed and/or sold with any software, provided that each copy
++contains the above copyright notice and this license. These can be
++included either as stand-alone text files, human-readable headers or
++in the appropriate machine-readable metadata fields within text or
++binary files as long as those fields can be easily viewed by the user.
++
++3) No Modified Version of the Font Software may use the Reserved Font
++Name(s) unless explicit written permission is granted by the corresponding
++Copyright Holder. This restriction only applies to the primary font name as
++presented to the users.
++
++4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
++Software shall not be used to promote, endorse or advertise any
++Modified Version, except to acknowledge the contribution(s) of the
++Copyright Holder(s) and the Author(s) or with their explicit written
++permission.
++
++5) The Font Software, modified or unmodified, in part or in whole,
++must be distributed entirely under this license, and must not be
++distributed under any other license. The requirement for fonts to
++remain under this license does not apply to any document created
++using the Font Software.
++
++TERMINATION
++This license becomes null and void if any of the above conditions are
++not met.
++
++DISCLAIMER
++THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
++OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
++COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
++INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
++DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
++OTHER DEALINGS IN THE FONT SOFTWARE.
+--- /dev/null
++++ modified/design/2026-10-13/global-font-v1/manifest.json
+@@ -0,0 +1,560 @@
++{
++  "family": "CatMouseFusionUI",
++  "upstreamFamily": "Fusion Pixel",
++  "version": "2026.09.25",
++  "variant": "12px-proportional-zh_hans",
++  "scope": "registered-pages-and-components",
++  "license": "OFL-1.1",
++  "sourceUrl": "https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.25",
++  "sourceSha256": "6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e",
++  "subsetSha256": "062d1166fe21083515c4b43ff19a3958965861f2d320906e5b8d4625dd893eb1",
++  "wxssSha256": "b0c6ea3cf873ad1a47f8aba9061883a0d354c060766c738fb79fb88e7d12674f",
++  "bytes": 21640,
++  "glyphCount": 539,
++  "coverage": [
++    " ",
++    "!",
++    "\"",
++    "#",
++    "$",
++    "%",
++    "&",
++    "'",
++    "(",
++    ")",
++    "*",
++    "+",
++    ",",
++    "-",
++    ".",
++    "/",
++    "0",
++    "1",
++    "2",
++    "3",
++    "4",
++    "5",
++    "6",
++    "7",
++    "8",
++    "9",
++    ":",
++    ";",
++    "<",
++    "=",
++    ">",
++    "?",
++    "@",
++    "A",
++    "B",
++    "C",
++    "D",
++    "E",
++    "F",
++    "G",
++    "H",
++    "I",
++    "J",
++    "K",
++    "L",
++    "M",
++    "N",
++    "O",
++    "P",
++    "Q",
++    "R",
++    "S",
++    "T",
++    "U",
++    "V",
++    "W",
++    "X",
++    "Y",
++    "Z",
++    "[",
++    "\\",
++    "]",
++    "^",
++    "_",
++    "`",
++    "a",
++    "b",
++    "c",
++    "d",
++    "e",
++    "f",
++    "g",
++    "h",
++    "i",
++    "j",
++    "k",
++    "l",
++    "m",
++    "n",
++    "o",
++    "p",
++    "q",
++    "r",
++    "s",
++    "t",
++    "u",
++    "v",
++    "w",
++    "x",
++    "y",
++    "z",
++    "{",
++    "|",
++    "}",
++    "~",
++    "©",
++    "·",
++    "×",
++    "–",
++    "—",
++    "•",
++    "…",
++    "Ⅱ",
++    "▦",
++    "●",
++    "。",
++    "一",
++    "上",
++    "下",
++    "不",
++    "与",
++    "业",
++    "个",
++    "中",
++    "主",
++    "事",
++    "于",
++    "云",
++    "享",
++    "人",
++    "仅",
++    "他",
++    "代",
++    "们",
++    "件",
++    "任",
++    "份",
++    "伍",
++    "伙",
++    "会",
++    "传",
++    "伴",
++    "位",
++    "住",
++    "余",
++    "作",
++    "你",
++    "使",
++    "例",
++    "保",
++    "信",
++    "倒",
++    "候",
++    "停",
++    "像",
++    "先",
++    "免",
++    "入",
++    "全",
++    "公",
++    "关",
++    "具",
++    "内",
++    "再",
++    "写",
++    "冷",
++    "冻",
++    "准",
++    "出",
++    "分",
++    "列",
++    "则",
++    "创",
++    "利",
++    "到",
++    "制",
++    "刷",
++    "前",
++    "剩",
++    "功",
++    "加",
++    "务",
++    "动",
++    "助",
++    "化",
++    "区",
++    "半",
++    "历",
++    "原",
++    "友",
++    "双",
++    "发",
++    "取",
++    "变",
++    "叠",
++    "只",
++    "可",
++    "台",
++    "史",
++    "各",
++    "合",
++    "同",
++    "名",
++    "后",
++    "吧",
++    "启",
++    "告",
++    "周",
++    "味",
++    "和",
++    "咪",
++    "响",
++    "器",
++    "回",
++    "园",
++    "围",
++    "图",
++    "圆",
++    "在",
++    "地",
++    "场",
++    "坚",
++    "域",
++    "基",
++    "填",
++    "境",
++    "处",
++    "备",
++    "复",
++    "外",
++    "多",
++    "大",
++    "失",
++    "好",
++    "如",
++    "始",
++    "字",
++    "存",
++    "安",
++    "完",
++    "定",
++    "实",
++    "家",
++    "察",
++    "对",
++    "寻",
++    "导",
++    "封",
++    "将",
++    "小",
++    "少",
++    "尚",
++    "尝",
++    "局",
++    "居",
++    "展",
++    "川",
++    "巡",
++    "差",
++    "已",
++    "帜",
++    "带",
++    "常",
++    "并",
++    "应",
++    "底",
++    "度",
++    "延",
++    "建",
++    "开",
++    "异",
++    "式",
++    "当",
++    "录",
++    "径",
++    "待",
++    "微",
++    "必",
++    "态",
++    "急",
++    "总",
++    "恢",
++    "息",
++    "情",
++    "意",
++    "慢",
++    "戏",
++    "成",
++    "我",
++    "或",
++    "战",
++    "截",
++    "户",
++    "房",
++    "所",
++    "才",
++    "打",
++    "托",
++    "扫",
++    "找",
++    "把",
++    "抓",
++    "拖",
++    "持",
++    "指",
++    "捕",
++    "据",
++    "授",
++    "掉",
++    "接",
++    "描",
++    "提",
++    "摘",
++    "操",
++    "支",
++    "放",
++    "效",
++    "数",
++    "整",
++    "断",
++    "新",
++    "方",
++    "旗",
++    "无",
++    "日",
++    "旧",
++    "时",
++    "是",
++    "昵",
++    "显",
++    "普",
++    "晴",
++    "暂",
++    "更",
++    "最",
++    "有",
++    "服",
++    "期",
++    "未",
++    "本",
++    "术",
++    "机",
++    "权",
++    "束",
++    "来",
++    "林",
++    "果",
++    "查",
++    "标",
++    "校",
++    "样",
++    "检",
++    "模",
++    "樱",
++    "橘",
++    "次",
++    "止",
++    "正",
++    "此",
++    "步",
++    "武",
++    "段",
++    "求",
++    "没",
++    "法",
++    "注",
++    "洲",
++    "活",
++    "消",
++    "游",
++    "湖",
++    "满",
++    "滤",
++    "演",
++    "炸",
++    "点",
++    "熟",
++    "版",
++    "状",
++    "猜",
++    "猫",
++    "玄",
++    "玩",
++    "环",
++    "理",
++    "生",
++    "用",
++    "由",
++    "界",
++    "留",
++    "登",
++    "的",
++    "目",
++    "相",
++    "看",
++    "真",
++    "知",
++    "码",
++    "础",
++    "确",
++    "示",
++    "离",
++    "秒",
++    "积",
++    "称",
++    "稍",
++    "稳",
++    "端",
++    "等",
++    "答",
++    "算",
++    "管",
++    "米",
++    "精",
++    "系",
++    "素",
++    "索",
++    "紧",
++    "线",
++    "组",
++    "织",
++    "结",
++    "给",
++    "络",
++    "统",
++    "继",
++    "续",
++    "缓",
++    "缩",
++    "网",
++    "置",
++    "老",
++    "者",
++    "耗",
++    "联",
++    "胜",
++    "能",
++    "自",
++    "至",
++    "致",
++    "色",
++    "艺",
++    "范",
++    "获",
++    "营",
++    "蓝",
++    "藏",
++    "行",
++    "表",
++    "被",
++    "装",
++    "要",
++    "观",
++    "规",
++    "视",
++    "览",
++    "触",
++    "警",
++    "计",
++    "认",
++    "记",
++    "设",
++    "试",
++    "话",
++    "询",
++    "详",
++    "误",
++    "请",
++    "调",
++    "谜",
++    "负",
++    "败",
++    "质",
++    "超",
++    "趣",
++    "足",
++    "跑",
++    "距",
++    "路",
++    "跳",
++    "踢",
++    "身",
++    "躲",
++    "轮",
++    "轰",
++    "轻",
++    "载",
++    "较",
++    "辅",
++    "输",
++    "达",
++    "过",
++    "近",
++    "返",
++    "还",
++    "这",
++    "进",
++    "连",
++    "迟",
++    "追",
++    "退",
++    "适",
++    "选",
++    "逐",
++    "递",
++    "通",
++    "道",
++    "避",
++    "邀",
++    "部",
++    "配",
++    "重",
++    "野",
++    "量",
++    "钟",
++    "错",
++    "长",
++    "闭",
++    "问",
++    "间",
++    "阔",
++    "队",
++    "阵",
++    "阶",
++    "阿",
++    "附",
++    "限",
++    "隐",
++    "集",
++    "需",
++    "青",
++    "非",
++    "面",
++    "页",
++    "须",
++    "预",
++    "题",
++    "首",
++    "验",
++    "鲜",
++    "鼠",
++    "齐",
++    "！",
++    "（",
++    "）",
++    "，",
++    "：",
++    "；",
++    "？"
++  ],
++  "fallback": "ParkReplicaUI",
++  "fallbackCharacters": [
++    "›"
++  ],
++  "globalRollout": true
++}BINARY design/2026-10-13/global-font-v1/ui-subset.woff SHA256=062d1166fe21083515c4b43ff19a3958965861f2d320906e5b8d4625dd893eb1

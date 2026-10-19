@@ -1,0 +1,20 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});let seq=0;const rows=[];
+const shell='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';
+function call(tool,args){const file=path.join(out,'command-'+(++seq)+'.json');fs.writeFileSync(file,JSON.stringify({tool,project:path.resolve(__dirname,'..'),args}));const raw=cp.execFileSync(shell,['-NoProfile','-File',path.join(__dirname,'wechat-mcp-command.ps1'),'-InputFile',file],{encoding:'utf8',timeout:45000});const result=JSON.parse(raw.slice(raw.indexOf('{')));assert.ok(result.ok&&result.result.success,JSON.stringify(result));return result.result;}
+function evaluate(fn,...args){const file=path.join(out,'args-'+seq+'.json');fs.writeFileSync(file,JSON.stringify(args));return call('automation_evaluate',{'fn-source':('function () { return ('+fn.toString()+').apply(null, arguments); }').replace(/\r?\n/g,' '),'args-file':file}).result.result;}
+function inspect(){return evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.venueArt');if(!c){resolve({route:p.route,artMode:p.data.artMode,markers:p.data.markers});return;}const q=c.createSelectorQuery();q.select('.venueImage').boundingClientRect();q.selectAll('.geoMarker').boundingClientRect();q.selectAll('.geoLabel').boundingClientRect();q.exec(r=>resolve({route:p.route,artMode:p.data.artMode,scale:c.data.scaleValue,image:r[0],sprites:r[1],labels:r[2],points:c.data.overlayPoints,fitWidth:c.data.fitWidth,fitHeight:c.data.fitHeight,markers:p.data.markers,camera:c._camera}));}));}
+function aligned(s){assert.ok(s.image,'rendered art');assert.ok(Math.abs(s.image.width/s.image.height-1)<1e-4);assert.equal(s.points.length,s.sprites.length);for(let i=0;i<s.points.length;i++){const p=s.points[i],b=s.sprites[i],x=s.image.left+p.x/s.fitWidth*s.image.width,y=s.image.top+p.y/s.fitHeight*s.image.height;assert.ok(Math.abs(b.left+b.width*p.anchorX-x)<2,p.tone+' horizontal tip');assert.ok(Math.abs(b.top+b.height*p.anchorY-y)<2,p.tone+' vertical tip');assert.ok(Math.abs(b.width-48)<1&&Math.abs(b.height-48)<1,'stable sprite size');}}
+function record(name){call('simulator_screenshot',{path:path.join(out,name+'.png'),optimize:'false'});const s=inspect();if(s.artMode)aligned(s);rows.push({name,...s});fs.writeFileSync(path.join(out,'verification.json'),JSON.stringify(rows,null,2));console.log('VERIFIED '+name);return s;}
+try{
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});inspect();record('mouse');
+ call('automation_element_action',{selector:'.zoomInButton',action:'tap'});record('zoom-in');
+ evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.venueArt');c.onTouchStart({touches:[{clientX:180,clientY:350}]});c.onTouchMove({touches:[{clientX:240,clientY:350}]});c.onTouchEnd({touches:[]});});record('runtime-pan');
+ for(let i=0;i<4;i++)call('automation_element_action',{selector:'.zoomOutButton',action:'tap'});const whole=record('whole-map');assert.ok(whole.scale<1);assert.ok(whole.points.some(p=>p.tone==='self'));assert.ok(whole.points.some(p=>p.tone==='ally'));assert.ok(whole.points.some(p=>p.tone==='venue'));
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=cat'});inspect();record('cat');
+ evaluate(()=>getCurrentPages().slice(-1)[0].toggleMapMode());record('native-map');
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=offline'});inspect();const offline=record('offline');assert.equal(offline.points.length,0);assert.equal(offline.markers.length,0);
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});
+ console.log('PASS '+rows.length+' screenshots. Native taps; runtime callback pan; no phone gesture claim.');
+}catch(e){fs.writeFileSync(path.join(out,'failure.txt'),e.stack);console.error(e);process.exitCode=1;}

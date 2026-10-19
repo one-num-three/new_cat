@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>猫鼠行动 · 晴日 16-bit · 15 页复刻</title>
+<link rel="stylesheet" href="replica.css">
+</head>
+<body>
+<aside class="workbench" aria-label="复刻预览控制">
+  <a class="brand" href="#01-home">猫鼠行动<span>晴日公园 · 16-bit 像素</span></a>
+  <p class="quiet">完整 15 页 / 状态复刻</p>
+  <nav id="pages" aria-label="页面状态"></nav>
+  <div class="view-controls"><label for="mode">查看方式</label><select id="mode"><option value="replica">HTML 复刻</option><option value="compare">原稿 / 复刻对照</option><option value="overlay">叠加对照</option></select><label id="opacityLabel" hidden>原稿透明度 <input id="opacity" type="range" min="0" max="100" value="50"></label></div>
+  <p class="scope">仅界面复刻。地图为原稿示意，地图工程由独立会话处理。固定示例数据，不连接服务端。</p>
+</aside>
+<main class="workspace">
+  <header class="page-caption"><div><span id="pageNumber">01 / 15</span><h1 id="pageTitle">首页与加入</h1></div><div class="paging"><button id="prev" aria-label="上一页">←</button><button id="next" aria-label="下一页">→</button></div></header>
+  <section class="canvases" aria-label="页面预览">
+    <figure class="reference-figure"><figcaption>选定原稿 · 内容区</figcaption><div id="referenceShell" class="screen-shell"><div id="reference"></div></div></figure>
+    <figure class="replica-figure"><figcaption>HTML 复刻 · 实际控件</figcaption><div id="replicaShell" class="screen-shell"><div id="app" role="region" aria-label="小程序界面"></div><div id="overlay" aria-hidden="true"></div></div></figure>
+  </section>
+  <p class="caption-note">插画复用选定原稿；手机外框与系统状态栏不属于本次界面实现。</p>
+</main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="replica.js"></script>
+</body></html>

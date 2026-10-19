@@ -1,0 +1,363 @@
+{
+  "rules": {
+    "name": "skill-economy-draft-v1",
+    "status": "design-candidate-not-enabled",
+    "chasingSeconds": 360,
+    "startCredits": 20,
+    "creditEverySeconds": 30,
+    "creditPerTick": 5,
+    "activationCap": 3,
+    "cooldownAfterEffectSeconds": 45,
+    "incrementalTierPrices": [
+      10,
+      15,
+      20
+    ],
+    "tierTotalPrices": [
+      10,
+      25,
+      45
+    ],
+    "catBaselineClueRangeM": 120,
+    "eagleRangeM": [
+      180,
+      240,
+      300
+    ],
+    "eagleDurationSeconds": 15,
+    "invisibleDurationSeconds": [
+      15,
+      25,
+      35
+    ],
+    "goldenCandidateDurationSeconds": [
+      10,
+      16,
+      20
+    ],
+    "goldenCandidateStartupSeconds": 3,
+    "goldenEnabled": false
+  },
+  "assumptions": [
+    "8 people, 2 cats, 6 mice; 200m-radius candidate venue; baseline match lasts 6 chasing minutes",
+    "Participant remains uncaptured through the model horizon; no income at deadline; hiding/paused time excluded",
+    "No capture bonus, income transfers, objective rewards or currency carried to next match",
+    "Three activations maximum, cooldown begins after each effect; tier prices incremental 10/15/20, prepaid totals 10/25/45",
+    "Normal clue refreshes modelled at match-relative 30,60,...330 seconds; actual current server uses wall-clock buckets and would need changing",
+    "Only deterministic affordability, bounds and toy schedules; no runner speed, routes, GPS, network, cooperation, reaction time or human data",
+    "No win-rate inference; skill rules not installed in current service"
+  ],
+  "incomeTimeline": [
+    {
+      "chasingSecond": 0,
+      "cumulativeCredits": 20
+    },
+    {
+      "chasingSecond": 30,
+      "cumulativeCredits": 25
+    },
+    {
+      "chasingSecond": 60,
+      "cumulativeCredits": 30
+    },
+    {
+      "chasingSecond": 90,
+      "cumulativeCredits": 35
+    },
+    {
+      "chasingSecond": 120,
+      "cumulativeCredits": 40
+    },
+    {
+      "chasingSecond": 150,
+      "cumulativeCredits": 45
+    },
+    {
+      "chasingSecond": 180,
+      "cumulativeCredits": 50
+    },
+    {
+      "chasingSecond": 210,
+      "cumulativeCredits": 55
+    },
+    {
+      "chasingSecond": 240,
+      "cumulativeCredits": 60
+    },
+    {
+      "chasingSecond": 270,
+      "cumulativeCredits": 65
+    },
+    {
+      "chasingSecond": 300,
+      "cumulativeCredits": 70
+    },
+    {
+      "chasingSecond": 330,
+      "cumulativeCredits": 75
+    }
+  ],
+  "earliestSingleActivationTier": [
+    {
+      "tier": 1,
+      "totalPrice": 10,
+      "earliestSecond": 0
+    },
+    {
+      "tier": 2,
+      "totalPrice": 25,
+      "earliestSecond": 30
+    },
+    {
+      "tier": 3,
+      "totalPrice": 45,
+      "earliestSecond": 150
+    }
+  ],
+  "legacyCounterexamples": {
+    "goldenTwoPurchasesSeconds": 360,
+    "chasingSeconds": 360,
+    "legacyEagleThreeStackRadiusFactor": 3.375,
+    "legacyEagleThreeStackAreaFactor": 11.390625
+  },
+  "candidateEagleAreaFactors": [
+    2.25,
+    4,
+    6.25
+  ],
+  "fullSurvivalCredits": 75,
+  "affordableTierCompositions": [
+    {
+      "tiers": [
+        1
+      ],
+      "cost": 10,
+      "untruncatedInvisibleSeconds": 15
+    },
+    {
+      "tiers": [
+        1,
+        1
+      ],
+      "cost": 20,
+      "untruncatedInvisibleSeconds": 30
+    },
+    {
+      "tiers": [
+        1,
+        1,
+        1
+      ],
+      "cost": 30,
+      "untruncatedInvisibleSeconds": 45
+    },
+    {
+      "tiers": [
+        1,
+        1,
+        2
+      ],
+      "cost": 45,
+      "untruncatedInvisibleSeconds": 55
+    },
+    {
+      "tiers": [
+        1,
+        1,
+        3
+      ],
+      "cost": 65,
+      "untruncatedInvisibleSeconds": 65
+    },
+    {
+      "tiers": [
+        1,
+        2
+      ],
+      "cost": 35,
+      "untruncatedInvisibleSeconds": 40
+    },
+    {
+      "tiers": [
+        1,
+        2,
+        1
+      ],
+      "cost": 45,
+      "untruncatedInvisibleSeconds": 55
+    },
+    {
+      "tiers": [
+        1,
+        2,
+        2
+      ],
+      "cost": 60,
+      "untruncatedInvisibleSeconds": 65
+    },
+    {
+      "tiers": [
+        1,
+        3
+      ],
+      "cost": 55,
+      "untruncatedInvisibleSeconds": 50
+    },
+    {
+      "tiers": [
+        1,
+        3,
+        1
+      ],
+      "cost": 65,
+      "untruncatedInvisibleSeconds": 65
+    },
+    {
+      "tiers": [
+        2
+      ],
+      "cost": 25,
+      "untruncatedInvisibleSeconds": 25
+    },
+    {
+      "tiers": [
+        2,
+        1
+      ],
+      "cost": 35,
+      "untruncatedInvisibleSeconds": 40
+    },
+    {
+      "tiers": [
+        2,
+        1,
+        1
+      ],
+      "cost": 45,
+      "untruncatedInvisibleSeconds": 55
+    },
+    {
+      "tiers": [
+        2,
+        1,
+        2
+      ],
+      "cost": 60,
+      "untruncatedInvisibleSeconds": 65
+    },
+    {
+      "tiers": [
+        2,
+        2
+      ],
+      "cost": 50,
+      "untruncatedInvisibleSeconds": 50
+    },
+    {
+      "tiers": [
+        2,
+        2,
+        1
+      ],
+      "cost": 60,
+      "untruncatedInvisibleSeconds": 65
+    },
+    {
+      "tiers": [
+        2,
+        2,
+        2
+      ],
+      "cost": 75,
+      "untruncatedInvisibleSeconds": 75
+    },
+    {
+      "tiers": [
+        2,
+        3
+      ],
+      "cost": 70,
+      "untruncatedInvisibleSeconds": 60
+    },
+    {
+      "tiers": [
+        3
+      ],
+      "cost": 45,
+      "untruncatedInvisibleSeconds": 35
+    },
+    {
+      "tiers": [
+        3,
+        1
+      ],
+      "cost": 55,
+      "untruncatedInvisibleSeconds": 50
+    },
+    {
+      "tiers": [
+        3,
+        1,
+        1
+      ],
+      "cost": 65,
+      "untruncatedInvisibleSeconds": 65
+    },
+    {
+      "tiers": [
+        3,
+        2
+      ],
+      "cost": 70,
+      "untruncatedInvisibleSeconds": 60
+    }
+  ],
+  "hiddenTimeSchedule": {
+    "score": 75,
+    "buys": [
+      {
+        "at": 195,
+        "tier": 2,
+        "cost": 25,
+        "effectSeconds": 25
+      },
+      {
+        "at": 265,
+        "tier": 2,
+        "cost": 25,
+        "effectSeconds": 25
+      },
+      {
+        "at": 335,
+        "tier": 2,
+        "cost": 25,
+        "effectSeconds": 25
+      }
+    ]
+  },
+  "normalClueSuppressionSchedule": {
+    "score": 4,
+    "buys": [
+      {
+        "at": 179,
+        "tier": 1,
+        "cost": 10,
+        "effectSeconds": 15
+      },
+      {
+        "at": 239,
+        "tier": 1,
+        "cost": 10,
+        "effectSeconds": 15
+      },
+      {
+        "at": 299,
+        "tier": 3,
+        "cost": 45,
+        "effectSeconds": 35
+      }
+    ]
+  },
+  "mouseHiddenTimeUpperBoundFromBudget": 75,
+  "eagleDisplayTimeUpperBoundSeconds": 45
+}

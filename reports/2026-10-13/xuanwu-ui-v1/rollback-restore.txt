@@ -1,0 +1,44 @@
+COMMAND={"command":"D:/Program Files/Git/bin/bash.exe","args":["-c","./ROLLBACK.sh \"$1\"","--","D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture"],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1","env":{}}
+STDOUT:
+BASELINE_SHA_VALIDATED=33/33
+CURRENT_BYTES_BACKED_UP=33/33
+ROLLBACK_RESTORED=33/33
+HASH app.json 854ee5e0d5351291c032da1a30161b97e29e6dc5aed2c8b29e3021ccde181b3b
+HASH project.config.json 911cb4f9b29b96595a7fe5a0ae7511cbf688683089428315e3b762f2c66e3cf8
+HASH pages/map/map.js f1f6b5901e7e8aaaec4e2b2eb3b84c1dd9a1ee086ecfefcd9338173064f1a3e7
+HASH pages/map/map.wxml 7c7a216239979adbf3d8b7a30eb45f482e4a54ed8d92eb2bfa03dc0817253ec3
+HASH pages/map/map.wxss d220eb6840b5b25c5674bcf8d6e4b5d65b04247ca00b332d3e733fabeb371472
+HASH pages/map/map.json 21eaf45e606422297d6b6f9cdb4b3ccc691b8980228634a5a50d2724dd3460c1
+HASH pages/dev/dev.js 9584c1a90e8fac6f2b4a16d626164dc5b627cfa14c223f666bac6b5ddb4fcec2
+HASH pages/dev/dev.wxml 2ce8d313f4007362aa8439e7c0f82214204a7790bdc86bf91e797aee2e9790fc
+HASH pages/dev/dev.wxss 784335e2ec38c12f310d2cc00a7ef0af9b23ebe3183f22d041928a500691829b
+HASH pages/index/index.js bc8bfd688eb9f9b6534038c3d59f9b5cf32f0d2289e24b90380ef370ce621e6c
+HASH pages/index/index.wxml e46f588bfaa64ef54f2c2b18740338130cf2749875c576b734d89a39d3983f45
+HASH pages/index/index.wxss ef1e16177843179f7cba767a1c492ea736b5abe19f7c8158f572a4662460d9d4
+HASH utils/presentation.js 74da87bceec6aeb370d1e67f3aae044563051d9857e6709aa3c06a0ed1f9a46a
+HASH cat-mouse-server/v2/presentation.test.js a7c2eeffdc7067787ff8e2288c117a05b884f59ab363e7b3bf80ce7a1e7f81f3
+HASH cat-mouse-server/v2/dev-preview.test.js 19f2c60937804f1ac106e2caac7df5c41929da9a9e300cec5a990ec69837e086
+HASH scripts/package-release.ps1 eced0e93f850122c8b855c8e070c089f1bf840b8ee6506993c84010397e9b8c3
+HASH README.md 115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346
+HASH RELEASE.md 94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c
+HASH ART_LOCK.md 7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7
+HASH DESIGN_BASELINE.md b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5
+HASH WORK_LOG.md 45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217
+HASH components/nav-bar/nav-bar.js d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a
+HASH components/nav-bar/nav-bar.json db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b
+HASH components/nav-bar/nav-bar.wxml 69c0affca93596c71a284c0246bf3642d9add9eb54bd8cbe93b4f17a18f4ed8b
+HASH components/nav-bar/nav-bar.wxss e71c879dca5d17671816b9a6251f17231d043f780bc9865208d65aba57885bcd
+HASH pages/room/room.js 4d3b7f3ab937e295b9a00cd48838ec10770b2366027799b24f20730b26f62e3c
+HASH pages/room/room.json 50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619
+HASH pages/qrcode/qrcode.js 0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192
+HASH pages/qrcode/qrcode.json 9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197
+HASH pages/qrcode/qrcode.wxml 00fbd059cd9f63e103faab8a89c9d39d7500f2fb7dd4b8a942e5f1328a3cbcc8
+HASH pages/qrcode/qrcode.wxss 2c0ed0d640ea97a167a270c6548d10262ba8a797b0761909ac7cf42ea8ecdae3
+HASH pages/room/room.wxml 8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6
+HASH pages/room/room.wxss 33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90
+TARGET=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\rollback-fixture
+LIVE_WRITES=0
+
+STDERR:
+
+EXIT_STATUS=0

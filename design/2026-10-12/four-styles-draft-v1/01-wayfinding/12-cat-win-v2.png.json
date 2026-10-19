@@ -1,0 +1,7 @@
+{
+  "id": "01-wayfinding/12-cat-win",
+  "status": "revised",
+  "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a12dee-5ebe-77e0-a71e-48dee3c92e34\\exec-270a7abc-71ad-4ede-8039-6672fee9cb16.png",
+  "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/12-cat-win-v2.png",
+  "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只修正对局状态下方白底队伍行。左边改为“猫队 2人”，右边改为“鼠队 6人”，去掉该行错误的4/4和0/6。上方黄色捕获目标“4/4”正确，必须保留。其余不变。"
+}

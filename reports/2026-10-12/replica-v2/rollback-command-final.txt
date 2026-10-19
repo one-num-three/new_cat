@@ -1,0 +1,1 @@
+ROLLBACK_RESTORED=42/42 home=replica-v1 map=scaleToFill currentPreserved=42 deleted=0 liveWritten=0

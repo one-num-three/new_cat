@@ -1,0 +1,658 @@
+[
+  {
+    "id": "B1-0",
+    "group": "B1",
+    "way": "776728676",
+    "wgs84": [
+      118.7880209,
+      32.0751575
+    ],
+    "pixel": [
+      612,
+      455
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B1-1",
+    "group": "B1",
+    "way": "776728676",
+    "wgs84": [
+      118.7875138,
+      32.0754181
+    ],
+    "pixel": [
+      553,
+      416
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B2-0",
+    "group": "B2",
+    "way": "776728674",
+    "wgs84": [
+      118.7899972,
+      32.0746671
+    ],
+    "pixel": [
+      884,
+      515
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B2-1",
+    "group": "B2",
+    "way": "776728674",
+    "wgs84": [
+      118.7899193,
+      32.0745196
+    ],
+    "pixel": [
+      851,
+      558
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B3-0",
+    "group": "B3",
+    "way": "776728672",
+    "wgs84": [
+      118.789807,
+      32.0730782
+    ],
+    "pixel": [
+      834,
+      765
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B3-1",
+    "group": "B3",
+    "way": "776728672",
+    "wgs84": [
+      118.7900203,
+      32.0729745
+    ],
+    "pixel": [
+      881,
+      795
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-0",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7881679,
+      32.0728095
+    ],
+    "pixel": [
+      636,
+      808
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-1",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7881549,
+      32.0727864
+    ],
+    "pixel": [
+      633,
+      814
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-2",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7880538,
+      32.0726826
+    ],
+    "pixel": [
+      620,
+      831
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-3",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7881111,
+      32.0726493
+    ],
+    "pixel": [
+      629,
+      836
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-4",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7879787,
+      32.0724735
+    ],
+    "pixel": [
+      613,
+      859
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-5",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7880342,
+      32.0724424
+    ],
+    "pixel": [
+      621,
+      864
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "B4-6",
+    "group": "B4",
+    "way": "1226671818",
+    "wgs84": [
+      118.7879537,
+      32.0723364
+    ],
+    "pixel": [
+      602,
+      887
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 5
+  },
+  {
+    "id": "C0",
+    "group": "C",
+    "way": "1050092971",
+    "wgs84": [
+      118.7883263,
+      32.074908449999995
+    ],
+    "pixel": [
+      658,
+      479
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 5,6; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C1",
+    "group": "C",
+    "way": "1050092971",
+    "wgs84": [
+      118.78858775,
+      32.075174700000005
+    ],
+    "pixel": [
+      687,
+      453
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 1,11; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C2",
+    "group": "C",
+    "way": "1050092971",
+    "wgs84": [
+      118.7897148,
+      32.0744749
+    ],
+    "pixel": [
+      835,
+      559
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 0,12; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C3",
+    "group": "C",
+    "way": "1050092972",
+    "wgs84": [
+      118.78966295000001,
+      32.07439515
+    ],
+    "pixel": [
+      830,
+      574
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 2,18; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C4",
+    "group": "C",
+    "way": "1050092972",
+    "wgs84": [
+      118.78982685,
+      32.0743186
+    ],
+    "pixel": [
+      846,
+      588
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 3,16; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C5",
+    "group": "C",
+    "way": "1050092972",
+    "wgs84": [
+      118.7897531,
+      32.0742053
+    ],
+    "pixel": [
+      840,
+      601
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 4,15; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C6",
+    "group": "C",
+    "way": "1050092972",
+    "wgs84": [
+      118.78992485,
+      32.0741251
+    ],
+    "pixel": [
+      856,
+      613
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 5,14; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "C7",
+    "group": "C",
+    "way": "1050092972",
+    "wgs84": [
+      118.7895372,
+      32.0735361
+    ],
+    "pixel": [
+      816,
+      692
+    ],
+    "kind": "control",
+    "method": "manual roof-axis; OSM opposing-edge midpoint indices 9,10; not surveyed centerline",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H-N",
+    "group": "H",
+    "way": "776728681",
+    "wgs84": [
+      118.7882393,
+      32.0771269
+    ],
+    "pixel": [
+      646,
+      166
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H-W",
+    "group": "H",
+    "way": "776728680",
+    "wgs84": [
+      118.7851393,
+      32.0730994
+    ],
+    "pixel": [
+      246,
+      761
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H-E",
+    "group": "H",
+    "way": "776728669",
+    "wgs84": [
+      118.7909708,
+      32.0720884
+    ],
+    "pixel": [
+      984,
+      917
+    ],
+    "kind": "control",
+    "method": "manually matched visible bridge deck / shore junction",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H01",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.788414,
+      32.0771177
+    ],
+    "pixel": [
+      665,
+      179
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H02",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7905965,
+      32.0750447
+    ],
+    "pixel": [
+      946,
+      470
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H03",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7902329,
+      32.0745884
+    ],
+    "pixel": [
+      911,
+      542
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H05",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7863636,
+      32.0733682
+    ],
+    "pixel": [
+      410,
+      687
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H06",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7886086,
+      32.0720022
+    ],
+    "pixel": [
+      687,
+      925
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H07",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7890057,
+      32.0718577
+    ],
+    "pixel": [
+      752,
+      952
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H08",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7907918,
+      32.0727766
+    ],
+    "pixel": [
+      949,
+      842
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H09",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7910699,
+      32.0719696
+    ],
+    "pixel": [
+      1000,
+      939
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H10",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7895358,
+      32.0708368
+    ],
+    "pixel": [
+      808,
+      1097
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H11",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7891843,
+      32.0707375
+    ],
+    "pixel": [
+      761,
+      1117
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H12",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7850039,
+      32.07289
+    ],
+    "pixel": [
+      225,
+      796
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "H13",
+    "group": "H",
+    "way": "776728664",
+    "wgs84": [
+      118.7847577,
+      32.0731623
+    ],
+    "pixel": [
+      207,
+      751
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "Y01",
+    "group": "Y",
+    "way": "776728670",
+    "wgs84": [
+      118.7882777,
+      32.0754904
+    ],
+    "pixel": [
+      651,
+      405
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "Y02",
+    "group": "Y",
+    "way": "776728670",
+    "wgs84": [
+      118.7868782,
+      32.073472
+    ],
+    "pixel": [
+      475,
+      706
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "Y03",
+    "group": "Y",
+    "way": "776728670",
+    "wgs84": [
+      118.7889809,
+      32.0722655
+    ],
+    "pixel": [
+      742,
+      893
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "Y04",
+    "group": "Y",
+    "way": "776728670",
+    "wgs84": [
+      118.7903066,
+      32.0742508
+    ],
+    "pixel": [
+      910,
+      598
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  },
+  {
+    "id": "Y05",
+    "group": "Y",
+    "way": "776728670",
+    "wgs84": [
+      118.7902759,
+      32.0739218
+    ],
+    "pixel": [
+      895,
+      663
+    ],
+    "kind": "control",
+    "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+    "pixelUncertainty": 8
+  }
+]

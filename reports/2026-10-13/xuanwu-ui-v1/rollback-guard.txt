@@ -1,0 +1,7 @@
+COMMAND={"command":"D:/Program Files/Git/bin/bash.exe","args":["-c","./ROLLBACK.sh \"$1\"","--","D:\\cat-mouse-miniprogram"],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1","env":{}}
+STDOUT:
+
+STDERR:
+ROLLBACK_GUARD target must be this report rollback-fixture
+
+EXIT_STATUS=1

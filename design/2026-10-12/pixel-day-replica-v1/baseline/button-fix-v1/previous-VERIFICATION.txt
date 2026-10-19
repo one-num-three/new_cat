@@ -1,0 +1,38 @@
+CHANGED: standalone gallery -> 15-state HTML replica; PAGES/renderers and pauseReturn preserve mouse state on resume.
+Original gallery SHA256: D744785ADF7E16AA65C4EB403482AD1CAE61D1C381D1DBE8EB7E514F58DE9883
+Modified index.html SHA256: CF77BCD05F8800D3B70ADC6CCA9D6EA7FDB30242F3ADE07D595FE84B2FF82A50
+MODIFIED_FILE: D:\cat-mouse-miniprogram\design\2026-10-12\pixel-day-replica-v1\index.html
+DIFF_FILE: D:\cat-mouse-miniprogram\design\2026-10-12\pixel-day-replica-v1\DIFF_FILE.diff
+VERIFICATION: D:\cat-mouse-miniprogram\design\2026-10-12\pixel-day-replica-v1\VERIFICATION.txt
+ROLLBACK: D:\cat-mouse-miniprogram\design\2026-10-12\pixel-day-replica-v1\ROLLBACK.sh
+
+Working directory: D:\cat-mouse-miniprogram
+BASELINE exact command: node design/2026-10-12/pixel-day-replica-v1/verify.cjs baseline
+Input: preserved baseline/index.html, original gallery, 15 assets, baseline/product-hashes.json
+Literal output: BASELINE PASS: gallery hash preserved; 15 source copies exact; product files unchanged
+Exit status: 0
+
+MODIFIED exact command: node design/2026-10-12/pixel-day-replica-v1/verify.cjs modified
+Input: index.html, replica.js/css, 15-state browser geometry, 17 interactions, 30 narrow-layout records
+Literal output: MODIFIED PASS: 15 states; 17 interaction checks; 30 narrow-layout checks; 0 bounds overflows; product files unchanged
+Exit status: 0
+
+ROLLBACK exact command (PowerShell): & 'D:\Program Files\Git\bin\bash.exe' -c 'chmod +x /d/cat-mouse-miniprogram/design/2026-10-12/pixel-day-replica-v1/ROLLBACK.sh && /d/cat-mouse-miniprogram/design/2026-10-12/pixel-day-replica-v1/ROLLBACK.sh --test-copy'
+Input: evidence/rollback-test.html initially copied from modified index.html; baseline/index.html
+Literal output: ROLLBACK PASS: test copy restored byte-for-byte to baseline gallery; active replica remains changed
+Exit status: 0
+Independent recheck command: node design/2026-10-12/pixel-day-replica-v1/verify.cjs rollback
+Independent recheck exit status: 0
+Restored status: test HTML byte-for-byte equals baseline gallery; original gallery resources stay in original directory; active index.html remains modified. This is byte restoration, not a standalone copied-gallery runtime test.
+
+Browser tests: IAB http://127.0.0.1:8767 ; 15 screenshots, 0 child bounds overflows.
+17 interaction results in evidence/interactions.json. Mouse pause/resume ends at 05-mouse.
+Narrow viewport requests 390 and 320 produced actual CSS widths 582 and 477 (browser scale); no horizontal overflow in all 30 records. No claim of physical-device testing.
+Console errors: [] at final check.
+Raster artwork and decorative title banners reused from selected originals; forms/buttons/HUD/roster/body text implemented as DOM.
+Font shapes and some panel edges still differ slightly. Fixed sample states; timers/camera/geolocation/backend not integrated.
+Map remains a reference illustration; separate map thread: 01a12f80-df93-76a1-9277-e7382c601324.
+No existing miniprogram product files changed.
+
+Test iteration: first modified verifier counted 16 because its regex also matched pauseReturn. Limited count to the PAGES declaration and reran successfully.
+Git Bash initially failed sandbox startup with exit 1; same bounded test script reran with approved escalation and exit 0.

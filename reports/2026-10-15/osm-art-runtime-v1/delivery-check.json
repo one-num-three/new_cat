@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-15",
+  "tests": {
+    "pass": 115,
+    "fail": 0,
+    "log": "tests-final.log"
+  },
+  "build": {
+    "wxml": 11,
+    "wxss": 15,
+    "exit": 0
+  },
+  "font": {
+    "glyphs": 593,
+    "bytes": 23684
+  },
+  "ui": {
+    "screenshots": 11,
+    "staticLayouts": 6,
+    "finalInteractions": 5,
+    "finalRunPass": true,
+    "notes": "First run array-injection failure retained; final interactions passed. Not field/mobile hardware acceptance."
+  },
+  "export": {
+    "files": 140,
+    "rawBytes": 1963447,
+    "gateBytes": 2097152,
+    "scope": "Local raw-byte gate, no upload validation"
+  },
+  "sourceArtworkSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+  "handoffFilesUnchanged": 33,
+  "fieldVerified": false,
+  "rollback": {
+    "fixtureExit": 0,
+    "fixtureDisabled": true,
+    "liveEnabled": true,
+    "scope": "Disable OSM fallback only; preserve existing room/native maps and lifecycle fixes"
+  },
+  "newFiles": [
+    "utils/osm-art-model.js",
+    "utils/osm-art-registration.js",
+    "utils/vendor/coordtransform.js",
+    "utils/vendor/coordtransform.LICENSE",
+    "utils/vendor/coordtransform.source.json",
+    "scripts/sync-osm-art.cjs",
+    "scripts/osm-art-review.cjs",
+    "cat-mouse-server/v2/osm-art-registration.test.js"
+  ],
+  "baselineNotes": "13 files; venue-ui.test initial state reconstructed by reversing2 known early substitutions; WOFF recovered/hash-verified from saved embedded font"
+}

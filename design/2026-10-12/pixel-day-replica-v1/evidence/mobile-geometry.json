@@ -1,0 +1,152 @@
+[
+  {
+    "page": "01-home",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "02-create",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "03-ready",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "04-cat",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "05-mouse",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "06-alert",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "07-hiding",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "08-code",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "09-captured",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "10-paused",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "11-offline",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "12-cat-win",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "13-mouse-win",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "14-cancelled",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "15-details",
+    "scroll": 582,
+    "viewport": 582
+  },
+  {
+    "page": "01-home",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "02-create",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "03-ready",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "04-cat",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "05-mouse",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "06-alert",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "07-hiding",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "08-code",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "09-captured",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "10-paused",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "11-offline",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "12-cat-win",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "13-mouse-win",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "14-cancelled",
+    "scroll": 477,
+    "viewport": 477
+  },
+  {
+    "page": "15-details",
+    "scroll": 477,
+    "viewport": 477
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "date": "2026-10-18",
+  "remaining_object_count": 3945,
+  "remaining_building_component_count": 331,
+  "remaining_status_counts": {
+    "existing": 302,
+    "under_construction": 29
+  },
+  "lanyuan_existing_components": 11,
+  "deleted_objects": 216,
+  "preserved_object_geometry_transform_material_metadata_signatures": "3945 of3945 match original exactly",
+  "texture_sha256": {
+    "landcover_schematic.png": "61bda6a8d45eeac764395f88d2509d799fe4d32d88c7a7d9b74861b0e8056b29",
+    "seu-jiulonghu-official-masterplan-2025.jpg": "c0fb900bfe957c73a2b67d26ead4bf372307d37a0c871e0b6bc229afe2d4e604"
+  },
+  "packed_images": [
+    "landcover_schematic.png",
+    "seu-jiulonghu-official-masterplan-2025.jpg"
+  ],
+  "all_texture_paths_relative": true,
+  "original_blend_sha256": "62cfda9a5013e77d11e5e6d6ae4d4a6fa511afa54dc149b3ed645d734dc6d8e0",
+  "filtered_blend_sha256": "85c484e8e999ec8c243f5976d7ec3e9c68310e25920d25d4586d0380ed9a1497",
+  "note": "Only planned3D roots and child roofs removed. Ground and reference textures unchanged;2D planned outlines may remain."
+}

@@ -1,0 +1,1 @@
+ROLLBACK_FINAL_CURRENT_REFRESH managed=42 baselineValid=42 liveSame=42 fixtureSame=42 differentFromBaseline=26

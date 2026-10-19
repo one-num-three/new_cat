@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "proof": [
+    {
+      "path": "DIFF_FILE",
+      "sha256": "e49464ad0b662c6e8db796c427502bba547f3414626fcd7a91b7e6cc3cc60df3",
+      "bytes": 80779
+    },
+    {
+      "path": "VERIFICATION.txt",
+      "sha256": "835b0bd2979ebd866ce38fb4df17af6853b1a0cea665e953eb15be99562f9f57",
+      "bytes": 8361
+    },
+    {
+      "path": "ROLLBACK.sh",
+      "sha256": "7789a537ec809bccf33205d156a377cfb4c7f17f00f23d8ac0aef54237598770",
+      "bytes": 130
+    },
+    {
+      "path": "README.md",
+      "sha256": "4612ba61a428ed2521b53916c9cbfde0fb47fcdb78377e34e106167a5c25ea50",
+      "bytes": 562
+    },
+    {
+      "path": "visual/compare.html",
+      "sha256": "275ee26891f08de19cd97e65ee12ef0ae7f65144603c87403640781254c52e25",
+      "bytes": 9106
+    },
+    {
+      "path": "visual/AUDIT.md",
+      "sha256": "ee7caa3b300c0bb2e150871472004259aa3529a4cdd9a082150a970a2956fb66",
+      "bytes": 729
+    },
+    {
+      "path": "interaction-summary.json",
+      "sha256": "3e7b6a2038af29bb441a99f34e56fda5504369606b07ac311b94e178194cd7a9",
+      "bytes": 1012
+    }
+  ],
+  "baselineRestored": 22,
+  "liveChanges": 19,
+  "packageFiles": 120,
+  "packageBytes": 2088251,
+  "screenshots": 51,
+  "mergedInteractionAssertions": 24,
+  "cleanupDeleted": 248,
+  "cleanupRemaining": 972
+}

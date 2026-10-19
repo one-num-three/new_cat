@@ -1,0 +1,30 @@
+<view class="screen roomScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--vw:{{viewportWidth}}px">
+  <nav-bar title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
+  <image class="roomHero {{roomId?'readyHero':'createHero'}}" src="{{roomId?'/assets/pixel-v1/ready-hero.png':'/assets/pixel-v1/create-hero.png'}}" mode="widthFix" aria-label="{{roomId?'房间准备，猫鼠伙伴在公园集合':'组织一场追逐'}}" />
+  <view wx:if="{{!roomId}}" class="createContent">
+    <view class="paperFrame totalCard">
+      <text class="sectionLabel">本局人数</text>
+      <picker class="totalPicker" range="{{totals}}" value="{{totals[0]===2?(total===2?0:total-5):total-6}}" bindchange="selectTotal" aria-label="选择本局人数">
+        <view class="countControl paperFrame"><text class="countValue">{{total}}<text class="countUnit">人</text></text><view class="countAffordance"><text>选择人数</text><view class="pickerArrow"></view></view></view>
+      </picker>
+      <view class="teamSplit"><view class="teamNumber"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text>{{catsCount}}猫</text></view><view class="splitDivider"></view><view class="teamNumber"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" aria-hidden="true" /><text>{{total-catsCount}}鼠</text></view></view>
+    </view>
+    <view class="paperFrame venueCard">
+      <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重新确认位置':'使用当前位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
+      <view class="venueGuide"><image class="venueGuideImage" src="/assets/maps/xuanwu-lake-v4.jpg" mode="aspectFit" aria-label="玄武湖环洲与樱洲场地导览" /><text class="guideCaption">玄武湖 · 场地导览</text><text class="guideFootnote">示意图不代表定位结果</text></view>
+    </view>
+    <view class="paperFrame rulesCard"><text class="sectionLabel">规则摘要</text><view class="rulesGrid"><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">30秒</text><text class="ruleLabel">躲藏时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">6分钟</text><text class="ruleLabel">追逐时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">抓满{{targetCount}}人</text><text class="ruleLabel">猫获胜</text></view></view><view class="rulesNote"><text class="noteMark" aria-hidden="true">!</text><text>倒计时结束未达标时，鼠获胜</text></view></view>
+    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" /></view>
+  </view>
+  <view wx:else class="readyContent">
+    <view class="paperFrame inviteCard"><text class="sectionLabel inviteLabel">房间码</text><view class="codeRow"><text class="roomCode" selectable>{{code || '同步中'}}</text><view class="copyAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-copy.png" label="复制" tone="plain" disabled="{{!code}}" font-scale="{{fontScale}}" bindaction="copy" /></view></view><text class="inviteHint">分享房间码，邀请好友加入</text></view>
+    <view class="paperFrame roomRules"><view class="roomRuleNumbers"><view class="readyTeam"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text><text class="orangeNumber">{{catsCount}}</text>猫 <text class="orangeNumber">{{(rules?rules.total:total)-catsCount}}</text>鼠</text></view><view class="targetNumber"><text>捕获目标</text><text class="orangeNumber">{{targetCount}}人</text></view></view><text class="roomRuleText">30秒躲藏，6分钟追逐；捕获{{targetCount}}人猫胜，
+倒计时结束未达标鼠胜。</text></view>
+    <view class="rosterHeader"><view class="rosterHeading"><text class="sectionLabel">玩家列表（{{roster.length}}/{{rules?rules.total:total}}）</text><text class="readyCount {{canStart?'allReady':''}}">{{canStart?'所有玩家已准备':readyCount+'人已准备'}}</text></view><text class="rosterHint">阵营将在开始后分配</text></view>
+    <view class="rosterGrid"><view wx:for="{{roster}}" wx:key="id" class="paperFrame playerCard"><image class="playerAvatar" src="/assets/pixel-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" /><text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text><text class="readyBadge {{item.ready?'isReady':'notReady'}}">{{item.ready?'已准备':'未准备'}}</text></view></view>
+    <view wx:if="{{!roster.length}}" class="paperFrame emptyRoster">伙伴还未加入，把房间码发给他们吧。</view>
+    <text wx:if="{{!canStart}}" class="readySummary">{{startHint}}</text>
+    <view class="roomActions"><pixel-action class="pixelControl" wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始30秒躲藏':'等待所有人准备'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" /><text wx:else class="ownerHint">{{canStart?'已全部准备，等待房主开始':'准备后，等待房主开始本局'}}</text><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位并准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" /></view>
+  </view>
+  <text wx:if="{{error}}" class="roomError" role="alert">{{error}}</text>
+</view>

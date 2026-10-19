@@ -1,0 +1,127 @@
+[
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/README_中文.md",
+    "bytes": 7909,
+    "sha256": "288fe77e3bab67beeceafdcb7619420b30665a9efc50adb5d839d66c4edf5a83"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/SOURCES_研究与证据.md",
+    "bytes": 8371,
+    "sha256": "9693608cd53d62403f486284e4b79cdaabc23a453456eb1ba3964fa7105c95fd"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/buildings.json",
+    "bytes": 334885,
+    "sha256": "a2d6c6bd405d148770d44cbb2e2785de7606b0937e636884cbefc03f19e083ed"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/east_buildings.json",
+    "bytes": 193496,
+    "sha256": "c20468ebda35eb6b1e35bc3abde971e581962f9f252686c12c9853e5cede4c23"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/landscape.json",
+    "bytes": 394615,
+    "sha256": "ec2061066cddd76c349ce95d60e5c6c25c1df3bb608e4594e11e37102d7979b5"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/north_buildings.json",
+    "bytes": 50863,
+    "sha256": "2c5af8b836dee56db6a94afe75335f8191372dad1499062b60860a81a291ea6a"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/southwest_buildings.json",
+    "bytes": 82316,
+    "sha256": "d700d8aef480098bdab3aac21358cce8c50df3acc238cffd38fdbfa7598761d5"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/trace_east_buildings.py",
+    "bytes": 14409,
+    "sha256": "b43cf074c6481a189e1bd9d57b7749e6da109c102ce7bf4e3c08df06527767d4"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/trace_southwest.py",
+    "bytes": 11218,
+    "sha256": "fab4181a1f343b19596f3c47a4eedcd1b5b0bf27c5abeb9ebf754671a7a6c7eb"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/data/east_trace_notes.md",
+    "bytes": 2101,
+    "sha256": "33e08f9ef8761c2897cdbcd3e67e0157c60398f699a918ae31014a550d0e0608"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/annotate_previews.py",
+    "bytes": 3468,
+    "sha256": "4c8cf96394f4e22a4cb1384ef997a814c94a5e6e263346d095afc19e2094118f"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/apply_lanyuan_status.py",
+    "bytes": 899,
+    "sha256": "c03eb645dcd64f7684e9ec3faad9a3a7a526905a778d78f40fd86853454938e7"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/build_campus.py",
+    "bytes": 13098,
+    "sha256": "bb9ccdc2ce4e55b4a6f23d5785da275848f04631ad6ec39fc086173f88fd6ed3"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/finalize_blend.py",
+    "bytes": 1283,
+    "sha256": "20e4ad8792899344372f9dccdf6ec2aeaefb2c6eecc16db61580f2ba4def071a"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/package_deliverable.py",
+    "bytes": 2239,
+    "sha256": "2cb45580619e3c3a7abc1beb67995ca42ad5e69d58404ae34d245b41c84fa3fa"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/prepare_landscape.py",
+    "bytes": 4041,
+    "sha256": "a1da4719c7e4a584893007c8497dcf2533ad190e19d478128b5205dfab13a0c5"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/qa_footprints.py",
+    "bytes": 2193,
+    "sha256": "02b5f008133c59680fbd53509c9907851741cc8ffd18fb4f38568cc273866bfe"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/trace_north.py",
+    "bytes": 10889,
+    "sha256": "b124ddfc5817785bb191f962e14be073365a264138adad42fce8661f4532e626"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/scripts/verify_scene.py",
+    "bytes": 2712,
+    "sha256": "1b8d2fbaa27a20a1edcd84e4408dbb815d160cdce0dc5db407702a0f4dd2fa74"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/reference/seu-jiulonghu-official-masterplan-2025.jpg",
+    "bytes": 322352,
+    "sha256": "c0fb900bfe957c73a2b67d26ead4bf372307d37a0c871e0b6bc229afe2d4e604"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/reference/landcover_schematic.png",
+    "bytes": 1439769,
+    "sha256": "61bda6a8d45eeac764395f88d2509d799fe4d32d88c7a7d9b74861b0e8056b29"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/output/SEU_Jiulonghu_Campus_v1.blend",
+    "bytes": 15583616,
+    "sha256": "62cfda9a5013e77d11e5e6d6ae4d4a6fa511afa54dc149b3ed645d734dc6d8e0"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/qa/footprint_checks.json",
+    "bytes": 194,
+    "sha256": "a7efbba02a54de7be88694321bb0af27ffd54c17284e715eea2e07fcfc8d694e"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/output/verification.json",
+    "bytes": 553,
+    "sha256": "754d9655e7c5ffab13191a17906e2c356b3676cdb8a5fc52254d350c13647c6e"
+  },
+  {
+    "path": "SEU_Jiulonghu_Campus_v1/MANIFEST_原始完整包历史.json",
+    "bytes": 6217,
+    "sha256": "25b5e477b545aa6ef73cade79008330f5f8347ed35a9371b317a0125dccbc8a3"
+  }
+]

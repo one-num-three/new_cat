@@ -1,0 +1,33 @@
+{
+  "source": "design/maps/seu-campuses-v1",
+  "processing": "Original dimensions; JPEG quality86 4:4:4; no repaint/crop. Registration coefficients retained.",
+  "fieldVerified": false,
+  "entries": [
+    {
+      "id": "seu-jiulonghu-v1",
+      "source": "jiulonghu-art.png",
+      "sourceSha256": "ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e",
+      "modelPath": "design/maps/seu-jiulonghu-registration-v3/jiulonghu-registration.json",
+      "modelSha256": "966129ee78988ca691b9c415716e05866bdefc2c6ca86dbf6e9c613fa837d589",
+      "registrationVersion": "jiulonghu-reference-3",
+      "runtimePath": "venue-maps/assets/jiulonghu-v1.jpg",
+      "runtimeSha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5",
+      "bytes": 981028,
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "id": "seu-sipailou-v1",
+      "source": "sipailou-art.png",
+      "sourceSha256": "27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6",
+      "modelPath": "design/maps/seu-campuses-v1/sipailou-registration.json",
+      "modelSha256": "56a6b624f02bd5ae211e24585ad504d5457ffa37eb9f3bf516eef9349b92c67e",
+      "registrationVersion": "campus-reference-1",
+      "runtimePath": "venue-maps/assets/sipailou-v1.jpg",
+      "runtimeSha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9",
+      "bytes": 999793,
+      "width": 1254,
+      "height": 1254
+    }
+  ]
+}

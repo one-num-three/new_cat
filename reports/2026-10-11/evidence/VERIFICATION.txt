@@ -1,0 +1,21 @@
+OBJECT: cat-mouse-server/package-lock.json; transitive dependency proxy-addr 2.0.7 -> 2.0.8
+MODIFIED_FILE: D:\cat-mouse-miniprogram\cat-mouse-server\package-lock.json
+DIFF_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\package-lock-fix.diff
+VERIFICATION_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\VERIFICATION.txt
+ROLLBACK_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\ROLLBACK.sh
+BASELINE_SHA256: ca2eae4b06308d5194e15348dcb434dcd43a29cda66e33e3cd60a59fcb45f83d
+MODIFIED_SHA256: f71a98d0b4bcc8fafe62d23a0370da1236c8dd1eabb82700e1ba141b6d0aa67f
+
+BASELINE COMMAND: npm test (in D:\cat-mouse-miniprogram\cat-mouse-server, before audit fix)
+BASELINE INPUT: original package-lock.json with proxy-addr 2.0.7
+BASELINE LITERAL RESULT: 14 tests passed; 0 failed
+BASELINE EXIT STATUS: 0
+MODIFIED COMMAND: npm ci --registry=https://registry.npmjs.org; npm test; npm audit --omit=dev --registry=https://registry.npmjs.org
+MODIFIED INPUT: package-lock.json with proxy-addr 2.0.8
+MODIFIED LITERAL RESULT: 14 tests passed; 0 failed; found 0 vulnerabilities
+MODIFIED EXIT STATUS: 0
+ROLLBACK COMMAND: /opt/cat-mouse/rollback-test/ROLLBACK.sh /opt/cat-mouse/rollback-test/modified-copy.json
+ROLLBACK INPUT: disposable copy of modified package-lock.json, never deployed source
+ROLLBACK LITERAL RESULT: ROLLBACK_COPY_VERIFIED; restored SHA256 ca2eae4b06308d5194e15348dcb434dcd43a29cda66e33e3cd60a59fcb45f83d; deployed source SHA256 f71a98d0b4bcc8fafe62d23a0370da1236c8dd1eabb82700e1ba141b6d0aa67f; /ready {"ready":true}
+ROLLBACK EXIT STATUS: 0
+DEPLOYED STATE: modified lockfile remains in release-20261011b; service active; ready HTTP 200

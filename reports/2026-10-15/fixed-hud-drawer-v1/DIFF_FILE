@@ -1,0 +1,912 @@
+--- baseline/.gitignore
++++ current/.gitignore
+@@ -1,18 +1,21 @@
+-# Local/editor files
+-.DS_Store
+-.idea/
+-.vscode/
+-*.log
+-
+-# Node dependencies and local environment
+-node_modules/
+-cat-mouse-server/node_modules/
+-.env
+-.env.*
+-!.env.example
+-
+-# WeChat DevTools local metadata/build output
+-miniprogram_npm/
+-dist/
+-coverage/
+-
++# Local/editor files
++.DS_Store
++.idea/
++.vscode/
++*.log
++
++# Node dependencies and local environment
++node_modules/
++cat-mouse-server/node_modules/
++.env
++.env.*
++!.env.example
++
++# WeChat DevTools local metadata/build output
++miniprogram_npm/
++dist/
++coverage/
++
++
++# Isolated local regression databases (not production data)
++.local-test-tmp/
+--- baseline/ART_LOCK.md
++++ current/ART_LOCK.md
+@@ -1,61 +1,71 @@
+-## 2026-10-13 沉浸地图 v4
+-
+-地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
+-
+-原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
+-
+----
+-
+-## 2026-10-13 后续验证：pixel-native-final-v2
+-
+-素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
+-
+----
+-
+-## 2026-10-13 · 当前运行基线：pixel-day-native-v1
+-
+-本次采用用户交接的 `design/2026-10-12/pixel-day-replica-v1/`（晴日公园 16-bit 像素、15 状态），替代此前 02-01 扁平卡通运行外观。下方旧版本记录仅保留历史，不作为后续生图或实现的默认样式。原 HTML、15 张原稿和旧素材均保留，不维护第二套长期运行页面。
+-
+-- 六个注册原生页面：首页、房间（创建/准备）、对局及结果、动态码、开发调试台、玄武湖导览。原生输入/人数选择/扫码/准备/暂停/退出/再来一局沿原业务处理器，规则仍为 pilot-0.2。
+-- `assets/pixel-v1/`：65 张索引 PNG，763,445 B；源图、裁框、原始比例、实际调色板和 SHA-256 见 `design/2026-10-13/pixel-runtime-v1/manifest.json`。固定按钮沿用原稿全层；动态/加载/大字状态用原生可换行文字。Noto Sans SC 可变 WOFF 子集 107,816 B，SIL OFL 1.1；已嵌入 pixel-font.wxss，发布时不重复打包裸字体。
+-- 玄武湖 v3 环洲/樱洲全图独立派生，1154×1363，不裁边、不改变比例；`assets/maps/xuanwu-lake-v3.png` 1,045,507 B。导览可平移、1–3 倍缩放、复位、失败重试；尚未地理标定，不叠加 GPS 点。真实对局默认仍为微信原生 map，只接收服务端授权的坐标/线索。
+-- 图片仅 widthFix/aspectFit 加原始尺寸比例，不做单轴压缩；字体 1.3 时分行、垂直排列和滚动，优先保留主动作可达性。暖纸色 #fcf8ed，猫橘/鼠蓝，像素阶梯边与原图纹理。
+-- 自动回归 75/75。第一次完整 IDE 巡检正常/应用大字/320×693 内容画布各17项，通过比例/边界检查；这不是三个真机型号。独立目视指出的6项已修源码，但修后整批截图与交互复测被 C 盘 0 空间、IDE captureScreen ENOSPC 中断，尚未计为通过。证据区分修前完整截图和修后待验项目，见 reports/2026-10-13/xuanwu-ui-v1/。
+-
+-### 后续统一提示词（先查库，再生图）
+-
+-> 只沿用 pixel-day-replica-v1/sources.json 的晴日公园 16-bit 像素原稿：暖纸底、清晰方像素边缘、猫橘鼠蓝、同一猫鼠角色比例与光照。先复用 pixel-v1 素材；确有缺项才以相应批准原稿为参考生成独立透明素材。保留原始长宽比，不另造风格、不把文字/真实二维码/玩家坐标烘焙进插画；不新增积分或技能玩法。新增文件登记版本、用途和 SHA-256；像素页面与玄武湖真实场地导览分别校验。
+-
+-复核：`node scripts/build-pixel-runtime.cjs --verify`、`node scripts/build-xuanwu-runtime.cjs --verify`；视觉对照在本次报告 visual/compare.html。原稿字体与动态文字仍有差异，不宣称像素完全一致或已完成真机验收。
+-
+----
+-
+-## 2026-10-12 · 历史运行版本 02-01-faithful-2
+-
+-当前锁定 **16 张批准原稿 → 48 张运行 PNG（1,804,120 B）**，其中 8 张状态插画有透明通道。首页天空边缘只调整 alpha，前景 RGB 和原图比例不变；修前清单保存在 faithful-art/history/。字体为 SIL OFL 1.1 的 Noto Sans SC Black 子集（43,164 B），不替代玩家昵称的系统字体。
+-
+-响应尺寸由同一素材清单生成 `utils/art-ratios.wxss`（`aspect-ratio` + `height:auto`），防止微信 widthFix 在父容器改宽后沿用旧高度。重建：`node scripts/build-faithful-art.cjs --styles-only`；`--verify` 同时检查素材哈希、前景色、透明度、尺寸及生成样式。原 78 项冻结清单仍可独立复核。正常 / 大字 / 320px 布局画布各 16 路由的截图与来源哈希见 replica-v2/visual/，不是三个真机型号。
+-
+-本轮以已批准的16张页面原稿直接提取插画/图标，不再用相似的新画替代。运行页仍是5个原生页面，文字、输入、按钮、抽屉、结果和真实动态码保持可交互。素材清单与SHA-256：design/2026-10-12/faithful-art/manifest.json；字体来源、覆盖与许可：同目录font.json、assets/faithful-v2/FONT-LICENSE.txt。历史visual-1.0与replica-1保留，不覆盖原图。
+-
+-插画只用widthFix或aspectFit；开发示意公园按原宽等比，不使用scaleToFill、scaleX/scaleY或为匹配屏幕而改变原始长宽比。正式对局仍用授权快照驱动的微信原生map。大字改变留白、换行和纵向排列，小屏保持自然滚动。页面onResize只更新显示尺寸，不重置身份、对局、计时或网络连接。
+-
+-未来仍先查库。新生图复用design/2026-10-09/frozen/v1/ART_PROMPTS.md的02-01母版，再按design/2026-10-11/page-concepts-v1/PROMPTS.md的公共页面提示词生成，保留原母版参考/圆润橘白猫/灰鼠/扁平色面/无复杂特效；新增版本与哈希，不静默换旧素材。原稿衍生由node scripts/build-faithful-art.cjs重建，--verify只校验不写入。
+-
+-以下replica-1/visual-1.0说明为历史记录；新运行截图与证据见reports/2026-10-12/replica-v2/，几何PASS不等于像素一致或真机验收。
+-
+-# 美术素材锁定
+-
+-## 2026-10-12 页面复刻补充
+-
+-02-01 风格母版和原 `visual-1.0` 清单保持不变。新增 `02-01-replica-1` 包见 [运行素材说明](design/2026-10-12/runtime-art/README.md)：10 张源图、9 个移动副本、6 个透明状态场景，分别用 source-lock.json 和 runtime-lock.json 固定哈希。当前首页/房间/码页使用全幅插画，地图各状态使用独立状态插画；原地图标记与重连素材继续复用。运行文字、按钮、表单和二维码不是烘焙图。公园插画只在显式开发预览出现，真实对局仍是原生地理地图。
+-
+-以后仍先查素材库；缺少时沿原母版提示词生成新文件，再登记新补充版本。校验：`node scripts/verify-replica-art.cjs`。旧 78 项校验命令与历史记录如下。
+-
+-视觉版本 `visual-1.0`，选定基准为小程序图标探索板 **02-01**。母版、透明角色/状态图、地图标记矢量源和未来技能概念图已登记在 [素材校验清单](design/2026-10-09/frozen/v1/art-manifest.json)。同目录 [固定生图提示词](design/2026-10-09/frozen/v1/ART_PROMPTS.md) 是以后新增素材的统一起点。
+-
+-清单中的 `locked_master` 是不可静默替换的设计源图，`runtime_derivative` 是可从源图重建的运行尺寸副本，`reference_only` 是历史探索、分层样稿和动效提案，不代表已批准上线。新增素材先按提示词生成，保存为新文件，检查后更新清单；需要改变已锁素材时提升视觉版本并说明原因。
+-
+-运行页面当前使用首页角色、房间图标、地图本人/队友/集合点标记，以及被捕、暂停/重连、猫/鼠胜利插画。结果与状态仍由服务端快照决定；技能图标和动效仍只在 `design/`，不进入试点包。动态抓捕码由服务端生成，不能烘焙成美术图片。
+-
+-验证锁定状态：`python scripts/freeze-art.py --verify`。重建运行尺寸副本：`python scripts/build-brand-runtime.py`；脚本会先核对源图的清单哈希。只有经过评审并提升视觉版本时才用 `python scripts/freeze-art.py --update` 重建清单。运行副本生成需要 Pillow；校验清单不修改源图。
++## 2026-10-15 · 已选02：固定顶部与图标抽屉
++
++用户确认采用 `design/2026-10-15/map-icon-previews-v1/02-drawer-handles.png` 的右侧紧凑顶部，并要求保持固定。顶部不再提供展开或收起入口；显示阵营、阶段、时间、捕获目标、标定状态。猫橘鼠蓝角色图与Fusion Pixel字体保持现有基线。
++
++底部为暖纸色图标抽屉：把手＋抓捕码/扫码、队伍、规则三个入口，默认260ms向下滑出，收起后保留安全区上方的小码图标与把手。码图标直接执行当前阵营主动作，把手点按或上拉展开，向下滑把手收起。仅在开发预览允许放慢动效验证；正式模式固定260ms。没有“收起详情/展开操作”之类可见文字控制，图标保留无障碍名称。
++
++底图仍为 `assets/maps/xuanwu-lake-v4.jpg`，原SHA和宽高比不变；生图预览仅作布局参考，不能替代底图或用于标定。原生图标以12×12方形像素网格绘制，源码为 `components/map-icon`，不引入新生图/图标依赖。证据：`reports/2026-10-15/fixed-hud-drawer-v1`。
++
++---
++
++## 2026-10-13 沉浸地图 v4
++
++地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
++
++原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
++
++---
++
++## 2026-10-13 后续验证：pixel-native-final-v2
++
++素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
++
++---
++
++## 2026-10-13 · 当前运行基线：pixel-day-native-v1
++
++本次采用用户交接的 `design/2026-10-12/pixel-day-replica-v1/`（晴日公园 16-bit 像素、15 状态），替代此前 02-01 扁平卡通运行外观。下方旧版本记录仅保留历史，不作为后续生图或实现的默认样式。原 HTML、15 张原稿和旧素材均保留，不维护第二套长期运行页面。
++
++- 六个注册原生页面：首页、房间（创建/准备）、对局及结果、动态码、开发调试台、玄武湖导览。原生输入/人数选择/扫码/准备/暂停/退出/再来一局沿原业务处理器，规则仍为 pilot-0.2。
++- `assets/pixel-v1/`：65 张索引 PNG，763,445 B；源图、裁框、原始比例、实际调色板和 SHA-256 见 `design/2026-10-13/pixel-runtime-v1/manifest.json`。固定按钮沿用原稿全层；动态/加载/大字状态用原生可换行文字。Noto Sans SC 可变 WOFF 子集 107,816 B，SIL OFL 1.1；已嵌入 pixel-font.wxss，发布时不重复打包裸字体。
++- 玄武湖 v3 环洲/樱洲全图独立派生，1154×1363，不裁边、不改变比例；`assets/maps/xuanwu-lake-v3.png` 1,045,507 B。导览可平移、1–3 倍缩放、复位、失败重试；尚未地理标定，不叠加 GPS 点。真实对局默认仍为微信原生 map，只接收服务端授权的坐标/线索。
++- 图片仅 widthFix/aspectFit 加原始尺寸比例，不做单轴压缩；字体 1.3 时分行、垂直排列和滚动，优先保留主动作可达性。暖纸色 #fcf8ed，猫橘/鼠蓝，像素阶梯边与原图纹理。
++- 自动回归 75/75。第一次完整 IDE 巡检正常/应用大字/320×693 内容画布各17项，通过比例/边界检查；这不是三个真机型号。独立目视指出的6项已修源码，但修后整批截图与交互复测被 C 盘 0 空间、IDE captureScreen ENOSPC 中断，尚未计为通过。证据区分修前完整截图和修后待验项目，见 reports/2026-10-13/xuanwu-ui-v1/。
++
++### 后续统一提示词（先查库，再生图）
++
++> 只沿用 pixel-day-replica-v1/sources.json 的晴日公园 16-bit 像素原稿：暖纸底、清晰方像素边缘、猫橘鼠蓝、同一猫鼠角色比例与光照。先复用 pixel-v1 素材；确有缺项才以相应批准原稿为参考生成独立透明素材。保留原始长宽比，不另造风格、不把文字/真实二维码/玩家坐标烘焙进插画；不新增积分或技能玩法。新增文件登记版本、用途和 SHA-256；像素页面与玄武湖真实场地导览分别校验。
++
++复核：`node scripts/build-pixel-runtime.cjs --verify`、`node scripts/build-xuanwu-runtime.cjs --verify`；视觉对照在本次报告 visual/compare.html。原稿字体与动态文字仍有差异，不宣称像素完全一致或已完成真机验收。
++
++---
++
++## 2026-10-12 · 历史运行版本 02-01-faithful-2
++
++当前锁定 **16 张批准原稿 → 48 张运行 PNG（1,804,120 B）**，其中 8 张状态插画有透明通道。首页天空边缘只调整 alpha，前景 RGB 和原图比例不变；修前清单保存在 faithful-art/history/。字体为 SIL OFL 1.1 的 Noto Sans SC Black 子集（43,164 B），不替代玩家昵称的系统字体。
++
++响应尺寸由同一素材清单生成 `utils/art-ratios.wxss`（`aspect-ratio` + `height:auto`），防止微信 widthFix 在父容器改宽后沿用旧高度。重建：`node scripts/build-faithful-art.cjs --styles-only`；`--verify` 同时检查素材哈希、前景色、透明度、尺寸及生成样式。原 78 项冻结清单仍可独立复核。正常 / 大字 / 320px 布局画布各 16 路由的截图与来源哈希见 replica-v2/visual/，不是三个真机型号。
++
++本轮以已批准的16张页面原稿直接提取插画/图标，不再用相似的新画替代。运行页仍是5个原生页面，文字、输入、按钮、抽屉、结果和真实动态码保持可交互。素材清单与SHA-256：design/2026-10-12/faithful-art/manifest.json；字体来源、覆盖与许可：同目录font.json、assets/faithful-v2/FONT-LICENSE.txt。历史visual-1.0与replica-1保留，不覆盖原图。
++
++插画只用widthFix或aspectFit；开发示意公园按原宽等比，不使用scaleToFill、scaleX/scaleY或为匹配屏幕而改变原始长宽比。正式对局仍用授权快照驱动的微信原生map。大字改变留白、换行和纵向排列，小屏保持自然滚动。页面onResize只更新显示尺寸，不重置身份、对局、计时或网络连接。
++
++未来仍先查库。新生图复用design/2026-10-09/frozen/v1/ART_PROMPTS.md的02-01母版，再按design/2026-10-11/page-concepts-v1/PROMPTS.md的公共页面提示词生成，保留原母版参考/圆润橘白猫/灰鼠/扁平色面/无复杂特效；新增版本与哈希，不静默换旧素材。原稿衍生由node scripts/build-faithful-art.cjs重建，--verify只校验不写入。
++
++以下replica-1/visual-1.0说明为历史记录；新运行截图与证据见reports/2026-10-12/replica-v2/，几何PASS不等于像素一致或真机验收。
++
++# 美术素材锁定
++
++## 2026-10-12 页面复刻补充
++
++02-01 风格母版和原 `visual-1.0` 清单保持不变。新增 `02-01-replica-1` 包见 [运行素材说明](design/2026-10-12/runtime-art/README.md)：10 张源图、9 个移动副本、6 个透明状态场景，分别用 source-lock.json 和 runtime-lock.json 固定哈希。当前首页/房间/码页使用全幅插画，地图各状态使用独立状态插画；原地图标记与重连素材继续复用。运行文字、按钮、表单和二维码不是烘焙图。公园插画只在显式开发预览出现，真实对局仍是原生地理地图。
++
++以后仍先查素材库；缺少时沿原母版提示词生成新文件，再登记新补充版本。校验：`node scripts/verify-replica-art.cjs`。旧 78 项校验命令与历史记录如下。
++
++视觉版本 `visual-1.0`，选定基准为小程序图标探索板 **02-01**。母版、透明角色/状态图、地图标记矢量源和未来技能概念图已登记在 [素材校验清单](design/2026-10-09/frozen/v1/art-manifest.json)。同目录 [固定生图提示词](design/2026-10-09/frozen/v1/ART_PROMPTS.md) 是以后新增素材的统一起点。
++
++清单中的 `locked_master` 是不可静默替换的设计源图，`runtime_derivative` 是可从源图重建的运行尺寸副本，`reference_only` 是历史探索、分层样稿和动效提案，不代表已批准上线。新增素材先按提示词生成，保存为新文件，检查后更新清单；需要改变已锁素材时提升视觉版本并说明原因。
++
++运行页面当前使用首页角色、房间图标、地图本人/队友/集合点标记，以及被捕、暂停/重连、猫/鼠胜利插画。结果与状态仍由服务端快照决定；技能图标和动效仍只在 `design/`，不进入试点包。动态抓捕码由服务端生成，不能烘焙成美术图片。
++
++验证锁定状态：`python scripts/freeze-art.py --verify`。重建运行尺寸副本：`python scripts/build-brand-runtime.py`；脚本会先核对源图的清单哈希。只有经过评审并提升视觉版本时才用 `python scripts/freeze-art.py --update` 重建清单。运行副本生成需要 Pillow；校验清单不修改源图。
+--- baseline/cat-mouse-server/v2/custom-teams.test.js
++++ current/cat-mouse-server/v2/custom-teams.test.js
+@@ -46,5 +46,5 @@
+   await req('POST',`/api/v2/rooms/${id}/cancel`,{},players[0].token);await close();ctx=null;await boot();
+   const restored=(await req('GET',`/api/v2/rooms/${id}`,undefined,players[0].token)).data;
+   assert.equal(restored.rules.cats,1);assert.equal(restored.rules.mice,2);assert.equal(restored.match.phase,'CANCELLED');assert.equal(restored.match.id,start.match.id);
+- }finally{if(ctx)await close();}
++ }finally{if(ctx)await close();fs.rmSync(env.DATA_DIR,{recursive:true,force:true});}
+ });
+--- baseline/cat-mouse-server/v2/geo-registration.test.js
++++ current/cat-mouse-server/v2/geo-registration.test.js
+@@ -41,5 +41,5 @@
+   const start=(await req('POST',`/api/v2/rooms/${id}/start`,{},a.token)).data;assert.equal(start.match.phase,'HIDING');
+   assert.equal((await req('PUT',url,{...body,commandId:crypto.randomUUID(),expectedVersion:start.version},a.token)).data.error,'IN_PROGRESS');
+   await ctx.close();ctx=null;await boot();const restored=(await req('GET',`/api/v2/rooms/${id}`,undefined,a.token)).data;assert.equal(restored.mapCalibration.id,x.data.mapCalibration.id);assert.equal(restored.match.pauseReason,'server_restart');assert.equal(restored.visiblePositions.length,0);
+- }finally{if(ctx)await ctx.close();}
++ }finally{if(ctx)await ctx.close();fs.rmSync(env.DATA_DIR,{recursive:true,force:true});}
+ });
+--- baseline/cat-mouse-server/v2/map-first.test.js
++++ current/cat-mouse-server/v2/map-first.test.js
+@@ -38,6 +38,14 @@
+  const f=fixture(),p=f.p;p.apply(snap());p.showCode();await settle();assert.equal(f.files.size,1);f.api.token=async()=>({expiresAt:Date.now()-1,qrPngBase64:'expired'});await p.refresh();assert.equal(p.data.image,'');assert.equal(f.files.size,0);assert.match(p.data.codeError,/过期/);p.closeCode();
+ });
+ 
+-test('folding original HUD and controls changes display only, retaining authoritative match and positions',()=>{const {p,calls}=fixture();p.apply(snap());const m=p.data.match,g=p.data.geoData;p.toggleHud();p.toggleTray();assert.equal(p.data.hudExpanded,false);assert.equal(p.data.trayExpanded,false);assert.equal(p.data.match,m);assert.equal(p.data.geoData,g);assert.deepEqual(calls,['start']);p.toggleHud();p.toggleTray();assert.equal(p.data.hudExpanded,true);assert.equal(p.data.trayExpanded,true);});
++test('fixed compact header survives tray folds without changing authoritative match or positions',()=>{const {p,calls}=fixture();p.apply(snap());const m=p.data.match,g=p.data.geoData;p.toggleTray();assert.equal(p.toggleHud,undefined);assert.equal(p.data.trayExpanded,false);assert.equal(p.data.match,m);assert.equal(p.data.geoData,g);assert.deepEqual(calls,['start']);p.toggleTray();assert.equal(p.data.trayExpanded,true);});
+ 
+ test('drawer exit fallback removes mask without native animation event and cleans pending timer on hide',()=>{const {p,timeouts}=fixture();p.openDrawer();p.closeDrawer();assert.equal(timeouts.size,1);[...timeouts.values()][0]();assert.equal(p.data.drawer,false);p.openDrawer();p.closeDrawer();p.cleanup();assert.equal(p.data.drawer,false);assert.equal(p.drawerExitTimer,null);});
++
++test('tray downward and upward grip gestures snap to state, suppress duplicate tap, and cancel safely',()=>{
++ const {p}=fixture();const event=(x,y)=>({touches:[{clientX:x,clientY:y}]});p.trayTouchStart(event(100,100));p.trayTouchMove(event(101,160));assert.equal(p.data.trayDragging,true);assert.equal(p.data.trayDragY,60);p.trayTouchEnd();assert.equal(p.data.trayExpanded,false);p.toggleTray();assert.equal(p.data.trayExpanded,false);
++ p._traySuppressUntil=0;p.trayTouchStart(event(100,200));p.trayTouchMove(event(100,150));p.trayTouchEnd();assert.equal(p.data.trayExpanded,true);
++ p.trayTouchStart(event(100,100));p.trayTouchMove(event(180,105));p.trayTouchEnd();p.toggleTray();assert.equal(p.data.trayExpanded,true);assert.equal(p.data.trayDragging,false);
++ p.trayTouchStart(event(100,100));p.trayTouchMove({touches:[{clientX:100,clientY:130},{clientX:140,clientY:130}]});assert.equal(p._trayGesture,null);assert.equal(p.data.trayDragY,0);
++ p.trayTouchStart(event(100,100));p.trayTouchMove(event(100,120));p.cleanup();assert.equal(p.data.trayDragging,false);assert.equal(p.data.trayDragY,0);
++});
+--- baseline/design/2026-10-13/global-font-v1/manifest.json
++++ current/design/2026-10-13/global-font-v1/manifest.json
+@@ -7,10 +7,10 @@
+   "license": "OFL-1.1",
+   "sourceUrl": "https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.25",
+   "sourceSha256": "6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e",
+-  "subsetSha256": "38534f83226e8aad78f149be459e6ad3092d3f2f5a8ff9e5f33c9083c9794468",
+-  "wxssSha256": "adfe246c1bde2066e4b0d5a49bcc1e85744bc8877446f9a80f90a712f08341e5",
++  "subsetSha256": "5d3885cd1db1801848d72cc3e95924e7bc87b4ac8c0070b4ba0caa31a8fbaa94",
++  "wxssSha256": "1c3f6d07c551090102b234ae8fc67c62c6d9fa1c75ab091f5b3ab2a1af7a80e4",
+   "bytes": 23544,
+-  "glyphCount": 592,
++  "glyphCount": 590,
+   "coverage": [
+     " ",
+     "!",
+@@ -115,14 +115,10 @@
+     "•",
+     "…",
+     "Ⅱ",
+-    "↑",
+-    "↓",
+     "▦",
+     "●",
+     "、",
+     "。",
+-    "「",
+-    "」",
+     "一",
+     "上",
+     "下",
+@@ -158,11 +154,11 @@
+     "伴",
+     "位",
+     "住",
+-    "余",
+     "作",
+     "你",
+     "使",
+     "例",
++    "侧",
+     "保",
+     "信",
+     "倒",
+@@ -183,10 +179,10 @@
+     "写",
+     "冲",
+     "冷",
+-    "冻",
+     "准",
+     "出",
+     "分",
++    "切",
+     "列",
+     "则",
+     "创",
+@@ -195,7 +191,6 @@
+     "制",
+     "刷",
+     "前",
+-    "剩",
+     "功",
+     "加",
+     "务",
+@@ -214,10 +209,12 @@
+     "发",
+     "取",
+     "变",
++    "叠",
+     "只",
+     "可",
+     "台",
+     "史",
++    "右",
+     "各",
+     "合",
+     "同",
+@@ -279,6 +276,7 @@
+     "尚",
+     "尝",
+     "局",
++    "层",
+     "居",
+     "展",
+     "川",
+@@ -316,7 +314,6 @@
+     "成",
+     "我",
+     "或",
+-    "战",
+     "截",
+     "户",
+     "房",
+@@ -333,6 +330,7 @@
+     "持",
+     "指",
+     "捕",
++    "换",
+     "据",
+     "授",
+     "掉",
+@@ -378,6 +376,7 @@
+     "权",
+     "束",
+     "来",
++    "板",
+     "林",
+     "果",
+     "查",
+@@ -459,7 +458,6 @@
+     "精",
+     "系",
+     "素",
+-    "索",
+     "紧",
+     "约",
+     "线",
+Binary changed: design/2026-10-13/global-font-v1/ui-subset.woff
+--- baseline/design/2026-10-15/map-icon-previews-v1/manifest.json
++++ current/design/2026-10-15/map-icon-previews-v1/manifest.json
+@@ -1,32 +1,34 @@
+-{
+-  "status": "candidate-not-approved",
+-  "records": [
+-    {
+-      "id": "01",
+-      "name": "边缘折叠箭头",
+-      "file": "01-chevron-panels.png",
+-      "bytes": 1995296,
+-      "width": 1536,
+-      "height": 1024,
+-      "sha256": "696e3998a19d0a7b80e0ddf49e422d62ed30aaead66cffda61dcc03aba7918b0"
+-    },
+-    {
+-      "id": "02",
+-      "name": "抽屉把手",
+-      "file": "02-drawer-handles.png",
+-      "bytes": 2081626,
+-      "width": 1312,
+-      "height": 1199,
+-      "sha256": "62b2c98d8a0f34b39d87568d5ba101a8048f71c59ea7c7f062d05679a0c0b3a8"
+-    },
+-    {
+-      "id": "03",
+-      "name": "角色徽章浮层",
+-      "file": "03-character-badges.png",
+-      "bytes": 2038517,
+-      "width": 1312,
+-      "height": 1199,
+-      "sha256": "e482cf6ddfa01773a97c0180e7517d49c22eefaf37f794a73fed6dbe85443c7f"
+-    }
+-  ]
+-}+{
++  "status": "selected-02-fixed-header",
++  "records": [
++    {
++      "id": "01",
++      "name": "边缘折叠箭头",
++      "file": "01-chevron-panels.png",
++      "bytes": 1995296,
++      "width": 1536,
++      "height": 1024,
++      "sha256": "696e3998a19d0a7b80e0ddf49e422d62ed30aaead66cffda61dcc03aba7918b0"
++    },
++    {
++      "id": "02",
++      "name": "抽屉把手",
++      "file": "02-drawer-handles.png",
++      "bytes": 2081626,
++      "width": 1312,
++      "height": 1199,
++      "sha256": "62b2c98d8a0f34b39d87568d5ba101a8048f71c59ea7c7f062d05679a0c0b3a8"
++    },
++    {
++      "id": "03",
++      "name": "角色徽章浮层",
++      "file": "03-character-badges.png",
++      "bytes": 2038517,
++      "width": 1312,
++      "height": 1199,
++      "sha256": "e482cf6ddfa01773a97c0180e7517d49c22eefaf37f794a73fed6dbe85443c7f"
++    }
++  ],
++  "selected": "02",
++  "userOverride": "Keep the compact RIGHT top state fixed, no top fold; implement the bottom paper drawer motion."
++}
+--- baseline/DESIGN_BASELINE.md
++++ current/DESIGN_BASELINE.md
+@@ -1,107 +1,117 @@
+-## 2026-10-13 沉浸地图 v4
+-
+-地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
+-
+-原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
+-
+----
+-
+-## 2026-10-13 后续验证：pixel-native-final-v2
+-
+-素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
+-
+----
+-
+-## 2026-10-13 · 当前运行基线：pixel-day-native-v1
+-
+-本次采用用户交接的 `design/2026-10-12/pixel-day-replica-v1/`（晴日公园 16-bit 像素、15 状态），替代此前 02-01 扁平卡通运行外观。下方旧版本记录仅保留历史，不作为后续生图或实现的默认样式。原 HTML、15 张原稿和旧素材均保留，不维护第二套长期运行页面。
+-
+-- 六个注册原生页面：首页、房间（创建/准备）、对局及结果、动态码、开发调试台、玄武湖导览。原生输入/人数选择/扫码/准备/暂停/退出/再来一局沿原业务处理器，规则仍为 pilot-0.2。
+-- `assets/pixel-v1/`：65 张索引 PNG，763,445 B；源图、裁框、原始比例、实际调色板和 SHA-256 见 `design/2026-10-13/pixel-runtime-v1/manifest.json`。固定按钮沿用原稿全层；动态/加载/大字状态用原生可换行文字。Noto Sans SC 可变 WOFF 子集 107,816 B，SIL OFL 1.1；已嵌入 pixel-font.wxss，发布时不重复打包裸字体。
+-- 玄武湖 v3 环洲/樱洲全图独立派生，1154×1363，不裁边、不改变比例；`assets/maps/xuanwu-lake-v3.png` 1,045,507 B。导览可平移、1–3 倍缩放、复位、失败重试；尚未地理标定，不叠加 GPS 点。真实对局默认仍为微信原生 map，只接收服务端授权的坐标/线索。
+-- 图片仅 widthFix/aspectFit 加原始尺寸比例，不做单轴压缩；字体 1.3 时分行、垂直排列和滚动，优先保留主动作可达性。暖纸色 #fcf8ed，猫橘/鼠蓝，像素阶梯边与原图纹理。
+-- 自动回归 75/75。第一次完整 IDE 巡检正常/应用大字/320×693 内容画布各17项，通过比例/边界检查；这不是三个真机型号。独立目视指出的6项已修源码，但修后整批截图与交互复测被 C 盘 0 空间、IDE captureScreen ENOSPC 中断，尚未计为通过。证据区分修前完整截图和修后待验项目，见 reports/2026-10-13/xuanwu-ui-v1/。
+-
+-### 后续统一提示词（先查库，再生图）
+-
+-> 只沿用 pixel-day-replica-v1/sources.json 的晴日公园 16-bit 像素原稿：暖纸底、清晰方像素边缘、猫橘鼠蓝、同一猫鼠角色比例与光照。先复用 pixel-v1 素材；确有缺项才以相应批准原稿为参考生成独立透明素材。保留原始长宽比，不另造风格、不把文字/真实二维码/玩家坐标烘焙进插画；不新增积分或技能玩法。新增文件登记版本、用途和 SHA-256；像素页面与玄武湖真实场地导览分别校验。
+-
+-复核：`node scripts/build-pixel-runtime.cjs --verify`、`node scripts/build-xuanwu-runtime.cjs --verify`；视觉对照在本次报告 visual/compare.html。原稿字体与动态文字仍有差异，不宣称像素完全一致或已完成真机验收。
+-
+----
+-
+-## 2026-10-12 · 历史运行版本 02-01-faithful-2
+-
+-本轮响应式基线：原图长宽比固定；文字增大时调整留白、分行与上下排列，不对角色或背景作单轴压缩。窄屏原生表单保留最小控件高度、房间码与复制可换行、调试台改两列；HUD 与公开状态条按实际胶囊高度顺序排列。生成比例样式由 48 项运行素材的真实宽高驱动，窗口 resize 只更新显示尺寸。
+-
+-验收分别记录「比例 / 边界 / 授权状态」与「原稿锚点 / 可见文字墨迹 / 实际目视差异」。微信 IDE 正常与 1.3 倍应用大字及 320×693 内容画布各 16 路由；大字主动作与抽屉底部另有 5 张滚动截图。对照入口：`reports/2026-10-12/replica-v2/visual/compare.html`。正常版追求原稿布局；大字与窄版优先完整可读，不以拉伸插画强求首屏相同。
+-
+-本轮以已批准的16张页面原稿直接提取插画/图标，不再用相似的新画替代。运行页仍是5个原生页面，文字、输入、按钮、抽屉、结果和真实动态码保持可交互。素材清单与SHA-256：design/2026-10-12/faithful-art/manifest.json；字体来源、覆盖与许可：同目录font.json、assets/faithful-v2/FONT-LICENSE.txt。历史visual-1.0与replica-1保留，不覆盖原图。
+-
+-插画只用widthFix或aspectFit；开发示意公园按原宽等比，不使用scaleToFill、scaleX/scaleY或为匹配屏幕而改变原始长宽比。正式对局仍用授权快照驱动的微信原生map。大字改变留白、换行和纵向排列，小屏保持自然滚动。页面onResize只更新显示尺寸，不重置身份、对局、计时或网络连接。
+-
+-未来仍先查库。新生图复用design/2026-10-09/frozen/v1/ART_PROMPTS.md的02-01母版，再按design/2026-10-11/page-concepts-v1/PROMPTS.md的公共页面提示词生成，保留原母版参考/圆润橘白猫/灰鼠/扁平色面/无复杂特效；新增版本与哈希，不静默换旧素材。原稿衍生由node scripts/build-faithful-art.cjs重建，--verify只校验不写入。
+-
+-以下replica-1/visual-1.0说明为历史记录；新运行截图与证据见reports/2026-10-12/replica-v2/，几何PASS不等于像素一致或真机验收。
+-
+-# 猫鼠行动视觉设计基线
+-
+-2026-10-12 实现补充：采用 `design/2026-10-11/page-concepts-v1/` 的完整页面稿，新增运行素材版本 `02-01-replica-1`，主视觉仍为 `visual-1.0`。原生界面规范在 `utils/theme.wxss`：浅绿白底、深色重字、橘色主动作、绿色次动作与天空蓝信息卡；自定义导航使用真实胶囊/安全区尺寸。页面文字和结果接授权状态；正式地图不能被插画替代。逐页设计 / 微信实际截图的对照见 `reports/2026-10-12/replica/compare.html`。
+-
+-版本：`visual-1.0`　登记日期：2026-10-09　状态：已采纳
+-
+-素材锁定与后续统一生图提示词见 [ART_LOCK.md](ART_LOCK.md)。高清设计源图的 SHA-256 已登记；运行端使用可重建的小尺寸副本，更新素材须提升视觉版本。
+-
+-## 来源与定位
+-
+-用户选定 [小程序图标探索板 02-01](design/2026-10-09/brand-exploration/02_小程序图标_12款.png) 作为后续小程序的视觉基准：明亮天空、草地、公园路线、圆润的橘白小猫与小鼠、扁平卡通造型。可运行客户端使用 [独立图标](assets/brand/selected-icon.png)；同风格的页面预览在 `design/2026-10-09/brand-exploration/07_已选风格_页面预览.png`。生图预览不是微信运行截图，文字与规则必须以客户端和服务端为准。
+-
+-本基线覆盖首页、房间、地图、动态码、异常状态、结算、图标和动效。现有玩法仍由 `pilot-0.2` 服务端规则裁决；视觉图不增加游戏能力。
+-
+-## 视觉规则
+-
+-| 用途 | 基准色 | 用法 |
+-| --- | --- | --- |
+-| 页面底色 | `#F5FAF1` | 户外阅读的浅暖绿白 |
+-| 文字 | `#213638` | 主标题、数字、重要状态 |
+-| 猫与主动作 | `#F36A34` | 猫队、主要按钮、抓捕确认 |
+-| 鼠与成功 | `#286B47` / `#EAF7DC` | 鼠队、准备与成功，必须同时配图形或文字区分含义 |
+-| 天空与信息 | `#DDF3FF` | 首页插画、邀请区域、非紧急说明 |
+-| 本人位置 | `#3D9BE8` | 地图上仅表示本人，不能复用为敌方点 |
+-| 警示 | `#FFF0E4` + 深橘文字 | 近距预警、需要注意的操作 |
+-
+-- 形状：大块扁平色面、圆角卡片和柔和曲线；小图标优先明确剪影。插画可有云、草地和小路，但主动作与地图文字之下不铺复杂背景。
+-- 字体：系统中文无衬线；标题重、数字清楚，正文最小字号以真机大字体测试为准。文字不能依赖颜色单独表达身份或结果。
+-- 页面：地图优先，顶部放阵营、目标和时间，底部只保留当前主动作；名单、事件和操作放抽屉。安全区、小屏和户外日光优先于装饰。
+-- 功能图标参考 [当前玩法组件探索](design/2026-10-09/selected-style-system/01_当前玩法组件图标.png)。生图图标只是形态参考，发布前须统一矢量轮廓、状态色与 32/48px 识别度；示意二维码不可用作抓捕码。
+-
+-## 动效规则
+-
+-动效关键帧以 [校正版分镜](design/2026-10-09/selected-style-system/03b_动效关键帧_校正版.png) 为参考；可播放样片见同目录的四段 GIF。早期 `03_动效关键帧探索.png` 曾在区域内画出橘色中心点，**不采纳该表达**。
+-
+-| 场景 | 表现 | 边界 |
+-| --- | --- | --- |
+-| 躲藏转追逐 | 状态条与倒计时轻切换，约 200ms | 阶段切换由服务端确定，动画不能提前宣告开局 |
+-| 区域线索 | 宽泛橘色透明区域淡入，约 240ms | 区域内不出现鼠的精确点、头像或方向箭头 |
+-| 近距猫预警 | 底部警示条滑入，约 200ms | 不给猫的坐标、距离、方位或身份；不得遮挡主动作 |
+-| 抓捕确认 | 服务端确认后面板上移，勾选与进度只播放一次 | 请求中不提前播放成功；重放/旧快照不能重复动效或增加计数 |
+-
+-不用频闪、持续雷达扫描、密集粒子或持续弹跳。断网、暂停和大字体模式优先静态清晰状态。所有关键事实必须在动画结束后仍有文字显示。
+-
+-## 状态与未启用能力
+-
+-[异常与结算状态卡](design/2026-10-09/selected-style-system/04_异常与结算状态卡.png) 仅供构图参考；实际文案需分别说明连接中、定位失败、躲藏、近距预警、暂停、重连、被捕和终局的下一步动作。被捕者本轮出局，只看公开状态；取消不计胜负。
+-
+-[未来技能视觉探索](design/2026-10-09/selected-style-system/02_未来技能视觉探索_未启用.png) **没有接入客户端和服务端**。试点版继续移除技能、商店、复活、答题、轰炸、金身和鹰眼。以后若要加入任何技能，先形成新的规则版本、服务端权限与时间裁决、数据可见性测试和真机验证，再使用相应视觉资产。
+-
+-## 验证状态
+-
+-- 已完成：选定风格用于四个核心页面；生图组件与分镜存档；代码绘制四段可播放动效样片，检查了中间帧并修复确认勾选显示问题。
+-- 2026-10-11 新增实测：微信开发工具 390×753 视口的调试台和 14 个页面/状态已逐图检查，修正准备按钮层级、暂停冻结时间、出局文案、终局标签与可滚动抽屉；保留本视觉版本和全部冻结素材。证据与逐页记录见 [UI 巡检](reports/2026-10-11/UI_REVIEW.md)。
+-- 未完成：真机日光/小屏/大字体/安全区、动效帧率与减少动态效果适配；模拟器检查不等于这些项目通过。
+-
+-## 可复用素材与分层源文件
+-
+-[透明素材库](design/2026-10-09/usable-assets/README.md) 保存 9 张独立 RGBA 插画、4 个已接入运行地图的透明标记，以及首页和猫队地图的分层 SVG 源文件/单文件版本。设计层可独立隐藏或替换；运行中的地图、区域线索、QR 和结果文字仍用实时状态生成，不能从样稿烘焙为固定图片。新增透明插画在深色背景需另测边缘；当前仅把首页猫角色纳入发布包，以控制体积。
+-
+-[未来技能视觉库](design/2026-10-09/skills/README.md)另存六枚独立透明图标、六段可播放 SVG 动效及一份命名图层的技能页。它们遵循同一选定风格，但仅供设计评审；`pilot-0.2` 没有技能入口或服务端技能规则。历史“轰炸”以非武器区域标记表达，未来是否存在该技能仍需另立规则版本。
++## 2026-10-15 · 已选02：固定顶部与图标抽屉
++
++用户确认采用 `design/2026-10-15/map-icon-previews-v1/02-drawer-handles.png` 的右侧紧凑顶部，并要求保持固定。顶部不再提供展开或收起入口；显示阵营、阶段、时间、捕获目标、标定状态。猫橘鼠蓝角色图与Fusion Pixel字体保持现有基线。
++
++底部为暖纸色图标抽屉：把手＋抓捕码/扫码、队伍、规则三个入口，默认260ms向下滑出，收起后保留安全区上方的小码图标与把手。码图标直接执行当前阵营主动作，把手点按或上拉展开，向下滑把手收起。仅在开发预览允许放慢动效验证；正式模式固定260ms。没有“收起详情/展开操作”之类可见文字控制，图标保留无障碍名称。
++
++底图仍为 `assets/maps/xuanwu-lake-v4.jpg`，原SHA和宽高比不变；生图预览仅作布局参考，不能替代底图或用于标定。原生图标以12×12方形像素网格绘制，源码为 `components/map-icon`，不引入新生图/图标依赖。证据：`reports/2026-10-15/fixed-hud-drawer-v1`。
++
++---
++
++## 2026-10-13 沉浸地图 v4
++
++地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
++
++原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
++
++---
++
++## 2026-10-13 后续验证：pixel-native-final-v2
++
++素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
++
++---
++
++## 2026-10-13 · 当前运行基线：pixel-day-native-v1
++
++本次采用用户交接的 `design/2026-10-12/pixel-day-replica-v1/`（晴日公园 16-bit 像素、15 状态），替代此前 02-01 扁平卡通运行外观。下方旧版本记录仅保留历史，不作为后续生图或实现的默认样式。原 HTML、15 张原稿和旧素材均保留，不维护第二套长期运行页面。
++
++- 六个注册原生页面：首页、房间（创建/准备）、对局及结果、动态码、开发调试台、玄武湖导览。原生输入/人数选择/扫码/准备/暂停/退出/再来一局沿原业务处理器，规则仍为 pilot-0.2。
++- `assets/pixel-v1/`：65 张索引 PNG，763,445 B；源图、裁框、原始比例、实际调色板和 SHA-256 见 `design/2026-10-13/pixel-runtime-v1/manifest.json`。固定按钮沿用原稿全层；动态/加载/大字状态用原生可换行文字。Noto Sans SC 可变 WOFF 子集 107,816 B，SIL OFL 1.1；已嵌入 pixel-font.wxss，发布时不重复打包裸字体。
++- 玄武湖 v3 环洲/樱洲全图独立派生，1154×1363，不裁边、不改变比例；`assets/maps/xuanwu-lake-v3.png` 1,045,507 B。导览可平移、1–3 倍缩放、复位、失败重试；尚未地理标定，不叠加 GPS 点。真实对局默认仍为微信原生 map，只接收服务端授权的坐标/线索。
++- 图片仅 widthFix/aspectFit 加原始尺寸比例，不做单轴压缩；字体 1.3 时分行、垂直排列和滚动，优先保留主动作可达性。暖纸色 #fcf8ed，猫橘/鼠蓝，像素阶梯边与原图纹理。
++- 自动回归 75/75。第一次完整 IDE 巡检正常/应用大字/320×693 内容画布各17项，通过比例/边界检查；这不是三个真机型号。独立目视指出的6项已修源码，但修后整批截图与交互复测被 C 盘 0 空间、IDE captureScreen ENOSPC 中断，尚未计为通过。证据区分修前完整截图和修后待验项目，见 reports/2026-10-13/xuanwu-ui-v1/。
++
++### 后续统一提示词（先查库，再生图）
++
++> 只沿用 pixel-day-replica-v1/sources.json 的晴日公园 16-bit 像素原稿：暖纸底、清晰方像素边缘、猫橘鼠蓝、同一猫鼠角色比例与光照。先复用 pixel-v1 素材；确有缺项才以相应批准原稿为参考生成独立透明素材。保留原始长宽比，不另造风格、不把文字/真实二维码/玩家坐标烘焙进插画；不新增积分或技能玩法。新增文件登记版本、用途和 SHA-256；像素页面与玄武湖真实场地导览分别校验。
++
++复核：`node scripts/build-pixel-runtime.cjs --verify`、`node scripts/build-xuanwu-runtime.cjs --verify`；视觉对照在本次报告 visual/compare.html。原稿字体与动态文字仍有差异，不宣称像素完全一致或已完成真机验收。
++
++---
++
++## 2026-10-12 · 历史运行版本 02-01-faithful-2
++
++本轮响应式基线：原图长宽比固定；文字增大时调整留白、分行与上下排列，不对角色或背景作单轴压缩。窄屏原生表单保留最小控件高度、房间码与复制可换行、调试台改两列；HUD 与公开状态条按实际胶囊高度顺序排列。生成比例样式由 48 项运行素材的真实宽高驱动，窗口 resize 只更新显示尺寸。
++
++验收分别记录「比例 / 边界 / 授权状态」与「原稿锚点 / 可见文字墨迹 / 实际目视差异」。微信 IDE 正常与 1.3 倍应用大字及 320×693 内容画布各 16 路由；大字主动作与抽屉底部另有 5 张滚动截图。对照入口：`reports/2026-10-12/replica-v2/visual/compare.html`。正常版追求原稿布局；大字与窄版优先完整可读，不以拉伸插画强求首屏相同。
++
++本轮以已批准的16张页面原稿直接提取插画/图标，不再用相似的新画替代。运行页仍是5个原生页面，文字、输入、按钮、抽屉、结果和真实动态码保持可交互。素材清单与SHA-256：design/2026-10-12/faithful-art/manifest.json；字体来源、覆盖与许可：同目录font.json、assets/faithful-v2/FONT-LICENSE.txt。历史visual-1.0与replica-1保留，不覆盖原图。
++
++插画只用widthFix或aspectFit；开发示意公园按原宽等比，不使用scaleToFill、scaleX/scaleY或为匹配屏幕而改变原始长宽比。正式对局仍用授权快照驱动的微信原生map。大字改变留白、换行和纵向排列，小屏保持自然滚动。页面onResize只更新显示尺寸，不重置身份、对局、计时或网络连接。
++
++未来仍先查库。新生图复用design/2026-10-09/frozen/v1/ART_PROMPTS.md的02-01母版，再按design/2026-10-11/page-concepts-v1/PROMPTS.md的公共页面提示词生成，保留原母版参考/圆润橘白猫/灰鼠/扁平色面/无复杂特效；新增版本与哈希，不静默换旧素材。原稿衍生由node scripts/build-faithful-art.cjs重建，--verify只校验不写入。
++
++以下replica-1/visual-1.0说明为历史记录；新运行截图与证据见reports/2026-10-12/replica-v2/，几何PASS不等于像素一致或真机验收。
++
++# 猫鼠行动视觉设计基线
++
++2026-10-12 实现补充：采用 `design/2026-10-11/page-concepts-v1/` 的完整页面稿，新增运行素材版本 `02-01-replica-1`，主视觉仍为 `visual-1.0`。原生界面规范在 `utils/theme.wxss`：浅绿白底、深色重字、橘色主动作、绿色次动作与天空蓝信息卡；自定义导航使用真实胶囊/安全区尺寸。页面文字和结果接授权状态；正式地图不能被插画替代。逐页设计 / 微信实际截图的对照见 `reports/2026-10-12/replica/compare.html`。
++
++版本：`visual-1.0`　登记日期：2026-10-09　状态：已采纳
++
++素材锁定与后续统一生图提示词见 [ART_LOCK.md](ART_LOCK.md)。高清设计源图的 SHA-256 已登记；运行端使用可重建的小尺寸副本，更新素材须提升视觉版本。
++
++## 来源与定位
++
++用户选定 [小程序图标探索板 02-01](design/2026-10-09/brand-exploration/02_小程序图标_12款.png) 作为后续小程序的视觉基准：明亮天空、草地、公园路线、圆润的橘白小猫与小鼠、扁平卡通造型。可运行客户端使用 [独立图标](assets/brand/selected-icon.png)；同风格的页面预览在 `design/2026-10-09/brand-exploration/07_已选风格_页面预览.png`。生图预览不是微信运行截图，文字与规则必须以客户端和服务端为准。
++
++本基线覆盖首页、房间、地图、动态码、异常状态、结算、图标和动效。现有玩法仍由 `pilot-0.2` 服务端规则裁决；视觉图不增加游戏能力。
++
++## 视觉规则
++
++| 用途 | 基准色 | 用法 |
++| --- | --- | --- |
++| 页面底色 | `#F5FAF1` | 户外阅读的浅暖绿白 |
++| 文字 | `#213638` | 主标题、数字、重要状态 |
++| 猫与主动作 | `#F36A34` | 猫队、主要按钮、抓捕确认 |
++| 鼠与成功 | `#286B47` / `#EAF7DC` | 鼠队、准备与成功，必须同时配图形或文字区分含义 |
++| 天空与信息 | `#DDF3FF` | 首页插画、邀请区域、非紧急说明 |
++| 本人位置 | `#3D9BE8` | 地图上仅表示本人，不能复用为敌方点 |
++| 警示 | `#FFF0E4` + 深橘文字 | 近距预警、需要注意的操作 |
++
++- 形状：大块扁平色面、圆角卡片和柔和曲线；小图标优先明确剪影。插画可有云、草地和小路，但主动作与地图文字之下不铺复杂背景。
++- 字体：系统中文无衬线；标题重、数字清楚，正文最小字号以真机大字体测试为准。文字不能依赖颜色单独表达身份或结果。
++- 页面：地图优先，顶部放阵营、目标和时间，底部只保留当前主动作；名单、事件和操作放抽屉。安全区、小屏和户外日光优先于装饰。
++- 功能图标参考 [当前玩法组件探索](design/2026-10-09/selected-style-system/01_当前玩法组件图标.png)。生图图标只是形态参考，发布前须统一矢量轮廓、状态色与 32/48px 识别度；示意二维码不可用作抓捕码。
++
++## 动效规则
++
++动效关键帧以 [校正版分镜](design/2026-10-09/selected-style-system/03b_动效关键帧_校正版.png) 为参考；可播放样片见同目录的四段 GIF。早期 `03_动效关键帧探索.png` 曾在区域内画出橘色中心点，**不采纳该表达**。
++
++| 场景 | 表现 | 边界 |
++| --- | --- | --- |
++| 躲藏转追逐 | 状态条与倒计时轻切换，约 200ms | 阶段切换由服务端确定，动画不能提前宣告开局 |
++| 区域线索 | 宽泛橘色透明区域淡入，约 240ms | 区域内不出现鼠的精确点、头像或方向箭头 |
++| 近距猫预警 | 底部警示条滑入，约 200ms | 不给猫的坐标、距离、方位或身份；不得遮挡主动作 |
++| 抓捕确认 | 服务端确认后面板上移，勾选与进度只播放一次 | 请求中不提前播放成功；重放/旧快照不能重复动效或增加计数 |
++
++不用频闪、持续雷达扫描、密集粒子或持续弹跳。断网、暂停和大字体模式优先静态清晰状态。所有关键事实必须在动画结束后仍有文字显示。
++
++## 状态与未启用能力
++
++[异常与结算状态卡](design/2026-10-09/selected-style-system/04_异常与结算状态卡.png) 仅供构图参考；实际文案需分别说明连接中、定位失败、躲藏、近距预警、暂停、重连、被捕和终局的下一步动作。被捕者本轮出局，只看公开状态；取消不计胜负。
++
++[未来技能视觉探索](design/2026-10-09/selected-style-system/02_未来技能视觉探索_未启用.png) **没有接入客户端和服务端**。试点版继续移除技能、商店、复活、答题、轰炸、金身和鹰眼。以后若要加入任何技能，先形成新的规则版本、服务端权限与时间裁决、数据可见性测试和真机验证，再使用相应视觉资产。
++
++## 验证状态
++
++- 已完成：选定风格用于四个核心页面；生图组件与分镜存档；代码绘制四段可播放动效样片，检查了中间帧并修复确认勾选显示问题。
++- 2026-10-11 新增实测：微信开发工具 390×753 视口的调试台和 14 个页面/状态已逐图检查，修正准备按钮层级、暂停冻结时间、出局文案、终局标签与可滚动抽屉；保留本视觉版本和全部冻结素材。证据与逐页记录见 [UI 巡检](reports/2026-10-11/UI_REVIEW.md)。
++- 未完成：真机日光/小屏/大字体/安全区、动效帧率与减少动态效果适配；模拟器检查不等于这些项目通过。
++
++## 可复用素材与分层源文件
++
++[透明素材库](design/2026-10-09/usable-assets/README.md) 保存 9 张独立 RGBA 插画、4 个已接入运行地图的透明标记，以及首页和猫队地图的分层 SVG 源文件/单文件版本。设计层可独立隐藏或替换；运行中的地图、区域线索、QR 和结果文字仍用实时状态生成，不能从样稿烘焙为固定图片。新增透明插画在深色背景需另测边缘；当前仅把首页猫角色纳入发布包，以控制体积。
++
++[未来技能视觉库](design/2026-10-09/skills/README.md)另存六枚独立透明图标、六段可播放 SVG 动效及一份命名图层的技能页。它们遵循同一选定风格，但仅供设计评审；`pilot-0.2` 没有技能入口或服务端技能规则。历史“轰炸”以非武器区域标记表达，未来是否存在该技能仍需另立规则版本。
+--- baseline/pages/map/map.js
++++ current/pages/map/map.js
+@@ -5,11 +5,11 @@
+ Page({
+   remeasureVenue() { if(this.active)this.selectComponent('.venueArt')?.remeasure(); },
+   onResize(e) { this.setData(presentation.resize(e)); },
+-  data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,hudExpanded:true,trayExpanded:true, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true },
++  data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,trayExpanded:true,trayDragging:false,trayDragY:0, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true },
+   onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:true}); },
+   onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me'));if(this.previewCase==='offline')this.setOffline('', '重连中');else this.setData({connection:'界面预览'});return;}this.reconnectAttempt=0; this.poll(); this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
+   onHide() { this.cleanup(); }, onUnload() { this.cleanup(); },
+-  cleanup() { this.closeCode();if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this.active=false; clearInterval(this.pollTimer); clearInterval(this.clockTimer); clearInterval(this.heartbeatTimer); clearTimeout(this.reconnectTimer); this.pollTimer=null; this.clockTimer=null; this.heartbeatTimer=null; this.reconnectTimer=null; const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false; },
++  cleanup() { this.closeCode();if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this._trayGesture=null;if(this.data.trayDragging)this.setData({trayDragging:false,trayDragY:0});this.active=false; clearInterval(this.pollTimer); clearInterval(this.clockTimer); clearInterval(this.heartbeatTimer); clearTimeout(this.reconnectTimer); this.pollTimer=null; this.clockTimer=null; this.heartbeatTimer=null; this.reconnectTimer=null; const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false; },
+   startLocation() { if(!this.data.match || done(this.data.match) || this.data.match.myStatus==='captured' || this.locationRunning)return; this.locationRunning=true; loc.start(this.data.roomId,()=>this.setData({error:'定位中断：请保持页面在前台并检查权限'})); },
+   startPolling() { if(this.pollTimer) return; this.pollTimer=setInterval(()=>this.poll(),2000); },
+   startSocket() {
+@@ -75,11 +75,14 @@
+   drawerAnimationEnd(e){if(e?.detail?.animationName && e.detail.animationName!=='sheetExit')return;if(this.data.drawerClosing){if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}this.setData({drawer:false,drawerClosing:false});}},
+   sheetTouchStart(e){this._sheetStart=e.touches?.length===1?e.touches[0]:null;},
+   sheetTouchEnd(e){const a=this._sheetStart,b=e.changedTouches?.[0];this._sheetStart=null;if(a&&b&&b.clientY-a.clientY>50&&Math.abs(b.clientX-a.clientX)<60)this.closeDrawer();},
+-  toggleHud(){this.setData({hudExpanded:!this.data.hudExpanded});},
+-  toggleTray(){this.setData({trayExpanded:!this.data.trayExpanded});},
++  toggleTray(){if(Date.now()<(this._traySuppressUntil||0))return;this.setData({trayExpanded:!this.data.trayExpanded,trayDragging:false,trayDragY:0});},
++  trayTouchStart(e){this._trayGesture=e.touches?.length===1?{x:e.touches[0].clientX,y:e.touches[0].clientY,dy:0,expanded:this.data.trayExpanded}:null;},
++  trayTouchMove(e){const g=this._trayGesture;if(!g)return;if(e.touches?.length!==1){this.trayTouchCancel();return;}const t=e.touches[0],dy=t.clientY-g.y;if(Math.abs(t.clientX-g.x)>Math.max(24,Math.abs(dy))){this.trayTouchCancel();return;}g.dy=dy;if(g.expanded&&dy>6)this.setData({trayDragging:true,trayDragY:Math.min(220,dy)});},
++  trayTouchEnd(){const g=this._trayGesture;this._trayGesture=null;if(!g)return;const moved=Math.abs(g.dy)>8;if(moved)this._traySuppressUntil=Date.now()+350;this.setData({trayExpanded:g.expanded?g.dy<36:g.dy< -28,trayDragging:false,trayDragY:0});},
++  trayTouchCancel(){this._traySuppressUntil=Date.now()+350;this._trayGesture=null;this.setData({trayDragging:false,trayDragY:0});},
+   toggleMapMode() { this.setData({artMode:!this.data.artMode,error:''}); },
+   openVenue() { if(this.data.devPreview)wx.navigateTo({url:'/pages/venue/venue'}); },
+-  locateSelf(){if(this.data.artMode&&!this.data.mapCalibration){this.setData({error:'樱洲图片还未标定，点「实时图」查看本人位置。'});return;}if(!this.data.hasSelf){this.setData({error:this.data.offline?'连接恢复后可重新定位':'尚无可用的本人位置，请检查定位权限并等待同步'});return;}if(this.data.artMode){this.selectComponent('.venueArt')?.focusSelf();return;}const p=this.data.geoData.points.find(p=>p.tone==='self');if(p)this.setData({latitude:p.lat,longitude:p.lng,mapScale:17,followSelf:true});},
++  locateSelf(){if(this.data.artMode&&!this.data.mapCalibration){this.setData({error:'樱洲图片还未标定，点右侧叠层图标切换实时地图查看本人位置。'});return;}if(!this.data.hasSelf){this.setData({error:this.data.offline?'连接恢复后可重新定位':'尚无可用的本人位置，请检查定位权限并等待同步'});return;}if(this.data.artMode){this.selectComponent('.venueArt')?.focusSelf();return;}const p=this.data.geoData.points.find(p=>p.tone==='self');if(p)this.setData({latitude:p.lat,longitude:p.lng,mapScale:17,followSelf:true});},
+   onMapRegion(e){if((e.causedBy||e.detail?.causedBy)==='gesture')this.setData({followSelf:false});if(e.type==='end' && Number.isFinite(e.detail?.scale))this.setData({mapScale:e.detail.scale});},
+   ignoreTouch() {},
+   showCode() {
+--- baseline/pages/map/map.json
++++ current/pages/map/map.json
+@@ -1,7 +1,8 @@
+ {
+   "disableSwipeBack": true,
+   "usingComponents": {
+-    "venue-art": "/components/venue-art/venue-art"
++    "venue-art": "/components/venue-art/venue-art",
++    "pixel-glyph": "/components/map-icon/map-icon"
+   },
+   "navigationStyle": "custom",
+   "disableScroll": true
+--- baseline/pages/map/map.wxml
++++ current/pages/map/map.wxml
+@@ -1,4 +1,4 @@
+-<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px">
++<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
+ <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
+ <view wx:if="{{!match}}" class="emptyState"><text>正在同步本局状态</text><text class="bodyCopy">{{error || '请稍候，状态由服务器确认。'}}</text><button class="textButton" bindtap="goHome">返回首页</button></view>
+ <scroll-view wx:elif="{{terminal}}" scroll-y class="terminalScroll">
+@@ -12,40 +12,43 @@
+   <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" registration="{{mapCalibration}}" geo-data="{{geoData}}" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
+   <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
+  </view>
+- <view class="playHud">
+-  <view class="hudFoldBar"><text wx:if="{{!hudExpanded}}">{{roleText}} · {{clock}} · {{match.captured}} / {{match.target}}</text><text wx:else>本局状态</text><button class="foldButton" bindtap="toggleHud">{{hudExpanded?'收起状态':'展开状态'}}</button></view>
+-  <view wx:if="{{hudExpanded}}" class="hudExpanded">
+- <view class="roleBand role-{{match.myRole}}"><image class="roleArt" src="{{roleArt}}" mode="aspectFit" aria-hidden="true" /><view class="roleCopy"><view class="roleTitle"><text class="roleName">{{roleText}}</text><text class="phaseSeparator"> · </text><text class="phaseName">{{offline?'重连中':uiState==='paused'?'本局暂停':uiState==='captured'?'已出局':phaseText}}</text></view><text class="roleSubtitle">{{offline?'连接恢复前不显示战术位置':uiState==='paused'?'计时已冻结，请原地等待':uiState==='captured'?'本轮出局，仅查看公开状态':uiState==='hiding'?(match.myRole==='cat'?'请在集合点等待倒计时结束':'在场地范围内寻找躲藏位置'):match.myRole==='cat'?'寻找老鼠，完成捕获目标':'躲避猫咪，坚持到最后'}}</text></view></view>
+- <view class="pixelPaper hudStack"><view class="hudClock"><text class="statLabel">{{offline?'等待同步':match.phase==='HIDING'?'躲藏倒计时':match.phase==='PAUSED'?'计时已冻结':'追逐剩余时间'}}</text><text class="clock">{{clock}}</text></view><view class="hudCount"><text class="statLabel">已抓捕</text><view class="hudValue"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view></view></view>
+-  </view>
++ <view class="playHud compactHud role-{{match.myRole}}" aria-label="本局状态">
++  <image class="hudAvatar" src="{{roleArt}}" mode="aspectFit" aria-hidden="true"/>
++  <view class="compactIdentity"><text class="roleName">{{roleText}}</text><text class="phaseName">{{offline?'重连中':uiState==='paused'?'本局暂停':uiState==='captured'?'已出局':phaseText}}</text></view>
++  <text class="compactClock">{{clock}}</text><view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view>
++  <text class="registrationState">{{offline?'断线':artMode?(mapCalibration?'待核验':'待标定'):hasSelf?'已定位':'定位中'}}</text>
+  </view>
+- <view class="mapSignals {{hudExpanded?'signalsLower':''}}">
+-  <view class="positionSignal {{!hasSelf?'signalMuted':''}}"><view class="signalDot"/><text>{{artMode && !mapCalibration?'樱洲底图 · 待标定位置':locationText}}</text><text wx:if="{{devPreview}}"> · 模拟位置</text></view>
+-  <text wx:if="{{artMode && mapCalibration}}" class="mapCaption">配准图片 · 实地待验</text>
+-  <text wx:else class="mapCaption">{{artMode?'樱洲与环洲 · 拖动/双指缩放':'定位地图 · 橘色为大致线索'}}</text>
++ <view class="mapTools">
++  <button class="edgeButton locateButton" bindtap="locateSelf" aria-label="回到本人位置"><pixel-glyph kind="locate" size="27"/></button>
++  <button class="edgeButton layerButton" bindtap="toggleMapMode" aria-label="{{artMode?'切换实时地图':'切换樱洲地图'}}"><pixel-glyph kind="layers" size="25"/></button>
++  <button wx:if="{{!offline && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="edgeButton pauseButton" bindtap="emergency" aria-label="紧急暂停"><pixel-glyph kind="pause" size="25"/></button>
+  </view>
+- <view class="mapTools {{hudExpanded?'toolsLower':''}}">
+-  <button class="edgeButton locateButton" bindtap="locateSelf" aria-label="回到本人位置"><text class="locateGlyph">⊙</text><text>本人</text></button>
+-  <button class="edgeButton" bindtap="toggleMapMode">{{artMode?'实时图':'樱洲图'}}</button>
+-  <button wx:if="{{!offline && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="edgeButton" bindtap="emergency" aria-label="紧急暂停">暂停</button>
+- </view>
+- <view class="mapBottom"><view class="trayFoldBar"><button class="foldButton" bindtap="toggleTray">{{trayExpanded?'收起操作 ↓':'展开操作 ↑'}}</button></view><view wx:if="{{trayExpanded}}" class="trayExpanded">
++ <view class="mapStatusRegion {{trayExpanded?'aboveDrawer':'aboveTab'}}">
+   <view wx:if="{{offline}}" class="mapStatus statusReconnect"><text class="statusTitle">{{connection==='身份失效'?'身份已失效':'断线重连中，请停下'}}</text><text>{{connection==='身份失效'?'请返回首页重新进入':'旧位置已隐藏，连接恢复后自动同步'}}</text><button wx:if="{{connection==='身份失效'}}" class="compactButton" bindtap="goHome">返回首页</button></view>
+   <view wx:elif="{{uiState==='paused'}}" class="mapStatus"><text class="statusTitle">本局暂停 · 请原地等待</text><text>{{pauseReasonText}}</text><button wx:if="{{canResume}}" class="compactButton" bindtap="resume">恢复本局</button><text wx:else>等待组织者恢复本局</text></view>
+   <view wx:elif="{{uiState==='captured'}}" class="mapStatus"><text class="statusTitle">本轮出局</text><text>仅查看公开位置，请返回集合点等待结算</text></view>
+   <view wx:elif="{{uiState==='hiding'}}" class="mapStatus"><text class="statusTitle">{{match.myRole==='cat'?'猫留在集合点等待':'鼠先躲藏'}}</text><text>{{match.myRole==='cat'?'躲藏倒计时结束后出发':'在活动范围内寻找躲藏位置'}}</text></view>
+   <view wx:elif="{{nearbyCat}}" class="mapStatus proximityWarning"><text class="statusTitle">附近有猫，注意观察</text><text>接近预警，不展示猫的精确位置</text></view>
+-  <view class="mapActions pixelMapActions">
+-   <pixel-action class="pixelControl" wx:if="{{canScan}}" skin="/assets/pixel-v1/button-cat-scan.png" label="扫码确认抓捕" tone="orange" font-scale="{{fontScale}}" loading="{{loading}}" bindaction="scan" />
+-   <pixel-action class="pixelControl" wx:if="{{canShowCode}}" skin="/assets/pixel-v1/button-mouse-code.png" label="停下，展示动态码" tone="blue" font-scale="{{fontScale}}" bindaction="showCode" />
+-   <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-mouse-details.png" label="队伍·规则·操作" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" />
++ </view>
++ <view class="actionDrawer {{trayExpanded?'trayOpen':'trayClosed'}} {{trayDragging?'isDragging':''}}" aria-hidden="{{!trayExpanded}}" style="{{trayDragging?'transform:translateY('+trayDragY+'px)':''}}">
++  <button class="trayGrip" bindtap="toggleTray" catchtouchstart="trayTouchStart" catchtouchmove="trayTouchMove" bindtouchend="trayTouchEnd" bindtouchcancel="trayTouchCancel" aria-label="收起操作面板"><view class="gripMark"/></button>
++  <view class="trayActions">
++   <button wx:if="{{canScan}}" class="iconAction primaryAction catAction" bindtap="scan" disabled="{{loading || !trayExpanded}}" aria-label="{{loading?'正在确认抓捕':'双方停下后扫码确认抓捕'}}"><pixel-glyph kind="code" size="34" color="#fffdf6"/></button>
++   <button wx:if="{{canShowCode}}" class="iconAction primaryAction mouseAction" bindtap="showCode" disabled="{{!trayExpanded}}" aria-label="停下后展示动态抓捕码"><pixel-glyph kind="code" size="34" color="#fffdf6"/></button>
++   <button class="iconAction teamAction" data-tab="team" bindtap="openDrawer" disabled="{{!trayExpanded}}" aria-label="队伍与在线状态"><pixel-glyph kind="team" size="32"/></button>
++   <button class="iconAction rulesAction" data-tab="rules" bindtap="openDrawer" disabled="{{!trayExpanded}}" aria-label="规则与对局操作"><pixel-glyph kind="rules" size="32"/></button>
+   </view>
+-  </view>
++ </view>
++ <view class="collapsedDock {{trayExpanded?'dockHidden':'dockVisible'}}" aria-hidden="{{trayExpanded}}">
++  <button class="dockGrip" bindtap="toggleTray" catchtouchstart="trayTouchStart" catchtouchmove="trayTouchMove" bindtouchend="trayTouchEnd" bindtouchcancel="trayTouchCancel" aria-label="展开操作面板" disabled="{{trayExpanded}}"><view class="gripMark"/></button>
++  <button wx:if="{{canScan}}" class="dockAction catAction" bindtap="scan" disabled="{{trayExpanded || loading}}" aria-label="双方停下后扫码确认抓捕"><pixel-glyph kind="code" size="28" color="#fffdf6"/></button>
++  <button wx:elif="{{canShowCode}}" class="dockAction mouseAction" bindtap="showCode" disabled="{{trayExpanded}}" aria-label="停下后展示动态抓捕码"><pixel-glyph kind="code" size="28" color="#fffdf6"/></button>
++  <button wx:else class="dockAction" bindtap="toggleTray" disabled="{{trayExpanded}}" aria-label="展开队伍与规则"><pixel-glyph kind="team" size="28"/></button>
+  </view>
+ </block>
+ <text wx:if="{{error && !offline}}" class="error mapError">{{error}}</text>
+ <view wx:if="{{drawer}}" class="drawerMask {{drawerClosing?'sheetLeaving':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
+-<view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd"><view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-close.png" label="关闭" tone="plain" font-scale="{{fontScale}}" bindaction="closeDrawer" /></view></view><view class="drawerTabs"><button data-tab="team" class="{{drawerTab==='team'?'selected':''}}" bindtap="selectDrawerTab">队伍</button><button data-tab="events" class="{{drawerTab==='events'?'selected':''}}" bindtap="selectDrawerTab">事件</button><button data-tab="rules" class="{{drawerTab==='rules'?'selected':''}}" bindtap="selectDrawerTab">规则</button></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
++<view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd"><view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭详情"><pixel-glyph kind="close" size="18"/></button></view></view><view class="drawerTabs"><button data-tab="team" class="{{drawerTab==='team'?'selected':''}}" bindtap="selectDrawerTab">队伍</button><button data-tab="events" class="{{drawerTab==='events'?'selected':''}}" bindtap="selectDrawerTab">事件</button><button data-tab="rules" class="{{drawerTab==='rules'?'selected':''}}" bindtap="selectDrawerTab">规则</button></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
+  <view wx:if="{{drawerTab==='team'}}" class="squadColumns"><view class="squad catsGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view><view class="teamGrid catGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState">{{item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view><view class="squad miceGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view><view class="teamGrid mouseGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='captured'?'已被捕获':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view></view>
+  <view wx:if="{{drawerTab==='events'}}" class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
+  <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text></view>
+@@ -54,7 +57,7 @@
+ </view></scroll-view></view>
+ <view wx:if="{{codeOpen}}" class="codeMask" bindtap="closeCode" catchtouchmove="ignoreTouch"></view>
+ <view wx:if="{{codeOpen}}" class="codeSheet" role="dialog" aria-label="动态抓捕码">
+- <view class="codeSheetHeader"><text>动态抓捕码</text><button class="sheetCloseButton" bindtap="closeCode" aria-label="关闭动态码">关闭</button></view>
++ <view class="codeSheetHeader"><text>动态抓捕码</text><button class="sheetCloseButton" bindtap="closeCode" aria-label="关闭动态码"><pixel-glyph kind="close" size="18"/></button></view>
+  <scroll-view scroll-y class="codeSheetBody"><text class="codeSafety">双方停下，当面扫码确认</text>
+  <view class="inlineQr"><view wx:if="{{devPreview}}" class="codePlaceholder"><image src="/assets/pixel-v1/code-demo-art.png" mode="aspectFit"/><text>演示码 · 不可扫描</text></view><image wx:elif="{{image && seconds>0}}" src="{{image}}" mode="aspectFit" aria-label="本局动态抓捕码"/><view wx:else class="codePlaceholder"><text>{{codeError?'暂时无法生成':'正在更新抓捕码…'}}</text></view></view>
+  <text class="codeExpiry">{{devPreview?'预览演示':seconds>0?seconds+' 秒后自动更新':'等待有效抓捕码'}}</text><text wx:if="{{codeError}}" class="codeFailure">{{codeError}}</text><text class="codeFootnote">扫码成功才算抓捕 · GPS仅作辅助校验</text>
+--- baseline/pages/map/map.wxss
++++ current/pages/map/map.wxss
+@@ -10,22 +10,14 @@
+ 
+ .sectionHeading{display:flex;align-items:center;gap:7px}.sectionHeading image{width:23px;height:23px;flex:none}
+ .mapCanvas{position:absolute;top:var(--nav-height);left:0;right:0;bottom:0;background:#dce8df;overflow:hidden;z-index:0}.mapCanvas venue-art,.gameMap{display:block;width:100%;height:100%}
+-.mapHud{position:absolute;z-index:2;top:calc(var(--nav-height) + 10px);left:12px;right:12px;display:flex;align-items:center;gap:8px;min-height:72px;padding:8px 10px;background:#fcf8edf5;border:2px solid #476147;box-shadow:0 3px 0 #41533d33;border-radius:8px;pointer-events:none}.mapRole{display:flex;align-items:center;gap:6px;flex:1;min-width:0}.mapRole image{width:36px;height:40px;flex:none}.mapRole>view{min-width:0}.mapTeam{display:block;font-size:calc(17px*var(--font-scale));color:#a14512;white-space:nowrap}.role-mouse .mapTeam{color:#176487}.mapPhase{display:block;font-size:calc(11px*var(--font-scale));color:#55614f;white-space:nowrap}.mapTime{text-align:center;flex:none}.clock{display:block;font-size:29px;line-height:1.1;white-space:nowrap;font-variant-numeric:tabular-nums}.hudCaption{display:block;font-size:calc(10px*var(--font-scale));color:#5e6657;margin-top:3px;white-space:nowrap}.mapProgress{text-align:center;padding-left:9px;border-left:1px solid #c9cdbb;flex:none}.progressValue{font-size:23px;color:#c55c1a;white-space:nowrap}.progressValue>text{font-size:16px;color:#4b5846}
+-.mapSignals{position:absolute;top:calc(var(--nav-height) + 90px);left:13px;right:70px;z-index:2;pointer-events:none}.positionSignal{display:inline-flex;align-items:center;gap:5px;max-width:100%;padding:5px 7px;color:#254b39;background:#fcf8edf2;border:1px solid #c3cdbc;border-radius:4px;font-size:calc(11px*var(--font-scale));line-height:1.35;flex-wrap:wrap}.signalDot{width:7px;height:7px;border-radius:50%;background:#228657;flex:none}.signalMuted .signalDot{background:#8c7757}.mapCaption{display:block;width:max-content;max-width:100%;margin-top:4px;padding:3px 5px;background:#fcf8ede8;color:#485544;font-size:10px;border-radius:2px}
+-.mapTools{position:absolute;z-index:3;right:12px;top:calc(var(--nav-height) + 99px);display:flex;flex-direction:column;gap:8px}.edgeButton{display:flex;align-items:center;justify-content:center;flex-direction:column;width:48px!important;min-height:46px;margin:0!important;padding:5px 2px!important;border:1px solid #668066;border-radius:6px;background:#fcf8edf5;color:#2b4934;font-size:calc(12px*var(--font-scale));line-height:1.3;box-shadow:0 2px 0 #41533d22}.locateButton{gap:1px}.locateGlyph{font-family:sans-serif;font-size:24px;line-height:1}.edgeButton::after,.captureButton::after,.utilityButton::after,.compactButton::after,.sheetCloseButton::after{border:0}.edgeButton[disabled]{opacity:.6}
+-.mapBottom{position:absolute;bottom:max(24px,calc(var(--safe-bottom) + 12px));left:12px;right:12px;z-index:3;pointer-events:none}.mapStatus{padding:9px 12px;margin-bottom:10px;max-width:100%;background:#fcf8edf5;border:1px solid #7e8c6c;border-left:4px solid #6c815c;border-radius:5px;color:#40523e;font-size:calc(12px*var(--font-scale));line-height:1.4;pointer-events:auto}.mapStatus>text{display:block}.mapStatus .statusTitle{margin-bottom:3px}.statusReconnect{border-left-color:#bd7b20}.proximityWarning{background:#fff2dff5;border-color:#d28c42;border-left-color:#c55e1c;color:#954519}.mapActions{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;pointer-events:none}.mapActions>button{pointer-events:auto}.captureButton{flex:1;min-width:0;min-height:56px;padding:11px 8px;margin:0;background:#eb923d;border:2px solid #824522;border-radius:7px;box-shadow:0 3px 0 #824522;color:#202d20;font-size:calc(16px*var(--font-scale));line-height:1.4}.mouseCapture{background:#b6d9e5;border-color:#426d7a;box-shadow:0 3px 0 #426d7a}.utilityButton{display:flex;align-items:center;justify-content:center;flex-direction:column;width:48px!important;min-height:52px;margin:0;padding:4px;background:#fcf8edf5;border:1px solid #668066;border-radius:6px;color:#2b4934;font-size:calc(11px*var(--font-scale));line-height:1.2;flex:none}.utilityButton>text:first-child{font-size:22px;line-height:1.1}.compactButton{display:inline-block;margin:7px 0 0;padding:8px 13px;min-height:44px;font-size:calc(14px*var(--font-scale));line-height:1.5;background:#e2ebd6;color:#2c5038;border:1px solid #749168;border-radius:4px}.mapError{position:absolute;z-index:4;left:12px;right:70px;top:calc(var(--nav-height) + 157px);margin:0;padding:8px 10px;font-size:calc(12px*var(--font-scale))}
+ .drawer{height:min(78%,calc(var(--vh) - var(--nav-height) - 10px));animation:sheetEnter 240ms cubic-bezier(.2,.8,.2,1) both;z-index:21}.drawerMask{animation:maskEnter 180ms ease-out both}.sheetGrip{padding:1px 0 4px;min-height:26px}.drawerHandle{margin:10px auto 4px}.drawerHeader{height:52px;font-size:calc(22px*var(--font-scale))}.drawerClose{width:60px}.drawerTabs{display:flex;border-bottom:1px solid #d4dbc6;margin:0 14px;height:48px}.drawerTabs>button{flex:1;margin:0;padding:10px 5px;background:transparent;font-size:calc(14px*var(--font-scale));line-height:1.6;color:#64705c;border-radius:0}.drawerTabs>.selected{color:#254d36;border-bottom:3px solid #50784b}.drawerBody{height:calc(100% - 126px)}.drawer.sheetLeaving{animation:sheetExit 180ms ease-in both}.drawerMask.sheetLeaving{animation:maskExit 180ms ease-in both}.drawerContent .advancedRules{margin-bottom:12px}.fontLarge .drawerHeader{height:60px}.fontLarge .drawerBody{height:calc(100% - 134px)}.fontLarge .squadColumns,.fontLarge .mouseGrid{grid-template-columns:1fr}
+ .codeMask{position:fixed;inset:0;z-index:22;background:#18261866;animation:maskEnter 180ms ease-out both}.codeSheet{position:absolute;z-index:23;left:8px;right:8px;bottom:0;max-height:calc(var(--vh) - var(--nav-height) - 14px);background:#fcf8ed;border:2px solid #436850;border-bottom:0;border-radius:12px 12px 0 0;padding:12px 14px max(16px,var(--safe-bottom));animation:sheetEnter 240ms cubic-bezier(.2,.8,.2,1) both}.codeSheetHeader{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:calc(22px*var(--font-scale))}.sheetCloseButton{margin:0;padding:8px;min-height:44px;background:#e9eedc;color:#35563a;border:1px solid #80916e;border-radius:4px;font-size:calc(14px*var(--font-scale));line-height:1.5}.codeSheetBody{max-height:calc(var(--vh) - var(--nav-height) - var(--safe-bottom) - 105px);text-align:center}.codeSafety,.codeExpiry,.codeFootnote,.codeFailure{display:block;margin:8px 0;font-size:calc(14px*var(--font-scale));line-height:1.5}.codeFootnote{font-size:calc(12px*var(--font-scale));color:#5e6b56}.codeFailure{color:#a4441e}.inlineQr{width:min(65vw,260px);height:min(65vw,260px);margin:12px auto;background:#fff;padding:10px}.inlineQr>image{display:block;width:100%;height:100%}.codePlaceholder{display:flex;align-items:center;justify-content:center;flex-direction:column;height:100%;font-size:14px;color:#58705d;gap:8px}.codePlaceholder image{width:70%;height:70%;flex:none}
+ @keyframes sheetEnter{from{transform:translateY(100%)}to{transform:translateY(0)}}@keyframes sheetExit{from{transform:translateY(0)}to{transform:translateY(100%)}}@keyframes maskEnter{from{opacity:0}to{opacity:1}}@keyframes maskExit{from{opacity:1}to{opacity:0}}
+ @media(prefers-reduced-motion:reduce){.drawer,.drawerMask,.codeSheet,.codeMask{animation-duration:1ms}}
+-.fontLarge .mapRole image{width:28px;height:32px}.fontLarge .mapHud{gap:5px}.fontLarge .mapTeam{font-size:19px}.fontLarge .captureButton{font-size:17px}.narrowCanvas .mapHud{left:8px;right:8px;gap:5px;padding:8px 6px}.narrowCanvas .mapRole image{width:26px;height:30px}.narrowCanvas .clock{font-size:25px}.narrowCanvas .progressValue{font-size:20px}.narrowCanvas .mapTeam{font-size:16px}.narrowCanvas .mapProgress{padding-left:5px}.narrowCanvas .mapBottom{left:8px;right:8px}.narrowCanvas .mapActions{gap:6px}.narrowCanvas .captureButton{font-size:15px}.narrowCanvas .mouseGrid{grid-template-columns:1fr}
+-
+-.roleBand{display:flex;align-items:center;gap:14px;padding:8px 20px;background:#ff9b2b;flex:none}.roleBand.role-mouse{background:#27b1ef}.roleArt{width:calc(var(--vw)*.16);height:calc(var(--vw)*.15);flex:none}.roleCopy{flex:1;min-width:0}.roleTitle{display:block;font-size:calc(var(--vw)*.078*var(--font-scale));font-weight:400;line-height:1.2;letter-spacing:.5px;color:#101115;-webkit-text-stroke:.5px #fff;paint-order:stroke fill}.roleSubtitle{display:block;font-size:calc(12px*var(--font-scale));line-height:1.3;margin-top:4px;font-weight:400}.state-captured .roleBand{filter:saturate(.5)}
+-.hudStack{display:flex;flex:none;margin:9px 9px 0;padding:8px 5px;background:#fcf9f0}.hudClock,.hudCount{width:50%;text-align:center;min-width:0}.hudCount{border-left:1px solid #e5d9c6}.state-cat .hudClock{order:2;border-left:1px solid #e5d9c6}.state-cat .hudCount{order:1;border-left:0}.statLabel{display:block;font-size:calc(15px*var(--font-scale));font-weight:400;line-height:1.3}.clock,.hudValue{display:block;font-size:calc(var(--vw)*.092);font-weight:400;line-height:1.1;margin-top:3px;font-variant-numeric:tabular-nums}.hudValue{white-space:nowrap}
+-
+-
+-/* Keep the existing pixel cards; their content folds independently over the map. */
+-.playHud{position:absolute;z-index:2;top:calc(var(--nav-height) + 8px);left:10px;right:10px;background:#fcf8edf5;border:2px solid #d3c8af;border-radius:3px;overflow:hidden;box-shadow:0 2px 0 #655d3933}.hudFoldBar{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 6px 0 10px;min-height:38px;font-size:calc(12px*var(--font-scale));color:#45583e}.foldButton{margin:0;padding:9px 10px;min-height:44px;background:#fcf8edf5;color:#36563a;border:1px solid #a3b491;border-radius:3px;font-size:calc(12px*var(--font-scale));line-height:1.5;flex:none}.hudFoldBar .foldButton{min-height:38px;padding:7px 8px;border:0;background:transparent}.hudExpanded{animation:cardReveal 180ms ease-out both}.playHud .roleBand{padding:6px 10px;gap:9px}.playHud .roleArt{width:43px;height:44px}.playHud .roleTitle{font-size:calc(24px*var(--font-scale))}.playHud .roleSubtitle{font-size:calc(11px*var(--font-scale))}.playHud .hudStack{margin:0;border:0;border-radius:0;padding:5px;box-shadow:none}.playHud .statLabel{font-size:calc(12px*var(--font-scale))}.playHud .clock,.playHud .hudValue{font-size:27px;margin-top:0}.mapSignals{top:calc(var(--nav-height) + 56px)}.mapSignals.signalsLower{top:calc(var(--nav-height) + 180px)}.mapTools{top:calc(var(--nav-height) + 111px)}.mapTools.toolsLower{top:calc(var(--nav-height) + 176px)}.mapBottom{pointer-events:none}.trayFoldBar{display:flex;justify-content:center;margin-bottom:5px;pointer-events:auto}.trayFoldBar .foldButton{padding:8px 15px;box-shadow:0 2px 0 #41533d33}.trayExpanded{padding:7px;background:#fcf8edf2;border:2px solid #d3c8af;border-radius:4px;pointer-events:auto;animation:cardReveal 180ms ease-out both}.pixelMapActions{display:flex;flex-direction:column;gap:5px;align-items:stretch;pointer-events:auto}.pixelMapActions .pixelControl{width:100%;pointer-events:auto}.trayExpanded .mapStatus{margin:0 0 6px;padding:7px 9px;box-shadow:none}.fontLarge .playHud .roleTitle{font-size:25px}.fontLarge .playHud .roleSubtitle{font-size:12px}.fontLarge .mapSignals.signalsLower{top:calc(var(--nav-height) + 190px)}.fontLarge .mapTools.toolsLower{top:calc(var(--nav-height) + 188px)}.narrowCanvas .playHud{left:8px;right:8px}.narrowCanvas .playHud .roleTitle{font-size:22px}.narrowCanvas .playHud .roleSubtitle{font-size:11px}.narrowCanvas .playHud .roleArt{width:35px;height:38px}.narrowCanvas .playHud .clock,.narrowCanvas .playHud .hudValue{font-size:25px}
+-@keyframes cardReveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+-
+-.narrowCanvas .mapTools.toolsLower{top:calc(var(--nav-height) + 164px)}
++.playHud{position:absolute;z-index:2;top:calc(var(--nav-height) + 8px);left:10px;right:10px;min-height:62px;display:flex;align-items:center;gap:7px;padding:8px;background:#fcf8edf7;border:2px solid #263426;border-radius:4px;box-shadow:0 2px 0 #26342644;pointer-events:none}.hudAvatar{display:block;width:29px;height:32px;flex:none}.compactIdentity{display:flex;flex:1;min-width:0;flex-wrap:wrap;column-gap:4px;align-items:center;font-size:calc(13px*var(--font-scale));line-height:1.35}.roleName,.phaseName{white-space:nowrap}.compactClock{flex:none;white-space:nowrap;font-size:23px;line-height:1.2;font-variant-numeric:tabular-nums}.compactProgress{flex:none;white-space:nowrap;border-left:1px solid #c9c3ad;padding-left:8px;font-size:21px}.registrationState{font-size:calc(10px*var(--font-scale));line-height:1.3;color:#6d7564;border-left:1px solid #c9c3ad;padding-left:7px;flex:none;white-space:nowrap}.role-cat .roleName{color:#a65417}.role-mouse .roleName{color:#176280}
++.mapTools{position:absolute;z-index:3;right:12px;top:calc(var(--nav-height) + 88px);display:flex;flex-direction:column;gap:9px}.edgeButton{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:46px!important;height:46px;min-height:46px;margin:0!important;padding:0!important;border:2px solid #415b40;border-radius:4px;background:#fcf8edf7;box-shadow:0 2px 0 #415b4033}.edgeButton::after,.iconAction::after,.trayGrip::after,.dockGrip::after,.dockAction::after,.sheetCloseButton::after{border:0}
++.actionDrawer{position:absolute;z-index:4;bottom:0;left:8px;right:8px;height:calc(124px + max(16px,var(--safe-bottom),env(safe-area-inset-bottom)));padding:0 12px max(16px,var(--safe-bottom),env(safe-area-inset-bottom));background:#fcf8ed;border:2px solid #263426;border-bottom:0;border-radius:6px 6px 0 0;box-shadow:0 -2px 0 #fcf8ed,0 -4px 0 #26342644;transform:translateY(0);transition:transform var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1);will-change:transform}.actionDrawer.trayClosed{transform:translateY(calc(100% + 8px));pointer-events:none}.actionDrawer.isDragging{transition:none}.trayGrip,.dockGrip{display:flex;align-items:center;justify-content:center;min-height:44px;height:44px;margin:0!important;padding:0!important;border:0;border-radius:0;background:transparent;width:100%!important}.gripMark{width:36px;height:5px;background:#19261e;border-radius:2px}.trayActions{display:flex;align-items:center;justify-content:center;gap:28px;height:64px}.iconAction{display:flex;align-items:center;justify-content:center;flex:none;width:64px!important;height:64px;min-height:64px;margin:0!important;padding:0!important;border:2px solid #263426;border-radius:3px;background:#fcf8ed;box-shadow:2px 2px 0 #26342644}.mouseAction{background:#0eaae7!important}.catAction{background:#ee9236!important}.iconAction[disabled],.dockAction[disabled]{opacity:.55}
++.collapsedDock{position:absolute;z-index:4;bottom:calc(max(var(--safe-bottom),env(safe-area-inset-bottom)) + 8px);left:50%;width:78px;padding:0 10px 8px;background:#fcf8ed;border:2px solid #263426;border-radius:6px 6px 0 0;transform:translate(-50%,18px);opacity:0;transition:opacity 100ms ease,transform 200ms cubic-bezier(.2,.8,.2,1);pointer-events:none}.collapsedDock.dockVisible{opacity:1;transform:translate(-50%,0);transition-delay:120ms;pointer-events:auto}.dockGrip .gripMark{width:27px;height:4px}.dockAction{display:flex;align-items:center;justify-content:center;width:48px!important;height:44px;min-height:44px;margin:0 auto!important;padding:0!important;border:2px solid #263426;border-radius:2px;background:#e3e9d8}.dockHidden{pointer-events:none}
++.mapStatusRegion{position:absolute;z-index:3;left:10px;right:10px;pointer-events:none;transition:bottom var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1)}.mapStatusRegion.aboveDrawer{bottom:calc(140px + max(16px,var(--safe-bottom),env(safe-area-inset-bottom)))}.mapStatusRegion.aboveTab{bottom:calc(120px + max(var(--safe-bottom),env(safe-area-inset-bottom)))}.mapStatus{pointer-events:auto;padding:9px 12px;background:#fcf8edf5;border:1px solid #829575;border-left:4px solid #6c815c;border-radius:4px;color:#40523e;font-size:calc(12px*var(--font-scale));line-height:1.45}.mapStatus>text{display:block}.mapStatus .statusTitle{margin-bottom:4px}.statusReconnect{border-left-color:#bd7b20}.proximityWarning{background:#fff2dff7;border-color:#d28c42;border-left-color:#c55e1c;color:#954519}.compactButton{display:inline-block;margin:6px 0 0;padding:8px 13px;min-height:44px;font-size:calc(14px*var(--font-scale));line-height:1.5;background:#e2ebd6;color:#2c5038;border:1px solid #749168;border-radius:3px}.mapError{position:absolute;z-index:5;top:calc(var(--nav-height) + 83px);left:10px;right:70px;margin:0;padding:8px;font-size:calc(12px*var(--font-scale))}
++.drawerClose,.fontLarge .drawerClose{width:44px}.sheetCloseButton{display:flex;align-items:center;justify-content:center;flex:none;width:44px!important;height:44px;min-height:44px;padding:0!important;margin:0!important}.fontLarge .compactClock{font-size:26px}.fontLarge .compactProgress{font-size:23px}.narrowCanvas .playHud{left:8px;right:8px;padding:7px 6px;gap:5px}.narrowCanvas .hudAvatar{width:25px;height:28px}.narrowCanvas .compactIdentity{font-size:calc(12px*var(--font-scale))}.narrowCanvas .compactClock{font-size:22px}.narrowCanvas .compactProgress{font-size:20px;padding-left:5px}.narrowCanvas .registrationState{padding-left:5px;font-size:10px}.narrowCanvas .trayActions{gap:22px}.narrowCanvas .iconAction{width:60px!important;height:60px;min-height:60px}
++@media(prefers-reduced-motion:reduce){.actionDrawer,.collapsedDock,.mapStatusRegion{transition-duration:1ms;transition-delay:0ms}}
+--- baseline/README.md
++++ current/README.md
+@@ -115,3 +115,13 @@
+ - 验证：基线98/98，最终106/106；新增8项覆盖折叠、单一定位订阅、码图回收、迟到请求、换局、手动视角、抽屉退出和离页清理。官方WXML10/WXSS14编译退出0。真实微信IDE/MCP核查先完成12种布局，再对退出遮罩与窄屏修复复查8项；合并16个唯一状态画面。窄屏是390模拟器内320×600内容，大字是应用fontScale=1.3，均非真机验收。
+ - 自查：管理权限、抓捕/截止/唯一终局和规则版本没有改变；仍只绘制服务端授权 visiblePositions/intel；断线清除战术点，出局无敌方实时位置；收起状态不停止必要定位，也不新增业务定时轮询；没有发布、上传或线上数据库变更。
+ - 证据与预览：reports/2026-10-15/map-first-v1。待外部资源：按已确认计划由房主稍后采集真实标定点，再真机走点核验。当前图片绑定基础设施已完成，真实地理精度未验收。
++
++
++## 2026-10-15 固定紧凑顶部与02底部图标抽屉
++- 用户已选02号图：顶部采用右侧紧凑状态条且保持固定；取消顶部折叠。底部保留像素纸卡，把手点按/上下滑动展开收起，260ms位移而非压缩；小码图标可直接执行扫码/展示码，队伍与规则为图标，关闭为X。暂停/失联/出局预警独立于抽屉收起状态。
++- 实现：原生pixel-glyph图标（components/map-icon）与CSS位移，无新增定位/网络循环。拖动只在把手处理，限制纵向，取消/多点/横向不改变展开状态，抑制滑动后的重复tap，离页清理手势。开发预览支持motionPreviewMs放慢验证，正式分支固定260ms。
++- 身份、权限、规则pilot-0.2/0.3、抓捕与结算没有改变。仍只取服务端授权位置/线索；标定实际点待用户稍后提供，图片原SHA保持。
++- 验证：107/107完整回归，新增纵向手势/取消/多点/连续点按/离页检查。微信IDE正常7状态、320×600内容3状态、应用1.3大字2状态已截图核查；再以真实原生按钮核验收起码入口/规则/关闭，以运行时手势核验展开。8秒开发慢放采样顶部top=95px不变，面板top=686→767.17→852px且高度158px不变；正式默认260ms。真机与系统字号尚未执行。
++- 发现并修复图标初始化问题（初始data静态缓存＋数据观察器改为attached/属性观察器填充）；先前空白截图未计为通过。同一evaluate内采样得到未刷新布局，改为独立真实tap后采样，保留失败过程。
++- C盘0空间导致数据库/预览缓存异常；按已有清理授权删除12个已识别测试PG临时副本297578900B。后续TEMP/TMP与证据放项目外D盘，补齐custom/geo两个测试的finally临时目录清理，避免泄漏。相同测试在D盘107/107，结束无catmouse-*目录。源码/素材/真实数据库未删除。
++- 交付：reports/2026-10-15/fixed-hud-drawer-v1。无上传、部署或线上数据修改。
+--- baseline/RELEASE.md
++++ current/RELEASE.md
+@@ -122,3 +122,13 @@
+ - 验证：基线98/98，最终106/106；新增8项覆盖折叠、单一定位订阅、码图回收、迟到请求、换局、手动视角、抽屉退出和离页清理。官方WXML10/WXSS14编译退出0。真实微信IDE/MCP核查先完成12种布局，再对退出遮罩与窄屏修复复查8项；合并16个唯一状态画面。窄屏是390模拟器内320×600内容，大字是应用fontScale=1.3，均非真机验收。
+ - 自查：管理权限、抓捕/截止/唯一终局和规则版本没有改变；仍只绘制服务端授权 visiblePositions/intel；断线清除战术点，出局无敌方实时位置；收起状态不停止必要定位，也不新增业务定时轮询；没有发布、上传或线上数据库变更。
+ - 证据与预览：reports/2026-10-15/map-first-v1。待外部资源：按已确认计划由房主稍后采集真实标定点，再真机走点核验。当前图片绑定基础设施已完成，真实地理精度未验收。
++
++
++## 2026-10-15 固定紧凑顶部与02底部图标抽屉
++- 用户已选02号图：顶部采用右侧紧凑状态条且保持固定；取消顶部折叠。底部保留像素纸卡，把手点按/上下滑动展开收起，260ms位移而非压缩；小码图标可直接执行扫码/展示码，队伍与规则为图标，关闭为X。暂停/失联/出局预警独立于抽屉收起状态。
++- 实现：原生pixel-glyph图标（components/map-icon）与CSS位移，无新增定位/网络循环。拖动只在把手处理，限制纵向，取消/多点/横向不改变展开状态，抑制滑动后的重复tap，离页清理手势。开发预览支持motionPreviewMs放慢验证，正式分支固定260ms。
++- 身份、权限、规则pilot-0.2/0.3、抓捕与结算没有改变。仍只取服务端授权位置/线索；标定实际点待用户稍后提供，图片原SHA保持。
++- 验证：107/107完整回归，新增纵向手势/取消/多点/连续点按/离页检查。微信IDE正常7状态、320×600内容3状态、应用1.3大字2状态已截图核查；再以真实原生按钮核验收起码入口/规则/关闭，以运行时手势核验展开。8秒开发慢放采样顶部top=95px不变，面板top=686→767.17→852px且高度158px不变；正式默认260ms。真机与系统字号尚未执行。
++- 发现并修复图标初始化问题（初始data静态缓存＋数据观察器改为attached/属性观察器填充）；先前空白截图未计为通过。同一evaluate内采样得到未刷新布局，改为独立真实tap后采样，保留失败过程。
++- C盘0空间导致数据库/预览缓存异常；按已有清理授权删除12个已识别测试PG临时副本297578900B。后续TEMP/TMP与证据放项目外D盘，补齐custom/geo两个测试的finally临时目录清理，避免泄漏。相同测试在D盘107/107，结束无catmouse-*目录。源码/素材/真实数据库未删除。
++- 交付：reports/2026-10-15/fixed-hud-drawer-v1。无上传、部署或线上数据修改。
+--- baseline/scripts/map-first-review.cjs
++++ current/scripts/map-first-review.cjs
+@@ -3,14 +3,26 @@
+ const shell='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';
+ function call(tool,args){const file=path.join(out,'command-'+(++seq)+'.json');fs.writeFileSync(file,JSON.stringify({tool,project:path.resolve(__dirname,'..'),args}));const raw=cp.execFileSync(shell,['-NoProfile','-File',path.join(__dirname,'wechat-mcp-command.ps1'),'-InputFile',file],{encoding:'utf8',timeout:45000});const result=JSON.parse(raw.slice(raw.indexOf('{')));assert.ok(result.ok&&result.result.success,JSON.stringify(result));return result.result;}
+ function evaluate(fn,...args){const f=path.join(out,'args-'+seq+'.json');fs.writeFileSync(f,JSON.stringify(args));return call('automation_evaluate',{'fn-source':('function () { return ('+fn.toString()+').apply(null, arguments); }').replace(/\r?\n/g,' '),'args-file':f}).result.result;}
+-function inspect(){return evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],sels=['.mapCanvas','.playHud','.mapBottom','.mapTools','.edgeButton','.drawer','.codeSheet','.inlineQr','.pixelControl','.trayExpanded'],q=wx.createSelectorQuery().in(p);sels.forEach(s=>q.selectAll(s).boundingClientRect());q.exec(r=>{const c=p.selectComponent('.venueArt');resolve({route:p.route,width:p.data.viewportWidth,height:p.data.viewportHeight,nav:p.data.navHeight,artMode:p.data.artMode,hasSelf:p.data.hasSelf,markers:p.data.markers.length,clock:p.data.clock,code:p.data.codeOpen,drawer:p.data.drawer,hud:p.data.hudExpanded,tray:p.data.trayExpanded,source:c?.data.src,overlayCount:c?.data.overlayPoints?.length,fitWidth:c?.data.fitWidth,fitHeight:c?.data.fitHeight,boxes:Object.fromEntries(sels.map((s,i)=>[s,r[i]]))});});}));}
+-function shot(file){call('simulator_screenshot',{path:path.join(out,file),optimize:'false'});const s=inspect();assert.equal(s.route,'pages/map/map','screenshot must use the same map runtime');return s;}
+-const rows=[];function record(id,mode){const s=inspect();assert.equal(s.route,'pages/map/map');const c=s.boxes['.mapCanvas'][0];assert.equal(c.left,0);assert.ok(Math.abs(c.width-s.width)<2);assert.ok(Math.abs(c.height-(s.height-s.nav))<2);assert.ok(c.height/s.height>.8);if(s.artMode){assert.equal(s.source,'/assets/maps/xuanwu-lake-v4.jpg');assert.ok(Math.abs(s.fitWidth/s.fitHeight-1)<.002);assert.equal(s.overlayCount,0,'unregistered image must never invent positions');}for(const key of ['.playHud','.mapBottom','.mapTools','.edgeButton','.pixelControl'])for(const b of s.boxes[key]){assert.ok(b.left>=-1&&b.right<=s.width+1,id+key+' horizontal');assert.ok(b.top>=s.nav&&b.bottom<=s.height+1,id+key+' vertical');if(key==='.edgeButton')assert.ok(b.height>=44);}const tray=s.boxes['.trayExpanded'][0];if(tray)for(const b of s.boxes['.edgeButton'])assert.ok(b.bottom<=tray.top-4,'side actions must clear the expanded tray');if(id==='offline'){assert.equal(s.markers,0);assert.equal(s.clock,'--:--');assert.equal(s.hasSelf,false);}const file=mode+'-'+id+'.png';shot(file);rows.push({id,mode,...s,file});console.log('VERIFIED '+mode+' '+id);}
++function inspect(){return evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],sels=['.mapCanvas','.playHud','.actionDrawer','.collapsedDock','.mapTools','.edgeButton','.iconAction','.trayGrip','.dockGrip','.dockAction','.drawer','.codeSheet','.inlineQr','.mapStatusRegion'],q=wx.createSelectorQuery().in(p);sels.forEach(s=>q.selectAll(s).boundingClientRect());q.exec(r=>{const c=p.selectComponent('.venueArt');resolve({route:p.route,width:p.data.viewportWidth,height:p.data.viewportHeight,nav:p.data.navHeight,safe:p.data.safeBottom,tray:p.data.trayExpanded,artMode:p.data.artMode,hasSelf:p.data.hasSelf,markers:p.data.markers.length,clock:p.data.clock,code:p.data.codeOpen,drawer:p.data.drawer,source:c?.data.src,overlayCount:c?.data.overlayPoints?.length,fitWidth:c?.data.fitWidth,fitHeight:c?.data.fitHeight,boxes:Object.fromEntries(sels.map((s,i)=>[s,r[i]]))});});}));}
++function shot(file){call('simulator_screenshot',{path:path.join(out,file),optimize:'false'});assert.equal(inspect().route,'pages/map/map');}
++const rows=[];
++function record(id,mode){let s;for(let attempt=0;attempt<4;attempt++){s=inspect();if(s.boxes['.mapCanvas'][0]&&s.boxes['.playHud'][0]&&s.boxes['.actionDrawer'][0])break;evaluate(()=>new Promise(resolve=>setTimeout(resolve,300)));}assert.ok(s.boxes['.mapCanvas'][0],'map template must finish rendering');assert.equal(s.route,'pages/map/map');const c=s.boxes['.mapCanvas'][0],h=s.boxes['.playHud'][0],d=s.boxes['.actionDrawer'][0];assert.ok(Math.abs(c.width-s.width)<2);assert.ok(Math.abs(c.height-(s.height-s.nav))<2);assert.ok(h.height<=76,'fixed header compact');assert.equal(s.source,'/assets/maps/xuanwu-lake-v4.jpg');assert.ok(Math.abs(s.fitWidth/s.fitHeight-1)<.002);assert.equal(s.overlayCount,0);for(const key of ['.playHud','.mapTools','.edgeButton','.iconAction'])for(const b of s.boxes[key]){assert.ok(b.left>=0&&b.right<=s.width+1,id+key+' horizontal');assert.ok(b.top>=s.nav&&b.bottom<=s.height+1,id+key+' vertical');if(key==='.edgeButton'||key==='.iconAction')assert.ok(b.height>=44);}assert.ok(s.boxes['.mapTools'][0].bottom<d.top);if(id==='offline'){assert.equal(s.markers,0);assert.equal(s.clock,'--:--');assert.equal(s.hasSelf,false);}const file=mode+'-'+id+'.png';shot(file);rows.push({id,mode,...s,file});console.log('VERIFIED '+mode+' '+id);}
+ try{
+- for(const [mode,ids]of [['normal',process.argv[3]==='focused'?['mouse']:['cat','mouse','alert','hiding','captured','paused','offline']],['narrow',['cat','mouse','paused']],['large',process.argv[3]==='focused'?[]:['cat','mouse']]])for(const id of ids){call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview='+id});if(mode==='narrow')evaluate(()=>getCurrentPages().slice(-1)[0].onResize({size:{windowWidth:320,windowHeight:600}}));if(mode==='large')evaluate(()=>getCurrentPages().slice(-1)[0].setData({fontScale:1.3}));record(id,mode);}
+- call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});evaluate(()=>getCurrentPages().slice(-1)[0].showCode());let s=inspect();assert.equal(s.code,true);assert.equal(s.drawer,false);assert.ok(s.boxes['.inlineQr'][0].width>=200);shot('mouse-code-sheet.png');rows.push({id:'code-sheet',...s});evaluate(()=>getCurrentPages().slice(-1)[0].closeCode());
+- evaluate(()=>getCurrentPages().slice(-1)[0].openDrawer({currentTarget:{dataset:{tab:'rules'}}}));s=shot('rules-sheet.png');assert.equal(s.drawer,true);rows.push({id:'rules-sheet',...s});evaluate(()=>getCurrentPages().slice(-1)[0].closeDrawer());s=inspect();assert.equal(s.drawer,false,'actual exit animation must dismiss sheet');
+- evaluate(()=>{const p=getCurrentPages().slice(-1)[0];p.toggleHud();p.toggleTray();});s=shot('folded-map.png');assert.ok(s.boxes['.playHud'][0].height<70);assert.ok(s.boxes['.mapBottom'][0].height<70);rows.push({id:'folded-map',...s});
+- evaluate(()=>getCurrentPages().slice(-1)[0].toggleMapMode());s=shot('native-fallback.png');assert.equal(s.artMode,false);rows.push({id:'native-fallback',...s});
+- fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({status:'PASS',scope:'official MCP runtime and screenshot; synthetic identities; no real GPS. Narrow=320x600 content in390 simulator; app fontScale=1.3.',rows},null,2));console.log('MAP_FIRST_UI_PASS='+rows.length);
++ for(const [mode,ids]of (process.argv[3]==='motion'?[]:[['normal',['cat','mouse','alert','hiding','captured','paused','offline']],['narrow',['cat','mouse','paused']],['large',['cat','mouse']]]))for(const id of ids){call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview='+id});if(mode==='narrow')evaluate(()=>getCurrentPages().slice(-1)[0].onResize({size:{windowWidth:320,windowHeight:600}}));if(mode==='large')evaluate(()=>getCurrentPages().slice(-1)[0].setData({fontScale:1.3}));record(id,mode);}
++ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});const initial=inspect();assert.ok(initial.boxes['.actionDrawer'][0],'rendered before starting animation');
++ // Separate native tap from measurement: a single evaluate can return cached layout until it resolves.
++ evaluate(()=>getCurrentPages().slice(-1)[0].setData({motionPreviewMs:8000}));
++ const opened=inspect(),motion=[{label:'open',...opened}];
++ call('automation_element_action',{action:'tap',selector:'.trayGrip'});
++ motion.push({label:'mid-1',...inspect()});shot('motion-slow-mid.png');motion.push({label:'mid-2',...inspect()});
++ // Wait outside the page runtime so rendered transitions continue normally.
++ Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,8000);
++ let s=inspect();motion.push({label:'closed',...s});assert.equal(s.tray,false);for(const f of motion){const h=f.boxes['.playHud'][0],first=motion[0].boxes['.playHud'][0];assert.ok(Math.abs(h.top-first.top)<.5&&Math.abs(h.height-first.height)<.5,'top header fixed');}
++ fs.writeFileSync(path.join(out,'motion.json'),JSON.stringify(motion,null,2));
++ assert.ok(s.boxes['.actionDrawer'][0].top>=s.height,'panel offscreen');assert.ok(s.boxes['.dockAction'][0].bottom<=s.height-s.safe,'tab clears home area');
++ evaluate(()=>getCurrentPages().slice(-1)[0].setData({motionPreviewMs:260}));shot('mouse-collapsed.png');rows.push({id:'collapse-motion',motion,...s,file:'mouse-collapsed.png'});
++ call('automation_element_action',{action:'tap',selector:'.dockAction'});s=inspect();assert.equal(s.code,true);shot('mouse-code-sheet.png');rows.push({id:'code-sheet',...s,file:'mouse-code-sheet.png'});call('automation_element_action',{action:'tap',selector:'.codeSheet .sheetCloseButton'});
++ evaluate(()=>{const p=getCurrentPages().slice(-1)[0];p.trayTouchStart({touches:[{clientX:150,clientY:500}]});p.trayTouchMove({touches:[{clientX:150,clientY:440}]});p.trayTouchEnd();});s=inspect();assert.equal(s.tray,true);shot('swipe-expanded.png');rows.push({id:'swipe-expanded',...s,file:'swipe-expanded.png'});
++ call('automation_element_action',{action:'tap',selector:'.rulesAction'});s=inspect();assert.equal(s.drawer,true);shot('rules-sheet.png');rows.push({id:'rules-sheet',...s,file:'rules-sheet.png'});evaluate(()=>getCurrentPages().slice(-1)[0].closeDrawer());assert.equal(inspect().drawer,false);
++ fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({status:'PASS',scope:'official MCP runtime + screenshots; simulated identities/coordinates; 320x600 content inside390 simulator; app fontScale1.3; separate native element taps, 8000ms development-only motion inspection (production260ms), fixed header geometry; swipe handler invoked through runtime.',rows},null,2));console.log('FIXED_HUD_DRAWER_UI_PASS='+rows.length);
+ }catch(e){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:e.message,rows},null,2));throw e;}
+--- baseline/utils/fusion-font.wxss
++++ current/utils/fusion-font.wxss
+@@ -1,2 +1,2 @@
+ /* Fusion Pixel 12px proportional zh-Hans, v2026.09.25. SIL OFL1.1; original and licenses: design/2026-10-13/fusion-font-v1. Global static-label subset; dynamic user text falls back to ParkReplicaUI. */
+-@font-face{font-family:CatMouseFusionUI;font-style:normal;font-weight:400;src:url("data:font/woff;base64,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") format("woff");font-display:swap;}
++@font-face{font-family:CatMouseFusionUI;font-style:normal;font-weight:400;src:url("data:font/woff;base64,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") format("woff");font-display:swap;}
+--- baseline/WORK_LOG.md
++++ current/WORK_LOG.md
+@@ -308,3 +308,13 @@
+ - 验证：基线98/98，最终106/106；新增8项覆盖折叠、单一定位订阅、码图回收、迟到请求、换局、手动视角、抽屉退出和离页清理。官方WXML10/WXSS14编译退出0。真实微信IDE/MCP核查先完成12种布局，再对退出遮罩与窄屏修复复查8项；合并16个唯一状态画面。窄屏是390模拟器内320×600内容，大字是应用fontScale=1.3，均非真机验收。
+ - 自查：管理权限、抓捕/截止/唯一终局和规则版本没有改变；仍只绘制服务端授权 visiblePositions/intel；断线清除战术点，出局无敌方实时位置；收起状态不停止必要定位，也不新增业务定时轮询；没有发布、上传或线上数据库变更。
+ - 证据与预览：reports/2026-10-15/map-first-v1。待外部资源：按已确认计划由房主稍后采集真实标定点，再真机走点核验。当前图片绑定基础设施已完成，真实地理精度未验收。
++
++
++## 2026-10-15 固定紧凑顶部与02底部图标抽屉
++- 用户已选02号图：顶部采用右侧紧凑状态条且保持固定；取消顶部折叠。底部保留像素纸卡，把手点按/上下滑动展开收起，260ms位移而非压缩；小码图标可直接执行扫码/展示码，队伍与规则为图标，关闭为X。暂停/失联/出局预警独立于抽屉收起状态。
++- 实现：原生pixel-glyph图标（components/map-icon）与CSS位移，无新增定位/网络循环。拖动只在把手处理，限制纵向，取消/多点/横向不改变展开状态，抑制滑动后的重复tap，离页清理手势。开发预览支持motionPreviewMs放慢验证，正式分支固定260ms。
++- 身份、权限、规则pilot-0.2/0.3、抓捕与结算没有改变。仍只取服务端授权位置/线索；标定实际点待用户稍后提供，图片原SHA保持。
++- 验证：107/107完整回归，新增纵向手势/取消/多点/连续点按/离页检查。微信IDE正常7状态、320×600内容3状态、应用1.3大字2状态已截图核查；再以真实原生按钮核验收起码入口/规则/关闭，以运行时手势核验展开。8秒开发慢放采样顶部top=95px不变，面板top=686→767.17→852px且高度158px不变；正式默认260ms。真机与系统字号尚未执行。
++- 发现并修复图标初始化问题（初始data静态缓存＋数据观察器改为attached/属性观察器填充）；先前空白截图未计为通过。同一evaluate内采样得到未刷新布局，改为独立真实tap后采样，保留失败过程。
++- C盘0空间导致数据库/预览缓存异常；按已有清理授权删除12个已识别测试PG临时副本297578900B。后续TEMP/TMP与证据放项目外D盘，补齐custom/geo两个测试的finally临时目录清理，避免泄漏。相同测试在D盘107/107，结束无catmouse-*目录。源码/素材/真实数据库未删除。
++- 交付：reports/2026-10-15/fixed-hud-drawer-v1。无上传、部署或线上数据修改。
+--- /dev/null
++++ current/components/map-icon/map-icon.js
+@@ -0,0 +1,18 @@
++// Small native pixel glyphs, drawn as horizontal runs; no bitmap scaling or font symbols.
++const grids={
++ code:['111110011111','100010010001','101010010101','100010010001','111110011111','000000000000','111110011000','100010011011','101010000110','100010011001','111110010110','000000001001'],
++ team:['000011110000','000111111000','000111111000','000011110000','110000000011','111001100111','110111111011','001111111100','111111111111','111111111111','111111111111','111100001111'],
++ rules:['111111111111','100001100001','101101101101','101101101101','101101101101','100001100001','101101101101','101101101101','100001100001','111111111111','000001100000','000001100000'],
++ locate:['000001100000','000001100000','000111111000','001100001100','011000000110','111001100111','111001100111','011000000110','001100001100','000111111000','000001100000','000001100000'],
++ pause:['001110011100','001110011100','001110011100','001110011100','001110011100','001110011100','001110011100','001110011100','001110011100','001110011100','001110011100','001110011100'],
++ layers:['000001100000','000111111000','011111111110','111111111111','011111111110','000111111000','110001100011','011100001110','000111111000','110001100011','011100001110','000111111000'],
++ close:['110000000011','111000000111','011100001110','001110011100','000111111000','000011110000','000011110000','000111111000','001110011100','011100001110','111000000111','110000000011']
++};
++const cache={};
++for(const [name,grid]of Object.entries(grids)){const runs=[];grid.forEach((row,y)=>{let x=0;while(x<row.length){if(row[x]!=='1'){x++;continue;}const start=x;while(row[x]==='1')x++;runs.push({id:y+'-'+start,x:start/12*100,y:y/12*100,width:(x-start)/12*100});}});cache[name]=runs;}
++Component({
++ properties:{kind:{type:String,value:'code',observer(){this.updateGlyph();}},size:{type:Number,value:30},color:{type:String,value:'#15231c'}},
++ data:{runs:[]},
++ lifetimes:{attached(){this.updateGlyph();}},
++ methods:{updateGlyph(){this.setData({runs:cache[this.data.kind]||cache.code});}}
++});
+--- /dev/null
++++ current/components/map-icon/map-icon.json
+@@ -0,0 +1 @@
++{"component":true}
+--- /dev/null
++++ current/components/map-icon/map-icon.wxml
+@@ -0,0 +1 @@
++<view class="glyph" style="width:{{size}}px;height:{{size}}px;color:{{color}}" aria-hidden="true"><view wx:for="{{runs}}" wx:key="id" class="pixelRun" style="left:{{item.x}}%;top:{{item.y}}%;width:{{item.width}}%"/></view>
+--- /dev/null
++++ current/components/map-icon/map-icon.wxss
+@@ -0,0 +1 @@
++:host{display:inline-flex;align-items:center;justify-content:center;flex:none;pointer-events:none}.glyph{display:block;position:relative;flex:none}.pixelRun{position:absolute;height:8.33334%;background:currentColor}

@@ -1,0 +1,38 @@
+'use strict';
+const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('assert/strict');
+const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});let seq=0;
+const shell='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';
+function call(tool,args){const file=path.join(out,'command-'+(++seq)+'.json');fs.writeFileSync(file,JSON.stringify({tool,project:path.resolve(__dirname,'..'),args}));const raw=cp.execFileSync(shell,['-NoProfile','-File',path.join(__dirname,'wechat-mcp-command.ps1'),'-InputFile',file],{encoding:'utf8',timeout:45000});const j=JSON.parse(raw.slice(raw.indexOf('{')));assert.ok(j.ok&&j.result.success,JSON.stringify(j));return j.result;}
+function evaluate(fn,...args){const f=path.join(out,'args-'+seq+'.json');fs.writeFileSync(f,JSON.stringify(args));return call('automation_evaluate',{'fn-source':('function () { return ('+fn.toString()+').apply(null, arguments); }').replace(/\r?\n/g,' '),'args-file':f}).result.result;}
+function inspect(){return evaluate(()=>{const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.campusModel');return {route:p.route,mapId:p.data.mapId||p.data.venueMapId,artMode:p.data.artMode,modelMode:p.data.modelMode,error:p.data.error||p.data.locationError,controller:typeof p.selectMapLayer,phase:p.data.match?.phase,hasSelf:p.data.hasSelf||p.data.hasPosition,geoData:p.data.geoData,system:wx.getWindowInfo(),model:c?{status:c.data.status,error:c.data.error,camera:c._camera,width:c._width,height:c._height,pins:c.data.pins,drawCount:c._drawCount,lastDrawMs:c._lastDrawMs,omitted:c.data.omittedRegions}:null};});}
+function ready(){let s;for(let i=0;i<6;i++){s=inspect();if(s.model?.status==='ready'&&s.model.drawCount)return s;if(s.model?.status==='error')throw Error(JSON.stringify(s));}throw Error('3D not ready '+JSON.stringify(s));}
+function record(name){const s=ready();call('simulator_screenshot',{path:path.join(out,name+'.png'),optimize:'false'});fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify(inspect(),null,2));console.log('CAPTURED '+name+' '+JSON.stringify({camera:s.model.camera,pins:s.model.pins,drawCount:s.model.drawCount}));return s;}
+function navigate(url){evaluate(url=>new Promise((resolve,reject)=>wx.reLaunch({url,success:resolve,fail:reject})),url);const route=url.split('?')[0].slice(1);for(let i=0;i<6;i++){const s=inspect();if(s.route===route&&s.controller==='function'&&(route!=='pages/map/map'||s.phase))return;}throw Error('Initial resource navigation still in progress');}
+try{
+ if(process.argv.includes('--vertical')){navigate('/pages/venue/venue?mapId=seu-jiulonghu-v1&simPosition=jiulonghu-meiyuan7b');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));const before=ready();evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.campusModel');c.touchStart({touches:[{clientX:200,clientY:200}]});c.touchMove({touches:[{clientX:200,clientY:260}]});c.touchEnd({touches:[]});});const after=record('17-vertical-pan');assert.ok(Math.abs(after.model.pins[0].y-before.model.pins[0].y-60)<.01);fs.writeFileSync(path.join(out,'vertical-pan-verification.json'),JSON.stringify({inputDy:60,actualDy:after.model.pins[0].y-before.model.pins[0].y,before:before.model.camera,after:after.model.camera,nativePhoneGesture:false},null,2));}else if(process.argv.includes('--extended')){
+ if(!process.argv.includes('--resume')){navigate('/pages/map/map?devPreview=cat&mapId=seu-jiulonghu-v1');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));ready();evaluate(()=>getCurrentPages().slice(-1)[0].selectComponent('.campusModel').reset());const overview=record('10-authorized-team-clue');assert.equal(overview.model.pins.length,3);assert.equal(overview.geoData.regions.length,1);}
+ for(const scene of (process.argv.includes('--resume')?['paused']:['captured','paused'])){navigate('/pages/map/map?devPreview='+scene+'&mapId=seu-jiulonghu-v1');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));const s=record('11-'+scene);assert.ok(s.model.pins.every(p=>p.tone==='venue'));}
+ navigate('/pages/map/map?devPreview=mouse&mapId=seu-jiulonghu-v1');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));record('12-mouse-caption');evaluate(()=>getCurrentPages().slice(-1)[0].setOffline('','重连中'));const offline=record('13-offline-caption');assert.equal(offline.model.pins.length,0);
+ navigate('/pages/map/map?devPreview=cat&mapId=seu-jiulonghu-v1');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));ready();evaluate(()=>getCurrentPages().slice(-1)[0].onResize({size:{windowWidth:320,windowHeight:600}}));record('14-narrow-caption');
+ navigate('/pages/venue/venue?mapId=seu-jiulonghu-v1');for(let i=0;i<6;i++){if(inspect().route==='pages/venue/venue')break;}evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));ready();evaluate(()=>getCurrentPages().slice(-1)[0].selectComponent('.campusModel').fail(new Error('验证：模拟画布中断')));const fail=inspect();assert.equal(fail.model.status,'error');assert.equal(fail.model.pins.length,0);call('simulator_screenshot',{path:path.join(out,'15-failure.png'),optimize:'false'});fs.writeFileSync(path.join(out,'15-failure.json'),JSON.stringify(fail,null,2));evaluate(()=>getCurrentPages().slice(-1)[0].useArtMap());assert.equal(inspect().model,null);call('simulator_screenshot',{path:path.join(out,'16-art-fallback.png'),optimize:'false'});
+ }else if(process.argv.includes('--current')){console.log(JSON.stringify(inspect(),null,2));record('current');}
+ else{
+ navigate('/pages/venue/venue?mapId=seu-jiulonghu-v1&simPosition=jiulonghu-meiyuan7b');
+ for(let i=0;i<6;i++){const s=inspect();if(s.route==='pages/venue/venue'&&s.hasSelf)break;if(i===5)throw Error('Guide resource navigation incomplete '+JSON.stringify(s));}
+ evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));
+ record('01-guide-self');
+ if(!process.argv.includes('--probe')){
+ call('automation_element_action',{selector:'.modelZoomIn',action:'tap'});record('02-guide-zoom');
+ evaluate(()=>getCurrentPages().slice(-1)[0].modelReset());record('03-campus-overview');
+ evaluate(()=>getCurrentPages().slice(-1)[0].tiltModel());record('04-campus-top');
+ evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.campusModel');c.touchStart({touches:[{clientX:100,clientY:250},{clientX:200,clientY:250}]});c.touchMove({touches:[{clientX:140,clientY:200},{clientX:260,clientY:300}]});c.touchEnd({touches:[]});});record('05-runtime-pinch-rotate-pan');
+ navigate('/pages/map/map?devPreview=mouse&mapId=seu-jiulonghu-v1');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));record('06-mouse-authorized');
+ evaluate(()=>getCurrentPages().slice(-1)[0].setOffline('','重连中'));const offline=record('07-offline');assert.equal(offline.model.pins.length,0);
+ navigate('/pages/map/map?devPreview=cat&mapId=seu-jiulonghu-v1');evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('model'));record('08-cat-regions');
+ evaluate(()=>getCurrentPages().slice(-1)[0].onResize({size:{windowWidth:320,windowHeight:600}}));record('09-narrow-model');
+ evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('native'));console.log('NATIVE '+JSON.stringify(inspect()));
+ evaluate(()=>getCurrentPages().slice(-1)[0].selectMapLayer('art'));console.log('ART '+JSON.stringify(inspect()));
+ }
+ }
+ console.log('Runtime captures only; manually inspect pixels. Gesture calls are not real phone touch tests.');
+}catch(e){fs.writeFileSync(path.join(out,'failure.txt'),e.stack);console.error(e);process.exitCode=1;}

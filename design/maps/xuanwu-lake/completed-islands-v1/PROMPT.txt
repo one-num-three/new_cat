@@ -1,0 +1,15 @@
+Tool: built-in image_gen
+Input 1: C:/Users/Keke_/.codex/generated_images/01a12f80-df93-76a1-9277-e7382c601324/exec-6c0745fc-c8a4-4fca-a147-1890ece8b54c.png
+Input 2: D:/cat-mouse-miniprogram/design/maps/xuanwu-lake/completed-islands-v1/full-islands-geometry.png
+
+Use case: precise-object-edit / geographic outpainting.
+Complete the cropped park map in IMAGE 1 while preserving its exact sunny 16-bit pixel-art style. Produce ONE complete map, not a comparison or collage. Portrait output aspect 1536:1813, high detail, no frame, labels, UI, text, pins, compass or legend.
+
+IMAGE 1 is the approved artwork to extend and preserve in the overlapping region: Xuanwu Lake's Huanzhou and Yingzhou islands. Its top was cropped. Preserve its distinctive tree-crown shading, grass, orange roof palette, cream paths, bridge detail, sunny blue water, restrained flowers and delicate pixel wavelets.
+IMAGE 2 is the authoritative REAL VECTOR MAP for the complete output extent and geometry. Match its entire composition exactly. It shows BOTH COMPLETE island outlines, especially the northern extension that was missing from IMAGE 1, its north-pointing tip, the shoreline's north/east lobes, paths and an existing building in the newly revealed north. Only the outward connecting paths/bridges may continue to the picture edge. Do not crop either target island's shoreline. Preserve generous water margin around the south tip.
+
+Registration: IMAGE 1 nominal footprint in the output is x=3.59%..95.43%, y=21.36%..94.46%. This is a composition guide, not a drawn rectangle. Extend the illustration mostly upward, and a little along the other edges, to reveal the full region shown in IMAGE 2. Do not merely resize the old cropped picture and invent a cap. Use IMAGE 2 to determine every newly visible shore, route and building. The final full-region outline must follow IMAGE 2. Keep original artwork's appearance and recognizable route structure in the overlap; do not add new islands or new paths.
+
+Fixed geography: north-up orthographic flat map projection; preserve all land/water topology, width and course of the channel around the inner island, ponds, outer southwest bend, southeast circular garden, south tip, road intersections and dead-ends, existing bridge endpoints and zigzag bridge, existing building footprints. Do not enlarge buildings, move shores, straighten routes, add buildings or new bridges, add imaginary entrances or rewrite garden topology. Decorative vegetation may enrich lawns but must not conceal roads, intersections, bridge landings or shoreline. No invented landmark architecture. Reuse the first image's SAME 16-bit material language with clean pixel clusters and upper-left light; no new style, smooth vector finish, 3D, isometric camera, painting, realism or blur.
+
+The objective is to complete the geographically missing northern part of this particular map, not redesign it. Return only the completed single pixel-art map.

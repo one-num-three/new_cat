@@ -1,0 +1,15 @@
+{
+  "main": {
+    "files": 144,
+    "bytes": 2042526
+  },
+  "subpackage": {
+    "files": 6,
+    "bytes": 1981419
+  },
+  "total": {
+    "files": 150,
+    "bytes": 4023945
+  },
+  "gate": "Each raw package < 2 MiB; upload compiled-size verification not performed"
+}

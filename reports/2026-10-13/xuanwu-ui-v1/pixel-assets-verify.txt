@@ -1,0 +1,1 @@
+PIXEL_RUNTIME_VERIFY_PASS pngs=65 pngBytes=763445 pngTarget=650000 withinTarget=false pngBudget=790000 withinBudget=true paletteMax=64 fontBytes=107816 originals=unchanged html=unchanged

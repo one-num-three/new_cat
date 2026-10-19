@@ -1,0 +1,20 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const automator=require('../cat-mouse-server/node_modules/miniprogram-automator'),shot=require('./wechat-screenshot.cjs'),geo=require('../utils/geo-registration');
+const {fixture}=require('../cat-mouse-server/v2/geo-fixture.cjs');
+const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function inspect(mp){return mp.evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.venueArt'),q=c.createSelectorQuery();q.select('.venueImage').boundingClientRect();q.select('.venueViewport').boundingClientRect();q.select('.geoBadge').boundingClientRect();q.select('.geoRegion').boundingClientRect();q.exec(r=>resolve({image:r[0],viewport:r[1],badge:r[2],region:r[3],points:c.data.overlayPoints,camera:c._camera}));}));}
+function aligned(s,q){assert.ok(s.badge&&s.region);const x=s.image.left+q.u*s.image.width,y=s.image.top+q.v*s.image.height;assert.ok(Math.abs(s.badge.left+s.badge.width/2-x)<2,'GPS anchor must match moving image x');assert.ok(Math.abs(s.badge.top+s.badge.height/2-y)<2,'GPS anchor must match moving image y');}
+(async()=>{const mp=await automator.connect({wsEndpoint:'ws://127.0.0.1:9420'});const passed=[];try{
+ await mp.callWxMethod('reLaunch',{url:'/pages/calibrate/calibrate?devPreview=calibrate'});await wait(1800);let page=await mp.currentPage(),c=await page.$('.venueArt'),view=await c.$('.venueViewport'),s=await inspect(mp);assert.ok(s.image);assert.equal(page.path,'pages/calibrate/calibrate');
+ await shot(mp,path.join(out,'calibration-empty.png'));
+ const touch={identifier:1,clientX:s.viewport.left+s.viewport.width/2,clientY:s.viewport.top+s.viewport.height/2};touch.pageX=touch.clientX;touch.pageY=touch.clientY;
+ await view.touchstart({touches:[touch],changeTouches:[touch]});await view.touchend({touches:[],changeTouches:[touch]});await wait(300);assert.ok((await page.data('pending'))?.u>0);passed.push('native-tap-to-image-control-point');
+ const points=fixture().points,model=geo.compile(fixture()),q={u:.45,v:.5},self=geo.pixelToGeo(q,model),clue=geo.pixelToGeo({u:.6,v:.55},model);
+ await page.setData({points,pending:null,error:'模拟配准画面：测试坐标，不代表实地标定'});await mp.evaluate(()=>{getCurrentPages().slice(-1)[0].assess();});assert.equal(await page.data('ready'),true);
+ await mp.evaluate((model,self,clue)=>{const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.venueArt');c.setData({registration:model,geoData:{points:[{...self,tone:'self',label:'测试本人'}],regions:[{...clue,radiusM:50}]}});c._overlays();},model,self,clue);
+ await wait(500);s=await inspect(mp);aligned(s,q);passed.push('registered-point-and-uncertainty-render');await shot(mp,path.join(out,'synthetic-bound.png'));
+ await (await c.$('.venueStep')).tap();await wait(250);s=await inspect(mp);aligned(s,q);passed.push('zoom-overlay-image-alignment');
+ const t={...touch,clientX:s.viewport.left+s.viewport.width*.6,pageX:s.viewport.left+s.viewport.width*.6};await view.touchstart({touches:[t],changeTouches:[t]});const moved={...t,clientX:t.clientX-35,pageX:t.pageX-35};await view.touchmove({touches:[moved],changeTouches:[moved]});await view.touchend({touches:[],changeTouches:[moved]});await wait(250);s=await inspect(mp);aligned(s,q);passed.push('pan-overlay-image-alignment');await shot(mp,path.join(out,'synthetic-panned.png'));
+ await mp.evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.venueArt');c.setData({geoData:{points:[],regions:[]}});c._overlays();});await wait(200);assert.equal((await inspect(mp)).points.length,0);passed.push('removed-authorized-state-clears-overlays');
+ fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({status:'PASS',passed,scope:'IDE synthetic calibration; no real park coordinate claim'},null,2));console.log('GEO_BINDING_UI_PASS='+passed.length);
+ }finally{mp.disconnect();}})().catch(e=>{console.error(e);process.exitCode=1;});

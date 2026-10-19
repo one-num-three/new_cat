@@ -1,0 +1,991 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "mode": "normal",
+      "route": "pages/dev/dev",
+      "width": 390,
+      "fontScale": 1,
+      "buttons": [
+        {
+          "id": "",
+          "dataset": {
+            "id": "home"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 335.5390625,
+          "bottom": 395.1328125,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "create"
+          },
+          "left": 199,
+          "right": 374,
+          "top": 335.5390625,
+          "bottom": 395.1328125,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "ready"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 403.1328125,
+          "bottom": 462.7265625,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "cat"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 516.2734375,
+          "bottom": 575.8671875,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "mouse"
+          },
+          "left": 199,
+          "right": 374,
+          "top": 516.2734375,
+          "bottom": 575.8671875,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "alert"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 583.8671875,
+          "bottom": 643.4609375,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "hiding"
+          },
+          "left": 199,
+          "right": 374,
+          "top": 583.8671875,
+          "bottom": 643.4609375,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "code"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 651.4609375,
+          "bottom": 711.0546875,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "captured"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 764.6015625,
+          "bottom": 824.1953125,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "paused"
+          },
+          "left": 199,
+          "right": 374,
+          "top": 764.6015625,
+          "bottom": 824.1953125,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "offline"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 832.1953125,
+          "bottom": 891.7890625,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "catWin"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 945.3359375,
+          "bottom": 1004.9296875,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "mouseWin"
+          },
+          "left": 199,
+          "right": 374,
+          "top": 945.3359375,
+          "bottom": 1004.9296875,
+          "width": 175,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "cancelled"
+          },
+          "left": 16,
+          "right": 191,
+          "top": 1012.9296875,
+          "bottom": 1072.5234375,
+          "width": 175,
+          "height": 59.59375
+        }
+      ],
+      "labels": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 355.5390625,
+          "bottom": 375.1328125,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 222.5,
+          "right": 348.75,
+          "top": 355.5390625,
+          "bottom": 375.1328125,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 423.1328125,
+          "bottom": 442.7265625,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 536.2734375,
+          "bottom": 555.8671875,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 222.5,
+          "right": 348.75,
+          "top": 536.2734375,
+          "bottom": 555.8671875,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 603.8671875,
+          "bottom": 623.4609375,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 222.5,
+          "right": 348.75,
+          "top": 603.8671875,
+          "bottom": 623.4609375,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 671.4609375,
+          "bottom": 691.0546875,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 784.6015625,
+          "bottom": 804.1953125,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 222.5,
+          "right": 348.75,
+          "top": 784.6015625,
+          "bottom": 804.1953125,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 852.1953125,
+          "bottom": 871.7890625,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 965.3359375,
+          "bottom": 984.9296875,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 222.5,
+          "right": 348.75,
+          "top": 965.3359375,
+          "bottom": 984.9296875,
+          "width": 126.25,
+          "height": 19.59375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 165.75,
+          "top": 1032.9296875,
+          "bottom": 1052.5234375,
+          "width": 126.25,
+          "height": 19.59375
+        }
+      ],
+      "title": {
+        "id": "",
+        "dataset": {},
+        "left": 16,
+        "right": 374,
+        "top": 99,
+        "bottom": 135,
+        "width": 358,
+        "height": 36
+      }
+    },
+    {
+      "mode": "large",
+      "route": "pages/dev/dev",
+      "width": 390,
+      "fontScale": 1.3,
+      "buttons": [
+        {
+          "id": "",
+          "dataset": {
+            "id": "home"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 361.3203125,
+          "bottom": 420.9140625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "create"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 428.9140625,
+          "bottom": 488.5078125,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "ready"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 496.5078125,
+          "bottom": 556.1015625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "cat"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 617.9140625,
+          "bottom": 677.5078125,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "mouse"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 685.5078125,
+          "bottom": 745.1015625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "alert"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 753.1015625,
+          "bottom": 812.6953125,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "hiding"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 820.6953125,
+          "bottom": 880.2890625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "code"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 888.2890625,
+          "bottom": 947.8828125,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "captured"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 1009.6953125,
+          "bottom": 1069.2890625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "paused"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 1077.2890625,
+          "bottom": 1136.8828125,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "offline"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 1144.8828125,
+          "bottom": 1204.4765625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "catWin"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 1266.2890625,
+          "bottom": 1325.8828125,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "mouseWin"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 1333.8828125,
+          "bottom": 1393.4765625,
+          "width": 358,
+          "height": 59.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "cancelled"
+          },
+          "left": 16,
+          "right": 374,
+          "top": 1401.4765625,
+          "bottom": 1461.0703125,
+          "width": 358,
+          "height": 59.59375
+        }
+      ],
+      "labels": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 378.375,
+          "bottom": 403.859375,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 445.96875,
+          "bottom": 471.453125,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 513.5625,
+          "bottom": 539.046875,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 634.96875,
+          "bottom": 660.453125,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 702.5625,
+          "bottom": 728.046875,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 770.15625,
+          "bottom": 795.640625,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 837.75,
+          "bottom": 863.234375,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 905.34375,
+          "bottom": 930.828125,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 1026.75,
+          "bottom": 1052.234375,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 1094.34375,
+          "bottom": 1119.828125,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 1161.9375,
+          "bottom": 1187.421875,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 1283.34375,
+          "bottom": 1308.828125,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 1350.9375,
+          "bottom": 1376.421875,
+          "width": 309.25,
+          "height": 25.484375
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 39.5,
+          "right": 348.75,
+          "top": 1418.53125,
+          "bottom": 1444.015625,
+          "width": 309.25,
+          "height": 25.484375
+        }
+      ],
+      "title": {
+        "id": "",
+        "dataset": {},
+        "left": 16,
+        "right": 374,
+        "top": 99,
+        "bottom": 145.8046875,
+        "width": 358,
+        "height": 46.8046875
+      }
+    },
+    {
+      "mode": "narrow",
+      "route": "pages/dev/dev",
+      "width": 320,
+      "fontScale": 1,
+      "buttons": [
+        {
+          "id": "",
+          "dataset": {
+            "id": "home"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 335.5390625,
+          "bottom": 391.1328125,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "create"
+          },
+          "left": 164,
+          "right": 304,
+          "top": 335.5390625,
+          "bottom": 391.1328125,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "ready"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 399.1328125,
+          "bottom": 454.7265625,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "cat"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 508.2734375,
+          "bottom": 563.8671875,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "mouse"
+          },
+          "left": 164,
+          "right": 304,
+          "top": 508.2734375,
+          "bottom": 563.8671875,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "alert"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 571.8671875,
+          "bottom": 627.4609375,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "hiding"
+          },
+          "left": 164,
+          "right": 304,
+          "top": 571.8671875,
+          "bottom": 627.4609375,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "code"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 635.4609375,
+          "bottom": 691.0546875,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "captured"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 744.6015625,
+          "bottom": 800.1953125,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "paused"
+          },
+          "left": 164,
+          "right": 304,
+          "top": 744.6015625,
+          "bottom": 800.1953125,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "offline"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 808.1953125,
+          "bottom": 863.7890625,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "catWin"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 917.3359375,
+          "bottom": 972.9296875,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "mouseWin"
+          },
+          "left": 164,
+          "right": 304,
+          "top": 917.3359375,
+          "bottom": 972.9296875,
+          "width": 140,
+          "height": 55.59375
+        },
+        {
+          "id": "",
+          "dataset": {
+            "id": "cancelled"
+          },
+          "left": 16,
+          "right": 156,
+          "top": 980.9296875,
+          "bottom": 1036.5234375,
+          "width": 140,
+          "height": 55.59375
+        }
+      ],
+      "labels": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 354.234375,
+          "bottom": 372.4296875,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 182.5,
+          "right": 283.75,
+          "top": 354.234375,
+          "bottom": 372.4296875,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 417.828125,
+          "bottom": 436.0234375,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 526.96875,
+          "bottom": 545.1640625,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 182.5,
+          "right": 283.75,
+          "top": 526.96875,
+          "bottom": 545.1640625,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 590.5625,
+          "bottom": 608.7578125,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 182.5,
+          "right": 283.75,
+          "top": 590.5625,
+          "bottom": 608.7578125,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 654.15625,
+          "bottom": 672.3515625,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 763.296875,
+          "bottom": 781.4921875,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 182.5,
+          "right": 283.75,
+          "top": 763.296875,
+          "bottom": 781.4921875,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 826.890625,
+          "bottom": 845.0859375,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 936.03125,
+          "bottom": 954.2265625,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 182.5,
+          "right": 283.75,
+          "top": 936.03125,
+          "bottom": 954.2265625,
+          "width": 101.25,
+          "height": 18.1953125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 34.5,
+          "right": 135.75,
+          "top": 999.625,
+          "bottom": 1017.8203125,
+          "width": 101.25,
+          "height": 18.1953125
+        }
+      ],
+      "title": {
+        "id": "",
+        "dataset": {},
+        "left": 16,
+        "right": 304,
+        "top": 99,
+        "bottom": 135,
+        "width": 288,
+        "height": 36
+      }
+    }
+  ],
+  "firstButtonRoute": "pages/index/index",
+  "scope": "IDE only; large=app1.3, narrow=320 content inside390 simulator"
+}

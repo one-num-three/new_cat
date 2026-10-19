@@ -1,0 +1,15 @@
+Error: Command failed: C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe -NoProfile -File D:\cat-mouse-miniprogram\scripts\wechat-mcp-command.ps1 -InputFile D:\cat-mouse-preview-evidence\2026-10-16\campus-integration-v1\ui-v2\command-13.json
+[wechatide] skill-call: client=Codex tool=automation_navigate
+'mapId' is not recognized as an internal or external command,
+operable program or batch file.
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at checkExecSyncError (node:child_process:883:11)
+    at Object.execFileSync (node:child_process:919:15)
+    at call (D:\cat-mouse-miniprogram\scripts\campus-runtime-review.cjs:5:180)
+    at navigate (D:\cat-mouse-miniprogram\scripts\campus-runtime-review.cjs:10:21)
+    at Object.<anonymous> (D:\cat-mouse-miniprogram\scripts\campus-runtime-review.cjs:14:2)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)

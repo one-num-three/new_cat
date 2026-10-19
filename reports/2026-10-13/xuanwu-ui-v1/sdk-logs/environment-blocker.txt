@@ -1,0 +1,9 @@
+2026-10-13
+Observed: Get-PSDrive C Free=0.
+Official SDK screenshot command returned exit 1:
+captureScreen:fail Error: ENOSPC: no space left on device, write
+Page stack route=pages/venue/venue but venue-art=false and nav-bar=false.
+Official CLI cache --clean compile --project D:/cat-mouse-miniprogram --port 31118: cleancache exit0; C Free remained0.
+No screenshot or interaction completion inferred. Current source compiled offline (WXML9/WXSS12 exit0).
+Source/final export preserved; await disk space and full IDE recapture.
+Task screenshot-directory migration attempt was rejected before execution; no source relocation or removal occurred.

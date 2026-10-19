@@ -1,0 +1,26 @@
+{
+  "version": "jiulonghu-reference-3",
+  "controls": 31,
+  "triangles": 53,
+  "savedBoundaryId": "way/171389014",
+  "boundaryVertices": 86,
+  "boundarySamples": 1319,
+  "interiorSamples": 24625,
+  "previouslyUncoveredSamples": 5210,
+  "uncovered": 0,
+  "outsideImage": 0,
+  "mappedBounds": [
+    29.599462569699988,
+    131.06173113104416,
+    1218.0847750820485,
+    1131.7420162909011
+  ],
+  "feedbackPixel": [
+    1076.066630083103,
+    967.3084612842753
+  ],
+  "oldAnchorsPreserved": 23,
+  "fieldVerified": false,
+  "extrapolation": false,
+  "scope": "Geometric coverage of saved OSM polygon, not measured GPS accuracy, safety or current legal boundary."
+}

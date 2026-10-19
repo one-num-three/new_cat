@@ -1,0 +1,34 @@
+{
+  "status": "selected-02-fixed-header",
+  "records": [
+    {
+      "id": "01",
+      "name": "边缘折叠箭头",
+      "file": "01-chevron-panels.png",
+      "bytes": 1995296,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "696e3998a19d0a7b80e0ddf49e422d62ed30aaead66cffda61dcc03aba7918b0"
+    },
+    {
+      "id": "02",
+      "name": "抽屉把手",
+      "file": "02-drawer-handles.png",
+      "bytes": 2081626,
+      "width": 1312,
+      "height": 1199,
+      "sha256": "62b2c98d8a0f34b39d87568d5ba101a8048f71c59ea7c7f062d05679a0c0b3a8"
+    },
+    {
+      "id": "03",
+      "name": "角色徽章浮层",
+      "file": "03-character-badges.png",
+      "bytes": 2038517,
+      "width": 1312,
+      "height": 1199,
+      "sha256": "e482cf6ddfa01773a97c0180e7517d49c22eefaf37f794a73fed6dbe85443c7f"
+    }
+  ],
+  "selected": "02",
+  "userOverride": "Keep the compact RIGHT top state fixed, no top fold; implement the bottom paper drawer motion."
+}

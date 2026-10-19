@@ -1,0 +1,236 @@
+{
+  "diffScope": "21 before-captured files only. Additional existing files may contain earlier user changes. No reset or commit.",
+  "captured": [
+    "app.json",
+    "cat-mouse-server/shared/geo-registration.js",
+    "cat-mouse-server/v2/service.js",
+    "components/venue-art/venue-art.js",
+    "components/venue-art/venue-art.wxml",
+    "pages/calibrate/calibrate.js",
+    "pages/calibrate/calibrate.wxml",
+    "pages/map/map.js",
+    "pages/map/map.wxml",
+    "pages/room/room.js",
+    "pages/room/room.wxml",
+    "pages/room/room.wxss",
+    "pages/venue/venue.js",
+    "pages/venue/venue.wxml",
+    "pages/venue/venue.wxss",
+    "scripts/build-global-font.py",
+    "scripts/package-release.ps1",
+    "utils/dev-preview.js",
+    "utils/geo-registration.js",
+    "utils/osm-art-registration.js",
+    "utils/presentation.js"
+  ],
+  "current": [
+    {
+      "file": "app.json",
+      "sha256": "bf13146dbe9b96c7de2337d3345bf72d4d86b4b1026e4de7e518b0fe3c0b98cb"
+    },
+    {
+      "file": "cat-mouse-server/shared/geo-registration.js",
+      "sha256": "eeed2d09ecb93408010ebdb77f880dfb70b1cf51b100be349e186bf1a2b29360"
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "sha256": "997a381b86efa5acd881b7b8899653f45ab28cdbd0a28434399afbae949ca5e0"
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "sha256": "1c41066f93d2eb9c743950a5a2586c66081f674bf5958ad546f9a5041a229016"
+    },
+    {
+      "file": "components/venue-art/venue-art.wxml",
+      "sha256": "28252008568643ee025f2ec204d28413c856fbd82a2dd3c05b626aceb41070e2"
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "sha256": "cf0e7af5d44696689944ba5c75c41aa077a5c2f2fe5b75960d62a021062e5baf"
+    },
+    {
+      "file": "pages/calibrate/calibrate.wxml",
+      "sha256": "ad8dcd3a0c6e7d898dc49b3082b2093940233e19aab5457af1e84b8481a260c3"
+    },
+    {
+      "file": "pages/map/map.js",
+      "sha256": "a3ca93686e58b29fc18ac49798715378ede7a5479eda88d2fbc986dd0da709ce"
+    },
+    {
+      "file": "pages/map/map.wxml",
+      "sha256": "b38d5eeae8581650ee7341bb3ca4b72b499107fac40631a361b7378d4de8f38d"
+    },
+    {
+      "file": "pages/room/room.js",
+      "sha256": "86cf44a96a705125a44b7d37ce85fe797ddde70ea233fc53da006c45b4e222b4"
+    },
+    {
+      "file": "pages/room/room.wxml",
+      "sha256": "12c0b88536717e9643c2b2c497c5f647f9c25d23d20e06bd2efd5349fc98d263"
+    },
+    {
+      "file": "pages/room/room.wxss",
+      "sha256": "008ba13171c3e2e9a233d2d3a12a945f5d3acf3b6f756658f9c8feba2ea66848"
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "sha256": "95fbde663a9d7e58ad2ec0c330b6013f3856d68a899bf451b8f5605d55af99ae"
+    },
+    {
+      "file": "pages/venue/venue.wxml",
+      "sha256": "b90479d8105cf52061113abc87d93102e4bc3eee99682c041ad7ce9c93301fc9"
+    },
+    {
+      "file": "pages/venue/venue.wxss",
+      "sha256": "e474040fa0a7ea6fb040e2d622ff59126f5039052d5de17d4a0706860dabb0ed"
+    },
+    {
+      "file": "scripts/build-global-font.py",
+      "sha256": "84ac8b73ab4ae98a09712f5de77b6877c35ce91f19af72fb900a309613b78fc2"
+    },
+    {
+      "file": "scripts/package-release.ps1",
+      "sha256": "e4fb71f78f15143686def65c585ab34825f21e728c24c4effde0e6f306ac3856"
+    },
+    {
+      "file": "utils/dev-preview.js",
+      "sha256": "c979389ae5a56625a0a5a974589eba762568397c6fb4e9747d4d4aba6a9b8336"
+    },
+    {
+      "file": "utils/geo-registration.js",
+      "sha256": "eeed2d09ecb93408010ebdb77f880dfb70b1cf51b100be349e186bf1a2b29360"
+    },
+    {
+      "file": "utils/osm-art-registration.js",
+      "sha256": "753d9fd450a9239a46b2fabec4757fc133f58cb729e61c3b962d33192538ec68"
+    },
+    {
+      "file": "utils/presentation.js",
+      "sha256": "d8e264d94516b053f61f553c438351b906e1c9390d340edbbaeb3028c54a1951"
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "sha256": "af531ae0004cfc17940110fa756cc366f5249344b7fe0899ee9af7278d905211"
+    },
+    {
+      "file": "cat-mouse-server/v2/campus-maps.test.js",
+      "sha256": "e03701196a489a04e88cae75e4aadaf8d40d2ebb7b17b0e93eb99f4f869b1d3b"
+    },
+    {
+      "file": "cat-mouse-server/v2/map-first.test.js",
+      "sha256": "bd2fbaa54a1df5c469c6cb741095dfcf07da14858daa65398cbfc84687db45b5"
+    },
+    {
+      "file": "cat-mouse-server/v2/integration.test.js",
+      "sha256": "895a70d8a7ef8399b99718bfbbcaed6af8cb7ca72b10a5280ba47e1282027f72"
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-images.js",
+      "sha256": "cf5a7d71d51d6946bea4545a70e90b78c4173baef4d100910699345e5a54dd6a"
+    },
+    {
+      "file": "utils/venue-catalog.js",
+      "sha256": "8d7395deb5a3283134756e732e4de8843fe0198682ba90f35956db99bd67df6f"
+    },
+    {
+      "file": "utils/venue-images.js",
+      "sha256": "cf5a7d71d51d6946bea4545a70e90b78c4173baef4d100910699345e5a54dd6a"
+    },
+    {
+      "file": "utils/campus-art-models.js",
+      "sha256": "f9cd627288efea17600fde40e49059d865aa5681297aa7f3ba654efdaa0a863e"
+    },
+    {
+      "file": "utils/venue-resources.js",
+      "sha256": "e5acd81238086ef9c1f9f4cf99ea495e8c90066f02c58c4b7e07f0f0f373554f"
+    },
+    {
+      "file": "utils/v2.js",
+      "sha256": "a54436d4e021e86aabe2dcefe005c60913656e76306d600b8313d68a35721be8"
+    },
+    {
+      "file": "utils/fusion-font.wxss",
+      "sha256": "a2b10a3d5647266cca67436d6a1e0ddea684cf5d5f3471d3d7f3a0fdbad7c57d"
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "sha256": "0d30d674f69620f8bdef98e0cf9173638f144c6035f463055b217cdb010febcf"
+    },
+    {
+      "file": "pages/dev/dev.wxml",
+      "sha256": "70685d808c3b6f7fcc811b8807c8e31d87b9fa6171e178cc3c2c3651dbd9e730"
+    },
+    {
+      "file": "pages/index/index.wxml",
+      "sha256": "967cd6f1fe5bc9ed798e0b14b4076b39b885bb3761395953971dced891488759"
+    },
+    {
+      "file": "project.config.json",
+      "sha256": "4cda129700b41f58c63f3bd57c5a031327f1cef60183cd28e703c0d488c29e75"
+    },
+    {
+      "file": "scripts/build-campus-runtime.cjs",
+      "sha256": "6ab9a29583ec1ec8b6d9fcd6b27fb1cbee4f8b5a92ed49df12d120e4746d98a2"
+    },
+    {
+      "file": "scripts/campus-runtime-review.cjs",
+      "sha256": "13d2facabeca496ffe302b7c2bd2716060e78f3acecfae1433e5354487f95e34"
+    },
+    {
+      "file": "scripts/cleanup-test-cache.ps1",
+      "sha256": "084e38230dd1d78df9bda5dfc765620d0902aeb4bf680831b53abd36dcaec6ff"
+    },
+    {
+      "file": "venue-maps/assets/jiulonghu-v1.jpg",
+      "sha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5"
+    },
+    {
+      "file": "venue-maps/assets/sipailou-v1.jpg",
+      "sha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9"
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "sha256": "2367d680a830902a8b9179d16426ac186916f1d70209af8cdc8970dbf67e3534"
+    },
+    {
+      "file": "venue-maps/pages/open/open.json",
+      "sha256": "c5ae759ad746e7a8e4ec54236942d888fb63be44feb58329625558f7a2d8e27a"
+    },
+    {
+      "file": "venue-maps/pages/open/open.wxml",
+      "sha256": "2a6e77f6b1f0f1ed6a99aa8c455434c26b6224e288deece35d0f95dc9c5a0eb6"
+    },
+    {
+      "file": "venue-maps/pages/open/open.wxss",
+      "sha256": "3156251b8650fcbffe7223326974c4edcbd20faa12b0ca51d99ca10ff7dd94cc"
+    },
+    {
+      "file": "cat-mouse-server/v2/calibration-page.test.js",
+      "sha256": "da53e28bc627c6544f98cfe2d301972b8122902d00cbf6169bcbc98146bfa706"
+    },
+    {
+      "file": "cat-mouse-server/v2/client.test.js",
+      "sha256": "73d1752862612b652adc02a0a7cb669cc6931a6cd850db854f88003933650be6"
+    },
+    {
+      "file": "cat-mouse-server/v2/custom-teams.test.js",
+      "sha256": "c06eb00af272c8f45baa43d7bbf48f73e60aa67fe51b138b5f07ac03900281ec"
+    },
+    {
+      "file": "cat-mouse-server/v2/dev-preview.test.js",
+      "sha256": "363f03c02ae0670ad13cdb275cabf6990be2b2b26e8f831469b1c98cb4c52eed"
+    },
+    {
+      "file": "cat-mouse-server/v2/pixel-ui.test.js",
+      "sha256": "fc68b0006c945f2976032cb502f53c227cc39bb7e5a1008c50c9ddb77cc25acf"
+    },
+    {
+      "file": "cat-mouse-server/v2/presentation.test.js",
+      "sha256": "d6aa1178f80ce73b524413158f3ef27a50a5172499e80f24612682ed249dc380"
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-ui.test.js",
+      "sha256": "60b2b0bf8547ca25e2c48a81a5db4bb6a5f8272df527dcff943904f9adb14456"
+    }
+  ]
+}

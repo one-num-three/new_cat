@@ -1,0 +1,124 @@
+{
+  "status": "PASS",
+  "scope": "WeChat IDE rendered preview; no physical GPS or calibration claim",
+  "records": [
+    {
+      "id": "create",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 16,
+              "right": 152.125,
+              "top": 346.8359375,
+              "bottom": 367.0859375,
+              "width": 136.125,
+              "height": 20.25
+            }
+          ],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 167,
+              "width": 320,
+              "height": 80
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-create-location.png",
+          "label": "重选位置",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 309,
+          "height": 108,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 16,
+            "right": 152.125,
+            "top": 446.2734375,
+            "bottom": 501.2734375,
+            "width": 136.125,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-create-submit.png",
+          "label": "创建并邀请",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 7,
+            "right": 313,
+            "top": 679.40625,
+            "bottom": 734.40625,
+            "width": 306,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "create-hero",
+          "selector": ".roomHero",
+          "width": 320,
+          "height": 80,
+          "intrinsic": [
+            480,
+            120
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow-delivery\\create.png"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+FAITHFUL_ART_VERIFY sources=16 runtime=48 alphaStates=8 bytes=1804120

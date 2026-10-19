@@ -1,0 +1,94 @@
+{
+  "version": "sunny-pixel-v1",
+  "art_mode": "pixel",
+  "pixel_grid": true,
+  "coordinate_system": "WGS84",
+  "scenes": [
+    {
+      "id": "small",
+      "title": "解放门 · 七星旱桥",
+      "source_image": "reference-small.png",
+      "source_size": [
+        199,
+        138
+      ],
+      "content_crop": [
+        0,
+        0,
+        199,
+        138
+      ],
+      "reference_xy": [
+        13223419.67235138,
+        3772896.830602766
+      ],
+      "registration_px_per_mercator_m": 0.45931861888117054,
+      "registration_translation": [
+        -130.76717493490764,
+        -402.8378133067525
+      ],
+      "world_bounds": [
+        13223704.370531596,
+        3771719.3520702734,
+        13224137.620985247,
+        3772019.7971084826
+      ],
+      "bounds_wgs84": [
+        118.79055748726648,
+        32.06403650654302,
+        118.79444944231015,
+        32.066323712095716
+      ],
+      "output_size": [
+        2400,
+        1664
+      ],
+      "coordinate_system": "WGS84",
+      "source": "OSM",
+      "survey_accuracy_m": null
+    },
+    {
+      "id": "large",
+      "title": "环洲 · 樱洲",
+      "source_image": "reference-large.png",
+      "source_size": [
+        346,
+        350
+      ],
+      "content_crop": [
+        0,
+        25,
+        346,
+        325
+      ],
+      "reference_xy": [
+        13223419.67235138,
+        3772896.830602766
+      ],
+      "registration_px_per_mercator_m": 0.4573319950810186,
+      "registration_translation": [
+        179.94094388985343,
+        206.39018470293212
+      ],
+      "world_bounds": [
+        13223026.214325646,
+        3772582.8140527722,
+        13223782.776306268,
+        3773293.4575316794
+      ],
+      "bounds_wgs84": [
+        118.78446550641823,
+        32.07060965142292,
+        118.79126181832399,
+        32.076019103833225
+      ],
+      "output_size": [
+        2400,
+        2254
+      ],
+      "coordinate_system": "WGS84",
+      "source": "OSM",
+      "survey_accuracy_m": null
+    }
+  ]
+}

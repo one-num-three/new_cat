@@ -1,0 +1,44 @@
+{
+  "version": "map-markers-v2",
+  "generator": "built-in image_gen",
+  "transparentBackground": true,
+  "processing": "192x192 nearest-neighbour lossless RGBA PNG; no repainting or background replacement",
+  "entries": [
+    {
+      "role": "self",
+      "source": "exec-28256a64-80e1-4463-a141-d77c610438de.png",
+      "originalSha256": "7b42299134814169b4dfb9dc6b7d76dbbc3a561c5e217f4bdea755049e609e5a",
+      "runtime": "assets/map-markers-v2/self.png",
+      "runtimeSha256": "3bf765f5346245522f01b92adafb41cbc8e33fcc1edf66c2a0517289f0a3ea8d",
+      "bytes": 26413,
+      "width": 192,
+      "height": 192,
+      "transparentPixels": 23831,
+      "opaquePixels": 39
+    },
+    {
+      "role": "ally",
+      "source": "exec-39665263-8f3a-41b3-b7f5-1db750fbd789.png",
+      "originalSha256": "5485db64cf0b2785aecb71141bcf810392dbe372ca4a29a38491e96c6e659dc5",
+      "runtime": "assets/map-markers-v2/ally.png",
+      "runtimeSha256": "8fe7602e32f1de9812fbd86ccf5ab9a75352b1db7c60c89a14033b3db4662ed8",
+      "bytes": 24091,
+      "width": 192,
+      "height": 192,
+      "transparentPixels": 24681,
+      "opaquePixels": 74
+    },
+    {
+      "role": "venue",
+      "source": "exec-9625862e-9df8-4a11-8a8f-a4a48faf47f1.png",
+      "originalSha256": "c17bcae51c6231c322dc9fd4a6cfca0556379590b1d6dc754eccc3eb1e2dc3b5",
+      "runtime": "assets/map-markers-v2/venue.png",
+      "runtimeSha256": "c09a496a080b31991973ec7091499837a5b60c2e5be8dbcfdcd33e4b9e8ac818",
+      "bytes": 18378,
+      "width": 192,
+      "height": 192,
+      "transparentPixels": 29529,
+      "opaquePixels": 18
+    }
+  ]
+}

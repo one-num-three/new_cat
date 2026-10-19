@@ -1,0 +1,27 @@
+OSM ART RUNTIME INTEGRATION / 2026-10-15
+Project: D:\cat-mouse-miniprogram
+Reference: design/maps/xuanwu-lake/georegistration-v5/MODIFIED_FILE.json
+Image: assets/maps/xuanwu-lake-v4.jpg, SHA256 d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540, 1254x1254, unchanged.
+
+COMMANDS / OBSERVED
+node verify.cjs baseline.json baseline (in georegistration-v5): exit0, mapping disabled, original art unchanged.
+node verify.cjs MODIFIED_FILE.json registered (same cwd, without --report): exit0, 41anchors/72triangles/288roundtrips, no folds/crossings, fieldVerified=false. Original manifest files unchanged.
+node scripts/sync-osm-art.cjs --verify: reproducible client model, no refit.
+npm --prefix cat-mouse-server test: 115/115 PASS exit0; literal output tests-final.log. TEMP/TMP D:/cat-mouse-preview-evidence/2026-10-15/osm-art-runtime/tmp. No catmouse-* test directories remain.
+Official wcc.exe: 11 WXML exit0. Official wcsc.exe: 15 WXSS exit0. Logs wxml-build.log/wxss-build.log. The initial wrong wcsc-exec path produced ENOENT, corrected to wcc-exec/wcsc.exe; no source fix was needed.
+Bundled Python scripts/build-global-font.py: 593glyphs/23684B; --verify PASS. Font bytes include new UI copy.
+PowerShell scripts/package-release.ps1 -DirectoryOnly: MODIFIED_FILE runnable export, no zip. Artifact sizes and hashes in delivery-check.json.
+
+WECHAT MCP
+check_wechatide_status: skill0.3.9, versionRelation=equal, loginExpired=false, tokenRequired=false. No window move/resize or upload.
+node scripts/osm-art-review.cjs OUT: 6 static layouts and 3 geometry/locate views passed before an invalid test injection. failure.json retained. In the evaluator, replacing nested arrays in setData produced objects, causing the outside-clue count to be0; this was not recorded as a passed assertion.
+node scripts/osm-art-review.cjs OUT interactions: exit0, 5/5 views, real button locate/layer switch plus outside-hull indication and offline clearing PASS. Test now mutates native existing coordinate arrays. native-interactions.json retains result.
+Combined delivered gallery: 11 distinct screenshots (6 static from first run, 5 interaction views from final run). image remains square, projected badges within2 display pixels of image-relative positions after camera transform.
+Narrow is320x600 content inside390px simulator. Large is app fontScale1.3. Gesture is runtime handler injection; button taps use native MCP. These are not physical phone, OS font, field GPS, or public internet/load acceptance.
+
+SCOPE / LIMITS
+Client display only; server schema affine-gcj02-v1 and authorization unchanged. OSM WGS84 model never submitted as room calibration. Approximate MIT coordtransform forward subset + iterative inverse bridge, not platform-certified conversion; numerical roundtrip is not real GPS accuracy.
+Room calibration has priority. Invalid supplied room model fails closed. OSM hull rejects outside points/whole conservative clue bounds. Clues remain regions and expose no extra enemy point. Offline/hide clears overlays; stale HTTP responses after returning are ignored by request serial.
+Original OSM snapshot2026-10-12; independent field check points NOT_COLLECTED. Existing v5 holdouts/roof-perspective limits remain. fieldVerified=false. Full v4 artwork used, never transparent north-up derivative.
+Rollback disables only fallback flag and preserves other fixes/artwork/room calibration. Fixture execution recorded in delivery-check.json; live flag remains true. Baseline copies preserve dirty source before task; venue-ui.test baseline reconstructed by reversing exactly2 known early substitutions; historical WOFF recovered from saved embedded bytes and verified against saved manifest. This is not a Git HEAD rollback or an assertion of rerunning the historical full test suite.
+No new server deployment, repository upload, public publishing, online database writes or server load run in this change.

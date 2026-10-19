@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: presentation only exposes role and stage appropriate primary actions
+not ok 1 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 1.3929
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js:4:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    FINISHED offline canReplay
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\v2\presentation.test.js:11:77)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 2 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.1665
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 3 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 0.9296
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 4 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 1.4644
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 5 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 2.9379
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 116.1069

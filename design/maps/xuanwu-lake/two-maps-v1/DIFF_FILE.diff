@@ -1,0 +1,13 @@
+--- baseline-config.json
++++ maps-config.json
+@@ -1,7 +1,7 @@
+ {
+-  "version": "source-flat",
+-  "art_mode": "flat",
+-  "pixel_grid": false,
++  "version": "sunny-pixel-v1",
++  "art_mode": "pixel",
++  "pixel_grid": true,
+   "coordinate_system": "WGS84",
+   "scenes": [
+     {

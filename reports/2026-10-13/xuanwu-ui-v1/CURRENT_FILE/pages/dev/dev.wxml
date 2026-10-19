@@ -1,0 +1,6 @@
+<view wx:if="{{available}}" class="screen devScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px">
+ <nav-bar title="猫鼠行动" />
+ <view class="devIntro"><text class="devTitle">界面调试台</text><text class="devDescription">晴日公园 · 16-bit 像素</text><text class="devNote">样例数据 · 不连接真实对局</text><button class="venuePreviewEntry" bindtap="openVenue">玄武湖新版地图 · 完整导览</button></view>
+ <view wx:for="{{groups}}" wx:key="title" class="previewGroup"><text class="groupTitle">{{item.title}}</text><view class="previewGrid"><button wx:for="{{item.items}}" wx:for-item="entry" wx:key="id" class="previewItem" data-id="{{entry.id}}" bindtap="open"><text class="entryNumber">{{index+1}}</text><text class="entryTitle">{{entry.label}}</text><text class="entryArrow">›</text></button></view></view>
+ <button class="homeButton" bindtap="home">返回首页</button>
+</view>

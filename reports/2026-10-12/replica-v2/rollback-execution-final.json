@@ -1,0 +1,148 @@
+{
+  "status": "FINAL_AFTER_SECOND_READY",
+  "managedFiles": 42,
+  "currentChangedFromBaseline": 26,
+  "liveCurrentUnchanged": 42,
+  "currentBackupMatches": 42,
+  "restoredBaselineMatches": 42,
+  "restoredHome": "/assets/replica-v1/home-landscape.png",
+  "restoredMapMode": "scaleToFill",
+  "rollbackTests": {
+    "tests": 26,
+    "pass": 26,
+    "fail": 0,
+    "exitStatus": 0
+  },
+  "liveWrites": 0,
+  "deletedFiles": 0,
+  "records": [
+    {
+      "name": "CURRENT_REFRESH",
+      "cwd": "D:/cat-mouse-miniprogram",
+      "command": "node 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-verification.cjs' --refresh-current | Tee-Object -FilePath 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-refresh-final.txt'; exit $LASTEXITCODE",
+      "input": {
+        "liveRoot": "D:/cat-mouse-miniprogram",
+        "baselineManifest": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/baseline-hashes.json",
+        "fixture": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture"
+      },
+      "literalOutput": "ROLLBACK_FINAL_CURRENT_REFRESH managed=42 baselineValid=42 liveSame=42 fixtureSame=42 differentFromBaseline=26",
+      "exitStatus": 0
+    },
+    {
+      "name": "ROLLBACK",
+      "cwd": "D:/cat-mouse-miniprogram",
+      "command": "& 'D:/Program Files/Git/bin/bash.exe' 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/ROLLBACK.sh' 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture' | Tee-Object -FilePath 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-command-final.txt'; exit $LASTEXITCODE",
+      "input": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture",
+      "literalOutput": "ROLLBACK_RESTORED=42/42 home=replica-v1 map=scaleToFill currentPreserved=42 deleted=0 liveWritten=0",
+      "exitStatus": 0
+    },
+    {
+      "name": "ROLLBACK_TESTS",
+      "cwd": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture/cat-mouse-server",
+      "command": "$env:NODE_PATH='D:\\cat-mouse-miniprogram\\cat-mouse-server\\node_modules'; $env:TEMP='D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\rollback-fixture\\.test-tmp'; $env:TMP=$env:TEMP; npm.cmd test *> 'D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\rollback-tests.txt'; $testExit=$LASTEXITCODE; Add-Content -LiteralPath 'D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\rollback-tests.txt' -Value \"# EXIT_STATUS=$testExit\"; Get-Content -LiteralPath 'D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\rollback-tests.txt' -Tail 16; exit $testExit",
+      "input": {
+        "NODE_PATH": "D:/cat-mouse-miniprogram/cat-mouse-server/node_modules",
+        "TEMP": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture/.test-tmp",
+        "TMP": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture/.test-tmp"
+      },
+      "literalOutput": "# Subtest: distance handles zero and same coordinate\nok 26 - distance handles zero and same coordinate\n  ---\n  duration_ms: 0.2409\n  type: 'test'\n  ...\n1..26\n# tests 26\n# suites 0\n# pass 26\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 14404.9092\n# EXIT_STATUS=0",
+      "fullOutputPath": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-tests.txt",
+      "exitStatus": 0
+    },
+    {
+      "name": "RESTORED_PROOF",
+      "cwd": "D:/cat-mouse-miniprogram",
+      "command": "node 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-verification.cjs' --verify-restored | Tee-Object -FilePath 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-proof-final.txt'; exit $LASTEXITCODE",
+      "input": {
+        "currentManifest": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-current-hashes.json",
+        "restoredManifest": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-restored-hashes.json",
+        "fixture": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-fixture"
+      },
+      "literalOutput": "ROLLBACK_FINAL_PROOF baseline=42/42 liveCurrent=42/42 currentBackup=42/42 restored=42/42 tests=26/26 exit=0 home=replica-v1 map=scaleToFill",
+      "exitStatus": 0
+    },
+    {
+      "name": "RUNTIME_ART_VERIFY",
+      "cwd": "D:/cat-mouse-miniprogram",
+      "command": "node 'D:/cat-mouse-miniprogram/scripts/build-faithful-art.cjs' --verify | Tee-Object -FilePath 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-art-final.txt'; exit $LASTEXITCODE",
+      "input": "D:/cat-mouse-miniprogram/design/2026-10-12/faithful-art/manifest.json",
+      "literalOutput": "FAITHFUL_ART_VERIFY sources=16 runtime=48 alphaStates=8 bytes=1804120",
+      "exitStatus": 0
+    },
+    {
+      "name": "EXECUTABLE",
+      "cwd": "D:/cat-mouse-miniprogram",
+      "command": "& 'D:/Program Files/Git/bin/bash.exe' -c \"test -x '/d/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/ROLLBACK.sh' && echo ROLLBACK_EXECUTABLE=1\" | Tee-Object -FilePath 'D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-executable-final.txt'; exit $LASTEXITCODE",
+      "input": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/ROLLBACK.sh",
+      "literalOutput": "ROLLBACK_EXECUTABLE=1",
+      "exitStatus": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/ROLLBACK.sh",
+      "bytes": 5389,
+      "sha256": "399fa0b782396a6ab1e6d8f49ff1c482d0a60f2c0b3a8a3f2090685c20635cdc"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-verification.cjs",
+      "bytes": 7654,
+      "sha256": "ea73203525f84de83005cdef08097c71f08747e91947b54b37330b9c340d6272"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/baseline-hashes.json",
+      "bytes": 5525,
+      "sha256": "c0a88cd082bb72ce6648c038b136183269c51f9475690b2110aae05a73c159df"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-current-hashes.json",
+      "bytes": 9920,
+      "sha256": "f8f2cf036c516fbed2ac1d4080b2e57804adbc9ac0f44f956b2f841e83264393"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-restored-hashes.json",
+      "bytes": 13209,
+      "sha256": "c3800e5d07ee8b598e432d2c5009feb9d031ee16a33a326d20b8b35843da8a37"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-result.txt",
+      "bytes": 10732,
+      "sha256": "cd3cad55f4dc6b7299a67333dc8becd44f9329b252c3aad1ab72654b321fe010"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-tests.txt",
+      "bytes": 5761,
+      "sha256": "31428e611cdc4773e2ac32463a12b637d7efda5c6b1c43eb52751b42cff43d8b"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-live-backup-verification.json",
+      "bytes": 27822,
+      "sha256": "ec23dad286d3f4d6e55e752161d9917c76cd4dc5f352f022ef2ae683ac32934b"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-refresh-final.txt",
+      "bytes": 112,
+      "sha256": "1a31a121fce586a1db7964543e1007e745dd473e60cf6f86a7a01afada428746"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-command-final.txt",
+      "bytes": 101,
+      "sha256": "018cc089d1adcf17c840a7c8ec24ae8e7fe5179753de801811c9bf246798bb18"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-proof-final.txt",
+      "bytes": 141,
+      "sha256": "fa739928c7f9acaf931d7af5c62b20d7b9bc430eaba60488decfeca9056c1ac6"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-art-final.txt",
+      "bytes": 71,
+      "sha256": "58aaea73b053f486e037495a23bb493bd445fcf3d8e129f14c561712f9a1c04d"
+    },
+    {
+      "path": "D:/cat-mouse-miniprogram/reports/2026-10-12/replica-v2/rollback-executable-final.txt",
+      "bytes": 23,
+      "sha256": "25736782bea4ae089f15c84f838a1e90a501b017fd745244e1aea73d15d63ddf"
+    }
+  ]
+}

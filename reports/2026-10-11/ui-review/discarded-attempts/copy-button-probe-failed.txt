@@ -1,0 +1,6 @@
+PASS gallery
+PASS home
+PASS create
+AssertionError [ERR_ASSERTION]: Copy action dominates invitation card
+    at D:\cat-mouse-miniprogram\scripts\ui-review.cjs:48:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

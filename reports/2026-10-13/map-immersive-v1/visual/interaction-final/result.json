@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "passed": [
+    "fullbleed-auto-start",
+    "native-animation-actually-moves",
+    "touch-immediately-stops-tour",
+    "native-one-finger-pan",
+    "native-two-finger-pinch",
+    "manual-camera-stays-stopped",
+    "center-still-fills-image",
+    "explicit-resume-tour",
+    "leave-map"
+  ],
+  "scope": "WeChat IDE actual native animations/touches and MCP screenshots, not physical-device GPS"
+}

@@ -1,0 +1,54 @@
+# Local/editor files
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Node dependencies and local environment
+node_modules/
+cat-mouse-server/node_modules/
+.env
+.env.*
+!.env.example
+
+# WeChat DevTools local metadata/build output
+miniprogram_npm/
+dist/
+coverage/
+
+
+# Isolated local regression databases (not production data)
+.local-test-tmp/
+.local-tools/
+
+# Per-machine WeChat settings and local build output
+project.private.config.json
+/output/
+
+# Large archival bundles and editor/model backups stay local.
+*.zip
+*.7z
+*.tar.gz
+*.blend1
+*.blend2
+
+# Repeated delivery copies and screenshot evidence are not source inputs.
+# Keep report text, audit scripts/data and all design originals used by tests.
+/reports/**/MODIFIED_FILE/
+/reports/**/release*/
+/reports/**/before/
+/reports/**/baseline/
+/reports/**/rollback-fixture/
+**/node-compile-cache/
+**/.test-tmp/
+**/test-tmp/
+/reports/**/*.png
+/reports/**/*.jpg
+/reports/**/*.jpeg
+/reports/**/*.webp
+
+# Private deployment keys and database backups
+*.pem
+*.p12
+*.pfx
+*.dump

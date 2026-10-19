@@ -1,0 +1,114 @@
+{
+  "bbox_wgs84": [
+    118.7862,
+    32.0718,
+    118.7909,
+    32.076
+  ],
+  "size": [
+    1600,
+    1687
+  ],
+  "island_osm_id": "776728670",
+  "island_osm_area_ha_approx": 6.8266,
+  "official_area_ha": 6.59,
+  "area_discrepancy": "Different sources/extents or digitization; not corrected by artificial scaling. Requires independent source check.",
+  "official_source": "https://www.xuanwuhu.net/lyzn/lyzn.aspx?mtt=49",
+  "bridge_refs": [
+    {
+      "label": "B1",
+      "osm_id": "776728676",
+      "name": "樱桥",
+      "coordinates": [
+        [
+          118.7880209,
+          32.0751575
+        ],
+        [
+          118.7875138,
+          32.0754181
+        ]
+      ]
+    },
+    {
+      "label": "B2",
+      "osm_id": "776728674",
+      "name": "白桥",
+      "coordinates": [
+        [
+          118.7899972,
+          32.0746671
+        ],
+        [
+          118.7899193,
+          32.0745196
+        ]
+      ]
+    },
+    {
+      "label": "B3",
+      "osm_id": "776728672",
+      "name": "月影桥",
+      "coordinates": [
+        [
+          118.789807,
+          32.0730782
+        ],
+        [
+          118.7900203,
+          32.0729745
+        ]
+      ]
+    },
+    {
+      "label": "B4",
+      "osm_id": "1226671818",
+      "name": "莲桥",
+      "coordinates": [
+        [
+          118.7881679,
+          32.0728095
+        ],
+        [
+          118.7881549,
+          32.0727864
+        ],
+        [
+          118.7880538,
+          32.0726826
+        ],
+        [
+          118.7881111,
+          32.0726493
+        ],
+        [
+          118.7879787,
+          32.0724735
+        ],
+        [
+          118.7880342,
+          32.0724424
+        ],
+        [
+          118.7879537,
+          32.0723364
+        ]
+      ]
+    }
+  ],
+  "corridor_osm_ids": [
+    "1050092971",
+    "1050092972"
+  ],
+  "corridor_name_status": "OSM name 樱州花架走廊; not automatically equated with official 樱洲长廊",
+  "C": {
+    "name": "藏春亭",
+    "lonlat": [
+      118.7877975,
+      32.0737996
+    ],
+    "footprint": "not available"
+  },
+  "geolocation_accuracy": "not field verified",
+  "generated_image_status": "art study only; georeferencing pending"
+}

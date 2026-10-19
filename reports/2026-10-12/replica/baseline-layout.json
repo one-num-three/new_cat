@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "id": "home",
+      "path": "pages/index/index",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 900.6875
+          }
+        }
+      }
+    }
+  ]
+}

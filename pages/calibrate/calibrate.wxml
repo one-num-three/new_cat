@@ -1,0 +1,13 @@
+<view class="screen calibrateScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px">
+ <nav-bar title="地图位置标定" back="{{true}}" preview="{{devPreview}}" />
+ <text class="calTitle">{{venueName}} · 位置标定</text><text class="calCopy">先轻点图片上的固定地标，再在真实地图中将同一地标移动到十字中心，或站在地标旁采集GPS。请分散选点，核验点不参与拟合。</text>
+ <view class="calArt"><venue-art class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" scroll-top="{{scrollTop}}" auto-tour="{{false}}" calibration-mode="{{true}}" pins="{{pins}}" bindpoint="picked" /></view>
+ <text class="calStatus">{{pending?'已选图片像素：'+pendingLabel:'拖动、双指缩放图片，然后轻点地标'}}</text>
+ <view class="calKinds"><button disabled="{{busy}}" data-kind="control" bindtap="chooseKind" class="{{kind==='control'?'selected':''}}">控制点</button><button disabled="{{busy}}" data-kind="check" bindtap="chooseKind" class="{{kind==='check'?'selected':''}}">独立核验点</button></view>
+ <view class="controlMapFrame"><map id="controlMap" class="controlMap" latitude="{{centerLat}}" longitude="{{centerLng}}" scale="17" enable-rotate="{{false}}" show-location="{{false}}"/><text class="mapCross" aria-hidden="true">+</text></view>
+ <view class="calActions"><button bindtap="addMap" disabled="{{!pending || busy || devPreview || !owner}}">绑定十字中心地标</button><button bindtap="addGps" disabled="{{!pending || busy || devPreview || !owner}}">站在地标旁采集GPS</button></view>
+ <text class="calCopy">坐标统一为GCJ-02。至少3个分散控制点、2个独立核验点；核验最大误差须不超过10米。草稿保存在本机，保存后同步房间。不显示标定覆盖区以外的位置。</text>
+ <view wx:for="{{points}}" wx:key="index" class="calRow"><text>{{index+1}} · {{item.kind==='control'?'控制':'核验'}} · {{item.lat}}, {{item.lng}}</text><button data-index="{{index}}" bindtap="remove" disabled="{{busy}}">移除</button></view>
+ <text class="calStatus">{{summary}}</text><text wx:if="{{validationError}}" class="calCopy">{{validationError}}</text><text wx:if="{{error}}" class="error" role="alert">{{error}}</text>
+ <button class="calSave" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">保存到本房间</button><button class="textButton" bindtap="back">返回房间</button>
+</view>

@@ -1,0 +1,62 @@
+[
+  {
+    "file": "pages/map/map.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "pages/venue/venue.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "components/campus-model/campus-model.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "components/map-icon/map-icon.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "utils/model-map.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "utils/model-reference.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "utils/model-camera.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "utils/model-resources.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "campus3d/pages/open/open.js",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/model-runtime-review.cjs",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/build-model-reference.cjs",
+    "status": 0,
+    "stderr": ""
+  },
+  {
+    "file": "scripts/finalize-model-evidence.cjs",
+    "status": 0,
+    "stderr": ""
+  }
+]

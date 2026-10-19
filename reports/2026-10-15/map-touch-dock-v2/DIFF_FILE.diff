@@ -1,0 +1,245 @@
+Task scoped diff against saved dirty source, not Git HEAD.
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/components/venue-art/venue-art.js b/components/venue-art/venue-art.js
+index 1b447d3..51fc7c0 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/components/venue-art/venue-art.js
++++ b/components/venue-art/venue-art.js
+@@ -12,15 +12,16 @@ Component({
+  methods:{
+   _overlays(){if(!this._alive||!this._fit)return;const validArt=this.data.src===art.src&&this.data.sourceWidth===geo.IMAGE.width&&this.data.sourceHeight===geo.IMAGE.height;const f=!validArt?{points:[],regions:[]}:this.data.osmReference&&!this.data.calibrationMode?osm.overlay(this.data.geoData,this.data.registration,this._fit.width,this._fit.height):geo.frame(this.data.geoData,this.data.registration,this._fit.width,this._fit.height);this.setData({showSelf:f.points.some(p=>p.tone==='self'),overlayPoints:f.points,overlayRegions:f.regions,overlayPins:(this.data.pins||[]).slice(0,16).filter(p=>p&&Number.isFinite(p.u)&&Number.isFinite(p.v)).map((p,i)=>({id:i,x:p.u*this._fit.width,y:p.v*this._fit.height,label:i+1}))});if(this.data.osmReference&&!this.data.calibrationMode)this.triggerEvent('projection',{omittedRegions:f.omittedRegions||0,source:!validArt?'none':this.data.registration?'room':osm.available()?'osm':'none'});},
+   remeasure(){if(this._alive)this._scheduleFit(true);},
+-  _bound(c){return geometry.boundCamera(this._vp.width,this._vp.height,this._fit.width,this._fit.height,c);},
++  _minScale(){return this._fit&&this._vp?Math.min(1,this._vp.width/this._fit.width,this._vp.height/this._fit.height):1;},
++  _bound(c){return geometry.boundCamera(this._vp.width,this._vp.height,this._fit.width,this._fit.height,c,this._minScale());},
+   _sample(){if(!this._segment)return {...this._camera};return geometry.interpolate(this._segment.from,this._segment.to,(Date.now()-this._segment.at)/this._segment.duration);},
+-  _publish(c){this.setData({x:c.x,y:c.y,scaleValue:c.scale,inverseScale:1/c.scale,zoomLabel:c.scale.toFixed(2)+'×',canZoomOut:c.scale>1,canZoomIn:c.scale<geometry.MAX_SCALE});},
++  _publish(c){const canZoomOut=c.scale>this._minScale()+1e-6,canZoomIn=c.scale<geometry.MAX_SCALE-1e-6,changed=canZoomOut!==this.data.canZoomOut||canZoomIn!==this.data.canZoomIn;this.setData({x:c.x,y:c.y,scaleValue:c.scale,inverseScale:1/c.scale,zoomLabel:c.scale.toFixed(2)+'×',canZoomOut,canZoomIn});if(changed&&!this.data.calibrationMode)this.triggerEvent?.('camera',{canZoomOut,canZoomIn});},
+   _animate(c,duration=0){if(!this._alive)return;const a=wx.createAnimation({duration,timingFunction:'linear',transformOrigin:'0 0'});a.translate3d(c.x,c.y,0).scale(c.scale).step();this.setData({imageAnimation:a.export()});},
+   _paint(c){if(!this._alive||!this._fit)return;this._camera=this._bound(c);this._publish(this._camera);this._animate(this._camera,0);},
+   _scheduleFit(preserve=true){const serial=++this._measureSerial;wx.nextTick(()=>{if(!this._alive||serial!==this._measureSerial)return;this.createSelectorQuery().select('.venueViewport').boundingClientRect(rect=>{
+    if(!this._alive||serial!==this._measureSerial)return;const fit=geometry.fitCover(rect&&rect.width,rect&&rect.height,this.data.sourceWidth,this.data.sourceHeight);
+    if(!fit.valid){this._stopTour(false);this._fit=null;this.setData({fitReady:false});return;}
+-   if(preserve&&this._fit&&this.data.fitReady&&Math.abs(this._fit.width-fit.width)<.01&&Math.abs(this._fit.height-fit.height)<.01){this._vp=rect;this._vpScrollTop=this.data.scrollTop;return;}
++   if(preserve&&this._fit&&this.data.fitReady&&Math.abs(this._fit.width-fit.width)<.01&&Math.abs(this._fit.height-fit.height)<.01){const previous=this._vp,current=this._sample(),changed=previous.width!==rect.width||previous.height!==rect.height;this._vp=rect;this._vpScrollTop=this.data.scrollTop;if(changed){this._stopTour(false);this._paint({...current,x:current.x+(rect.width-previous.width)/2,y:current.y+(rect.height-previous.height)/2});if(!this._userInterrupted)this._startTour();}return;}
+    const oldFit=this._fit,oldVp=this._vp,old=this._sample();this._stopTour(false);this._vp=rect;this._vpScrollTop=this.data.scrollTop;this._fit=fit;this._gesture=null;
+    let c={x:fit.x,y:fit.y,scale:1};if(preserve&&oldFit&&oldVp&&this._userInterrupted){const u=(oldVp.width/2-old.x)/(oldFit.width*old.scale),v=(oldVp.height/2-old.y)/(oldFit.height*old.scale);c={x:rect.width/2-u*fit.width*old.scale,y:rect.height/2-v*fit.height*old.scale,scale:old.scale};}
+    this.setData({fitReady:true,fitWidth:fit.width,fitHeight:fit.height});this._paint(c);this._overlays();if(!this._userInterrupted)this._startTour();
+@@ -38,10 +39,10 @@ Component({
+   _points(e){return (e.touches||[]).slice(0,2).map(t=>{const x=Number.isFinite(t.clientX)?t.clientX:t.pageX,y=Number.isFinite(t.clientY)?t.clientY:t.pageY;return Number.isFinite(x)&&Number.isFinite(y)?{x:x-(this._vp.left||0),y:y-(this._vp.top||0)+(this.data.scrollTop||0)-(this._vpScrollTop||0)}:null;}).filter(Boolean);},
+   _begin(points){if(!points.length){this._gesture=null;return;}const center=points.length===2?{x:(points[0].x+points[1].x)/2,y:(points[0].y+points[1].y)/2}:points[0];this._gesture={count:points.length,center,camera:{...this._camera},distance:points.length===2?Math.hypot(points[0].x-points[1].x,points[0].y-points[1].y):0};this._lastPaintAt=-Infinity;},
+   onTouchStart(e){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;const points=this._points(e);if(!points.length)return;this._stopTour(true);this._tapStart=points[0];this._tapMoved=points.length>1;this._begin(points);},
+-  onTouchMove(e){if(!this._alive||!this._visible||!this._gesture||!this._fit)return;const p=this._points(e);if(!p.length)return;if(this._tapStart&&(p.length>1||Math.hypot(p[0].x-this._tapStart.x,p[0].y-this._tapStart.y)>8))this._tapMoved=true;if(p.length!==this._gesture.count){this._begin(p);return;}const g=this._gesture;let c;if(p.length===2){const center={x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2},d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);if(g.distance<1)return;const scale=geometry.clampScale(g.camera.scale*d/g.distance);c={x:center.x-(g.center.x-g.camera.x)*scale/g.camera.scale,y:center.y-(g.center.y-g.camera.y)*scale/g.camera.scale,scale};}else c={x:g.camera.x+p[0].x-g.center.x,y:g.camera.y+p[0].y-g.center.y,scale:g.camera.scale};this._camera=this._bound(c);if(Date.now()-this._lastPaintAt>=32){this._lastPaintAt=Date.now();this._paint(this._camera);}},
++  onTouchMove(e){if(!this._alive||!this._visible||!this._gesture||!this._fit)return;const p=this._points(e);if(!p.length)return;if(this._tapStart&&(p.length>1||Math.hypot(p[0].x-this._tapStart.x,p[0].y-this._tapStart.y)>8))this._tapMoved=true;if(p.length!==this._gesture.count){this._begin(p);return;}const g=this._gesture;let c;if(p.length===2){const center={x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2},d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);if(g.distance<1)return;const scale=geometry.clampScale(g.camera.scale*d/g.distance,this._minScale());c={x:center.x-(g.center.x-g.camera.x)*scale/g.camera.scale,y:center.y-(g.center.y-g.camera.y)*scale/g.camera.scale,scale};}else c={x:g.camera.x+p[0].x-g.center.x,y:g.camera.y+p[0].y-g.center.y,scale:g.camera.scale};this._camera=this._bound(c);if(Date.now()-this._lastPaintAt>=32){this._lastPaintAt=Date.now();this._paint(this._camera);}},
+   onTouchEnd(e){if(!this._alive||!this._visible||!this._fit)return;if(this.data.calibrationMode&&!this._tapMoved&&this._tapStart){const q=this._tapStart,u=(q.x-this._camera.x)/(this._fit.width*this._camera.scale),v=(q.y-this._camera.y)/(this._fit.height*this._camera.scale);if(u>=0&&u<=1&&v>=0&&v<=1)this.triggerEvent('point',{u,v});}this._tapStart=null;this._paint(this._camera);this._begin(this._points(e));},
+   onTouchCancel(){this._tapMoved=true;this._tapStart=null;this._gesture=null;if(this._alive&&this._visible&&this._fit)this._paint(this._camera);},
+-  _zoom(delta){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;this._stopTour(true);this._gesture=null;this._paint(geometry.zoomAt(this._camera,this._camera.scale+delta,this._vp.width/2,this._vp.height/2,this._vp.width,this._vp.height,this._fit.width,this._fit.height));},
++  _zoom(delta){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;this._stopTour(true);this._gesture=null;this._paint(geometry.zoomAt(this._camera,this._camera.scale+delta,this._vp.width/2,this._vp.height/2,this._vp.width,this._vp.height,this._fit.width,this._fit.height,this._minScale()));},
+   focusSelf(){if(!this._alive||!this._visible||!this._fit)return false;const p=(this.data.overlayPoints||[]).find(x=>x.tone==='self');if(!p)return false;this._stopTour(true);this._paint({scale:this._camera.scale,x:this._vp.width/2-p.x*this._camera.scale,y:this._vp.height/2-p.y*this._camera.scale});return true;},
+   zoomIn(){this._zoom(.25);},zoomOut(){this._zoom(-.25);}
+  }
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/components/venue-art/venue-art.wxss b/components/venue-art/venue-art.wxss
+index dda22ad..88429ac 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/components/venue-art/venue-art.wxss
++++ b/components/venue-art/venue-art.wxss
+@@ -1,3 +1,3 @@
+-:host{display:block;width:100%;height:100%;min-height:0}.venueArt{position:relative;overflow:hidden;width:100%;height:100%;min-height:0}.venueViewport{position:absolute;inset:0;overflow:hidden}.venueImage{position:absolute;left:0;top:0;display:block;transform-origin:0 0;will-change:transform}.venueTourHint{position:absolute;left:10px;top:10px;padding:5px 9px;background:#fcf8ede6;color:#24342d;font-size:11px;border-radius:3px;pointer-events:none}.venueDock{display:var(--venue-dock-display,grid);position:absolute;right:9px;bottom:25px;grid-template-columns:44px 44px;gap:4px}.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px!important;min-height:44px;margin:0;padding:0;border:1px solid #617664;border-radius:5px;background:#fcf8edef;color:#173d2a;font-size:24px;line-height:1;font-weight:400}.venueControl::after,.venueRetry::after{border:0}.venueReset,.venueTour{font-size:12px}.venueControl[disabled]{opacity:.45}.venueAttribution{position:absolute;left:6px;bottom:5px;color:#153d50;font-size:9px;text-shadow:0 1px 2px #fff,1px 0 2px #fff;pointer-events:none}.venueStatus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#fcf8ed;color:#24342d;font-size:14px}.venueRetry{min-height:44px;padding:8px 20px;background:#fff;border:1px solid #617664;border-radius:4px;font-size:14px}
++:host{display:block;width:100%;height:100%;min-height:0}.venueArt{position:relative;overflow:hidden;width:100%;height:100%;min-height:0}.venueViewport{position:absolute;inset:0;overflow:hidden;background:#51b9dc}.venueImage{position:absolute;left:0;top:0;display:block;transform-origin:0 0;will-change:transform}.venueTourHint{position:absolute;left:10px;top:10px;padding:5px 9px;background:#fcf8ede6;color:#24342d;font-size:11px;border-radius:3px;pointer-events:none}.venueDock{display:var(--venue-dock-display,grid);position:absolute;right:9px;bottom:25px;grid-template-columns:44px 44px;gap:4px}.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px!important;min-height:44px;margin:0;padding:0;border:1px solid #617664;border-radius:5px;background:#fcf8edef;color:#173d2a;font-size:24px;line-height:1;font-weight:400}.venueControl::after,.venueRetry::after{border:0}.venueReset,.venueTour{font-size:12px}.venueControl[disabled]{opacity:.45}.venueAttribution{position:absolute;left:6px;bottom:5px;color:#153d50;font-size:9px;text-shadow:0 1px 2px #fff,1px 0 2px #fff;pointer-events:none}.venueStatus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#fcf8ed;color:#24342d;font-size:14px}.venueRetry{min-height:44px;padding:8px 20px;background:#fff;border:1px solid #617664;border-radius:4px;font-size:14px}
+ 
+ .venueScene{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}.geoAnchor{position:absolute;pointer-events:none}.geoBadge{display:flex;align-items:center;gap:4px;white-space:nowrap;transform-origin:center center;font-size:11px;color:#153445;background:#fcf8ede6;padding:3px 5px;border-radius:3px}.geoDot{width:12px;height:12px;border:2px solid white;border-radius:50%;background:#328eda;box-shadow:0 0 0 1px #154b77}.geo-ally .geoDot{background:#489a49}.geo-venue .geoDot{background:#c88a1a}.geoRegion{position:absolute;border:2px solid #e57626;background:#f49a2333;box-sizing:border-box;border-radius:50%;pointer-events:none}.geoPin{display:block;width:24px;height:24px;line-height:24px;text-align:center;background:#ff8a00;color:#fff;border:2px solid #fff;border-radius:50%;font-size:12px;pointer-events:none}
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/utils/venue-camera.js b/utils/venue-camera.js
+index e98330f..d94665d 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/utils/venue-camera.js
++++ b/utils/venue-camera.js
+@@ -8,8 +8,9 @@ function positiveFinite(value) {
+   return typeof value === 'number' && Number.isFinite(value) && value > 0;
+ }
+ 
+-function clampScale(value) {
+-  return Number.isFinite(value) ? Math.max(MIN_SCALE, Math.min(MAX_SCALE, value)) : MIN_SCALE;
++function clampScale(value,minScale=MIN_SCALE) {
++  const min=positiveFinite(minScale)?Math.min(MIN_SCALE,minScale):MIN_SCALE;
++  return Number.isFinite(value) ? Math.max(min, Math.min(MAX_SCALE, value)) : min;
+ }
+ 
+ // One uniform fit factor preserves the entire source image, never a cover crop.
+@@ -32,15 +33,16 @@ function fitCover(vw, vh, sw = SOURCE_WIDTH, sh = SOURCE_HEIGHT) {
+   if(![f,width,height].every(positiveFinite))return empty;
+   return {valid:true,width,height,x:(vw-width)/2,y:(vh-height)/2,scale:1};
+ }
+-function boundCamera(vw,vh,bw,bh,c={}) {
++function boundCamera(vw,vh,bw,bh,c={},minScale=MIN_SCALE) {
+   if(![vw,vh,bw,bh].every(positiveFinite))return {x:0,y:0,scale:1};
+-  const scale=clampScale(c.scale),w=bw*scale,h=bh*scale;
++  const scale=clampScale(c.scale,minScale),w=bw*scale,h=bh*scale;
+   if(![w,h].every(positiveFinite))return {x:0,y:0,scale:1};
+-  return {x:Math.max(Math.min(0,vw-w),Math.min(0,Number.isFinite(c.x)?c.x:(vw-w)/2)),y:Math.max(Math.min(0,vh-h),Math.min(0,Number.isFinite(c.y)?c.y:(vh-h)/2)),scale};
++  const axis=(view,size,offset)=>size<=view?(view-size)/2:Math.max(view-size,Math.min(0,Number.isFinite(offset)?offset:(view-size)/2));
++  return {x:axis(vw,w,c.x),y:axis(vh,h,c.y),scale};
+ }
+-function zoomAt(c,nextScale,px,py,vw,vh,bw,bh) {
+-  const scale=clampScale(nextScale),old=clampScale(c.scale);
+-  return boundCamera(vw,vh,bw,bh,{x:px-(px-c.x)*scale/old,y:py-(py-c.y)*scale/old,scale});
++function zoomAt(c,nextScale,px,py,vw,vh,bw,bh,minScale=MIN_SCALE) {
++  const scale=clampScale(nextScale,minScale),old=clampScale(c.scale,minScale);
++  return boundCamera(vw,vh,bw,bh,{x:px-(px-c.x)*scale/old,y:py-(py-c.y)*scale/old,scale},minScale);
+ }
+ function perimeter(vw,vh,bw,bh,scale=1.28) {
+   const c=boundCamera(vw,vh,bw,bh,{scale,x:0,y:0}),right=vw-bw*c.scale,bottom=vh-bh*c.scale;
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/pages/map/map.js b/pages/map/map.js
+index 0ee007d..03d80d0 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/pages/map/map.js
++++ b/pages/map/map.js
+@@ -5,6 +5,9 @@ const done = m => m && (m.phase==='FINISHED' || m.phase==='CANCELLED');
+ Page({
+   remeasureVenue() { if(this.active)this.selectComponent('.venueArt')?.remeasure(); },
+   onArtProjection(e){const n=e.detail.omittedRegions||0,s=e.detail.source;if(this.active&&(n!==this.data.omittedArtRegions||s!==this.data.artReferenceState))this.setData({omittedArtRegions:n,artReferenceState:s});},
++  onArtCamera(e){if(this.active)this.setData({artCanZoomIn:e.detail.canZoomIn,artCanZoomOut:e.detail.canZoomOut});},
++  zoomMapIn(){this.zoomMap(1);},zoomMapOut(){this.zoomMap(-1);},
++  zoomMap(direction){if(this.data.artMode){const c=this.selectComponent('.venueArt');if(direction>0)c?.zoomIn();else c?.zoomOut();}else this.setData({mapScale:Math.max(3,Math.min(20,(this.data.mapScale||17)+direction))});},
+   onResize(e) { this.setData(presentation.resize(e)); },
+   data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,trayExpanded:true,trayDragging:false,trayDragY:0, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true },
+   onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:true}); },
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/pages/map/map.wxml b/pages/map/map.wxml
+index 898b411..83d8a4b 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/pages/map/map.wxml
++++ b/pages/map/map.wxml
+@@ -9,7 +9,7 @@
+ </scroll-view>
+ <block wx:else>
+  <view class="mapCanvas" aria-label="对局定位地图">
+-  <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
++  <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
+   <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
+  </view>
+  <view class="playHud compactHud role-{{match.myRole}}" aria-label="本局状态">
+@@ -21,6 +21,7 @@
+  <view class="mapTools">
+   <button class="edgeButton locateButton" bindtap="locateSelf" aria-label="回到本人位置"><pixel-glyph kind="locate" size="27"/></button>
+   <button class="edgeButton layerButton" bindtap="toggleMapMode" aria-label="{{artMode?'切换实时地图':'切换樱洲地图'}}"><pixel-glyph kind="layers" size="25"/></button>
++  <view class="zoomControls"><button class="edgeButton zoomInButton" bindtap="zoomMapIn" disabled="{{artMode?artCanZoomIn===false:mapScale>=20}}" aria-label="放大地图"><pixel-glyph kind="plus" size="23"/></button><button class="edgeButton zoomOutButton" bindtap="zoomMapOut" disabled="{{artMode?artCanZoomOut===false:mapScale<=3}}" aria-label="缩小地图"><pixel-glyph kind="minus" size="23"/></button></view>
+   <button wx:if="{{!offline && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="edgeButton pauseButton" bindtap="emergency" aria-label="紧急暂停"><pixel-glyph kind="pause" size="25"/></button>
+  </view>
+  <view class="mapStatusRegion {{trayExpanded?'aboveDrawer':'aboveTab'}}">
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/pages/map/map.wxss b/pages/map/map.wxss
+index 3ba33f8..d38d80d 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/pages/map/map.wxss
++++ b/pages/map/map.wxss
+@@ -15,9 +15,9 @@
+ @keyframes sheetEnter{from{transform:translateY(100%)}to{transform:translateY(0)}}@keyframes sheetExit{from{transform:translateY(0)}to{transform:translateY(100%)}}@keyframes maskEnter{from{opacity:0}to{opacity:1}}@keyframes maskExit{from{opacity:1}to{opacity:0}}
+ @media(prefers-reduced-motion:reduce){.drawer,.drawerMask,.codeSheet,.codeMask{animation-duration:1ms}}
+ .playHud{position:absolute;z-index:2;top:calc(var(--nav-height) + 8px);left:10px;right:10px;min-height:62px;display:flex;align-items:center;gap:7px;padding:8px;background:#fcf8edf7;border:2px solid #263426;border-radius:4px;box-shadow:0 2px 0 #26342644;pointer-events:none}.hudAvatar{display:block;width:29px;height:32px;flex:none}.compactIdentity{display:flex;flex:1;min-width:0;flex-wrap:wrap;column-gap:4px;align-items:center;font-size:calc(13px*var(--font-scale));line-height:1.35}.roleName,.phaseName{white-space:nowrap}.compactClock{flex:none;white-space:nowrap;font-size:23px;line-height:1.2;font-variant-numeric:tabular-nums}.compactProgress{flex:none;white-space:nowrap;border-left:1px solid #c9c3ad;padding-left:8px;font-size:21px}.registrationState{font-size:calc(10px*var(--font-scale));line-height:1.3;color:#6d7564;border-left:1px solid #c9c3ad;padding-left:7px;flex:none;white-space:nowrap}.role-cat .roleName{color:#a65417}.role-mouse .roleName{color:#176280}
+-.mapTools{position:absolute;z-index:3;right:12px;top:calc(var(--nav-height) + 88px);display:flex;flex-direction:column;gap:9px}.edgeButton{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:46px!important;height:46px;min-height:46px;margin:0!important;padding:0!important;border:2px solid #415b40;border-radius:4px;background:#fcf8edf7;box-shadow:0 2px 0 #415b4033}.edgeButton::after,.iconAction::after,.trayGrip::after,.dockGrip::after,.dockAction::after,.sheetCloseButton::after{border:0}
+-.actionDrawer{position:absolute;z-index:4;bottom:0;left:8px;right:8px;height:calc(124px + max(16px,var(--safe-bottom),env(safe-area-inset-bottom)));padding:0 12px max(16px,var(--safe-bottom),env(safe-area-inset-bottom));background:#fcf8ed;border:2px solid #263426;border-bottom:0;border-radius:6px 6px 0 0;box-shadow:0 -2px 0 #fcf8ed,0 -4px 0 #26342644;transform:translateY(0);transition:transform var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1);will-change:transform}.actionDrawer.trayClosed{transform:translateY(calc(100% + 8px));pointer-events:none}.actionDrawer.isDragging{transition:none}.trayGrip,.dockGrip{display:flex;align-items:center;justify-content:center;min-height:44px;height:44px;margin:0!important;padding:0!important;border:0;border-radius:0;background:transparent;width:100%!important}.gripMark{width:36px;height:5px;background:#19261e;border-radius:2px}.trayActions{display:flex;align-items:center;justify-content:center;gap:28px;height:64px}.iconAction{display:flex;align-items:center;justify-content:center;flex:none;width:64px!important;height:64px;min-height:64px;margin:0!important;padding:0!important;border:2px solid #263426;border-radius:3px;background:#fcf8ed;box-shadow:2px 2px 0 #26342644}.mouseAction{background:#0eaae7!important}.catAction{background:#ee9236!important}.iconAction[disabled],.dockAction[disabled]{opacity:.55}
+-.collapsedDock{position:absolute;z-index:4;bottom:calc(max(var(--safe-bottom),env(safe-area-inset-bottom)) + 8px);left:50%;width:78px;padding:0 10px 8px;background:#fcf8ed;border:2px solid #263426;border-radius:6px 6px 0 0;transform:translate(-50%,18px);opacity:0;transition:opacity 100ms ease,transform 200ms cubic-bezier(.2,.8,.2,1);pointer-events:none}.collapsedDock.dockVisible{opacity:1;transform:translate(-50%,0);transition-delay:120ms;pointer-events:auto}.dockGrip .gripMark{width:27px;height:4px}.dockAction{display:flex;align-items:center;justify-content:center;width:48px!important;height:44px;min-height:44px;margin:0 auto!important;padding:0!important;border:2px solid #263426;border-radius:2px;background:#e3e9d8}.dockHidden{pointer-events:none}
+-.mapStatusRegion{position:absolute;z-index:3;left:10px;right:10px;pointer-events:none;transition:bottom var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1)}.mapStatusRegion.aboveDrawer{bottom:calc(140px + max(16px,var(--safe-bottom),env(safe-area-inset-bottom)))}.mapStatusRegion.aboveTab{bottom:calc(120px + max(var(--safe-bottom),env(safe-area-inset-bottom)))}.mapStatus{pointer-events:auto;padding:9px 12px;background:#fcf8edf5;border:1px solid #829575;border-left:4px solid #6c815c;border-radius:4px;color:#40523e;font-size:calc(12px*var(--font-scale));line-height:1.45}.mapStatus>text{display:block}.mapStatus .statusTitle{margin-bottom:4px}.statusReconnect{border-left-color:#bd7b20}.proximityWarning{background:#fff2dff7;border-color:#d28c42;border-left-color:#c55e1c;color:#954519}.compactButton{display:inline-block;margin:6px 0 0;padding:8px 13px;min-height:44px;font-size:calc(14px*var(--font-scale));line-height:1.5;background:#e2ebd6;color:#2c5038;border:1px solid #749168;border-radius:3px}.mapError{position:absolute;z-index:5;top:calc(var(--nav-height) + 83px);left:10px;right:70px;margin:0;padding:8px;font-size:calc(12px*var(--font-scale))}
+-.drawerClose,.fontLarge .drawerClose{width:44px}.sheetCloseButton{display:flex;align-items:center;justify-content:center;flex:none;width:44px!important;height:44px;min-height:44px;padding:0!important;margin:0!important}.fontLarge .compactClock{font-size:26px}.fontLarge .compactProgress{font-size:23px}.narrowCanvas .playHud{left:8px;right:8px;padding:7px 6px;gap:5px}.narrowCanvas .hudAvatar{width:25px;height:28px}.narrowCanvas .compactIdentity{font-size:calc(12px*var(--font-scale))}.narrowCanvas .compactClock{font-size:22px}.narrowCanvas .compactProgress{font-size:20px;padding-left:5px}.narrowCanvas .registrationState{padding-left:5px;font-size:10px}.narrowCanvas .trayActions{gap:22px}.narrowCanvas .iconAction{width:60px!important;height:60px;min-height:60px}
++.mapTools{position:absolute;z-index:3;right:10px;top:calc(var(--nav-height) + 88px);display:flex;flex-direction:column;gap:6px;pointer-events:none}.edgeButton{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:46px!important;height:46px;min-height:46px;margin:0!important;padding:0!important;border:2px solid #415b40;border-radius:4px;background:#fcf8edf7;box-shadow:0 2px 0 #415b4033;pointer-events:auto}.edgeButton::after,.iconAction::after,.trayGrip::after,.dockGrip::after,.dockAction::after,.sheetCloseButton::after{border:0}.zoomControls{display:flex;flex-direction:column}.zoomControls .edgeButton{border-radius:4px 4px 0 0;box-shadow:none;height:44px;min-height:44px}.zoomControls .zoomOutButton{border-top:0;border-radius:0 0 4px 4px}.edgeButton[disabled]{opacity:.45}
++.actionDrawer{position:absolute;z-index:4;box-sizing:border-box;bottom:calc(max(var(--safe-bottom),env(safe-area-inset-bottom)) + 6px);right:8px;width:240px;max-width:calc(var(--vw) - 16px);height:96px;padding:0 10px 4px;background:#fcf8ed;border:2px solid #263426;border-radius:6px;box-shadow:0 2px 0 #26342633;transform:translate(0,0);opacity:1;transition:transform var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1),opacity 180ms ease;will-change:transform}.actionDrawer.trayClosed{transform:translate(90px,calc(100% + var(--safe-bottom) + 14px));opacity:0;pointer-events:none}.actionDrawer.isDragging{transition:none}.trayGrip,.dockGrip{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;height:44px;margin:0!important;padding:0!important;border:0;border-radius:0;background:transparent;width:100%!important}.gripMark{width:32px;height:4px;background:#19261e;border-radius:2px}.trayActions{display:flex;align-items:center;justify-content:center;gap:20px;height:44px}.iconAction{display:flex;align-items:center;justify-content:center;flex:none;width:48px!important;height:44px;min-height:44px;margin:0!important;padding:0!important;border:2px solid #263426;border-radius:3px;background:#fcf8ed;box-shadow:2px 2px 0 #26342633}.mouseAction{background:#0eaae7!important}.catAction{background:#ee9236!important}.iconAction[disabled],.dockAction[disabled]{opacity:.55}
++.collapsedDock{position:absolute;z-index:4;box-sizing:border-box;bottom:calc(max(var(--safe-bottom),env(safe-area-inset-bottom)) + 6px);right:0;width:58px;height:94px;padding:0 6px 4px;background:#fcf8ed;border:2px solid #263426;border-right:0;border-radius:6px 0 0 6px;transform:translate(-162px,0);opacity:0;transition:opacity 120ms ease,transform var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1);pointer-events:none}.collapsedDock.dockVisible{opacity:1;transform:translate(0,0);transition-delay:80ms;pointer-events:auto}.dockGrip .gripMark{width:22px;height:4px}.dockAction{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px!important;height:44px;min-height:44px;margin:0 auto!important;padding:0!important;border:2px solid #263426;border-radius:2px;background:#e3e9d8}.dockHidden{pointer-events:none}
++.mapStatusRegion{position:absolute;z-index:3;left:10px;right:70px;pointer-events:none;transition:bottom var(--tray-duration,260ms) cubic-bezier(.2,.8,.2,1)}.mapStatusRegion.aboveDrawer{bottom:calc(110px + max(var(--safe-bottom),env(safe-area-inset-bottom)))}.mapStatusRegion.aboveTab{bottom:calc(108px + max(var(--safe-bottom),env(safe-area-inset-bottom)))}.mapStatus{pointer-events:auto;padding:9px 12px;background:#fcf8edf5;border:1px solid #829575;border-left:4px solid #6c815c;border-radius:4px;color:#40523e;font-size:calc(12px*var(--font-scale));line-height:1.45}.mapStatus>text{display:block}.mapStatus .statusTitle{margin-bottom:4px}.statusReconnect{border-left-color:#bd7b20}.proximityWarning{background:#fff2dff7;border-color:#d28c42;border-left-color:#c55e1c;color:#954519}.compactButton{display:inline-block;margin:6px 0 0;padding:8px 13px;min-height:44px;font-size:calc(14px*var(--font-scale));line-height:1.5;background:#e2ebd6;color:#2c5038;border:1px solid #749168;border-radius:3px}.mapError{position:absolute;z-index:5;top:calc(var(--nav-height) + 83px);left:10px;right:70px;margin:0;padding:8px;font-size:calc(12px*var(--font-scale))}
++.drawerClose,.fontLarge .drawerClose{width:44px}.sheetCloseButton{display:flex;align-items:center;justify-content:center;flex:none;width:44px!important;height:44px;min-height:44px;padding:0!important;margin:0!important}.fontLarge .compactClock{font-size:26px}.fontLarge .compactProgress{font-size:23px}.narrowCanvas .playHud{left:8px;right:8px;padding:7px 6px;gap:5px}.narrowCanvas .hudAvatar{width:25px;height:28px}.narrowCanvas .compactIdentity{font-size:calc(12px*var(--font-scale))}.narrowCanvas .compactClock{font-size:22px}.narrowCanvas .compactProgress{font-size:20px;padding-left:5px}.narrowCanvas .registrationState{padding-left:5px;font-size:10px}.narrowCanvas .trayActions{gap:20px}.narrowCanvas .iconAction{width:48px!important;height:44px;min-height:44px}
+ @media(prefers-reduced-motion:reduce){.actionDrawer,.collapsedDock,.mapStatusRegion{transition-duration:1ms;transition-delay:0ms}}
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/components/map-icon/map-icon.js b/components/map-icon/map-icon.js
+index 10cc3cc..99f27e0 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/components/map-icon/map-icon.js
++++ b/components/map-icon/map-icon.js
+@@ -1,5 +1,7 @@
+ // Small native pixel glyphs, drawn as horizontal runs; no bitmap scaling or font symbols.
+ const grids={
++ plus:['000001100000','000001100000','000001100000','000001100000','000001100000','111111111111','111111111111','000001100000','000001100000','000001100000','000001100000','000001100000'],
++ minus:['000000000000','000000000000','000000000000','000000000000','000000000000','111111111111','111111111111','000000000000','000000000000','000000000000','000000000000','000000000000'],
+  code:['111110011111','100010010001','101010010101','100010010001','111110011111','000000000000','111110011000','100010011011','101010000110','100010011001','111110010110','000000001001'],
+  team:['000011110000','000111111000','000111111000','000011110000','110000000011','111001100111','110111111011','001111111100','111111111111','111111111111','111111111111','111100001111'],
+  rules:['111111111111','100001100001','101101101101','101101101101','101101101101','100001100001','101101101101','101101101101','100001100001','111111111111','000001100000','000001100000'],
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/cat-mouse-server/v2/venue-ui.test.js b/cat-mouse-server/v2/venue-ui.test.js
+index 9d59807..6c983b0 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/cat-mouse-server/v2/venue-ui.test.js
++++ b/cat-mouse-server/v2/venue-ui.test.js
+@@ -44,6 +44,23 @@ test('automatic tour uses one native animation per leg and exactly one timer',()
+ test('touch immediately freezes interpolated auto position and permanently hands over until explicit resume',()=>{const f=componentFixture({autoTour:true});f.ready();f.setNow(3750);const expected=f.instance._sample();f.instance.onTouchStart({touches:[{clientX:150,clientY:150}]});assert.equal(f.timers.size,0);assert.equal(f.instance.data.mode,'manual');assert.equal(f.instance.data.showControls,true);assert.ok(Math.abs(f.instance.data.x-expected.x)<.001);f.instance.onTouchEnd({touches:[]});f.advance(20000);assert.equal(f.timers.size,0);f.instance.resumeTour();f.flush();assert.equal(f.timers.size,1);});
+ test('manual pan clamps edges without blank strips and throttles move paints',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();f.instance.onTouchStart({touches:[{clientX:180,clientY:300}]});const before=f.writes.length;for(let i=0;i<100;i++)f.instance.onTouchMove({touches:[{clientX:180-i*3,clientY:300-i*3}]});assert.ok(f.writes.length-before<10);f.instance.onTouchEnd({touches:[]});const c=f.instance._camera;assert.ok(c.x<=0&&c.y<=0);assert.ok(c.x+f.instance.data.fitWidth*c.scale>=390);assert.ok(c.y+f.instance.data.fitHeight*c.scale>=600);assert.equal(f.instance._gesture,null);});
+ test('two finger pinch changes uniform scale and ends cleanly',()=>{const f=componentFixture();f.ready();f.instance.onTouchStart({touches:[{clientX:140,clientY:300},{clientX:240,clientY:300}]});f.instance.onTouchMove({touches:[{clientX:90,clientY:300},{clientX:290,clientY:300}]});f.instance.onTouchEnd({touches:[]});assert.equal(f.instance.data.scaleValue,2);assert.equal(f.instance.data.mode,'manual');});
++
++test('manual zoom can shrink initial cover to the whole map without stretching either axis',()=>{
++ const f=componentFixture();f.ready();const c=f.instance;assert.equal(c.data.canZoomOut,true);for(let i=0;i<10;i++)c.zoomOut();
++ assert.ok(Math.abs(c.data.fitWidth*c.data.scaleValue-390)<1e-8);assert.ok(Math.abs(c.data.fitHeight*c.data.scaleValue-390)<1e-8);assert.equal(c.data.canZoomOut,false);assert.ok(Math.abs(c._camera.y-105)<1e-8);assert.equal(c._camera.x,0);
++ const before=c.data.scaleValue;c.zoomIn();assert.ok(c.data.scaleValue>before);assert.equal(c.data.canZoomOut,true);assert.equal(f.timers.size,0);
++});
++
++test('wider viewport rechecks manual whole-map minimum even when cover image dimensions do not change',()=>{
++ const f=componentFixture();f.attach();f.measure(320,600);f.instance.onImageLoad(f.imageEvent());f.flush();for(let i=0;i<10;i++)f.instance.zoomOut();assert.ok(Math.abs(f.instance.data.scaleValue-320/600)<1e-8);
++ f.instance.remeasure();f.measure(390,600);assert.ok(Math.abs(f.instance.data.scaleValue-390/600)<1e-8);assert.equal(f.instance.data.canZoomOut,false);assert.equal(f.instance.data.x,0);assert.equal(f.timers.size,0);
++});
++
++test('pinch inward reaches whole-map bound and single-finger drag moves horizontally in both directions after zoom',()=>{
++ const f=componentFixture();f.ready();const c=f.instance;
++ c.onTouchStart({touches:[{clientX:90,clientY:300},{clientX:290,clientY:300}]});c.onTouchMove({touches:[{clientX:175,clientY:300},{clientX:205,clientY:300}]});c.onTouchEnd({touches:[]});assert.ok(Math.abs(c.data.scaleValue-.65)<1e-8);
++ for(let i=0;i<6;i++)c.zoomIn();const touch=(x)=>({touches:[{clientX:x,clientY:300}]});const initial=c._camera.x;c.onTouchStart(touch(200));c.onTouchMove(touch(250));c.onTouchEnd({touches:[]});const right=c._camera.x;assert.ok(right>initial);c.onTouchStart(touch(200));c.onTouchMove(touch(100));c.onTouchEnd({touches:[]});assert.ok(c._camera.x<right);assert.ok(c._camera.x<=0);assert.equal(c._gesture,null);
++});
+ test('invalid touches and zero-distance pinch do not publish NaN',()=>{const f=componentFixture();f.ready();f.instance.onTouchStart({touches:[{clientX:NaN,clientY:2}]});assert.equal(f.instance._gesture,null);f.instance.onTouchStart({touches:[{clientX:2,clientY:2},{clientX:2,clientY:2}]});f.instance.onTouchMove({touches:[{clientX:9,clientY:2},{clientX:20,clientY:2}]});assert.ok([f.instance.data.x,f.instance.data.y,f.instance.data.scaleValue].every(Number.isFinite));});
+ test('reset stays full-bleed at1x and unchanged layout retains manual zoom',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();const scale=f.instance.data.scaleValue;f.instance.remeasure();f.measure();assert.equal(f.instance.data.scaleValue,scale);f.instance.reset();assert.equal(f.instance.data.scaleValue,1);assert.equal(f.instance.data.x,camera.fitCover(390,600,config.width,config.height).x);});
+ test('manual focal position survives viewport change and invalid viewport stops animation',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();f.instance.remeasure();f.measure(320,280);assert.equal(f.instance.data.scaleValue,1.25);assert.ok(f.instance.data.fitWidth>=320&&f.instance.data.fitHeight>=280);f.instance.remeasure();f.measure(0,0);assert.equal(f.instance.data.fitReady,false);assert.equal(f.timers.size,0);});
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/cat-mouse-server/v2/map-first.test.js b/cat-mouse-server/v2/map-first.test.js
+index bc6df93..2bf29f7 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/cat-mouse-server/v2/map-first.test.js
++++ b/cat-mouse-server/v2/map-first.test.js
+@@ -40,6 +40,10 @@ test('failed and expired proof never render a stale image; retry uses same live
+ 
+ test('fixed compact header survives tray folds without changing authoritative match or positions',()=>{const {p,calls}=fixture();p.apply(snap());const m=p.data.match,g=p.data.geoData;p.toggleTray();assert.equal(p.toggleHud,undefined);assert.equal(p.data.trayExpanded,false);assert.equal(p.data.match,m);assert.equal(p.data.geoData,g);assert.deepEqual(calls,['start']);p.toggleTray();assert.equal(p.data.trayExpanded,true);});
+ 
++test('visible map zoom controls delegate art camera and keep native map scale within bounds',()=>{
++ const {p,calls}=fixture();p.apply(snap());const match=p.data.match,zoom=[];p.selectComponent=()=>({zoomIn:()=>zoom.push(1),zoomOut:()=>zoom.push(-1)});p.zoomMapIn();p.zoomMapOut();assert.deepEqual(zoom,[1,-1]);p.data.artMode=false;for(let i=0;i<30;i++)p.zoomMapIn();assert.equal(p.data.mapScale,20);for(let i=0;i<30;i++)p.zoomMapOut();assert.equal(p.data.mapScale,3);assert.equal(p.data.match,match);assert.deepEqual(calls,['start']);
++});
++
+ test('hide clears tactical positions and rejects a delayed poll after returning to the page',async()=>{
+  const {p,api}=fixture();p.apply(snap());let oldResolve,newResolve;api.room=()=>new Promise(r=>oldResolve=r);const old=p.realPoll();
+  p.cleanup();assert.equal(p.data.geoData.points.length,0);assert.equal(p.data.geoData.regions.length,0);assert.equal(p.data.offline,true);assert.equal(p.data.hasSelf,false);
+
+FONT utils/fusion-font.wxss before=3d811ad5a3c5f94b19dabc3b79ca017ce9fa16d5dd98a875a28d4b9dbae01286 after=8d2fbc30c33e7afdc30d07d4c7eabb650906cb9d6a822534ce55ec648da41440
+diff --git a/reports/2026-10-15/map-touch-dock-v2/baseline/design/2026-10-13/global-font-v1/manifest.json b/design/2026-10-13/global-font-v1/manifest.json
+index 90e63d3..f2ad214 100644
+--- a/reports/2026-10-15/map-touch-dock-v2/baseline/design/2026-10-13/global-font-v1/manifest.json
++++ b/design/2026-10-13/global-font-v1/manifest.json
+@@ -7,8 +7,8 @@
+   "license": "OFL-1.1",
+   "sourceUrl": "https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.25",
+   "sourceSha256": "6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e",
+-  "subsetSha256": "d39be6b8ad2dd78f10f469e153e6b435bba0b84eb61c25e7bc59d82f7059861b",
+-  "wxssSha256": "3d811ad5a3c5f94b19dabc3b79ca017ce9fa16d5dd98a875a28d4b9dbae01286",
++  "subsetSha256": "6c45c6726bdc895037de21b5e0ab8a7dbb19b87315ec868529252d586eb3bfee",
++  "wxssSha256": "8d2fbc30c33e7afdc30d07d4c7eabb650906cb9d6a822534ce55ec648da41440",
+   "bytes": 23684,
+   "glyphCount": 593,
+   "coverage": [
+
+FONT design/2026-10-13/global-font-v1/ui-subset.woff before=d39be6b8ad2dd78f10f469e153e6b435bba0b84eb61c25e7bc59d82f7059861b after=6c45c6726bdc895037de21b5e0ab8a7dbb19b87315ec868529252d586eb3bfee
+
+NEW REVIEW SCRIPT scripts/map-touch-dock-review.cjs
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});let seq=0;const rows=[];
+const shell='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';
+function call(tool,args){const file=path.join(out,'command-'+(++seq)+'.json');fs.writeFileSync(file,JSON.stringify({tool,project:path.resolve(__dirname,'..'),args}));const raw=cp.execFileSync(shell,['-NoProfile','-File',path.join(__dirname,'wechat-mcp-command.ps1'),'-InputFile',file],{encoding:'utf8',timeout:45000});const result=JSON.parse(raw.slice(raw.indexOf('{')));assert.ok(result.ok&&result.result.success,JSON.stringify(result));return result.result;}
+function evaluate(fn,...args){const f=path.join(out,'args-'+seq+'.json');fs.writeFileSync(f,JSON.stringify(args));return call('automation_evaluate',{'fn-source':('function () { return ('+fn.toString()+').apply(null, arguments); }').replace(/\r?\n/g,' '),'args-file':f}).result.result;}
+function inspect(){return evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.venueArt');if(!c){resolve({route:p.route,missing:true});return;}const sels=['.playHud','.actionDrawer','.collapsedDock','.dockAction','.iconAction','.mapTools','.mapStatus','.zoomInButton','.zoomOutButton'],q=wx.createSelectorQuery().in(p);sels.forEach(s=>q.selectAll(s).boundingClientRect());q.exec(boxes=>{const query=c.createSelectorQuery();query.select('.venueImage').boundingClientRect();query.selectAll('.geoBadge').boundingClientRect();query.exec(r=>resolve({route:p.route,width:p.data.viewportWidth,height:p.data.viewportHeight,safe:p.data.safeBottom,scale:c.data.scaleValue,camera:c._camera,minScale:c._minScale(),image:r[0],badges:r[1],points:c.data.overlayPoints,fitWidth:c.data.fitWidth,fitHeight:c.data.fitHeight,tray:p.data.trayExpanded,code:p.data.codeOpen,offline:p.data.offline,boxes:Object.fromEntries(sels.map((s,i)=>[s,boxes[i]]))}));});}));}
+function ready(){let s;for(let i=0;i<3;i++){s=inspect();if(s.image&&s.image.width>0)return s;}throw Error('No rendered map '+JSON.stringify(s));}
+function aligned(s){assert.ok(Math.abs(s.image.width/s.image.height-1)<1e-4);for(let i=0;i<s.points.length;i++){const p=s.points[i],b=s.badges[i],x=s.image.left+p.x/s.fitWidth*s.image.width,y=s.image.top+p.y/s.fitHeight*s.image.height;assert.ok(Math.abs(b.left+b.width/2-x)<2&&Math.abs(b.top+b.height/2-y)<2);}}
+function record(name){aligned(ready());call('simulator_screenshot',{path:path.join(out,name+'.png'),optimize:'false'});const s=ready();aligned(s);rows.push({name,...s});fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify(rows,null,2));console.log('VERIFIED '+name);return s;}
+function touch(selector,action,points){const file=path.join(out,'touches-'+seq+'.json');fs.writeFileSync(file,JSON.stringify(points));return call('automation_element_action',{selector,action,'touches-file':file});}
+function gesture(start,move){return evaluate((a,b)=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.venueArt');c.onTouchStart({touches:a});c.onTouchMove({touches:b});c.onTouchEnd({touches:[]});},start,move);}
+(async()=>{try{
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});let s;if(process.argv[3]!=='remaining'){s=record('open-mouse');assert.ok(s.boxes['.actionDrawer'][0].height<=100);const initial=s.scale;
+ call('automation_element_action',{selector:'.zoomInButton',action:'tap'});s=record('zoom-in');assert.ok(s.scale>initial);
+ call('automation_element_action',{selector:'.zoomOutButton',action:'tap'});call('automation_element_action',{selector:'.zoomOutButton',action:'tap'});call('automation_element_action',{selector:'.zoomOutButton',action:'tap'});s=record('zoom-out-whole');assert.ok(s.scale<1);assert.ok(Math.abs(s.image.width-s.width)<2);
+ call('automation_element_action',{selector:'.zoomInButton',action:'tap'});call('automation_element_action',{selector:'.zoomInButton',action:'tap'});
+ // MCP native touch calls returned success but did not reach the component.
+ // These explicit runtime events verify camera math/rendering, not phone input.
+ const pt=(x,y)=>({identifier:0,clientX:x,clientY:y,pageX:x,pageY:y}),before=inspect();gesture([pt(180,350)],[pt(240,350)]);s=record('runtime-pan-right');assert.ok(s.camera.x>before.camera.x+10);
+ gesture([pt(220,350)],[pt(120,350)]);const left=record('runtime-pan-left');assert.ok(left.camera.x<s.camera.x-10);
+ const second=(x,y)=>({...pt(x,y),identifier:1}),old=left.scale;gesture([pt(140,350),second(240,350)],[pt(90,350),second(290,350)]);s=record('runtime-pinch-out');assert.ok(s.scale>old*1.5);
+ gesture([pt(90,350),second(290,350)],[pt(150,350),second(230,350)]);s=record('runtime-pinch-in');assert.ok(s.scale<old);}
+ evaluate(()=>{const p=getCurrentPages().slice(-1)[0];p.trayTouchStart({touches:[{clientX:200,clientY:720}]});p.trayTouchMove({touches:[{clientX:202,clientY:775}]});p.trayTouchEnd();});s=record('right-edge-docked');assert.equal(s.tray,false);let d=s.boxes['.collapsedDock'][0];assert.ok(Math.abs(d.right-s.width)<1);assert.ok(d.bottom<=s.height-s.safe);assert.ok(d.width<=60);assert.ok(s.boxes['.dockAction'][0].height>=44);
+ call('automation_element_action',{selector:'.dockAction',action:'tap'});assert.equal(inspect().code,true);call('automation_element_action',{selector:'.sheetCloseButton',action:'tap'});call('automation_element_action',{selector:'.dockGrip',action:'tap'});assert.equal(inspect().tray,true);
+ for(const [mode,id] of [['narrow','cat'],['large','mouse'],['narrow','paused'],['normal','offline']]){call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview='+id});if(mode==='narrow')evaluate(()=>getCurrentPages().slice(-1)[0].onResize({size:{windowWidth:320,windowHeight:600}}));if(mode==='large')evaluate(()=>getCurrentPages().slice(-1)[0].setData({fontScale:1.3}));s=record(mode+'-'+id);assert.ok(s.boxes['.actionDrawer'][0].height<=100);for(const b of s.boxes['.iconAction'])assert.ok(b.height>=44&&b.width>=44);if(id==='offline')assert.equal(s.points.length,0);}
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});ready();evaluate(()=>getCurrentPages().slice(-1)[0].setData({motionPreviewMs:20000}));const opened=inspect();call('automation_element_action',{selector:'.trayGrip',action:'tap'});const mid=record('motion-mid');assert.ok(mid.boxes['.collapsedDock'][0].right<mid.width-1);call('automation_element_action',{selector:'.collapsedDock',action:'size',wait:8});call('automation_element_action',{selector:'.collapsedDock',action:'size',wait:8});const closed=record('motion-final');assert.ok(Math.abs(closed.boxes['.collapsedDock'][0].right-closed.width)<1);for(const state of [mid,closed])assert.ok(Math.abs(state.boxes['.playHud'][0].top-opened.boxes['.playHud'][0].top)<.5);fs.writeFileSync(path.join(out,'motion.json'),JSON.stringify({opened,mid,closed,devDurationMs:20000,productionDurationMs:260},null,2));evaluate(()=>getCurrentPages().slice(-1)[0].setData({motionPreviewMs:260}));
+ fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({pass:true,rows,nativeTouch:false,nativeButtons:true,runtimeGestureEvents:process.argv[3]!=='remaining',scope:'One official WeChat MCP runtime; native button taps/screenshots; gesture callbacks injected, physical phone touch not verified'},null,2));console.log('PASS MAP_TOUCH_DOCK '+rows.length+' screenshots');
+}catch(e){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:e.stack,rows},null,2));throw e;}})().catch(e=>{console.error(e);process.exitCode=1;});

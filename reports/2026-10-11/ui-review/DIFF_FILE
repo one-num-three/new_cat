@@ -1,0 +1,422 @@
+# Exact working-tree baseline comparison for the 16 manifest files.
+# Git HEAD contains earlier work and is deliberately not used.
+--- baseline/pages/index/index.js
++++ modified/pages/index/index.js
+@@ -36,5 +36,6 @@
+     if(this.data.resumeKind==='unavailable'){this.onShow();return;}
+     wx.navigateTo({url:(this.data.resumeKind==='room'?'/pages/room/room?roomId=':'/pages/map/map?roomId=')+encodeURIComponent(id)});
+   },
+-  openDev(){if(preview.enabled())wx.navigateTo({url:'/pages/dev/dev'});}
++  openDev(){if(preview.enabled())wx.navigateTo({url:'/pages/dev/dev'});},
++  backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});}
+ });
+--- baseline/pages/index/index.wxml
++++ modified/pages/index/index.wxml
+@@ -1,7 +1,7 @@
+ <view class="screen homeScreen">
+-  <view wx:if="{{devPreview}}" class="previewBanner">界面预览 · 不会连接服务器或发送定位</view>
++  <view wx:if="{{devPreview}}" class="previewBanner" bindtap="backToDev">预览 · 不连接服务器 · 返回调试台 ›</view>
+   <view class="hero">
+-    <view class="heroCopy"><text class="miniTag">实景追逐 · 试点版</text><text class="title">猫鼠行动</text><text class="subtitle">和熟人到户外，玩一场 6 分钟的追逐。</text></view>
++    <view class="heroCopy"><text class="miniTag">实景追逐 · 试点版</text><text class="title">猫鼠行动</text><text class="subtitle">和熟人到户外<text class="subtitleLine">玩一场猫鼠追逐</text></text></view>
+     <image class="heroIcon" src="/assets/brand/cat-runner.png" mode="aspectFit" aria-label="奔跑的小猫" />
+   </view>
+   <view wx:if="{{resumeKind}}" class="resumeBand" bindtap="restore"><text>{{resumeKind==='room'?'等待中的房间':resumeKind==='match'?'正在进行的对局':resumeKind==='result'?'上一局结果':resumeKind==='unavailable'?'上次房间暂不可用':'检查上次房间'}}</text><text class="resumeArrow">{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'请稍候':'继续查看 ›'}}</text></view>
+--- baseline/pages/index/index.wxss
++++ modified/pages/index/index.wxss
+@@ -5,6 +5,7 @@
+ .hero .miniTag{background:#fff;color:#327556}
+ .title{display:block;font-size:58rpx;line-height:1.15;font-weight:800;color:#19343B;margin:20rpx 0 12rpx;letter-spacing:1rpx}
+ .subtitle{display:block;color:#315961;line-height:1.5;font-size:27rpx;max-width:330rpx}
++.subtitleLine{display:block}
+ .heroIcon{width:236rpx;height:220rpx;flex:none;animation:heroBob 4s ease-in-out infinite}
+ @keyframes heroBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7rpx)}}
+ .resumeBand{background:#E6F3D9;border-radius:20rpx;padding:23rpx 26rpx;margin:0 0 28rpx;display:flex;justify-content:space-between;color:#276B4D;font-size:27rpx;font-weight:700}
+--- baseline/pages/room/room.js
++++ modified/pages/room/room.js
+@@ -1,19 +1,22 @@
+ const api = require('../../utils/v2'); const location = require('../../utils/location-v2'); const preview = require('../../utils/dev-preview');
+ Page({
+-  data:{ roomId:'', code:'', roster:[], rules:null, owner:false, total:8, totals:[6,7,8,9,10,11,12], venue:null, ready:false, error:'', loading:false, match:null, devPreview:false },
++  data:{ roomId:'', code:'', roster:[], rules:null, owner:false, total:8, totals:[6,7,8,9,10,11,12], venue:null, ready:false, readyCount:0, canStart:false, startHint:'等待伙伴加入', error:'', loading:false, match:null, devPreview:false },
+   onLoad(options) { this.devPreview=preview.accepts(options.devPreview);if(options.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.creating=options.mode==='create' || options.devPreview==='create' && this.devPreview;this.setData({roomId:options.roomId || '',devPreview:this.devPreview}); if (this.creating && api.config.localTestIdentities && !this.devPreview) this.setData({totals:[2,6,7,8,9,10,11,12]}); },
+-  async onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.setData(preview.roomData(this.creating?'create':'ready'));return;}const run=this.lifecycle;if(this.data.roomId) { try { await api.session();if(!this.active || run!==this.lifecycle)return; if(/^[0-9A-F]{10}$/.test(this.data.roomId)) { const r=await api.join(this.data.roomId,wx.getStorageSync('nickname') || '玩家');if(!this.active || run!==this.lifecycle)return;this.setData({roomId:r.roomId}); wx.setStorageSync('v2RoomId',r.roomId); } this.retryAttempt=0;this.begin(); } catch(e) { if(this.active && run===this.lifecycle){this.setData({error:'连接房间失败：'+e.message});this.scheduleRetry(e);} } } },
++  async onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.applyRoom(preview.roomData(this.creating?'create':'ready'));return;}this.updateTitle();const run=this.lifecycle;if(this.data.roomId) { try { await api.session();if(!this.active || run!==this.lifecycle)return; if(/^[0-9A-F]{10}$/.test(this.data.roomId)) { const r=await api.join(this.data.roomId,wx.getStorageSync('nickname') || '玩家');if(!this.active || run!==this.lifecycle)return;this.setData({roomId:r.roomId}); wx.setStorageSync('v2RoomId',r.roomId); } this.retryAttempt=0;this.begin(); } catch(e) { if(this.active && run===this.lifecycle){this.setData({error:'连接房间失败：'+e.message});this.scheduleRetry(e);} } } },
++  updateTitle(){wx.setNavigationBarTitle?.({title:this.data.roomId?'房间准备':'创建活动'});},
++  applyRoom(changes){const roster=changes.roster || this.data.roster,total=changes.rules?.total || this.data.rules?.total || this.data.total,readyCount=roster.filter(p=>p.ready).length;this.setData({...changes,readyCount,canStart:roster.length===total && readyCount===total,startHint:roster.length<total?'还差 '+(total-roster.length)+' 位伙伴':readyCount<total?'还有 '+(total-readyCount)+' 人未准备':'人数到齐，已全部准备'});this.updateTitle();},
+   onHide() { this.stop(); }, onUnload() { this.stop(); },
+   stop() { this.active=false;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.pollTimer);clearInterval(this.locTimer);clearTimeout(this.retryTimer);this.pollTimer=null;this.locTimer=null;this.retryTimer=null;this.locationPromise=null; },
+   scheduleRetry(error) { if(!this.active || this.retryTimer || error.code && !/^HTTP_5/.test(error.code))return;const delay=Math.min(15000,3000*2**Math.min(this.retryAttempt||0,3));this.retryAttempt=(this.retryAttempt||0)+1;this.retryTimer=setTimeout(()=>{this.retryTimer=null;if(this.active)this.onShow();},delay); },
+   selectTotal(e) { this.setData({total:this.data.totals[Number(e.detail.value)]}); },
+   chooseVenue() { if(this.devPreview){this.setData({venue:{lat:32.0584,lng:118.7968,radiusM:200,confirmed:true}});return;}wx.getLocation({type:'gcj02',isHighAccuracy:true,success:p=>this.setData({venue:{lat:p.latitude,lng:p.longitude,radiusM:200,confirmed:true}}),fail:()=>this.setData({error:'无法获取位置，请先授权定位'})}); },
+-  async create() { if(this.devPreview){this.setData(preview.roomData('ready'));this.creating=false;return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const r=await api.create({ total:this.data.total, venue:this.data.venue, nickname:wx.getStorageSync('nickname') }); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code}); this.begin(); } catch(e) { this.setData({error:e.message}); } finally { this.setData({loading:false}); } },
++  async create() { if(this.devPreview){if(!this.data.venue){this.setData({error:'请先确认演示场地'});return;}this.applyRoom(preview.roomData('ready'));this.creating=false;return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const r=await api.create({ total:this.data.total, venue:this.data.venue, nickname:wx.getStorageSync('nickname') }); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code});this.updateTitle(); this.begin(); } catch(e) { this.setData({error:e.message}); } finally { this.setData({loading:false}); } },
+   requestLocation() { if(this.locationPromise)return this.locationPromise;const run=this.lifecycle,task=location.once(this.data.roomId,()=>this.active && run===this.lifecycle);this.locationPromise=task;task.then(()=>{if(this.locationPromise===task)this.locationPromise=null;},()=>{if(this.locationPromise===task)this.locationPromise=null;});return task; },
+   begin() { if(!this.active || this.pollTimer) return; this.refresh(); this.pollTimer=setInterval(()=>this.refresh(),2000); this.locTimer=setInterval(()=>this.requestLocation().catch(()=>{}),4000); this.requestLocation().catch(()=>{if(this.active)this.setData({error:'定位不可用，暂时不能准备'});}); },
+-  async refresh() { if(this.fetching || !this.active) return; this.fetching=true; try { const s=await api.room(this.data.roomId); if(!this.active) return; if(this.data.match && s.version<this.data.matchVersion) return; const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId')); this.setData({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,error:''}); if(s.match && !['FINISHED','CANCELLED'].includes(s.match.phase)) { this.stop(); wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)}); } } catch(e) { if(this.active)this.setData({error:'连接中断，正在自动重试：'+e.message}); } finally { this.fetching=false; } },
+-  async toggleReady() { if(this.devPreview){this.setData({ready:!this.data.ready});return;}try { await this.requestLocation();if(!this.active)return;await api.ready(this.data.roomId,!this.data.ready); await this.refresh(); } catch(e) { if(this.active)this.setData({error:'准备失败：'+e.message}); } },
+-  async start() { if(this.devPreview){wx.navigateTo({url:'/pages/map/map?devPreview=hiding'});return;}if(this.data.loading) return; this.setData({loading:true,error:''}); try { await api.start(this.data.roomId); this.refresh(); } catch(e) { this.setData({error:'无法开始：'+e.message}); } finally { this.setData({loading:false}); } },
++  async refresh() { if(this.fetching || !this.active) return; this.fetching=true; try { const s=await api.room(this.data.roomId); if(!this.active) return; if(this.data.match && s.version<this.data.matchVersion) return; const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId')); this.applyRoom({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,error:''}); if(s.match && !['FINISHED','CANCELLED'].includes(s.match.phase)) { this.stop(); wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)}); } } catch(e) { if(this.active)this.setData({error:'连接中断，正在自动重试：'+e.message}); } finally { this.fetching=false; } },
++  async toggleReady() { if(this.devPreview){const ready=!this.data.ready;this.applyRoom({ready,roster:this.data.roster.map(p=>p.id==='dev-me'?{...p,ready}:p),error:''});return;}try { await this.requestLocation();if(!this.active)return;await api.ready(this.data.roomId,!this.data.ready); await this.refresh(); } catch(e) { if(this.active)this.setData({error:'准备失败：'+e.message}); } },
++  async start() { if(!this.data.owner || !this.data.canStart || this.data.loading)return;if(this.devPreview){wx.navigateTo({url:'/pages/map/map?devPreview=hiding'});return;}this.setData({loading:true,error:''}); try { await api.start(this.data.roomId); this.refresh(); } catch(e) { this.setData({error:'无法开始：'+e.message}); } finally { this.setData({loading:false}); } },
+   copy() { if(this.devPreview)return;wx.setClipboardData({data:this.data.code}); },
++  backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});},
+   onShareAppMessage() { if(this.devPreview)return {title:'猫鼠行动 · 界面预览',path:'/pages/index/index'};return {title:'加入猫鼠行动',path:'/pages/room/room?roomId='+encodeURIComponent(this.data.code)}; }
+ });
+--- baseline/pages/room/room.wxml
++++ modified/pages/room/room.wxml
+@@ -1,5 +1,5 @@
+ <view class="screen">
+-  <view wx:if="{{devPreview}}" class="previewBanner">界面预览 · 操作不会创建房间或发送定位</view>
++  <view wx:if="{{devPreview}}" class="previewBanner" bindtap="backToDev">预览 · 不创建真实房间 · 返回调试台 ›</view>
+   <view wx:if="{{!roomId}}">
+     <view class="roomIntro"><view><text class="miniTag">第 1 步 · 组织活动</text><text class="heading">创建活动</text><text class="muted">到了场地，再确认集合点和人数。</text></view><image class="introIcon" src="/assets/brand/selected-icon.png" mode="aspectFill" aria-label="猫鼠行动图标" /></view>
+     <view class="card block"><text class="label">本局人数</text><picker range="{{totals}}" bindchange="selectTotal"><view class="picker"><text class="pickerValue">{{total}} 人</text><text class="pickerArrow">更改 ›</text></view></picker><text class="fieldHint">6–8 人安排 2 猫；9–12 人安排 3 猫。</text></view>
+@@ -8,10 +8,9 @@
+   </view>
+   <view wx:else>
+     <view class="roomIntro"><view><text class="miniTag">第 2 步 · 集合伙伴</text><text class="heading">房间准备</text><text class="muted">人数到齐并完成定位后，组织者就能开始。</text></view><image class="introIcon" src="/assets/brand/selected-icon.png" mode="aspectFill" aria-label="猫鼠行动图标" /></view>
+-    <view class="inviteCard"><text class="inviteLabel">把房间码发给伙伴</text><view class="row"><text class="code">{{code}}</text><button class="copyButton" bindtap="copy">复制</button></view><text class="inviteHint">集合点已确认 · 请保持小程序在前台</text></view>
++    <view class="inviteCard"><text class="inviteLabel">把房间码发给伙伴</text><view class="row"><text class="code">{{code}}</text><button size="mini" class="copyButton" bindtap="copy">复制</button></view><text class="inviteHint">集合点已确认 · 请保持小程序在前台</text></view>
+     <view class="card block"><view class="row"><text class="label">玩家准备</text><text class="pill">{{roster.length}} / {{rules ? rules.total : total}} 人</text></view><view wx:for="{{roster}}" wx:key="id" class="player row"><view class="playerName"><view class="playerDot"></view><text>{{item.nickname}}</text></view><text class="{{item.ready?'ok':'waiting'}}">{{item.ready?'已准备':'待定位'}}</text></view></view>
+-    <button class="primary" bindtap="toggleReady">{{ready?'取消准备':'定位并准备'}}</button>
+-    <button wx:if="{{owner}}" class="secondary" loading="{{loading}}" bindtap="start">所有人准备后开始</button>
++    <view class="roomActions"><text class="readySummary">{{readyCount}} 人已准备 · {{startHint}}</text><button class="readyToggle {{ready?'secondary':'primary'}}" bindtap="toggleReady">{{ready?'取消准备':'定位并准备'}}</button><button wx:if="{{owner}}" class="startButton {{canStart?'primary':'secondary'}}" disabled="{{!canStart || loading}}" loading="{{loading}}" bindtap="start">{{canStart?'开始 30 秒躲藏':'等待所有人准备'}}</button></view>
+     <view class="note"><text class="noteTitle">开局提示</text><text>躲藏 30 秒，追逐 6 分钟。猫抓到开局鼠数的 60%（向上取整）获胜；鼠展示动态码，猫扫码确认抓捕。</text></view>
+   </view>
+   <text wx:if="{{error}}" class="error">{{error}}</text>
+--- baseline/pages/room/room.wxss
++++ modified/pages/room/room.wxss
+@@ -15,13 +15,18 @@
+ .block .secondary{margin-bottom:0;width:100%}
+ .inviteCard{background:#DDF3FF;border-radius:28rpx;padding:27rpx;margin:12rpx 0 24rpx}
+ .inviteLabel{display:block;color:#315961;font-size:26rpx;font-weight:700}
+-.code{font-size:49rpx;font-weight:800;letter-spacing:5rpx;color:#19343B;font-variant-numeric:tabular-nums}
+-.copyButton{margin:12rpx 0;background:#fff;color:#276B4D;font-size:25rpx;font-weight:700;border-radius:18rpx;min-width:126rpx;line-height:68rpx;height:68rpx}
++.code{font-size:42rpx;font-weight:800;letter-spacing:2rpx;color:#19343B;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:0}
++.copyButton{flex:none;width:100rpx;min-width:100rpx;margin:12rpx 0 12rpx 20rpx;padding:0;background:#fff;color:#276B4D;font-size:25rpx;font-weight:700;border-radius:18rpx;line-height:68rpx;height:68rpx}
+ .copyButton::after{border:0}
+ .inviteHint{display:block;font-size:23rpx;color:#47706E}
+ .player{padding:20rpx 0;border-bottom:1rpx solid #E2EDE2;font-size:29rpx}
+ .player:last-child{border-bottom:0;padding-bottom:0}
+-.playerName{display:flex;align-items:center;gap:14rpx;min-width:0}
++.playerName{display:flex;align-items:center;gap:14rpx;min-width:0;flex:1}
++.playerName text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
++.player .ok,.player .waiting{flex:none}
++.screen>.primary,.screen>view>.primary,.roomActions button{width:100%}
++.roomActions{margin-top:24rpx}
++.readySummary{display:block;font-size:25rpx;line-height:1.5;color:#425B56}
+ .playerDot{width:24rpx;height:24rpx;border-radius:50%;background:#8DCB74;flex:none}
+ .ok{color:#2A7B51;font-weight:700;font-size:25rpx}
+ .waiting{color:#887B5F;font-size:25rpx}
+--- baseline/pages/map/map.js
++++ modified/pages/map/map.js
+@@ -1,7 +1,7 @@
+ const api = require('../../utils/v2'); const loc = require('../../utils/location-v2'); const {shouldApply}=require('../../utils/snapshot-v2'); const preview=require('../../utils/dev-preview');
+ const done = m => m && (m.phase==='FINISHED' || m.phase==='CANCELLED');
+ Page({
+-  data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false },
++  data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false },
+   onLoad(o) { this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview}); },
+   onShow() { if(this.previewDenied)return;this.active=true;if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me'));if(this.previewCase==='offline')this.setData({offline:true,connection:'重连中',clock:'--:--',markers:[],circles:[],nearbyCat:false});else this.setData({connection:'界面预览'});return;}this.reconnectAttempt=0; this.poll(); this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
+   onHide() { this.cleanup(); }, onUnload() { this.cleanup(); },
+@@ -49,22 +49,27 @@
+     const markers=s.visiblePositions.map((p,i)=>({id:i+1,latitude:p.lat,longitude:p.lng,title:s.roster.find(x=>x.id===p.id)?.nickname || '玩家',iconPath:'/assets/markers-v1/'+(p.id===myId?'self':s.roster.find(x=>x.id===p.id)?.role==='cat'?'cat':'mouse')+'.png',width:30,height:30,callout:{content:p.id===myId?'我的位置':'队友',display:p.id===myId?'ALWAYS':'BYCLICK',padding:6,borderRadius:8,bgColor:'#FFFFFF',color:'#213638'}}));
+     markers.push({id:1000,latitude:s.venue.lat,longitude:s.venue.lng,iconPath:'/assets/markers-v1/venue.png',width:27,height:27,callout:{content:'集合点',display:'ALWAYS',padding:5,bgColor:'#FFFFFF',color:'#526863'}});
+     const circles=(s.intel||[]).map(p=>({latitude:p.cellLat,longitude:p.cellLng,radius:p.radiusM,color:'#F36A3488',fillColor:'#F36A3422',strokeWidth:2}));
++    if(Number.isFinite(s.venue.radiusM))circles.unshift({latitude:s.venue.lat,longitude:s.venue.lng,radius:s.venue.radiusM,color:'#477F60AA',fillColor:'#91CE6B0A',strokeWidth:2});
+     const latitude=Number.isFinite(mine?.lat)?mine.lat:(this.hasCenter?this.data.latitude:s.venue.lat),longitude=Number.isFinite(mine?.lng)?mine.lng:(this.hasCenter?this.data.longitude:s.venue.lng);this.hasCenter=true;
+-    this.setData({match:m,roster:s.roster,events:s.events||[],owner:s.owner,version:s.version,markers,circles,nearbyCat:!!s.nearbyCat,offline:false,latitude,longitude,roleText:m.myRole==='cat'?'猫队':'鼠队',phaseText:{HIDING:'躲藏阶段',CHASING:'追逐中',PAUSED:'已暂停',FINISHED:'本局结束',CANCELLED:'本局取消'}[m.phase],connection:this.socketOpen?'实时连接':'轮询同步',error:''});
++    const pauseReasonText={host:'组织者暂停',emergency:'玩家紧急暂停',lost_position:'定位或连接失联',outside_venue:'超出活动范围',server_restart:'服务重启，等待重新定位',leave:'有玩家退出'}[m.pauseReason] || '等待组织者确认';
++    this.setData({match:m,roster:s.roster,events:s.events||[],owner:s.owner,version:s.version,markers,circles,nearbyCat:!!s.nearbyCat,offline:false,latitude,longitude,roleText:m.myRole==='cat'?'猫队':'鼠队',phaseText:m.myStatus==='captured' && !done(m)?'本轮出局':{HIDING:'躲藏阶段',CHASING:'追逐中',PAUSED:'已暂停',FINISHED:'本局结束',CANCELLED:'本局取消'}[m.phase],pauseReasonText,connection:this.socketOpen?'实时连接':'轮询同步',error:''});
+     this.serverRemaining=m.remainingMs; this.syncedAt=Date.now(); this.updateClock();
+     if(this.devPreview)return;
+     if(done(m) || m.myStatus==='captured') { loc.stop(); this.locationRunning=false; } else this.startLocation();
+   },
+   updateClock() { if(!this.data.match || this.data.offline) return; const ms=this.data.match.phase==='PAUSED'?this.serverRemaining:Math.max(0,this.serverRemaining-(Date.now()-this.syncedAt)); const sec=Math.ceil(ms/1000); this.setData({clock:String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}); },
+   toggleDrawer() { this.setData({drawer:!this.data.drawer}); },
++  closeDrawer() { this.setData({drawer:false}); },
++  ignoreTouch() {},
+   showCode() { if(this.data.offline)return;wx.navigateTo({url:this.devPreview?'/pages/qrcode/qrcode?devPreview=code':'/pages/qrcode/qrcode?roomId='+encodeURIComponent(this.data.roomId)}); },
+   scan() { if(this.devPreview){this.setData({error:'界面预览不使用相机；请返回调试台查看结算状态。'});return;}if(this.data.offline)return;wx.scanCode({onlyFromCamera:true,success:async r=>{try{const proof=JSON.parse(r.result);if(!proof.matchId || !proof.token) throw Error('无效抓捕码');this.setData({loading:true});await loc.once(this.data.roomId);await api.capture(this.data.roomId,{matchId:proof.matchId,token:proof.token,commandId:uuid()});await this.poll();wx.showToast({title:'抓捕已记录',icon:'success'});}catch(e){this.setData({error:'抓捕未完成：'+e.message});}finally{this.setData({loading:false});}},fail:()=>this.setData({error:'扫码已取消或相机不可用'})}); },
+   async pause() { if(this.devPreview)return;try { await api.pause(this.data.roomId,'host'); await this.poll(); } catch(e) {this.setData({error:e.message});} },
+   async emergency() { if(this.devPreview)return;try { await api.pause(this.data.roomId,'emergency'); await this.poll(); } catch(e) {this.setData({error:e.message});} },
+   async resume() { if(this.devPreview)return;try { await loc.once(this.data.roomId); await api.resume(this.data.roomId); await this.poll(); } catch(e) {this.setData({error:'恢复失败：'+e.message});} },
+   async cancel() { if(this.devPreview)return;wx.showModal({title:'取消本局？',content:'取消不计胜负，结果会保留。',success:async r=>{if(r.confirm)try{await api.cancel(this.data.roomId);await this.poll();}catch(e){this.setData({error:e.message});}}}); },
+-  async leave() { if(this.devPreview){wx.navigateBack();return;}wx.showModal({title:'退出本局？',content:'退出会暂停本局，请告知组织者。',success:async r=>{if(r.confirm)try{await api.leave(this.data.roomId);this.cleanup();wx.reLaunch({url:'/pages/index/index'});}catch(e){this.setData({error:e.message});}}}); },
+-  goHome() { this.cleanup(); if(this.devPreview)wx.navigateBack();else wx.reLaunch({url:'/pages/index/index'}); },
++  async leave() { if(this.devPreview){this.backToDev();return;}wx.showModal({title:'退出本局？',content:'退出会暂停本局，请告知组织者。',success:async r=>{if(r.confirm)try{await api.leave(this.data.roomId);this.cleanup();wx.reLaunch({url:'/pages/index/index'});}catch(e){this.setData({error:e.message});}}}); },
++  backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});},
++  goHome() { this.cleanup(); if(this.devPreview)this.backToDev();else wx.reLaunch({url:'/pages/index/index'}); },
+   replay() { wx.redirectTo({url:this.devPreview?'/pages/room/room?devPreview=ready':'/pages/room/room?roomId='+encodeURIComponent(this.data.roomId)}); }
+ });
+ function uuid() { return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.floor(Math.random()*16);return(c==='x'?r:(r&3|8)).toString(16);}); }
+--- baseline/pages/map/map.wxml
++++ modified/pages/map/map.wxml
+@@ -1,20 +1,26 @@
+ <view class="mapPage">
+-  <view wx:if="{{devPreview}}" class="previewBanner mapPreviewBanner">界面预览 · 非实时位置 · 操作不会写入对局</view>
++  <view wx:if="{{devPreview}}" class="previewBanner mapPreviewBanner" bindtap="backToDev">预览 · 非实时位置 · 返回调试台 ›</view>
+   <map class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" circles="{{circles}}" show-location="false" enable-rotate="false" />
+-  <view class="topPanel"><view class="row"><view><text class="roleBadge {{match.myRole==='cat'?'catBadge':'mouseBadge'}}">{{roleText}} · {{phaseText}}</text><text wx:if="{{match}}" class="goal">已抓 {{match.captured}} / {{match.target}}</text><text wx:else class="goal">正在加入对局</text></view><view class="clockBlock"><text class="clock">{{clock}}</text><text class="clockCaption">{{offline?'等待同步':match.phase==='HIDING'?'躲藏倒计时':'剩余时间'}}</text></view></view><text class="status">{{connection}} · 地图按身份显示</text></view>
++  <view class="topPanel"><view class="row"><view><text class="roleBadge {{match.myRole==='cat'?'catBadge':'mouseBadge'}}">{{roleText}} · {{phaseText}}</text><text wx:if="{{match}}" class="goal">已抓 {{match.captured}} / {{match.target}}</text><text wx:else class="goal">正在加入对局</text></view><view class="clockBlock"><text class="clock">{{match.phase==='FINISHED' || match.phase==='CANCELLED'?'已结束':clock}}</text><text class="clockCaption">{{offline?'等待同步':match.phase==='HIDING'?'躲藏倒计时':match.phase==='PAUSED'?'计时已冻结':match.phase==='FINISHED' || match.phase==='CANCELLED'?'结果已确认':'追逐剩余'}}</text></view></view><text class="status">{{connection}} · {{offline?'已隐藏战术位置':match.myStatus==='captured'?'仅查看公开状态':'地图按身份显示'}}</text></view>
+   <view class="bottomPanel">
+     <view wx:if="{{offline && connection!=='身份失效' && match && match.phase!=='FINISHED' && match.phase!=='CANCELLED'}}" class="stateIllustration reconnectState"><image src="/assets/brand/reconnecting.png" mode="aspectFit" aria-label="正在重连的猫鼠" /><text>连接中断，正在恢复本局状态</text></view>
+     <view wx:if="{{!match}}" class="notice">正在获取本局状态，请稍候。</view>
+     <view wx:if="{{offline && match && match.phase!=='FINISHED' && match.phase!=='CANCELLED'}}" class="notice">{{connection==='身份失效'?'身份已失效，请返回首页重新进入。':'地图和倒计时暂停更新。请停下等待连接恢复，不要依据旧位置追逐或扫码。'}}</view>
+     <view wx:elif="{{match.phase==='HIDING'}}" class="notice">鼠先躲藏；猫请停留在集合点。追逐开始后才能抓捕。</view>
+-    <view wx:elif="{{match.phase==='PAUSED'}}" class="notice"><view class="stateIllustration"><image src="/assets/brand/reconnecting.png" mode="aspectFit" aria-label="等待恢复" /><text>本局暂停</text></view>对局已暂停（{{match.pauseReason}}）。请原地等待，重新定位后由组织者恢复。</view>
++    <view wx:elif="{{match.phase==='PAUSED'}}" class="notice"><view class="stateIllustration"><image src="/assets/brand/reconnecting.png" mode="aspectFit" aria-label="等待恢复" /><text>本局暂停</text></view>{{pauseReasonText}}。请原地等待，重新定位后由组织者恢复。</view>
+     <view wx:elif="{{match.myStatus==='captured' && match.phase!=='FINISHED' && match.phase!=='CANCELLED'}}" class="notice"><view class="stateIllustration"><image src="/assets/brand/captured-mouse.png" mode="aspectFit" aria-label="本轮已出局的老鼠" /><text>本轮已出局</text></view>你已被捕，请返回集合点等待结算。</view>
+     <view wx:elif="{{match.phase==='CHASING'}}" class="notice">{{match.myRole==='cat'?'橘色区域是鼠的大致线索，线下接近后扫码。':'留意周围环境；停下后可展示动态码。'}}</view>
+     <view wx:if="{{!offline && match.phase==='CHASING' && match.myRole==='mouse' && match.myStatus==='active' && nearbyCat}}" class="warning"><text class="warningDot"></text><text>附近有猫，请注意观察并安全移动</text></view>
+     <view wx:if="{{!offline && match.phase==='CHASING' && match.myStatus==='active'}}"><button wx:if="{{match.myRole==='cat'}}" class="primary" loading="{{loading}}" bindtap="scan">扫码确认抓捕</button><button wx:else class="primary" bindtap="showCode">停下，展示动态码</button></view>
+     <view wx:if="{{match.phase==='FINISHED' || match.phase==='CANCELLED'}}" class="result"><image wx:if="{{match.outcome==='cat_win'}}" class="resultArt" src="/assets/brand/cat-win.png" mode="aspectFit" aria-label="猫队获胜插画" /><image wx:elif="{{match.outcome==='mouse_win'}}" class="resultArt" src="/assets/brand/mouse-win.png" mode="aspectFit" aria-label="鼠队获胜插画" /><text class="resultTag">本局结算</text><text class="resultTitle">{{match.outcome==='cat_win'?'猫队获胜':match.outcome==='mouse_win'?'鼠队获胜':'本局取消'}}</text><text>{{match.reason==='capture_target'?'已达到捕获目标':match.reason==='deadline'?'追逐时间已到':'不计胜负'}}</text><button class="primary" bindtap="replay">再来一局</button></view>
+     <view wx:if="{{error}}"><text class="error">{{error}}</text><button class="textButton" bindtap="goHome">返回首页</button></view>
+-    <view class="row actions"><button class="textButton" bindtap="toggleDrawer">{{drawer?'收起详情':'队伍 · 规则 · 操作'}}</button><button wx:if="{{match.phase==='PAUSED' && owner}}" class="textButton" bindtap="resume">恢复本局</button></view>
++    <view class="row actions"><button class="textButton" bindtap="toggleDrawer">队伍 · 规则 · 操作</button><button wx:if="{{!offline && match.phase==='PAUSED' && owner}}" class="textButton" bindtap="resume">恢复本局</button></view>
+   </view>
+-  <view wx:if="{{drawer}}" class="drawer"><text class="label">本局玩家</text><view wx:for="{{roster}}" wx:key="id" class="row roster"><text>{{item.nickname}} · {{item.role==='cat'?'猫':'鼠'}}</text><text>{{item.status==='captured'?'被捕':item.presence==='online'?'在局':'重连中'}}</text></view><text class="label">最近事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="roster"><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view><text class="label">操作与安全</text><text class="help">猫每 30 秒获得一次区域线索，鼠获得近距预警，不显示敌方精确位置。双方停下后扫码；GPS 只用于辅助校验。离开会暂停本局。</text><button wx:if="{{match.phase==='CHASING' || match.phase==='HIDING'}}" class="secondary" bindtap="emergency">紧急暂停</button><button wx:if="{{owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="secondary" bindtap="pause">组织者暂停</button><button wx:if="{{owner && match.phase==='PAUSED'}}" class="danger" bindtap="cancel">取消本局</button><button class="textButton" bindtap="leave">退出</button></view>
++  <view wx:if="{{drawer}}" class="drawerMask" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
++  <view wx:if="{{drawer}}" class="drawer">
++    <view class="drawerHeader"><text>对局详情</text><button class="textButton" bindtap="closeDrawer">关闭</button></view>
++    <scroll-view scroll-y class="drawerBody">
++      <view class="drawerContent"><text class="label">本局玩家</text><view wx:for="{{roster}}" wx:key="id" class="row roster"><text class="rosterName">{{item.nickname}} · {{item.role==='cat'?'猫':'鼠'}}</text><text class="rosterState">{{item.status==='captured'?'被捕':item.presence==='online'?'在局':'重连中'}}</text></view><text class="label">最近事件</text><view wx:if="{{!events.length}}" class="help">暂无新事件</view><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="roster"><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view><text class="label">地图与规则</text><text class="help">蓝色标记是本人，集合点不是玩家位置。绿色边界是活动范围；橘色区域仅代表大致线索，不是鼠的精确位置。</text><text class="help">躲藏 30 秒，追逐 6 分钟。猫达到开局鼠人数的 60%（向上取整）获胜；否则时间到鼠胜。</text><text class="label">操作与安全</text><text class="help">猫每 30 秒获得区域线索，鼠获得近距预警。双方停下后扫码；GPS 只作辅助校验。进行中退出会暂停本局。</text><button wx:if="{{!offline && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="secondary" bindtap="emergency">紧急暂停</button><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="secondary" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="danger" bindtap="cancel">取消本局</button><button class="textButton" bindtap="leave">退出</button></view>
++    </scroll-view>
++  </view>
+ </view>
+--- baseline/pages/map/map.wxss
++++ modified/pages/map/map.wxss
+@@ -4,9 +4,15 @@
+ .mapPreviewBanner{position:absolute;top:0;left:0;right:0;z-index:5;margin:0;border-radius:0;text-align:center}
+ .mapPreviewBanner~.topPanel{top:calc(60rpx + env(safe-area-inset-top))}
+ .topPanel,.bottomPanel,.drawer{position:absolute;left:24rpx;right:24rpx;background:#fff;border-radius:28rpx;padding:24rpx;box-shadow:0 8rpx 24rpx #214B3830}
+-.topPanel{top:calc(16rpx + env(safe-area-inset-top));border-top:8rpx solid #F36A34}
+-.bottomPanel{bottom:calc(16rpx + env(safe-area-inset-bottom))}
+-.drawer{bottom:calc(278rpx + env(safe-area-inset-bottom));max-height:42vh;overflow:auto;border-top:8rpx solid #91CE6B}
++.topPanel{top:calc(16rpx + env(safe-area-inset-top));border-top:8rpx solid #F36A34;z-index:2}
++.bottomPanel{bottom:calc(16rpx + env(safe-area-inset-bottom));z-index:3;box-sizing:border-box;max-height:64%;overflow:auto}
++.drawerMask{position:absolute;top:0;right:0;bottom:0;left:0;z-index:20;background:#21363866}
++.drawer{left:0;right:0;bottom:0;height:72%;padding:0;border-radius:32rpx 32rpx 0 0;border-top:8rpx solid #91CE6B;z-index:21;box-sizing:border-box;overflow:hidden}
++.drawerHeader{display:flex;align-items:center;justify-content:space-between;padding:12rpx 28rpx;border-bottom:2rpx solid #E4EBE8;font-size:30rpx;font-weight:800;height:88rpx;box-sizing:border-box}
++.drawerHeader .textButton{margin:0;width:112rpx;padding:0;flex:none}
++.drawerBody{height:calc(100% - 88rpx)}
++.drawerContent{padding:0 28rpx calc(28rpx + env(safe-area-inset-bottom))}
++.drawerContent button{width:100%}
+ .roleBadge{display:inline-block;border-radius:13rpx;padding:7rpx 14rpx;font-size:24rpx;font-weight:800}
+ .catBadge{background:#FFF0E4;color:#C95828}
+ .mouseBadge{background:#E7F6E3;color:#28734B}
+@@ -22,6 +28,8 @@
+ .actions{border-top:2rpx solid #E7EEE6;margin-top:15rpx;padding-top:11rpx}
+ .actions button{margin:4rpx;padding-left:0;padding-right:0;font-size:25rpx}
+ .roster{padding:14rpx 0;border-bottom:1rpx solid #E4EBE8;font-size:25rpx}
++.rosterName{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
++.rosterState{flex:none}
+ .drawer .label{margin-top:20rpx}
+ .help{display:block;font-size:25rpx;line-height:1.5;margin:15rpx 0;color:#60756C}
+ .result{text-align:center}
+@@ -32,3 +40,4 @@
+ .resultTag{display:inline-block;background:#EAF7DC;color:#286B47;border-radius:14rpx;padding:8rpx 16rpx;font-size:23rpx;font-weight:700}
+ .resultTitle{display:block;font-size:43rpx;font-weight:800;margin:12rpx;color:#213638}
+ .result text{display:block}
++.result .resultTag{display:inline-block}
+--- baseline/pages/qrcode/qrcode.wxml
++++ modified/pages/qrcode/qrcode.wxml
+@@ -1,5 +1,5 @@
+ <view class="screen codeScreen">
+-  <view wx:if="{{devPreview}}" class="previewBanner">界面预览 · 无真实抓捕码，不能扫码</view>
++  <view wx:if="{{devPreview}}" class="previewBanner" bindtap="backToDev">预览 · 无真实抓捕码 · 返回调试台 ›</view>
+   <view class="codeHeader"><text class="miniTag">鼠队 · 抓捕确认</text><text class="heading">停下，展示动态码</text><text class="muted">和猫当面确认后再展示。GPS 只作辅助校验，扫码成功才算抓捕。</text></view>
+   <view class="qrCard"><view class="qrCorners"><view wx:if="{{devPreview}}" class="qrDemo"><text class="qrDemoMark">◌</text><text>演示码</text><text class="qrDemoHint">仅供检查页面布局 · 不可扫描</text></view><image wx:elif="{{image}}" src="{{image}}" mode="aspectFit" class="qr" aria-label="本局动态抓捕码" /><text wx:elif="{{error}}" class="qrLoading">当前无法展示动态码</text><text wx:else class="qrLoading">正在生成动态码…</text></view></view>
+   <view wx:if="{{image}}" class="refreshInfo"><text class="refreshDot"></text><text>{{seconds}} 秒后自动更新</text></view>
+--- baseline/pages/qrcode/qrcode.wxss
++++ modified/pages/qrcode/qrcode.wxss
+@@ -3,15 +3,15 @@
+ .codeHeader{padding:34rpx 0 0}
+ .heading{display:block;font-size:45rpx;line-height:1.25;font-weight:800;margin:20rpx 0 14rpx;color:#213638}
+ .codeHeader .muted{display:block;font-size:27rpx;line-height:1.5;max-width:610rpx;margin:auto}
+-.qrCard{background:#fff;border:2rpx solid #D8EAD8;border-radius:32rpx;padding:28rpx;margin:46rpx auto 22rpx;max-width:620rpx;min-height:558rpx;display:flex;align-items:center;justify-content:center;box-shadow:0 12rpx 0 #DCEFD8}
+-.qrCorners{border:7rpx solid #8DCA74;border-radius:24rpx;padding:14rpx;min-height:500rpx;display:flex;align-items:center;justify-content:center}
+-.qr{width:480rpx;height:480rpx}
+-.qrLoading{display:block;width:480rpx;text-align:center;color:#60756C;font-size:27rpx}
++.qrCard{background:#fff;border:2rpx solid #D8EAD8;border-radius:32rpx;padding:24rpx;margin:30rpx auto 22rpx;width:100%;max-width:620rpx;box-sizing:border-box;display:flex;align-items:center;justify-content:center;box-shadow:0 12rpx 0 #DCEFD8}
++.qrCorners{border:7rpx solid #8DCA74;border-radius:24rpx;padding:14rpx;width:100%;max-width:530rpx;box-sizing:border-box;display:flex;align-items:center;justify-content:center}
++.qr{width:480rpx;height:480rpx;max-width:100%}
++.qrLoading{display:flex;align-items:center;justify-content:center;width:100%;min-height:400rpx;color:#60756C;font-size:27rpx}
+ .refreshInfo{display:flex;align-items:center;justify-content:center;gap:11rpx;font-size:29rpx;font-weight:800;color:#286B47;margin:26rpx 0 36rpx;font-variant-numeric:tabular-nums}
+ .refreshDot{width:16rpx;height:16rpx;border-radius:50%;background:#77BD61;animation:refreshPulse 1.5s ease-in-out infinite}
+ @keyframes refreshPulse{0%,100%{opacity:1}50%{opacity:.38}}
+ .safetyNote{background:#FFF4E6;color:#785A3E;border-radius:18rpx;padding:18rpx 22rpx;font-size:25rpx;line-height:1.4;margin:24rpx 0 30rpx}
+ .codeScreen .secondary{width:100%}
+-.qrDemo{width:480rpx;height:480rpx;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:18rpx;background:#EAF7DC;color:#286B47;font-size:40rpx;font-weight:800}
++.qrDemo{width:100%;height:440rpx;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:18rpx;background:#EAF7DC;color:#286B47;font-size:40rpx;font-weight:800}
+ .qrDemoMark{font-size:150rpx;line-height:1.2}
+ .qrDemoHint{font-size:22rpx;font-weight:500;margin-top:18rpx}
+--- baseline/utils/theme.wxss
++++ modified/utils/theme.wxss
+@@ -7,6 +7,7 @@
+ .secondary{background:#fff;color:#276B4D;border:2rpx solid #77AF77}
+ .danger{background:#FFF3EE;color:#B24A30;border:2rpx solid #DC9A88}
+ .primary:active,.secondary:active,.danger:active{transform:translateY(3rpx);opacity:.88}
++.primary[disabled],.secondary[disabled]{background:#E1E9DF;color:#60756C;box-shadow:none;border-color:#CBD9C9}
+ .textButton{background:transparent;color:#276B4D;font-size:27rpx;font-weight:600;margin:4rpx 0}
+ .textButton::after,.secondary::after,.primary::after,.danger::after{border:0}
+ .error{display:block;color:#9E3F2A;background:#FFF0EA;padding:20rpx;border-radius:16rpx;margin-top:14rpx;font-size:26rpx;line-height:1.45}
+--- baseline/utils/dev-preview.js
++++ modified/utils/dev-preview.js
+@@ -27,23 +27,30 @@
+   const now = Date.now(), isMouse = ['mouse','alert','captured','mouseWin'].includes(id);
+   const phase = id === 'hiding' ? 'HIDING' : id === 'paused' ? 'PAUSED' : id === 'catWin' || id === 'mouseWin' ? 'FINISHED' : id === 'cancelled' ? 'CANCELLED' : 'CHASING';
+   const role = isMouse ? 'mouse' : 'cat';
+-  const roster = [
+-    {id:me,nickname:'我 · 演示',role,status:id==='captured'?'captured':'active',presence:'online'},
+-    {id:'dev-cat',nickname:'小橘',role:'cat',status:'active',presence:'online'},
+-    {id:'dev-mouse',nickname:'小米',role:'mouse',status:'active',presence:'online'}
+-  ];
++  const roster = [{id:me,nickname:'我 · 演示',role,status:id==='captured'?'captured':'active',presence:id==='offline'?'reconnecting':'online'}];
++  const names=['小橘','小米','阿青','可可','小林','圆圆','阿川'];
++  for(let i=0;i<7;i++)roster.push({id:'dev-player-'+i,nickname:names[i],role:i<(isMouse?2:1)?'cat':'mouse',status:'active',presence:'online'});
++  const captured=phase==='HIDING'?0:id==='catWin'?4:id==='mouseWin'?3:1;
++  let left=captured-(id==='captured'?1:0);
++  for(const player of roster)if(player.id!==me && player.role==='mouse' && left>0){player.status='captured';left--;}
+   const live = !['captured','paused','offline','catWin','mouseWin','cancelled'].includes(id);
+-  const visiblePositions = live ? [{id:me,lat:32.0584,lng:118.7968,accuracy:6,receivedAt:now},{id:role==='cat'?'dev-cat':'dev-mouse',lat:32.0588,lng:118.7971,accuracy:8,receivedAt:now}] : [];
++  const ally=roster.find(p=>p.id!==me && p.role===role && p.status==='active');
++  const visiblePositions = live ? [{id:me,lat:32.0584,lng:118.7968,accuracy:6,receivedAt:now},{id:ally.id,lat:32.0588,lng:118.7971,accuracy:8,receivedAt:now}] : [];
++  const events=[{seq:1,kind:'START'}];
++  if(phase!=='HIDING')events.push({seq:2,kind:'CHASING'});
++  for(let i=0;i<captured;i++)events.push({seq:events.length+1,kind:'CAPTURE'});
++  if(phase==='PAUSED')events.push({seq:events.length+1,kind:'PAUSE'});
++  if(phase==='FINISHED'||phase==='CANCELLED')events.push({seq:events.length+1,kind:'RESULT'});
+   return {version:1,serverTime:now,venue:{lat:32.0582,lng:118.7965,radiusM:200},owner:true,roster,visiblePositions,
+     intel:id==='cat'?[{cellLat:32.0592,cellLng:118.798,radiusM:50}]:[],nearbyCat:id==='alert',
+-    events:[{seq:1,kind:'START'},{seq:2,kind:'CHASING'}],
+-    match:{id:'dev-preview-match',phase,myRole:role,myStatus:id==='captured'?'captured':'active',remainingMs:phase==='HIDING'?18000:phase==='CHASING'?285000:0,captured:id==='catWin'?4:1,target:4,pauseReason:id==='paused'?'host':null,outcome:id==='catWin'?'cat_win':id==='mouseWin'?'mouse_win':null,reason:id==='catWin'?'capture_target':id==='mouseWin'?'deadline':id==='cancelled'?'cancelled':null}};
++    events,
++    match:{id:'dev-preview-match',phase,myRole:role,myStatus:id==='captured'?'captured':'active',remainingMs:phase==='HIDING'?18000:phase==='CHASING'||phase==='PAUSED'?285000:0,captured,target:4,pauseReason:id==='paused'?'host':null,outcome:id==='catWin'?'cat_win':id==='mouseWin'?'mouse_win':null,reason:id==='catWin'?'capture_target':id==='mouseWin'?'deadline':id==='cancelled'?'cancelled':null}};
+ }
+ 
+ function roomData(id) {
+   if(id==='create')return {roomId:'',total:8,venue:null};
+   return {roomId:'dev-preview-room',code:'A1B2C3D4E5',owner:true,ready:true,rules:{total:8,cats:2,mice:6,hidingMs:30000,chasingMs:360000},
+-    roster:[{id:'dev-me',nickname:'我 · 演示',ready:true},{id:'dev-cat',nickname:'小橘',ready:true},{id:'dev-mouse',nickname:'小米',ready:false}],match:null};
++    roster:['我 · 演示','小橘','小米','阿青','可可','小林','圆圆','阿川'].map((nickname,i)=>({id:i?'dev-player-'+i:'dev-me',nickname,ready:true})),match:null};
+ }
+ 
+ module.exports = {enabled,accepts,cases,mapSnapshot,roomData};
+--- baseline/cat-mouse-server/v2/dev-preview.test.js
++++ modified/cat-mouse-server/v2/dev-preview.test.js
+@@ -57,9 +57,44 @@
+   const preview=fixture(),events=[];
+   const home=page('index',preview,events);home.onLoad({devPreview:'home'});await home.onShow();await home.create();await home.join();
+   assert.deepEqual(events.splice(0),['/pages/room/room?devPreview=create','/pages/room/room?devPreview=ready']);
+-  const room=page('room',preview,events);room.onLoad({devPreview:'create'});await room.onShow();room.chooseVenue();await room.create();await room.toggleReady();await room.start();
++  const room=page('room',preview,events);room.onLoad({devPreview:'create'});await room.onShow();room.chooseVenue();await room.create();await room.toggleReady();await room.start();assert.deepEqual(events,[]);await room.toggleReady();await room.start();
+   assert.equal(room.data.devPreview,true);assert.deepEqual(events.splice(0),['/pages/map/map?devPreview=hiding']);
+   const map=page('map',preview,events);map.onLoad({devPreview:'mouse'});map.onShow();map.showCode();await map.pause();await map.resume();await map.cancel();await map.emergency();await map.leave();
+-  assert.deepEqual(events.splice(0),['/pages/qrcode/qrcode?devPreview=code','back']);
++  assert.deepEqual(events.splice(0),['/pages/qrcode/qrcode?devPreview=code','/pages/dev/dev']);
++  const code=page('qrcode',preview,events);code.onLoad({devPreview:'code'});code.back();assert.deepEqual(events.splice(0),['/pages/map/map?devPreview=mouse']);
++  for(const p of [home,room,map,code])p.backToDev();assert.deepEqual(events.splice(0),Array(4).fill('/pages/dev/dev'));
+   const denied=page('map',fixture('release'),events);denied.onLoad({devPreview:'cat'});denied.onShow();assert.deepEqual(events,['/pages/index/index']);
+ });
++test('pilot preview roster, captures, frozen clock and event sequence stay consistent',()=>{
++  const dev=fixture();
++  for(const item of dev.cases.filter(x=>x.path.includes('/map/'))){
++    const s=dev.mapSnapshot(item.id,'me');
++    assert.equal(s.roster.length,8,item.id);assert.equal(s.roster.filter(p=>p.role==='cat').length,2,item.id);
++    assert.equal(s.roster.filter(p=>p.status==='captured').length,s.match.captured,item.id);
++    assert.equal(s.match.target,4);assert.equal(new Set(s.events.map(e=>e.seq)).size,s.events.length);
++    for(const p of s.visiblePositions)assert.equal(s.roster.find(r=>r.id===p.id).role,s.match.myRole);
++    if(item.id==='hiding'){assert.equal(s.match.captured,0);assert.equal(s.events.some(e=>e.kind==='CHASING'),false);}
++    if(item.id==='paused')assert.equal(s.match.remainingMs,285000);
++  }
++});
++test('room readiness controls explain waiting and never open a round early',async()=>{
++  const preview=fixture(),events=[],room=page('room',preview,events);
++  room.onLoad({devPreview:'ready'});await room.onShow();
++  assert.equal(room.data.canStart,true);assert.equal(room.data.readyCount,8);
++  await room.toggleReady();assert.equal(room.data.canStart,false);assert.equal(room.data.roster[0].ready,false);
++  assert.match(room.data.startHint,/1 人未准备/);await room.start();assert.deepEqual(events,[]);
++  room.applyRoom({roster:room.data.roster.slice(0,3)});assert.match(room.data.startHint,/5 位伙伴/);
++  room.applyRoom({roster:preview.roomData('ready').roster,owner:false});await room.start();assert.deepEqual(events,[]);
++  assert.match(source('pages/room/room.wxml'),/<button size="mini" class="copyButton"/);
++});
++test('map view labels and drawer distinguish frozen, captured and public venue state',()=>{
++  const preview=fixture(),events=[];
++  const map=page('map',preview,events);map.onLoad({devPreview:'paused'});map.onShow();
++  assert.equal(map.data.clock,'04:45');assert.equal(map.data.pauseReasonText,'组织者暂停');
++  assert.equal(map.data.circles.length,1);assert.equal(map.data.circles[0].radius,200);
++  map.toggleDrawer();assert.equal(map.data.drawer,true);map.closeDrawer();assert.equal(map.data.drawer,false);
++  map.onLoad({devPreview:'captured'});map.onShow();assert.equal(map.data.phaseText,'本轮出局');
++  assert.equal(map.data.markers.length,1);assert.equal(map.data.nearbyCat,false);
++  assert.match(source('pages/map/map.wxml'),/<scroll-view scroll-y class="drawerBody">/);
++  assert.match(source('pages/map/map.wxml'),/class="drawerMask" bindtap="closeDrawer"/);
++});
+--- baseline/WORK_LOG.md
++++ modified/WORK_LOG.md
+@@ -1,6 +1,18 @@
+-# 工作记录（2026-10-09）
++# 工作记录（更新至 2026-10-11）
+ 
+ 当前状态：**本地试点候选已完成；后端已通过 seu-link.fit 的 HTTPS/WSS 专用路径接入；微信真机与正式场地验收未完成**。代码与文档仍有未提交改动，未推送仓库；公网网关验证不等于微信真机上线。下一步在微信开发工具和 Android/iPhone 上核验真实登录、实时连接、定位、扫码与结算；不要将服务端探针解释为正式验收。
++
++## 2026-10-11 本轮实际 UI 巡检与修正
++- 预期与完成条件：在用户固定的分屏中检查调试台及 14 个核心页面/状态，记录与设计基线不一致之处，修改真实 WXML/WXSS/交互并复查；不移动、缩放或激活桌面窗口。
++- 基线：保留本轮前已有未提交工作。16 个涉及文件已按原始字节复制到 `reports/2026-10-11/ui-review/baseline/` 并记录 SHA-256；不以 Git HEAD 代替工作树基线。改动前既有回归为 17/17；新增健康检查确实复现暂停 0ms、躲藏已抓 1、三人样例和无滚动抽屉四类显示缺陷。
++- 循环一（实际显示）：修正首页分行、创建页导航标题与全宽按钮、房间码/复制布局、名单长昵称截断；开局按钮只在人数齐全且全部准备后突出，等待说明与禁用状态一致。开发预览为 8 人 2 猫 6 鼠，抓捕/事件/名单数量相符，不改变正式规则。
++- 循环二（地图状态）：增加公开场地绿色范围；暂停原因转中文并冻结在 04:45 样例，出局明确只看公开状态；终局写“已结束/结果已确认”，标签不再铺满整行。抽屉改为单层遮罩、独立滚动与明确关闭，结算不与抽屉并列争抢层级；断线不开放恢复、扫码和暂停命令。
++- 循环三（预览交互）：每个预览页的横幅可返回调试台，动态码预览返回鼠地图。真实流程与接口不变；预览不采集位置、不连 API、不生成真实凭据，不触发设备动作或存储。
++- 工具自查：用户报告模拟器“突然变小”后，停止桌面坐标点击、窗口激活和 SDK 截图；仅用官方自动化端口切页、DPI 感知的只读系统截图。后续大模拟器截图与分屏位置保持一致。截图小窗/文件监控与 SDK 路由时序可能有关，根因尚未证实，未宣称修复微信 IDE 自身。导航按钮需等待实际回调完成后再读当前页，已修正巡检的等待方式。早期截图误回首页及第一次 probe 失败均保留但排除验收。
++- 最后一轮发现与修复：仅设置复制按钮 width 仍被原生普通按钮样式撑到 184px；probe 新增断言真实失败。改为 `size=mini` 后实测 56px，10 位房间码不再被挤压，最终 15/15 通过。CLI auto 返回早于自动化端口就绪，等待后连接；不反复重试同一命令。
++- 验证：最终 `npm test` 20/20、`UI_PROBE_PASS=15`、`Verified 78 frozen art files`，均退出 0。最终命令与原始输出统一见 `reports/2026-10-11/ui-review/VERIFICATION.txt`；有效截图在 `ui-review/after/`，15 路由几何与状态检查在 `after-metrics.json`。新增 3 条回归；回滚只在带标记的独立副本上测试，真实工作树保留修改。发布 ZIP 在 `dist/ui-review/`。
++- 自查回答：服务端会话、管理权限、胜负裁决未移到客户端；无新增敌方位置字段，公开场地不作玩家点；预览次数/捕获/终局展示与 `pilot-0.2` 一致；同步与定位生命周期原测试继续覆盖；未增加网络频率和生产依赖。准备与断线状态明确说明下一步，抽屉关闭可恢复结果。重复/乱序/重启的服务端回归继续执行，视觉巡检不替代它们。
++- 剩余清单：Android/iPhone 真机触控、原生地图叠层、320px 小屏、系统大字体、户外日光、安全区与动效帧率未执行；真实登录/定位/扫码和公网长时间稳态按 `RELEASE.md` 继续验收。以下较早“模拟器未执行/服务端口关闭”是历史记录，已由本节更新，不再代表当前状态。
+ 
+ ## 2026-10-11 开发版界面调试台
+ - 问题与完成条件：原有调试台只有未接入的目录骨架。开发版首页应可进入 14 个核心页面/状态，预览不触发生产 API、定位、扫码、WebSocket、定时器或持久存储；体验/正式版不能使用预览参数。
+--- baseline/README.md
++++ modified/README.md
+@@ -22,13 +22,24 @@
+ 
+ 访问 `http://127.0.0.1:4000/health` 和 `/ready`。`/api/v2/session/test` 只在上述显式本地测试模式启用。切回真实微信登录时，清除这两个环境变量，在服务端配置 `WECHAT_APP_ID`、`WECHAT_APP_SECRET`，并将小程序 `utils/config.js` 的 `localTestIdentities` 改为 `false`。正式部署必须配置 `DATABASE_URL`；没有它，`NODE_ENV=production` 会拒绝启动。
+ 
+-微信开发者工具导入仓库根目录。当前 `project.config.json` 已填写试点 AppID；`utils/config.js` 指向 `https://seu-link.fit/catmouse` 和 `wss://seu-link.fit/catmouse`，并使用真实 `wx.login`，不会请求测试身份接口。测试身份模式仅用于上面的隔离本地服务端验收；若要从小程序连接本地服务，需临时修改 `utils/config.js`，测试结束后恢复当前公网配置。微信开发者工具与真机预览尚待执行。
++微信开发者工具导入仓库根目录。当前 `project.config.json` 已填写试点 AppID；`utils/config.js` 指向 `https://seu-link.fit/catmouse` 和 `wss://seu-link.fit/catmouse`，并使用真实 `wx.login`，不会请求测试身份接口。测试身份模式仅用于上面的隔离本地服务端验收；若要从小程序连接本地服务，需临时修改 `utils/config.js`，测试结束后恢复当前公网配置。2026-10-11 已巡检开发工具 390×753 视口的调试台及 14 个页面/状态，并修正实际渲染问题；真实登录、手机定位/扫码、小屏和大字体仍待真机验证。
+ 
+ ## 开发版界面调试台
+ 
+ 以开发版在微信开发者工具打开小程序首页，点击「打开界面调试台」；也可在工具顶部编译模式下拉框选择「界面调试台」或任一状态并重新编译。`project.config.json` 已登记 15 个编译模式（调试台 + 14 个页面/状态）。可单独打开首页、创建、房间准备、猫/鼠追逐地图、近距预警、躲藏、动态码、被捕、暂停、断线、两种胜利和取消。调试台使用显著的「界面预览」标记与固定样例数据；动态码为不可扫描的占位图。进入预览不会调用会话、房间、定位、相机、WebSocket 或定时同步，也不会改动真实对局。预览内的创建、准备和开局只在界面本地切换或跳转，返回后可选择下一项；真实流程仍从首页正常按钮进入。该入口仅在小程序 `envVersion=develop` 出现，体验版/正式版直接打开预览链接会回到首页。
+ 
+ 本地两身份流程：各自建立测试会话 → 一个创建 2 人工程房间 → 另一人输入房间码加入 → 两人定位准备 → 房主开始 → 30 秒躲藏 → 鼠展示 15 秒动态码 → 猫扫码 → 两端看到猫胜。正式预设仍为 6–12 人，8 人为 2 猫 6 鼠。
++
++### 不移动桌面窗口的自动巡检
++
++用户已在本机 IDE 开启服务端口。开发工具保持现有分屏；以下命令只控制小程序路由，不上传或发布，也不调整窗口。先 `cd cat-mouse-server; npm ci; cd ..` 安装开发依赖，正式镜像继续 `npm ci --omit=dev`。
++
++```powershell
++& 'D:\Program Files (x86)\微信web开发者工具\cli.bat' auto --project 'D:\cat-mouse-miniprogram' --auto-port 9420
++node scripts/ui-review.cjs all "$env:TEMP\cat-mouse-ui-metrics.json"
++```
++
++巡检校验预览身份、各页边界、地图面板不重叠、房间码/复制按钮分离，以及冻结/出局/断线文案。截图采用只读系统截取，不调用可能弹出小预览的 SDK 截图；中间证据先放项目外，减少 IDE 文件监控触发重编译的干扰。只有布局实测与逐图目视检查都完成后才登记通过；步骤和截图见 [本轮 UI 巡检](reports/2026-10-11/UI_REVIEW.md)。
+ 
+ ## 规则与架构
+ 
+--- additional-saved-baseline/pages/dev/dev.wxss
++++ modified/pages/dev/dev.wxss
+@@ -1,6 +1,7 @@
+ @import "../../utils/theme.wxss";
+ .devScreen{background:#F5FAF1;min-height:100vh}
+-.devScreen .heading{display:block;margin:22rpx 0 8rpx}
++.devScreen .heading{display:block;margin:22rpx 0 14rpx;font-size:46rpx;line-height:1.25;font-weight:800}
++.devScreen .muted{display:block;font-size:27rpx}
+ .previewList{margin-top:28rpx;display:flex;flex-direction:column;gap:14rpx}
+ .previewItem{background:#fff;border:2rpx solid #DCE9DE;border-radius:20rpx;padding:23rpx 25rpx;display:flex;justify-content:space-between;color:#213638;font-size:28rpx;font-weight:700}
+ .previewArrow{color:#327556}
+
+# Additional changes outside the 16-file rollback manifest:
+# qrcode.js: preview-only backToDev and back -> mouse map; live navigateBack unchanged.
+# server package/lock: official automator added only as a development dependency.
+# New scripts: ui-review.cjs and verify-ui-view.cjs; DESIGN_BASELINE.md status updated.
+# Package files in baseline were copied after SDK install, not a pre-install rollback source.

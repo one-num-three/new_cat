@@ -1,0 +1,2427 @@
+[
+  {
+    "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit",
+    "files": [
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\add_quant_summary.py",
+        "bytes": 3878,
+        "sha256": "6908C6C60D67178580FE77D8DD8DF7238E22479859B9561FFF95BD7175044A2F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\build_report.py",
+        "bytes": 22569,
+        "sha256": "553D419C08D1A73C5EA62C817E831E7474BCC38777563AF19944EEE571145EBA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\FINAL_VISUAL_COMPARISON.html",
+        "bytes": 37435,
+        "sha256": "B777134FDC67C3CE4CAD75D8B8BC248E6A276D0A23573674B0BCFF996EC66368"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\FINAL_VISUAL_COMPARISON.json",
+        "bytes": 273618,
+        "sha256": "DF01F9D93B6FB700ACB96BEC93ADD7E41F7AFA4735FE68823F13AFA626E5233B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\FINAL_VISUAL_COMPARISON.md",
+        "bytes": 29135,
+        "sha256": "BB51631B3C3B549045C493CA47B7BE52A1228D9EA6839C64788215912E92AB3B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\finalize_notes.py",
+        "bytes": 5598,
+        "sha256": "125150B6B74B95C9683A2A5B00DD0952924FF42801D8499BE317162A082E74C1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\ink_probe.py",
+        "bytes": 1293,
+        "sha256": "22FFF0FFB486FA29572A6DECA3F120DE75FE3C934083962658A6A4AF626B4920"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\inspection-evidence-before-refine.json",
+        "bytes": 3255,
+        "sha256": "B4FD827F150E4EC3FACBE6824E95C6012A2264DDE35ED178DF49602949C040F0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\make_portable.py",
+        "bytes": 6182,
+        "sha256": "1AACDC0C363F15D86252DCDDC7B04A89CD5E47B430305A7DF2D4EB513A52E7FF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\narrow-code-before-spacing.png",
+        "bytes": 186950,
+        "sha256": "CA83C1BA0192441AC5B17C12A9ECA861803F27655DF5888BC560E3A06591F75C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\record_evidence.py",
+        "bytes": 968,
+        "sha256": "694605AACD911313AAB0ED0047242EF0369744316789FE82B802DB246671631A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\update_builder.py",
+        "bytes": 1606,
+        "sha256": "252BD7EAE5BD89B2FF5A3A0EA5E22C12476ED7D8FED1E5AD125BC39AF93B0BA8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\update_cancel_final2.py",
+        "bytes": 1176,
+        "sha256": "F42CF11784E5E80958C8A4C04672C1867AD236CC5B685AF0A893FD8AD92B2CD3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\update_metadata.py",
+        "bytes": 2284,
+        "sha256": "986BB70A2161E3159625A2147D14EABA1A59527125F75A9EEE44AD6295D8B569"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\validate_report.py",
+        "bytes": 1842,
+        "sha256": "6145EF4D3E382AC9ED152431373C4336D837B9B1E369EC2CD138AAC9B7F9327E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\visual-observations.json",
+        "bytes": 13214,
+        "sha256": "6991969F40D65E600307BEF130C6B0B00437CA0742F7271AEED84475DEA13EB3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\interaction\\code-bottom.png",
+        "bytes": 214975,
+        "sha256": "95E4C10E20D61FE4DF1FC9D8ADF3BCC12C573000CDBB0A78E86B072ACEDF4DF2"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\interaction\\create-bottom.png",
+        "bytes": 272179,
+        "sha256": "305587227F4AFB8FA91B0DD7D449C57C6C1BA1B9E1BADA4ECFA1043C9E925C01"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\interaction\\drawer-bottom.png",
+        "bytes": 355137,
+        "sha256": "045C663F8FF871C1CF3E3E4C34F823F7BE842683E514CAA563961093B57A4054"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\interaction\\gallery-bottom.png",
+        "bytes": 153354,
+        "sha256": "7A1E5F916251E1B7476781907B5A92DA536B8814066E154BEF2C4E8CDE0DDE1B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\interaction\\ready-bottom.png",
+        "bytes": 166599,
+        "sha256": "36B4B53A74864B626A88CDE9499B70AECB2AC9EFC11AEA8B87D7D25205914318"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\alert.png",
+        "bytes": 375944,
+        "sha256": "B6440BFAE72EDD3054003427E45F6909775255D4C2C55D69D590AB8C945CAFE8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\cancelled.png",
+        "bytes": 309820,
+        "sha256": "4816F4DEEA1F25F9046AA092875B4CFDC2372750BE535A4210FE9E2BEE4C6ECF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\captured.png",
+        "bytes": 385265,
+        "sha256": "3F01923A14FB28DF2431D2CB02E70F9097C34B4C61C0533338279DF564669BB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\cat.png",
+        "bytes": 406800,
+        "sha256": "46C59416827AF1AFB7B3545190FDAB13E1F67B52B763DCB807C2A1581B0DF80C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\catWin.png",
+        "bytes": 291624,
+        "sha256": "F3DAB6FAA123834EA61965C13D4086D0EF740FBDEF2A8C20EF94463F5297F256"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\code.png",
+        "bytes": 234973,
+        "sha256": "2BCB58612E585DC2700B650BA353834B3EC037057FDA94881D74BA57C0344FDE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\create.png",
+        "bytes": 265747,
+        "sha256": "2796753C43FEE1CE3ECDC49F651EC6C5468EFAD382965395DD27FB4AEC25E377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\drawer.png",
+        "bytes": 318751,
+        "sha256": "FAD79CBA212556F06C26952FDE76B1066188D9CAC7B0E7007D6D2CA96EDD1345"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\gallery.png",
+        "bytes": 276959,
+        "sha256": "0BB3E68A1A247EE32486AAE44157E8E8C2BBDB0D9349D59E859C93068507EFA0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\hiding.png",
+        "bytes": 390978,
+        "sha256": "236F7D74ACEFB40D23530D4A2E84FFEFFEDF14301F832466E3E7A6AC3626E0B0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\home.png",
+        "bytes": 347139,
+        "sha256": "E6FE4C49093DCB5C3B724037C92B60B1312DE54FA6F4C2EBA9A2B7AC0349936A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\mouse.png",
+        "bytes": 380690,
+        "sha256": "C2C801FC31CF203373F4E04E399A05E173E3A19242E6B84E087489200B3C48BD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\mouseWin.png",
+        "bytes": 291758,
+        "sha256": "612AFA9F66224D840B4497EA7E149F2C0EA46C2A49CC8CEEB996089786C7D886"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\offline.png",
+        "bytes": 396299,
+        "sha256": "CB80E4825EA0513C52DFEAB6D9042E3C7B198E7D03E13D7B3013243FE1430E79"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\paused.png",
+        "bytes": 329869,
+        "sha256": "E791D4BEEB4B46DCC98E9E6995BCB2111B02E7A3F59D9A06118EBDA754DC0377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\large\\ready.png",
+        "bytes": 230416,
+        "sha256": "8A626FD06EAC39B5F572752DC6EC2591689C330E09B035EF7384A2586BD0AB14"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\alert.png",
+        "bytes": 326676,
+        "sha256": "BA420DCB5092688DAEF36B46738E4C4C1DBB27639FB05D8E3A967DF7F481AF6D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\cancelled.png",
+        "bytes": 330184,
+        "sha256": "108A0E7D543269C4F13EE06EF21C08F0ACAB8154B91B33307AA48C12000696F3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\captured.png",
+        "bytes": 338239,
+        "sha256": "3089C3B69536B37952D240840B6B54A8CB625403FB506870ED955ACB3194DA88"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\cat.png",
+        "bytes": 317972,
+        "sha256": "4C36EE0A15CBB3719E67B313884B6C2F8C3706759D28F1D94465F5106E339301"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\catWin.png",
+        "bytes": 344224,
+        "sha256": "D822DF5777ABB5E351EE401696ECF37F1D1929D2C3B9A9F93D2144608F6EF664"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\code.png",
+        "bytes": 187029,
+        "sha256": "1656602A0A977A4821B7881FA0819B9CB1DBA195992968042C02D624BD65CB3D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\create.png",
+        "bytes": 201291,
+        "sha256": "86C8D0D5603CF4B4B987D6A5EDA1D491C35C672797B5B7FA6D535EF44EABD062"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\drawer.png",
+        "bytes": 211106,
+        "sha256": "17C25332882ED4204925495B87D2860AA0B70BF31DFDCA6EF172A2B0746E8D26"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\gallery.png",
+        "bytes": 239089,
+        "sha256": "1D59C9066BBACAF7D8AEEEA86CFC632EDC67C027487E3880F81CAC81B2B19F37"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\hiding.png",
+        "bytes": 365618,
+        "sha256": "79A50AE6B606A5E3091E7F48AB5CE220D8B8B1A597073AEEF2AA7CDADF5D6288"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\home.png",
+        "bytes": 255239,
+        "sha256": "1A2485BCF95D2DD48A7C4F22B6637C0F65B999D4D9334A0CDDE2CE63B493071D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\mouse.png",
+        "bytes": 351376,
+        "sha256": "BFBB793D2BF8FE1657995AE7679BF95FBF8850C7B3F6381040394BDB2285C377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\mouseWin.png",
+        "bytes": 316605,
+        "sha256": "14E4BB1919992CD8CFE631C5F9A75D132059211856345A16960D3C58BBD102D1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\offline.png",
+        "bytes": 355751,
+        "sha256": "02E14091E33A110A19F71CD982B93E1023888E9E3267492CA9CC0CDEDB4FCA15"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\paused.png",
+        "bytes": 338044,
+        "sha256": "3F5A64F3FA3FEAE0018B205A46C6DE720B11782BB6B4310894AC04F3B05ABBB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\narrow\\ready.png",
+        "bytes": 188223,
+        "sha256": "735BF608733D51D1FDF808146FF56D42A9C2D100EDC71E9BC7451AF49E6E8329"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\alert.png",
+        "bytes": 420664,
+        "sha256": "9E47FC4AE017426F392B9689EBBA48E9587DD839F91DE671D4EA03E5B400236D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\cancelled.png",
+        "bytes": 425320,
+        "sha256": "D5C20646CCFB8C648B43ECA61067B95C6EA96C9DBBE917142B5A08826044911D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\captured.png",
+        "bytes": 442045,
+        "sha256": "E0C7E0B059579F51646F401CFC19F581C737288490B587A3457C4B2A644078F5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\cat.png",
+        "bytes": 404676,
+        "sha256": "07C11AFC6189693350049AD7BB1086DF680D499A87FA99ADEFFD2C3CBC16D528"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\catWin.png",
+        "bytes": 455002,
+        "sha256": "E29F950B8E00BFCF63CE959FCA15CF8C0E860ABD7FB2C090F7262CD46C6804FB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\code.png",
+        "bytes": 232408,
+        "sha256": "597CC7A4AF4AF4B2D431CC37EA5B4157B1491DC7EB0B8648E3588C54669E06CE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\create.png",
+        "bytes": 252858,
+        "sha256": "D3264CD2FBAE91B7605D49702D1AEA851D22AEED45E50D119ACBB7F71F7CE58F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\drawer.png",
+        "bytes": 300272,
+        "sha256": "0F466F1D549AC45E5C4D901776E7073416747F6D94EB3BAC77508757E0C91A7D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\gallery.png",
+        "bytes": 304685,
+        "sha256": "10F03F615E8AF5600C824C7670608494AE8730B606F8BF458991813E9113D73C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\hiding.png",
+        "bytes": 467708,
+        "sha256": "7A360DC182933E9954C5827F0BB6DC3924AACFC68EA944C84F9CF40343CB4CFC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\home.png",
+        "bytes": 327629,
+        "sha256": "695B17AD2B132FDDA337F3EFF1B7B6E1D644E2CF04BB6FC8606C793E5F8BCB92"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\mouse.png",
+        "bytes": 456330,
+        "sha256": "22F188A02C8C8CB94B870A4A54979C64FE7E7D917B6AB84D847236DE85803ABB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\mouseWin.png",
+        "bytes": 416820,
+        "sha256": "59CD41715DE28FCEBBF3F49611F50434AFE3119A2FC38916B60644813338A63B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\offline.png",
+        "bytes": 456013,
+        "sha256": "39568165F651C1D8A43780FD7B140CCCC9F905C1CF1188136B17BD533471D958"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\paused.png",
+        "bytes": 443876,
+        "sha256": "230629D1239C55B0FABD436C87AABA115F62EFADF367CEA26721594684BFFBA6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\normal\\ready.png",
+        "bytes": 231882,
+        "sha256": "561DBCADC0ECF1F2A863D2840C4FAEDABE47A683AD9BC20EB22038422F36D15F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\alert.png",
+        "bytes": 1480929,
+        "sha256": "78F17B3BA9212D1E5D83AB33DB45FF7089397BA94F6914511125C5DA7F7F0531"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\cancelled.png",
+        "bytes": 1363979,
+        "sha256": "F593D6DEDC19E9C42E6296BFB92DF4E59B3BB1DD35CA07707F9B13FE0F8CBECF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\captured.png",
+        "bytes": 1362593,
+        "sha256": "0BA79BEFB0E10A34212EECACA80C294D4B022F81CEE72681F9D8179B4127F869"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\cat.png",
+        "bytes": 1347655,
+        "sha256": "BD51B6F7D3E5D06073F9D1542601B8563EDB4C8FB02C3E85F1BE773E42B35657"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\catWin.png",
+        "bytes": 1364623,
+        "sha256": "191A1489751DE8DD5D58BDB94F5F6B6A831BAF794D42AD184847CB57BCDD283A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\code.png",
+        "bytes": 1351765,
+        "sha256": "BF21F0C9ACFA926F225CD1072D912E8B82313A4F4FE620029F80256CD078A0F2"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\create.png",
+        "bytes": 1330682,
+        "sha256": "96D918C9D05811F939FB4A535CFB6DBC3BA6251F99662D4CDA4BDE1A45E7F760"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\drawer.png",
+        "bytes": 1328429,
+        "sha256": "889CDDFB0B10E7A6BD22E74C1B43C8C7FF449E992C27DD27AC420A396AF23F9E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\gallery.png",
+        "bytes": 1326055,
+        "sha256": "73B06208F03F4D9805F35A69B52D06DA38B08AE7AE71628DE98597172E6B8FB5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\hiding.png",
+        "bytes": 1533219,
+        "sha256": "36084C4D28D02F58B4B0C34EEC7BECD00DD2FAD65DF0B8E55E28C89FFD65A25A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\home.png",
+        "bytes": 1300632,
+        "sha256": "C58C67B8F8FF891C5A9763B9D31559593ACD26737B03C44EB11CB0170EB8A564"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\mouse.png",
+        "bytes": 1521011,
+        "sha256": "EEB8C9040D74EBD857174AC86DB48509ECD7F6D5A449E473F8A8E6BFD431116E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\mouseWin.png",
+        "bytes": 1349382,
+        "sha256": "D2B2D1D7B8DD7CC357DDF6857C268235BED6905A2C25FA4093664B44CB934CAB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\offline.png",
+        "bytes": 1387090,
+        "sha256": "CF713EB08CAF55833F7099C684A98FC803A4F9655A9A804848B93370EF6E9C14"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\paused.png",
+        "bytes": 1374717,
+        "sha256": "BA93CE76C10D488B153200A456A08B784F02488DFF794FC1AEE8DA34C6A09CAC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\reference\\ready.png",
+        "bytes": 1281642,
+        "sha256": "5BD1D85579425AF6D484AE1257D8F03B7A527A51B0C4DB10E04EC775F5F58D40"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\images\\regression\\narrow-code-before-spacing.png",
+        "bytes": 186950,
+        "sha256": "CA83C1BA0192441AC5B17C12A9ECA861803F27655DF5888BC560E3A06591F75C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit\\__pycache__\\build_report.cpython-313.pyc",
+        "bytes": 34021,
+        "sha256": "3514DB2363E8BE944F58BEBED05C051C5F5EA3FE6ACDAAAC4FA2C8647C1F612D"
+      }
+    ],
+    "bytes": 39916507.0
+  },
+  {
+    "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-audit",
+    "files": [
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-audit\\build_audit.py",
+        "bytes": 13404,
+        "sha256": "BF581F8FB2931A4FD2049AC2458470098717692B405E1A87989A3E491F285018"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-audit\\__pycache__\\build_audit.cpython-313.pyc",
+        "bytes": 18725,
+        "sha256": "211430E329E50367ECC39E64D13F57324DF601476940F9A68231CAD996B3C3EE"
+      }
+    ],
+    "bytes": 32129.0
+  },
+  {
+    "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1",
+    "files": [
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final-normal-r2.txt",
+        "bytes": 1180,
+        "sha256": "2AEBD33F5903189692AFEB393DC860C58CDBF6262C4D28019978F5A19B5F2DCC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final-normal.txt",
+        "bytes": 619,
+        "sha256": "AD8BA4A2BC135C46C8B7FE2E3F1254F3A2AE62DC72A4D1BD89B1D173AD872F3C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\interaction.txt",
+        "bytes": 1199,
+        "sha256": "49D12DB1AD75DF35E84283CF16281C60F8B40BB688A75C6B38667CB6736B9ABF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large.txt",
+        "bytes": 484,
+        "sha256": "ECC5F9B136B27271563FB8470603017B77219CFD069F72F26A8DCE0A24771693"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow.txt",
+        "bytes": 485,
+        "sha256": "E3963282E872B7EF8F79F686C71376DBA73D8D1FCE6FE2B6610299B44926D7F2"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal.txt",
+        "bytes": 485,
+        "sha256": "9B7C755A0654BB92305A945BCD5A6DE7FC582567422671262E238C50DA5DF55E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final\\normal\\create.png",
+        "bytes": 17859,
+        "sha256": "A1378F40643F110E4D64B5FDEB45D06260E8EBF0EBB31D6D73E7C6901C4E1C27"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final\\normal\\gallery.png",
+        "bytes": 109038,
+        "sha256": "F6C248E456C75BEF8B9A69ADCCB9B02E6D32CEA3F0C2E641D5F787C721F708AD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final\\normal\\home.png",
+        "bytes": 569975,
+        "sha256": "28426422EA8A1B5504B20BBF002B8B55F863F473AF85CF81B9F71FF6E917C077"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final\\normal\\metrics.json",
+        "bytes": 6971,
+        "sha256": "333CDB0E8667A57A26C34A1AC4C87CD22BDA65B6134433A8B7614F72C9AF4C90"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\final\\normal\\venue.png",
+        "bytes": 767219,
+        "sha256": "8262265C8E00D4E3297120AAA4DA449F0CB9A98BCB85838C4E64A4828D1FB1CF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\alert.png",
+        "bytes": 300155,
+        "sha256": "5913FCB6C400EBAC1C83D9C49280E747F9C5F2588AAEF03E5D31085B48C14A56"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\cancelled.png",
+        "bytes": 478356,
+        "sha256": "AA446AD0C23C9B9E0534B5781C10FF8631FC8EDB491D3F64C862093FDFD09456"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\captured.png",
+        "bytes": 280668,
+        "sha256": "27BFC759DF689F27FC4B27FAFC7CADBCCD30C6ED799D7BB95189B391F7ED19F7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\cat.png",
+        "bytes": 390176,
+        "sha256": "D05A806FE504FE124E1CA7EDEB150CFE2341EB812A4078F5E98F50B63400F84A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\catWin.png",
+        "bytes": 365373,
+        "sha256": "C8D96E5A70081B0622CDA0AF8D234EF0846A7EDFEF9A61CD7266B9A0F279E17A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\code.png",
+        "bytes": 200682,
+        "sha256": "DA46423B9F4AFC73C3129118506528AB62A2A0E7F7736B2D83650AEF33DBD4BA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\create.png",
+        "bytes": 353679,
+        "sha256": "5E09252F17D9F8AEF15DBEF3C6FB89A38C1BB26502C3B96DBCCBBD39161860DA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\drawer.png",
+        "bytes": 218028,
+        "sha256": "4DDC91BA2641D417ACD9C63AF1B540587939636DEF13A6C48013C33F52F3B4C9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\gallery.png",
+        "bytes": 104924,
+        "sha256": "FCDAB194948713489FFF451EB469F5322F236FD9B1050BA1FFF62458E59F03A1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\hiding.png",
+        "bytes": 384205,
+        "sha256": "49F40642216F2EA4B539E4B3F544ED402571A96B355ADCEBEA6D7A2984194A7A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\home.png",
+        "bytes": 493924,
+        "sha256": "F2D834BA12077A7B8EBEBA826AF29B7121FF9305D5F4E5F06D799AED2CA82225"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\metrics.json",
+        "bytes": 37316,
+        "sha256": "40912E0FC2FCB9D565D3629CA0A44ACF6F607091F6C86A324C61CFA4DE16C1F7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\mouse.png",
+        "bytes": 390339,
+        "sha256": "BA44D425A7769A1B9681E316C0BED1C523A22680E30E5E72130590C6266F18F0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\mouseWin.png",
+        "bytes": 423770,
+        "sha256": "6922A6DE8CDC364AC3398571F13150C74A8FDCFE7EB88CDD57A83576437C9259"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\offline.png",
+        "bytes": 180026,
+        "sha256": "5B7F2DC3CA7588AD3D735B3498D9C546246561B8971EBBECE08C544BA845FA3C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\paused.png",
+        "bytes": 442066,
+        "sha256": "4CA3FF2D3DF712F22FB2F2AA8DF6390AFD91B24529FD7B7B40478AB80A867D8D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\ready.png",
+        "bytes": 377007,
+        "sha256": "BA625C6B5A03E0C3AB013422085AEDB87AFCAFF11DDEEEBD0F256079F1A6A70D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\large\\venue.png",
+        "bytes": 801615,
+        "sha256": "DF55EED0021C6876259B1996E46EDE5E992F26CE11A13E070A31A0B7F7113698"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\alert.png",
+        "bytes": 210950,
+        "sha256": "B14FD629CEF32C53911039A19CC14A6BFD86B63DC1F74C168D735EF8C0542F96"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\cancelled.png",
+        "bytes": 454155,
+        "sha256": "6773C5FB8D33A4C89FF99F00C95D16328BEC9D04FDF093A46AF68B5B8BD2B8AE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\captured.png",
+        "bytes": 213880,
+        "sha256": "31982233F31D4826A4DCF9C2554A4DD1830A582A475AFE109C921E883F367E6B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\cat.png",
+        "bytes": 298168,
+        "sha256": "66ECD66C7FD9BA78B3F23FD37D636C2ADEA90030AC21B52209FEF72A5B59787B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\catWin.png",
+        "bytes": 370136,
+        "sha256": "AF172A81EB51FDDED416030BDEEF5F9E0A4187AC82FF0F8A482183683ED85EF0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\code.png",
+        "bytes": 191580,
+        "sha256": "2B25E69DEEBB0BD78450F3AE3C263CEC5412F55C99760E90072B490E7D3FF4F6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\create.png",
+        "bytes": 342444,
+        "sha256": "D81FB005FCFAC9F1423A3E22F5F47708151B7CAC2D83906AE4571BC6712AAC7F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\drawer.png",
+        "bytes": 282609,
+        "sha256": "E84718B5DAED037CF906090B85C1CB1455362CB9845AE2AB859922D0F643EED9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\gallery.png",
+        "bytes": 107083,
+        "sha256": "9BD432E56E663332761796F31A581DE26D4E4F7D150C92EF0152139A855552A5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\hiding.png",
+        "bytes": 296661,
+        "sha256": "98C222F63278C1D3A7CF570C24802B1956A90E900385A9C99E4E05ADCC20EC8B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\home.png",
+        "bytes": 447483,
+        "sha256": "E95C05D17BCEDD10EAFE0049D17313007556CBCF4D9E10B660AF1D4CEEBA570D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\metrics.json",
+        "bytes": 37513,
+        "sha256": "0D5BD359A6C7F00C3BE587C7AF0675E9FACBFE8F371060477E6D40AF2D1A08A5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\mouse.png",
+        "bytes": 298336,
+        "sha256": "9CE5A8211DD3F6CA24C7FD6BB040AD6A5C7913B7A650F7AEB9C2E12F147461F4"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\mouseWin.png",
+        "bytes": 403994,
+        "sha256": "9F29E183E33ECE7168D4FD6F86A27EAC4534A61302C3EE3E1F37A84B4DA2B78A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\offline.png",
+        "bytes": 173680,
+        "sha256": "5D45E21EA2A9DA345618782BFD258AD87F44BA21159EC41711500E19237512F0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\paused.png",
+        "bytes": 397433,
+        "sha256": "4A70BB43596C15C7FC56A8F014343925123F9835221E09DEE12E31F9B31303E6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\ready.png",
+        "bytes": 353793,
+        "sha256": "FCCCF3A5C3FEDD02AF89FB5632415F15E230FF0E3D401AA0932BF152D7E7BDEA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\venue.png",
+        "bytes": 603234,
+        "sha256": "555168C2F0C559F3F55FBF225B13ACEEC9C50D136B4ED236719BE9DAE73FA533"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\alert.png",
+        "bytes": 392514,
+        "sha256": "BBB8984483C34756679A38E213350E3E2FC4653FEE581AC0D6884D2F2E136EDC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\cancelled.png",
+        "bytes": 571254,
+        "sha256": "4A94FFC3633C4BD29B186A9B3E4CD39CDBD317ACE28611EC1116D76850172B81"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\captured.png",
+        "bytes": 433777,
+        "sha256": "597777D3BF25370666BFE00E3266F73D27746470F6D62744CAD26A7BF4BF1778"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\cat.png",
+        "bytes": 604001,
+        "sha256": "C1AFAC8316AEC95992CA0EE90B07B6BF3D5B2B42594ED97BB18742EF4F7D5014"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\catWin.png",
+        "bytes": 474058,
+        "sha256": "170DEC29B5E8CFA8944B14C1BEA770A09E804EE3C21C5536895A45C2418D7F56"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\code.png",
+        "bytes": 220665,
+        "sha256": "26F242C6EFA3940105A7CD1F319548E2E675FEED726D4FF4CB2C0B6C57189F2D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\create.png",
+        "bytes": 389436,
+        "sha256": "A33C213388F85A954AEFE44B5B0B9D33ACF019C1EC8107440E9B45000904A7AA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\drawer.png",
+        "bytes": 285031,
+        "sha256": "93415DE2001DB6F3C73539990C51455C31C0B722815CB09BA5D36FAA8CCC87BB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\gallery.png",
+        "bytes": 107772,
+        "sha256": "2E9FF891C547FF4AB2922E60464DABEB3964F7D3EE9322B93828D420D11286B8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\hiding.png",
+        "bytes": 513689,
+        "sha256": "D802B6FC1EBC168C30E10EE7BF23BE52CF242F81D2A50FCDA0E0D47517EE5EB5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\home.png",
+        "bytes": 570046,
+        "sha256": "059FF196D8C6C94817B1A31F8ADF2FC294CD65E7235329D895FE6190490ADE20"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\metrics.json",
+        "bytes": 37396,
+        "sha256": "B13FDB4AD797D23CC425AA185FFD0E7DFFBEEDB88C8C7EFB77D24183391CBE8E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\mouse.png",
+        "bytes": 603437,
+        "sha256": "26C240E35175F479E2963BF0C9AB08C9F88DF6828F1879E80CBE93CDADC62DA0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\mouseWin.png",
+        "bytes": 502452,
+        "sha256": "E908CA4BFF97BFEA73F8C046CA82813535D5EB021488B140E95E32B703E6F655"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\offline.png",
+        "bytes": 208516,
+        "sha256": "CF83D2736441130B2A4EFE1B726448B38E357B61A35A552EA5A3DC0B214A0F24"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\paused.png",
+        "bytes": 501127,
+        "sha256": "F6F104E5B5B59046392023CA4B805E136CFBFA26905099E12C715588648A2418"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\ready.png",
+        "bytes": 426692,
+        "sha256": "EA8AC00C960371B58B1E749F21790E61BEF650F9318771B7211FD3DD26077026"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\normal\\venue.png",
+        "bytes": 767303,
+        "sha256": "C9A841813E323BA025744624C737838EC75B8AF357F51DF4186F511E7191E02A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\cat.png",
+        "bytes": 611023,
+        "sha256": "1DB2AB574C4A5B5A51531421445747A9192EC9AA95FD8C2C11AEC739A0996615"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\catWin.png",
+        "bytes": 473934,
+        "sha256": "FC01FDA8BD6FCF5A6405D09A44E348B8B0ED7D939FCB4B4189968D3158ED93FC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\code.png",
+        "bytes": 220501,
+        "sha256": "1D49DE2D374784ADBE8471E22074B38A8D89858B6D511DDCE083502EF0592D73"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\create.png",
+        "bytes": 389155,
+        "sha256": "747300A9ECC857730B761CD071365DCA874A1EF6ED70CAAB1DEEA9D78E715F4A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\home.png",
+        "bytes": 568223,
+        "sha256": "7BF5569B594A58B6BC4E740746B5E69605DACFA11ACE8C938BC70A02B7DC2C82"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\metrics.json",
+        "bytes": 10539,
+        "sha256": "F1137BE251C5E171D39C07C894C2ABC32C8ECCD925F419F70F9923D5EBB814BA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\probe\\ready.png",
+        "bytes": 389329,
+        "sha256": "26B80002DB81CEECB77F3CF399D2F7396523686EC0FBC75E9AA297CF03BA90A2"
+      }
+    ],
+    "bytes": 23452825.0
+  },
+  {
+    "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native",
+    "files": [
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed-probe.txt",
+        "bytes": 188,
+        "sha256": "DFCF7FAC8CC2CC56FA0F813140778AF417AAD3B98F3707B425B560CC36CD3D55"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\assemble-final.py",
+        "bytes": 1650,
+        "sha256": "87731F535C51559814D960CA5410F1FE1139C22368586D78A1E6C6D8E7CACE18"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\hiding-diagnostic.txt",
+        "bytes": 193,
+        "sha256": "95553AB0FF1C7E7DAFB893D8DB7886CACFB4152FB9E561D4E32F4520F2565657"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final.txt",
+        "bytes": 919,
+        "sha256": "003F173BC1D958612F9B46127515CFD56AE85B351A095884C20F485FB1C0E62E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-cancel-final.txt",
+        "bytes": 67,
+        "sha256": "BDF343975FD74D07D011DC69C802E9254C03012C1A89AA372E84E3547250A004"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-cancel-line-final.txt",
+        "bytes": 207,
+        "sha256": "C4F011149F41E981ABE551AEF324FB096E398E884623CCFD1CEFEF0AC5446264"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-code-final.txt",
+        "bytes": 57,
+        "sha256": "3570C93245F765B9A914D59A03F3D8EFB15C78AFD0898F04BDDB65E31FB7FFA5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final-probe.txt",
+        "bytes": 465,
+        "sha256": "316AB8629F28FC1772F3090E5C2AE13344B78B84C742AB5969223C328A62C28C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze-probe.txt",
+        "bytes": 859,
+        "sha256": "F94862147B1C61DC49C7F89ED302F2FFE4B60FBAC69DFA3F25CB0C79D5FD35FB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-probe.txt",
+        "bytes": 1244,
+        "sha256": "3BDDFA62A1EC429763F7E826DD96BBBC62AEABC0BCFCB2487AAC4672C7098A6C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-r2-probe.txt",
+        "bytes": 1220,
+        "sha256": "7084A21EB346E7734230AD36B25E0545CFB9761766557605E8ABCAB9E82DE86B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine-probe.txt",
+        "bytes": 244,
+        "sha256": "B79E6A0B4E90C15046AFD8DA767944CE6DA22EBCF37EECF1597448036746FF06"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-refine.txt",
+        "bytes": 541,
+        "sha256": "3BA51158555DFA616B7509F8BE17702343A2736C6CE6BFD3EA5D47CC0FB063DA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-serial.txt",
+        "bytes": 125,
+        "sha256": "326C3277C330D5E773F4402FD78C3A4EE62F884FAC2CAB9F79B09404A141F9DF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-returntrue.txt",
+        "bytes": 63,
+        "sha256": "43928D16300071E2766C82FD69AC0F1E198E98868E0447B0FDBC45BB73361550"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\modified-complete-tests.txt",
+        "bytes": 6982,
+        "sha256": "858A3A1EF407C240B735A28C57E0A9643D36F90C65B7FD822FA79CF69B734BE8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\modified-final-tests.txt",
+        "bytes": 6728,
+        "sha256": "29A64A147755547D94544F80A58A34C1E01E972490CBB9F5B06221BBFD526C6F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-cancel-final.txt",
+        "bytes": 65,
+        "sha256": "43C141AC0FD60BA424232B5E853BD056FFA467E6B19240B068050A992C1EC268"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-cancel-line-final.txt",
+        "bytes": 65,
+        "sha256": "43C141AC0FD60BA424232B5E853BD056FFA467E6B19240B068050A992C1EC268"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-code-final.txt",
+        "bytes": 55,
+        "sha256": "2853DF12B29B4CEC256463AA83315A22D45947476F06F4BB38CB3A8AC997744E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final-probe.txt",
+        "bytes": 463,
+        "sha256": "87C7FB5166F4C79A995E483ED6F9DF94578EBC602D7B438736892C4A5CA69A7C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-freeze-probe.txt",
+        "bytes": 433,
+        "sha256": "E20FF36A802E1F570639D967FA683385392A1EFBD87A7EA5B1D7FEB4873628A9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-gallery-before.png",
+        "bytes": 238967,
+        "sha256": "3299FAD43ED3441768DA250E26A6A94E9B822ACFCFA2E70A03FC657D0FF71669"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-gallery-ratio.txt",
+        "bytes": 61,
+        "sha256": "86B6BDB99D2F4C2F838840A73F932AF8DAF5BAA9F890C62FFB0DA291ADE78EE0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final-probe.txt",
+        "bytes": 596,
+        "sha256": "65726FE9561FD9D0A5FF37234D39F53CF5311B443808A4C63C84209A68CBEB9C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-refine.txt",
+        "bytes": 261,
+        "sha256": "15CC65D78B8AEA4A331875A0381F4B97F2D33DBE57A5F55BA529C2CA854E0A25"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-serial.txt",
+        "bytes": 257,
+        "sha256": "014015C57FF76948C06C56B8D380FD33951F72072942B557A92D7F5D398C8FE6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-cancel-final.txt",
+        "bytes": 65,
+        "sha256": "43C141AC0FD60BA424232B5E853BD056FFA467E6B19240B068050A992C1EC268"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-cancel-line-final.txt",
+        "bytes": 65,
+        "sha256": "43C141AC0FD60BA424232B5E853BD056FFA467E6B19240B068050A992C1EC268"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-code-final.txt",
+        "bytes": 55,
+        "sha256": "2853DF12B29B4CEC256463AA83315A22D45947476F06F4BB38CB3A8AC997744E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final-probe.txt",
+        "bytes": 1341,
+        "sha256": "93734209C85942EE3FDA65B508827FCCC2D0B88FB89D7BF4B5D898BBD0E9A46A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze-probe.txt",
+        "bytes": 595,
+        "sha256": "A3FCB242D69E432B860296F93447F347DE4C0B20CDBF6ED339845582360490A1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-probe.txt",
+        "bytes": 708,
+        "sha256": "9965B3B007763BEF11D5B7EADD1077A41CC56DAD6D974A48421D5EFD2D20C134"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-refine-probe.txt",
+        "bytes": 138,
+        "sha256": "9198872EDE3ADD087F62C7552096A74776E14C067323BE1C9336C9983B9B5F5B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest-probe.txt",
+        "bytes": 338,
+        "sha256": "6D2C04E65E4D4D6981576C74F144820ED9B9DA36C14CC0DA5B41A7B2D4DE2152"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-result-refine.txt",
+        "bytes": 123,
+        "sha256": "18705233A28FCD522C0542AE2406CBD40F7ACF5E52111C1C0492EA813A23A65F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4-probe.txt",
+        "bytes": 1431,
+        "sha256": "04E79462AD124C51FFB9BD9627135D632F78AF8CC98C3568D643FCF180C88617"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restore-preview.cjs",
+        "bytes": 892,
+        "sha256": "21686C99F76F4188ABA7BF27678559F6FB6EBAB3A4EEEE18D00E24859A6A6E9F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-final.txt",
+        "bytes": 61,
+        "sha256": "86B6BDB99D2F4C2F838840A73F932AF8DAF5BAA9F890C62FFB0DA291ADE78EE0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-gallery.png",
+        "bytes": 304426,
+        "sha256": "51EECE8713AC10A1E9792CAB3CCDEA0BD1D46CD498AB8E91B2FA51BF22A2C644"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-line-final.txt",
+        "bytes": 61,
+        "sha256": "86B6BDB99D2F4C2F838840A73F932AF8DAF5BAA9F890C62FFB0DA291ADE78EE0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-preview.txt",
+        "bytes": 1181,
+        "sha256": "641096A1322B6FA0A152AB89D94C3777345F7AF1145A4430481702604CF6C723"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\secondary-final-large-notes-20261012-01.json",
+        "bytes": 17816,
+        "sha256": "3998480859CF707F28CA9F85E713E1C6F24BB4C9A9032737507F70378567FD47"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\secondary-large-static-audit-20261012-01.json",
+        "bytes": 8161,
+        "sha256": "6DE09976E42F6C9488932FDF4128D8A58A399ED4B150386E7DDA42035EDAAFFC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\cat.png",
+        "bytes": 401918,
+        "sha256": "E444DA3BDB83A039B7181BA839F6B7B3F10AB677032A30C25ADE570F8B71C584"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\create.png",
+        "bytes": 252886,
+        "sha256": "7FFD78263CC464A90A7B6DC640DDB71D748AE7C1CAA7BB1A0FB3D8FFE6E14FCF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\gallery.png",
+        "bytes": 305257,
+        "sha256": "45757E43DC6F38B3C8B32539D8751FD203839CA03D79FA612C89305D72A1E34D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\home.png",
+        "bytes": 327030,
+        "sha256": "780BB4C3F979A9E2545DD0F7E800DDF85029ACA3067C45D6CE1F4AC5D392850F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\metrics.json",
+        "bytes": 39320,
+        "sha256": "09BE436FC9B9CE4FAF9BD6E922CCBFA494685583FF86B5F191E1E67E32D802C6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\mouseWin.png",
+        "bytes": 413023,
+        "sha256": "FEAC911BACDE7CF09D0370778F77206CCF30B0E0ED409F1BE77E8285E5121EDF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\art-fixed\\ready.png",
+        "bytes": 232064,
+        "sha256": "3EBE11C7753C24AEC5792782B18C49AA46574D8149653D8696EB37AC9F367C7C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\candidates\\hero-home-sky-candidate-stats.json",
+        "bytes": 685,
+        "sha256": "8D98022996583555B6094131B11C4B387F666B3F131F3752E5E278EE7A89FFE4"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\candidates\\hero-home-sky-candidate.png",
+        "bytes": 97440,
+        "sha256": "C65D7C889D9F284017DC0A01CEC672D3F0B328DCFE21D4332B6C1B71104C97A8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\hiding-diagnostic\\hiding.png",
+        "bytes": 467903,
+        "sha256": "CC143474F6195EFD3F8ABA569CDF0CA7105FB38B1A073655D8F3B4BF3673E3F9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\hiding-diagnostic\\metrics.json",
+        "bytes": 7720,
+        "sha256": "E2F8C238676DF61056E9A2E5BB7F5875A532139B6C65C6BA2D79C9AE1B9A7708"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final\\code-bottom.png",
+        "bytes": 214975,
+        "sha256": "95E4C10E20D61FE4DF1FC9D8ADF3BCC12C573000CDBB0A78E86B072ACEDF4DF2"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final\\create-bottom.png",
+        "bytes": 272179,
+        "sha256": "305587227F4AFB8FA91B0DD7D449C57C6C1BA1B9E1BADA4ECFA1043C9E925C01"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final\\drawer-bottom.png",
+        "bytes": 355137,
+        "sha256": "045C663F8FF871C1CF3E3E4C34F823F7BE842683E514CAA563961093B57A4054"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final\\gallery-bottom.png",
+        "bytes": 153354,
+        "sha256": "7A1E5F916251E1B7476781907B5A92DA536B8814066E154BEF2C4E8CDE0DDE1B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final\\ready-bottom.png",
+        "bytes": 166599,
+        "sha256": "36B4B53A74864B626A88CDE9499B70AECB2AC9EFC11AEA8B87D7D25205914318"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\interaction-final\\result.json",
+        "bytes": 534,
+        "sha256": "2419F9BC9B330E075C1193D5A4328E95333562961EBE1D8378B42EDC4CAE61CF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large\\gallery.png",
+        "bytes": 275889,
+        "sha256": "3B9D07C8489179DC0C0029D0E973B4EB95A2637B2C659E2A85E76F4C4ADF65C6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large\\metrics.json",
+        "bytes": 7248,
+        "sha256": "6BF1987B5388515FF4F0EC1FC524A78A37779BA3B31252DF254EA5140DBE275B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-cancel-final\\cancelled.png",
+        "bytes": 309408,
+        "sha256": "F888BAE38256E6FCB200F79FA1F51CAA05AD9BE45FC967E51487B6118AC93CEA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-cancel-final\\metrics.json",
+        "bytes": 8397,
+        "sha256": "321B40390081EB19E16BE672BFE3317A1EB2675D4AFBDF40C857ED52398A27E8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-cancel-line-final\\cancelled.png",
+        "bytes": 309820,
+        "sha256": "4816F4DEEA1F25F9046AA092875B4CFDC2372750BE535A4210FE9E2BEE4C6ECF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-cancel-line-final\\metrics.json",
+        "bytes": 8788,
+        "sha256": "B526A6F4CDF5A12D933A552FB7222407F1F7882FE6C97E495B56CE69EA537555"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-code-final\\code.png",
+        "bytes": 234973,
+        "sha256": "2BCB58612E585DC2700B650BA353834B3EC037057FDA94881D74BA57C0344FDE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-code-final\\metrics.json",
+        "bytes": 5430,
+        "sha256": "78DB502D34F6D1FE16DDA16D4A72F0BE3095F04AE191C5555885D4B88F9B86C7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\alert.png",
+        "bytes": 375944,
+        "sha256": "B6440BFAE72EDD3054003427E45F6909775255D4C2C55D69D590AB8C945CAFE8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\cancelled.png",
+        "bytes": 309820,
+        "sha256": "4816F4DEEA1F25F9046AA092875B4CFDC2372750BE535A4210FE9E2BEE4C6ECF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\captured.png",
+        "bytes": 385265,
+        "sha256": "3F01923A14FB28DF2431D2CB02E70F9097C34B4C61C0533338279DF564669BB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\cat.png",
+        "bytes": 406800,
+        "sha256": "46C59416827AF1AFB7B3545190FDAB13E1F67B52B763DCB807C2A1581B0DF80C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\catWin.png",
+        "bytes": 291624,
+        "sha256": "F3DAB6FAA123834EA61965C13D4086D0EF740FBDEF2A8C20EF94463F5297F256"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\code.png",
+        "bytes": 234973,
+        "sha256": "2BCB58612E585DC2700B650BA353834B3EC037057FDA94881D74BA57C0344FDE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\create.png",
+        "bytes": 265747,
+        "sha256": "2796753C43FEE1CE3ECDC49F651EC6C5468EFAD382965395DD27FB4AEC25E377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\drawer.png",
+        "bytes": 318751,
+        "sha256": "FAD79CBA212556F06C26952FDE76B1066188D9CAC7B0E7007D6D2CA96EDD1345"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\gallery.png",
+        "bytes": 276959,
+        "sha256": "0BB3E68A1A247EE32486AAE44157E8E8C2BBDB0D9349D59E859C93068507EFA0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\hiding.png",
+        "bytes": 390978,
+        "sha256": "236F7D74ACEFB40D23530D4A2E84FFEFFEDF14301F832466E3E7A6AC3626E0B0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\home.png",
+        "bytes": 347139,
+        "sha256": "E6FE4C49093DCB5C3B724037C92B60B1312DE54FA6F4C2EBA9A2B7AC0349936A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\metrics.json",
+        "bytes": 125999,
+        "sha256": "1127DC8111138A878F0586E3DC83C6665584505FC6A30BDEDF111800E64D5B77"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\mouse.png",
+        "bytes": 380690,
+        "sha256": "C2C801FC31CF203373F4E04E399A05E173E3A19242E6B84E087489200B3C48BD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\mouseWin.png",
+        "bytes": 291758,
+        "sha256": "612AFA9F66224D840B4497EA7E149F2C0EA46C2A49CC8CEEB996089786C7D886"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\offline.png",
+        "bytes": 396299,
+        "sha256": "CB80E4825EA0513C52DFEAB6D9042E3C7B198E7D03E13D7B3013243FE1430E79"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\paused.png",
+        "bytes": 329869,
+        "sha256": "E791D4BEEB4B46DCC98E9E6995BCB2111B02E7A3F59D9A06118EBDA754DC0377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-complete\\ready.png",
+        "bytes": 230416,
+        "sha256": "8A626FD06EAC39B5F572752DC6EC2591689C330E09B035EF7384A2586BD0AB14"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\alert.png",
+        "bytes": 422111,
+        "sha256": "DD5E7E0DDFB73CDE079E258AD53FE9256216A88F599428A36186421BE0146159"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\cancelled.png",
+        "bytes": 363959,
+        "sha256": "C3BB16312DCA840EC88CE770B57CEBAD4872253E49459B3E72363B16EAB573D0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\captured.png",
+        "bytes": 426969,
+        "sha256": "4281D908DE0646882296F0BDBDCC30EA5D59FCF2C01B9AA48A421F4D008AE62B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\cat.png",
+        "bytes": 408850,
+        "sha256": "DD9E4C80A1E5063B48B9B89AF0B5D1CEC818A0FFD0D169AADDAF693748168116"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\catWin.png",
+        "bytes": 422592,
+        "sha256": "16BDAB62433C7734598243DD4E97F2C1FB268CCA4F1CAF8F13B79C1D88FB743F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\code.png",
+        "bytes": 235233,
+        "sha256": "1A4CEA51EC5CE613BD2051DF56A48B74C5D5E6AB11BB7600BF100973B811449B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\create.png",
+        "bytes": 261985,
+        "sha256": "47C03379E870D863D84BB97EAA2D8D289F5F80A615C41BE6C9ACDFAF16E378C5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\drawer.png",
+        "bytes": 332977,
+        "sha256": "3BDE1F6EDB30EC81929A8B31AEA568C73B1B27FAB54E871926BB1F9FB096396D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\gallery.png",
+        "bytes": 225782,
+        "sha256": "D0B289DC4FF7D49B188F4C04B49BD6886263D1C61932CC65F7B223DB71BC592F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\hiding.png",
+        "bytes": 453389,
+        "sha256": "B8081D9EC213B6710CA4979E5AC0B3491AADC2A5FD1A4985A4F3D8AB9AE5CCA9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\home.png",
+        "bytes": 334229,
+        "sha256": "8EDE385B1D2A7F8DCDDA45A352FE247D2C3ECBCCF423DF1ED68B8C60416C39BC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\metrics.json",
+        "bytes": 120453,
+        "sha256": "FD08817EB7C0EB24120EB9BEBE5E2B3C6BE182D82436D731B981965DAE523C07"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\mouse.png",
+        "bytes": 402446,
+        "sha256": "DB521C6C45FAA736B35FAD85E084C1659E9D2A695679C6BF5999A800094CC230"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\mouseWin.png",
+        "bytes": 398888,
+        "sha256": "32840B137CC8B1D14A8D9B3C1A3E35A95E8FF3DC6C914C3938474BC7AC48E8E7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\offline.png",
+        "bytes": 444909,
+        "sha256": "064C14CED1D6A108E3D1B17E75452EC6E204D6B18296CA260F051C4F94F4543A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\paused.png",
+        "bytes": 387819,
+        "sha256": "7A515CF052F1011C6058F665C3F32DC38AC198F5AA99327B3BAE5723FE15DA97"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-final\\ready.png",
+        "bytes": 226632,
+        "sha256": "AF4FC215A6571487800E7A07162C3DFDBAB457EDB0CC0173775978B8605D1BA8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\alert.png",
+        "bytes": 422742,
+        "sha256": "54FE09A93D9E0195EE5C46546715DC0E8922D099B276AF9F6DAA938876356093"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\cancelled.png",
+        "bytes": 312003,
+        "sha256": "D67A9FEFD87C059439B7C6FA86BDD331356BA7F5A2834AF7D36A7BA2364236BC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\captured.png",
+        "bytes": 427923,
+        "sha256": "22E998FD20EA0EE23D36C74922B85BE26848C44E42BC1701FDA96C275D4B16D0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\cat.png",
+        "bytes": 406800,
+        "sha256": "46C59416827AF1AFB7B3545190FDAB13E1F67B52B763DCB807C2A1581B0DF80C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\catWin.png",
+        "bytes": 295478,
+        "sha256": "D2212494A6F5CB4758BB267B2A13B26F7E838C5AA888074E510DFA1AC73826F8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\code.png",
+        "bytes": 235059,
+        "sha256": "A1A49B3E035C22C12EE4C79DE5DEAA0DB2331E5812F95466D2E5BC34BE229A29"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\create.png",
+        "bytes": 265747,
+        "sha256": "2796753C43FEE1CE3ECDC49F651EC6C5468EFAD382965395DD27FB4AEC25E377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\drawer.png",
+        "bytes": 318751,
+        "sha256": "FAD79CBA212556F06C26952FDE76B1066188D9CAC7B0E7007D6D2CA96EDD1345"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\gallery.png",
+        "bytes": 276959,
+        "sha256": "0BB3E68A1A247EE32486AAE44157E8E8C2BBDB0D9349D59E859C93068507EFA0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\hiding.png",
+        "bytes": 429911,
+        "sha256": "31F6D2A67F70252158EA5CA0812C889A6887EB78D9E90A1BEE5E9FF198136532"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\home.png",
+        "bytes": 347321,
+        "sha256": "4A441665B30F36BD450DA2A73CF18403219B3A8A926C992C8A0522EAF9836FC0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\metrics.json",
+        "bytes": 114811,
+        "sha256": "DE81B4EAFBB647CF61822DC2B47692B425E3013CFB3644E1AE41F73481A9E081"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\mouse.png",
+        "bytes": 399754,
+        "sha256": "28858FA12EA79C72837E8CEAD0BF02DABB16122498EE576E89105136B659C43E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\mouseWin.png",
+        "bytes": 294951,
+        "sha256": "6FCF3AEDFF44CA280CA8AF24327F401FD1057EAFAB372F8358070A54F9EE2C20"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\offline.png",
+        "bytes": 446524,
+        "sha256": "FDABB31CBE885161F93545D56E3F13E764282F704D85540A5FE4A4A9C0266BB3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\paused.png",
+        "bytes": 371277,
+        "sha256": "11BD14AA6A446BA3B893AA78E9001A8BBC95381D23FD42DF4E1B45FEA4061DC0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-freeze\\ready.png",
+        "bytes": 230416,
+        "sha256": "8A626FD06EAC39B5F572752DC6EC2591689C330E09B035EF7384A2586BD0AB14"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-r2\\metrics.json",
+        "bytes": 94,
+        "sha256": "976DBEBBEA250491A4C9167A4120D906137E6493809D93DFACDAD914BA52C073"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\alert.png",
+        "bytes": 375944,
+        "sha256": "B6440BFAE72EDD3054003427E45F6909775255D4C2C55D69D590AB8C945CAFE8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\captured.png",
+        "bytes": 385265,
+        "sha256": "3F01923A14FB28DF2431D2CB02E70F9097C34B4C61C0533338279DF564669BB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\code.png",
+        "bytes": 235058,
+        "sha256": "8C420967A2F9FC8D1B4E439E08FBDFE1E15FF5BF98557BC4C51F8C7562A739ED"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\hiding.png",
+        "bytes": 390978,
+        "sha256": "236F7D74ACEFB40D23530D4A2E84FFEFFEDF14301F832466E3E7A6AC3626E0B0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\home.png",
+        "bytes": 347139,
+        "sha256": "E6FE4C49093DCB5C3B724037C92B60B1312DE54FA6F4C2EBA9A2B7AC0349936A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\metrics.json",
+        "bytes": 56206,
+        "sha256": "DAE46CE4FA8D724E8DF4F14BBBC72C81328D771446DBAD9A59F7AB6DBBAEB544"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\mouse.png",
+        "bytes": 380690,
+        "sha256": "C2C801FC31CF203373F4E04E399A05E173E3A19242E6B84E087489200B3C48BD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\offline.png",
+        "bytes": 396299,
+        "sha256": "CB80E4825EA0513C52DFEAB6D9042E3C7B198E7D03E13D7B3013243FE1430E79"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-refine\\paused.png",
+        "bytes": 329869,
+        "sha256": "E791D4BEEB4B46DCC98E9E6995BCB2111B02E7A3F59D9A06118EBDA754DC0377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-refine\\cancelled.png",
+        "bytes": 229531,
+        "sha256": "02A25E54F753A1659458AB5BC389B9EF00D481A1A45760614CA261182CAB5DDB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-refine\\catWin.png",
+        "bytes": 291758,
+        "sha256": "607359EE9B6765D6E1DD3B6217362122D331A152C37F5605B524DA8EA9A70BF4"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-refine\\metrics.json",
+        "bytes": 25182,
+        "sha256": "B6D447B567EC07B8A0DBCD98B7AF4D1E5B9E45F25C9A3BE20CB7699BEDF2565E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-refine\\mouseWin.png",
+        "bytes": 291859,
+        "sha256": "17277BF6029A663AAA59F94333B6116CF775CA467BA2E93F04B836D18603C0AA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-serial\\cancelled.png",
+        "bytes": 308181,
+        "sha256": "76A9BEF96229CA31BDB81AE8C570778038015BC0650D1E282F168B430EEBCD82"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-serial\\catWin.png",
+        "bytes": 291624,
+        "sha256": "F3DAB6FAA123834EA61965C13D4086D0EF740FBDEF2A8C20EF94463F5297F256"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-serial\\metrics.json",
+        "bytes": 25159,
+        "sha256": "3B7E8670EDE1FA0F7006F44D5842DB59103A5884B5E2A4B440C9332BEA3E96F9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-result-serial\\mouseWin.png",
+        "bytes": 291758,
+        "sha256": "612AFA9F66224D840B4497EA7E149F2C0EA46C2A49CC8CEEB996089786C7D886"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-returntrue\\gallery.png",
+        "bytes": 225632,
+        "sha256": "1445F518B3FB65F6215C149D7AAE2D027F790BCE62CA74D6BB901B7EFF7FE5AA"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\large-returntrue\\metrics.json",
+        "bytes": 8169,
+        "sha256": "28FAE2B27EE5C2C5270ADAE8A39FAD3347F479367C50CB4B752587B3862C0C24"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-cancel-final\\cancelled.png",
+        "bytes": 323591,
+        "sha256": "F7E331CFF239F7D75FDBCEE8C9311A55131249522D89E2BFC6F61D7E523E3D1A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-cancel-final\\metrics.json",
+        "bytes": 8496,
+        "sha256": "7D0493FE95822F2553AC03FD725853EA442421ED0A2AC92A1A53FA34D7C47ADF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-cancel-line-final\\cancelled.png",
+        "bytes": 330184,
+        "sha256": "108A0E7D543269C4F13EE06EF21C08F0ACAB8154B91B33307AA48C12000696F3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-cancel-line-final\\metrics.json",
+        "bytes": 8905,
+        "sha256": "F44AEA41E544A06C89626F766C937B969A77EAC21835EA86A5A522533166DB99"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-code-final\\code.png",
+        "bytes": 187029,
+        "sha256": "1656602A0A977A4821B7881FA0819B9CB1DBA195992968042C02D624BD65CB3D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-code-final\\metrics.json",
+        "bytes": 5457,
+        "sha256": "B571C3C2A59DDE6D3C473387F7726DA77F9543EE6A6294E8E83D14FB422970AD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\alert.png",
+        "bytes": 326676,
+        "sha256": "BA420DCB5092688DAEF36B46738E4C4C1DBB27639FB05D8E3A967DF7F481AF6D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\cancelled.png",
+        "bytes": 330184,
+        "sha256": "108A0E7D543269C4F13EE06EF21C08F0ACAB8154B91B33307AA48C12000696F3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\captured.png",
+        "bytes": 338239,
+        "sha256": "3089C3B69536B37952D240840B6B54A8CB625403FB506870ED955ACB3194DA88"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\cat.png",
+        "bytes": 317972,
+        "sha256": "4C36EE0A15CBB3719E67B313884B6C2F8C3706759D28F1D94465F5106E339301"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\catWin.png",
+        "bytes": 344224,
+        "sha256": "D822DF5777ABB5E351EE401696ECF37F1D1929D2C3B9A9F93D2144608F6EF664"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\code.png",
+        "bytes": 187029,
+        "sha256": "1656602A0A977A4821B7881FA0819B9CB1DBA195992968042C02D624BD65CB3D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\create.png",
+        "bytes": 201291,
+        "sha256": "86C8D0D5603CF4B4B987D6A5EDA1D491C35C672797B5B7FA6D535EF44EABD062"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\drawer.png",
+        "bytes": 211106,
+        "sha256": "17C25332882ED4204925495B87D2860AA0B70BF31DFDCA6EF172A2B0746E8D26"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\gallery.png",
+        "bytes": 239089,
+        "sha256": "1D59C9066BBACAF7D8AEEEA86CFC632EDC67C027487E3880F81CAC81B2B19F37"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\hiding.png",
+        "bytes": 365618,
+        "sha256": "79A50AE6B606A5E3091E7F48AB5CE220D8B8B1A597073AEEF2AA7CDADF5D6288"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\home.png",
+        "bytes": 255239,
+        "sha256": "1A2485BCF95D2DD48A7C4F22B6637C0F65B999D4D9334A0CDDE2CE63B493071D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\metrics.json",
+        "bytes": 126820,
+        "sha256": "03DD8181116E3E761CCEF0B955696D2E4211EF8D1386E6E248745C8FECD2A0D3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\mouse.png",
+        "bytes": 351376,
+        "sha256": "BFBB793D2BF8FE1657995AE7679BF95FBF8850C7B3F6381040394BDB2285C377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\mouseWin.png",
+        "bytes": 316605,
+        "sha256": "14E4BB1919992CD8CFE631C5F9A75D132059211856345A16960D3C58BBD102D1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\offline.png",
+        "bytes": 355751,
+        "sha256": "02E14091E33A110A19F71CD982B93E1023888E9E3267492CA9CC0CDEDB4FCA15"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\paused.png",
+        "bytes": 338044,
+        "sha256": "3F5A64F3FA3FEAE0018B205A46C6DE720B11782BB6B4310894AC04F3B05ABBB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-complete\\ready.png",
+        "bytes": 188223,
+        "sha256": "735BF608733D51D1FDF808146FF56D42A9C2D100EDC71E9BC7451AF49E6E8329"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\alert.png",
+        "bytes": 326676,
+        "sha256": "BA420DCB5092688DAEF36B46738E4C4C1DBB27639FB05D8E3A967DF7F481AF6D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\cancelled.png",
+        "bytes": 329720,
+        "sha256": "C88E2F5CBA0DD0F1A29F4394FE44F488ED25C6F7A618948D7BFBA39EB6AF8017"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\captured.png",
+        "bytes": 338239,
+        "sha256": "3089C3B69536B37952D240840B6B54A8CB625403FB506870ED955ACB3194DA88"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\cat.png",
+        "bytes": 317972,
+        "sha256": "4C36EE0A15CBB3719E67B313884B6C2F8C3706759D28F1D94465F5106E339301"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\catWin.png",
+        "bytes": 346163,
+        "sha256": "6951D58998990823939A1785BAAE45ED529976F1F688245F75CB9D399871E571"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\code.png",
+        "bytes": 186950,
+        "sha256": "CA83C1BA0192441AC5B17C12A9ECA861803F27655DF5888BC560E3A06591F75C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\create.png",
+        "bytes": 201291,
+        "sha256": "86C8D0D5603CF4B4B987D6A5EDA1D491C35C672797B5B7FA6D535EF44EABD062"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\drawer.png",
+        "bytes": 211106,
+        "sha256": "17C25332882ED4204925495B87D2860AA0B70BF31DFDCA6EF172A2B0746E8D26"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\gallery.png",
+        "bytes": 239089,
+        "sha256": "1D59C9066BBACAF7D8AEEEA86CFC632EDC67C027487E3880F81CAC81B2B19F37"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\hiding.png",
+        "bytes": 365618,
+        "sha256": "79A50AE6B606A5E3091E7F48AB5CE220D8B8B1A597073AEEF2AA7CDADF5D6288"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\home.png",
+        "bytes": 255239,
+        "sha256": "1A2485BCF95D2DD48A7C4F22B6637C0F65B999D4D9334A0CDDE2CE63B493071D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\metrics.json",
+        "bytes": 115587,
+        "sha256": "75B0A58F48172F4D68566A9D7EC77FA1FC8ED2FD469E5F3434C9D94A56DD8F6B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\mouse.png",
+        "bytes": 351376,
+        "sha256": "BFBB793D2BF8FE1657995AE7679BF95FBF8850C7B3F6381040394BDB2285C377"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\mouseWin.png",
+        "bytes": 318783,
+        "sha256": "8F640EC39D9871BFB82A9939A397E94296E312E81C303C537BE240BEB524274C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\offline.png",
+        "bytes": 355751,
+        "sha256": "02E14091E33A110A19F71CD982B93E1023888E9E3267492CA9CC0CDEDB4FCA15"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\paused.png",
+        "bytes": 338044,
+        "sha256": "3F5A64F3FA3FEAE0018B205A46C6DE720B11782BB6B4310894AC04F3B05ABBB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-final\\ready.png",
+        "bytes": 188223,
+        "sha256": "735BF608733D51D1FDF808146FF56D42A9C2D100EDC71E9BC7451AF49E6E8329"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-freeze\\metrics.json",
+        "bytes": 112,
+        "sha256": "1EF3D350E4910A11D1245FA87038A9D688CD629646B6DE5C3DD06534F51F9FBE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-gallery-ratio\\gallery.png",
+        "bytes": 238967,
+        "sha256": "3299FAD43ED3441768DA250E26A6A94E9B822ACFCFA2E70A03FC657D0FF71669"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-gallery-ratio\\metrics.json",
+        "bytes": 8186,
+        "sha256": "AA217DACC3FD7E060C59F06B6D091619E9B24EF61DA6DA6C9DB5E72E49716C7B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\alert.png",
+        "bytes": 326581,
+        "sha256": "F7EB9411392187713AC622673FFB95FA8DC1D2B42F36B240BF3D3CE6CD856E21"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\cancelled.png",
+        "bytes": 329708,
+        "sha256": "5424EC2F94350746FB6B37F7B29EC6782EBC68B26EDFAF281F9427B1EED99193"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\captured.png",
+        "bytes": 338356,
+        "sha256": "0B9F20F76E2F3D59BEB8F5AFC0E90BE59FE645473498541146B38D09FCDBF7F2"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\cat.png",
+        "bytes": 317919,
+        "sha256": "36906F107F10D02B1AF81D4A4EA114D86EFA848A36E049EFE9528C461918D44B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\catWin.png",
+        "bytes": 346137,
+        "sha256": "1439C83959ECB1E75AC94965B18DCC40C612B42DA616416874653422E59D6A69"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\code.png",
+        "bytes": 186986,
+        "sha256": "171B4384C41B03EE72B25E82DA3DFC21B9EB7F7B33E4C6E2E7485E853FF3A186"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\create.png",
+        "bytes": 201239,
+        "sha256": "9C7E8DA0190A17DB46F01A8FF90CC5523E6F5DFACFC1B6C045960D5A52D5BBFF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\drawer.png",
+        "bytes": 211075,
+        "sha256": "5BD0317F136F175AB6CD585F892627B428B158BBA3E6F0F21E02C81436B7E29E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\gallery.png",
+        "bytes": 238998,
+        "sha256": "175339C8E83D46E70B2A1594531981820B21CEAB2393C0C112B9072C3E259F0F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\hiding.png",
+        "bytes": 365717,
+        "sha256": "D915EBED0CEEBAAC52667A6F062DEA0A41F2D8073625C636BB6F7650CC077439"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\home.png",
+        "bytes": 255071,
+        "sha256": "D7C85F7F90EDBC65E0B58D7F45457ED55B770056D294C2B0485177A993947AAF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\metrics.json",
+        "bytes": 115683,
+        "sha256": "5809AC6E799252C4F768EEBD4B715979C783C4F04F6A89FF9F0DB6A882574D67"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\mouse.png",
+        "bytes": 351328,
+        "sha256": "07710725C531DCAF5DA4F0AB26660A3D66639A3DE9553F8F98F8A6A19A159767"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\mouseWin.png",
+        "bytes": 318751,
+        "sha256": "BDF7676B0CECFE3A6273E02C323BF1406EF92D2F613FDECE11FE5378295E6586"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\offline.png",
+        "bytes": 355867,
+        "sha256": "25043233D157493CC84685F9A597581A0229601E1E72D6AB0A61A9AAD34FCADC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\paused.png",
+        "bytes": 338184,
+        "sha256": "8AEA91759309F587858D023E2CCC8CCB2C5FDEDCB97A122540A60C037613E24F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-ratio-final\\ready.png",
+        "bytes": 188163,
+        "sha256": "D56894DDAED8F925F396CE9E9ADB8566C8F15CE512948F8ABCD7508692F29D30"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-refine\\cancelled.png",
+        "bytes": 330033,
+        "sha256": "7E184CDDE18CDEFF0A2FDC4E1E1817A88EC2C8CFF7A239C478CDD0065F46CBCC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-refine\\catWin.png",
+        "bytes": 344241,
+        "sha256": "BBFE402ADF9B19A62632E42997C6144E38FBB827D0DCE939041E555A99DE0E18"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-refine\\metrics.json",
+        "bytes": 25394,
+        "sha256": "EDF942EE7E8120F9BE171AE0170E321FAECC724A30704F327CAAD3D4D48843C8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-refine\\mouseWin.png",
+        "bytes": 316631,
+        "sha256": "B2C19F6D0EBF1D9DEB082511A27957D46F781A9B8508A9CF9844A6DCE974C7E0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-serial\\cancelled.png",
+        "bytes": 330016,
+        "sha256": "44855FA86A804C3573EBCC5E2A5E1555B628C8BD3605C37A987D1D819EE6CDDD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-serial\\catWin.png",
+        "bytes": 344224,
+        "sha256": "D822DF5777ABB5E351EE401696ECF37F1D1929D2C3B9A9F93D2144608F6EF664"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-serial\\metrics.json",
+        "bytes": 25394,
+        "sha256": "6176C80C83FB1956A54EBD1FC6C8AD45122DE3BC575891F57542A34FD5388566"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\narrow-result-serial\\mouseWin.png",
+        "bytes": 316605,
+        "sha256": "14E4BB1919992CD8CFE631C5F9A75D132059211856345A16960D3C58BBD102D1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\alert.png",
+        "bytes": 423850,
+        "sha256": "251F22CEF093EE5E8DDD90733D21A283B5F9AFB805474328FE6DD18F9978054C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\cancelled.png",
+        "bytes": 434477,
+        "sha256": "305D816AD9C21A0E4DB86FCEA6F18B4B089F81E1556A67E69880E5D9ACB8097E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\captured.png",
+        "bytes": 433704,
+        "sha256": "4404D4310F985FEB2B69C389CA771AFC66CDD6CB629A6FE47CE699AA6F630A50"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\cat.png",
+        "bytes": 413638,
+        "sha256": "71EC13D330BA8527F9462BC7C1832CB77009DE0BE2B1C28D2CCAAC142E64E37A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\catWin.png",
+        "bytes": 453365,
+        "sha256": "31F54846CA13F86EA64FD22621B4084F6EB39BDA98B470F54A0CEB3E37F08D82"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\code.png",
+        "bytes": 232938,
+        "sha256": "C3B53CE0F3A7024A3DF94F29CAB47B740F766C44A941AC5C712CE7275876F0E0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\create.png",
+        "bytes": 248995,
+        "sha256": "16196BC17AD093DC75B0B376C5838E86F2394EA028E28972A8C186E092F3A176"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\drawer.png",
+        "bytes": 316362,
+        "sha256": "9FAC33154B5DD1E44023D184B0A1C6074104C9D5F99484DB827CF833D1C6352D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\gallery.png",
+        "bytes": 303039,
+        "sha256": "3E72DA48277C0C2BCD092122AAE5EB6BEF66FD7EF65A62401A541B93880DECB6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\hiding.png",
+        "bytes": 474406,
+        "sha256": "C26D9DF8084D69091B083149EA4F2CFB53BBA841A8B20687F32FB0D470AB9266"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\home.png",
+        "bytes": 329703,
+        "sha256": "43A9B3BA8F086E1DB4CB12D9B904444D72299C0CF854A2C2067E7A2BECA1F22F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\metrics.json",
+        "bytes": 119031,
+        "sha256": "DFAA1AD261277BEB763B8DFDCEB514A571972C6EF83BB03E3814395467FE5D61"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\mouse.png",
+        "bytes": 459925,
+        "sha256": "8B686FAC0A9E919A540220936B8E0A261FC5DA9F23F77830487CEFE12CA55945"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\mouseWin.png",
+        "bytes": 423717,
+        "sha256": "B92C1DCC05D6720C9CCA0E37DB647C3704B3644A0F8BE0DA76BBC7AF7E99379F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\offline.png",
+        "bytes": 464700,
+        "sha256": "3BC3A0DA14EC8D4BA06F6661A7B72C4A0FC9166174376F893448C22E8234B003"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\paused.png",
+        "bytes": 444852,
+        "sha256": "9781E406AEBCC925C360AE886C7D45C1B46E719BC692A85107EDE5A37C7355D5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal\\ready.png",
+        "bytes": 227744,
+        "sha256": "7F7C8D75BD4DD053957E3FEB2CBB00BFB2434F485E5E5DC588C533C3BB7F4B8F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-cancel-final\\cancelled.png",
+        "bytes": 428695,
+        "sha256": "3422ECE440CC9CEA0A13573807D945DB26952CA8AC4850B2EC4AC5AB7838CFAC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-cancel-final\\metrics.json",
+        "bytes": 8443,
+        "sha256": "FE919443B1BC62CA692E2E9BDEA92E2E5AFA8D4C6D944BF72EA5147CDCC9612E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-cancel-line-final\\cancelled.png",
+        "bytes": 425320,
+        "sha256": "D5C20646CCFB8C648B43ECA61067B95C6EA96C9DBBE917142B5A08826044911D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-cancel-line-final\\metrics.json",
+        "bytes": 8855,
+        "sha256": "15B944887A3F20B2A06B61BE0987377C1DDE99697687E85E34728C37C1BBD83D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-code-final\\code.png",
+        "bytes": 232408,
+        "sha256": "597CC7A4AF4AF4B2D431CC37EA5B4157B1491DC7EB0B8648E3588C54669E06CE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-code-final\\metrics.json",
+        "bytes": 5381,
+        "sha256": "33142EEC1C840CBCD6F3877C33AB4723FA0AD1BD0C25EEA19C540448864A1C6E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\alert.png",
+        "bytes": 420664,
+        "sha256": "9E47FC4AE017426F392B9689EBBA48E9587DD839F91DE671D4EA03E5B400236D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\cancelled.png",
+        "bytes": 425320,
+        "sha256": "D5C20646CCFB8C648B43ECA61067B95C6EA96C9DBBE917142B5A08826044911D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\captured.png",
+        "bytes": 442045,
+        "sha256": "E0C7E0B059579F51646F401CFC19F581C737288490B587A3457C4B2A644078F5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\cat.png",
+        "bytes": 404676,
+        "sha256": "07C11AFC6189693350049AD7BB1086DF680D499A87FA99ADEFFD2C3CBC16D528"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\catWin.png",
+        "bytes": 455002,
+        "sha256": "E29F950B8E00BFCF63CE959FCA15CF8C0E860ABD7FB2C090F7262CD46C6804FB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\code.png",
+        "bytes": 232408,
+        "sha256": "597CC7A4AF4AF4B2D431CC37EA5B4157B1491DC7EB0B8648E3588C54669E06CE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\create.png",
+        "bytes": 252858,
+        "sha256": "D3264CD2FBAE91B7605D49702D1AEA851D22AEED45E50D119ACBB7F71F7CE58F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\drawer.png",
+        "bytes": 300272,
+        "sha256": "0F466F1D549AC45E5C4D901776E7073416747F6D94EB3BAC77508757E0C91A7D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\gallery.png",
+        "bytes": 304685,
+        "sha256": "10F03F615E8AF5600C824C7670608494AE8730B606F8BF458991813E9113D73C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\hiding.png",
+        "bytes": 467708,
+        "sha256": "7A360DC182933E9954C5827F0BB6DC3924AACFC68EA944C84F9CF40343CB4CFC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\home.png",
+        "bytes": 327629,
+        "sha256": "695B17AD2B132FDDA337F3EFF1B7B6E1D644E2CF04BB6FC8606C793E5F8BCB92"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\metrics.json",
+        "bytes": 126350,
+        "sha256": "709A36152A91CAB72C001332675D533E577BDAFC365899E0E2DDBEAB995C09C7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\mouse.png",
+        "bytes": 456330,
+        "sha256": "22F188A02C8C8CB94B870A4A54979C64FE7E7D917B6AB84D847236DE85803ABB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\mouseWin.png",
+        "bytes": 416820,
+        "sha256": "59CD41715DE28FCEBBF3F49611F50434AFE3119A2FC38916B60644813338A63B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\offline.png",
+        "bytes": 456013,
+        "sha256": "39568165F651C1D8A43780FD7B140CCCC9F905C1CF1188136B17BD533471D958"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\paused.png",
+        "bytes": 443876,
+        "sha256": "230629D1239C55B0FABD436C87AABA115F62EFADF367CEA26721594684BFFBA6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-complete\\ready.png",
+        "bytes": 231882,
+        "sha256": "561DBCADC0ECF1F2A863D2840C4FAEDABE47A683AD9BC20EB22038422F36D15F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final\\cat.png",
+        "bytes": 404836,
+        "sha256": "A0CE2A8728610FD85EBC4690D3EFD4719AE57A39BE0E06184D18E5FD58D8D8C5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final\\create.png",
+        "bytes": 252940,
+        "sha256": "A857C2589917130D174376ED1CE86A3F331BA63264A4240D35F81BC598A8EC9A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final\\gallery.png",
+        "bytes": 305183,
+        "sha256": "92B8C0828F6A859E5725BD6BBF8EC347256B2DC098AF2AD071E2238DFAD19D27"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final\\home.png",
+        "bytes": 326999,
+        "sha256": "2C194BA0AB7BCAB8E719C3996B681109B94436AA76ABD02F891E046B35840D67"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final\\metrics.json",
+        "bytes": 31089,
+        "sha256": "47F9601EE5E117E2508FE6D1DE0D4F41FC8D308B2AE57F70D61BFD2BD9034387"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-final\\ready.png",
+        "bytes": 232190,
+        "sha256": "F4E308703DCC9C7F6958B62C7F807939BCE8467C1BB9FE84907AD92A179EFF95"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\alert.png",
+        "bytes": 417710,
+        "sha256": "7A01596C62DB827D0D9350301FE4C4F1D785E53FECAC6287D19FBD8319A03746"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\cancelled.png",
+        "bytes": 427365,
+        "sha256": "6D6A5477B83BA66BE6D613BD5A94C3BABEF3CC56F1E81D30C5178FB59FFE49A7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\captured.png",
+        "bytes": 435221,
+        "sha256": "1B18ECCB7164C5E05DE90C77704F630680D7CC04DF2773012EE052CA8A6A2986"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\cat.png",
+        "bytes": 404676,
+        "sha256": "07C11AFC6189693350049AD7BB1086DF680D499A87FA99ADEFFD2C3CBC16D528"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\catWin.png",
+        "bytes": 454231,
+        "sha256": "F8AF30C68C3EDEFF76EB66B4C48F67624938503F03059DF9A510B1DE24A443FD"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\code.png",
+        "bytes": 232664,
+        "sha256": "4DAC11F32DCBA85223FA99927121346EBAD15A3CD67748E0DBD9585C31745EB0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\create.png",
+        "bytes": 252858,
+        "sha256": "D3264CD2FBAE91B7605D49702D1AEA851D22AEED45E50D119ACBB7F71F7CE58F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\drawer.png",
+        "bytes": 300272,
+        "sha256": "0F466F1D549AC45E5C4D901776E7073416747F6D94EB3BAC77508757E0C91A7D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\gallery.png",
+        "bytes": 304685,
+        "sha256": "10F03F615E8AF5600C824C7670608494AE8730B606F8BF458991813E9113D73C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\hiding.png",
+        "bytes": 467708,
+        "sha256": "7A360DC182933E9954C5827F0BB6DC3924AACFC68EA944C84F9CF40343CB4CFC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\home.png",
+        "bytes": 326985,
+        "sha256": "9C275608F06A24C2FAFA407150A5D0B7EF4FEC319BE7BEDD1C241F0916FEC9D2"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\metrics.json",
+        "bytes": 115124,
+        "sha256": "25EE6A01A2C341165160726952A049A998AFE4B1FF532001A84898746FE5E70E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\mouse.png",
+        "bytes": 456330,
+        "sha256": "22F188A02C8C8CB94B870A4A54979C64FE7E7D917B6AB84D847236DE85803ABB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\mouseWin.png",
+        "bytes": 416672,
+        "sha256": "246EFD5D5308525988CC2BB343F30143F88601FCD7D256312B040F70C513AA5F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\offline.png",
+        "bytes": 456013,
+        "sha256": "39568165F651C1D8A43780FD7B140CCCC9F905C1CF1188136B17BD533471D958"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\paused.png",
+        "bytes": 444242,
+        "sha256": "22FED8ADE18A6B62EA2FED5A09F7E9A599C91B6C725BFFE2FCFF9009A2D20DB8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-freeze\\ready.png",
+        "bytes": 231882,
+        "sha256": "561DBCADC0ECF1F2A863D2840C4FAEDABE47A683AD9BC20EB22038422F36D15F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-refine\\alert.png",
+        "bytes": 420664,
+        "sha256": "9E47FC4AE017426F392B9689EBBA48E9587DD839F91DE671D4EA03E5B400236D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-refine\\captured.png",
+        "bytes": 442045,
+        "sha256": "E0C7E0B059579F51646F401CFC19F581C737288490B587A3457C4B2A644078F5"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-refine\\home.png",
+        "bytes": 327629,
+        "sha256": "695B17AD2B132FDDA337F3EFF1B7B6E1D644E2CF04BB6FC8606C793E5F8BCB92"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-refine\\metrics.json",
+        "bytes": 29534,
+        "sha256": "3AD8743FA59ADE0D5E95C80DE52C83A11B5F8BAEC87AD62CE6DEB083A53945B0"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-refine\\paused.png",
+        "bytes": 443876,
+        "sha256": "230629D1239C55B0FABD436C87AABA115F62EFADF367CEA26721594684BFFBA6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\alert.png",
+        "bytes": 417903,
+        "sha256": "AEABEFE88E687C3D34718D4149D4F19F388EEF583CA69431E21F5F8CF2B3B6EB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\cancelled.png",
+        "bytes": 427438,
+        "sha256": "D3CA527E5B837C0D9571C73FA525DDFEC93D97EFEC2BDB90237D7AA5DC708B71"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\captured.png",
+        "bytes": 435406,
+        "sha256": "5DF6587C8AC031A5D4768C5C6595DFF572C19FE8C57CE53F607555A6017C2400"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\catWin.png",
+        "bytes": 454308,
+        "sha256": "D037CD5733F43A1B517FC3A6C0A0055F131428EDD6315E94E805D9174ABBB86C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\code.png",
+        "bytes": 233071,
+        "sha256": "0E14F7D44DD1747A5A2E6110B244B80D16DEBF4103B38612C0C994C5710427B9"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\drawer.png",
+        "bytes": 300314,
+        "sha256": "2DEBDE8BD10EE1FAB83B46954070998A8A2B1BF1EAEC18C74B6E59F5858144FC"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\hiding.png",
+        "bytes": 468606,
+        "sha256": "AF79F2582E42EF46C298BADC02715DE3A3EFEB48874A97AB3CED81012395F30B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\metrics.json",
+        "bytes": 84102,
+        "sha256": "3ADDA014E6A3E1138CE9D9A33044DC5DD36D7570E95572834D90F263B1D0255D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\mouse.png",
+        "bytes": 456700,
+        "sha256": "34D4C7BE6B6BE6CBC15C82F8FB8B857CBEE172282DF225DB66ABE83416E22D66"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\mouseWin.png",
+        "bytes": 416756,
+        "sha256": "0DFFF25E1343752692A8304B1DD2B464B6D3DBFFE32A471C3568168CEF7297E7"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\offline.png",
+        "bytes": 456077,
+        "sha256": "43BB7B5AF573369CC8363B51888251691B89C65F17C80338D6B52C07ADA3008C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-rest\\paused.png",
+        "bytes": 444309,
+        "sha256": "8DE1DF118D566C669B5CEA29A60DAB72672EC1578C79B8FB33109BF365A51E80"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-result-refine\\cancelled.png",
+        "bytes": 427851,
+        "sha256": "D57ACA8F4071CAB2E3386809B01193B53FCF3151651473AEB29A1F31B569A693"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-result-refine\\catWin.png",
+        "bytes": 455002,
+        "sha256": "E29F950B8E00BFCF63CE959FCA15CF8C0E860ABD7FB2C090F7262CD46C6804FB"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-result-refine\\metrics.json",
+        "bytes": 25300,
+        "sha256": "F9C048D93CC309A687F4CDB76393843FCF015E3BD636249A9F1B3ACDF51CEB78"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-result-refine\\mouseWin.png",
+        "bytes": 416820,
+        "sha256": "59CD41715DE28FCEBBF3F49611F50434AFE3119A2FC38916B60644813338A63B"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\alert.png",
+        "bytes": 417722,
+        "sha256": "4DBA721FA72AA66FC4B61737C5031AD7F9527D09053F34258BFF5791715315A3"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\cat.png",
+        "bytes": 404748,
+        "sha256": "E7BE44C7432D2A50F3D783B5836C6EB1F106CFE4DF97DEB640D4ED78713B983C"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\create.png",
+        "bytes": 252845,
+        "sha256": "3811011EC54635D70EF6E27CBD8647F72E5A8C531522A8D501A0E9B483A7614A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\gallery.png",
+        "bytes": 305161,
+        "sha256": "932BC06E90ED7BBF3061780876D890B1CCF03A047AE9CC2BBA1CAD7940812DEF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\home.png",
+        "bytes": 326948,
+        "sha256": "DD08814EF4EC49940A5FDA79B447BE34EB5B4874B7DEECAD83EA6467C3AA6284"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\metrics.json",
+        "bytes": 46276,
+        "sha256": "47077133C0DF54A99239C3831F5874981F6ACD0B4A0FA367C3F0D107EBF54BE8"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\mouse.png",
+        "bytes": 456531,
+        "sha256": "2AC0FC791716E382D4E0D7BD5A3B76937FCE136FDC3E521FB5A3B26DAE62997D"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\normal-v4\\ready.png",
+        "bytes": 232011,
+        "sha256": "7AA50F15533DE84B64AE8EFD539CE378E981643365A704789D21DB174B5CEB62"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-final\\gallery.png",
+        "bytes": 304614,
+        "sha256": "DED2D5D73992DF6887F163AD00ED6114B61E39B9BF2AF351F9FA887792ED6F6E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-final\\metrics.json",
+        "bytes": 8283,
+        "sha256": "35556EFD1EBB3E6194D4FADCA61220EAA702FAFDC709D1DE13C69C55FFB9041A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-line-final\\gallery.png",
+        "bytes": 304672,
+        "sha256": "0586CA1812F88CAD2C001D021021A358950F42C1654BE4C2D4D3EBFA3249F186"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-line-final\\metrics.json",
+        "bytes": 8320,
+        "sha256": "9F81821D085F1319F184B525A4306F32E385EAF34BCD371F4B541C2B1138B7EC"
+      }
+    ],
+    "bytes": 76515829.0
+  },
+  {
+    "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1",
+    "files": [
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\large-probe.txt",
+        "bytes": 112,
+        "sha256": "9E4CB301F42BB145F44D2EAEFBF73742CE1089BAC701C18AF16C758762A48B13"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\narrow-probe.txt",
+        "bytes": 113,
+        "sha256": "523A1FF13156A6CE841B7F2C83C34F3677A0152B56DE0EAADCC343EDB2E77769"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\large-probe\\metrics.json",
+        "bytes": 5395,
+        "sha256": "1E1860B04321F423DE01D36120C21B61CE30C4BA46D4B971128470C1B54596EE"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\large-probe\\mouseWin.png",
+        "bytes": 270395,
+        "sha256": "8225799A5730353E336A2D1A5ED6F77DC7FB77A2826BE49327D4E73AF6D7CA0F"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\large-probe\\paused.png",
+        "bytes": 274810,
+        "sha256": "63D264403B1881C7FB750B803CCD2944500AB18C8FBBDB3C502ED89F6CAAC558"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\large-probe\\venue.png",
+        "bytes": 776543,
+        "sha256": "93168FECC098C5EBEC2A69729235ECBA4B3AE78F981E024FBBD2F1116380D0AF"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\narrow-probe\\metrics.json",
+        "bytes": 5348,
+        "sha256": "E62F45E854D81D50C8ED7AC01D9342F7123F53BAE6F16AEB03895F3DCEDB5E73"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\narrow-probe\\mouseWin.png",
+        "bytes": 223887,
+        "sha256": "E19734F6871CB31AE6262544BBFEE593E09C3805F3267E1CE99EB9348011001A"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\narrow-probe\\paused.png",
+        "bytes": 258036,
+        "sha256": "AAF246B85314AC10D9220150355DC5D855737788ACE6F4682F34187C65E740C6"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\narrow-probe\\venue.png",
+        "bytes": 583551,
+        "sha256": "47AA015A44F872823F5F15F78C5691308701E1B5B6EABDF227906ED61DD1313E"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\probe\\cancelled.png",
+        "bytes": 392643,
+        "sha256": "30CA99D29A0034E2FB071F89DCD69261A0DCABBA4426ECF0A4CA7F66A4822E89"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\probe\\cat.png",
+        "bytes": 449941,
+        "sha256": "556CC134A3EB437A41D1B8B443A5F63A412433C81A03CF03EAEEC5FE4C0D5924"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\probe\\metrics.json",
+        "bytes": 5360,
+        "sha256": "0883C4B03F37C682AA5C422D0F5792E4D1012E88E4219C3B42818DAF81234CC1"
+      },
+      {
+        "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1\\probe\\venue.png",
+        "bytes": 783321,
+        "sha256": "2D51234548614B4EAC078ED1F3E5164941380D372CDE6BD8CF6C5EE9083E3134"
+      }
+    ],
+    "bytes": 4029455.0
+  }
+]

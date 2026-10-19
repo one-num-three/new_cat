@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-13",
+  "output": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\yingzhou-verified-v1\\yingzhou-pixel-reference.png",
+  "size": [
+    1221,
+    1289
+  ],
+  "sha256": "ff08e20417f3469d4e4205372c648ef753457b91c9f02c81be562f3873b7c096",
+  "references": [
+    "yingzhou-geometry.png",
+    "../completed-islands-v1/completed-islands.png"
+  ],
+  "status": "public-source-based art reference; not field-surveyed; image georeferencing unverified",
+  "changes": [
+    "focus on Yingzhou, not whole Huanzhou ring",
+    "include mapped pergola-corridor geometry",
+    "paved/concrete bridge depiction rather than universal timber",
+    "no invented pavilion footprint"
+  ],
+  "official_source": "https://www.xuanwuhu.net/lyzn/lyzn.aspx?mtt=49"
+}

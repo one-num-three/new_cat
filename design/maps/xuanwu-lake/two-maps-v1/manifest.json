@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-12",
+  "outputs": {
+    "small": {
+      "png": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-small.png",
+      "size": [
+        2400,
+        1664
+      ],
+      "sha256": "2c577bf6434e20e6610e1bbcef3573d6cf288d28fd3bbf9718fd51bcdc9ba530",
+      "world_file": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-small.pgw",
+      "projection_file": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-small.prj"
+    },
+    "large": {
+      "png": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-large.png",
+      "size": [
+        2400,
+        2254
+      ],
+      "sha256": "3e4e18ac0f29f3e342c4e7fa42f5ed98a7d0d07bccbedee86323e09645cdbfab",
+      "world_file": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-large.pgw",
+      "projection_file": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-large.prj"
+    }
+  },
+  "references": {
+    "reference-small.png": "482d6d96493d33893fb618e93e49d35de7fb657866891774f14b256beb9c47c3",
+    "reference-large.png": "8d92de1198d7ecc5582480a9da7c976d4e76d50b2112bd9773573ea658ccc507",
+    "maps-config.json": "e08f7bb1c797c4aaa56263026c930e1a7d948a7052d59a4c85fef807fb315c4e",
+    "materials-atlas.png": "30b282327755b917fb5ec79574975d25b12f822c9a6b8c7c8f46286d205b0e47",
+    "registration.json": "4da94b5f6dd78c68a2070f147d365fead93d77bd42f187de50a0083bbca7418c"
+  },
+  "scope": "two supplied crop extents only; no product integration"
+}

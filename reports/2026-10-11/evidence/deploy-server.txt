@@ -1,0 +1,52 @@
+TARGET: user-specified SSH host 122.51.95.61
+SYSTEM: Ubuntu 24.04.4 LTS; 2 vCPU; ~3.6 GiB RAM
+DEPLOYMENT: PostgreSQL 16 + Node.js 22 + systemd catmouse-api.service
+SOURCE: /opt/cat-mouse/release-20261011b
+SOURCE_ARCHIVE_SHA256: 59d9f6e3ed551bd60f6e0c4c3fc013ba2e391d7cb87c8ec370af8b01794a4991
+LISTEN: API 127.0.0.1:4000; PostgreSQL 127.0.0.1:5432
+
+BASELINE COMMAND: npm test (D:\cat-mouse-miniprogram\cat-mouse-server)
+BASELINE RESULT: 14 tests passed; 0 failed
+BASELINE EXIT: 0
+AUDIT COMMAND: npm audit --omit=dev --registry=https://registry.npmjs.org
+AUDIT BEFORE: 1 critical proxy-addr vulnerability, fix available
+AUDIT AFTER: 0 vulnerabilities; proxy-addr 2.0.8 on deployed release
+
+DEPLOY COMMAND: bash /opt/cat-mouse/release-20261011/provision-server.sh
+DEPLOY RESULT: PROVISIONED_PRIVATE_API
+DEPLOY EXIT: 0
+RELEASE SWITCH COMMAND: bash /opt/cat-mouse/release-20261011b/switch-server-release.sh
+RELEASE SWITCH RESULT: RELEASE_SWITCH_VERIFIED
+RELEASE SWITCH EXIT: 0
+
+HEALTH COMMAND: curl -fsS http://127.0.0.1:4000/health
+HEALTH OUTPUT: {"ok":true}
+HEALTH STATUS: HTTP 200; exit 0
+READY COMMAND: curl -fsS http://127.0.0.1:4000/ready
+READY OUTPUT: {"ready":true}
+READY STATUS: HTTP 200; exit 0
+VERSION COMMAND: curl -fsS http://127.0.0.1:4000/api/version
+VERSION OUTPUT: {"version":"0.2.0","rulesVersion":"pilot-0.2"}
+VERSION STATUS: HTTP 200; exit 0
+TEST IDENTITY COMMAND: POST http://127.0.0.1:4000/api/v2/session/test
+TEST IDENTITY STATUS: HTTP 403
+ANONYMOUS ROOM COMMAND: GET http://127.0.0.1:4000/api/v2/rooms/not-a-room
+ANONYMOUS ROOM STATUS: HTTP 401
+RESTART COMMAND: systemctl restart catmouse-api.service; curl http://127.0.0.1:4000/ready
+RESTART RESULT: active; HTTP 200
+RESTART EXIT: 0
+BACKUP FILE: /opt/cat-mouse/backup-initial-20261011.dump (10641 bytes)
+RESTORE TEST: restored to isolated catmouse_restorecheck database; primary tables=5, restored tables=5; test database removed after check
+RESTORE RESULT: PASS; exit 0
+
+PUBLIC HTTPS/WSS: not configured; no API domain supplied
+WECHAT LOGIN: platform AppID/AppSecret not configured; LOGIN_UNAVAILABLE until supplied privately
+WECHAT LOGIN OBSERVED: POST /api/v2/session/wechat with {} => {"error":"LOGIN_UNAVAILABLE"}
+WECHAT CONFIG FOLLOW-UP: user later filled AppID/AppSecret in server-only /opt/cat-mouse/api.env; both keys are nonempty and running process environment contains both; API active; /ready {"ready":true}. Secret values were not displayed or saved here. No real wx.login code yet; credential validity unverified.
+REAL SERVER SAME-HOST LOAD COMMAND: bash /opt/cat-mouse/release-20261011b/run-server-load.sh
+REAL SERVER SAME-HOST LOAD RESULT: 5 rooms x 12, 8 seconds, 240 location requests and 240 snapshots, 18 WS reconnects, 0 failures; location p95 210 ms, snapshot p95 148 ms, own-position WS delivery p95 530 ms, WS payload 1.502 Mbps
+REAL SERVER SAME-HOST LOAD EXIT: 0; isolated catmouse_loadtest database removed; production ready endpoint still 200
+REAL SERVER SAME-HOST LOAD JSON: reports/2026-10-11/evidence/load60-server-loopback.json
+PUBLIC NETWORK/STEADY-STATE LOAD: not executed
+DEVICE FIELD TEST: not executed
+ROLLBACK ARTIFACTS: /opt/cat-mouse/release-20261011 and /etc/systemd/system/catmouse-api.service.pre-20261011b

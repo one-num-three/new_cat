@@ -1,0 +1,19 @@
+{
+  "status": 0,
+  "files": [
+    "pages/index/index.wxml",
+    "pages/room/room.wxml",
+    "pages/map/map.wxml",
+    "pages/qrcode/qrcode.wxml",
+    "pages/dev/dev.wxml",
+    "pages/venue/venue.wxml",
+    "pages/calibrate/calibrate.wxml",
+    "components/nav-bar/nav-bar.wxml",
+    "components/pixel-action/pixel-action.wxml",
+    "components/venue-art/venue-art.wxml",
+    "components/map-icon/map-icon.wxml",
+    "venue-maps/pages/open/open.wxml"
+  ],
+  "stderr": "",
+  "outputBytes": 129961
+}

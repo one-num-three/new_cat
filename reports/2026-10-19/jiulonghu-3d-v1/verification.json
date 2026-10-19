@@ -1,0 +1,42 @@
+{
+  "status": "local-delivery-verified",
+  "automatedTests": {
+    "pass": 156,
+    "fail": 0,
+    "store": "isolated PGlite on D, not production PostgreSQL"
+  },
+  "weChatSimulatorScreenshots": 14,
+  "nativePhoneVerified": false,
+  "fieldGpsVerified": false,
+  "serverLoadRetested": false,
+  "publicDeployment": false,
+  "sourceFilesUnchanged": 34,
+  "package": {
+    "rawLocalBytes": {
+      "main": 2084178,
+      "campus3d": 1295150,
+      "venue-maps": 1981419
+    },
+    "files": 167,
+    "uploadVerified": false
+  },
+  "verticalPan": {
+    "inputDy": 60,
+    "actualDy": 60.00000333460048,
+    "before": {
+      "x": 520.9168201213452,
+      "z": 464.3886129343271,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 1000
+    },
+    "after": {
+      "x": 520.9168201213452,
+      "z": 328.4236499302966,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 1000
+    },
+    "nativePhoneGesture": false
+  }
+}

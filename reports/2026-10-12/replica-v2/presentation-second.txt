@@ -1,0 +1,120 @@
+TAP version 13
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 1 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 6.8593
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 2 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 17.1824
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 3 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 6.3826
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 4 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.1133
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 5 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 1.7793
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+ok 6 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 2.3617
+  type: 'test'
+  ...
+# Subtest: native template expressions parse including conditional accessibility classes
+ok 7 - native template expressions parse including conditional accessibility classes
+  ---
+  duration_ms: 4.6575
+  type: 'test'
+  ...
+# Subtest: presentation only exposes role and stage appropriate primary actions
+ok 8 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 1.1953
+  type: 'test'
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 9 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.1702
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 10 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 1.0204
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 11 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 1.3684
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 12 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 3.4769
+  type: 'test'
+  ...
+# Subtest: faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+not ok 13 - faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+  ---
+  duration_ms: 27.8553
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js:45:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    true !== false
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: false
+  actual: true
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\v2\presentation.test.js:50:210)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: map art and event timestamps are display only while authenticated actions remain gated
+ok 14 - map art and event timestamps are display only while authenticated actions remain gated
+  ---
+  duration_ms: 0.9162
+  type: 'test'
+  ...
+# Subtest: static display font is licensed and preserves native fallback and controls
+ok 15 - static display font is licensed and preserves native fallback and controls
+  ---
+  duration_ms: 1.302
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 14
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 183.2109

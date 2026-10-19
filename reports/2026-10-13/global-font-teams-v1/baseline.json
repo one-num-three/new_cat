@@ -1,0 +1,122 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "4735ba8cf5f3d02584654191a2365786e06eef874ebc6331e76d3f4185439d5d"
+  },
+  {
+    "path": "RELEASE.md",
+    "sha256": "ceec147df9ec549d1add2841131b8f29a0c4f19c29f71300c6f214b107f8afc2"
+  },
+  {
+    "path": "WORK_LOG.md",
+    "sha256": "057f4fe41c3fc6b110621e681e03f2116a8b8c01ed3a80b9a441b51081fe590d"
+  },
+  {
+    "path": "scripts/fusion-font-review.cjs",
+    "sha256": "4bb38e12d0946f047b7bc5b3f9ee5fe6421813645f5df306bd8c78b0e100e8b2"
+  },
+  {
+    "path": "scripts/package-release.ps1",
+    "sha256": "d2441c0a84d944fcfc7bc029942527aaea0a1c3d00ee54c36e4b6c9a9df8b38c"
+  },
+  {
+    "path": "utils/art-ratios.wxss",
+    "sha256": "2e484efefc43eca6b40893f43efa5075b8e681d4c68b40517d02edefb7a66a98"
+  },
+  {
+    "path": "utils/pixel-art-ratios.wxss",
+    "sha256": "52eae2875ee2d000d20297cb04849aa870156bb934975d149b90abb05373bbfa"
+  },
+  {
+    "path": "utils/pixel-theme.wxss",
+    "sha256": "713871725d22017ed2beb76ae8bb21646790d83271d7d32976d2edfc0345f197"
+  },
+  {
+    "path": "utils/theme.wxss",
+    "sha256": "3b74e50ab8a761a3852ab0e60ff4e38b35c967468c1dfd037d0fcb2f1e410ccf"
+  },
+  {
+    "path": "pages/dev/dev.wxss",
+    "sha256": "0b127330c8bf4af117d00a6a12a0ff36e26e873f6c26ca03ae935041715e9400"
+  },
+  {
+    "path": "pages/history/history.wxss",
+    "sha256": "b9455bc2e3991ab348e29b8fdd9c24e61b9d03eba15b349a928d7b79d939de11"
+  },
+  {
+    "path": "pages/index/index.wxss",
+    "sha256": "8389a1ea19e034125bbd7988c397acbdd6054283c52f2244d14b091704d222c8"
+  },
+  {
+    "path": "pages/map/map.wxss",
+    "sha256": "849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2"
+  },
+  {
+    "path": "pages/profile/profile.wxss",
+    "sha256": "d88faf2d624c244ddc3523692f29a3645580d9ccee146dcd2767fe93f536875e"
+  },
+  {
+    "path": "pages/qrcode/qrcode.wxss",
+    "sha256": "5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de"
+  },
+  {
+    "path": "pages/quiz/quiz.wxss",
+    "sha256": "c0a1c73dd005a367d36dd222347356313a4cd57855b9b60b56461aee506b8922"
+  },
+  {
+    "path": "pages/room/room.js",
+    "sha256": "a52b4c3a2005d3cbf2dee4bbb27e6b6ef4286c2748ccb476339480d8c54eb44c"
+  },
+  {
+    "path": "pages/room/room.wxml",
+    "sha256": "642b5c7d9a6e15ba344cf7d7c8c1f89e25e93fb741ac0ebc5d6bbc7fe32b5c76"
+  },
+  {
+    "path": "pages/room/room.wxss",
+    "sha256": "bd53bd7f0de51c3c5549947e9a64b3160e1d573d02d69b66785dc9f56a55baed"
+  },
+  {
+    "path": "pages/task/task.wxss",
+    "sha256": "d3ca3e448186643f9ec650cae4684f21197ae2a6b6bac111dfde9d27abde64d9"
+  },
+  {
+    "path": "pages/venue/venue.wxss",
+    "sha256": "2b25094c8dc671ca07470569f55a36d872b50f34654dcafa7aa4b44935238413"
+  },
+  {
+    "path": "components/nav-bar/nav-bar.wxss",
+    "sha256": "2831d5c6f68c2e197c38b261ffe682f5e0ec59c8854f119a655defe87aed8234"
+  },
+  {
+    "path": "components/pixel-action/pixel-action.wxml",
+    "sha256": "f03b5aa1155560c110e561c34acbb0bdd889920954f66fe8b35927c8857176d5"
+  },
+  {
+    "path": "components/pixel-action/pixel-action.wxss",
+    "sha256": "c5e6714f578a928b8fcc60c695045a46a82d6bdf7f890b95a8a5be9ea1b6a6b8"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxss",
+    "sha256": "c7cb1e6878c8223d43734d329e145c83883a076fa9791cb17ffcdbdc110d9fe7"
+  },
+  {
+    "path": "cat-mouse-server/v2/dev-preview.test.js",
+    "sha256": "a508b067681ce00520937cf621fd93cb56eb5727f70580de07a8ee49c66678be"
+  },
+  {
+    "path": "cat-mouse-server/v2/fusion-font.test.js",
+    "sha256": "28965aace5ef98a6d76838f5207a873680c1ce05b8cdab1c60eb301aa941e60c"
+  },
+  {
+    "path": "cat-mouse-server/v2/pixel-ui.test.js",
+    "sha256": "06a836ac7aaf8529f5ddaeb2fdd53ee19eee9a03f848fc1bc5808f6c3277ccf2"
+  },
+  {
+    "path": "cat-mouse-server/v2/rules.js",
+    "sha256": "062e5428e9f745fdd40db89bd62f609ff3396a48a92b5b757aad6fb8ba288488"
+  },
+  {
+    "path": "cat-mouse-server/v2/service.js",
+    "sha256": "8a0b33bfbc4c2bd153a2f353096bf4fbf9d86ba0237ebe7e7f8b1c6c238ca2bb"
+  }
+]

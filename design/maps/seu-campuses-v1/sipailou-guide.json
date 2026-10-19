@@ -1,0 +1,1528 @@
+{
+  "size": [
+    2000,
+    2000
+  ],
+  "projection": "EPSG:3857",
+  "center": [
+    13223520.166021695,
+    3770774.241774491
+  ],
+  "span": 1484.2561665959656,
+  "bbox": [
+    118.78223609999999,
+    32.0533005,
+    118.7955694,
+    32.0603819
+  ],
+  "anchors": [
+    {
+      "id": "way/162311597",
+      "name": "和平大厦",
+      "wgs84": [
+        118.79339890000001,
+        32.05925206
+      ],
+      "guidePixel": [
+        1674.4241860612547,
+        573.315610326998
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/189318592",
+      "name": "交通学院 综合楼",
+      "wgs84": [
+        118.7849447,
+        32.05728163333333
+      ],
+      "guidePixel": [
+        406.29101572873344,
+        922.0609612399318
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236944775",
+      "name": "东南大学大礼堂",
+      "wgs84": [
+        118.7890487090909,
+        32.057974981818184
+      ],
+      "guidePixel": [
+        1021.8939183718772,
+        799.3462329767152
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236944776",
+      "name": "礼东",
+      "wgs84": [
+        118.78944755,
+        32.0580241125
+      ],
+      "guidePixel": [
+        1081.7202043003465,
+        790.6506306008037
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236944777",
+      "name": "礼西",
+      "wgs84": [
+        118.7886415375,
+        32.0580727125
+      ],
+      "guidePixel": [
+        960.8180270455152,
+        782.0489486043939
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945039",
+      "name": "逸夫建筑馆",
+      "wgs84": [
+        118.79029167499999,
+        32.057010925
+      ],
+      "guidePixel": [
+        1208.3392708477882,
+        969.9729784427609
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945040",
+      "name": "群贤楼",
+      "wgs84": [
+        118.79054192000001,
+        32.056870249999996
+      ],
+      "guidePixel": [
+        1245.8761146909922,
+        994.8706525725781
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945093",
+      "name": "孟芳图书馆",
+      "wgs84": [
+        118.78833510555556,
+        32.05698805
+      ],
+      "guidePixel": [
+        914.8531204656806,
+        974.0215632150628
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945197",
+      "name": "五四楼",
+      "wgs84": [
+        118.78828444999999,
+        32.055757400000005
+      ],
+      "guidePixel": [
+        907.2547681348373,
+        1191.82950698811
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945198",
+      "name": "健雄院",
+      "wgs84": [
+        118.79011185,
+        32.0575652
+      ],
+      "guidePixel": [
+        1181.3654534127927,
+        871.8730264939447
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945199",
+      "name": "吴健雄纪念馆",
+      "wgs84": [
+        118.7882119,
+        32.0575721375
+      ],
+      "guidePixel": [
+        896.3722409294888,
+        870.6451693728138
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945297",
+      "name": "中山院",
+      "wgs84": [
+        118.78951215000001,
+        32.055701850000005
+      ],
+      "guidePixel": [
+        1091.4102285257875,
+        1201.6610157294153
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236945298",
+      "name": "南门",
+      "wgs84": [
+        118.78884186,
+        32.05546238
+      ],
+      "guidePixel": [
+        990.8664771678598,
+        1244.0435108175075
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236946061",
+      "name": "东南院",
+      "wgs84": [
+        118.79019045,
+        32.0556254
+      ],
+      "guidePixel": [
+        1193.155482886643,
+        1215.1914981933764
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236949940",
+      "name": "火电机组振动中心",
+      "wgs84": [
+        118.788074825,
+        32.05776025
+      ],
+      "guidePixel": [
+        875.8109395249647,
+        837.3514009688711
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/236949941",
+      "name": "动力楼",
+      "wgs84": [
+        118.7871885,
+        32.05619133333334
+      ],
+      "guidePixel": [
+        742.8618571555608,
+        1115.0296731137742
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237174414",
+      "name": "中大院",
+      "wgs84": [
+        118.7896114875,
+        32.0570130125
+      ],
+      "guidePixel": [
+        1106.3108907765582,
+        969.6035173788613
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237174543",
+      "name": "南高院",
+      "wgs84": [
+        118.7873412,
+        32.057536675
+      ],
+      "guidePixel": [
+        765.7669144169001,
+        876.9216200064906
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237174909",
+      "name": "老六舍",
+      "wgs84": [
+        118.79358055,
+        32.05632075
+      ],
+      "guidePixel": [
+        1701.6717541788805,
+        1092.1247512398522
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237175533",
+      "name": "中大校友会堂",
+      "wgs84": [
+        118.78763086,
+        32.05583436
+      ],
+      "guidePixel": [
+        809.2160230361317,
+        1178.2087426218825
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237202797",
+      "name": "中大院",
+      "wgs84": [
+        118.78929326,
+        32.057044000000005
+      ],
+      "guidePixel": [
+        1058.5766464415196,
+        964.1191212975302
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237202798",
+      "name": "中大院",
+      "wgs84": [
+        118.7899316,
+        32.05699952
+      ],
+      "guidePixel": [
+        1154.3278858197568,
+        971.9915188699963
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237202800",
+      "name": "中心楼",
+      "wgs84": [
+        118.78907042,
+        32.0583637
+      ],
+      "guidePixel": [
+        1025.1505628768898,
+        730.5471670110719
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237311553",
+      "name": "水声信号处理教育部重点实验室消声水池实验中心",
+      "wgs84": [
+        118.78999765,
+        32.05536415
+      ],
+      "guidePixel": [
+        1164.2354105889715,
+        1261.4286730957647
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316223",
+      "name": "电子所",
+      "wgs84": [
+        118.78972668000002,
+        32.05883797
+      ],
+      "guidePixel": [
+        1123.589808977408,
+        646.6059251494667
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316224",
+      "name": "五五楼",
+      "wgs84": [
+        118.789877225,
+        32.059452975
+      ],
+      "guidePixel": [
+        1146.1716154295057,
+        537.7552898726449
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316225",
+      "name": "道桥实验室（东南大学国际建成环境创新实验中心）",
+      "wgs84": [
+        118.7903971,
+        32.058861375
+      ],
+      "guidePixel": [
+        1224.1530603827032,
+        642.4634533274841
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316227",
+      "name": "建筑设计研究院",
+      "wgs84": [
+        118.78820026363637,
+        32.05874098636364
+      ],
+      "guidePixel": [
+        894.6267820214917,
+        663.7711341289995
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316228",
+      "name": "体育馆",
+      "wgs84": [
+        118.786695,
+        32.0588403
+      ],
+      "guidePixel": [
+        668.8366720907759,
+        646.1935364173371
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316231",
+      "name": "继续教育学院",
+      "wgs84": [
+        118.78428205,
+        32.057463025000004
+      ],
+      "guidePixel": [
+        306.8932672317752,
+        889.95680684739
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316232",
+      "name": "集成电路学院",
+      "wgs84": [
+        118.784263325,
+        32.05720275
+      ],
+      "guidePixel": [
+        304.0845102106787,
+        936.0223474245993
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316233",
+      "name": "香园餐厅",
+      "wgs84": [
+        118.783683225,
+        32.057461025
+      ],
+      "guidePixel": [
+        217.06929267295243,
+        890.3107832627951
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316234",
+      "name": "群英楼",
+      "wgs84": [
+        118.7829676,
+        32.057300075
+      ],
+      "guidePixel": [
+        109.72527431284277,
+        918.7970098257751
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316235",
+      "name": "荟萃楼",
+      "wgs84": [
+        118.7833503,
+        32.057086075
+      ],
+      "guidePixel": [
+        167.13041782565904,
+        956.6723748007431
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237316237",
+      "name": "工艺实习场",
+      "wgs84": [
+        118.78732045,
+        32.0591527
+      ],
+      "guidePixel": [
+        762.6544066339292,
+        590.9014931226488
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237318477",
+      "name": "成园2舍",
+      "wgs84": [
+        118.7910297,
+        32.0546632
+      ],
+      "guidePixel": [
+        1319.0432976063569,
+        1385.485237039991
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237318478",
+      "name": "成园1舍",
+      "wgs84": [
+        118.79089991999999,
+        32.054250360000005
+      ],
+      "guidePixel": [
+        1299.5762489354556,
+        1458.5506484641073
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237318480",
+      "name": "东南大学校医院",
+      "wgs84": [
+        118.7908896,
+        32.05399096666667
+      ],
+      "guidePixel": [
+        1298.028245068837,
+        1504.4585328796832
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237318482",
+      "name": "杨廷宝故居",
+      "wgs84": [
+        118.79085085,
+        32.05627925
+      ],
+      "guidePixel": [
+        1292.215730537911,
+        1099.4696685441027
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237445907",
+      "name": "电子管厂",
+      "wgs84": [
+        118.7901522125,
+        32.057910362499996
+      ],
+      "guidePixel": [
+        1187.4198435510937,
+        810.7831503321747
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237445909",
+      "name": "微波楼",
+      "wgs84": [
+        118.790708475,
+        32.0575219
+      ],
+      "guidePixel": [
+        1270.8594271476186,
+        879.5366226912834
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237445911",
+      "name": "金陵院",
+      "wgs84": [
+        118.79044546875001,
+        32.0583276
+      ],
+      "guidePixel": [
+        1231.4083910218656,
+        736.9365029961581
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/237488978",
+      "name": "逸夫科技馆",
+      "wgs84": [
+        118.78640215,
+        32.057616525
+      ],
+      "guidePixel": [
+        624.909062272733,
+        862.7890939749537
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/258847777",
+      "name": "南京外国语学校体育馆",
+      "wgs84": [
+        118.795038,
+        32.0583529
+      ],
+      "guidePixel": [
+        1920.28980072288,
+        732.458658373373
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/292432278",
+      "name": "沙塘园三舍",
+      "wgs84": [
+        118.78876729999999,
+        32.054567225
+      ],
+      "guidePixel": [
+        979.682449203882,
+        1402.4711516897612
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404067941",
+      "name": "中大院",
+      "wgs84": [
+        118.789622265,
+        32.057154505
+      ],
+      "guidePixel": [
+        1107.9275198174514,
+        944.5611170256352
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071177",
+      "name": "沙塘园一舍",
+      "wgs84": [
+        118.78959875,
+        32.054401925
+      ],
+      "guidePixel": [
+        1104.400260996219,
+        1431.7263502606288
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071178",
+      "name": "沙塘园餐厅",
+      "wgs84": [
+        118.7892030625,
+        32.0548718625
+      ],
+      "guidePixel": [
+        1045.0469876171856,
+        1348.5555228845233
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071179",
+      "name": "沙塘园二舍",
+      "wgs84": [
+        118.789524325,
+        32.0540888
+      ],
+      "guidePixel": [
+        1093.2364830915665,
+        1487.1438342474535
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071180",
+      "name": "东南大学保卫处",
+      "wgs84": [
+        118.788799325,
+        32.0551942
+      ],
+      "guidePixel": [
+        984.4862112123479,
+        1291.5071012563008
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071182",
+      "name": "南京图书馆成贤街分馆",
+      "wgs84": [
+        118.79065272857143,
+        32.05332862857143
+      ],
+      "guidePixel": [
+        1262.4974419591008,
+        1621.6796934142526
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071183",
+      "name": "藏书楼",
+      "wgs84": [
+        118.79075710000001,
+        32.053760225000005
+      ],
+      "guidePixel": [
+        1278.1531953819592,
+        1545.2954859870151
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071184",
+      "name": "藏书楼",
+      "wgs84": [
+        118.790712875,
+        32.053538200000006
+      ],
+      "guidePixel": [
+        1271.5194287956126,
+        1584.5896551509506
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/404071185",
+      "name": "阅览楼",
+      "wgs84": [
+        118.790662075,
+        32.053251075
+      ],
+      "guidePixel": [
+        1263.8994097493764,
+        1635.4051350814646
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/532547651",
+      "name": "教育局",
+      "wgs84": [
+        118.79539707142858,
+        32.05915234285714
+      ],
+      "guidePixel": [
+        1974.1506496605482,
+        590.9647043695204
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/860356145",
+      "name": "鸡鸣寺地铁站",
+      "wgs84": [
+        118.79269426249999,
+        32.0593168125
+      ],
+      "guidePixel": [
+        1568.7282968175896,
+        561.8549531504334
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/860356146",
+      "name": "鸡鸣寺地铁站",
+      "wgs84": [
+        118.79173511666666,
+        32.05971028333333
+      ],
+      "guidePixel": [
+        1424.8560621376712,
+        492.2136941410581
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/942915064",
+      "name": "艺术楼",
+      "wgs84": [
+        118.79577442,
+        32.059172860000004
+      ],
+      "guidePixel": [
+        2030.753076880716,
+        587.3333445367145
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/981890957",
+      "name": "河海院",
+      "wgs84": [
+        118.78616925,
+        32.058663925
+      ],
+      "guidePixel": [
+        589.9739749337092,
+        677.4102716422551
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/981890958",
+      "name": "东南大学出版社",
+      "wgs84": [
+        118.78626755,
+        32.059037775
+      ],
+      "guidePixel": [
+        604.7190117977156,
+        611.2422259456946
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/981890959",
+      "name": "专家楼",
+      "wgs84": [
+        118.786724025,
+        32.059604325
+      ],
+      "guidePixel": [
+        673.1904329758377,
+        510.96751960326145
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056474961",
+      "name": "榴园宾馆",
+      "wgs84": [
+        118.786259625,
+        32.058233325
+      ],
+      "guidePixel": [
+        603.5302588248899,
+        753.6222154847204
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056474962",
+      "name": "总务处",
+      "wgs84": [
+        118.78863522500001,
+        32.05490585
+      ],
+      "guidePixel": [
+        959.8711496775547,
+        1342.5403053738257
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580731",
+      "name": "电子系办公楼",
+      "wgs84": [
+        118.7906807,
+        32.057952275
+      ],
+      "guidePixel": [
+        1266.6931667295962,
+        803.3650940504031
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580732",
+      "name": "土木学院实验室",
+      "wgs84": [
+        118.7904334,
+        32.058624325
+      ],
+      "guidePixel": [
+        1229.5980739912045,
+        684.4190952061991
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580738",
+      "name": "仿真实验室",
+      "wgs84": [
+        118.78749930000001,
+        32.05701725
+      ],
+      "guidePixel": [
+        789.4819737073949,
+        968.8535335146304
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580739",
+      "name": "锅炉实验室",
+      "wgs84": [
+        118.787202525,
+        32.05694285
+      ],
+      "guidePixel": [
+        744.9656124135619,
+        982.0213867530978
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580740",
+      "name": "制冷实验室",
+      "wgs84": [
+        118.78744355,
+        32.05680315
+      ],
+      "guidePixel": [
+        781.1194527996356,
+        1006.7464800976114
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580741",
+      "name": "图书资料室",
+      "wgs84": [
+        118.78750635,
+        32.056560575
+      ],
+      "guidePixel": [
+        790.5394763470183,
+        1049.679028329706
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580742",
+      "name": "洁净煤发电实验室",
+      "wgs84": [
+        118.787255175,
+        32.05658725
+      ],
+      "guidePixel": [
+        752.8631321570399,
+        1044.957913734263
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580748",
+      "name": "集成电路学院",
+      "wgs84": [
+        118.78379282499999,
+        32.05724085
+      ],
+      "guidePixel": [
+        233.50933377455544,
+        929.2791144420479
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580749",
+      "name": "岩土工程馆",
+      "wgs84": [
+        118.78351355,
+        32.058512025
+      ],
+      "guidePixel": [
+        191.6179790443715,
+        704.2951111811758
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056580750",
+      "name": "软件学院",
+      "wgs84": [
+        118.78426235,
+        32.05846655
+      ],
+      "guidePixel": [
+        303.93825984663897,
+        712.3437402699944
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854719",
+      "name": "13栋",
+      "wgs84": [
+        118.7922382375,
+        32.0539085375
+      ],
+      "guidePixel": [
+        1500.3243758070996,
+        1519.046963268749
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854720",
+      "name": "9栋",
+      "wgs84": [
+        118.7925026,
+        32.054165675
+      ],
+      "guidePixel": [
+        1539.9788499450492,
+        1473.5383617309046
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854721",
+      "name": "10栋",
+      "wgs84": [
+        118.79217945555554,
+        32.05432556666667
+      ],
+      "guidePixel": [
+        1491.5070620949218,
+        1445.2404171326157
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854722",
+      "name": "11栋",
+      "wgs84": [
+        118.7924138,
+        32.05451806
+      ],
+      "guidePixel": [
+        1526.6588166456006,
+        1411.1724992413506
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854723",
+      "name": "12栋",
+      "wgs84": [
+        118.7924745,
+        32.0547471
+      ],
+      "guidePixel": [
+        1535.7638394048436,
+        1370.6363738991938
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854724",
+      "name": "14栋",
+      "wgs84": [
+        118.79326815,
+        32.054697275
+      ],
+      "guidePixel": [
+        1654.8116370282323,
+        1379.4545472437921
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854725",
+      "name": "1栋",
+      "wgs84": [
+        118.79322165,
+        32.054457175
+      ],
+      "guidePixel": [
+        1647.836619591623,
+        1421.9480759167584
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854726",
+      "name": "2栋",
+      "wgs84": [
+        118.7931725,
+        32.054250475
+      ],
+      "guidePixel": [
+        1640.4641011583649,
+        1458.530295534615
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854727",
+      "name": "3栋",
+      "wgs84": [
+        118.7931735,
+        32.0540447
+      ],
+      "guidePixel": [
+        1640.6141015345063,
+        1494.9487245443347
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854728",
+      "name": "4栋",
+      "wgs84": [
+        118.793139075,
+        32.05384555
+      ],
+      "guidePixel": [
+        1635.450338625309,
+        1530.194571165323
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854729",
+      "name": "5栋",
+      "wgs84": [
+        118.7930398,
+        32.0536356
+      ],
+      "guidePixel": [
+        1620.559051397263,
+        1567.3517338818674
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854730",
+      "name": "6栋",
+      "wgs84": [
+        118.7930484,
+        32.053405575
+      ],
+      "guidePixel": [
+        1621.849054619027,
+        1608.0616924690603
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854731",
+      "name": "7栋",
+      "wgs84": [
+        118.79307692,
+        32.05319832
+      ],
+      "guidePixel": [
+        1626.1270653178644,
+        1644.7417155424257
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854735",
+      "name": "16栋",
+      "wgs84": [
+        118.793427025,
+        32.053459000000004
+      ],
+      "guidePixel": [
+        1678.6429466060322,
+        1598.60651395183
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854736",
+      "name": "17栋",
+      "wgs84": [
+        118.793643075,
+        32.0543455
+      ],
+      "guidePixel": [
+        1711.0505276257736,
+        1441.7125727624343
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854738",
+      "name": "文昌十舍",
+      "wgs84": [
+        118.79438967499999,
+        32.054588100000004
+      ],
+      "guidePixel": [
+        1823.040807599024,
+        1398.7766393379088
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854739",
+      "name": "新九舍",
+      "wgs84": [
+        118.794500525,
+        32.05491695
+      ],
+      "guidePixel": [
+        1839.668349170176,
+        1340.5757910442994
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854740",
+      "name": "新八舍",
+      "wgs84": [
+        118.79459027499999,
+        32.0552413
+      ],
+      "guidePixel": [
+        1853.1308828240726,
+        1283.1711611870833
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854741",
+      "name": "文昌八舍",
+      "wgs84": [
+        118.79370054,
+        32.05509572
+      ],
+      "guidePixel": [
+        1719.6702991739592,
+        1308.9364584864416
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854742",
+      "name": "文昌十一舍",
+      "wgs84": [
+        118.793185975,
+        32.055168699999996
+      ],
+      "guidePixel": [
+        1642.4853562103667,
+        1296.0201880424509
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854743",
+      "name": "文昌九舍",
+      "wgs84": [
+        118.79388019166667,
+        32.05540748333333
+      ],
+      "guidePixel": [
+        1746.6181165449616,
+        1253.7593581598385
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854744",
+      "name": "文昌十二舍",
+      "wgs84": [
+        118.7933735,
+        32.055496325
+      ],
+      "guidePixel": [
+        1670.6141765343718,
+        1238.035776321623
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854745",
+      "name": "文昌十四舍",
+      "wgs84": [
+        118.79355648,
+        32.055753120000006
+      ],
+      "guidePixel": [
+        1698.0612451522404,
+        1192.5870023824168
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854746",
+      "name": "新六舍",
+      "wgs84": [
+        118.793533275,
+        32.056070225
+      ],
+      "guidePixel": [
+        1694.5804864499462,
+        1136.464108011199
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854747",
+      "name": "28号7栋",
+      "wgs84": [
+        118.79448625,
+        32.055687999999996
+      ],
+      "guidePixel": [
+        1837.5270938162573,
+        1204.1122550538491
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854748",
+      "name": "莘园餐厅",
+      "wgs84": [
+        118.793688825,
+        32.0567354875
+      ],
+      "guidePixel": [
+        1717.9130447796492,
+        1018.7218539853441
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854749",
+      "name": "新五舍",
+      "wgs84": [
+        118.79395115,
+        32.05708825
+      ],
+      "guidePixel": [
+        1757.261893154693,
+        956.287427027118
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854750",
+      "name": "新四舍",
+      "wgs84": [
+        118.79402375,
+        32.0573399
+      ],
+      "guidePixel": [
+        1768.1519203767152,
+        911.74846541897
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854751",
+      "name": "新三舍",
+      "wgs84": [
+        118.79409765,
+        32.057603900000004
+      ],
+      "guidePixel": [
+        1779.2369480899802,
+        865.0235737044308
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854752",
+      "name": "新二舍",
+      "wgs84": [
+        118.794187425,
+        32.0578768
+      ],
+      "guidePixel": [
+        1792.7032317559779,
+        816.723345054048
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854753",
+      "name": "新一舍",
+      "wgs84": [
+        118.79425075,
+        32.058107199999995
+      ],
+      "guidePixel": [
+        1802.2020055047878,
+        775.9450259157237
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854754",
+      "name": "9舍",
+      "wgs84": [
+        118.79317021428571,
+        32.058273314285714
+      ],
+      "guidePixel": [
+        1640.1212431553977,
+        746.5445222882832
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854755",
+      "name": "教职工宿舍",
+      "wgs84": [
+        118.79304264,
+        32.057409240000005
+      ],
+      "guidePixel": [
+        1620.9850524592798,
+        899.4761148725972
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854756",
+      "name": "文昌十三舍",
+      "wgs84": [
+        118.79294549999999,
+        32.0571043
+      ],
+      "guidePixel": [
+        1606.4140160328022,
+        953.4467776565846
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854757",
+      "name": "东南大学东浴室",
+      "wgs84": [
+        118.79303010000001,
+        32.05681105
+      ],
+      "guidePixel": [
+        1619.1040477584806,
+        1005.3482832686963
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854758",
+      "name": "文园宾馆",
+      "wgs84": [
+        118.79272285,
+        32.056890366666664
+      ],
+      "guidePixel": [
+        1573.01643253856,
+        991.3102624440229
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854759",
+      "name": "文昌七舍",
+      "wgs84": [
+        118.79304305999999,
+        32.05649788
+      ],
+      "guidePixel": [
+        1621.048052615402,
+        1060.7751908392136
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854772",
+      "name": "梅庵",
+      "wgs84": [
+        118.786165375,
+        32.059635225
+      ],
+      "guidePixel": [
+        589.3927234821225,
+        505.4984550112442
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854775",
+      "name": "南京科学会堂",
+      "wgs84": [
+        118.79162241428571,
+        32.058670785714284
+      ],
+      "guidePixel": [
+        1407.9506627323192,
+        676.1959901253359
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056854776",
+      "name": "知识产权局",
+      "wgs84": [
+        118.79194585,
+        32.05825003333333
+      ],
+      "guidePixel": [
+        1456.4661411627394,
+        750.6650123289864
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056902251",
+      "name": "文昌十六舍",
+      "wgs84": [
+        118.79386798,
+        32.0568556
+      ],
+      "guidePixel": [
+        1744.7863619651146,
+        997.463512829968
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1056904069",
+      "name": "东南大学四牌楼快递中心",
+      "wgs84": [
+        118.791034025,
+        32.054854
+      ],
+      "guidePixel": [
+        1319.6920492280856,
+        1351.7168849273287
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    },
+    {
+      "id": "way/1093538047",
+      "name": "新街口政务大厦",
+      "wgs84": [
+        118.784025225,
+        32.0556583
+      ],
+      "guidePixel": [
+        268.36942092174365,
+        1209.368702025673
+      ],
+      "method": "OSM named building vertex-mean; candidate only"
+    }
+  ]
+}

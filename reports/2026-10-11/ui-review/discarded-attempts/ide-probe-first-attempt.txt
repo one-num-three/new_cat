@@ -1,0 +1,22 @@
+PASS gallery
+PASS home
+PASS create
+PASS ready
+PASS cat
+PASS mouse
+PASS alert
+PASS hiding
+PASS code
+PASS captured
+PASS paused
+PASS offline
+PASS catWin
+PASS mouseWin
+AssertionError [ERR_ASSERTION]: Unexpected route for cancelled
++ actual - expected
+
++ 'pages/index/index'
+- 'pages/map/map'
+         ^
+
+    at D:\cat-mouse-miniprogram\scripts\ui-review.cjs:24:14

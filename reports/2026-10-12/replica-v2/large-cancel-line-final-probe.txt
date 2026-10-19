@@ -1,0 +1,5 @@
+ROUTE cancelled
+SDK_FAIL_PHASE cancelled screenshot timeout waiting for automator response
+SDK_RECONNECT cancelled timeout waiting for automator response
+PASS cancelled
+REPLICA_UI_PASS=1 FONT_SCALE=1.3

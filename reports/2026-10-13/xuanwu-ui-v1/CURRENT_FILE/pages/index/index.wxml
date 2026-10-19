@@ -1,0 +1,19 @@
+<view class="screen homeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px">
+  <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
+  <image class="homeHero" src="/assets/pixel-v1/home-hero.png" mode="widthFix" aria-label="和熟人到户外，玩一场猫鼠追逐" />
+  <view class="homeForm">
+    <button wx:if="{{resumeKind}}" class="resumeBand" disabled="{{resumeKind==='checking'}}" bindtap="restore"><text>{{resumeKind==='room'?'等待中的房间':resumeKind==='match'?'正在进行的对局':resumeKind==='result'?'上一局结果':resumeKind==='unavailable'?'上次房间暂不可用':'检查上次房间'}}</text><text>{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'请稍候':'继续查看 ›'}}</text></button>
+    <view class="paperFrame homeField"><text class="fieldLabel">你的昵称</text><input class="homeInput" value="{{nickname}}" maxlength="20" placeholder="先取个名字" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="你的昵称" /></view>
+    <view class="paperFrame homeField"><text class="fieldLabel">房间码</text><input class="homeInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" /></view>
+    <view class="homeActions">
+      <pixel-action skin="/assets/pixel-v1/button-home-join.png" label="加入房间" tone="orange" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="join" />
+      <pixel-action skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
+    </view>
+    <text wx:if="{{error}}" class="formError" role="alert">{{error}}</text>
+  </view>
+  <image class="homeFooter" src="/assets/pixel-v1/home-footer.png" mode="widthFix" aria-label="30 秒躲藏，6 分钟追逐" />
+  <view class="homeExtra">
+    <button class="venueEntry paperFrame" bindtap="openVenue"><view class="venueEntryCopy"><text class="venueEntryTitle">玄武湖 · 环洲与樱洲</text><text class="venueEntryHint">打开像素场地导览</text></view><text class="entryArrow" aria-hidden="true">›</text></button>
+    <button wx:if="{{devAvailable}}" class="devLink" bindtap="openDev">界面调试台</button>
+  </view>
+</view>

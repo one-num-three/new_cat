@@ -1,0 +1,85 @@
+[
+  {
+    "check": "10位房间码校验",
+    "result": "PASS"
+  },
+  {
+    "check": "加入准备页",
+    "page": "03-ready",
+    "result": "PASS"
+  },
+  {
+    "check": "取消准备",
+    "result": "PASS"
+  },
+  {
+    "check": "开始躲藏",
+    "page": "07-hiding",
+    "result": "PASS"
+  },
+  {
+    "check": "打开详情",
+    "page": "15-details",
+    "result": "PASS"
+  },
+  {
+    "check": "关闭返回原状态",
+    "page": "07-hiding",
+    "result": "PASS"
+  },
+  {
+    "check": "鼠队页",
+    "page": "05-mouse",
+    "result": "PASS"
+  },
+  {
+    "check": "动态码页",
+    "page": "08-code",
+    "result": "PASS"
+  },
+  {
+    "check": "动态码返回鼠队",
+    "page": "05-mouse",
+    "result": "PASS"
+  },
+  {
+    "check": "鼠队详情",
+    "page": "15-details",
+    "result": "PASS"
+  },
+  {
+    "check": "暂停页",
+    "page": "10-paused",
+    "result": "PASS"
+  },
+  {
+    "check": "猫队详情",
+    "page": "15-details",
+    "result": "PASS"
+  },
+  {
+    "check": "取消结算",
+    "page": "14-cancelled",
+    "result": "PASS"
+  },
+  {
+    "check": "回到首页",
+    "page": "01-home",
+    "result": "PASS"
+  },
+  {
+    "check": "创建流程",
+    "page": "02-create",
+    "result": "PASS"
+  },
+  {
+    "check": "创建进入准备",
+    "page": "03-ready",
+    "result": "PASS"
+  },
+  {
+    "check": "暂停恢复保留鼠队",
+    "page": "05-mouse",
+    "result": "PASS"
+  }
+]

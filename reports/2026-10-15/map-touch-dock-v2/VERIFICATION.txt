@@ -1,0 +1,37 @@
+MAP TOUCH / COMPACT DOCK / 2026-10-15 to 2026-10-16
+Root: D:\cat-mouse-miniprogram
+
+IMPLEMENTED
+Map exposes native + / - buttons. Initial cover can shrink to the whole original map; new optional camera minimum preserves the original aspect ratio, centers an axis smaller than the viewport, and clamps panning on larger axes. Default pure camera helper bounds remain1-4 unless an explicit minimum is supplied. Component supplies viewport-dependent whole-map minimum. Uniform scene transform keeps authorized points and coarse regions bound to the same image. No image replacement.
+Open card240x96 CSSpx; code/team/rules targets>=44px. Closed card58x94, right=0, bottom=safeBottom+6. Close uses translation/opacity; small card translates from primary-action side to right edge, default260ms plus80ms delay. Header remains fixed. No scaling of panels, icons or source image axes independently. Alerts reserve the right tool column.
+Viewport resize rechecks minimum even if cover dimensions remain identical. Camera events update parent only when zoom-bound availability changes, not every pan frame. Calibration taps do not emit camera diagnostics.
+
+AUTOMATED TESTS
+npm --prefix cat-mouse-server test
+TEMP/TMP D:/cat-mouse-preview-evidence/2026-10-15/map-touch-dock/tmp
+119 tests /119 pass /0 fail, exit0, duration8941.7942ms. Literal output tests-final.log.
+Initial targeted44/45 failed because camera status event entered calibration event assertions; camera event suppressed in calibrationMode, then targeted48/48 and49/49 passed with added resize case. Kept targeted-initial.log.
+New regressions: zoom initial cover down to whole map; pinch inward minimum; horizontal drag in both directions after zoom; viewport widening with unchanged cover dimensions; page buttons delegate to art or bound native map zoom. Existing identity/capture/visibility/results/offline lifecycle regressions retained.
+
+BUILD
+Official wcc.exe11 WXML / wcsc.exe15 WXSS exit0. Compiler under resources/app.asar.unpacked/node_modules/wcc-exec. Args compile-args.json, literal compiler output *-build.log.
+node --check component/review/interactive scripts PASS.
+Fusion Pixel593glyphs23684B, build-global-font.py --verify PASS. Runtime source font/license preserved.
+Directory-only package, no zip; size/hash checks delivery-check.json. Raw2MiB local gate is not platform upload approval.
+
+ACTUAL WECHAT IDE
+Official MCP used for navigation, buttons, screenshots and independent layout reads. Same channel throughout final verification. Final physical-phone touch status=NOT_VERIFIED.
+First SDK probe connected another runtime; marker mismatch stopped that path. ui-sdk-runtime-failure.json.
+MCP cross-component selector read size correctly, but native touch calls (with touches and changedTouches) returned success without reaching the component. Temporary source inputProbe confirmed no delivery and was removed. ui-native-touch-failure.json/event-probe-result.json. Do not count these as passed native gestures.
+Runtime gesture events on actual component then produced x -189.25 -> -129.25 -> -229.25 and scale1.0151915 ->2.0303831 ->0.8121532, with image/point alignment<2 display pixels. UI first7 rows passed. The next dock assertion sampled the transition start (right228); later actual screenshot was already at edge. Failure retained as ui-transition-query-failure.json.
+Remaining-only run:7/7 screens PASS; screenshot first, then fresh independent layout read. Dock right390 for viewport390, width58 height94, bottom804 vs screen844 safe34. Open240x96. All main actions>=44px. Code tap opens demo code and close/grip tap work.
+20s developer slow mode: dock-right228 ->372.0318908691406 ->390, header top95 unchanged. Final default restored260ms. motion.json. Intermediate screenshot and geometry are separate capture times.
+Combined14 screenshots: open/+/-/pan right-left/pinch out-in, dock, narrow cat/paused, app-large mouse, offline, motion intermediate/end. Narrow320x600 is content inside390px simulator. Large is app1.3, not OS font/device. Actual original JPG hash unchanged.
+
+BROWSER PREVIEW
+interactive.html: draggable/pinch/wheel/+/- and drawer, original image + shared utils/venue-camera.js + copied actual drawer CSS/glyphs; demo positions, no server/login/GPS.
+CUA blocked file:// navigation by URL policy. No alternate browser/HTTP/raw-CDP workaround attempted. Browser rendering/physical pointer interaction NOT_VERIFIED; static JS syntax checked. User can open file manually.
+
+SCOPE AND LIMITS
+No server rule, auth, capture, time authority, location subscription or visibility expansion. No server deployment/publishing/upload/online database write/new load run. OSM reference remains fieldVerified=false; independent field points still required.
+Rollback restores only13 pre-task source copies if current hashes match task after/before hashes, leaves newly added review script/history/docs, and never deletes other work. Verified against isolated fixture, not executed on live project. Not a Git reset or old full-suite claim.

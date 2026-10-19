@@ -1,0 +1,450 @@
+{
+  "date": "2026-10-13",
+  "root": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake",
+  "archive_created": false,
+  "latest_artwork": "huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png",
+  "coordinate_status": "latest artwork not georeferenced or field validated",
+  "total_files_including_this_report": 65,
+  "files_hashed_excluding_this_report": 64,
+  "bytes_hashed": 31370717,
+  "format_checks": {
+    "png": 16,
+    "json": 19,
+    "xml": 2,
+    "text": 27
+  },
+  "tests": [
+    {
+      "cwd": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1",
+      "command": [
+        "node",
+        "verify.cjs",
+        "baseline-config.json",
+        "flat"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS mode=flat maps=2 geometry=unchanged registration=PASS transform_roundtrip=PASS source_hash=unchanged\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1",
+      "command": [
+        "node",
+        "verify.cjs",
+        "maps-config.json",
+        "pixel"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS mode=pixel maps=2 geometry=unchanged registration=PASS transform_roundtrip=PASS source_hash=unchanged\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1",
+      "command": [
+        "node",
+        "verify.cjs",
+        "rollback-test.json",
+        "flat"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS mode=flat maps=2 geometry=unchanged registration=PASS transform_roundtrip=PASS source_hash=unchanged\n",
+      "stderr": ""
+    }
+  ],
+  "rollback_script_rerun_this_turn": false,
+  "historical_hash_differences": [
+    {
+      "path": "two-maps-v1/map-large.png",
+      "historical_manifest": "two-maps-v1/manifest.json",
+      "historical_sha256": "3e4e18ac0f29f3e342c4e7fa42f5ed98a7d0d07bccbedee86323e09645cdbfab",
+      "current_sha256": "d3286c2647b9a7077b41833107912c00fb6e3bcb24af7acc542bd455a1d77fea",
+      "action": "historical record preserved; current bytes hashed; cause not inferred"
+    }
+  ],
+  "files": [
+    {
+      "path": "ai-art-reference-2026-10-13/large-ai-reference.png",
+      "bytes": 2652702,
+      "sha256": "304fe465140886ad43255273303cb2a0bb5726b78ee81ffb4cb4e2280a71f3a0",
+      "size": [
+        1294,
+        1216
+      ]
+    },
+    {
+      "path": "ai-art-reference-2026-10-13/manifest.json",
+      "bytes": 1849,
+      "sha256": "c3d80a35ceba17e342a17785ae559c1fb4a99ef12b5fb8c1b5e56946dff26d98"
+    },
+    {
+      "path": "ai-art-reference-2026-10-13/PROMPTS.txt",
+      "bytes": 5929,
+      "sha256": "7aa525808c26fd6c3e347639721422b9eeec49d50799fc451c8dc2134b3c5ed6"
+    },
+    {
+      "path": "ai-art-reference-2026-10-13/REVIEW.txt",
+      "bytes": 1553,
+      "sha256": "1426270a289e6252f09efbd7d7e58e2c15a8b338a98b2469c9d4425933bdd11c"
+    },
+    {
+      "path": "ai-art-reference-2026-10-13/small-ai-reference.png",
+      "bytes": 2340826,
+      "sha256": "57ab71b85b7d9e0c8093f26dbec32989de3bae1b61a2fdaaff1864efeeab70b2",
+      "size": [
+        1506,
+        1045
+      ]
+    },
+    {
+      "path": "completed-islands-v1/completed-islands.png",
+      "bytes": 2526126,
+      "sha256": "e64491711eaf394953d826fafc690aed9a4c56c1488485838bc061772ecfa414",
+      "size": [
+        1154,
+        1363
+      ]
+    },
+    {
+      "path": "completed-islands-v1/full-islands-geometry.png",
+      "bytes": 290278,
+      "sha256": "de63b9437e689a1acd234b85949f5712773f414c23660da071e79763bcfc5f35",
+      "size": [
+        1536,
+        1813
+      ]
+    },
+    {
+      "path": "completed-islands-v1/geometry-guide.json",
+      "bytes": 11190,
+      "sha256": "392df7bd812cc0c4d4e208a11d872a3b5a4bce29a465299824f19ca6eca22bf2"
+    },
+    {
+      "path": "completed-islands-v1/manifest.json",
+      "bytes": 648,
+      "sha256": "57711bbfd622671a6e77087c5ec43773baf9aeb8fc79a515668c06165465d9d6"
+    },
+    {
+      "path": "completed-islands-v1/MAPPING-NOTES.txt",
+      "bytes": 1945,
+      "sha256": "0d3d4a886455026afa3430c69151c2780e46597487e9cc37305e372d9e0b94a3"
+    },
+    {
+      "path": "completed-islands-v1/PROMPT.txt",
+      "bytes": 2946,
+      "sha256": "0d3818907cca9ca852846dd0720c9cbd732f69269eeaa4a2812c1b705faff6a2"
+    },
+    {
+      "path": "FILE_INDEX.md",
+      "bytes": 9150,
+      "sha256": "c100f6abcef18fa0f0d92ec83fcaf55286a209c85f82e607d756c43f8431cbf5"
+    },
+    {
+      "path": "huanzhou-yingzhou-v2/complete-geometry.png",
+      "bytes": 321001,
+      "sha256": "5177b887e6052f6232f8aa0f52d6e16b81ec303135f7d0b6eae76b577f206233",
+      "size": [
+        1536,
+        1813
+      ]
+    },
+    {
+      "path": "huanzhou-yingzhou-v2/geometry-check.json",
+      "bytes": 553,
+      "sha256": "f1998a67ec648bcac21c085f595755a50b9cd59ab8b1e6d7db6e3860315b5310"
+    },
+    {
+      "path": "huanzhou-yingzhou-v2/huanzhou-yingzhou-complete.png",
+      "bytes": 2869449,
+      "sha256": "c87aa0695531239ff72beeba2ffe278a87471181a569f5c88c92135e7e9781fe",
+      "size": [
+        1154,
+        1363
+      ]
+    },
+    {
+      "path": "huanzhou-yingzhou-v2/manifest.json",
+      "bytes": 867,
+      "sha256": "3674603cb549d927c939dbd2b4c0e84e734437672ab544b136c7f15a4db8459a"
+    },
+    {
+      "path": "huanzhou-yingzhou-v2/PROMPT.txt",
+      "bytes": 2818,
+      "sha256": "87470741d8a99cc10857d047202dacceeefc8e784e4088e705b0d95f4a364859"
+    },
+    {
+      "path": "huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png",
+      "bytes": 2624840,
+      "sha256": "c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6",
+      "size": [
+        1154,
+        1363
+      ]
+    },
+    {
+      "path": "huanzhou-yingzhou-v3/manifest.json",
+      "bytes": 978,
+      "sha256": "b5c5bb0504e0762283198911cbf4eccf0c7116b31ca6d99e8f72c878c41c0c0e"
+    },
+    {
+      "path": "huanzhou-yingzhou-v3/PROMPT.txt",
+      "bytes": 2520,
+      "sha256": "99de5446469e5828627dea5d26bae7deed1069bd05501f70456dbcb07050e658"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12569,
+      "sha256": "e513feb6029662b72915a76b26e56e50c03858b34ec9b391e7978c8eccbcfceb"
+    },
+    {
+      "path": "reference-materials/provenance.json",
+      "bytes": 1259,
+      "sha256": "60b82cf4ed5135bf27930c22e294e001e6b3872c64375b628dc93aaf22eb173b"
+    },
+    {
+      "path": "reference-materials/selected-style-reference.png",
+      "bytes": 1741769,
+      "sha256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "source-v1/anchors-candidates.json",
+      "bytes": 4111,
+      "sha256": "2d5bfe30535388d83f12c21fbdd4dfd28bfec575b2dd36b0157f6e21ad9e3eb4"
+    },
+    {
+      "path": "source-v1/data-audit.json",
+      "bytes": 1721,
+      "sha256": "06bd1e9a3589b2ae4be4183ed7457ed92231f44dad6fd8e64ce4bf45f0d18881"
+    },
+    {
+      "path": "source-v1/geographic-check.svg",
+      "bytes": 76082,
+      "sha256": "fc1c5200957d915807adf1060cda010e16583b65a9fafa3105fa91929cf401d0"
+    },
+    {
+      "path": "source-v1/osm-source.osm",
+      "bytes": 7901858,
+      "sha256": "2ba67de27a5880686c6e6d52a7e61808f7c9ce3ff7f7335916ec67ee47ce524a"
+    },
+    {
+      "path": "source-v1/region.wgs84.geojson",
+      "bytes": 172788,
+      "sha256": "1c40989b36d58ca86fe58815354b99b1777f079c9b916cfa124d690e143d78c2"
+    },
+    {
+      "path": "source-v1/SOURCE-REPORT.txt",
+      "bytes": 3091,
+      "sha256": "679e4ddaab083bb4840d8eab5ebecc9744b5fec1bb4d4998f56d86559ceda320"
+    },
+    {
+      "path": "two-maps-v1/baseline-config.json",
+      "bytes": 2098,
+      "sha256": "895207153c6959ad41351899a7d6dcc0c7126c7d67b7365acdb6b02dcb84aa8a"
+    },
+    {
+      "path": "two-maps-v1/browser-check.json",
+      "bytes": 389,
+      "sha256": "6ee696e5ce1c3986a25ad1f8293e87ebb8cb2bc82465c3e6849bfec446c1dbe8"
+    },
+    {
+      "path": "two-maps-v1/DELIVERY.txt",
+      "bytes": 2177,
+      "sha256": "24e0b644c4e7e1f7a7ac5c2608b16dbf08ad6298b640ca9732f2f481eeae6405"
+    },
+    {
+      "path": "two-maps-v1/DIFF_FILE.diff",
+      "bytes": 288,
+      "sha256": "68502e19aa785f00330b89c05885a625d219e102c1e75963ac4f4d397568e98c"
+    },
+    {
+      "path": "two-maps-v1/index.html",
+      "bytes": 3300,
+      "sha256": "0647285b21657df603fa7e333aa5f32c1d126aa0595260b983f274dc46ff4867"
+    },
+    {
+      "path": "two-maps-v1/manifest.json",
+      "bytes": 1572,
+      "sha256": "b555c9bd68c4fc4e9daafb6e9545d5682e2edb13b5e4b4f4a5278805e5131974"
+    },
+    {
+      "path": "two-maps-v1/map-large.pgw",
+      "bytes": 110,
+      "sha256": "ba3bd6ef2f8aff8158fa84f3d653cc05dac0c97becc298507492d99cfa065ad2"
+    },
+    {
+      "path": "two-maps-v1/map-large.png",
+      "bytes": 1340288,
+      "sha256": "d3286c2647b9a7077b41833107912c00fb6e3bcb24af7acc542bd455a1d77fea",
+      "size": [
+        2400,
+        2254
+      ]
+    },
+    {
+      "path": "two-maps-v1/map-large.prj",
+      "bytes": 487,
+      "sha256": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf"
+    },
+    {
+      "path": "two-maps-v1/map-small.pgw",
+      "bytes": 110,
+      "sha256": "3e6cc9e9ed2fe1d3faf4960b2ad23b912568be0c646f4e89256a18edad3b2728"
+    },
+    {
+      "path": "two-maps-v1/map-small.png",
+      "bytes": 696984,
+      "sha256": "2c577bf6434e20e6610e1bbcef3573d6cf288d28fd3bbf9718fd51bcdc9ba530",
+      "size": [
+        2400,
+        1664
+      ]
+    },
+    {
+      "path": "two-maps-v1/map-small.prj",
+      "bytes": 487,
+      "sha256": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf"
+    },
+    {
+      "path": "two-maps-v1/maps-config.js",
+      "bytes": 2120,
+      "sha256": "68b9ff7c86a2876602751fb132d1e9d61aa18aab683c64d8280d0a3a438999c2"
+    },
+    {
+      "path": "two-maps-v1/maps-config.json",
+      "bytes": 2101,
+      "sha256": "e08f7bb1c797c4aaa56263026c930e1a7d948a7052d59a4c85fef807fb315c4e"
+    },
+    {
+      "path": "two-maps-v1/MATERIAL-PROMPT.txt",
+      "bytes": 1485,
+      "sha256": "1acf7391def598520e14478d0c28f5b9bd8066c6a629d951a79facfc0d52414f"
+    },
+    {
+      "path": "two-maps-v1/materials-atlas.png",
+      "bytes": 1568257,
+      "sha256": "30b282327755b917fb5ec79574975d25b12f822c9a6b8c7c8f46286d205b0e47",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "two-maps-v1/reference-large.png",
+      "bytes": 53390,
+      "sha256": "8d92de1198d7ecc5582480a9da7c976d4e76d50b2112bd9773573ea658ccc507",
+      "size": [
+        346,
+        350
+      ]
+    },
+    {
+      "path": "two-maps-v1/reference-small.png",
+      "bytes": 17999,
+      "sha256": "482d6d96493d33893fb618e93e49d35de7fb657866891774f14b256beb9c47c3",
+      "size": [
+        199,
+        138
+      ]
+    },
+    {
+      "path": "two-maps-v1/register.py",
+      "bytes": 4699,
+      "sha256": "045478d0f031bb2371dc64ff136eec97937b15782837a09f7cae3825c2339569"
+    },
+    {
+      "path": "two-maps-v1/registration.json",
+      "bytes": 2657,
+      "sha256": "4da94b5f6dd78c68a2070f147d365fead93d77bd42f187de50a0083bbca7418c"
+    },
+    {
+      "path": "two-maps-v1/renderer.js",
+      "bytes": 12638,
+      "sha256": "254ea5b73526f37daa5fb27a31655848fa4dd8558fcc5412449dd7898764d375"
+    },
+    {
+      "path": "two-maps-v1/rollback-test.json",
+      "bytes": 2098,
+      "sha256": "895207153c6959ad41351899a7d6dcc0c7126c7d67b7365acdb6b02dcb84aa8a"
+    },
+    {
+      "path": "two-maps-v1/ROLLBACK.sh",
+      "bytes": 255,
+      "sha256": "225286823e0b37e5bdebc287259368baac8384e7bdc364ba1247b2283bf74d94"
+    },
+    {
+      "path": "two-maps-v1/serve.py",
+      "bytes": 1095,
+      "sha256": "37692230115b5a1eed8eb915d2313929888786efa6966cb65fb490ad567449ab"
+    },
+    {
+      "path": "two-maps-v1/source-data.js",
+      "bytes": 176079,
+      "sha256": "0d65e87060e28315b77875e06ddb05224d87812e23abfccdb95ee2a65b25674d"
+    },
+    {
+      "path": "two-maps-v1/VERIFICATION.txt",
+      "bytes": 3004,
+      "sha256": "104458b0d1b90c390b8d3beff95a51249402a57778c2dc66c8327e16faf0da22"
+    },
+    {
+      "path": "two-maps-v1/verify.cjs",
+      "bytes": 1822,
+      "sha256": "cdca91d572e4b7daa842a88c4ce372383b511004729b62b6da04cc9c8cde62ca"
+    },
+    {
+      "path": "yingzhou-verified-v1/manifest.json",
+      "bytes": 815,
+      "sha256": "36f8fb0c1ab2262ccce7c74e1ac83c310cd8d6713c2e22523b39f10a7dde65d1"
+    },
+    {
+      "path": "yingzhou-verified-v1/PROMPT.txt",
+      "bytes": 3222,
+      "sha256": "086a04dfe4b1d0226d1a2f3ad5fff1749a252f2fe4fc6373e9a62ccd2f055cd6"
+    },
+    {
+      "path": "yingzhou-verified-v1/REVIEW.txt",
+      "bytes": 2141,
+      "sha256": "913689751e28b1d3e0645e33c861efba485d686076644c3b64481bf1711fedc2"
+    },
+    {
+      "path": "yingzhou-verified-v1/source-audit.json",
+      "bytes": 2299,
+      "sha256": "44a33877e8a12295a129758acfaa50bf941dda9bce81de4186f88b8307b29c13"
+    },
+    {
+      "path": "yingzhou-verified-v1/yingzhou-audit.png",
+      "bytes": 389866,
+      "sha256": "a5863ad09c09abfdf2ff230a36bf5fcf3a3dd0624f5b9ae6dd8ae3c5bf98b56d",
+      "size": [
+        1600,
+        1687
+      ]
+    },
+    {
+      "path": "yingzhou-verified-v1/yingzhou-geometry.png",
+      "bytes": 385807,
+      "sha256": "405a21b53b60ac4d598ecf2f58e4e0aee43fdae8d6288d3a10191afc9a72e240",
+      "size": [
+        1600,
+        1687
+      ]
+    },
+    {
+      "path": "yingzhou-verified-v1/yingzhou-pixel-reference.png",
+      "bytes": 3068871,
+      "sha256": "ff08e20417f3469d4e4205372c648ef753457b91c9f02c81be562f3873b7c096",
+      "size": [
+        1221,
+        1289
+      ]
+    },
+    {
+      "path": "yingzhou-verified-v1/yingzhou.wgs84.geojson",
+      "bytes": 36291,
+      "sha256": "947a8e050f839bb13d9a58dcd4b4ff852aaa1e7addd058a55a674ec31a3a96ce"
+    }
+  ]
+}

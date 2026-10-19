@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "pageErrors": [],
+  "anchorSelection": true,
+  "layerToggles": true,
+  "clickRoundtrip": true,
+  "outsideHullRejected": true,
+  "mobileNoHorizontalOverflow": true,
+  "rasterExport": true,
+  "baselineAndRollbackMappingDisabled": true
+}

@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "reopened": [
+    {
+      "path": "DIFF_FILE",
+      "bytes": 78164,
+      "sha256": "c385eaffe2e57e471039d20ac973d964d73d954e0fbf4e0e2e0bb066d96aeec2"
+    },
+    {
+      "path": "VERIFICATION.txt",
+      "bytes": 7052,
+      "sha256": "6253ea535c9219d971fdbbcdc67c3072f1800aa93f865431775c76dd8383e711"
+    },
+    {
+      "path": "ROLLBACK.sh",
+      "bytes": 142,
+      "sha256": "5d2275db90ebca84033cd4023472fe053297bd018d1cd67f88a7e7738e69521a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 440,
+      "sha256": "228e938b34b4b0e599a45efd0454f6a57be220c8a781dafe7bf9528983759127"
+    },
+    {
+      "path": "visual/index.html",
+      "bytes": 1187,
+      "sha256": "8f27202ae1698e5a0ec4537046a1282a20202f582c9d1ccdc21764b111973ede"
+    },
+    {
+      "path": "package-audit.json",
+      "bytes": 203,
+      "sha256": "4d91165b8c0d1fc56f7b163e1b2e2d06b63d8c63f2c0f6a8241150e9e1694661"
+    },
+    {
+      "path": "changes.json",
+      "bytes": 5344,
+      "sha256": "8e4e9ba16feb764f355adf3bd0ad2c6fafe8dd56098bae9ced5c1e4545fbbc2d"
+    }
+  ],
+  "restoredBaseline": 20,
+  "liveChanged": 19,
+  "packageFiles": 121,
+  "packageBytes": 1848742,
+  "actualNativeInteraction": 9,
+  "latestMcpLayouts": 4,
+  "sourceUnchanged": true
+}

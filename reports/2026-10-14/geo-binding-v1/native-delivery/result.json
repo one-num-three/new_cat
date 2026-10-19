@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "passed": [
+    "native-tap-to-image-control-point",
+    "registered-point-and-uncertainty-render",
+    "zoom-overlay-image-alignment",
+    "pan-overlay-image-alignment",
+    "removed-authorized-state-clears-overlays"
+  ],
+  "scope": "IDE synthetic calibration; no real park coordinate claim"
+}

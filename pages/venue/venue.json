@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "disableScroll": true,
+  "usingComponents": {
+    "campus-model": "/components/campus-model/campus-model",
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "venue-art": "/components/venue-art/venue-art",
+    "map-icon": "/components/map-icon/map-icon"
+  }
+}

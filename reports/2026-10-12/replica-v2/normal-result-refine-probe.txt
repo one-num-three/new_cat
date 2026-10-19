@@ -1,0 +1,7 @@
+ROUTE catWin
+PASS catWin
+ROUTE mouseWin
+PASS mouseWin
+ROUTE cancelled
+PASS cancelled
+REPLICA_UI_PASS=3 FONT_SCALE=1

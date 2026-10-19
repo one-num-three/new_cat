@@ -1,0 +1,46 @@
+{
+  "version": "02-01-replica-1",
+  "master": "visual-1.0 selected-icon-master",
+  "records": [
+    {
+      "path": "design/2026-10-12/runtime-art/source/cancelled.png",
+      "sha256": "ff336b07b85e500bcf566d3dd038ae03d1054ab636eb04385854271053c3f3a3"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/captured-scene.png",
+      "sha256": "d35c29f795094271fbb2e96f04526d4909d5f1b65129ebb2f580952c5d44f9f1"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/cat-win-scene.png",
+      "sha256": "9a6c95a740ed94053be17476cbcbf26ecd028849151672c46b199d6762dd02b0"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/compact-landscape.png",
+      "sha256": "911f25232852061a8c6cc2ee0209eb2f7acc43c8a115f8d5d9f76384f4309615"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/hiding.png",
+      "sha256": "8d3f64335ea734e16e3944bbe59ef6902ee6df7cdb9cc4135041039d85172582"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/home-landscape-v2.png",
+      "sha256": "f776086578617fc38699b4dc6198c5ba32b946dfa4d0d7f95ba87027c2ffbdfe"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/home-landscape.png",
+      "sha256": "cd5a347f86e3d2d220d44ece99de96bd2a893ce8826e65c2fb32efe7e00d5a34"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/mouse-win-scene.png",
+      "sha256": "c01256c0220099580d2152f005235f3f5ddf74f24ee7a496117254a4730d86f2"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/paused.png",
+      "sha256": "c0f316f0813779e0af1b09cb6b6d79e7205b060711308ae94ad26dbf69723bc3"
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/preview-park.png",
+      "sha256": "c7ae67efa4a942784b138778b3e275a95b4d2520d4d5c6d878886267e9ba3a91"
+    }
+  ]
+}

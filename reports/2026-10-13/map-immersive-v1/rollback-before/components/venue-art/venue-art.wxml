@@ -1,0 +1,15 @@
+<view class="venueArt">
+ <view class="venueViewport" catchtouchstart="onTouchStart" catchtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchEnd">
+  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" animation="{{imageAnimation}}" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的玄武湖艺术导览，拖动或双指缩放，非实时定位" />
+  <view wx:if="{{imageState==='loading'}}" class="venueStatus"><text>正在加载地图…</text></view>
+  <view wx:elif="{{imageState==='error'}}" class="venueStatus"><text>地图暂未加载</text><button class="venueRetry" bindtap="retry">重新加载</button></view>
+ </view>
+ <text wx:if="{{imageState==='ready' && mode==='auto'}}" class="venueTourHint">缓慢巡游 · 轻触接管</text>
+ <view wx:if="{{showControls && imageState==='ready'}}" class="venueDock">
+  <button class="venueControl venueStep" bindtap="zoomIn" disabled="{{!canZoomIn}}" aria-label="放大地图">+</button>
+  <button class="venueControl venueStep" bindtap="zoomOut" disabled="{{!canZoomOut}}" aria-label="缩小地图">−</button>
+  <button class="venueControl venueReset" bindtap="reset" aria-label="地图居中">居中</button>
+  <button class="venueControl venueTour" bindtap="resumeTour" aria-label="恢复自动巡游">巡游</button>
+ </view>
+ <text class="venueAttribution">© OpenStreetMap contributors · 艺术导览</text>
+</view>

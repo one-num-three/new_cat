@@ -1,0 +1,134 @@
+{
+  "branch": "master",
+  "baselineFiles": 22,
+  "changed": [
+    {
+      "path": "pages/index/index.wxml",
+      "before": "e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce",
+      "after": "3522a03bf510a3c98fd09ec7771c43332e52b698baebef002b6c64d7989460ff",
+      "bytes": 2558
+    },
+    {
+      "path": "pages/room/room.wxml",
+      "before": "46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28",
+      "after": "2a6046790faf87959860efbd6533ead14795d3090cb1443c16ec19888f97fcd9",
+      "bytes": 6554
+    },
+    {
+      "path": "pages/map/map.wxml",
+      "before": "fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe",
+      "after": "f2e6d79f8801ecd2393bf239387a82378018746be4d18b9834a41e0d0f8a9ed1",
+      "bytes": 12984
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxml",
+      "before": "65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c",
+      "after": "4ea824a2e4742c63f21e1e459e5cb20387d80796113c9200a742e30a5f1810c0",
+      "bytes": 2511
+    },
+    {
+      "path": "pages/venue/venue.wxml",
+      "before": "732cbae64706668fc2e20f3f779a1b96628026d613281792185a64596ce31b46",
+      "after": "e9193f5d2cece9ebf6a0bbf5c21f600adde89088f0b123715998f89762527096",
+      "bytes": 678
+    },
+    {
+      "path": "scripts/pixel-ui-review.cjs",
+      "before": "e7d472f053e92a9be9b417ff70662fcfb1be1e2491b346b199edd8ee25dbb934",
+      "after": "981b0f0db0ff17f80029dd0c97b52abd0f45f49a421cb11553e7d609d9d1596d",
+      "bytes": 8394
+    },
+    {
+      "path": "scripts/pixel-interaction.cjs",
+      "before": "5127f43ae8bbe090ba4e68fddc639e657afdcc806b172565286736f9a6ad6897",
+      "after": "a9163dc8086f6df89778447fe699068b2d3fb5f927285c1ffa7d6364941baf09",
+      "bytes": 9087
+    },
+    {
+      "path": "cat-mouse-server/v2/pixel-ui.test.js",
+      "before": "4875a4409a7b45869b555357d34b5e4af05c4696c3755f7d83fb96c8083ee7b0",
+      "after": "18443bdc2ad84c8e8d6789d4860f875acc179c302b693bd48f205fcf7d01afc7",
+      "bytes": 22713
+    },
+    {
+      "path": "WORK_LOG.md",
+      "before": "3891ed492f77ca4b556bf86abd1141d1ffbb5499d8e4a98e21766ab0f79e10e4",
+      "after": "bb84fc84a7ad5c731bb5a0d67bb9a8d649d6e0889ee5151ad4f59effc83a1728",
+      "bytes": 53972
+    },
+    {
+      "path": "README.md",
+      "before": "9b4740548bce1f4d5d6df0ba324d7f8a681a3333a90547de197ae63a7cae064a",
+      "after": "239f7454e5c66dc259ab02071430d547770ebfeb4bb85d6a4c90462045cf5782",
+      "bytes": 9348
+    },
+    {
+      "path": "RELEASE.md",
+      "before": "1c974c6f1c746ba6636fe43b1e31fdea938dffa3517a2725bbda400795a09484",
+      "after": "9fbdd0d0562b511a83ca302106003aa66f99653a35c9a62f3ac9c13ca92ec918",
+      "bytes": 13010
+    },
+    {
+      "path": "components/pixel-action/pixel-action.js",
+      "before": "d3b6320d323b1add304ecc546c606a85b576c986c75e4116ebba83870c1315f1",
+      "after": "e57f27eeb0314c29d3161656d72315221efa4e4034faa0d39a14e24503b39f64",
+      "bytes": 1085
+    },
+    {
+      "path": "components/venue-art/venue-art.js",
+      "before": "c491b53cc56d43377df042de144c1df719679fd96e7b8117a5e3d11ca65cb850",
+      "after": "d6e1e10a6113edac4ea7ee7345fce25ccba64f99298c6ac00040e9b5e393255b",
+      "bytes": 5622
+    },
+    {
+      "path": "pages/map/map.js",
+      "before": "1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068",
+      "after": "d8e63567365152969ebda61063c60b681cfe7969701b57ab721213bf5bf4e8e1",
+      "bytes": 11817
+    },
+    {
+      "path": "cat-mouse-server/v2/venue-ui.test.js",
+      "before": "47935ee31efc366d8538eb223ee63b8a516bb93ceb7e8a98559101118c83eb52",
+      "after": "30499cb0ec15bf4737cccf3a6f53c55505de2791ff43cd54ceb426a009c57e2d",
+      "bytes": 23262
+    },
+    {
+      "path": "scripts/package-release.ps1",
+      "before": "7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b",
+      "after": "810113b31ed458c562c331904dd91e2883c8ad41f82253e723a12ea0dec8dc95",
+      "bytes": 5420
+    },
+    {
+      "path": "cat-mouse-server/v2/presentation.test.js",
+      "before": "3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44",
+      "after": "b2355357b9c2de8373fe7dde5d61365dee473e401d99616f38f888065b6d6401",
+      "bytes": 9483
+    },
+    {
+      "path": "ART_LOCK.md",
+      "before": "ec4ebf573c191c137f3d4dfb183d13f8a16cc49cdceb39e23eb9487de408fffe",
+      "after": "6ad70c8fcdb66016086e6ab22cd3f87d1fa6adde5902209943e3fb1b8834a177",
+      "bytes": 7933
+    },
+    {
+      "path": "DESIGN_BASELINE.md",
+      "before": "4df1cc0ca4ecba92392b30cb68b07545c499b566db71b61cfa96632173a9eb04",
+      "after": "0bf2ce1640348e8f649a9ec53a7add1dcb393a1256a159eac35f3ed51e5f6555",
+      "bytes": 12070
+    }
+  ],
+  "added": [
+    {
+      "path": "utils/pixel-button-dimensions.js",
+      "sha256": "c475040c4ce423c38ad805f094486366f49c6cde591ff30d16b9d31c84b4b7e5"
+    },
+    {
+      "path": "scripts/wechat-screenshot.cjs",
+      "sha256": "a68e790881b492eee90b6209cd113e408032e258eff3ebaa68fedcf8b2971d58"
+    },
+    {
+      "path": "scripts/wechat-mcp-screenshot.ps1",
+      "sha256": "0c6cbdab824f225b516ec0832225cd7df2a207c6f4ed4367e483812e8e6769d0"
+    }
+  ]
+}

@@ -1,0 +1,1435 @@
+{
+  "status": "PASS",
+  "scope": "WeChat IDE rendered preview; no physical GPS or calibration claim",
+  "records": [
+    {
+      "id": "venue",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/venue/venue",
+        "preview": false,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 8,
+              "right": 312,
+              "top": 149,
+              "bottom": 647,
+              "width": 304,
+              "height": 498
+            }
+          ],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 149,
+              "width": 320,
+              "height": 62
+            }
+          ],
+          ".venueBack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 232,
+              "right": 308,
+              "top": 95,
+              "bottom": 139,
+              "width": 76,
+              "height": 44
+            }
+          ],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\venue.png"
+    },
+    {
+      "id": "home",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/index/index",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 329,
+              "width": 320,
+              "height": 242
+            }
+          ],
+          ".homeFooter": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 597.0625,
+              "bottom": 648.390625,
+              "width": 320,
+              "height": 51.328125
+            }
+          ],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 102,
+              "right": 294,
+              "top": 353,
+              "bottom": 395,
+              "width": 192,
+              "height": 42
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 102,
+              "right": 294,
+              "top": 421,
+              "bottom": 463,
+              "width": 192,
+              "height": 42
+            }
+          ],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 16,
+              "right": 304,
+              "top": 654.390625,
+              "bottom": 717.5390625,
+              "width": 288,
+              "height": 63.1484375
+            }
+          ],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "home-hero",
+          "selector": ".homeHero",
+          "width": 320,
+          "height": 242,
+          "intrinsic": [
+            480,
+            363
+          ],
+          "ratioError": 0
+        },
+        {
+          "id": "home-footer",
+          "selector": ".homeFooter",
+          "width": 320,
+          "height": 51.328125,
+          "intrinsic": [
+            480,
+            77
+          ],
+          "ratioError": 0.00010147133434790234
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\home.png"
+    },
+    {
+      "id": "gallery",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/dev/dev",
+        "preview": false,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\gallery.png"
+    },
+    {
+      "id": "create",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 16,
+              "right": 152.125,
+              "top": 317.3984375,
+              "bottom": 337.6484375,
+              "width": 136.125,
+              "height": 20.25
+            }
+          ],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 167,
+              "width": 320,
+              "height": 80
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "create-hero",
+          "selector": ".roomHero",
+          "width": 320,
+          "height": 80,
+          "intrinsic": [
+            480,
+            120
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\create.png"
+    },
+    {
+      "id": "ready",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 202.328125,
+              "width": 320,
+              "height": 115.328125
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 26.828125,
+              "right": 248.171875,
+              "top": 235.9609375,
+              "bottom": 279.875,
+              "width": 221.34375,
+              "height": 43.9140625
+            }
+          ],
+          ".rosterGrid": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 306,
+              "top": 444.8046875,
+              "bottom": 605.8046875,
+              "width": 292,
+              "height": 161
+            }
+          ],
+          ".playerCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 444.8046875,
+              "bottom": 482.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 444.8046875,
+              "bottom": 482.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 485.8046875,
+              "bottom": 523.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 485.8046875,
+              "bottom": 523.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 526.8046875,
+              "bottom": 564.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 526.8046875,
+              "bottom": 564.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 567.8046875,
+              "bottom": 605.8046875,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 567.8046875,
+              "bottom": 605.8046875,
+              "width": 143.5,
+              "height": 38
+            }
+          ],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "ready-hero",
+          "selector": ".roomHero",
+          "width": 320,
+          "height": 115.328125,
+          "intrinsic": [
+            480,
+            173
+          ],
+          "ratioError": 0.00004516099896134662
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\ready.png"
+    },
+    {
+      "id": "cat",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "cat",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 310,
+              "top": 284.421875,
+              "bottom": 554.65625,
+              "width": 300,
+              "height": 270.234375
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 554.65625,
+              "bottom": 693,
+              "width": 320,
+              "height": 138.34375
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 236.421875,
+              "bottom": 284.421875,
+              "width": 320,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\cat.png"
+    },
+    {
+      "id": "mouse",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "mouse",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 310,
+              "top": 284.421875,
+              "bottom": 557.3046875,
+              "width": 300,
+              "height": 272.8828125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 557.3046875,
+              "bottom": 693,
+              "width": 320,
+              "height": 135.6953125
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 236.421875,
+              "bottom": 284.421875,
+              "width": 320,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\mouse.png"
+    },
+    {
+      "id": "alert",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "mouse",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 310,
+              "top": 284.421875,
+              "bottom": 466.2109375,
+              "width": 300,
+              "height": 181.7890625
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 466.2109375,
+              "bottom": 693,
+              "width": 320,
+              "height": 226.7890625
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 236.421875,
+              "bottom": 284.421875,
+              "width": 320,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\alert.png"
+    },
+    {
+      "id": "hiding",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "hiding",
+        "clock": "00:18",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 310,
+              "top": 284.421875,
+              "bottom": 503.2421875,
+              "width": 300,
+              "height": 218.8203125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 503.2421875,
+              "bottom": 693,
+              "width": 320,
+              "height": 189.7578125
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 236.421875,
+              "bottom": 284.421875,
+              "width": 320,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 185.3984375,
+              "top": 511.2421875,
+              "bottom": 595.2890625,
+              "width": 173.3984375,
+              "height": 84.046875
+            }
+          ],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "hiding-scene",
+          "selector": ".hidingArt",
+          "width": 173.3984375,
+          "height": 84.046875,
+          "intrinsic": [
+            458,
+            222
+          ],
+          "ratioError": 0.000025572520013783517
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\hiding.png"
+    },
+    {
+      "id": "code",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/qrcode/qrcode",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 145.6640625,
+              "width": 320,
+              "height": 58.6640625
+            }
+          ],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 72.578125,
+              "right": 247.4140625,
+              "top": 334.3046875,
+              "bottom": 513.796875,
+              "width": 174.8359375,
+              "height": 179.4921875
+            }
+          ]
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "code-role",
+          "selector": ".codeRole",
+          "width": 320,
+          "height": 58.6640625,
+          "intrinsic": [
+            480,
+            88
+          ],
+          "ratioError": 0.00004439117503451939
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\code.png"
+    },
+    {
+      "id": "captured",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "captured",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 310,
+              "top": 284.421875,
+              "bottom": 497.6796875,
+              "width": 300,
+              "height": 213.2578125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 497.6796875,
+              "bottom": 693,
+              "width": 320,
+              "height": 195.3203125
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 236.421875,
+              "bottom": 284.421875,
+              "width": 320,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\captured.png"
+    },
+    {
+      "id": "paused",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "paused",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 244.421875,
+              "bottom": 468.421875,
+              "width": 320,
+              "height": 224
+            }
+          ],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "paused-scene",
+          "selector": ".pauseHero",
+          "width": 320,
+          "height": 224,
+          "intrinsic": [
+            480,
+            336
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\paused.png"
+    },
+    {
+      "id": "offline",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "offline",
+        "clock": "--:--",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 244.421875,
+              "bottom": 325.0859375,
+              "width": 320,
+              "height": 80.6640625
+            }
+          ],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "offline-hero",
+          "selector": ".pauseHero",
+          "width": 320,
+          "height": 80.6640625,
+          "intrinsic": [
+            480,
+            121
+          ],
+          "ratioError": 0.000032284100080604006
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\offline.png"
+    },
+    {
+      "id": "catWin",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "catWin",
+        "clock": "00:00",
+        "summary": "捕获 4 / 6 人",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 301,
+              "width": 320,
+              "height": 214
+            }
+          ],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "catwin-hero",
+          "selector": ".resultHero",
+          "width": 320,
+          "height": 214,
+          "intrinsic": [
+            480,
+            321
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\catWin.png"
+    },
+    {
+      "id": "mouseWin",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "mouseWin",
+        "clock": "00:00",
+        "summary": "捕获 3 / 6 人，未达目标",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 275.6640625,
+              "width": 320,
+              "height": 188.6640625
+            }
+          ],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "mousewin-hero",
+          "selector": ".resultHero",
+          "width": 320,
+          "height": 188.6640625,
+          "intrinsic": [
+            480,
+            283
+          ],
+          "ratioError": 0.000013803194059081036
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\mouseWin.png"
+    },
+    {
+      "id": "cancelled",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "cancelled",
+        "clock": "00:00",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 397,
+              "width": 320,
+              "height": 310
+            }
+          ],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [
+        {
+          "id": "cancelled-hero",
+          "selector": ".resultHero",
+          "width": 320,
+          "height": 310,
+          "intrinsic": [
+            480,
+            465
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\cancelled.png"
+    },
+    {
+      "id": "drawer",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "uiState": "cat",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 310,
+              "top": 284.421875,
+              "bottom": 554.65625,
+              "width": 300,
+              "height": 270.234375
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 311,
+              "top": 161.546875,
+              "bottom": 236.421875,
+              "width": 302,
+              "height": 74.875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 554.65625,
+              "bottom": 693,
+              "width": 320,
+              "height": 138.34375
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 236.421875,
+              "bottom": 284.421875,
+              "width": 320,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 185.6875,
+              "bottom": 844,
+              "width": 320,
+              "height": 658.3125
+            }
+          ],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1\\narrow\\drawer.png"
+    }
+  ]
+}

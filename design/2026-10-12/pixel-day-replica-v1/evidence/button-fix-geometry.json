@@ -1,0 +1,311 @@
+[
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "154,1070,716,145",
+        "name": "加入房间",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "155,1212,716,118",
+        "name": "创建活动",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "01-home"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "318,458,82,82",
+        "name": "减少人数",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "626,456,83,83",
+        "name": "增加人数",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "143,874,309,108",
+        "name": "重新确认位置",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "127,1344,770,126",
+        "name": "创建并邀请",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "02-create"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "753,520,80,86",
+        "name": "复制房间码",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "162,1245,700,115",
+        "name": "开始30秒躲藏",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "165,1354,692,100",
+        "name": "取消准备",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "03-ready"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "142,1298,413,152",
+        "name": "扫码确认抓捕",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "551,1298,333,152",
+        "name": "队伍·规则·操作",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "04-cat"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "176,1326,401,122",
+        "name": "停下，展示动态码",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "569,1326,279,122",
+        "name": "队伍·规则·操作",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "05-mouse"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "176,1223,675,128",
+        "name": "停下，展示动态码",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "176,1349,675,97",
+        "name": "队伍 · 规则 · 操作",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "06-alert"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "166,1319,693,128",
+        "name": "队伍 · 规则",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "07-hiding"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "156,1273,710,137",
+        "name": "返回地图",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "08-code"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "149,1319,726,137",
+        "name": "队伍 · 规则",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "09-captured"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "156,1198,712,139",
+        "name": "恢复本局",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "156,1341,712,116",
+        "name": "队伍·规则·操作 ›",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "10-paused"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "139,1324,372,132",
+        "name": "队伍",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "514,1324,372,132",
+        "name": "规则",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "11-offline"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "171,1063,680,159",
+        "name": "↻ 再来一局",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "171,1222,680,139",
+        "name": "▤  查看对局详情",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "261,1366,506,76",
+        "name": "⌂ 返回首页",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "12-cat-win"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "173,1182,676,131",
+        "name": "再来一局",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "173,1315,676,98",
+        "name": "查看对局详情",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "294,1407,440,61",
+        "name": "返回首页 ›",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "13-mouse-win"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "186,1049,654,159",
+        "name": "再来一局",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "186,1215,654,129",
+        "name": "查看对局详情",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "290,1352,443,86",
+        "name": "返回首页",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "14-cancelled"
+  },
+  {
+    "buttons": [
+      {
+        "art": 1,
+        "crop": "774,365,91,86",
+        "name": "关闭详情",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "165,1255,694,115",
+        "name": "Ⅱ 紧急暂停",
+        "render": "single-source"
+      },
+      {
+        "art": 1,
+        "crop": "165,1370,694,94",
+        "name": "⇥ 退出本局",
+        "render": "single-source"
+      }
+    ],
+    "oldStrips": 0,
+    "overflow": [],
+    "page": "15-details"
+  }
+]

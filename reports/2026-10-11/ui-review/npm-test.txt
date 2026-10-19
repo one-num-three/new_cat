@@ -1,0 +1,134 @@
+
+> cat-mouse-server@0.2.0 test
+> node --test v2/*.test.js
+
+TAP version 13
+# Subtest: duplicate and out-of-order snapshots cannot roll client back
+ok 1 - duplicate and out-of-order snapshots cannot roll client back
+  ---
+  duration_ms: 0.7999
+  type: 'test'
+  ...
+# Subtest: map state stops location immediately on terminal snapshot
+ok 2 - map state stops location immediately on terminal snapshot
+  ---
+  duration_ms: 3.4296
+  type: 'test'
+  ...
+# Subtest: map falls back to polling, reconnects socket and clears timers on leave
+ok 3 - map falls back to polling, reconnects socket and clears timers on leave
+  ---
+  duration_ms: 7.0478
+  type: 'test'
+  ...
+# Subtest: location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+ok 4 - location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+  ---
+  duration_ms: 2.7989
+  type: 'test'
+  ...
+# Subtest: waiting room retries network entry and keeps one location request in flight
+ok 5 - waiting room retries network entry and keeps one location request in flight
+  ---
+  duration_ms: 2.3445
+  type: 'test'
+  ...
+# Subtest: concurrent session callers share one identity and retry after failure
+ok 6 - concurrent session callers share one identity and retry after failure
+  ---
+  duration_ms: 1.9194
+  type: 'test'
+  ...
+# Subtest: home resume routes waiting room and finished match to the correct page
+ok 7 - home resume routes waiting room and finished match to the correct page
+  ---
+  duration_ms: 1.4712
+  type: 'test'
+  ...
+# Subtest: catch code page ignores late token, detects capture and cleans temporary files
+ok 8 - catch code page ignores late token, detects capture and cleans temporary files
+  ---
+  duration_ms: 3.2203
+  type: 'test'
+  ...
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 9 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 8.521
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 10 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 24.1079
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 11 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 9.0811
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 12 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.1803
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 13 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 1.8313
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+ok 14 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 2.1107
+  type: 'test'
+  ...
+# Subtest: trusted two identity round trip, permissions, capture, persistence and restart
+ok 15 - trusted two identity round trip, permissions, capture, persistence and restart
+  ---
+  duration_ms: 4841.1182
+  type: 'test'
+  ...
+# Subtest: failed database write rolls back capture and token consumption
+ok 16 - failed database write rolls back capture and token consumption
+  ---
+  duration_ms: 2940.5594
+  type: 'test'
+  ...
+# Subtest: standard six player preset serializes two cats capturing one mouse
+ok 17 - standard six player preset serializes two cats capturing one mouse
+  ---
+  duration_ms: 2930.4581
+  type: 'test'
+  ...
+# Subtest: active match restart pauses and requires fresh positions
+ok 18 - active match restart pauses and requires fresh positions
+  ---
+  duration_ms: 3089.9585
+  type: 'test'
+  ...
+# Subtest: pilot presets and quota stay fixed
+ok 19 - pilot presets and quota stay fixed
+  ---
+  duration_ms: 1.624
+  type: 'test'
+  ...
+# Subtest: distance handles zero and same coordinate
+ok 20 - distance handles zero and same coordinate
+  ---
+  duration_ms: 0.3503
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14389.6603

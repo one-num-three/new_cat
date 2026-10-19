@@ -1,0 +1,600 @@
+{
+  "result": "PASS",
+  "records": [
+    {
+      "id": "gallery",
+      "path": "pages/dev/dev",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 907.25
+          }
+        }
+      }
+    },
+    {
+      "id": "home",
+      "path": "pages/index/index",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 900.6875
+          }
+        }
+      }
+    },
+    {
+      "id": "create",
+      "path": "pages/room/room",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".primary": {
+          "offset": {
+            "left": 18,
+            "top": 505.6875
+          },
+          "size": {
+            "width": 354,
+            "height": 65
+          }
+        }
+      }
+    },
+    {
+      "id": "ready",
+      "path": "pages/room/room",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 1036.296875
+          }
+        },
+        ".code": {
+          "offset": {
+            "left": 32,
+            "top": 228.546875
+          },
+          "size": {
+            "width": 144.953125,
+            "height": 30.5
+          }
+        },
+        ".copyButton": {
+          "offset": {
+            "left": 302,
+            "top": 226.296875
+          },
+          "size": {
+            "width": 56,
+            "height": 35
+          }
+        },
+        ".roomActions": {
+          "offset": {
+            "left": 18,
+            "top": 711.796875
+          },
+          "size": {
+            "width": 354,
+            "height": 167.5
+          }
+        },
+        ".primary": {
+          "offset": {
+            "left": 18,
+            "top": 814.296875
+          },
+          "size": {
+            "width": 354,
+            "height": 65
+          }
+        }
+      }
+    },
+    {
+      "id": "cat",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 541.3515625
+          },
+          "size": {
+            "width": 366,
+            "height": 169.6484375
+          }
+        }
+      }
+    },
+    {
+      "id": "mouse",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 541.3515625
+          },
+          "size": {
+            "width": 366,
+            "height": 169.6484375
+          }
+        }
+      }
+    },
+    {
+      "id": "alert",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 498.8515625
+          },
+          "size": {
+            "width": 366,
+            "height": 212.1484375
+          }
+        }
+      }
+    },
+    {
+      "id": "hiding",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 615.3515625
+          },
+          "size": {
+            "width": 366,
+            "height": 95.6484375
+          }
+        }
+      }
+    },
+    {
+      "id": "code",
+      "path": "pages/qrcode/qrcode",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".qrCard": {
+          "offset": {
+            "left": 34,
+            "top": 196.6484375
+          },
+          "size": {
+            "width": 322,
+            "height": 274
+          }
+        },
+        ".qrCorners": {
+          "offset": {
+            "left": 57.5,
+            "top": 209.6484375
+          },
+          "size": {
+            "width": 275,
+            "height": 248
+          }
+        },
+        ".secondary": {
+          "offset": {
+            "left": 18,
+            "top": 533.84375
+          },
+          "size": {
+            "width": 354,
+            "height": 67
+          }
+        }
+      }
+    },
+    {
+      "id": "captured",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 569.3515625
+          },
+          "size": {
+            "width": 366,
+            "height": 141.6484375
+          }
+        }
+      }
+    },
+    {
+      "id": "paused",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 569.3515625
+          },
+          "size": {
+            "width": 366,
+            "height": 141.6484375
+          }
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 541.0546875
+          },
+          "size": {
+            "width": 366,
+            "height": 169.9453125
+          }
+        }
+      }
+    },
+    {
+      "id": "catWin",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 386.1484375
+          },
+          "size": {
+            "width": 366,
+            "height": 324.8515625
+          }
+        }
+      }
+    },
+    {
+      "id": "mouseWin",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 386.1484375
+          },
+          "size": {
+            "width": 366,
+            "height": 324.8515625
+          }
+        }
+      }
+    },
+    {
+      "id": "cancelled",
+      "path": "pages/map/map",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 753
+      },
+      "metrics": {
+        ".mapPage": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 753
+          }
+        },
+        ".topPanel": {
+          "offset": {
+            "left": 12,
+            "top": 31
+          },
+          "size": {
+            "width": 366,
+            "height": 104
+          }
+        },
+        ".bottomPanel": {
+          "offset": {
+            "left": 12,
+            "top": 469.1484375
+          },
+          "size": {
+            "width": 366,
+            "height": 241.8515625
+          }
+        }
+      }
+    }
+  ]
+}

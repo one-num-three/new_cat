@@ -1,0 +1,24 @@
+{
+  "managed": 33,
+  "baselineManifestSha256": "b5953497ee187de27bf88341c0ea26d7acd7b972d853e7b439a8d00b8b606980",
+  "records": [
+    {
+      "path": "pages/room/room.wxml",
+      "source": "reports/2026-10-12/replica-v2/rollback-fixture/current-before-rollback/pages/room/room.wxml",
+      "previousChanges": "reports/2026-10-12/replica-v2/changes.json",
+      "previousAfter": "8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6",
+      "sourceSha256": "8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6",
+      "baselineSha256": "8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6",
+      "bytes": 3601
+    },
+    {
+      "path": "pages/room/room.wxss",
+      "source": "reports/2026-10-12/replica-v2/rollback-fixture/current-before-rollback/pages/room/room.wxss",
+      "previousChanges": "reports/2026-10-12/replica-v2/changes.json",
+      "previousAfter": "33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90",
+      "sourceSha256": "33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90",
+      "baselineSha256": "33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90",
+      "bytes": 6408
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+SEU CAMPUS MAP VERIFICATION / 2026-10-16
+CWD: D:\cat-mouse-miniprogram
+Changed field: MODIFIED_FILE.json enabled=false -> true; status unregistered -> osm-image-registered-field-unverified; fieldVerified=false.
+Artifacts:
+D:\cat-mouse-miniprogram\design\maps\seu-campuses-v1\MODIFIED_FILE.json
+D:\cat-mouse-miniprogram\design\maps\seu-campuses-v1\DIFF_FILE.diff
+D:\cat-mouse-miniprogram\design\maps\seu-campuses-v1\VERIFICATION.txt
+D:\cat-mouse-miniprogram\design\maps\seu-campuses-v1\ROLLBACK.sh
+
+BASELINE
+COMMAND: node design/maps/seu-campuses-v1/verify.cjs baseline.json baseline
+INPUT: baseline.json
+LITERAL OUTPUT: PASS campuses=2 enabled=false mapping=null artwork=unchanged
+EXIT STATUS: 0
+
+MODIFIED
+COMMAND: node design/maps/seu-campuses-v1/verify.cjs MODIFIED_FILE.json registered
+INPUT: MODIFIED_FILE.json
+LITERAL OUTPUT: PASS campuses=2 anchors=40 triangles=62 roundtrips=248 folds=0 outside=null crs_guard=PASS artwork=unchanged fieldVerified=false
+EXIT STATUS: 0
+
+ROLLBACK
+COMMAND: "D:\Program Files\Git\bin\bash.exe" -c "chmod +x design/maps/seu-campuses-v1/ROLLBACK.sh && design/maps/seu-campuses-v1/ROLLBACK.sh design/maps/seu-campuses-v1/rollback-test.json"
+INPUT: copy of MODIFIED_FILE.json: rollback-test.json
+LITERAL OUTPUT: ROLLBACK_PASS enabled=false artwork=unchanged
+EXIT STATUS: 0
+
+RESTORED
+COMMAND: node design/maps/seu-campuses-v1/verify.cjs rollback-test.json baseline
+INPUT: rollback-test.json
+LITERAL OUTPUT: PASS campuses=2 enabled=false mapping=null artwork=unchanged
+EXIT STATUS: 0
+
+BROWSER
+COMMAND: node design/maps/seu-campuses-v1/browser-check.cjs
+INPUT: both campuses and baseline/rollback configs
+LITERAL OUTPUT: BROWSER_PASS campuses=2 switch anchors mesh outside mobile baseline rollback errors=0
+EXIT STATUS: 0
+
+jiulonghu artwork SHA256: ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e
+Manual controls: 20; triangles: 31; fieldVerified=false; extrapolation=false.
+Same-source leave-one-out RMS px: 1.574250176445606
+
+sipailou artwork SHA256: 27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6
+Manual controls: 20; triangles: 31; fieldVerified=false; extrapolation=false.
+Same-source leave-one-out RMS px: 1.906661589670599
+
+Restored behavior: rollback test copy disables coordinate mapping, retains original artwork. Browser rollback test passed. Main config remains enabled=true.
+Geometry PGW applies only to deterministic geometry PNG, not generated art. Original generated images preserved.
+Actual artwork size=1254x1254 each; requested 2048 was not returned by image tool. Same-source low residual is not surveyed GPS accuracy.
+Production app, game state, backend and prior Xuanwu Lake assets unchanged by this task. No archive created.

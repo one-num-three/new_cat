@@ -1,0 +1,6 @@
+ROUTE gallery
+SDK_FAIL_PHASE gallery selectorLayout gallery .devHeroArt NONUNIFORM_IMAGE 0.17947256895599994
+AssertionError [ERR_ASSERTION]: gallery .devHeroArt NONUNIFORM_IMAGE 0.17947256895599994
+    at inspect (D:\cat-mouse-miniprogram\scripts\replica-review.cjs:57:35)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async D:\cat-mouse-miniprogram\scripts\replica-review.cjs:80:15

@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": "home",
+      "route": "pages/index/index",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844,
+              "width": 390,
+              "height": 844
+            }
+          ],
+          ".hero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 364,
+              "width": 390,
+              "height": 364
+            }
+          ],
+          ".homeInput": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 388.3984375,
+              "bottom": 434.3984375,
+              "width": 352,
+              "height": 46
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 472.796875,
+              "bottom": 518.796875,
+              "width": 352,
+              "height": 46
+            }
+          ],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 528.796875,
+              "bottom": 577.796875,
+              "width": 352,
+              "height": 49
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 589.796875,
+              "bottom": 638.796875,
+              "width": 352,
+              "height": 49
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\second\\home.png"
+    }
+  ]
+}

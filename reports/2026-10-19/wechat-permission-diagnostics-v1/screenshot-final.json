@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "tool": "simulator_screenshot",
+  "clientName": "Codex",
+  "result": {
+    "success": true,
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-19\\wechat-permission-diagnostics-v1\\3d-cold-load-final.png",
+    "imageWidth": 648,
+    "imageHeight": 1402
+  }
+}

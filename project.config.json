@@ -1,8 +1,107 @@
 {
   "description": "猫鼠游戏小程序 - 线下实景追逐游戏",
   "packOptions": {
-    "ignore": [],
-    "include": []
+    "ignore": [
+      {"type":"folder","value":".local-tools"},
+      {"type":"folder","value":"output"},
+      {
+        "type": "folder",
+        "value": "cat-mouse-server"
+      },
+      {
+        "type": "folder",
+        "value": ".git"
+      },
+      {
+        "type": "folder",
+        "value": "pages/history"
+      },
+      {
+        "type": "folder",
+        "value": "pages/profile"
+      },
+      {
+        "type": "folder",
+        "value": "pages/task"
+      },
+      {
+        "type": "folder",
+        "value": "pages/quiz"
+      },
+      {
+        "type": "folder",
+        "value": "design"
+      },
+      {
+        "type": "folder",
+        "value": "reports"
+      },
+      {
+        "type": "folder",
+        "value": "dist"
+      },
+      {
+        "type": "folder",
+        "value": "scripts"
+      },
+      {
+        "type": "folder",
+        "value": "assets/markers"
+      },
+      {
+        "type": "file",
+        "value": "cat-mouse-server/趣味问题数据库.json"
+      },
+      {
+        "type": "folder",
+        "value": "assets/faithful-v2"
+      },
+      {
+        "type": "folder",
+        "value": "assets/replica-v1"
+      },
+      {
+        "type": "folder",
+        "value": "assets/brand"
+      },
+      {
+        "type": "file",
+        "value": "utils/theme.wxss"
+      },
+      {
+        "type": "file",
+        "value": "utils/display-font.wxss"
+      },
+      {
+        "type": "file",
+        "value": "utils/art-ratios.wxss"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/ui-variable.woff"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-create-minus.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-create-plus.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/rules-icon-capture.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/maps/xuanwu-lake-v3.png"
+      },
+      {
+        "type": "folder",
+        "value": "assets/markers-v1"
+      }
+    ],
+    "include": [{"type":"file","value":"campus3d/assets/campus-meta.bin"}]
   },
   "setting": {
     "bundle": false,
@@ -32,11 +131,130 @@
   },
   "compileType": "miniprogram",
   "libVersion": "3.15.0",
-  "appid": "wx0000000000000000",
+  "appid": "wx6971da11f7bcc70f",
   "projectname": "cat-mouse-game",
-  "condition": {},
+  "condition": {
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "id": 0,
+          "name": "界面调试台",
+          "pathName": "pages/dev/dev",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "首页预览",
+          "pathName": "pages/index/index",
+          "query": "devPreview=home",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "创建活动",
+          "pathName": "pages/room/room",
+          "query": "devPreview=create",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "房间准备",
+          "pathName": "pages/room/room",
+          "query": "devPreview=ready",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "猫队地图",
+          "pathName": "pages/map/map",
+          "query": "devPreview=cat",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "鼠队地图",
+          "pathName": "pages/map/map",
+          "query": "devPreview=mouse",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "近距预警",
+          "pathName": "pages/map/map",
+          "query": "devPreview=alert",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "躲藏阶段",
+          "pathName": "pages/map/map",
+          "query": "devPreview=hiding",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "动态码",
+          "pathName": "pages/qrcode/qrcode",
+          "query": "devPreview=code",
+          "scene": null
+        },
+        {
+          "id": 9,
+          "name": "被捕状态",
+          "pathName": "pages/map/map",
+          "query": "devPreview=captured",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "暂停状态",
+          "pathName": "pages/map/map",
+          "query": "devPreview=paused",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "断线重连",
+          "pathName": "pages/map/map",
+          "query": "devPreview=offline",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "猫队获胜",
+          "pathName": "pages/map/map",
+          "query": "devPreview=catWin",
+          "scene": null
+        },
+        {
+          "id": 13,
+          "name": "鼠队获胜",
+          "pathName": "pages/map/map",
+          "query": "devPreview=mouseWin",
+          "scene": null
+        },
+        {
+          "id": 14,
+          "name": "本局取消",
+          "pathName": "pages/map/map",
+          "query": "devPreview=cancelled",
+          "scene": null
+        },
+        {
+          "id": 100,
+          "name": "玄武湖新版地图",
+          "pathName": "pages/venue/venue",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "isGameTourist": false
 }

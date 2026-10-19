@@ -1,0 +1,459 @@
+
+> cat-mouse-server@0.2.0 test
+> node --test v2/*.test.js
+
+TAP version 13
+# Subtest: duplicate and out-of-order snapshots cannot roll client back
+ok 1 - duplicate and out-of-order snapshots cannot roll client back
+  ---
+  duration_ms: 0.6092
+  type: 'test'
+  ...
+# Subtest: map state stops location immediately on terminal snapshot
+ok 2 - map state stops location immediately on terminal snapshot
+  ---
+  duration_ms: 4.5339
+  type: 'test'
+  ...
+# Subtest: map falls back to polling, reconnects socket and clears timers on leave
+ok 3 - map falls back to polling, reconnects socket and clears timers on leave
+  ---
+  duration_ms: 4.5792
+  type: 'test'
+  ...
+# Subtest: location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+ok 4 - location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+  ---
+  duration_ms: 2.1652
+  type: 'test'
+  ...
+# Subtest: waiting room retries network entry and keeps one location request in flight
+ok 5 - waiting room retries network entry and keeps one location request in flight
+  ---
+  duration_ms: 2.4922
+  type: 'test'
+  ...
+# Subtest: concurrent session callers share one identity and retry after failure
+ok 6 - concurrent session callers share one identity and retry after failure
+  ---
+  duration_ms: 1.8998
+  type: 'test'
+  ...
+# Subtest: home resume routes waiting room and finished match to the correct page
+ok 7 - home resume routes waiting room and finished match to the correct page
+  ---
+  duration_ms: 1.4582
+  type: 'test'
+  ...
+# Subtest: catch code page ignores late token, detects capture and cleans temporary files
+ok 8 - catch code page ignores late token, detects capture and cleans temporary files
+  ---
+  duration_ms: 2.9903
+  type: 'test'
+  ...
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 9 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 7.5116
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 10 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 16.2082
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 11 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 7.6479
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 12 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.5754
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 13 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 2.6591
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+ok 14 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 3.1349
+  type: 'test'
+  ...
+# Subtest: trusted two identity round trip, permissions, capture, persistence and restart
+ok 15 - trusted two identity round trip, permissions, capture, persistence and restart
+  ---
+  duration_ms: 4314.206
+  type: 'test'
+  ...
+# Subtest: failed database write rolls back capture and token consumption
+ok 16 - failed database write rolls back capture and token consumption
+  ---
+  duration_ms: 3844.6251
+  type: 'test'
+  ...
+# Subtest: standard six player preset serializes two cats capturing one mouse
+ok 17 - standard six player preset serializes two cats capturing one mouse
+  ---
+  duration_ms: 3485.3937
+  type: 'test'
+  ...
+# Subtest: active match restart pauses and requires fresh positions
+ok 18 - active match restart pauses and requires fresh positions
+  ---
+  duration_ms: 4012.2434
+  type: 'test'
+  ...
+# Subtest: pixel-action emits one real action event only when enabled and not loading
+ok 19 - pixel-action emits one real action event only when enabled and not loading
+  ---
+  duration_ms: 4.9849
+  type: 'test'
+  ...
+# Subtest: pixel-action accepts only positive finite intrinsic dimensions and retries a changed skin
+ok 20 - pixel-action accepts only positive finite intrinsic dimensions and retries a changed skin
+  ---
+  duration_ms: 1.0943
+  type: 'test'
+  ...
+# Subtest: normal pixel action uses one complete width-fixed button and its intrinsic aspect ratio
+ok 21 - normal pixel action uses one complete width-fixed button and its intrinsic aspect ratio
+  ---
+  duration_ms: 3.5407
+  type: 'test'
+  ...
+# Subtest: large text, loading, dynamic labels and failed or absent skins render native wrapping text
+ok 22 - large text, loading, dynamic labels and failed or absent skins render native wrapping text
+  ---
+  duration_ms: 2.8349
+  type: 'test'
+  ...
+# Subtest: five registered business pages use pixel assets and preserve real native controls
+ok 23 - five registered business pages use pixel assets and preserve real native controls
+  ---
+  duration_ms: 6.6396
+  type: 'test'
+  ...
+# Subtest: all pixel controls bind existing handlers with an accessible label and scalable text
+ok 24 - all pixel controls bind existing handlers with an accessible label and scalable text
+  ---
+  duration_ms: 7.1293
+  type: 'test'
+  ...
+# Subtest: dynamic room and terminal action labels use native text when source-button copy would be wrong
+ok 25 - dynamic room and terminal action labels use native text when source-button copy would be wrong
+  ---
+  duration_ms: 6.2134
+  type: 'test'
+  ...
+# Subtest: pixel map primary buttons retain the exact server-projected action gates
+ok 26 - pixel map primary buttons retain the exact server-projected action gates
+  ---
+  duration_ms: 1.2924
+  type: 'test'
+  ...
+# Subtest: map action methods independently reject false permissions and preserve enabled routes
+ok 27 - map action methods independently reject false permissions and preserve enabled routes
+  ---
+  duration_ms: 1.595
+  type: 'test'
+  ...
+# Subtest: cancelled result counts and drawer names remain server data rather than painted sample values
+ok 28 - cancelled result counts and drawer names remain server data rather than painted sample values
+  ---
+  duration_ms: 0.9723
+  type: 'test'
+  ...
+# Subtest: native page application retains non-sample server targets and variable roster sizes
+ok 29 - native page application retains non-sample server targets and variable roster sizes
+  ---
+  duration_ms: 2.6924
+  type: 'test'
+  ...
+# Subtest: QR view still binds a generated token image and never substitutes a decorative QR slice
+ok 30 - QR view still binds a generated token image and never substitutes a decorative QR slice
+  ---
+  duration_ms: 1.6706
+  type: 'test'
+  ...
+# Subtest: 15 approved pixel reference PNGs and original HTML/CSS/JS remain SHA-locked
+ok 31 - 15 approved pixel reference PNGs and original HTML/CSS/JS remain SHA-locked
+  ---
+  duration_ms: 82.9241
+  type: 'test'
+  ...
+# Subtest: all 59 runtime PNGs match locked bytes, dimensions and actual PLTE palettes of at most 64
+ok 32 - all 59 runtime PNGs match locked bytes, dimensions and actual PLTE palettes of at most 64
+  ---
+  duration_ms: 80.3098
+  type: 'test'
+  ...
+# Subtest: pixel asset extraction excludes map slices and keeps the separate unregistered full v3 map
+ok 33 - pixel asset extraction excludes map slices and keeps the separate unregistered full v3 map
+  ---
+  duration_ms: 2.9791
+  type: 'test'
+  ...
+# Subtest: pixel font embeds exactly the retained 107816-byte variable WOFF with its OFL license
+ok 34 - pixel font embeds exactly the retained 107816-byte variable WOFF with its OFL license
+  ---
+  duration_ms: 1.8951
+  type: 'test'
+  ...
+# Subtest: native template expressions parse including conditional accessibility classes
+ok 35 - native template expressions parse including conditional accessibility classes
+  ---
+  duration_ms: 4.727
+  type: 'test'
+  ...
+# Subtest: presentation only exposes role and stage appropriate primary actions
+ok 36 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 0.6269
+  type: 'test'
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 37 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.1754
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 38 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 1.0354
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 39 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 1.8497
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 40 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 8.2786
+  type: 'test'
+  ...
+# Subtest: faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+ok 41 - faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+  ---
+  duration_ms: 71.3659
+  type: 'test'
+  ...
+# Subtest: map art and event timestamps are display only while authenticated actions remain gated
+ok 42 - map art and event timestamps are display only while authenticated actions remain gated
+  ---
+  duration_ms: 0.7971
+  type: 'test'
+  ...
+# Subtest: current variable font is licensed and native controls use pixel baseline
+ok 43 - current variable font is licensed and native controls use pixel baseline
+  ---
+  duration_ms: 1.9406
+  type: 'test'
+  ...
+# Subtest: every native page responds to viewport resize without changing match/action state
+ok 44 - every native page responds to viewport resize without changing match/action state
+  ---
+  duration_ms: 5.673
+  type: 'test'
+  ...
+# Subtest: responsive UI never uses nonuniform image scaling and narrow canvas keeps native controls
+ok 45 - responsive UI never uses nonuniform image scaling and narrow canvas keeps native controls
+  ---
+  duration_ms: 2.0704
+  type: 'test'
+  ...
+# Subtest: pilot presets and quota stay fixed
+ok 46 - pilot presets and quota stay fixed
+  ---
+  duration_ms: 1.0758
+  type: 'test'
+  ...
+# Subtest: distance handles zero and same coordinate
+ok 47 - distance handles zero and same coordinate
+  ---
+  duration_ms: 0.2138
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at 390 px portrait
+ok 48 - venue contain preserves every edge at 390 px portrait
+  ---
+  duration_ms: 0.8025
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at 320 px narrow
+ok 49 - venue contain preserves every edge at 320 px narrow
+  ---
+  duration_ms: 0.0869
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at large text residual viewport
+ok 50 - venue contain preserves every edge at large text residual viewport
+  ---
+  duration_ms: 0.0674
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at tablet
+ok 51 - venue contain preserves every edge at tablet
+  ---
+  duration_ms: 0.0656
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at landscape
+ok 52 - venue contain preserves every edge at landscape
+  ---
+  duration_ms: 0.0651
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at tall display
+ok 53 - venue contain preserves every edge at tall display
+  ---
+  duration_ms: 0.0522
+  type: 'test'
+  ...
+# Subtest: venue contain preserves every edge at source size
+ok 54 - venue contain preserves every edge at source size
+  ---
+  duration_ms: 0.1119
+  type: 'test'
+  ...
+# Subtest: venue contain rejects nonfinite, nonnumeric, empty and underflow dimensions
+ok 55 - venue contain rejects nonfinite, nonnumeric, empty and underflow dimensions
+  ---
+  duration_ms: 0.8162
+  type: 'test'
+  ...
+# Subtest: venue scale is finite and bounded independently of gesture input
+ok 56 - venue scale is finite and bounded independently of gesture input
+  ---
+  duration_ms: 1.1191
+  type: 'test'
+  ...
+# Subtest: native venue component starts centered at uniform contain with a loading image
+ok 57 - native venue component starts centered at uniform contain with a loading image
+  ---
+  duration_ms: 2.5271
+  type: 'test'
+  ...
+# Subtest: native zoom buttons require loaded artwork and stop at 1x and 3x
+ok 58 - native zoom buttons require loaded artwork and stop at 1x and 3x
+  ---
+  duration_ms: 1.0827
+  type: 'test'
+  ...
+# Subtest: gesture frames remain native and commit a single finite camera patch on release
+ok 59 - gesture frames remain native and commit a single finite camera patch on release
+  ---
+  duration_ms: 1.6332
+  type: 'test'
+  ...
+# Subtest: reset recreates the native camera and ignores old gesture generation
+ok 60 - reset recreates the native camera and ignores old gesture generation
+  ---
+  duration_ms: 1.0445
+  type: 'test'
+  ...
+# Subtest: viewport, compact and large font layout keys remeasure rather than crop
+ok 61 - viewport, compact and large font layout keys remeasure rather than crop
+  ---
+  duration_ms: 0.9484
+  type: 'test'
+  ...
+# Subtest: latest viewport query wins and an invalid viewport never publishes NaN geometry
+ok 62 - latest viewport query wins and an invalid viewport never publishes NaN geometry
+  ---
+  duration_ms: 0.9714
+  type: 'test'
+  ...
+# Subtest: image error retry remains local and rejects stale image callbacks
+ok 63 - image error retry remains local and rejects stale image callbacks
+  ---
+  duration_ms: 0.9152
+  type: 'test'
+  ...
+# Subtest: detach suppresses pending tick, selector, image, gesture and button writes
+ok 64 - detach suppresses pending tick, selector, image, gesture and button writes
+  ---
+  duration_ms: 1.1133
+  type: 'test'
+  ...
+# Subtest: venue viewer has only display properties and native aspect-fit pan/zoom
+ok 65 - venue viewer has only display properties and native aspect-fit pan/zoom
+  ---
+  duration_ms: 1.9938
+  type: 'test'
+  ...
+# Subtest: public guide is registered and refreshes real layout without joining a game
+ok 66 - public guide is registered and refreshes real layout without joining a game
+  ---
+  duration_ms: 1.9386
+  type: 'test'
+  ...
+# Subtest: map display toggle changes only artMode and never restarts server or location work
+ok 67 - map display toggle changes only artMode and never restarts server or location work
+  ---
+  duration_ms: 1.9226
+  type: 'test'
+  ...
+# Subtest: developer preview remains illustration-only after repeated map toggles
+ok 68 - developer preview remains illustration-only after repeated map toggles
+  ---
+  duration_ms: 2.4117
+  type: 'test'
+  ...
+# Subtest: actual developer map cases enter art mode without timers, storage, network or GPS
+ok 69 - actual developer map cases enter art mode without timers, storage, network or GPS
+  ---
+  duration_ms: 12.0243
+  type: 'test'
+  ...
+# Subtest: home, gallery and preview-map guide buttons navigate without authentication or room mutation
+ok 70 - home, gallery and preview-map guide buttons navigate without authentication or room mutation
+  ---
+  duration_ms: 3.2232
+  type: 'test'
+  ...
+# Subtest: production snapshot renders only server-visible positions and server intel on native map
+ok 71 - production snapshot renders only server-visible positions and server intel on native map
+  ---
+  duration_ms: 1.4409
+  type: 'test'
+  ...
+# Subtest: every presentation state points to the shared v3 venue art without changing action gates
+ok 72 - every presentation state points to the shared v3 venue art without changing action gates
+  ---
+  duration_ms: 0.271
+  type: 'test'
+  ...
+# Subtest: packaged venue PNG and unchanged approved source match independently recorded hashes
+ok 73 - packaged venue PNG and unchanged approved source match independently recorded hashes
+  ---
+  duration_ms: 8.14
+  type: 'test'
+  ...
+# Subtest: venue runtime has explicit no-georeferencing metadata and no invented calibration
+ok 74 - venue runtime has explicit no-georeferencing metadata and no invented calibration
+  ---
+  duration_ms: 0.9737
+  type: 'test'
+  ...
+1..74
+# tests 74
+# suites 0
+# pass 74
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16169.8077
+# EXIT_STATUS=0

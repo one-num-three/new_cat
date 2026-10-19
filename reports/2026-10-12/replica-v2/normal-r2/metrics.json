@@ -1,0 +1,278 @@
+{
+  "status": "FAILED",
+  "error": "",
+  "records": [
+    {
+      "id": "gallery",
+      "route": "pages/dev/dev",
+      "preview": false,
+      "available": true,
+      "navHeight": 87,
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844,
+              "width": 390,
+              "height": 844
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15.34375,
+              "right": 374.65625,
+              "top": 767.03125,
+              "bottom": 813.4453125,
+              "width": 359.3125,
+              "height": 46.4140625
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [],
+          ".parkArt": [],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\normal-r2\\gallery.png"
+    },
+    {
+      "id": "home",
+      "route": "pages/index/index",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 846.28125,
+              "width": 390,
+              "height": 846.28125
+            }
+          ],
+          ".hero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 426,
+              "width": 390,
+              "height": 426
+            }
+          ],
+          ".homeInput": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.71875,
+              "right": 370.28125,
+              "top": 458,
+              "bottom": 506.9921875,
+              "width": 350.5625,
+              "height": 48.9921875
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.71875,
+              "right": 370.28125,
+              "top": 550.984375,
+              "bottom": 599.9765625,
+              "width": 350.5625,
+              "height": 48.9921875
+            }
+          ],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.71875,
+              "right": 370.28125,
+              "top": 612.9765625,
+              "bottom": 672.96875,
+              "width": 350.5625,
+              "height": 59.9921875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.71875,
+              "right": 370.28125,
+              "top": 684.9609375,
+              "bottom": 739.9609375,
+              "width": 350.5625,
+              "height": 55
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": [],
+          ".heroScene": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 221.0078125,
+              "bottom": 416.0078125,
+              "width": 390,
+              "height": 195
+            }
+          ],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [],
+          ".parkArt": [],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.71875,
+              "right": 370.28125,
+              "top": 788.0546875,
+              "bottom": 814.2109375,
+              "width": 350.5625,
+              "height": 26.15625
+            }
+          ],
+          ".heroCopy": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 23.546875,
+              "right": 215.546875,
+              "top": 101.1953125,
+              "bottom": 220.671875,
+              "width": 192,
+              "height": 119.4765625
+            }
+          ]
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".heroScene",
+          "src": "/assets/faithful-v2/hero-home.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            712,
+            356
+          ],
+          "rendered": [
+            390,
+            195
+          ],
+          "ratioError": 0,
+          "method": "actual rendered box / original PNG aspect"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\normal-r2\\home.png"
+    }
+  ]
+}

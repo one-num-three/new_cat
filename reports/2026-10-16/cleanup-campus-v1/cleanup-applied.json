@@ -1,0 +1,1304 @@
+[
+  {
+    "kind": "old-test-database",
+    "path": "C:\\Users\\Keke_\\AppData\\Local\\Temp\\catmouse-fail-LpjI1k",
+    "bytes": 39144.0,
+    "retained": null,
+    "sha256": null
+  },
+  {
+    "kind": "old-test-database",
+    "path": "C:\\Users\\Keke_\\AppData\\Local\\Temp\\catmouse-k7lweb",
+    "bytes": 7494920.0,
+    "retained": null,
+    "sha256": null
+  },
+  {
+    "kind": "old-test-database",
+    "path": "C:\\Users\\Keke_\\AppData\\Local\\Temp\\catmouse-restart-S96Evg",
+    "bytes": 36442.0,
+    "retained": null,
+    "sha256": null
+  },
+  {
+    "kind": "old-test-database",
+    "path": "C:\\Users\\Keke_\\AppData\\Local\\Temp\\catmouse-six-dY9det",
+    "bytes": 39144.0,
+    "retained": null,
+    "sha256": null
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\folded-map.png",
+    "bytes": 1114581,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\folded-map.png",
+    "sha256": "B913096A5127506E372687C1959192EFA1F7519427199800FCEE9963952491C0"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\mouse-code-sheet.png",
+    "bytes": 326823,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\mouse-code-sheet.png",
+    "sha256": "485E9F09B324B766D745FE9BD5C99F5369678D6F8F95F2578FE4735FB46DAA58"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\narrow-cat.png",
+    "bytes": 361941,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\narrow-cat.png",
+    "sha256": "ECD5EACD4B234D058C53BE71AB5DC452561ABE76131E470DC53C202B60C4C856"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\narrow-mouse.png",
+    "bytes": 362664,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\narrow-mouse.png",
+    "sha256": "B30CF72E083C475872E6B7C10FDF77D779DAABD9C7E80E70AEB8C6E18EC97A5A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\narrow-paused.png",
+    "bytes": 308584,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\narrow-paused.png",
+    "sha256": "09B85F9184B5F58A60C5A3C6EBFA221B0F29A8C7CA733B0F7FEE6B0F3C12DDAA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\native-fallback.png",
+    "bytes": 402997,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\native-fallback.png",
+    "sha256": "85F8475AB2D3A4933AC4FB5397DE394CD79CEF56F09C4B466C39BB2A6DDB3FEE"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\normal-mouse.png",
+    "bytes": 822560,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-mouse.png",
+    "sha256": "D8D1853AF61E1399F57D740428D3D3A5B946C2BF62D3D55B747FFEA326BC85A8"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-exit-fix\\rules-sheet.png",
+    "bytes": 111553,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\rules-sheet.png",
+    "sha256": "402EF7F434726BEA9C142139BCE7B2A07CFEA845983B5746D2DCA64C825BDF35"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\large-cat.png",
+    "bytes": 787680,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\large-cat.png",
+    "sha256": "1762F9DF8B867BD0A508BA7F3B186E3ED87867784621396D0E9ED800954E5D23"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\large-mouse.png",
+    "bytes": 788533,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\large-mouse.png",
+    "sha256": "E05E00D6D5DC7A8E41A8586C6C8B67D880676958E4FB16EF83A6B9463825050B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\normal-alert.png",
+    "bytes": 740840,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-alert.png",
+    "sha256": "B67A07949F6D163F9B402E83158EF92F42AEAA2BED1AEDBC6E91E6737287D0FB"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\normal-captured.png",
+    "bytes": 825212,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-captured.png",
+    "sha256": "7A077AA54C025FA142CBB99A9CB0B20E70B21732C4591D2A10A943476C327BF4"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\normal-cat.png",
+    "bytes": 822807,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-cat.png",
+    "sha256": "D6F10062CE361C608BA98D3D827E89397C06BAF55785351A3944BF76D8C676C5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\normal-hiding.png",
+    "bytes": 827006,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-hiding.png",
+    "sha256": "80C49228BF7B73064517FD1855E5CF8708C53335C290B2A3B069174FFFEAD333"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\normal-offline.png",
+    "bytes": 829396,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-offline.png",
+    "sha256": "7442E11810486D8A234421C7296AAD1306E5E8D02F9179E03510B9F1B20B99E5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\map-first-2026-10-15-final\\normal-paused.png",
+    "bytes": 757045,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-first-v1\\screenshots\\normal-paused.png",
+    "sha256": "B2E2F8720B27894BD50ACD42EB972AD45A01AA2D8753142EBD09072851E69FDC"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\fusion-font-v1\\after.png",
+    "bytes": 73203,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\fusion-font-v1\\after.png",
+    "sha256": "253F08F0940278DC9CFDC39EEA798C571CDC611853F191E7645BDC766987DDD0"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\fusion-font-v1\\before.png",
+    "bytes": 107304,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\fusion-font-v1\\before.png",
+    "sha256": "144B3D9CCBF1A569B49D8596CE7A47830693F619CE7E53E166CE21D7DB1A6567"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\fusion-font-v1\\ui\\large.png",
+    "bytes": 62802,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\fusion-font-v1\\ui\\large.png",
+    "sha256": "9553EF62D6D4944E44131AC1942E4D36E48114DC67B0EB881299787C8C1AEE77"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\fusion-font-v1\\ui\\narrow.png",
+    "bytes": 76103,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\fusion-font-v1\\ui\\narrow.png",
+    "sha256": "5EF1C54885B5A77EE809BC51E509101A73FFA1318B959C38226B15C04143C5F3"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\fusion-font-v1\\ui\\normal.png",
+    "bytes": 73241,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\fusion-font-v1\\ui\\normal.png",
+    "sha256": "A357C897624EFD468EFBDAF4B05CD0232461A80E7F7F95E76FE5E1B957506672"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\delivery-ui\\custom-create.png",
+    "bytes": 300288,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\delivery-ui\\custom-create.png",
+    "sha256": "E7DDEF00F05CF8117FB0718851C902CD937BF54B6EFF1AF4C7B0915366B83279"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\delivery-ui\\custom-ready.png",
+    "bytes": 335420,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\delivery-ui\\custom-ready.png",
+    "sha256": "9921BB5F09DA62E2003ADB9B47CAFEE1FC15AFD1379CE7C93C2246D954C14BA9"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\delivery-ui\\invalid-sum.png",
+    "bytes": 303509,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\delivery-ui\\invalid-sum.png",
+    "sha256": "832562574774617EE59314BA8BDBC74E613E5A266C4CCFCFEBC1000390246EC9"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\large\\create.png",
+    "bytes": 320779,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\large\\create.png",
+    "sha256": "21C42F958DDDACC8F570EAFC83B4EEBEC9EBDAB080C7F6B504A7C9731A1E57D5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\large\\home.png",
+    "bytes": 479479,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\large\\home.png",
+    "sha256": "EA62D3B67874168F125B1D983E7E3DBD904B56C146F61E0396F27D6F87CDB0DF"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\large\\ready.png",
+    "bytes": 315822,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\large\\ready.png",
+    "sha256": "01271977824ACEB4AF82F3A8F87045282A999EC21D196106F34991F39E4E1856"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\large-delivery\\create.png",
+    "bytes": 318047,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\large-delivery\\create.png",
+    "sha256": "0770E22A4394D7AE2D7914563B007A4F98D5A6F84C587BCDB79F053E85AC8DB4"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow\\create.png",
+    "bytes": 272404,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\narrow\\create.png",
+    "sha256": "591599802B461F4558C9436C61FD7FC06795994F4E7938582D3E4FB989DEE2C6"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow\\home.png",
+    "bytes": 380028,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\narrow\\home.png",
+    "sha256": "14B7EDFAFC2AE9CB7926D7E6853D629C6BBD5F443F31CF5B42002197D6390B6A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow\\ready.png",
+    "bytes": 265026,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\narrow\\ready.png",
+    "sha256": "88BB5957CAE72609E8B71A3D6C92CB64DBDF2240BBB973730C78CC54DF2184AA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow-delivery\\create.png",
+    "bytes": 268581,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\narrow-delivery\\create.png",
+    "sha256": "DB27EEB2C0763F74E778EEFE8BC39CC8A8C60EC55D614581BBDC92B1E9EF246B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\alert.png",
+    "bytes": 664754,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\alert.png",
+    "sha256": "118A0AD40047674C5A0D4D62905216F3AE76C38D2EDDABAEBCEB5551B59D9742"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\cancelled.png",
+    "bytes": 466318,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\cancelled.png",
+    "sha256": "A575D4EFBD5C29D67F2F5DCC0E1E21779131F8A7E26BF01A96E36BD94124F933"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\captured.png",
+    "bytes": 744795,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\captured.png",
+    "sha256": "83BFA4909668E4D70D2EDAF7C2425B48A6991F58ACF7F76A69602B0F01BF4C19"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\cat.png",
+    "bytes": 824441,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\cat.png",
+    "sha256": "C719C40AA30F6DF33DAC485E2DFB68D45B4EC92E176CBA8C42C12A9EFFD158C7"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\catWin.png",
+    "bytes": 342434,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\catWin.png",
+    "sha256": "E584F00B7A92275ACE0E18FE139DC6EAA4817B17D2F35B9BD6966491C5C05993"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\code.png",
+    "bytes": 177231,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\code.png",
+    "sha256": "00E6555F2B405C6DBE9BE8370AA39577EC6E41B3F96D6E38D55DACD6C7C08233"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\create.png",
+    "bytes": 303275,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\create.png",
+    "sha256": "9F9090151928C18D17F1A9B882B0C47F46DA4E9DB681AAA5F2EC4236BAEB8AB8"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\drawer.png",
+    "bytes": 204607,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\drawer.png",
+    "sha256": "8B72FBC0DF6A416FF4AE384E7D0DB129A10868C14C9AC1DAD1512E9611814134"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\gallery.png",
+    "bytes": 73536,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\gallery.png",
+    "sha256": "BEDCA9839F973DEDF3B862B874E034075E42DE75B1AE9B79E4CA52EA7440F611"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\hiding.png",
+    "bytes": 808807,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\hiding.png",
+    "sha256": "6DDCC77F573F56F7AE2A2BCA6D41EEC9CBDD27D076F1F427782085A2EAA7AF66"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\home.png",
+    "bytes": 484810,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\home.png",
+    "sha256": "DAE616A570BFE3B863D5B84A1E2BF660A6E6CD2E8C7050F7B73A812F68606F1F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\mouse.png",
+    "bytes": 825887,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\mouse.png",
+    "sha256": "1786DE9F38EDB2775732DF3F5765B8F46E07FD180E6EF437B609ADAC4CB79E22"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\mouseWin.png",
+    "bytes": 670912,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\mouseWin.png",
+    "sha256": "88D9F1C7AD32891D84A9E619CE86D9EB01F91F6FC0727D405B45547214D5CCD9"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\offline.png",
+    "bytes": 145874,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\offline.png",
+    "sha256": "CAAF8D11987D2ADB4AC9DADE15D4D228D41B88585C60AED3FAF4612C9B78838D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\paused.png",
+    "bytes": 405358,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\paused.png",
+    "sha256": "A8AA5E306545AB64D61C26EE3625FE083C2583B0DAD428B140DF51DC80ABD559"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\ready.png",
+    "bytes": 320199,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\ready.png",
+    "sha256": "78A56290E4667C4260C2E48EAA810ADF977C9DCE206621780BED1DCD63626C33"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\venue.png",
+    "bytes": 487853,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\global-font-teams-v1\\normal\\venue.png",
+    "sha256": "92A3F2137C453BC6FBCBA6189509767BF91A3C230BC073C75CF7F083130D4D1B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-large\\cat.png",
+    "bytes": 639583,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\final-large\\cat.png",
+    "sha256": "618A1A7A5FA96AFDAC5EA9A19B99FBB28E08BEB789E2225942E52238FDBDA949"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-narrow\\cat.png",
+    "bytes": 554259,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\final-narrow\\cat.png",
+    "sha256": "A2302025091AE6142705228000B92C9CE4D2D69A687A5FF389A37521A0259BCA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-normal\\cat.png",
+    "bytes": 903019,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\final-normal\\cat.png",
+    "sha256": "649D22F2D7CC99A312D89C97D60BCFF8F0DA73C86445BA4069EF4A1423EB936D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-normal\\venue.png",
+    "bytes": 18815,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\final-normal\\venue.png",
+    "sha256": "D1C02A5190DDAFFA0581715AB82F7E650F98E60784E0B0451EFF7E3CE8B1878F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\interaction-final\\auto.png",
+    "bytes": 901973,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\interaction-final\\auto.png",
+    "sha256": "0BDC18666AD377511B01BF9047576CF1CB983AAF5B20190209436BD39C5E85E5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\interaction-final\\manual.png",
+    "bytes": 827054,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\interaction-final\\manual.png",
+    "sha256": "60528277359D6C234C1A4A45E2A769C29ED1737100726326EDAE7564FC360384"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\large\\alert.png",
+    "bytes": 540379,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\large\\alert.png",
+    "sha256": "DAE4143B948F16703EE3B7B6AD3D684B95BE0B11EC6A2A2A9163860CC07F37CD"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\large\\cat.png",
+    "bytes": 638176,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\large\\cat.png",
+    "sha256": "C973BB0695DB6CE6F53ED20A870A25CB8784E4054FA7C3F2BA1BDD06252185F1"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\large\\venue.png",
+    "bytes": 1153359,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\large\\venue.png",
+    "sha256": "3B47D949AF53DBA516017D6194A9D27A901DAF4608E01838D021CB1F742AF6DA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\narrow\\cat.png",
+    "bytes": 554388,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\narrow\\cat.png",
+    "sha256": "26DE23AC816A90998354F105150C1D5228F581807B788ACF3D61BA13F59F2CCC"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\narrow\\venue.png",
+    "bytes": 777539,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\narrow\\venue.png",
+    "sha256": "7F0726622E9F869C8FF07215304104AAA867557A7253D24C0213DEC31F121F43"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\alert.png",
+    "bytes": 743554,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\alert.png",
+    "sha256": "D8713620AC50EC8FBEE7C0A1CF76323B9DFE4413BE51E4ACE4772B2CF353C535"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\captured.png",
+    "bytes": 773880,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\captured.png",
+    "sha256": "4507D124D472948F86EBD654576A6F55C14B946A1000F42E1585A9BB0447F61B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\cat.png",
+    "bytes": 902618,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\cat.png",
+    "sha256": "7293EA2357F309FBDDC66C7CD1D77375A25678332A059286ECC795C7A9A6E570"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\hiding.png",
+    "bytes": 845163,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\hiding.png",
+    "sha256": "1A0AFBE46EF94B6F4D9CBB7D1F8A7778F3268ACDF98DC72746D09B4EBFF35AB7"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\mouse.png",
+    "bytes": 900093,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\mouse.png",
+    "sha256": "144292E0C0CF942D94B63E749052AC2295AC51FCE3D40369645B9BA98C905F9D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\mouseWin.png",
+    "bytes": 768553,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\mouseWin.png",
+    "sha256": "90791690E00C40072B7D7897D42184B206E15799CF091A0E5472F13FBAAE3A36"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\normal\\venue.png",
+    "bytes": 1207598,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\visual\\normal\\venue.png",
+    "sha256": "52479ECF3EB1CB6C6BC43BAB30F8CBA2F7EB2B6F587D2721971A0AB2AF5D1A04"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\cancelled-bottom.png",
+    "bytes": 606846,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\cancelled-bottom.png",
+    "sha256": "9E55C341CCC6E1F83E4D592949267F09EF8A8CF6C78EDD279D62A2C01B481524"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\cancelled-large-bottom.png",
+    "bytes": 503739,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\cancelled-large-bottom.png",
+    "sha256": "76FF609B4A0DD06DA4A6D2A45E0A3840CD9473B5FFFEC1FE7AA6CCA8A02AB756"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\code-bottom.png",
+    "bytes": 250006,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\code-bottom.png",
+    "sha256": "246341F9F1B2BF6CF44C0B14C99488B27148314D684F6BC4C26BD9488EA21C08"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\code-large-bottom.png",
+    "bytes": 267347,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\code-large-bottom.png",
+    "sha256": "6A67A0F9C41D80330EC7656CEA49A01B94106E97DC7C35F12DE9AF25D6C6034B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\create-bottom.png",
+    "bytes": 387481,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\create-bottom.png",
+    "sha256": "C84DF3CD7CD95CF25978D2E88B7C56D05B2DA84C69D59E0917ABE00365DBD1D3"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\create-large-bottom.png",
+    "bytes": 269871,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\create-large-bottom.png",
+    "sha256": "B19DED4D4D73C5DB8F2A9321C55EC18DE2BE62C9FAFD901471DE6FF728F20ADC"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\drawer-large-bottom.png",
+    "bytes": 220372,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\drawer-large-bottom.png",
+    "sha256": "C64C02F0AEA6F5226FA88DF0F521B605688B1F5F7EF9598D867C2C0724419ACB"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\ready-bottom.png",
+    "bytes": 424075,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\ready-bottom.png",
+    "sha256": "8486F3455784C8797039DDDB66B7100C66DA5B9419175A22F1871406294546FA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\interaction-bottom\\ready-large-bottom.png",
+    "bytes": 338015,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\interaction\\ready-large-bottom.png",
+    "sha256": "6BBB9E725BFFAABE4A7D309767A1536B8A45B994DB837B5CC9703E25F348C379"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\alert.png",
+    "bytes": 233262,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\alert.png",
+    "sha256": "6EEAA310F8EE8FBFD6E9CEB62EE3A47ACCAC043B9A4B57E52C767F6E1A9BBE19"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\captured.png",
+    "bytes": 274076,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\captured.png",
+    "sha256": "1D394A7F9D49C2BB6818BF3A9A70069BE3151A70E3B4B3BDCCC57CCAD507EE17"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\cat.png",
+    "bytes": 294947,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\cat.png",
+    "sha256": "EC628DBE0D9A78BC2B1819838F4CD6D2FB5BFF147FCCE7037D969FD33EC56056"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\code.png",
+    "bytes": 243271,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\code.png",
+    "sha256": "122F1B5DEC5430439FDF6FF306B08435B05C2EE33DBA9572A436C213118EB9C7"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\create.png",
+    "bytes": 351514,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\create.png",
+    "sha256": "3513F8091801D07AA21E6BB862125BAAD858A485B8F01C9D4D4ACD0199E3C8ED"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\gallery.png",
+    "bytes": 104136,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\gallery.png",
+    "sha256": "AD0E53DCF99F5E798AEA91FFD43CA4AF730F3A45B21446D8156B448EDDB721CE"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\hiding.png",
+    "bytes": 381492,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\hiding.png",
+    "sha256": "F12BDB26A5345CF40B162E832CBBCCE6430EAE61ADE075FA164FA9301C0AB95F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\home.png",
+    "bytes": 492102,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\home.png",
+    "sha256": "3D509344E817A7D0041669A34015A4AB7D2F8421CEF898F14B8C3C1BC5FC6187"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\mouse.png",
+    "bytes": 295115,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\mouse.png",
+    "sha256": "2A5B7625EA227F9B6BCC6112A44A1F30ED756C6356DD1372FCB27873A93B3871"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\offline.png",
+    "bytes": 177350,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\offline.png",
+    "sha256": "8E11F659298DF3E68ADFDC80E51130A41F7D9A3106309BB7162E90FD051410CF"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\paused.png",
+    "bytes": 442170,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\paused.png",
+    "sha256": "144C71D24A0CA22F7FBEBFD0F4672D0303C6858B82DBAB9829889E0FB7DA20FE"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\ready.png",
+    "bytes": 374591,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\ready.png",
+    "sha256": "9540207F5D16186BC971EB4CFF3DB8D978AB78FA726CA6E30360894B9D5B63D6"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large\\venue.png",
+    "bytes": 799753,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\venue.png",
+    "sha256": "631FDDC8B8720E62C82A3718124B9075AC3C269E7BFC535C9C4C065EAE85E717"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large-tail\\cancelled.png",
+    "bytes": 477084,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\cancelled.png",
+    "sha256": "2C64AC88BB2FA4D0B7A0334E6B5E9FF95CD9134419B4764E21C405CECB52C95C"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large-tail\\catWin.png",
+    "bytes": 363135,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\catWin.png",
+    "sha256": "A504AE92CE02B52F9B596F92C89894606C5640932217EE734EF280A58D35F64F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large-tail\\drawer.png",
+    "bytes": 217538,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\drawer.png",
+    "sha256": "219F42BA606417008B3D85516D46C09C007FBBC97FB169E9C60738E1B168D1AA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\large-tail\\mouseWin.png",
+    "bytes": 424617,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\large\\mouseWin.png",
+    "sha256": "15E7CC3879B19B4AFC7E4E3EA7DD746FCB2A3AA09E84346D1E86318CE46DD544"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\alert.png",
+    "bytes": 210038,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\alert.png",
+    "sha256": "56D7AB711F80933397C53D7B470214B58CA12B63FB06409BA072BB16BFE1DD11"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\cancelled.png",
+    "bytes": 452613,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\cancelled.png",
+    "sha256": "38E0E088078BB2C452669DEEAB9F7FF5E3426334D0D9A4E36A94C03D508A0685"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\captured.png",
+    "bytes": 208747,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\captured.png",
+    "sha256": "5E0D1EF26771CB10DEA143D831415C25DAEA6F1C55C691F5392BC9337EA6047B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\cat.png",
+    "bytes": 297287,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\cat.png",
+    "sha256": "EA5A4DA0B3FC17EDD18220B266B8C4AF84E4DCC16048207630F8B3509C3EC3A5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\catWin.png",
+    "bytes": 367902,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\catWin.png",
+    "sha256": "AE5A2D119D7E25157B15606D649CA8E343E5D4197DFD2961284678B3725C884A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\code.png",
+    "bytes": 210217,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\code.png",
+    "sha256": "F1A0CFCD0C5E0B660ED495D6811452A626FF1E12D8620100C2971E22111DAF70"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\create.png",
+    "bytes": 339704,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\create.png",
+    "sha256": "90BE640DC4CE73AE070282EE38DCF5CB8CC737A98549166995C86A75E6591172"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\drawer.png",
+    "bytes": 287130,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\drawer.png",
+    "sha256": "8E9A18370F25839F54C8BFE7166113CAD93FD00108EADB15D4C465675CFB50D7"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\gallery.png",
+    "bytes": 106787,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\gallery.png",
+    "sha256": "E5BBC8210288B0B094135EFE7F9997AFF73EEAA7DCAC36FEF376C0F375501CCE"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\hiding.png",
+    "bytes": 294837,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\hiding.png",
+    "sha256": "7608F9BB6FCCE52FA08C1675F019171C2DAC40EF4A07461BAA375F343F26D9C2"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\home.png",
+    "bytes": 445373,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\home.png",
+    "sha256": "7D452FBBB70BA278B7F9A9A6290320EAC61C091FD6FD5C50E0AE042440F49E5F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\mouse.png",
+    "bytes": 296627,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\mouse.png",
+    "sha256": "CCCC189160BB578AD6FF76490A70DD9ADE0251E2407666F33670F436870643A0"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\mouseWin.png",
+    "bytes": 401359,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\mouseWin.png",
+    "sha256": "DC38A7C8DE181547381CA7011AD33A560AD3871E9DA186FA9126B568C6BB390C"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\offline.png",
+    "bytes": 171825,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\offline.png",
+    "sha256": "28BF2234704F948EED30B5E2E6CB5D360774D9927F5843A1FF41FAE952615759"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\paused.png",
+    "bytes": 396327,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\paused.png",
+    "sha256": "BD44B4BD7C2BEA2DC115269E7022929181BF0D6F4175AE7F4DD4A2E9D2C9221A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\ready.png",
+    "bytes": 351116,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\ready.png",
+    "sha256": "78517400DDA2C500D5DDAE8EE930BD3C9A01F944851AE149DD48132341AE07C3"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\narrow-r2\\venue.png",
+    "bytes": 600662,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\narrow\\venue.png",
+    "sha256": "D501EEF8C34DDAE8E2AFE88040498F2DB3B8FDD22717B155490D2EB2503A2511"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\alert.png",
+    "bytes": 386114,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\alert.png",
+    "sha256": "0D0A5F2571B933049453DEF5FAA877EEFAD1E00A7CF3CD172643B9E1F08C36DB"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\cancelled.png",
+    "bytes": 570150,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\cancelled.png",
+    "sha256": "22F786856496FCB0EC36951D7C742B428B5FA5DA197388D29A08FDA217C6953B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\captured.png",
+    "bytes": 431250,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\captured.png",
+    "sha256": "8691B6FD884ADF5CBF817ABA6B376FD5DD88BB8D99E08468059C80F02D46C366"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\cat.png",
+    "bytes": 564413,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\cat.png",
+    "sha256": "290C906642F17DF065FB7492B5EA6A4A0DD0A2F962F33C0DD8354B5A8164E74D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\catWin.png",
+    "bytes": 472360,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\catWin.png",
+    "sha256": "49A6BF255849E238BD1128CC50C524F7BA5274EF3EB7F8EF5DD57F88637AF628"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\code.png",
+    "bytes": 249908,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\code.png",
+    "sha256": "4EA2F3815898589CE6945CA8E9D70D23B1612DEA5A2D2FC582C33082C781BA77"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\create.png",
+    "bytes": 387345,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\create.png",
+    "sha256": "47AA435B15A96B9BF06E38CD831D4FD7F3DD9D0B2A473C3B2606571D914B2F7B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\drawer.png",
+    "bytes": 288364,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\drawer.png",
+    "sha256": "B4224F426788E75D5E67E882C8D76CA9058FD09A1E70EE40ECADF303181895A7"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\gallery.png",
+    "bytes": 107550,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\gallery.png",
+    "sha256": "6E3F851447D5F1A0911E75154AA50F474F5F1DC5898FB8B9A3C50909B99B6D0A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\hiding.png",
+    "bytes": 491122,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\hiding.png",
+    "sha256": "7060A827E5FBE1062D00B11B32C53DA3ADCA3360C886D30129742554F53C58BA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\home.png",
+    "bytes": 568973,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\home.png",
+    "sha256": "FB15526148A93F4F791F3C996FBCAD0B0221B929D3A156EA9244540F07525314"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\mouse.png",
+    "bytes": 581097,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\mouse.png",
+    "sha256": "765BE9253D15F9034FE1C53BF29CA353C7072D0653EAF6D79DDC957A52F0410F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\mouseWin.png",
+    "bytes": 501758,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\mouseWin.png",
+    "sha256": "505D2EC92086F8D4DE48C35E5E630B1466C25F9ABB7A0CC5E8055113EAAFE9A5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\offline.png",
+    "bytes": 205960,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\offline.png",
+    "sha256": "6C32094AFCD1C6EFE0FBD50DA1F6112F37B4D5281E8699E2766B855366C460F3"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\paused.png",
+    "bytes": 501030,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\paused.png",
+    "sha256": "B595EC408FE161D302B9F3B79B463AFA03AEC5FF62570BBDD860D18FCAAE1210"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\ready.png",
+    "bytes": 423953,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\ready.png",
+    "sha256": "698D397A825001A5CC90DEC691BFB422C9160DC7D9C635C60CB44105B3B76303"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-13\\pixel-final-v2\\final\\normal\\venue.png",
+    "bytes": 765176,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\visual\\images\\normal\\venue.png",
+    "sha256": "D90A917775B6C22E2D668748763441FE4E8D16F8FF23EB2A6EB2A547564D9E64"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-14\\geo-binding-v1\\native-delivery\\calibration-empty.png",
+    "bytes": 638637,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-14\\geo-binding-v1\\native-delivery\\calibration-empty.png",
+    "sha256": "DA59120311D7E4BC408E40AFAEE3CEC1ABA882525438170BEB121ACDE78CD0E1"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-14\\geo-binding-v1\\native-delivery\\synthetic-bound.png",
+    "bytes": 629450,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-14\\geo-binding-v1\\native-delivery\\synthetic-bound.png",
+    "sha256": "605D36E7DF5E42F4A6BFAC1E17FBE3E162D4446286A4142DA9A129823ABF6A4C"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-14\\geo-binding-v1\\native-delivery\\synthetic-panned.png",
+    "bytes": 367446,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-14\\geo-binding-v1\\native-delivery\\synthetic-panned.png",
+    "sha256": "2A238572D19B57AB7DF3623A05FE09C367F4310A16EA770AAE6DC9C58254AD50"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-14\\geo-binding-v1\\native-verified\\calibration-empty.png",
+    "bytes": 638791,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-14\\geo-binding-v1\\native-verified\\calibration-empty.png",
+    "sha256": "6576F26750A3DE7D26BF292CE7D08E5AFD2336CA7D1383D31EB2312879A502DC"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-14\\geo-binding-v1\\native-verified\\synthetic-bound.png",
+    "bytes": 626354,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-14\\geo-binding-v1\\native-verified\\synthetic-bound.png",
+    "sha256": "5A9838B4A5E97358B2AFD689EA79F94FA166F06BE241DFF71EC82AFAC1E240B1"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-14\\geo-binding-v1\\native-verified\\synthetic-panned.png",
+    "bytes": 359797,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-14\\geo-binding-v1\\native-verified\\synthetic-panned.png",
+    "sha256": "0D9FC9EEB6C28677F8B9288C387055EC88C7428A3A5331734AF34065A84FCCC0"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\large-cat.png",
+    "bytes": 913372,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\large-cat.png",
+    "sha256": "316BD8906C8951950E91181908BB03F8B64EC5C7559E8F10AED564582B86EE95"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\large-mouse.png",
+    "bytes": 913496,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\large-mouse.png",
+    "sha256": "C22FCA55DB3BAF33604B82889BD7647AE870552F6B739F2AD9C021CA28210017"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\narrow-cat.png",
+    "bytes": 449285,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\narrow-cat.png",
+    "sha256": "FBB3F8685C13930E0781B7EA63B8DCAA8ED27F394418F7A0B3FF35188FA4965C"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\narrow-mouse.png",
+    "bytes": 449307,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\narrow-mouse.png",
+    "sha256": "1BDFBE8AAA9C297F3170222B24283E45E2C57CB484550CFF985AF2EBD80D7E2C"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\narrow-paused.png",
+    "bytes": 345445,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\narrow-paused.png",
+    "sha256": "87F6BEFB2F685B5DF7F1AFFD1E2A6B79250313BA85E5E55ECDAD6E5C75669689"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-alert.png",
+    "bytes": 852987,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-alert.png",
+    "sha256": "86AB854527E9A938DD93691449C0AF7CD1EF2D7A415B0BFD17BA742417A7A64E"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-captured.png",
+    "bytes": 854001,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-captured.png",
+    "sha256": "CBDE5CDE460A4A0DBF2578DAC9B632EB5D978BE49AE2131E55B655CC2D867E1D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-cat.png",
+    "bytes": 912848,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-cat.png",
+    "sha256": "462385E1790393945FFAAE6069805C11A50B71C6657BDCDD8CC588AA493A6679"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-hiding.png",
+    "bytes": 854882,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-hiding.png",
+    "sha256": "8D5EC4BCAC5799CFE9FC77AC418D214C30E3BF97A41D6273C9604A730C96E580"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-mouse.png",
+    "bytes": 912933,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-mouse.png",
+    "sha256": "565BD5185A10443F7E9F5AFE94311B1535960EDE194BCDFBF9BFC7D271A833B5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-offline.png",
+    "bytes": 859897,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-offline.png",
+    "sha256": "AD1100427A7A43BAEB8BA63C049231F886559AC86CE3F6E667F6A5BE83E458D3"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-final\\normal-paused.png",
+    "bytes": 790259,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\normal-paused.png",
+    "sha256": "B088C20C6254CAF1AA1F7F8F88F5E59643F015D2C5636C319828E27E7C269280"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-motion-final\\mouse-code-sheet.png",
+    "bytes": 424588,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\mouse-code-sheet.png",
+    "sha256": "18E40B5E0F29E0265D697FC8CF200F94AE4ED289499E388D8FC964C6B2181F7F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-motion-final\\mouse-collapsed.png",
+    "bytes": 1094210,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\mouse-collapsed.png",
+    "sha256": "70E535A36DE4F9C435EBCC0E495EA918BB19624B8DF514CCA2FBA4AEC50F1B8D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-motion-final\\rules-sheet.png",
+    "bytes": 128807,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\rules-sheet.png",
+    "sha256": "B393F4B6E68EE6DD2CAB3029A877598DE09E891156703FE9B738DB3ADD766CD5"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\fixed-hud-drawer\\native-motion-final\\swipe-expanded.png",
+    "bytes": 913026,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\fixed-hud-drawer-v1\\screenshots\\swipe-expanded.png",
+    "sha256": "2F3BDD781ACE3EBF83C7B5EFEA8FF526B647DB39E096F29AD3FA99039E9BB3FA"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\large-mouse.png",
+    "bytes": 1028510,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\large-mouse.png",
+    "sha256": "572EB0C48720B6CD7E07A8CEEF0CE4A2F9EDDFA0C1A4DE9F375216F8E51DBA7A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\motion-final.png",
+    "bytes": 1092061,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\motion-final.png",
+    "sha256": "057DCEC6EF0046CCC7103AF4B86F2A8A1B29E7C6901E787AFD3FFFAD332E4928"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\motion-mid.png",
+    "bytes": 1089418,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\motion-mid.png",
+    "sha256": "90114DB02BB4B0BEC1F42DA800FB0025E5340B6516DFC8BC46BA7FB7AA2C7FF6"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\narrow-cat.png",
+    "bytes": 535802,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\narrow-cat.png",
+    "sha256": "AF0E99A18BB6A5457EC851B09543767969A614A286422622D3CD695A6B07690F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\narrow-paused.png",
+    "bytes": 454201,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\narrow-paused.png",
+    "sha256": "9EC05A0937428088BD0BD703E2CBF1A127C3454600E37DDB4F4153AAA0BC505F"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\normal-offline.png",
+    "bytes": 989029,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\normal-offline.png",
+    "sha256": "76356795A6450FB6381910B3EB1538DDAE5DCCF03DA8ED5260834B8A2B2C13D7"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\remaining\\right-edge-docked.png",
+    "bytes": 1092303,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\right-edge-docked.png",
+    "sha256": "30956EF741B29347D696286A61EC3DCF8CD96B55EA61EF7D4C7DEE152AC6BF24"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\open-mouse.png",
+    "bytes": 1028216,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\open-mouse.png",
+    "sha256": "A568C552775B821A374307F6CD5D72882BD6CF04282CEB95354D96A36AB3393E"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\runtime-pan-left.png",
+    "bytes": 1072264,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\runtime-pan-left.png",
+    "sha256": "69111D7A83EEA76F7302D88362114E675473A7200EFA79D059CFC2D9C93EBBB3"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\runtime-pan-right.png",
+    "bytes": 1028046,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\runtime-pan-right.png",
+    "sha256": "8742668FBFD3B1322F51A4D85DF6F7D10F7A1BEEC2081B66DD5E886847E46DBF"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\runtime-pinch-in.png",
+    "bytes": 1008089,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\runtime-pinch-in.png",
+    "sha256": "7FF8EB50FB203986404B3FE262CB5D0107801DA4C06FE83D80DCF48F77F8F66A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\runtime-pinch-out.png",
+    "bytes": 900045,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\runtime-pinch-out.png",
+    "sha256": "E075534C1AD76FA1FAE96E533EA4CE315D37C01EDA9E849B87CAC8467E31275A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\zoom-in.png",
+    "bytes": 1020385,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\zoom-in.png",
+    "sha256": "46DE0CA61D9F87A146651B69DC2BE3142ADEFB114010A740106E3BB0EBE269FD"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\map-touch-dock\\verified\\zoom-out-whole.png",
+    "bytes": 722079,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\zoom-out-whole.png",
+    "sha256": "57D38D70EA6C6937862C08F48289859B7D9BBD6A41D02BCBBCE285CC4D782AFC"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\interactions\\offline-clears.png",
+    "bytes": 860026,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\offline-clears.png",
+    "sha256": "7C0539E6BEB90CEAA65E4DFD557E209F86ECFED6CC6795581E37A6949FD97C32"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\interactions\\outside-reference.png",
+    "bytes": 883152,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\outside-reference.png",
+    "sha256": "7D38B19C42A2FA5AC2CB5C0CF6C0C632B6F3A4680E3FD6813C86EF855660F217"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\interactions\\runtime-pan-zoom.png",
+    "bytes": 879187,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\runtime-pan-zoom.png",
+    "sha256": "C61AF292CFB1D08FC2C6EDCE4320B76005CCFC13386FC7F0C41B0AA2A010FF21"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\interactions\\self-before.png",
+    "bytes": 912038,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\self-before.png",
+    "sha256": "3A11B7C7C48D0089FE7B3BC4C49319720403CBA2B8B2189D3AC6F9AA87E7B73B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\interactions\\self-focused.png",
+    "bytes": 912038,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\self-before.png",
+    "sha256": "3A11B7C7C48D0089FE7B3BC4C49319720403CBA2B8B2189D3AC6F9AA87E7B73B"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\large-mouse.png",
+    "bytes": 912102,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\large-mouse.png",
+    "sha256": "15EE45B7B906372DC9FC0C1FDC287D64FB9226C1213CAE6D5C7258A70420363D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\narrow-cat.png",
+    "bytes": 446520,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\narrow-cat.png",
+    "sha256": "0461629F21F874A03229F56F0D290F4E4F6382246DAB2A88B9D6F6BC8E7B01C1"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\normal-captured.png",
+    "bytes": 853817,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\normal-captured.png",
+    "sha256": "EDFABE5A429B3ABDF133DF9E80A56E03D7361632FD879722D38A1452902BD30A"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\normal-cat.png",
+    "bytes": 910847,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\normal-cat.png",
+    "sha256": "6AFC549265B95A2CF78C2DE3860C4D239EED23F2C522CF8C91BA2E2CE8FDB456"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\normal-mouse.png",
+    "bytes": 911631,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\before-mouse.png",
+    "sha256": "113E4008308A9779DE2CB3CD1FD9892DE3D0AEF15A4D34B8E3FDEB5968B21E62"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\normal-offline.png",
+    "bytes": 859779,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\osm-art-runtime-v1\\screenshots\\normal-offline.png",
+    "sha256": "23F67FF1C1632C3B2442276B7C190D114FF0CCA9C02E848AECDBB4E0A6E9AF84"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-15\\osm-art-runtime\\native\\self-before.png",
+    "bytes": 911631,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\screenshots\\before-mouse.png",
+    "sha256": "113E4008308A9779DE2CB3CD1FD9892DE3D0AEF15A4D34B8E3FDEB5968B21E62"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\cat.png",
+    "bytes": 1032492,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\cat.png",
+    "sha256": "468B48EA02CE72435E5C0BCFBDD60BE3A09E3B670E08868738EF0F2FBC8F0543"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\mouse.png",
+    "bytes": 1033876,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\mouse.png",
+    "sha256": "1FBE2693FA7722C50323FE38CF93E3F178E4D099ACDE0ADA77866961D219FA89"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\native-map.png",
+    "bytes": 306350,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\native-map.png",
+    "sha256": "434577FCA394C6B54DD9105084AA817D9C05B8BE16DFC79DE27B69613AF2E21D"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\offline.png",
+    "bytes": 988815,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\offline.png",
+    "sha256": "079CC64FADC4E4725A2BA489CBD7EE187D37D3FA961E4605D6C168A0065CBED6"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\runtime-pan.png",
+    "bytes": 1013558,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\runtime-pan.png",
+    "sha256": "36A0ED62B447205256E2EBC81F3EFDDEE0B435050D11A8B7741C2D1A0174CCED"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\whole-map.png",
+    "bytes": 726885,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\whole-map.png",
+    "sha256": "E1160A98CFF8E15082C5C36E540237475DC8892F90E8CA78DD61A46E26E9DE09"
+  },
+  {
+    "kind": "duplicate-test-screenshot",
+    "path": "D:\\cat-mouse-preview-evidence\\2026-10-16\\map-markers-v2\\zoom-in.png",
+    "bytes": 1026350,
+    "retained": "D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\map-markers-v2\\zoom-in.png",
+    "sha256": "858D20218CDC8ACDB18DA10AACD062A9E02032D0D8153563685BB8F36C50946F"
+  }
+]

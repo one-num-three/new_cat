@@ -1,0 +1,35 @@
+ROUTE gallery
+PASS gallery
+ROUTE home
+PASS home
+ROUTE create
+PASS create
+ROUTE ready
+PASS ready
+ROUTE cat
+PASS cat
+ROUTE mouse
+SDK_FAIL_PHASE mouse screenshot timeout waiting for automator response
+SDK_RECONNECT mouse timeout waiting for automator response
+PASS mouse
+ROUTE alert
+PASS alert
+ROUTE hiding
+PASS hiding
+ROUTE code
+PASS code
+ROUTE captured
+PASS captured
+ROUTE paused
+PASS paused
+ROUTE offline
+PASS offline
+ROUTE catWin
+PASS catWin
+ROUTE mouseWin
+PASS mouseWin
+ROUTE cancelled
+PASS cancelled
+ROUTE drawer
+PASS drawer
+REPLICA_UI_PASS=16 FONT_SCALE=1

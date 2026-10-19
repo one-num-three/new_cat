@@ -1,0 +1,34 @@
+[
+  {
+    "label": "BASELINE",
+    "command": "node verify.cjs baseline.json baseline",
+    "input": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\georegistration-v5\\baseline.json",
+    "stdout": "PASS enabled=false mapping=null image=unchanged\n",
+    "stderr": "",
+    "exit_status": 0
+  },
+  {
+    "label": "MODIFIED",
+    "command": "node verify.cjs MODIFIED_FILE.json registered --report",
+    "input": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\georegistration-v5\\MODIFIED_FILE.json",
+    "stdout": "PASS anchors=41 triangles=72 folds=0 crossings=0 roundtrips=288 outside=null crs_guard=PASS image=unchanged fieldVerified=false\n",
+    "stderr": "",
+    "exit_status": 0
+  },
+  {
+    "label": "ROLLBACK",
+    "command": "\"D:\\Program Files\\Git\\bin\\bash.exe\" -c \"test -x ./ROLLBACK.sh && ./ROLLBACK.sh rollback-test.json\"",
+    "input": "copy of MODIFIED_FILE.json -> D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\georegistration-v5\\rollback-test.json",
+    "stdout": "ROLLBACK_PASS enabled=false status=unregistered image=unchanged\n",
+    "stderr": "",
+    "exit_status": 0
+  },
+  {
+    "label": "RESTORED",
+    "command": "node verify.cjs rollback-test.json baseline",
+    "input": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\georegistration-v5\\rollback-test.json",
+    "stdout": "PASS enabled=false mapping=null image=unchanged\n",
+    "stderr": "",
+    "exit_status": 0
+  }
+]

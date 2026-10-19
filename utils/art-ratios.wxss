@@ -1,0 +1,32 @@
+/* Generated from verified PNG dimensions. Prevent widthFix cached-height distortion when CSS parent width changes. Do not edit by hand. */
+.heroScene{aspect-ratio:712 / 396;height:auto!important}
+.createHero .heroArt{aspect-ratio:712 / 340;height:auto!important}
+.readyHero .heroArt{aspect-ratio:712 / 258;height:auto!important}
+.codeHero .heroArt{aspect-ratio:712 / 288;height:auto!important}
+.devHero .devHeroArt{aspect-ratio:712 / 279;height:auto!important}
+.createHero .createCloud{aspect-ratio:223 / 103;height:auto!important}
+.readyHero .readyCloud{aspect-ratio:186 / 61;height:auto!important}
+.devHero .galleryCloud{aspect-ratio:154 / 60;height:auto!important}
+.heroCloud,.mapCloud{aspect-ratio:188 / 88;height:auto!important}
+.heroCanopy{aspect-ratio:277 / 318;height:auto!important}
+.mapCanopyLeft{aspect-ratio:258 / 43;height:auto!important}
+.mapCanopyRight{aspect-ratio:289 / 43;height:auto!important}
+.state-mouse .stateArt,.state-mouse .resultArt{aspect-ratio:294 / 180;height:auto!important}
+.state-hiding .stateArt,.state-hiding .resultArt{aspect-ratio:371 / 234;height:auto!important}
+.state-captured .stateArt,.state-captured .resultArt{aspect-ratio:310 / 195;height:auto!important}
+.state-paused .stateArt,.state-paused .resultArt{aspect-ratio:364 / 208;height:auto!important}
+.state-offline .stateArt,.state-offline .resultArt{aspect-ratio:315 / 224;height:auto!important}
+.state-catWin .stateArt,.state-catWin .resultArt{aspect-ratio:401 / 276;height:auto!important}
+.state-mouseWin .stateArt,.state-mouseWin .resultArt{aspect-ratio:420 / 229;height:auto!important}
+.state-cancelled .stateArt,.state-cancelled .resultArt{aspect-ratio:364 / 214;height:auto!important}
+.state-hiding .parkArt{aspect-ratio:450 / 468;height:auto!important}
+.state-cat .parkArt{aspect-ratio:450 / 472;height:auto!important}
+.state-mouse .parkArt{aspect-ratio:450 / 459;height:auto!important}
+.state-mouse.nearby .parkArt,.state-cat.nearby .parkArt{aspect-ratio:450 / 451;height:auto!important}
+.state-captured .parkArt{aspect-ratio:450 / 446;height:auto!important}
+.state-paused .parkArt{aspect-ratio:450 / 433;height:auto!important}
+.state-offline .parkArt{aspect-ratio:450 / 467;height:auto!important}
+.state-catWin .parkArt{aspect-ratio:450 / 403;height:auto!important}
+.state-mouseWin .parkArt{aspect-ratio:450 / 367;height:auto!important}
+.state-cancelled .parkArt{aspect-ratio:450 / 412;height:auto!important}
+.mapPage.drawerOpen .parkArt{aspect-ratio:450 / 227;height:auto!important}

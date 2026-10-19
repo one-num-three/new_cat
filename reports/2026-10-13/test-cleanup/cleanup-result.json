@@ -1,0 +1,13 @@
+{
+  "deletedFiles": 248,
+  "deletedBytes": 100335333,
+  "recursive": false,
+  "status": "PASS",
+  "allDeletedFilesHaveByteIdenticalRetainedCopies": true,
+  "otherDirectoriesUnchanged": true,
+  "overallStatus": "PARTIAL",
+  "userConfirmedRemainingCleanup": true,
+  "remainingFiles": 972,
+  "remainingBytes": 165766593,
+  "remainingExecution": "Deletion commands rejected before execution; no additional files removed"
+}

@@ -1,0 +1,9 @@
+COMMAND=node reports/2026-10-13/xuanwu-ui-v1/rollback-build-fixture.cjs
+CWD=D:/cat-mouse-miniprogram
+STDOUT:
+FIXTURE_FILES_COPIED=135
+BASELINE_VALID=33/33
+NEW_UI_TESTS_EXCLUDED=2
+NODE_MODULES_COPIED=0
+FIXTURE=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\rollback-fixture
+EXIT_STATUS=0

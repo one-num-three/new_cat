@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "reopened": [
+    {
+      "path": "DIFF_FILE",
+      "bytes": 502613,
+      "sha256": "5c523d941f81394d6b15d85a1c8b2d6db378b9eefdd02428169e92d55508158f"
+    },
+    {
+      "path": "VERIFICATION.txt",
+      "bytes": 7497,
+      "sha256": "ea665d2fe2d754d04ce4f3306bed1907d05ae69438b9f6e3f7a3ddcb0a81e575"
+    },
+    {
+      "path": "ROLLBACK.sh",
+      "bytes": 329,
+      "sha256": "9a042fc61653e0bde9549607c6987683f96a4886c0e2bae3d37aad243ddcc265"
+    },
+    {
+      "path": "README.md",
+      "bytes": 708,
+      "sha256": "95edb350886ece07991eef878fc7eab7d3e4bd607f31f05abbe1684d8a8a8943"
+    },
+    {
+      "path": "changes.json",
+      "bytes": 22880,
+      "sha256": "d922b29767314cfee1213483892614365d0c94f9d93464b4e40870482acaa831"
+    },
+    {
+      "path": "pack-audit/audit.txt",
+      "bytes": 1572,
+      "sha256": "3a36bb6d3dee786f08ccc99515ba5b6239140f9214dfedb30ac394dad4b36634"
+    },
+    {
+      "path": "visual/compare.html",
+      "bytes": 27725,
+      "sha256": "a68270e6ffd43358139b7cea7a75833178e98d739812c71b4574f7709a8abd34"
+    },
+    {
+      "path": "visual/STATUS.md",
+      "bytes": 918,
+      "sha256": "02a69ced5a12ff2d074b7d198a4981a3d36dc80b41d1e477047cd928dd67dbca"
+    }
+  ],
+  "modifiedFiles": 119,
+  "modifiedBytes": 2085252,
+  "sourceCopyFiles": 127,
+  "baselineAndRestoredSha": 33,
+  "liveChangedVsBaseline": 28,
+  "newFiles": 94,
+  "liveUiStillChanged": true,
+  "visualFinalAcceptance": false
+}

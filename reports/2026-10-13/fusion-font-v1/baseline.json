@@ -1,0 +1,10 @@
+[
+  {
+    "path": "pages/dev/dev.wxss",
+    "sha256": "f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd"
+  },
+  {
+    "path": "pages/dev/dev.wxml",
+    "sha256": "660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554"
+  }
+]

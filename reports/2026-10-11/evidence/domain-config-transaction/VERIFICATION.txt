@@ -1,0 +1,18 @@
+Changed field: utils/config.js baseUrl, wsUrl, localTestIdentities. Production gateway selected; local test identity disabled.
+Baseline fixture SHA-256: B2F022DF9E076253CBC8069FAAB0E69CB732AD4B137144B5F6FC48829ECDD6B0.
+Modified SHA-256: 9D5303084117A3E41273AFE7033107CD6BFFBEEDFF7C5588A9B98B15C262EAEF. Actual utils/config.js and MODIFIED_FILE hashes match; actual file remains changed.
+
+Artifacts:
+MODIFIED_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\domain-config-transaction\MODIFIED_FILE
+DIFF_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\domain-config-transaction\DIFF_FILE
+VERIFICATION.txt: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\domain-config-transaction\VERIFICATION.txt
+ROLLBACK.sh: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\domain-config-transaction\ROLLBACK.sh
+
+BASELINE command: node -e "const fs=require('fs'),s=fs.readFileSync(process.argv[1],'utf8'); if(!s.includes('127.0.0.1:4000')||!s.includes('localTestIdentities: true'))process.exit(1); console.log('BASELINE_LOCAL_TEST=true')" reports/2026-10-11/evidence/domain-config-transaction/BASELINE_FILE
+BASELINE input: BASELINE_FILE. Literal output: BASELINE_LOCAL_TEST=true. Exit status: 0.
+MODIFIED command: node -e "const fs=require('fs'),s=fs.readFileSync(process.argv[1],'utf8'); if(!s.includes('https://seu-link.fit/catmouse')||!s.includes('wss://seu-link.fit/catmouse')||!s.includes('localTestIdentities: false'))process.exit(1); console.log('MODIFIED_GATEWAY=true')" reports/2026-10-11/evidence/domain-config-transaction/MODIFIED_FILE
+MODIFIED input: MODIFIED_FILE. Literal output: MODIFIED_GATEWAY=true. Exit status: 0.
+ROLLBACK command: bash reports/2026-10-11/evidence/domain-config-transaction/ROLLBACK.sh reports/2026-10-11/evidence/domain-config-transaction/ROLLBACK_TEST_COPY
+ROLLBACK input: disposable copy of MODIFIED_FILE. Literal output: RESTORED_LOCAL_TEST_CONFIG. Exit status: 0.
+ROLLBACK verification command: node -e "const fs=require('fs'),s=fs.readFileSync(process.argv[1],'utf8'); if(!s.includes('127.0.0.1:4000')||!s.includes('localTestIdentities: true'))process.exit(1); console.log('ROLLBACK_LOCAL_TEST=true')" reports/2026-10-11/evidence/domain-config-transaction/ROLLBACK_TEST_COPY
+ROLLBACK verification literal output: ROLLBACK_LOCAL_TEST=true. Exit status: 0. Restored behavior: local loopback + local test identity on the disposable copy. Actual utils/config.js remains HTTPS/WSS + production identity.

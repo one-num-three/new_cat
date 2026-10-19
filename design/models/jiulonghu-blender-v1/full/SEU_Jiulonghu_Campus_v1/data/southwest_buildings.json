@@ -1,0 +1,3906 @@
+[
+  {
+    "id": "SW-W2-west",
+    "name_cn": "停车楼·west",
+    "group": "parking",
+    "status": "planned",
+    "footprint_px": [
+      [
+        162,
+        509
+      ],
+      [
+        188,
+        509
+      ],
+      [
+        188,
+        519
+      ],
+      [
+        179,
+        519
+      ],
+      [
+        179,
+        538
+      ],
+      [
+        162,
+        538
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "W2"
+  },
+  {
+    "id": "SW-W2-east",
+    "name_cn": "停车楼·east",
+    "group": "parking",
+    "status": "planned",
+    "footprint_px": [
+      [
+        197,
+        515
+      ],
+      [
+        211,
+        515
+      ],
+      [
+        211,
+        538
+      ],
+      [
+        197,
+        538
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "W2"
+  },
+  {
+    "id": "SW-W2-link",
+    "name_cn": "停车楼·link",
+    "group": "parking",
+    "status": "planned",
+    "footprint_px": [
+      [
+        188,
+        513
+      ],
+      [
+        198,
+        513
+      ],
+      [
+        198,
+        518
+      ],
+      [
+        188,
+        518
+      ]
+    ],
+    "height_m": 9,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "W2"
+  },
+  {
+    "id": "SW-E2-west-1",
+    "name_cn": "橘园宿舍二组·west-1",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        151,
+        550
+      ],
+      [
+        178,
+        550
+      ],
+      [
+        178,
+        557
+      ],
+      [
+        151,
+        557
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-1",
+    "name_cn": "橘园宿舍二组·east-1",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        184,
+        550
+      ],
+      [
+        210,
+        550
+      ],
+      [
+        210,
+        557
+      ],
+      [
+        184,
+        557
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-west-2",
+    "name_cn": "橘园宿舍二组·west-2",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        153,
+        568
+      ],
+      [
+        179,
+        568
+      ],
+      [
+        179,
+        575
+      ],
+      [
+        153,
+        575
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-2",
+    "name_cn": "橘园宿舍二组·east-2",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        184,
+        568
+      ],
+      [
+        211,
+        568
+      ],
+      [
+        211,
+        575
+      ],
+      [
+        184,
+        575
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-west-3",
+    "name_cn": "橘园宿舍二组·west-3",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        154,
+        583
+      ],
+      [
+        179,
+        583
+      ],
+      [
+        179,
+        590
+      ],
+      [
+        154,
+        590
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-3",
+    "name_cn": "橘园宿舍二组·east-3",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        186,
+        583
+      ],
+      [
+        211,
+        583
+      ],
+      [
+        211,
+        590
+      ],
+      [
+        186,
+        590
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-west-4",
+    "name_cn": "橘园宿舍二组·west-4",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        156,
+        599
+      ],
+      [
+        181,
+        599
+      ],
+      [
+        181,
+        606
+      ],
+      [
+        156,
+        606
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-4",
+    "name_cn": "橘园宿舍二组·east-4",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        188,
+        599
+      ],
+      [
+        212,
+        599
+      ],
+      [
+        212,
+        606
+      ],
+      [
+        188,
+        606
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-west-5",
+    "name_cn": "橘园宿舍二组·west-5",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        157,
+        612
+      ],
+      [
+        182,
+        612
+      ],
+      [
+        182,
+        618
+      ],
+      [
+        157,
+        618
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-5",
+    "name_cn": "橘园宿舍二组·east-5",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        189,
+        612
+      ],
+      [
+        213,
+        612
+      ],
+      [
+        213,
+        618
+      ],
+      [
+        189,
+        618
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-link-1",
+    "name_cn": "橘园宿舍二组·east-link-1",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        209,
+        556
+      ],
+      [
+        214,
+        556
+      ],
+      [
+        214,
+        569
+      ],
+      [
+        209,
+        569
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-link-2",
+    "name_cn": "橘园宿舍二组·east-link-2",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        210,
+        575
+      ],
+      [
+        215,
+        575
+      ],
+      [
+        215,
+        583
+      ],
+      [
+        210,
+        583
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-link-3",
+    "name_cn": "橘园宿舍二组·east-link-3",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        211,
+        590
+      ],
+      [
+        216,
+        590
+      ],
+      [
+        216,
+        599
+      ],
+      [
+        211,
+        599
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E2-east-link-4",
+    "name_cn": "橘园宿舍二组·east-link-4",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        212,
+        606
+      ],
+      [
+        217,
+        606
+      ],
+      [
+        217,
+        613
+      ],
+      [
+        212,
+        613
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E2"
+  },
+  {
+    "id": "SW-E1-1-north",
+    "name_cn": "橘园宿舍一组·1-north",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        172,
+        668
+      ],
+      [
+        231,
+        668
+      ],
+      [
+        231,
+        675
+      ],
+      [
+        172,
+        675
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-1-south-west",
+    "name_cn": "橘园宿舍一组·1-south-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        172,
+        682
+      ],
+      [
+        198,
+        682
+      ],
+      [
+        198,
+        689
+      ],
+      [
+        172,
+        689
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-1-south-east",
+    "name_cn": "橘园宿舍一组·1-south-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        201,
+        682
+      ],
+      [
+        231,
+        682
+      ],
+      [
+        231,
+        689
+      ],
+      [
+        201,
+        689
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-1-west",
+    "name_cn": "橘园宿舍一组·1-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        172,
+        675
+      ],
+      [
+        178,
+        675
+      ],
+      [
+        178,
+        682
+      ],
+      [
+        172,
+        682
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-1-middle",
+    "name_cn": "橘园宿舍一组·1-middle",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        195,
+        675
+      ],
+      [
+        204,
+        675
+      ],
+      [
+        204,
+        682
+      ],
+      [
+        195,
+        682
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-1-east",
+    "name_cn": "橘园宿舍一组·1-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        224,
+        675
+      ],
+      [
+        231,
+        675
+      ],
+      [
+        231,
+        682
+      ],
+      [
+        224,
+        682
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-2-north",
+    "name_cn": "橘园宿舍一组·2-north",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        179,
+        699
+      ],
+      [
+        235,
+        699
+      ],
+      [
+        235,
+        704
+      ],
+      [
+        179,
+        704
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-2-south-west",
+    "name_cn": "橘园宿舍一组·2-south-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        179,
+        710
+      ],
+      [
+        205,
+        710
+      ],
+      [
+        205,
+        717
+      ],
+      [
+        179,
+        717
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-2-south-east",
+    "name_cn": "橘园宿舍一组·2-south-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        206,
+        710
+      ],
+      [
+        235,
+        710
+      ],
+      [
+        235,
+        717
+      ],
+      [
+        206,
+        717
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-2-west",
+    "name_cn": "橘园宿舍一组·2-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        179,
+        704
+      ],
+      [
+        185,
+        704
+      ],
+      [
+        185,
+        710
+      ],
+      [
+        179,
+        710
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-2-middle",
+    "name_cn": "橘园宿舍一组·2-middle",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        202,
+        704
+      ],
+      [
+        209,
+        704
+      ],
+      [
+        209,
+        710
+      ],
+      [
+        202,
+        710
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-2-east",
+    "name_cn": "橘园宿舍一组·2-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        229,
+        704
+      ],
+      [
+        235,
+        704
+      ],
+      [
+        235,
+        710
+      ],
+      [
+        229,
+        710
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-3-north",
+    "name_cn": "橘园宿舍一组·3-north",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        184,
+        726
+      ],
+      [
+        239,
+        726
+      ],
+      [
+        239,
+        732
+      ],
+      [
+        184,
+        732
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-3-south-west",
+    "name_cn": "橘园宿舍一组·3-south-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        184,
+        740
+      ],
+      [
+        208,
+        740
+      ],
+      [
+        208,
+        747
+      ],
+      [
+        184,
+        747
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-3-south-east",
+    "name_cn": "橘园宿舍一组·3-south-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        211,
+        740
+      ],
+      [
+        239,
+        740
+      ],
+      [
+        239,
+        747
+      ],
+      [
+        211,
+        747
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-3-west",
+    "name_cn": "橘园宿舍一组·3-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        184,
+        732
+      ],
+      [
+        190,
+        732
+      ],
+      [
+        190,
+        740
+      ],
+      [
+        184,
+        740
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-3-middle",
+    "name_cn": "橘园宿舍一组·3-middle",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        205,
+        732
+      ],
+      [
+        214,
+        732
+      ],
+      [
+        214,
+        740
+      ],
+      [
+        205,
+        740
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-3-east",
+    "name_cn": "橘园宿舍一组·3-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        233,
+        732
+      ],
+      [
+        239,
+        732
+      ],
+      [
+        239,
+        740
+      ],
+      [
+        233,
+        740
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-4-north",
+    "name_cn": "橘园宿舍一组·4-north",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        189,
+        755
+      ],
+      [
+        237,
+        755
+      ],
+      [
+        237,
+        762
+      ],
+      [
+        189,
+        762
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-4-south-west",
+    "name_cn": "橘园宿舍一组·4-south-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        189,
+        769
+      ],
+      [
+        212,
+        769
+      ],
+      [
+        212,
+        774
+      ],
+      [
+        189,
+        774
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-4-south-east",
+    "name_cn": "橘园宿舍一组·4-south-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        216,
+        769
+      ],
+      [
+        237,
+        769
+      ],
+      [
+        237,
+        774
+      ],
+      [
+        216,
+        774
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-4-west",
+    "name_cn": "橘园宿舍一组·4-west",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        189,
+        762
+      ],
+      [
+        195,
+        762
+      ],
+      [
+        195,
+        769
+      ],
+      [
+        189,
+        769
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-4-middle",
+    "name_cn": "橘园宿舍一组·4-middle",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        209,
+        762
+      ],
+      [
+        219,
+        762
+      ],
+      [
+        219,
+        769
+      ],
+      [
+        209,
+        769
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-E1-4-east",
+    "name_cn": "橘园宿舍一组·4-east",
+    "group": "dormitory",
+    "status": "existing",
+    "footprint_px": [
+      [
+        232,
+        762
+      ],
+      [
+        237,
+        762
+      ],
+      [
+        237,
+        769
+      ],
+      [
+        232,
+        769
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "E1"
+  },
+  {
+    "id": "SW-C4-court-N",
+    "name_cn": "工培中心A·court-N",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        237,
+        502
+      ],
+      [
+        269,
+        502
+      ],
+      [
+        269,
+        512
+      ],
+      [
+        237,
+        512
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C4"
+  },
+  {
+    "id": "SW-C4-court-S",
+    "name_cn": "工培中心A·court-S",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        237,
+        523
+      ],
+      [
+        269,
+        523
+      ],
+      [
+        269,
+        534
+      ],
+      [
+        237,
+        534
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C4"
+  },
+  {
+    "id": "SW-C4-court-W",
+    "name_cn": "工培中心A·court-W",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        237,
+        512
+      ],
+      [
+        244,
+        512
+      ],
+      [
+        244,
+        523
+      ],
+      [
+        237,
+        523
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C4"
+  },
+  {
+    "id": "SW-C4-court-E",
+    "name_cn": "工培中心A·court-E",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        260,
+        512
+      ],
+      [
+        269,
+        512
+      ],
+      [
+        269,
+        523
+      ],
+      [
+        260,
+        523
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C4"
+  },
+  {
+    "id": "SW-C2-court-N",
+    "name_cn": "机械工程学院楼·court-N",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        281,
+        502
+      ],
+      [
+        321,
+        502
+      ],
+      [
+        321,
+        513
+      ],
+      [
+        281,
+        513
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C2"
+  },
+  {
+    "id": "SW-C2-court-S",
+    "name_cn": "机械工程学院楼·court-S",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        281,
+        522
+      ],
+      [
+        321,
+        522
+      ],
+      [
+        321,
+        534
+      ],
+      [
+        281,
+        534
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C2"
+  },
+  {
+    "id": "SW-C2-court-W",
+    "name_cn": "机械工程学院楼·court-W",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        281,
+        513
+      ],
+      [
+        289,
+        513
+      ],
+      [
+        289,
+        522
+      ],
+      [
+        281,
+        522
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C2"
+  },
+  {
+    "id": "SW-C2-court-E",
+    "name_cn": "机械工程学院楼·court-E",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        312,
+        513
+      ],
+      [
+        321,
+        513
+      ],
+      [
+        321,
+        522
+      ],
+      [
+        312,
+        522
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C2"
+  },
+  {
+    "id": "SW-C2-east-lobby",
+    "name_cn": "机械工程学院楼·east-lobby",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        321,
+        513
+      ],
+      [
+        327,
+        513
+      ],
+      [
+        327,
+        524
+      ],
+      [
+        321,
+        524
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C2"
+  },
+  {
+    "id": "SW-C5-north-tower",
+    "name_cn": "能环科研综合楼（科远楼）·north-tower",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        240,
+        547
+      ],
+      [
+        271,
+        547
+      ],
+      [
+        271,
+        558
+      ],
+      [
+        240,
+        558
+      ]
+    ],
+    "height_m": 57,
+    "height_confidence": "source_supported",
+    "height_note": "Official SEU sources report north wing 14 floors and overall height 57 m; 57 m assigned to this north mass. Roof outline approximate. https://jbjsc.seu.edu.cn/2019/0812/c18325a282290/page.htm ; https://power.seu.edu.cn/2024/0118/c9515a479596/pagem.htm",
+    "plan_label": "C5"
+  },
+  {
+    "id": "SW-C5-south-wing",
+    "name_cn": "能环科研综合楼（科远楼）·south-wing",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        241,
+        570
+      ],
+      [
+        271,
+        570
+      ],
+      [
+        271,
+        580
+      ],
+      [
+        241,
+        580
+      ]
+    ],
+    "height_m": 36,
+    "height_confidence": "estimated",
+    "height_note": "Official source reports south wing 9 floors; 36 m is an estimated massing height (4 m/floor), not a measured height. https://power.seu.edu.cn/2024/0118/c9515a479596/pagem.htm",
+    "plan_label": "C5"
+  },
+  {
+    "id": "SW-C5-west-podium",
+    "name_cn": "能环科研综合楼（科远楼）·west-podium",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        232,
+        557
+      ],
+      [
+        242,
+        557
+      ],
+      [
+        242,
+        589
+      ],
+      [
+        232,
+        589
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Official source reports western podium 3 floors; 12 m is estimated, not measured. https://power.seu.edu.cn/2024/0118/c9515a479596/pagem.htm",
+    "plan_label": "C5"
+  },
+  {
+    "id": "SW-C5-east-link",
+    "name_cn": "能环科研综合楼（科远楼）·east-link",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        263,
+        558
+      ],
+      [
+        271,
+        558
+      ],
+      [
+        271,
+        570
+      ],
+      [
+        263,
+        570
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "East courtyard connecting wing height is estimated; no exact wing-specific source verified.",
+    "plan_label": "C5"
+  },
+  {
+    "id": "SW-C6-north",
+    "name_cn": "机械动力平台·north",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        254,
+        582
+      ],
+      [
+        286,
+        582
+      ],
+      [
+        286,
+        590
+      ],
+      [
+        254,
+        590
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C6"
+  },
+  {
+    "id": "SW-C6-east",
+    "name_cn": "机械动力平台·east",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        278,
+        590
+      ],
+      [
+        286,
+        590
+      ],
+      [
+        286,
+        608
+      ],
+      [
+        278,
+        608
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C6"
+  },
+  {
+    "id": "SW-C6-south",
+    "name_cn": "机械动力平台·south",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        255,
+        600
+      ],
+      [
+        278,
+        600
+      ],
+      [
+        278,
+        608
+      ],
+      [
+        255,
+        608
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C6"
+  },
+  {
+    "id": "SW-C6-west-low",
+    "name_cn": "机械动力平台·west-low",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        241,
+        589
+      ],
+      [
+        254,
+        589
+      ],
+      [
+        254,
+        603
+      ],
+      [
+        241,
+        603
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C6"
+  },
+  {
+    "id": "SW-C3-upper-west",
+    "name_cn": "工科大楼·upper-west",
+    "group": "academic",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        299,
+        555
+      ],
+      [
+        310,
+        547
+      ],
+      [
+        310,
+        558
+      ],
+      [
+        312,
+        569
+      ],
+      [
+        312,
+        585
+      ],
+      [
+        321,
+        590
+      ],
+      [
+        321,
+        598
+      ],
+      [
+        309,
+        602
+      ],
+      [
+        301,
+        596
+      ]
+    ],
+    "height_m": 32,
+    "height_confidence": "estimated",
+    "height_note": "2025 plan marks construction. Main wings use an estimated 32 m massing height; contractor reports structural maximum 47.7 m, which is not a uniform roof height. Tower position is not reliably identifiable, so no 85 m tower is invented. https://ccusc.cscec.com/dxxinwenzhongxin/xwkx11/202411/3827067.html ; 2026 construction update https://jbjsc.seu.edu.cn/2026/0826/c44715a580451/page.htm",
+    "plan_label": "C3"
+  },
+  {
+    "id": "SW-C3-upper-north",
+    "name_cn": "工科大楼·upper-north",
+    "group": "academic",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        310,
+        547
+      ],
+      [
+        337,
+        547
+      ],
+      [
+        347,
+        563
+      ],
+      [
+        339,
+        571
+      ],
+      [
+        329,
+        556
+      ],
+      [
+        313,
+        568
+      ],
+      [
+        310,
+        558
+      ]
+    ],
+    "height_m": 32,
+    "height_confidence": "estimated",
+    "height_note": "2025 plan marks construction. Main wings use an estimated 32 m massing height; contractor reports structural maximum 47.7 m, which is not a uniform roof height. Tower position is not reliably identifiable, so no 85 m tower is invented. https://ccusc.cscec.com/dxxinwenzhongxin/xwkx11/202411/3827067.html ; 2026 construction update https://jbjsc.seu.edu.cn/2026/0826/c44715a580451/page.htm",
+    "plan_label": "C3"
+  },
+  {
+    "id": "SW-C3-upper-east",
+    "name_cn": "工科大楼·upper-east",
+    "group": "academic",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        339,
+        571
+      ],
+      [
+        347,
+        563
+      ],
+      [
+        359,
+        573
+      ],
+      [
+        353,
+        575
+      ],
+      [
+        348,
+        575
+      ],
+      [
+        346,
+        584
+      ],
+      [
+        336,
+        591
+      ],
+      [
+        324,
+        598
+      ],
+      [
+        321,
+        590
+      ],
+      [
+        332,
+        583
+      ]
+    ],
+    "height_m": 32,
+    "height_confidence": "estimated",
+    "height_note": "2025 plan marks construction. Main wings use an estimated 32 m massing height; contractor reports structural maximum 47.7 m, which is not a uniform roof height. Tower position is not reliably identifiable, so no 85 m tower is invented. https://ccusc.cscec.com/dxxinwenzhongxin/xwkx11/202411/3827067.html ; 2026 construction update https://jbjsc.seu.edu.cn/2026/0826/c44715a580451/page.htm",
+    "plan_label": "C3"
+  },
+  {
+    "id": "SW-C3-upper-east-annex",
+    "name_cn": "工科大楼·upper-east-annex",
+    "group": "academic",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        359,
+        573
+      ],
+      [
+        363,
+        578
+      ],
+      [
+        366,
+        587
+      ],
+      [
+        361,
+        593
+      ],
+      [
+        347,
+        592
+      ],
+      [
+        346,
+        584
+      ],
+      [
+        348,
+        584
+      ],
+      [
+        355,
+        583
+      ],
+      [
+        358,
+        580
+      ],
+      [
+        353,
+        575
+      ]
+    ],
+    "height_m": 32,
+    "height_confidence": "estimated",
+    "height_note": "2025 plan marks construction. Main wings use an estimated 32 m massing height; contractor reports structural maximum 47.7 m, which is not a uniform roof height. Tower position is not reliably identifiable, so no 85 m tower is invented. https://ccusc.cscec.com/dxxinwenzhongxin/xwkx11/202411/3827067.html ; 2026 construction update https://jbjsc.seu.edu.cn/2026/0826/c44715a580451/page.htm",
+    "plan_label": "C3"
+  },
+  {
+    "id": "SW-C3-lower-west",
+    "name_cn": "工科大楼·lower-west",
+    "group": "academic",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        309,
+        602
+      ],
+      [
+        321,
+        598
+      ],
+      [
+        335,
+        593
+      ],
+      [
+        346,
+        592
+      ],
+      [
+        343,
+        601
+      ],
+      [
+        336,
+        613
+      ],
+      [
+        338,
+        621
+      ],
+      [
+        345,
+        627
+      ],
+      [
+        340,
+        638
+      ],
+      [
+        331,
+        631
+      ],
+      [
+        324,
+        619
+      ],
+      [
+        324,
+        611
+      ],
+      [
+        316,
+        614
+      ]
+    ],
+    "height_m": 32,
+    "height_confidence": "estimated",
+    "height_note": "2025 plan marks construction. Main wings use an estimated 32 m massing height; contractor reports structural maximum 47.7 m, which is not a uniform roof height. Tower position is not reliably identifiable, so no 85 m tower is invented. https://ccusc.cscec.com/dxxinwenzhongxin/xwkx11/202411/3827067.html ; 2026 construction update https://jbjsc.seu.edu.cn/2026/0826/c44715a580451/page.htm",
+    "plan_label": "C3"
+  },
+  {
+    "id": "SW-C3-lower-east-south",
+    "name_cn": "工科大楼·lower-east-south",
+    "group": "academic",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        347,
+        592
+      ],
+      [
+        361,
+        588
+      ],
+      [
+        379,
+        592
+      ],
+      [
+        379,
+        628
+      ],
+      [
+        367,
+        638
+      ],
+      [
+        357,
+        641
+      ],
+      [
+        340,
+        638
+      ],
+      [
+        345,
+        627
+      ],
+      [
+        357,
+        628
+      ],
+      [
+        368,
+        622
+      ],
+      [
+        367,
+        608
+      ],
+      [
+        357,
+        600
+      ],
+      [
+        343,
+        601
+      ]
+    ],
+    "height_m": 32,
+    "height_confidence": "estimated",
+    "height_note": "2025 plan marks construction. Main wings use an estimated 32 m massing height; contractor reports structural maximum 47.7 m, which is not a uniform roof height. Tower position is not reliably identifiable, so no 85 m tower is invented. https://ccusc.cscec.com/dxxinwenzhongxin/xwkx11/202411/3827067.html ; 2026 construction update https://jbjsc.seu.edu.cn/2026/0826/c44715a580451/page.htm",
+    "plan_label": "C3"
+  },
+  {
+    "id": "SW-G1-main",
+    "name_cn": "橘园食堂·main",
+    "group": "dining",
+    "status": "existing",
+    "footprint_px": [
+      [
+        171,
+        632
+      ],
+      [
+        199,
+        632
+      ],
+      [
+        199,
+        649
+      ],
+      [
+        208,
+        649
+      ],
+      [
+        208,
+        654
+      ],
+      [
+        171,
+        654
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "G1"
+  },
+  {
+    "id": "SW-U2-main",
+    "name_cn": "博物馆、艺术中心U2·main",
+    "group": "culture",
+    "status": "planned",
+    "footprint_px": [
+      [
+        355,
+        511
+      ],
+      [
+        374,
+        507
+      ],
+      [
+        386,
+        533
+      ],
+      [
+        367,
+        547
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "U2"
+  },
+  {
+    "id": "SW-U1-main",
+    "name_cn": "博物馆、艺术中心U1·main",
+    "group": "culture",
+    "status": "planned",
+    "footprint_px": [
+      [
+        405,
+        550
+      ],
+      [
+        424,
+        558
+      ],
+      [
+        417,
+        580
+      ],
+      [
+        391,
+        568
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "U1"
+  },
+  {
+    "id": "SW-U3-main",
+    "name_cn": "博物馆、艺术中心U3·main",
+    "group": "culture",
+    "status": "planned",
+    "footprint_px": [
+      [
+        476,
+        558
+      ],
+      [
+        494,
+        549
+      ],
+      [
+        510,
+        568
+      ],
+      [
+        483,
+        580
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "U3"
+  },
+  {
+    "id": "SW-U4-main",
+    "name_cn": "博物馆、艺术中心U4·main",
+    "group": "culture",
+    "status": "planned",
+    "footprint_px": [
+      [
+        516,
+        507
+      ],
+      [
+        538,
+        513
+      ],
+      [
+        527,
+        547
+      ],
+      [
+        505,
+        532
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "U4"
+  },
+  {
+    "id": "SW-T-hall",
+    "name_cn": "百笙堂·hall",
+    "group": "culture",
+    "status": "planned",
+    "footprint_px": [
+      [
+        440,
+        566
+      ],
+      [
+        457,
+        566
+      ],
+      [
+        457,
+        581
+      ],
+      [
+        440,
+        581
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "T"
+  },
+  {
+    "id": "SW-C7-court-N",
+    "name_cn": "计算机科学与工程学院楼（含软件学院）·court-N",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        393,
+        610
+      ],
+      [
+        430,
+        610
+      ],
+      [
+        430,
+        623
+      ],
+      [
+        393,
+        623
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C7"
+  },
+  {
+    "id": "SW-C7-court-S",
+    "name_cn": "计算机科学与工程学院楼（含软件学院）·court-S",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        393,
+        632
+      ],
+      [
+        430,
+        632
+      ],
+      [
+        430,
+        641
+      ],
+      [
+        393,
+        641
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C7"
+  },
+  {
+    "id": "SW-C7-court-W",
+    "name_cn": "计算机科学与工程学院楼（含软件学院）·court-W",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        393,
+        623
+      ],
+      [
+        402,
+        623
+      ],
+      [
+        402,
+        632
+      ],
+      [
+        393,
+        632
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C7"
+  },
+  {
+    "id": "SW-C7-court-E",
+    "name_cn": "计算机科学与工程学院楼（含软件学院）·court-E",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        420,
+        623
+      ],
+      [
+        430,
+        623
+      ],
+      [
+        430,
+        632
+      ],
+      [
+        420,
+        632
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C7"
+  },
+  {
+    "id": "SW-C8-court-N",
+    "name_cn": "电工电子中心及信息平台·court-N",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        479,
+        610
+      ],
+      [
+        516,
+        610
+      ],
+      [
+        516,
+        622
+      ],
+      [
+        479,
+        622
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C8"
+  },
+  {
+    "id": "SW-C8-court-S",
+    "name_cn": "电工电子中心及信息平台·court-S",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        479,
+        631
+      ],
+      [
+        516,
+        631
+      ],
+      [
+        516,
+        643
+      ],
+      [
+        479,
+        643
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C8"
+  },
+  {
+    "id": "SW-C8-court-W",
+    "name_cn": "电工电子中心及信息平台·court-W",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        479,
+        622
+      ],
+      [
+        487,
+        622
+      ],
+      [
+        487,
+        631
+      ],
+      [
+        479,
+        631
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C8"
+  },
+  {
+    "id": "SW-C8-court-E",
+    "name_cn": "电工电子中心及信息平台·court-E",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        507,
+        622
+      ],
+      [
+        516,
+        622
+      ],
+      [
+        516,
+        631
+      ],
+      [
+        507,
+        631
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C8"
+  },
+  {
+    "id": "SW-C9-court-N",
+    "name_cn": "物理学院楼·court-N",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        565,
+        626
+      ],
+      [
+        601,
+        626
+      ],
+      [
+        601,
+        636
+      ],
+      [
+        565,
+        636
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C9"
+  },
+  {
+    "id": "SW-C9-court-S",
+    "name_cn": "物理学院楼·court-S",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        565,
+        646
+      ],
+      [
+        601,
+        646
+      ],
+      [
+        601,
+        655
+      ],
+      [
+        565,
+        655
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C9"
+  },
+  {
+    "id": "SW-C9-court-W",
+    "name_cn": "物理学院楼·court-W",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        565,
+        636
+      ],
+      [
+        575,
+        636
+      ],
+      [
+        575,
+        646
+      ],
+      [
+        565,
+        646
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C9"
+  },
+  {
+    "id": "SW-C9-court-E",
+    "name_cn": "物理学院楼·court-E",
+    "group": "academic",
+    "status": "existing",
+    "footprint_px": [
+      [
+        592,
+        636
+      ],
+      [
+        601,
+        636
+      ],
+      [
+        601,
+        646
+      ],
+      [
+        592,
+        646
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "C9"
+  },
+  {
+    "id": "SW-P1-west-satellite-north",
+    "name_cn": "发展学科楼P1·west-satellite-north",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        293,
+        663
+      ],
+      [
+        311,
+        645
+      ],
+      [
+        321,
+        653
+      ],
+      [
+        316,
+        658
+      ],
+      [
+        310,
+        654
+      ],
+      [
+        299,
+        667
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P1-west-satellite-east",
+    "name_cn": "发展学科楼P1·west-satellite-east",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        321,
+        653
+      ],
+      [
+        330,
+        662
+      ],
+      [
+        330,
+        680
+      ],
+      [
+        324,
+        680
+      ],
+      [
+        324,
+        665
+      ],
+      [
+        316,
+        658
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P1-west-satellite-south",
+    "name_cn": "发展学科楼P1·west-satellite-south",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        294,
+        672
+      ],
+      [
+        324,
+        672
+      ],
+      [
+        324,
+        680
+      ],
+      [
+        294,
+        680
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P1-main-south",
+    "name_cn": "发展学科楼P1·main-south",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        350,
+        674
+      ],
+      [
+        380,
+        674
+      ],
+      [
+        380,
+        681
+      ],
+      [
+        350,
+        681
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P1-main-north-west",
+    "name_cn": "发展学科楼P1·main-north-west",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        348,
+        650
+      ],
+      [
+        369,
+        650
+      ],
+      [
+        369,
+        658
+      ],
+      [
+        357,
+        658
+      ],
+      [
+        357,
+        668
+      ],
+      [
+        348,
+        668
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P1-round-east",
+    "name_cn": "发展学科楼P1·round-east",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        375,
+        650
+      ],
+      [
+        380,
+        652
+      ],
+      [
+        382,
+        657
+      ],
+      [
+        380,
+        662
+      ],
+      [
+        376,
+        664
+      ],
+      [
+        371,
+        662
+      ],
+      [
+        369,
+        657
+      ],
+      [
+        371,
+        652
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P1-east-link",
+    "name_cn": "发展学科楼P1·east-link",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        374,
+        663
+      ],
+      [
+        378,
+        663
+      ],
+      [
+        378,
+        674
+      ],
+      [
+        374,
+        674
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P1"
+  },
+  {
+    "id": "SW-P2-court-N",
+    "name_cn": "发展学科楼P2·court-N",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        394,
+        651
+      ],
+      [
+        432,
+        651
+      ],
+      [
+        432,
+        660
+      ],
+      [
+        394,
+        660
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P2"
+  },
+  {
+    "id": "SW-P2-court-S",
+    "name_cn": "发展学科楼P2·court-S",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        394,
+        671
+      ],
+      [
+        432,
+        671
+      ],
+      [
+        432,
+        681
+      ],
+      [
+        394,
+        681
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P2"
+  },
+  {
+    "id": "SW-P2-court-W",
+    "name_cn": "发展学科楼P2·court-W",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        394,
+        660
+      ],
+      [
+        402,
+        660
+      ],
+      [
+        402,
+        671
+      ],
+      [
+        394,
+        671
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P2"
+  },
+  {
+    "id": "SW-P2-court-E",
+    "name_cn": "发展学科楼P2·court-E",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        422,
+        660
+      ],
+      [
+        432,
+        660
+      ],
+      [
+        432,
+        671
+      ],
+      [
+        422,
+        671
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P2"
+  },
+  {
+    "id": "SW-P3-north-west",
+    "name_cn": "发展学科楼P3·north-west",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        481,
+        651
+      ],
+      [
+        514,
+        651
+      ],
+      [
+        514,
+        661
+      ],
+      [
+        490,
+        661
+      ],
+      [
+        490,
+        669
+      ],
+      [
+        481,
+        669
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P3"
+  },
+  {
+    "id": "SW-P3-east",
+    "name_cn": "发展学科楼P3·east",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        508,
+        661
+      ],
+      [
+        516,
+        661
+      ],
+      [
+        516,
+        671
+      ],
+      [
+        508,
+        671
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P3"
+  },
+  {
+    "id": "SW-P3-south",
+    "name_cn": "发展学科楼P3·south",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        481,
+        673
+      ],
+      [
+        517,
+        673
+      ],
+      [
+        517,
+        681
+      ],
+      [
+        481,
+        681
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P3"
+  },
+  {
+    "id": "SW-P4-south-wing",
+    "name_cn": "发展学科楼P4·south-wing",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        517,
+        670
+      ],
+      [
+        549,
+        670
+      ],
+      [
+        549,
+        681
+      ],
+      [
+        517,
+        681
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P4"
+  },
+  {
+    "id": "SW-P5-south",
+    "name_cn": "发展学科楼P5·south",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        565,
+        669
+      ],
+      [
+        603,
+        669
+      ],
+      [
+        603,
+        677
+      ],
+      [
+        565,
+        677
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P5"
+  },
+  {
+    "id": "SW-P5-west",
+    "name_cn": "发展学科楼P5·west",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        565,
+        659
+      ],
+      [
+        573,
+        659
+      ],
+      [
+        573,
+        669
+      ],
+      [
+        565,
+        669
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P5"
+  },
+  {
+    "id": "SW-P5-east",
+    "name_cn": "发展学科楼P5·east",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        593,
+        660
+      ],
+      [
+        603,
+        660
+      ],
+      [
+        603,
+        669
+      ],
+      [
+        593,
+        669
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P5"
+  },
+  {
+    "id": "SW-P5-east-partner-north",
+    "name_cn": "发展学科楼P5·east-partner-north",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        612,
+        646
+      ],
+      [
+        624,
+        648
+      ],
+      [
+        640,
+        660
+      ],
+      [
+        635,
+        664
+      ],
+      [
+        623,
+        655
+      ],
+      [
+        617,
+        654
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P5"
+  },
+  {
+    "id": "SW-P5-east-partner-west",
+    "name_cn": "发展学科楼P5·east-partner-west",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        612,
+        646
+      ],
+      [
+        618,
+        646
+      ],
+      [
+        618,
+        676
+      ],
+      [
+        612,
+        676
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P5"
+  },
+  {
+    "id": "SW-P5-east-partner-south",
+    "name_cn": "发展学科楼P5·east-partner-south",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        618,
+        668
+      ],
+      [
+        640,
+        668
+      ],
+      [
+        640,
+        661
+      ],
+      [
+        646,
+        666
+      ],
+      [
+        646,
+        678
+      ],
+      [
+        618,
+        678
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P5"
+  },
+  {
+    "id": "SW-P6-north",
+    "name_cn": "发展学科楼P6·north",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        527,
+        613
+      ],
+      [
+        547,
+        597
+      ],
+      [
+        558,
+        606
+      ],
+      [
+        552,
+        611
+      ],
+      [
+        547,
+        606
+      ],
+      [
+        534,
+        617
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P6"
+  },
+  {
+    "id": "SW-P6-west",
+    "name_cn": "发展学科楼P6·west",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        527,
+        616
+      ],
+      [
+        535,
+        616
+      ],
+      [
+        535,
+        638
+      ],
+      [
+        527,
+        638
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P6"
+  },
+  {
+    "id": "SW-P6-east",
+    "name_cn": "发展学科楼P6·east",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        552,
+        611
+      ],
+      [
+        559,
+        611
+      ],
+      [
+        559,
+        631
+      ],
+      [
+        552,
+        631
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P6"
+  },
+  {
+    "id": "SW-P6-south",
+    "name_cn": "发展学科楼P6·south",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        535,
+        632
+      ],
+      [
+        559,
+        632
+      ],
+      [
+        559,
+        641
+      ],
+      [
+        535,
+        641
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P6"
+  },
+  {
+    "id": "SW-P6-east-annex",
+    "name_cn": "发展学科楼P6·east-annex",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        566,
+        608
+      ],
+      [
+        578,
+        614
+      ],
+      [
+        578,
+        620
+      ],
+      [
+        563,
+        620
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P6"
+  },
+  {
+    "id": "SW-P6-annex-link",
+    "name_cn": "发展学科楼P6·annex-link",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        559,
+        614
+      ],
+      [
+        566,
+        614
+      ],
+      [
+        566,
+        618
+      ],
+      [
+        559,
+        618
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P6"
+  },
+  {
+    "id": "SW-P7-north-court-N",
+    "name_cn": "发展学科楼P7·north-court-N",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        579,
+        503
+      ],
+      [
+        615,
+        503
+      ],
+      [
+        615,
+        513
+      ],
+      [
+        579,
+        513
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-north-court-S",
+    "name_cn": "发展学科楼P7·north-court-S",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        579,
+        524
+      ],
+      [
+        615,
+        524
+      ],
+      [
+        615,
+        533
+      ],
+      [
+        579,
+        533
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-north-court-W",
+    "name_cn": "发展学科楼P7·north-court-W",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        579,
+        513
+      ],
+      [
+        588,
+        513
+      ],
+      [
+        588,
+        524
+      ],
+      [
+        579,
+        524
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-north-court-E",
+    "name_cn": "发展学科楼P7·north-court-E",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        605,
+        513
+      ],
+      [
+        615,
+        513
+      ],
+      [
+        615,
+        524
+      ],
+      [
+        605,
+        524
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-northwest-link",
+    "name_cn": "发展学科楼P7·northwest-link",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        580,
+        533
+      ],
+      [
+        587,
+        533
+      ],
+      [
+        587,
+        549
+      ],
+      [
+        580,
+        549
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-northeast-link",
+    "name_cn": "发展学科楼P7·northeast-link",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        607,
+        533
+      ],
+      [
+        613,
+        533
+      ],
+      [
+        613,
+        549
+      ],
+      [
+        607,
+        549
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-south-court-north",
+    "name_cn": "发展学科楼P7·south-court-north",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        578,
+        550
+      ],
+      [
+        613,
+        550
+      ],
+      [
+        613,
+        558
+      ],
+      [
+        578,
+        558
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-south-court-west",
+    "name_cn": "发展学科楼P7·south-court-west",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        578,
+        550
+      ],
+      [
+        586,
+        554
+      ],
+      [
+        578,
+        568
+      ],
+      [
+        594,
+        578
+      ],
+      [
+        590,
+        584
+      ],
+      [
+        568,
+        571
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-P7-south-court-east",
+    "name_cn": "发展学科楼P7·south-court-east",
+    "group": "academic",
+    "status": "planned",
+    "footprint_px": [
+      [
+        605,
+        558
+      ],
+      [
+        613,
+        558
+      ],
+      [
+        613,
+        577
+      ],
+      [
+        601,
+        592
+      ],
+      [
+        593,
+        587
+      ],
+      [
+        605,
+        571
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "P7"
+  },
+  {
+    "id": "SW-D1-north",
+    "name_cn": "校行政用房·north",
+    "group": "administration",
+    "status": "existing",
+    "footprint_px": [
+      [
+        371,
+        702
+      ],
+      [
+        385,
+        702
+      ],
+      [
+        385,
+        699
+      ],
+      [
+        420,
+        699
+      ],
+      [
+        420,
+        717
+      ],
+      [
+        371,
+        717
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "D1"
+  },
+  {
+    "id": "SW-D1-south-stem",
+    "name_cn": "校行政用房·south-stem",
+    "group": "administration",
+    "status": "existing",
+    "footprint_px": [
+      [
+        387,
+        717
+      ],
+      [
+        397,
+        717
+      ],
+      [
+        397,
+        735
+      ],
+      [
+        387,
+        735
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "D1"
+  },
+  {
+    "id": "SW-D2-main",
+    "name_cn": "师生服务楼·main",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        348,
+        720
+      ],
+      [
+        358,
+        720
+      ],
+      [
+        358,
+        741
+      ],
+      [
+        389,
+        741
+      ],
+      [
+        389,
+        755
+      ],
+      [
+        348,
+        755
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "D2"
+  },
+  {
+    "id": "SW-D2-link",
+    "name_cn": "师生服务楼·link",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        358,
+        731
+      ],
+      [
+        387,
+        731
+      ],
+      [
+        387,
+        738
+      ],
+      [
+        358,
+        738
+      ]
+    ],
+    "height_m": 9,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "D2"
+  },
+  {
+    "id": "SW-K1-north-west",
+    "name_cn": "师生服务中心·north-west",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        482,
+        700
+      ],
+      [
+        516,
+        700
+      ],
+      [
+        516,
+        706
+      ],
+      [
+        528,
+        706
+      ],
+      [
+        528,
+        717
+      ],
+      [
+        509,
+        717
+      ],
+      [
+        509,
+        712
+      ],
+      [
+        492,
+        712
+      ],
+      [
+        492,
+        725
+      ],
+      [
+        482,
+        725
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "K1"
+  },
+  {
+    "id": "SW-K1-middle-west",
+    "name_cn": "师生服务中心·middle-west",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        482,
+        725
+      ],
+      [
+        515,
+        725
+      ],
+      [
+        515,
+        732
+      ],
+      [
+        482,
+        732
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "K1"
+  },
+  {
+    "id": "SW-K1-middle-east",
+    "name_cn": "师生服务中心·middle-east",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        537,
+        707
+      ],
+      [
+        544,
+        707
+      ],
+      [
+        544,
+        731
+      ],
+      [
+        537,
+        731
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "K1"
+  },
+  {
+    "id": "SW-K1-middle-link",
+    "name_cn": "师生服务中心·middle-link",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        515,
+        722
+      ],
+      [
+        537,
+        722
+      ],
+      [
+        537,
+        728
+      ],
+      [
+        515,
+        728
+      ]
+    ],
+    "height_m": 9,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "K1"
+  },
+  {
+    "id": "SW-K1-south",
+    "name_cn": "师生服务中心·south",
+    "group": "service",
+    "status": "planned",
+    "footprint_px": [
+      [
+        506,
+        731
+      ],
+      [
+        515,
+        731
+      ],
+      [
+        515,
+        737
+      ],
+      [
+        545,
+        737
+      ],
+      [
+        545,
+        750
+      ],
+      [
+        506,
+        750
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "K1"
+  },
+  {
+    "id": "SW-M3-hall",
+    "name_cn": "风雨操场·hall",
+    "group": "sports",
+    "status": "planned",
+    "footprint_px": [
+      [
+        296,
+        701
+      ],
+      [
+        333,
+        701
+      ],
+      [
+        337,
+        705
+      ],
+      [
+        337,
+        717
+      ],
+      [
+        333,
+        720
+      ],
+      [
+        296,
+        720
+      ],
+      [
+        293,
+        716
+      ],
+      [
+        293,
+        706
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "Height estimated from building function, not measured; footprint manually traced from 2025 official plan (several-pixel outline uncertainty; not statistically measured).",
+    "plan_label": "M3"
+  }
+]

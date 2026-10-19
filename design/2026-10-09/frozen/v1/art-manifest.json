@@ -1,0 +1,475 @@
+{
+  "version": "visual-1.0",
+  "selected_reference": "brand-exploration/02_小程序图标_12款.png #01",
+  "note": "reference_only is archived exploration, not approved runtime art",
+  "assets": [
+    {
+      "path": "assets/brand/captured-mouse.png",
+      "status": "runtime_derivative",
+      "bytes": 36685,
+      "sha256": "f2abdf2d94f470264f0f3192e4cf1771f8cb5ff479a4cc92c1db636601369bff"
+    },
+    {
+      "path": "assets/brand/cat-runner.png",
+      "status": "runtime_derivative",
+      "bytes": 74667,
+      "sha256": "eb653ef085266d14a6377f5d6891ccafa7d6ba4c597323cb79e6383f9d81af02"
+    },
+    {
+      "path": "assets/brand/cat-win.png",
+      "status": "runtime_derivative",
+      "bytes": 59234,
+      "sha256": "81a5808b89731156532e4b53dad8f5a3773a401add8a9efd3c4f19412591c47f"
+    },
+    {
+      "path": "assets/brand/mouse-runner.png",
+      "status": "runtime_derivative",
+      "bytes": 27898,
+      "sha256": "98da2438e9eb263538383f12f444c9b1f61cd79ed8e895e21be1970f28ead16b"
+    },
+    {
+      "path": "assets/brand/mouse-win.png",
+      "status": "runtime_derivative",
+      "bytes": 43170,
+      "sha256": "d95d456c75e8b64cdae2f9a7f9dc756b146109814c1e0971ff4c45c6b87e34be"
+    },
+    {
+      "path": "assets/brand/reconnecting.png",
+      "status": "runtime_derivative",
+      "bytes": 43358,
+      "sha256": "406c4f6b8e712c9a992d94dbbbb64f6adeec1109b33a962707bba84ddc635b6e"
+    },
+    {
+      "path": "assets/brand/selected-icon.png",
+      "status": "runtime_derivative",
+      "bytes": 46832,
+      "sha256": "ea0a7feff2a64ff0052e5880037be31adc92eed85ea8db1c339c32bdcd950b4e"
+    },
+    {
+      "path": "assets/markers-v1/cat.png",
+      "status": "runtime_derivative",
+      "bytes": 2867,
+      "sha256": "f84e21e122d1a3e7a4d22d89929c02fa96d7adfd3852c3d270595b4553ec65d8"
+    },
+    {
+      "path": "assets/markers-v1/mouse.png",
+      "status": "runtime_derivative",
+      "bytes": 2723,
+      "sha256": "9a7de315a0dc1bcc3b1ee64708630fa3f2878360bb83dcb23254013164ca2caf"
+    },
+    {
+      "path": "assets/markers-v1/self.png",
+      "status": "runtime_derivative",
+      "bytes": 1759,
+      "sha256": "e3279e4c9ac3559db189152f71a3a40a45464d96c62b0df28817bc148005720f"
+    },
+    {
+      "path": "assets/markers-v1/venue.png",
+      "status": "runtime_derivative",
+      "bytes": 2640,
+      "sha256": "df8f19bb365748d33d5691e3f06f8b86afd4975680355d30ac167f02eafc8ace"
+    },
+    {
+      "path": "assets/markers/cat.png",
+      "status": "reference_only",
+      "bytes": 440,
+      "sha256": "23fb5726ce683eb1283f98d7b86c7ec2687574c2e96c212104360193e2e14af4"
+    },
+    {
+      "path": "assets/markers/mouse.png",
+      "status": "reference_only",
+      "bytes": 512,
+      "sha256": "8d3248fbef633d4180b256696faa3b8a4bd5a06197ec49c63d1ba81f3e9b9f14"
+    },
+    {
+      "path": "assets/markers/self.png",
+      "status": "reference_only",
+      "bytes": 439,
+      "sha256": "d8e04b16e0aa8765a631b18d780341ece41bc5d43290d53835cb7a6bc76850df"
+    },
+    {
+      "path": "assets/markers/venue.png",
+      "status": "reference_only",
+      "bytes": 351,
+      "sha256": "ab0a48248c87ad5f609d3efd63fa10ab909f4b8df990096a15738f1eef8275b6"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/01_标志方案_12款.png",
+      "status": "reference_only",
+      "bytes": 1367573,
+      "sha256": "eb552ec9f395fa4f09ff286b3e50dbc02f6c563275944cc15ab0c2f269dca5b6"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/02_小程序图标_12款.png",
+      "status": "reference_only",
+      "bytes": 2108224,
+      "sha256": "76c6c414308d90ff36f5195578d4535a1580c479f49d4f4af9b1359805dd4003"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/03_猫鼠搭档IP_8组.png",
+      "status": "reference_only",
+      "bytes": 2000746,
+      "sha256": "7a30ea09f23096f11b6d26d14b34bddd0062a83628747bda9354c674db3a29e2"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/04_功能图标_16款.png",
+      "status": "reference_only",
+      "bytes": 1361587,
+      "sha256": "75ef448ec62959c1632e2efb14ea6448107c98fd181aef13302b192201d9eca5"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/05_角色IP_12款.png",
+      "status": "reference_only",
+      "bytes": 2176677,
+      "sha256": "5bdd0f18998f718105637eace5cbed6e629c2412f3bde320e1bdcf520d76ce91"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/06_已选风格_场景延展.png",
+      "status": "reference_only",
+      "bytes": 1355227,
+      "sha256": "1af84d11a38435c542782899171e937e237e94978fe5dd051f5a3c9c7a11afbc"
+    },
+    {
+      "path": "design/2026-10-09/brand-exploration/07_已选风格_页面预览.png",
+      "status": "reference_only",
+      "bytes": 1535237,
+      "sha256": "2356083c5775232f2a868c0bb911dc4d678cd1bf392761305034da695e4f6133"
+    },
+    {
+      "path": "design/2026-10-09/frozen/v1/selected-icon-master.png",
+      "status": "locked_master",
+      "bytes": 1280218,
+      "sha256": "bd1da2806c6bc2161aefca7a9dbc652800538cdb207b0c8ed8c7043fe59ae24c"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/01_当前玩法组件图标.png",
+      "status": "reference_only",
+      "bytes": 1572248,
+      "sha256": "42541812e41a9b9a4a7611c566a52b3fa618de0fe5ca4b52a03463040bd14b6e"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/01_躲藏转追逐.gif",
+      "status": "reference_only",
+      "bytes": 57202,
+      "sha256": "6b825b0b86745b4da73f9c2815a933668d3a87c74e8a91a3c751b14e4ec42e59"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/01_躲藏转追逐_预览帧.png",
+      "status": "reference_only",
+      "bytes": 53388,
+      "sha256": "d13254aacc8998917151741c35160e01688ee68823924d566e27cc4ef4cf03a6"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/02_区域线索.gif",
+      "status": "reference_only",
+      "bytes": 258042,
+      "sha256": "50ed11beeec2ab8aaa0d87eaa7b67ba7accb48d3bad68c23e1f5610c379f92ca"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/02_区域线索_预览帧.png",
+      "status": "reference_only",
+      "bytes": 55293,
+      "sha256": "d2f148144ece9b68b84db770a3fdc2371586a85feb9e5181f9470092a2b38050"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/02_未来技能视觉探索_未启用.png",
+      "status": "reference_only",
+      "bytes": 1541918,
+      "sha256": "f8b48623c224882b0d6faf3242035636146efecb122322618f984a79e5a18b7d"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/03_动效关键帧探索.png",
+      "status": "reference_only",
+      "bytes": 1671948,
+      "sha256": "0d85fc46b1d2c4845d2962abe60c59ed77d4e14b03870019aab09c3861cc661c"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/03_近距预警.gif",
+      "status": "reference_only",
+      "bytes": 354473,
+      "sha256": "5b073168abd4fa40b8f195ea1a482d024ce3a21597ddf158c051ae3332340520"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/03_近距预警_预览帧.png",
+      "status": "reference_only",
+      "bytes": 54084,
+      "sha256": "02f9fe5326db0482fbaaf6f3a00041513668406f447613f91a65ee3dafd7aa77"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/03b_动效关键帧_校正版.png",
+      "status": "reference_only",
+      "bytes": 1701537,
+      "sha256": "27e9c145978ab1f096d736ff3ab6cf92302fbb22a5388fd0a23b3064f3838d69"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/04_异常与结算状态卡.png",
+      "status": "reference_only",
+      "bytes": 1531387,
+      "sha256": "76e706bfc46974c3d24f7756254ec4709c5dd4ed8831e4f5525f14fda95a2bca"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/04_抓捕确认.gif",
+      "status": "reference_only",
+      "bytes": 355851,
+      "sha256": "b0d189d2fd5def186882efdeca010424077269fc0ca8f9207cd6b019848a6057"
+    },
+    {
+      "path": "design/2026-10-09/selected-style-system/04_抓捕确认_预览帧.png",
+      "status": "reference_only",
+      "bytes": 55050,
+      "sha256": "b3cc88d2c1da6698bad43893341678781517a8476f5b62341a87a097fe2a92ba"
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/bombard-area.svg",
+      "status": "reference_only",
+      "bytes": 858417,
+      "sha256": "0c857177e2b86c179e8e404648e66d01ce92ccfcf7e0f4b0147805f544fc1182"
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/eagle-eye.svg",
+      "status": "reference_only",
+      "bytes": 1141480,
+      "sha256": "223e3a3562d6beae260cc5b552b31dd04ae66e346f37e7158c128c42c899fa3f"
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/golden-body.svg",
+      "status": "reference_only",
+      "bytes": 854799,
+      "sha256": "efc5e672d89c4afe615e3321519066a1a223a6a84a891676110cbbd9dabb8d4f"
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/invisible.svg",
+      "status": "reference_only",
+      "bytes": 592378,
+      "sha256": "e513add2e4491e0846490199a289a782bab14cb99637de072f1f7c54f41ad226"
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/radar.svg",
+      "status": "reference_only",
+      "bytes": 1091436,
+      "sha256": "132526a2fe85547c540936f447f5b49f71684c12e57a701878f8ec8c17436586"
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/speed.svg",
+      "status": "reference_only",
+      "bytes": 532084,
+      "sha256": "52ef73bdfad5b1ecba0e68eb099566ac96ea29b61d74dbae8004919258cc9f1f"
+    },
+    {
+      "path": "design/2026-10-09/skills/skill-panel-layered.svg",
+      "status": "reference_only",
+      "bytes": 5069623,
+      "sha256": "4117b367a30961fd214464bcac2f6bceb4e9ea134cd2cce9fee0be4bd3961890"
+    },
+    {
+      "path": "design/2026-10-09/skills/skill-panel-preview.png",
+      "status": "reference_only",
+      "bytes": 170396,
+      "sha256": "b7a58a67fc3e62e36ca96ea4acce404ab8be7296a85796a4bc15893802717a6c"
+    },
+    {
+      "path": "design/2026-10-09/skills/source/bombard-area.png",
+      "status": "locked_master",
+      "bytes": 642981,
+      "sha256": "398375b68a68419b6edb151885a9612983aaadc8c3abc884c5e25a933ff29224"
+    },
+    {
+      "path": "design/2026-10-09/skills/source/eagle-eye.png",
+      "status": "locked_master",
+      "bytes": 855498,
+      "sha256": "f79bd0e75d60eef5911ebc6e8f1d71b38993272513c00787ecf29f7cf0c95342"
+    },
+    {
+      "path": "design/2026-10-09/skills/source/golden-body.png",
+      "status": "locked_master",
+      "bytes": 640276,
+      "sha256": "ad610c9379a3bee01806c8c190b71f1e132a3412f5b31133ace5f389ad070149"
+    },
+    {
+      "path": "design/2026-10-09/skills/source/invisible.png",
+      "status": "locked_master",
+      "bytes": 443690,
+      "sha256": "56ff75e5d90186f1583016e29bd67eacb7b858f898581634522942b2aafe2fb5"
+    },
+    {
+      "path": "design/2026-10-09/skills/source/radar.png",
+      "status": "locked_master",
+      "bytes": 817760,
+      "sha256": "e7c6dd319229564029ac637ba5425bbbf59d99576e75f67372a8916d216ecffb"
+    },
+    {
+      "path": "design/2026-10-09/skills/source/speed.png",
+      "status": "locked_master",
+      "bytes": 398442,
+      "sha256": "5b1af93371a7ff317fce3d70b248345974182f6e107221732dead78946bb558d"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/A_城市指南.gif",
+      "status": "reference_only",
+      "bytes": 1399205,
+      "sha256": "3051cead4d5584b9f669fad6b8875b5247616bf67065ff4c3932f6b0a7c7e047"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/A_城市指南.png",
+      "status": "reference_only",
+      "bytes": 1871787,
+      "sha256": "b8189bbff8e7ca0046434b895e30b67b9112355585cc31be634221f6b6cac826"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/A_城市指南_首帧.png",
+      "status": "reference_only",
+      "bytes": 69590,
+      "sha256": "556f8db42b7f2f9f629c9674a8c1f19fb68dc7aaea93489c94abf5497ac64a24"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/B_夜间信号.gif",
+      "status": "reference_only",
+      "bytes": 1366980,
+      "sha256": "2246382f06747acf405b8b4280d700bf0dca0a95a39679189b1676f170e66221"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/B_夜间信号.png",
+      "status": "reference_only",
+      "bytes": 1910855,
+      "sha256": "6b1db6ca4652175e5dbfc2a85b42c1cc03f16538ffd06d44180448e9eb50458e"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/B_夜间信号_首帧.png",
+      "status": "reference_only",
+      "bytes": 69011,
+      "sha256": "95337d0aa281f624d67a9767d20217139155c904cd2b1a36acbe1231de1152ab"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/C_户外手册.gif",
+      "status": "reference_only",
+      "bytes": 1397059,
+      "sha256": "55a3995737397a077800f609b4c22e71b07cef7c4f2d48e233327680d97d071e"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/C_户外手册.png",
+      "status": "reference_only",
+      "bytes": 3203438,
+      "sha256": "55d7eb6e23ee251ef72eafa26f13c836ee0d4778a2cbcf2eabe1b1591809a3f1"
+    },
+    {
+      "path": "design/2026-10-09/ui-concepts/C_户外手册_首帧.png",
+      "status": "reference_only",
+      "bytes": 60105,
+      "sha256": "a2b886842bde629b254cb72f1b01d8b6c4d6edf5f9fac86a14f1b6e68367c9a9"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/home-layered-preview.png",
+      "status": "reference_only",
+      "bytes": 125761,
+      "sha256": "454bc35e130ca6539cd22ec6827977256e03d47fa4129d136116b172ddfcf361"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/home-layered-standalone.svg",
+      "status": "reference_only",
+      "bytes": 5864964,
+      "sha256": "4008b402b8cb45300cf53be7074ada73a1b5b2d461c1cdf008e1d71a6d31629b"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/home-layered.svg",
+      "status": "reference_only",
+      "bytes": 5002,
+      "sha256": "927d5116de2fd28d743dd617a16f02e1835d3e37b1fb40feb77f1df5023ab643"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/map-layered-preview.png",
+      "status": "reference_only",
+      "bytes": 99545,
+      "sha256": "623d1a72998a005a824c2207547a7913b26dacd2627ee3e9d0eb6d36863ba8d0"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/map-layered-standalone.svg",
+      "status": "reference_only",
+      "bytes": 2012610,
+      "sha256": "5f44fc681f5ccc1e3a75624c7c5b40785c29a46a51b57f414966c0b48cff6d64"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/map-layered.svg",
+      "status": "reference_only",
+      "bytes": 5914,
+      "sha256": "b4af536ec96e6c932d6dc52997cf539b4c4731c597130b40e6333a601e3b1b61"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/captured-mouse.png",
+      "status": "locked_master",
+      "bytes": 491090,
+      "sha256": "d9bc9874abb519347ec1e2d482288f164a8772668edb7b2ed7e4d4e433a3c103"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/cat-avatar.png",
+      "status": "locked_master",
+      "bytes": 752489,
+      "sha256": "1cf559916eed87f80d3415c3f37f2c4e5fbb6290908ee8c438d1e150c4ca38db"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/cat-runner.png",
+      "status": "locked_master",
+      "bytes": 656966,
+      "sha256": "48014789544079df53381d257cd46ef2722eff14e1e95d0dbd872bc7fdb9d1bb"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/cat-win.png",
+      "status": "locked_master",
+      "bytes": 651451,
+      "sha256": "4c6e6fd2c5a30f3d9cfdf351e3bb7bccdf56aca765cbcfe96aca20ec41442441"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/mouse-avatar.png",
+      "status": "locked_master",
+      "bytes": 724192,
+      "sha256": "c3c01a4b2705eb8c1ff3f5a525c7b96693bedabd934f872720376011dabe80e2"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/mouse-runner.png",
+      "status": "locked_master",
+      "bytes": 1004368,
+      "sha256": "21b8ed2949c06f645ba960270579c79ed2822857f70c3016b0f313e178882aa6"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/mouse-win.png",
+      "status": "locked_master",
+      "bytes": 473138,
+      "sha256": "891b44a51604b11b89466ecd9763ef4c8ad6afa49866676a91166bc73d512499"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/park-bushes.png",
+      "status": "locked_master",
+      "bytes": 536130,
+      "sha256": "b1f8a033e7ea2dc7583bcb791c8b7e3e3ed77475c66c904add6f57cf268850e8"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/reconnecting.png",
+      "status": "locked_master",
+      "bytes": 660123,
+      "sha256": "f4d986cc15877d10596514156d2c0544c0caf5e87d953cdcd13068b13b124ca9"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/cat.svg",
+      "status": "locked_master",
+      "bytes": 588,
+      "sha256": "c4beb2daf715d9bce21af362c90891dba856d7e62d975047ac3085b1646f0f88"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/mouse.svg",
+      "status": "locked_master",
+      "bytes": 626,
+      "sha256": "d8ba628bab3471958be09a488be08d03e6251a3df9b8f98d63ce5dd7bd231ffc"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/self.svg",
+      "status": "locked_master",
+      "bytes": 271,
+      "sha256": "40d6e5297c2708514f9266ca252490762ba50bd9d9f3105939daeb6466d0bfd6"
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/venue.svg",
+      "status": "locked_master",
+      "bytes": 429,
+      "sha256": "cc715002770fbc620394fa6cd5eccf3200d3127914a00d0e00a2c3e9f9201592"
+    }
+  ]
+}

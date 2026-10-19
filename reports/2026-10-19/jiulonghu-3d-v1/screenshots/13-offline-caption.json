@@ -1,0 +1,46 @@
+{
+  "route": "pages/map/map",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "controller": "function",
+  "phase": "CHASING",
+  "geoData": {
+    "points": [],
+    "regions": []
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "ready",
+    "error": "",
+    "camera": {
+      "x": -430.0734231021111,
+      "z": -22.750507302279917,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 1000
+    },
+    "width": 390,
+    "height": 757,
+    "pins": [],
+    "drawCount": 2,
+    "lastDrawMs": 24,
+    "omitted": 0
+  }
+}

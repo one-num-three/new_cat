@@ -1,0 +1,538 @@
+TASK SCOPED DIFF against saved dirty workspace, not Git HEAD.
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/components/venue-art/venue-art.js b/components/venue-art/venue-art.js
+index 1889e20..1b447d3 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/components/venue-art/venue-art.js
++++ b/components/venue-art/venue-art.js
+@@ -1,15 +1,16 @@
+ const geometry=require('../../utils/venue-camera');
+ const art=require('../../utils/venue-art-config');
+ const geo=require('../../utils/geo-registration');
++const osm=require('../../utils/osm-art-registration');
+ const TOUR_ZOOM=1.28, TOUR_LEG_MS=7500;
+ Component({
+- properties:{scrollTop:{type:Number,value:0},registration:{type:Object,value:null},geoData:{type:Object,value:null},calibrationMode:{type:Boolean,value:false},pins:{type:Array,value:[]},src:{type:String,value:art.src},sourceWidth:{type:Number,value:art.width},sourceHeight:{type:Number,value:art.height},layoutKey:{type:String,value:''},compact:{type:Boolean,value:false},autoTour:{type:Boolean,value:true}},
++ properties:{scrollTop:{type:Number,value:0},registration:{type:Object,value:null},osmReference:{type:Boolean,value:false},geoData:{type:Object,value:null},calibrationMode:{type:Boolean,value:false},pins:{type:Array,value:[]},src:{type:String,value:art.src},sourceWidth:{type:Number,value:art.width},sourceHeight:{type:Number,value:art.height},layoutKey:{type:String,value:''},compact:{type:Boolean,value:false},autoTour:{type:Boolean,value:true}},
+  data:{overlayPoints:[],overlayRegions:[],overlayPins:[],showSelf:false,inverseScale:1,fitReady:false,imageState:'loading',imageNodes:[],fitWidth:0,fitHeight:0,x:0,y:0,scaleValue:1,zoomLabel:'1.00×',canZoomOut:false,canZoomIn:true,mode:'auto',showControls:false,imageAnimation:{}},
+- observers:{'registration,geoData,pins'(){if(this._alive)this._overlays();},src(){if(this._alive){this._fit=null;this._userInterrupted=false;this._reloadImage();this._scheduleFit();}},'layoutKey,compact,sourceWidth,sourceHeight'(){if(this._alive)this._scheduleFit(true);},autoTour(value){if(!this._alive)return;if(value&&!this._userInterrupted)this._startTour();else this._stopTour(true);}},
++ observers:{'registration,geoData,pins,osmReference,calibrationMode'(){if(this._alive)this._overlays();},src(){if(this._alive){this._fit=null;this._userInterrupted=false;this._reloadImage();this._scheduleFit();}},'layoutKey,compact,sourceWidth,sourceHeight'(){if(this._alive)this._scheduleFit(true);},autoTour(value){if(!this._alive)return;if(value&&!this._userInterrupted)this._startTour();else this._stopTour(true);}},
+  lifetimes:{attached(){this._alive=true;this._visible=true;this._measureSerial=0;this._imageSerial=0;this._tourSerial=0;this._camera={x:0,y:0,scale:1};this._reloadImage();this._scheduleFit();},detached(){this._alive=false;this._visible=false;this._measureSerial++;this._imageSerial++;this._stopTour(false);this._gesture=null;}},
+  pageLifetimes:{hide(){this._resumeAfterShow=this.data.mode==='auto';this._visible=false;this._stopTour(false);this._gesture=null;this._tapStart=null;},show(){this._visible=true;if(this._resumeAfterShow&&!this._userInterrupted)this._startTour();}},
+  methods:{
+-  _overlays(){if(!this._alive||!this._fit)return;const f=geo.frame(this.data.geoData,this.data.src===art.src&&this.data.sourceWidth===geo.IMAGE.width&&this.data.sourceHeight===geo.IMAGE.height?this.data.registration:null,this._fit.width,this._fit.height);this.setData({showSelf:f.points.some(p=>p.tone==='self'),overlayPoints:f.points,overlayRegions:f.regions,overlayPins:(this.data.pins||[]).slice(0,16).filter(p=>p&&Number.isFinite(p.u)&&Number.isFinite(p.v)).map((p,i)=>({id:i,x:p.u*this._fit.width,y:p.v*this._fit.height,label:i+1}))});},
++  _overlays(){if(!this._alive||!this._fit)return;const validArt=this.data.src===art.src&&this.data.sourceWidth===geo.IMAGE.width&&this.data.sourceHeight===geo.IMAGE.height;const f=!validArt?{points:[],regions:[]}:this.data.osmReference&&!this.data.calibrationMode?osm.overlay(this.data.geoData,this.data.registration,this._fit.width,this._fit.height):geo.frame(this.data.geoData,this.data.registration,this._fit.width,this._fit.height);this.setData({showSelf:f.points.some(p=>p.tone==='self'),overlayPoints:f.points,overlayRegions:f.regions,overlayPins:(this.data.pins||[]).slice(0,16).filter(p=>p&&Number.isFinite(p.u)&&Number.isFinite(p.v)).map((p,i)=>({id:i,x:p.u*this._fit.width,y:p.v*this._fit.height,label:i+1}))});if(this.data.osmReference&&!this.data.calibrationMode)this.triggerEvent('projection',{omittedRegions:f.omittedRegions||0,source:!validArt?'none':this.data.registration?'room':osm.available()?'osm':'none'});},
+   remeasure(){if(this._alive)this._scheduleFit(true);},
+   _bound(c){return geometry.boundCamera(this._vp.width,this._vp.height,this._fit.width,this._fit.height,c);},
+   _sample(){if(!this._segment)return {...this._camera};return geometry.interpolate(this._segment.from,this._segment.to,(Date.now()-this._segment.at)/this._segment.duration);},
+@@ -41,7 +42,7 @@ Component({
+   onTouchEnd(e){if(!this._alive||!this._visible||!this._fit)return;if(this.data.calibrationMode&&!this._tapMoved&&this._tapStart){const q=this._tapStart,u=(q.x-this._camera.x)/(this._fit.width*this._camera.scale),v=(q.y-this._camera.y)/(this._fit.height*this._camera.scale);if(u>=0&&u<=1&&v>=0&&v<=1)this.triggerEvent('point',{u,v});}this._tapStart=null;this._paint(this._camera);this._begin(this._points(e));},
+   onTouchCancel(){this._tapMoved=true;this._tapStart=null;this._gesture=null;if(this._alive&&this._visible&&this._fit)this._paint(this._camera);},
+   _zoom(delta){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;this._stopTour(true);this._gesture=null;this._paint(geometry.zoomAt(this._camera,this._camera.scale+delta,this._vp.width/2,this._vp.height/2,this._vp.width,this._vp.height,this._fit.width,this._fit.height));},
+-  focusSelf(){if(!this._alive||!this._visible||!this._fit)return;const p=(this.data.overlayPoints||[]).find(x=>x.tone==='self');if(!p)return;this._stopTour(true);this._paint({scale:this._camera.scale,x:this._vp.width/2-p.x*this._camera.scale,y:this._vp.height/2-p.y*this._camera.scale});},
++  focusSelf(){if(!this._alive||!this._visible||!this._fit)return false;const p=(this.data.overlayPoints||[]).find(x=>x.tone==='self');if(!p)return false;this._stopTour(true);this._paint({scale:this._camera.scale,x:this._vp.width/2-p.x*this._camera.scale,y:this._vp.height/2-p.y*this._camera.scale});return true;},
+   zoomIn(){this._zoom(.25);},zoomOut(){this._zoom(-.25);}
+  }
+ });
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/components/venue-art/venue-art.wxml b/components/venue-art/venue-art.wxml
+index 6e101e1..8aec261 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/components/venue-art/venue-art.wxml
++++ b/components/venue-art/venue-art.wxml
+@@ -1,7 +1,7 @@
+ <view class="venueArt">
+  <view class="venueViewport" catchtouchstart="onTouchStart" catchtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchCancel">
+   <view class="venueScene" style="width:{{fitWidth}}px;height:{{fitHeight}}px" animation="{{imageAnimation}}">
+-  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的玄武湖艺术导览，拖动或双指缩放，{{registration?'已配准地图位置，实地待验':'尚未配准，不显示实时位置'}}" />
++  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的玄武湖艺术导览，拖动或双指缩放，{{registration?'房间标定，实地待验':osmReference?'OSM参考位置，未经实地核验':'尚未配准，不显示实时位置'}}" />
+    <view wx:for="{{overlayRegions}}" wx:key="id" class="geoRegion" style="left:{{item.x-item.rx}}px;top:{{item.y-item.ry}}px;width:{{2*item.rx}}px;height:{{2*item.ry}}px;transform:rotate({{item.angle}}deg)" aria-label="大致位置区域，不是敌方精确坐标" />
+    <view wx:for="{{overlayPoints}}" wx:key="id" class="geoAnchor" style="left:{{item.x}}px;top:{{item.y}}px"><view class="geoBadge geo-{{item.tone}}" style="transform:translate(-50%,-50%) scale({{inverseScale}})"><view class="geoDot"/><text>{{item.label}}</text></view></view>
+    <view wx:for="{{overlayPins}}" wx:key="id" class="geoAnchor" style="left:{{item.x}}px;top:{{item.y}}px"><text class="geoPin" style="transform:translate(-50%,-50%) scale({{inverseScale}})">{{item.label}}</text></view>
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/pages/map/map.js b/pages/map/map.js
+index 9820935..0ee007d 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/pages/map/map.js
++++ b/pages/map/map.js
+@@ -4,12 +4,13 @@ const proof=require('../../utils/capture-proof').create(api,wx);
+ const done = m => m && (m.phase==='FINISHED' || m.phase==='CANCELLED');
+ Page({
+   remeasureVenue() { if(this.active)this.selectComponent('.venueArt')?.remeasure(); },
++  onArtProjection(e){const n=e.detail.omittedRegions||0,s=e.detail.source;if(this.active&&(n!==this.data.omittedArtRegions||s!==this.data.artReferenceState))this.setData({omittedArtRegions:n,artReferenceState:s});},
+   onResize(e) { this.setData(presentation.resize(e)); },
+   data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,trayExpanded:true,trayDragging:false,trayDragY:0, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true },
+   onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:true}); },
+   onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me'));if(this.previewCase==='offline')this.setOffline('', '重连中');else this.setData({connection:'界面预览'});return;}this.reconnectAttempt=0; this.poll(); this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
+   onHide() { this.cleanup(); }, onUnload() { this.cleanup(); },
+-  cleanup() { this.closeCode();if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this._trayGesture=null;if(this.data.trayDragging)this.setData({trayDragging:false,trayDragY:0});this.active=false; clearInterval(this.pollTimer); clearInterval(this.clockTimer); clearInterval(this.heartbeatTimer); clearTimeout(this.reconnectTimer); this.pollTimer=null; this.clockTimer=null; this.heartbeatTimer=null; this.reconnectTimer=null; const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false; },
++  cleanup() { this.closeCode();if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this._trayGesture=null;if(this.data.trayDragging)this.setData({trayDragging:false,trayDragY:0});this.active=false;this.pollSerial=(this.pollSerial||0)+1;this.fetching=false;this.setOffline('', '正在连接'); clearInterval(this.pollTimer); clearInterval(this.clockTimer); clearInterval(this.heartbeatTimer); clearTimeout(this.reconnectTimer); this.pollTimer=null; this.clockTimer=null; this.heartbeatTimer=null; this.reconnectTimer=null; const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false; },
+   startLocation() { if(!this.data.match || done(this.data.match) || this.data.match.myStatus==='captured' || this.locationRunning)return; this.locationRunning=true; loc.start(this.data.roomId,()=>this.setData({error:'定位中断：请保持页面在前台并检查权限'})); },
+   startPolling() { if(this.pollTimer) return; this.pollTimer=setInterval(()=>this.poll(),2000); },
+   startSocket() {
+@@ -45,7 +46,7 @@ Page({
+     this.reconnectAttempt=(this.reconnectAttempt||0)+1;
+     this.reconnectTimer=setTimeout(()=>{this.reconnectTimer=null;this.startSocket();},delay);
+   },
+-  async poll() { if(!this.active || this.fetching) return; this.fetching=true; try { const s=await api.room(this.data.roomId); this.apply(s); } catch(e) { if(this.active && (e.code==='UNAUTHENTICATED' || e.code==='NOT_MEMBER')){this.cleanup();this.setOffline(e.message,'身份失效');}else if(this.active && !this.socketOpen){if(this.locationRunning){loc.stop();this.locationRunning=false;}if(!this.data.offline)this.setOffline('状态暂不可用：'+e.message,'重连中');} } finally { this.fetching=false; } },
++  async poll() { if(!this.active || this.fetching) return;const run=this.pollSerial=(this.pollSerial||0)+1; this.fetching=true; try { const s=await api.room(this.data.roomId);if(this.active&&run===this.pollSerial)this.apply(s); } catch(e) {if(run!==this.pollSerial)return; if(this.active && (e.code==='UNAUTHENTICATED' || e.code==='NOT_MEMBER')){this.cleanup();this.setOffline(e.message,'身份失效');}else if(this.active && !this.socketOpen){if(this.locationRunning){loc.stop();this.locationRunning=false;}if(!this.data.offline)this.setOffline('状态暂不可用：'+e.message,'重连中');} } finally {if(run===this.pollSerial)this.fetching=false; } },
+   setOffline(error,connection='重连中'){this.closeCode();this.setData({...presentation.project({match:this.data.match,roster:this.data.roster,owner:this.data.owner},true),offline:true,connection,error,clock:'--:--',markers:[],circles:[],geoData:{points:[],regions:[]},nearbyCat:false,hasSelf:false,locationText:'等待重连 · 位置已隐藏'});},
+   apply(s) {
+     if(!this.active || !shouldApply(this.lastSnapshot,s)) return;
+@@ -82,7 +83,7 @@ Page({
+   trayTouchCancel(){this._traySuppressUntil=Date.now()+350;this._trayGesture=null;this.setData({trayDragging:false,trayDragY:0});},
+   toggleMapMode() { this.setData({artMode:!this.data.artMode,error:''}); },
+   openVenue() { if(this.data.devPreview)wx.navigateTo({url:'/pages/venue/venue'}); },
+-  locateSelf(){if(this.data.artMode&&!this.data.mapCalibration){this.setData({error:'樱洲图片还未标定，点右侧叠层图标切换实时地图查看本人位置。'});return;}if(!this.data.hasSelf){this.setData({error:this.data.offline?'连接恢复后可重新定位':'尚无可用的本人位置，请检查定位权限并等待同步'});return;}if(this.data.artMode){this.selectComponent('.venueArt')?.focusSelf();return;}const p=this.data.geoData.points.find(p=>p.tone==='self');if(p)this.setData({latitude:p.lat,longitude:p.lng,mapScale:17,followSelf:true});},
++  locateSelf(){if(!this.data.hasSelf){this.setData({error:this.data.offline?'连接恢复后可重新定位':'尚无可用的本人位置，请检查定位权限并等待同步'});return;}if(this.data.artMode){if(!this.selectComponent('.venueArt')?.focusSelf())this.setData({error:'本人位置超出图片覆盖或地图尚未就绪，请点叠层图标切换实时地图。'});else this.setData({error:''});return;}const p=this.data.geoData.points.find(p=>p.tone==='self');if(p)this.setData({latitude:p.lat,longitude:p.lng,mapScale:17,followSelf:true});},
+   onMapRegion(e){if((e.causedBy||e.detail?.causedBy)==='gesture')this.setData({followSelf:false});if(e.type==='end' && Number.isFinite(e.detail?.scale))this.setData({mapScale:e.detail.scale});},
+   ignoreTouch() {},
+   showCode() {
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/pages/map/map.wxml b/pages/map/map.wxml
+index 77035f8..898b411 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/pages/map/map.wxml
++++ b/pages/map/map.wxml
+@@ -9,14 +9,14 @@
+ </scroll-view>
+ <block wx:else>
+  <view class="mapCanvas" aria-label="对局定位地图">
+-  <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" registration="{{mapCalibration}}" geo-data="{{geoData}}" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
++  <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
+   <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
+  </view>
+  <view class="playHud compactHud role-{{match.myRole}}" aria-label="本局状态">
+   <image class="hudAvatar" src="{{roleArt}}" mode="aspectFit" aria-hidden="true"/>
+   <view class="compactIdentity"><text class="roleName">{{roleText}}</text><text class="phaseName">{{offline?'重连中':uiState==='paused'?'本局暂停':uiState==='captured'?'已出局':phaseText}}</text></view>
+   <text class="compactClock">{{clock}}</text><view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view>
+-  <text class="registrationState">{{offline?'断线':artMode?(mapCalibration?'待核验':'待标定'):hasSelf?'已定位':'定位中'}}</text>
++  <text class="registrationState">{{offline?'断线':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'OSM参考'):hasSelf?'已定位':'定位中'}}</text>
+  </view>
+  <view class="mapTools">
+   <button class="edgeButton locateButton" bindtap="locateSelf" aria-label="回到本人位置"><pixel-glyph kind="locate" size="27"/></button>
+@@ -29,6 +29,7 @@
+   <view wx:elif="{{uiState==='captured'}}" class="mapStatus"><text class="statusTitle">本轮出局</text><text>仅查看公开位置，请返回集合点等待结算</text></view>
+   <view wx:elif="{{uiState==='hiding'}}" class="mapStatus"><text class="statusTitle">{{match.myRole==='cat'?'猫留在集合点等待':'鼠先躲藏'}}</text><text>{{match.myRole==='cat'?'躲藏倒计时结束后出发':'在活动范围内寻找躲藏位置'}}</text></view>
+   <view wx:elif="{{nearbyCat}}" class="mapStatus proximityWarning"><text class="statusTitle">附近有猫，注意观察</text><text>接近预警，不展示猫的精确位置</text></view>
++  <view wx:elif="{{artMode && omittedArtRegions}}" class="mapStatus"><text>部分线索超出图片覆盖，请用叠层图标查看实时地图</text></view>
+  </view>
+  <view class="actionDrawer {{trayExpanded?'trayOpen':'trayClosed'}} {{trayDragging?'isDragging':''}}" aria-hidden="{{!trayExpanded}}" style="{{trayDragging?'transform:translateY('+trayDragY+'px)':''}}">
+   <button class="trayGrip" bindtap="toggleTray" catchtouchstart="trayTouchStart" catchtouchmove="trayTouchMove" bindtouchend="trayTouchEnd" bindtouchcancel="trayTouchCancel" aria-label="收起操作面板"><view class="gripMark"/></button>
+@@ -53,7 +54,7 @@
+  <view wx:if="{{drawerTab==='events'}}" class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
+  <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text></view>
+  <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="emergency" /><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'返回首页':'退出本局'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+- <view class="advancedRules"><text class="bodyCopy">实时地图的蓝点是本人，旗帜是集合点；橘色区域不是精确位置。场地图只有标定后可显示授权位置。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
++ <view class="advancedRules"><text class="bodyCopy">蓝点是本人，旗帜是集合点；橘色区域是大致线索。OSM参考位置尚未实地核验，图片覆盖外请切换实时地图。房主保存的标定优先使用。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
+ </view></scroll-view></view>
+ <view wx:if="{{codeOpen}}" class="codeMask" bindtap="closeCode" catchtouchmove="ignoreTouch"></view>
+ <view wx:if="{{codeOpen}}" class="codeSheet" role="dialog" aria-label="动态抓捕码">
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/utils/dev-preview.js b/utils/dev-preview.js
+index 4bc16dc..e3b8098 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/utils/dev-preview.js
++++ b/utils/dev-preview.js
+@@ -35,15 +35,16 @@ function mapSnapshot(id, me) {
+   for(const player of roster)if(player.id!==me && player.role==='mouse' && left>0){player.status='captured';left--;}
+   const live = !['captured','paused','offline','catWin','mouseWin','cancelled'].includes(id);
+   const ally=roster.find(p=>p.id!==me && p.role===role && p.status==='active');
+-  const visiblePositions = live ? [{id:me,lat:32.0584,lng:118.7968,accuracy:6,receivedAt:now},{id:ally.id,lat:32.0588,lng:118.7971,accuracy:8,receivedAt:now}] : [];
++  // Synthetic demo positions converted from v5 art pixels; NOT collected GPS.
++  const visiblePositions = live ? [{id:me,lat:32.07189947570167,lng:118.79328555598251,accuracy:6,receivedAt:now},{id:ally.id,lat:32.071253703521435,lng:118.79377318547276,accuracy:8,receivedAt:now}] : [];
+   const eventAt=new Date(2026,9,12,9,0).getTime();
+   const events=[{seq:1,kind:'START',at:eventAt}];
+   if(phase!=='HIDING')events.push({seq:2,kind:'CHASING',at:eventAt+30000});
+   for(let i=0;i<captured;i++)events.push({seq:events.length+1,kind:'CAPTURE',at:eventAt+120000+i*20000});
+   if(phase==='PAUSED')events.push({seq:events.length+1,kind:'PAUSE',at:eventAt+150000});
+   if(phase==='FINISHED'||phase==='CANCELLED')events.push({seq:events.length+1,kind:'RESULT',at:eventAt+390000});
+-  return {version:1,serverTime:now,venue:{lat:32.0582,lng:118.7965,radiusM:200},owner:true,roster,visiblePositions,
+-    intel:id==='cat'?[{cellLat:32.0592,cellLng:118.798,radiusM:50}]:[],nearbyCat:id==='alert',
++  return {version:1,serverTime:now,venue:{lat:32.07224684915245,lng:118.79229703521882,radiusM:200},owner:true,roster,visiblePositions,
++    intel:id==='cat'?[{cellLat:32.07109902484551,cellLng:118.79329199312038,radiusM:50}]:[],nearbyCat:id==='alert',
+     events,
+     match:{id:'dev-preview-match',phase,myRole:role,myStatus:id==='captured'?'captured':'active',remainingMs:phase==='HIDING'?18000:phase==='CHASING'||phase==='PAUSED'?285000:0,captured,target:4,pauseReason:id==='paused'?'host':null,outcome:id==='catWin'?'cat_win':id==='mouseWin'?'mouse_win':null,reason:id==='catWin'?'capture_target':id==='mouseWin'?'deadline':id==='cancelled'?'cancelled':null}};
+ }
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/scripts/package-release.ps1 b/scripts/package-release.ps1
+index f66ef6d..9a49fdb 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/scripts/package-release.ps1
++++ b/scripts/package-release.ps1
+@@ -27,7 +27,7 @@ New-Item -ItemType Directory -Path $miniStage,$serverStage -Force | Out-Null
+ 
+ try {
+   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
+-  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
++  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
+   foreach ($item in $miniFiles) {
+     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
+       throw "Required miniprogram source is missing: $item"
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/cat-mouse-server/v2/map-first.test.js b/cat-mouse-server/v2/map-first.test.js
+index 7f5a055..bc6df93 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/cat-mouse-server/v2/map-first.test.js
++++ b/cat-mouse-server/v2/map-first.test.js
+@@ -6,7 +6,7 @@ function fixture(){
+  const wx={getStorageSync:()=> 'me',env:{USER_DATA_PATH:'/local'},getFileSystemManager:()=>({writeFileSync:(p,b)=>files.set(p,b),unlinkSync:p=>files.delete(p)})};
+  const loc={start:()=>calls.push('start'),stop:()=>calls.push('stop')};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'pages/map/map.js'),'utf8'),{Page:d=>p=d,require:n=>n.includes('capture-proof')?require('../../utils/capture-proof'):n.includes('presentation')?require('../../utils/presentation'):n.includes('snapshot-v2')?require('../../utils/snapshot-v2'):n.includes('location-v2')?loc:api,wx,Date,Math,Number,Error,Promise,JSON,encodeURIComponent,setInterval:fn=>{timers.set(++id,fn);return id;},clearInterval:id=>timers.delete(id),setTimeout:fn=>{timeouts.set(++id,fn);return id;},clearTimeout:id=>timeouts.delete(id)});
+- p.setData=x=>Object.assign(p.data,x);p.active=true;p.data.roomId='r';p.poll=async()=>{};
++ p.selectComponent=()=>null;p.setData=x=>Object.assign(p.data,x);p.active=true;p.data.roomId='r';p.realPoll=p.poll;p.poll=async()=>{};
+  return {p,api,timers,timeouts,files,calls};
+ }
+ function snap(version=1,phase='CHASING') {return {version,serverTime:Date.now()+version,owner:false,venue:{lat:32,lng:118,radiusM:200},roster:[{id:'me',role:'mouse'},{id:'hidden',role:'cat',lat:99,lng:99}],visiblePositions:phase==='CHASING'?[{id:'me',lat:32.001,lng:118.001,accuracy:7}]:[],intel:[],match:{id:'match',phase,myRole:'mouse',myStatus:'active',captured:1,target:4,remainingMs:50000}};}
+@@ -29,7 +29,7 @@ test('manual map gestures survive snapshots; explicit self action resumes follow
+  const {p}=fixture();p.data.artMode=false;p.apply(snap());p.onMapRegion({type:'end',causedBy:'gesture',detail:{scale:15}});p.setData({latitude:31.9,longitude:117.9});p.apply(snap(2));assert.equal(p.data.latitude,31.9);assert.equal(p.data.longitude,117.9);assert.equal(p.data.mapScale,15);p.locateSelf();assert.equal(p.data.latitude,32.001);assert.equal(p.data.followSelf,true);assert.equal(p.data.mapScale,17);
+ });
+ test('offline and invalid models cannot invent self position or expose hidden roster coordinates',()=>{
+- const {p}=fixture();p.apply(snap());assert.equal(p.data.markers.length,2);assert.equal(p.data.geoData.points.length,2);assert.ok(!JSON.stringify(p.data.geoData).includes('99'));assert.equal(p.data.artMode,true);p.locateSelf();assert.match(p.data.error,/未标定/);p.toggleMapMode();assert.equal(p.data.artMode,false);p.setOffline('lost');assert.equal(p.data.hasSelf,false);assert.equal(p.data.markers.length,0);assert.equal(p.data.geoData.points.length,0);const before=p.data.latitude;p.locateSelf();assert.equal(p.data.latitude,before);assert.match(p.data.error,/连接恢复/);
++ const {p}=fixture();p.apply(snap());assert.equal(p.data.markers.length,2);assert.equal(p.data.geoData.points.length,2);assert.ok(!JSON.stringify(p.data.geoData).includes('99'));assert.equal(p.data.artMode,true);p.locateSelf();assert.match(p.data.error,/超出图片覆盖/);p.toggleMapMode();assert.equal(p.data.artMode,false);p.setOffline('lost');assert.equal(p.data.hasSelf,false);assert.equal(p.data.markers.length,0);assert.equal(p.data.geoData.points.length,0);const before=p.data.latitude;p.locateSelf();assert.equal(p.data.latitude,before);assert.match(p.data.error,/连接恢复/);
+ });
+ test('drawer closes only after exit animation and swipe competes only on its grip',()=>{
+  const {p}=fixture();p.openDrawer({currentTarget:{dataset:{tab:'rules'}}});assert.equal(p.data.drawerTab,'rules');p.sheetTouchStart({touches:[{clientX:100,clientY:10}]});p.sheetTouchEnd({changedTouches:[{clientX:105,clientY:90}]});assert.equal(p.data.drawer,true);assert.equal(p.data.drawerClosing,true);p.drawerAnimationEnd({detail:{animationName:'sheetEnter'}});assert.equal(p.data.drawer,true);p.drawerAnimationEnd({detail:{animationName:'sheetExit'}});assert.equal(p.data.drawer,false);
+@@ -40,6 +40,13 @@ test('failed and expired proof never render a stale image; retry uses same live
+ 
+ test('fixed compact header survives tray folds without changing authoritative match or positions',()=>{const {p,calls}=fixture();p.apply(snap());const m=p.data.match,g=p.data.geoData;p.toggleTray();assert.equal(p.toggleHud,undefined);assert.equal(p.data.trayExpanded,false);assert.equal(p.data.match,m);assert.equal(p.data.geoData,g);assert.deepEqual(calls,['start']);p.toggleTray();assert.equal(p.data.trayExpanded,true);});
+ 
++test('hide clears tactical positions and rejects a delayed poll after returning to the page',async()=>{
++ const {p,api}=fixture();p.apply(snap());let oldResolve,newResolve;api.room=()=>new Promise(r=>oldResolve=r);const old=p.realPoll();
++ p.cleanup();assert.equal(p.data.geoData.points.length,0);assert.equal(p.data.geoData.regions.length,0);assert.equal(p.data.offline,true);assert.equal(p.data.hasSelf,false);
++ p.active=true;api.room=()=>new Promise(r=>newResolve=r);const current=p.realPoll();oldResolve(snap(20));await old;assert.equal(p.fetching,true);assert.equal(p.data.geoData.points.length,0);
++ newResolve(snap(3));await current;assert.equal(p.data.version,3);assert.equal(p.fetching,false);assert.equal(p.data.offline,false);
++});
++
+ test('drawer exit fallback removes mask without native animation event and cleans pending timer on hide',()=>{const {p,timeouts}=fixture();p.openDrawer();p.closeDrawer();assert.equal(timeouts.size,1);[...timeouts.values()][0]();assert.equal(p.data.drawer,false);p.openDrawer();p.closeDrawer();p.cleanup();assert.equal(p.data.drawer,false);assert.equal(p.drawerExitTimer,null);});
+ 
+ test('tray downward and upward grip gestures snap to state, suppress duplicate tap, and cancel safely',()=>{
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/GEO_MAP_BINDING.md b/GEO_MAP_BINDING.md
+index 2d0496f..7eaabaf 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/GEO_MAP_BINDING.md
++++ b/GEO_MAP_BINDING.md
+@@ -2,11 +2,22 @@
+ 
+ ## 当前状态
+ 
+-映射、房主标定、服务端保存和授权位置绘制已实现。本图的真实控制点尚未采集；用户已确认稍后用标定页采集。自动化使用明确标记的模拟坐标，不能作为玄武湖实地标定成果。
++映射、房主标定、服务端保存和授权位置绘制已实现。2026-10-15 接入 v5 OSM 图面参考模型，可将服务端授权的 GCJ-02 位置转换并叠到原画。独立实地控制点尚未采集；自动化与预览使用模拟坐标，不能作为玄武湖实地标定成果。
+ 
+-2026-10-15 界面迭代后，对局页默认使用樱洲／环洲艺术底图；顶部采用固定紧凑状态条，底部图标操作卡可通过把手收起。未标定时不在图片上猜测玩家位置，可点右侧图层图标切换原生地图上的授权位置。部署本轮后端后，房主可在「房间准备 → 图片与真实位置标定」保存实际数据；开发调试台的标定预览不会读GPS、不会提交真实房间。
++对局页默认使用樱洲／环洲完整艺术底图；顶部固定、底部把手收起。没有房间标定时显示「OSM参考」；模型覆盖外不显示点位，点本人会提示切换右侧图层图标。跨出覆盖区的区域线索不截断，提示切换原生地图。房主仍可在「房间准备 → 图片与真实位置标定」保存实际数据；开发调试台不会读GPS、不会提交真实房间。
+ 
+-当前运行图片为 `assets/maps/xuanwu-lake-v4.jpg`，由交接的 `huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png` 扩绘周围水面得到；原图与来源哈希已核对。10月13日交接清单中的65个文件是历史快照，10月15日目录实际69个文件，原64个哈希记录全部一致，详情见 `reports/2026-10-15/map-handoff-received-v1/verification.json`。v3与v4均未完成实地配准，不能复用早期图的定位系数。
++当前运行图片为 `assets/maps/xuanwu-lake-v4.jpg`，由v3长廊图扩绘水面得到，1254×1254，原字节保持。之前69文件的只读核验见 `reports/2026-10-15/map-handoff-received-v1/verification.json`，此后另增加了v5交接目录。早期两图的定位系数仍不能复用。
++
++## v5 OSM 参考层与房间协议
++
++- 权威交接：`design/maps/xuanwu-lake/georegistration-v5/MODIFIED_FILE.json`，41点、72三角分区，来源为2026-10-12 OSM快照；不是现场采集。`piecewise-affine-wgs84-art-v1`不提交到现有房间标定接口。
++- `node scripts/sync-osm-art.cjs`生成精简客户端`utils/osm-art-model.js`；`--verify`校验一致性。源码保留来源SHA、坐标系和原画SHA。透明的北向导出PNG不作为游戏底图。
++- 输入明确为GCJ-02，显示层以MIT开源 [coordtransform](https://github.com/wandergis/coordtransform) 的正向公式迭代求近似WGS84，再按交接三角网投影；许可在`utils/vendor/coordtransform.LICENSE`。这是近似显示换算，迭代往返精度不代表腾讯认证或现场精度。客户端和服务器的原生GCJ-02位置、抓捕距离与胜负规则不改变。
++- 有房间模型时仅使用房间`affine-gcj02-v1`；无房间模型才使用OSM参考。存在但无效的房间模型不降级猜测。房主实地标定入口和服务端权限保持原协议。
++- 只输入授权`visiblePositions`和区域`intel`，不读名单中的坐标。OSM覆盖凸包外不外推。区域线索采用保守方框与各三角分区相交后的包络椭圆，保留大致区域、不添加敌方点；整个线索方框超出覆盖区时不在艺术图展示，请切换实时地图。
++- `utils/venue-art-config.js`的`osmReferenceEnabled=false`可关闭参考层，保留原生地图与房间标定。仅适用于绑定SHA的完整v4图，换底图需新模型。
++- 顶部「OSM参考」、规则抽屉说明未经现场核验；数学插值残差不当作GPS误差。v5留组RMS最高17.41原图像素，诊断后岸线留出33.83像素，真实误差尚待采独立点走测。
++- 离页、断线清空战术叠层；离页前发出的HTTP响应不得恢复旧位置。坐标投影仅本地计算，没有新增定位订阅、轮询或网络请求。
+ 
+ ## 采集步骤
+ 
+@@ -21,7 +32,7 @@
+ ## 实现约束
+ 
+ - 坐标统一GCJ-02。微信定位和地图坐标的说明见[腾讯位置API文档](https://intl.cloud.tencent.com/zh/document/product/1219/57733)。旧OSM材料是WGS84，旧图边界与候选锚点不能直接套到生图后的新版图片。
+-- 采用局部米制坐标与仿射配准；只转换点位，不变形原图。实际控制点围成的区域以外不外推、不把点夹在图片边缘；请切换原生实时地图查看。
++- 房主实地标定采用局部米制坐标与单一仿射配准；OSM参考采用上节的分区映射。两者都只转换叠层，不变形原图，控制点覆盖外不外推；请切换原生实时地图查看。
+ - 点、区域线索和图片在同一原生动画图层内缩放/平移；标定页滚动偏移也参与屏幕到原图的换算。玩家点只取服务端已经裁剪的`visiblePositions`，情报只取授权`intel`。被捕、断线和暂停不新增敌方信息。
+ - 图片ID与SHA256绑定，当前为`xuanwu-v4`、1254×1254。换图必须重新配准。角色、胜负、时间和抓捕仍由服务端裁决，图片距离不参与抓捕提交。
+ - 标定接口鉴权、仅房主、仅局外、乐观版本校验；相同指令回执缓存16条并持久化，旧请求的版本校验防止重放改变状态。保存与清空准备状态在同一数据库事务。
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/utils/venue-art-config.js b/utils/venue-art-config.js
+index 0f9944a..47c7152 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/utils/venue-art-config.js
++++ b/utils/venue-art-config.js
+@@ -1,2 +1,3 @@
+-// Art-only guide; never a GPS projection.
+-module.exports={"src":"/assets/maps/xuanwu-lake-v4.jpg","width":1254,"height":1254};
++// Full artwork stays unchanged. OSM display reference can be disabled locally;
++// room GCJ-02 calibrations and native map remain available either way.
++module.exports={src:'/assets/maps/xuanwu-lake-v4.jpg',width:1254,height:1254,osmReferenceEnabled:true};
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/cat-mouse-server/v2/venue-ui.test.js b/cat-mouse-server/v2/venue-ui.test.js
+index 439292a..9d59807 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/cat-mouse-server/v2/venue-ui.test.js
++++ b/cat-mouse-server/v2/venue-ui.test.js
+@@ -11,7 +11,7 @@ const asset=config.src;
+ function componentFixture(overrides={}){
+  let definition,now=0,id=0;const ticks=[],queries=[],writes=[],timers=new Map(),animations=[];
+  const wx={nextTick:fn=>ticks.push(fn),createAnimation:options=>{const a={ops:[],translate3d(x,y,z){this.ops.push(['translate',x,y,z]);return this;},scale(s){this.ops.push(['scale',s]);return this;},step(){return this;},export(){const data={options,ops:this.ops};animations.push(plain(data));return data;}};return a;}};
+- vm.runInNewContext(read('components/venue-art/venue-art.js'),{Component:d=>definition=d,wx,Date:{now:()=>now},require:n=>n.includes('geo-registration')?require('../../utils/geo-registration'):n.includes('venue-camera')?camera:config,setTimeout:(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;},clearTimeout:key=>timers.delete(key)});
++ vm.runInNewContext(read('components/venue-art/venue-art.js'),{Component:d=>definition=d,wx,Date:{now:()=>now},require:n=>n.includes('osm-art-registration')?require('../../utils/osm-art-registration'):n.includes('geo-registration')?require('../../utils/geo-registration'):n.includes('venue-camera')?camera:config,setTimeout:(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;},clearTimeout:key=>timers.delete(key)});
+  const defaults=Object.fromEntries(Object.entries(definition.properties).map(([k,v])=>[k,v.value]));const instance={...definition.methods,data:{...defaults,...plain(definition.data),autoTour:false,...overrides}};
+  instance.setData=p=>{writes.push(plain(p));Object.assign(instance.data,p);};instance.createSelectorQuery=()=>({select:s=>{assert.equal(s,'.venueViewport');return {boundingClientRect:cb=>{queries.push(cb);return {exec(){}};}};}});
+  const flush=()=>{while(ticks.length)ticks.shift()();};const measure=(width=390,height=600)=>{flush();assert.ok(queries.length);queries.shift()({width,height,left:0,top:0});};const attach=()=>definition.lifetimes.attached.call(instance),detach=()=>definition.lifetimes.detached.call(instance);const imageEvent=(generation=instance._imageSerial)=>({currentTarget:{dataset:{generation}}});const ready=()=>{attach();measure();instance.onImageLoad(imageEvent());flush();};const setNow=n=>now=n;const advance=ms=>{now+=ms;const due=[...timers].filter(([,t])=>t.at<=now);for(const [key,t]of due){timers.delete(key);t.fn();}};
+@@ -49,7 +49,7 @@ test('reset stays full-bleed at1x and unchanged layout retains manual zoom',()=>
+ test('manual focal position survives viewport change and invalid viewport stops animation',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();f.instance.remeasure();f.measure(320,280);assert.equal(f.instance.data.scaleValue,1.25);assert.ok(f.instance.data.fitWidth>=320&&f.instance.data.fitHeight>=280);f.instance.remeasure();f.measure(0,0);assert.equal(f.instance.data.fitReady,false);assert.equal(f.timers.size,0);});
+ test('latest query wins; stale image callback and retry do not resurrect old assets',()=>{const f=componentFixture();f.attach();f.flush();const stale=f.queries.shift();f.instance.remeasure();f.measure(320,400);const before=f.writes.length;stale({width:999,height:999});assert.equal(f.writes.length,before);f.instance.onImageLoad(f.imageEvent());const old=f.instance._imageSerial;f.instance.onImageError(f.imageEvent());f.instance.retry();f.instance.onImageLoad(f.imageEvent(old));assert.equal(f.instance.data.imageState,'loading');f.measure();f.instance.onImageLoad(f.imageEvent());assert.equal(f.instance.data.imageState,'ready');});
+ test('page hide suspends tour, show resumes only untouched auto, detach cancels timer and late writes',()=>{const f=componentFixture({autoTour:true});f.ready();const timer=[...f.timers.values()][0].fn;f.definition.pageLifetimes.hide.call(f.instance);assert.equal(f.timers.size,0);f.definition.pageLifetimes.show.call(f.instance);f.flush();assert.equal(f.timers.size,1);f.instance.onTouchStart({touches:[{clientX:5,clientY:5}]});f.definition.pageLifetimes.hide.call(f.instance);f.definition.pageLifetimes.show.call(f.instance);assert.equal(f.timers.size,0);f.detach();const before=f.writes.length;timer();f.flush();f.instance.onImageLoad(f.imageEvent());f.instance.zoomIn();f.instance.onTouchEnd({touches:[]});assert.equal(f.writes.length,before);});
+-test('viewer keeps one uniformly-scaled image and shared coordinate scene without network sampling',()=>{const f=componentFixture();assert.deepEqual(Object.keys(f.definition.properties).sort(),['autoTour','compact','layoutKey','sourceHeight','sourceWidth','src','registration','geoData','calibrationMode','pins','scrollTop'].sort());const w=read('components/venue-art/venue-art.wxml'),css=read('components/venue-art/venue-art.wxss');assert.equal((w.match(/<image\b/g)||[]).length,1);assert.doesNotMatch(w,/movable-area|venueFooter|markers=|latitude=|longitude=/);assert.match(w,/catchtouchmove="onTouchMove"/);assert.match(w,/animation="{{imageAnimation}}"/);assert.doesNotMatch(css,/scale[XY]\s*\(/);for(const file of ['components/venue-art/venue-art.js','pages/venue/venue.js'])assert.doesNotMatch(read(file),/getLocation|connectSocket|\brequest\s*\(|StorageSync|setInterval/);});
++test('viewer keeps one uniformly-scaled image and shared coordinate scene without network sampling',()=>{const f=componentFixture();assert.deepEqual(Object.keys(f.definition.properties).sort(),['autoTour','compact','layoutKey','sourceHeight','sourceWidth','src','registration','geoData','calibrationMode','pins','scrollTop','osmReference'].sort());const w=read('components/venue-art/venue-art.wxml'),css=read('components/venue-art/venue-art.wxss');assert.equal((w.match(/<image\b/g)||[]).length,1);assert.doesNotMatch(w,/movable-area|venueFooter|markers=|latitude=|longitude=/);assert.match(w,/catchtouchmove="onTouchMove"/);assert.match(w,/animation="{{imageAnimation}}"/);assert.doesNotMatch(css,/scale[XY]\s*\(/);for(const file of ['components/venue-art/venue-art.js','pages/venue/venue.js'])assert.doesNotMatch(read(file),/getLocation|connectSocket|\brequest\s*\(|StorageSync|setInterval/);});
+ test('public guide is registered and refreshes real layout without joining a game',()=>{
+   const app=JSON.parse(read('app.json'));assert.ok(app.pages.includes('pages/venue/venue'));
+   const config=JSON.parse(read('pages/venue/venue.json'));
+@@ -195,4 +195,12 @@ test('calibration tap reports source image coordinates but pan and canceled touc
+  f.instance.onTouchStart({touches:[p]});const q={clientX:120,clientY:280};f.instance.onTouchMove({touches:[q]});f.instance.onTouchEnd({touches:[],changedTouches:[q]});assert.equal(events.length,1);f.instance.onTouchStart({touches:[p]});f.instance.onTouchCancel();assert.equal(events.length,1);
+ });
+ 
++test('OSM authorized points share uniform art camera; disabled reference and foreign image clear overlays',()=>{
++ const f=componentFixture({osmReference:true,geoData:{points:[{lat:32.07189947570167,lng:118.79328555598251,tone:'self',label:'本人'}],regions:[]}}),events=[];
++ f.instance.triggerEvent=(...a)=>events.push(a);f.ready();assert.equal(f.instance.data.overlayPoints.length,1);assert.equal(f.instance.focusSelf(),true);const before=f.instance.data.overlayPoints[0].x;f.instance.zoomIn();assert.equal(f.instance.data.overlayPoints[0].x,before);
++ f.instance.data.src='wrong.jpg';f.instance._overlays();assert.equal(f.instance.data.overlayPoints.length,0);assert.equal(f.instance.focusSelf(),false);
++ f.instance.data.src=config.src;f.instance.data.geoData={points:[],regions:[]};f.instance._overlays();assert.equal(f.instance.data.overlayPoints.length,0);assert.equal(f.timers.size,0);assert.equal(events.at(-1)[1].source,'osm');
++ const old=config.osmReferenceEnabled;try{config.osmReferenceEnabled=false;f.instance.data.geoData={points:[{lat:32.07189947570167,lng:118.79328555598251,tone:'self'}]};f.instance._overlays();assert.equal(f.instance.data.overlayPoints.length,0);assert.equal(events.at(-1)[1].source,'none');}finally{config.osmReferenceEnabled=old;}
++});
++
+ test('calibration coordinates account for document scroll without deforming the image',()=>{const f=componentFixture();f.ready();f.instance._vp.top=200;f.instance._vpScrollTop=0;f.instance.data.scrollTop=150;const q=f.instance._points({touches:[{clientX:100,clientY:100,pageX:100,pageY:250}]})[0];assert.equal(q.y,50);});
+
+FONT BYTES utils/fusion-font.wxss before=1c3f6d07c551090102b234ae8fc67c62c6d9fa1c75ab091f5b3ab2a1af7a80e4 after=3d811ad5a3c5f94b19dabc3b79ca017ce9fa16d5dd98a875a28d4b9dbae01286
+diff --git a/reports/2026-10-15/osm-art-runtime-v1/baseline/design/2026-10-13/global-font-v1/manifest.json b/design/2026-10-13/global-font-v1/manifest.json
+index 2f06dc0..90e63d3 100644
+--- a/reports/2026-10-15/osm-art-runtime-v1/baseline/design/2026-10-13/global-font-v1/manifest.json
++++ b/design/2026-10-13/global-font-v1/manifest.json
+@@ -7,10 +7,10 @@
+   "license": "OFL-1.1",
+   "sourceUrl": "https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.25",
+   "sourceSha256": "6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e",
+-  "subsetSha256": "5d3885cd1db1801848d72cc3e95924e7bc87b4ac8c0070b4ba0caa31a8fbaa94",
+-  "wxssSha256": "1c3f6d07c551090102b234ae8fc67c62c6d9fa1c75ab091f5b3ab2a1af7a80e4",
+-  "bytes": 23544,
+-  "glyphCount": 590,
++  "subsetSha256": "d39be6b8ad2dd78f10f469e153e6b435bba0b84eb61c25e7bc59d82f7059861b",
++  "wxssSha256": "3d811ad5a3c5f94b19dabc3b79ca017ce9fa16d5dd98a875a28d4b9dbae01286",
++  "bytes": 23684,
++  "glyphCount": 593,
+   "coverage": [
+     " ",
+     "!",
+@@ -158,7 +158,6 @@
+     "你",
+     "使",
+     "例",
+-    "侧",
+     "保",
+     "信",
+     "倒",
+@@ -214,7 +213,6 @@
+     "可",
+     "台",
+     "史",
+-    "右",
+     "各",
+     "合",
+     "同",
+@@ -275,6 +273,7 @@
+     "少",
+     "尚",
+     "尝",
++    "就",
+     "局",
+     "层",
+     "居",
+@@ -458,23 +457,27 @@
+     "精",
+     "系",
+     "素",
++    "索",
+     "紧",
+     "约",
+     "线",
+     "组",
+     "织",
++    "经",
+     "绑",
+     "结",
+     "给",
+     "络",
+     "统",
+     "继",
++    "绪",
+     "续",
+     "缓",
+     "缩",
+     "网",
+     "置",
+     "老",
++    "考",
+     "者",
+     "耗",
+     "联",
+
+FONT BYTES design/2026-10-13/global-font-v1/ui-subset.woff before=5d3885cd1db1801848d72cc3e95924e7bc87b4ac8c0070b4ba0caa31a8fbaa94 after=d39be6b8ad2dd78f10f469e153e6b435bba0b84eb61c25e7bc59d82f7059861b
+
+NEW FILE utils/osm-art-model.js
+// Generated by scripts/sync-osm-art.cjs from georegistration-v5/MODIFIED_FILE.json.
+module.exports={"schema":"piecewise-affine-wgs84-art-v1","enabled":true,"image":{"file":"artwork-original.jpg","runtimePath":"assets/maps/xuanwu-lake-v4.jpg","sha256":"d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540","width":1254,"height":1254},"source":{"file":"../source-v1/osm-source.osm","sha256":"2ba67de27a5880686c6e6d52a7e61808f7c9ce3ff7f7335916ec67ee47ce524a","crs":"EPSG:4326","attribution":"© OpenStreetMap contributors · ODbL 1.0","url":"https://www.openstreetmap.org/copyright","snapshot":"2026-10-12"},"projection":"EPSG:3857","origin":[13223505.741323529,3772974.3737695804],"world":[[-83.74239479005337,205.8914595632814],[-140.1925085708499,240.1273994995281],[136.25831486470997,141.46614878578112],[127.58652652986348,122.08870142092928],[115.08534771390259,-67.27001003501937],[138.82979509979486,-80.89310734067112],[-67.3784296438098,-102.56917053321376],[-68.82558302395046,-105.60381625732407],[-80.07998354174197,-119.24000706756487],[-73.70137672126293,-123.61461991351098],[-88.44007730297744,-146.7093964619562],[-82.26184556260705,-150.7949865553528],[-91.22306457161903,-164.7201384822838],[-49.74542230181396,173.1729750065133],[-20.640941433608532,208.15108114201576],[104.82169066555798,116.21635574661195],[99.04977506771684,105.7394150570035],[117.29503960721195,95.68287431774661],[109.08522716164589,80.79842124087736],[128.20434970594943,70.26239411300048],[85.05134910158813,-7.115377296693623],[-59.4302180018276,464.62089255079627],[-404.52063946053386,-64.48495834553614],[244.63897109963,-197.29967615799978],[-39.98270295932889,463.4122318904847],[202.97208569943905,191.07255649892613],[162.4963188432157,131.12712721759453],[-268.2321868818253,-29.17254885006696],[-18.319930052384734,-208.6236721840687],[25.88503974303603,-227.60644900379702],[224.71278224885464,-106.89124148385599],[255.67073263786733,-212.90629435237497],[84.89550181105733,-361.7198978504166],[45.76670080050826,-374.76464650034904],[-419.5932985134423,-91.99388398509473],[-447.0001571457833,-56.221758731640875],[-55.15554955415428,249.62572246510535],[-210.9471769183874,-15.536255790386349],[23.12431637197733,-174.03421694226563],[170.70056531392038,86.77584722591564],[167.28305694647133,43.55452635884285]],"pixels":[[612,455],[553,416],[884,515],[851,558],[834,765],[881,795],[636,808],[633,814],[620,831],[629,836],[613,859],[621,864],[602,887],[658,479],[687,453],[835,559],[830,574],[846,588],[840,601],[856,613],[816,692],[646,166],[246,761],[984,917],[665,179],[946,470],[911,542],[410,687],[687,925],[752,952],[949,842],[1000,939],[808,1097],[761,1117],[225,796],[207,751],[651,405],[475,706],[742,893],[910,598],[895,663]],"triangles":[[1,21,35],[25,30,31],[30,23,31],[40,5,30],[5,23,30],[23,32,31],[1,36,21],[5,38,23],[13,6,20],[37,6,13],[37,0,1],[0,37,13],[0,36,1],[34,22,35],[36,24,21],[24,36,25],[36,14,25],[14,0,13],[0,14,36],[4,38,5],[4,40,20],[4,5,40],[6,4,20],[4,6,38],[29,32,23],[38,29,23],[29,38,28],[33,29,28],[32,29,33],[38,11,28],[2,26,25],[14,2,25],[2,14,15],[16,13,20],[18,16,20],[16,14,13],[14,16,15],[3,2,15],[2,3,26],[12,33,28],[11,12,28],[12,34,33],[8,6,37],[16,17,15],[17,3,15],[17,16,18],[12,27,34],[27,12,37],[27,22,34],[27,37,1],[27,1,35],[22,27,35],[9,11,38],[10,12,11],[9,10,11],[10,9,8],[12,10,37],[10,8,37],[19,17,18],[40,19,20],[19,18,20],[8,7,6],[9,7,8],[6,7,38],[7,9,38],[19,39,17],[3,39,26],[17,39,3],[39,19,40],[26,39,25],[39,30,25],[39,40,30]],"fieldVerified":false,"extrapolation":false,"sourceModelSha256":"6cf9b1f5670e92da6d4b8d5b5f339e8775c68d048fdbf728c20c4f3caddb213c"};
+
+NEW FILE utils/osm-art-registration.js
+'use strict';
+const model=require('./osm-art-model'),affine=require('./geo-registration');
+const config=require('./venue-art-config');
+const {wgs84togcj02}=require('./vendor/coordtransform');
+const R=6378137,RAD=Math.PI/180;
+const valid=p=>p&&Number.isFinite(p.lat)&&Number.isFinite(p.lng)&&Math.abs(p.lat)<85&&Math.abs(p.lng)<=180;
+// Iterative inverse of the approximate forward formula; convergence is a
+// numerical property, not a statement of real-world GPS/map accuracy.
+function gcjToWgs(p,crs){
+ if(crs!=='gcj02'||!valid(p))return null;
+ let lng=p.lng,lat=p.lat;
+ for(let i=0;i<8;i++){const q=wgs84togcj02(lng,lat),dx=q[0]-p.lng,dy=q[1]-p.lat;lng-=dx;lat-=dy;if(Math.max(Math.abs(dx),Math.abs(dy))<1e-10)return {lng,lat};}
+ return null;
+}
+const local=p=>[R*p.lng*RAD-model.origin[0],R*Math.log(Math.tan(Math.PI/4+p.lat*RAD/2))-model.origin[1]];
+function bary(p,t){const a=t[0],b=t[1],c=t[2],det=(a[0]-c[0])*(b[1]-c[1])-(a[1]-c[1])*(b[0]-c[0]);if(Math.abs(det)<1e-10)return null;const x=p[0]-c[0],y=p[1]-c[1],u=(x*(b[1]-c[1])-y*(b[0]-c[0]))/det,v=((a[0]-c[0])*y-(a[1]-c[1])*x)/det;return [u,v,1-u-v];}
+function transfer(p,ids){const b=bary(p,ids.map(i=>model.world[i]));return b?[0,1].map(k=>ids.reduce((sum,i,n)=>sum+b[n]*model.pixels[i][k],0)):null;}
+function raw(p){for(const t of model.triangles){const b=bary(p,t.map(i=>model.world[i]));if(b&&b.every(x=>x>=-1e-8&&x<=1+1e-8))return transfer(p,t);}return null;}
+function available(){return config.osmReferenceEnabled===true&&config.src==='/'+model.image.runtimePath&&model.enabled===true&&model.schema==='piecewise-affine-wgs84-art-v1'&&model.source.crs==='EPSG:4326'&&model.projection==='EPSG:3857'&&model.image.sha256===affine.IMAGE.sha256&&model.image.width===affine.IMAGE.width&&model.image.height===affine.IMAGE.height;}
+function project(p,crs){if(!available())return null;const q=gcjToWgs(p,crs);if(!q)return null;const r=raw(local(q));return r?{u:r[0]/model.image.width,v:r[1]/model.image.height,fieldVerified:false}:null;}
+// Clip each triangle to a conservative Mercator box around the authorized
+// region. Its mapped bounds enclose the whole uncertainty region even across
+// triangle boundaries; never turn coarse enemy intelligence into a point pin.
+function clip(poly,axis,bound,sign){const out=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],ia=sign*(a[axis]-bound)>=0,ib=sign*(b[axis]-bound)>=0;if(ia)out.push(a);if(ia!==ib){const t=(bound-a[axis])/(b[axis]-a[axis]);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}}return out;}
+function region(p,width,height){
+ if(!available()||!Number.isFinite(p?.radiusM)||p.radiusM<=0||p.radiusM>500)return null;
+ const q=gcjToWgs(p,'gcj02');if(!q)return null;const c=local(q),r=p.radiusM/Math.cos(q.lat*RAD)*1.02+1;
+ const corners=[[-1,-1],[-1,1],[1,-1],[1,1]].map(([x,y])=>[c[0]+x*r,c[1]+y*r]);
+ if(corners.some(p=>!raw(p)))return null; // Never truncate a clue at the hull.
+ const pixels=[];
+ for(const t of model.triangles){let poly=t.map(i=>model.world[i]);for(const [axis,bound,sign] of [[0,c[0]-r,1],[0,c[0]+r,-1],[1,c[1]-r,1],[1,c[1]+r,-1]])poly=clip(poly,axis,bound,sign);for(const p of poly)pixels.push(transfer(p,t));}
+ if(!pixels.length)return null;
+ const xs=pixels.map(p=>p[0]*width/model.image.width),ys=pixels.map(p=>p[1]*height/model.image.height),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);
+ return {x:(left+right)/2,y:(top+bottom)/2,rx:(right-left)/Math.SQRT2,ry:(bottom-top)/Math.SQRT2,angle:0};
+}
+function frame(data,width,height){
+ const empty={points:[],regions:[],omittedRegions:0};if(!available()||!(width>0&&height>0)||!Number.isFinite(width)||!Number.isFinite(height))return empty;
+ const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,'gcj02');return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);
+ const source=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61),regions=source.map((p,i)=>{const q=region(p,width,height);return q?{id:i,...q}:null;}).filter(Boolean);
+ return {points,regions,omittedRegions:source.length-regions.length};
+}
+// A present but invalid room model must fail closed, never silently fall back.
+function overlay(data,registration,width,height){return registration?affine.frame(data,registration,width,height):frame(data,width,height);}
+module.exports={project,frame,overlay,gcjToWgs,available,region};
+
+NEW FILE utils/vendor/coordtransform.js
+'use strict';
+// WGS84 -> GCJ-02 subset adapted from wandergis/coordtransform (MIT).
+// https://github.com/wandergis/coordtransform/blob/master/index.js
+// See coordtransform.LICENSE. This is an approximate display transform, not a
+// platform-certified survey conversion. Never use it for capture/rule decisions.
+const PI=Math.PI,A=6378245,EE=0.00669342162296594323;
+function wgs84togcj02(lng,lat){
+ if(!(lng>73.66&&lng<135.05&&lat>3.86&&lat<53.55))return [lng,lat];
+ const x=lng-105,y=lat-35;
+ let dy=-100+2*x+3*y+.2*y*y+.1*x*y+.2*Math.sqrt(Math.abs(x));
+ dy+=(20*Math.sin(6*x*PI)+20*Math.sin(2*x*PI))*2/3;
+ dy+=(20*Math.sin(y*PI)+40*Math.sin(y/3*PI))*2/3;
+ dy+=(160*Math.sin(y/12*PI)+320*Math.sin(y*PI/30))*2/3;
+ let dx=300+x+2*y+.1*x*x+.1*x*y+.1*Math.sqrt(Math.abs(x));
+ dx+=(20*Math.sin(6*x*PI)+20*Math.sin(2*x*PI))*2/3;
+ dx+=(20*Math.sin(x*PI)+40*Math.sin(x/3*PI))*2/3;
+ dx+=(150*Math.sin(x/12*PI)+300*Math.sin(x/30*PI))*2/3;
+ const r=lat/180*PI,magic=1-EE*Math.sin(r)**2,s=Math.sqrt(magic);
+ return [lng+dx*180/(A/s*Math.cos(r)*PI),lat+dy*180/(A*(1-EE)/(magic*s)*PI)];
+}
+module.exports={wgs84togcj02};
+
+NEW FILE utils/vendor/coordtransform.LICENSE
+The MIT License (MIT)
+
+Copyright (c) 2015 记忆的残骸
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+NEW FILE utils/vendor/coordtransform.source.json
+{
+  "source": "https://github.com/wandergis/coordtransform/blob/master/index.js",
+  "retrieved": "2026-10-15",
+  "license": "MIT; see coordtransform.LICENSE",
+  "scope": "Adapted WGS84-to-GCJ02 subset; project code supplies iterative inverse; no upstream download/commit pin claimed",
+  "sha256": "4d149551ba6a3fd12d720f811c6501636fb1ba73e3ba92193222b4f8ad9ca58c"
+}
+
+NEW FILE scripts/sync-osm-art.cjs
+'use strict';
+// Generate the small client release from the authoritative handoff, never refit it.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),source=path.join(root,'design/maps/xuanwu-lake/georegistration-v5/MODIFIED_FILE.json');
+const bytes=fs.readFileSync(source),m=JSON.parse(bytes),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+if(m.schema!=='piecewise-affine-wgs84-art-v1'||m.source.crs!=='EPSG:4326'||m.projection!=='EPSG:3857'||m.fieldVerified!==false||m.extrapolation!==false)throw Error('Unexpected handoff schema/CRS');
+if(hash(fs.readFileSync(path.join(root,m.image.runtimePath)))!==m.image.sha256)throw Error('Art hash mismatch');
+const model={schema:m.schema,enabled:m.enabled,image:m.image,source:m.source,projection:m.projection,origin:m.origin,world:m.world,pixels:m.pixels,triangles:m.triangles,fieldVerified:false,extrapolation:false,sourceModelSha256:hash(bytes)};
+const output='// Generated by scripts/sync-osm-art.cjs from georegistration-v5/MODIFIED_FILE.json.\nmodule.exports='+JSON.stringify(model)+';\n';
+const target=path.join(root,'utils/osm-art-model.js');
+if(process.argv.includes('--verify')){if(fs.readFileSync(target,'utf8')!==output)throw Error('OSM runtime differs; run node scripts/sync-osm-art.cjs');}
+else fs.writeFileSync(target,output);
+console.log('PASS OSM release '+m.world.length+' anchors / '+m.triangles.length+' triangles; art unchanged; fieldVerified=false');
+
+NEW FILE scripts/osm-art-review.cjs
+'use strict';
+// Uses one official WeChat MCP runtime; never moves/resizes desktop windows.
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});let seq=0;const rows=[];
+const shell='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';
+function call(tool,args){const file=path.join(out,'command-'+(++seq)+'.json');fs.writeFileSync(file,JSON.stringify({tool,project:path.resolve(__dirname,'..'),args}));const raw=cp.execFileSync(shell,['-NoProfile','-File',path.join(__dirname,'wechat-mcp-command.ps1'),'-InputFile',file],{encoding:'utf8',timeout:45000});const result=JSON.parse(raw.slice(raw.indexOf('{')));assert.ok(result.ok&&result.result.success,JSON.stringify(result));return result.result;}
+function evaluate(fn,...args){const f=path.join(out,'args-'+seq+'.json');fs.writeFileSync(f,JSON.stringify(args));return call('automation_evaluate',{'fn-source':('function () { return ('+fn.toString()+').apply(null, arguments); }').replace(/\r?\n/g,' '),'args-file':f}).result.result;}
+function inspect(){return evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.venueArt');if(!c){resolve({route:p.route,missing:true});return;}const q=c.createSelectorQuery();q.select('.venueImage').boundingClientRect();q.selectAll('.geoBadge').boundingClientRect();q.selectAll('.geoRegion').boundingClientRect();q.exec(r=>resolve({route:p.route,image:r[0],badges:r[1],regions:r[2],points:c.data.overlayPoints,areas:c.data.overlayRegions,fitWidth:c.data.fitWidth,fitHeight:c.data.fitHeight,source:c.data.src,osm:c.data.osmReference,art:p.data.artMode,omitted:p.data.omittedArtRegions,clock:p.data.clock,offline:p.data.offline,phase:p.data.uiState,width:p.data.viewportWidth,font:p.data.fontScale,error:p.data.error,locationText:p.data.locationText}));}));}
+function ready(){let s;for(let i=0;i<3;i++){s=inspect();if(s.image&&s.image.width>0)return s;}throw Error('map not rendered: '+JSON.stringify(s));}
+function aligned(s){assert.equal(s.source,'/assets/maps/xuanwu-lake-v4.jpg');assert.ok(Math.abs(s.image.width/s.image.height-1)<1e-4,'art keeps aspect ratio');for(let i=0;i<s.points.length;i++){const p=s.points[i],b=s.badges[i],x=s.image.left+p.x/s.fitWidth*s.image.width,y=s.image.top+p.y/s.fitHeight*s.image.height;assert.ok(Math.abs(b.left+b.width/2-x)<2&&Math.abs(b.top+b.height/2-y)<2,'point stays bound to image');}}
+function record(name){const s=ready();aligned(s);const file=name+'.png';call('simulator_screenshot',{path:path.join(out,file),optimize:'false'});rows.push({name,file,...s});fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify(rows,null,2));console.log('VERIFIED '+name);return s;}
+try{
+ for(const [mode,ids]of (process.argv[3]==='interactions'?[]:[['normal',['cat','mouse','captured','offline']],['narrow',['cat']],['large',['mouse']]]))for(const id of ids){call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview='+id});if(mode==='narrow')evaluate(()=>getCurrentPages().slice(-1)[0].onResize({size:{windowWidth:320,windowHeight:600}}));if(mode==='large')evaluate(()=>getCurrentPages().slice(-1)[0].setData({fontScale:1.3}));const s=record(mode+'-'+id);assert.equal(s.osm,true);if(['cat','mouse'].includes(id)){assert.equal(s.points.length,3);if(id==='cat')assert.equal(s.areas.length,1);}else{assert.equal(s.points.filter(p=>p.tone!=='venue').length,0);assert.equal(s.areas.length,0);}}
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});record('self-before');call('automation_element_action',{action:'tap',selector:'.locateButton'});assert.equal(inspect().error,'');record('self-focused');
+ // Runtime touch events exercise the image camera; not physical phone gestures.
+ evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.venueArt');c.zoomIn();c.onTouchStart({touches:[{clientX:150,clientY:300}]});c.onTouchMove({touches:[{clientX:210,clientY:340}]});c.onTouchEnd({touches:[]});});record('runtime-pan-zoom');
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=cat'});ready();
+ // The MCP evaluator may turn nested array literals in setData into objects.
+ // Mutate the native page's existing arrays instead of replacing their shape.
+ evaluate(()=>{const p=getCurrentPages().slice(-1)[0],d=p.data.geoData;for(const q of d.points){q.lat=32;q.lng=118;}for(const q of d.regions){q.lat=32;q.lng=118;}p.setData({geoData:d});});let s=record('outside-reference');assert.equal(s.points.length,0);assert.equal(s.areas.length,0);assert.equal(s.omitted,1);call('automation_element_action',{action:'tap',selector:'.locateButton'});assert.match(inspect().error,/超出图片覆盖/);
+ call('automation_element_action',{action:'tap',selector:'.layerButton'});assert.equal(evaluate(()=>getCurrentPages().slice(-1)[0].data.artMode),false);
+ call('automation_element_action',{action:'tap',selector:'.layerButton'});evaluate(()=>getCurrentPages().slice(-1)[0].setOffline('演示断线'));s=record('offline-clears');assert.equal(s.points.length,0);assert.equal(s.areas.length,0);
+ fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({pass:true,rows,scope:'Official WeChat IDE; synthetic preview coordinates, narrow content/app font scaling, runtime gesture injection; not physical GPS/device acceptance'},null,2));
+ call('automation_navigate',{action:'reLaunch',url:'/pages/map/map?devPreview=mouse'});
+ console.log('PASS OSM_ART_UI '+rows.length+' screenshots');
+}catch(e){fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({error:e.stack,rows},null,2));throw e;}
+
+NEW FILE cat-mouse-server/v2/osm-art-registration.test.js
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
+const root=path.resolve(__dirname,'../..'),osm=require('../../utils/osm-art-registration');
+const model=require('../../utils/osm-art-model'),source=require('../../design/maps/xuanwu-lake/georegistration-v5/MODIFIED_FILE.json');
+const original=require('../../design/maps/xuanwu-lake/georegistration-v5/mapping'),forward=require('../../utils/vendor/coordtransform').wgs84togcj02;
+const gcj=([lng,lat])=>{const p=forward(lng,lat);return {lng:p[0],lat:p[1]};};
+test('OSM client release is reproducible and uses exact source artwork with no field claim',()=>{
+ assert.equal(cp.spawnSync(process.execPath,['scripts/sync-osm-art.cjs','--verify'],{cwd:root}).status,0);
+ assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,model.image.runtimePath))).digest('hex'),model.image.sha256);
+ assert.equal(model.fieldVerified,false);assert.equal(model.source.crs,'EPSG:4326');assert.equal(model.extrapolation,false);
+});
+test('explicit GCJ input guard and approximate inverse pass known reference and 41 anchor pairs',()=>{
+ const beijing=forward(116.404,39.915);assert.ok(Math.abs(beijing[0]-116.41024449916938)<1e-12);assert.ok(Math.abs(beijing[1]-39.91640428150164)<1e-12);
+ for(const a of source.anchors){const p=gcj(a.wgs84),back=osm.gcjToWgs(p,'gcj02'),q=osm.project(p,'gcj02');assert.ok(Math.hypot(back.lng-a.wgs84[0],back.lat-a.wgs84[1])<1e-8);assert.ok(q);assert.ok(Math.hypot(q.u*1254-a.pixel[0],q.v*1254-a.pixel[1])<1e-4);assert.equal(q.fieldVerified,false);}
+ for(const p of [null,{}, {lat:NaN,lng:118},{lat:90,lng:118},{lat:'32',lng:118}])assert.equal(osm.project(p,'gcj02'),null);
+ assert.equal(osm.project(gcj(source.anchors[0].wgs84),'WGS84'),null);assert.equal(osm.project(gcj(source.anchors[0].wgs84)),null);assert.equal(osm.project({lat:0,lng:0},'gcj02'),null);
+});
+test('all 72 triangle interiors preserve handed-off geometry after the CRS bridge',()=>{
+ for(const t of source.triangles){const px=[0,1].map(k=>t.reduce((s,i)=>s+source.pixels[i][k]/3,0)),wgs=original.pixelToGeo(px,source),p=osm.project(gcj([wgs.lng,wgs.lat]),'gcj02');assert.ok(p);assert.ok(Math.hypot(p.u*1254-px[0],p.v*1254-px[1])<1e-4);}
+});
+test('coarse region stays a region and conservatively contains mapped circle across triangle edges',()=>{
+ const ll=[118.787,32.074],wgs=original.pixelToGeo([627,627],source),center=gcj([wgs.lng,wgs.lat]),r=50,e=osm.region({...center,radiusM:r},600,600);assert.ok(e&&e.rx>0&&e.ry>0);
+ for(let i=0;i<180;i++){const a=i*Math.PI/90,p={lng:wgs.lng+Math.cos(a)*r/(6378137*Math.cos(wgs.lat*Math.PI/180))*180/Math.PI,lat:wgs.lat+Math.sin(a)*r/6378137*180/Math.PI},q=osm.project(gcj([p.lng,p.lat]),'gcj02');assert.ok(q);assert.ok(((q.u*600-e.x)/e.rx)**2+((q.v*600-e.y)/e.ry)**2<=1+1e-7);}
+ const frame=osm.frame({regions:[{...center,radiusM:r}],points:[]},600,600);assert.equal(frame.points.length,0);assert.equal(frame.regions.length,1);
+ assert.equal(osm.region({...center,radiusM:500},600,600),null);assert.equal(osm.frame({regions:[{...center,radiusM:500}]},600,600).omittedRegions,1);
+});
+test('room affine model overrides OSM; invalid supplied model fails closed',()=>{
+ const g=require('../../utils/geo-registration'),m=g.compile(require('./geo-fixture.cjs').fixture()),p=g.pixelToGeo({u:.5,v:.5},m),data={points:[{...p,tone:'self'}]};
+ assert.equal(osm.frame(data,600,600).points.length,0);assert.ok(Math.abs(osm.overlay(data,m,600,600).points[0].x-300)<1e-7);
+ const osmPoint=gcj(source.anchors[0].wgs84);assert.equal(osm.overlay({points:[osmPoint]}, {},600,600).points.length,0);
+});
+test('reference frame ignores roster coordinates and clears authorized overlays on empty snapshot',()=>{
+ const p=gcj(source.anchors[0].wgs84),data={points:[{...p,label:'本人',tone:'self'}],roster:[{...p,label:'hidden enemy',role:'cat'}],regions:[]};
+ const a=osm.frame(data,400,400),b=osm.frame({...data,roster:[]},400,400);assert.deepEqual(a,b);assert.equal(a.points.length,1);assert.equal(osm.frame({},400,400).points.length,0);
+});

@@ -1,0 +1,5 @@
+COMMAND: python "D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\visual\build_audit.py"
+INPUT: notes.json + pre-fix complete pixel-native-v1 capture pack + sources.json + original sources + v3 map
+RESULT: PASS states=17 nativeScreenshots=51 originalAppCrops=15 mapReference=1 imagesReopened=67 metrics=3 allRelativeImagePaths=true sourceHashesMatch=true copyHashesMatch=true
+EXIT STATUS: 0
+Project application source files modified by audit: 0

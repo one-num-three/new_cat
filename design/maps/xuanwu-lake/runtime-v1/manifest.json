@@ -1,0 +1,17 @@
+{
+  "version": "xuanwu-lake-v3-runtime-1",
+  "source": "design/maps/xuanwu-lake/huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png",
+  "sourceSha256": "c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6",
+  "path": "assets/maps/xuanwu-lake-v3.png",
+  "sha256": "120bde594be871aba35c2540a9c04e4597ec305418b13b2ca8d798aa341b3d13",
+  "width": 1154,
+  "height": 1363,
+  "bytes": 1045507,
+  "transform": "PNG palette256; dither0; no crop/resize/rotation; colour quantization only",
+  "georeferenced": false,
+  "geographicOverlay": false,
+  "attribution": "© OpenStreetMap contributors · ODbL 1.0; AI artwork is not a surveyed map",
+  "sourceLicenseUrl": "https://www.openstreetmap.org/copyright",
+  "supersedesPreviewAssets": "assets/faithful-v2/park-stage-*.png; originals preserved",
+  "date": "2026-10-13"
+}

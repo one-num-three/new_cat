@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "input": "current dev-preview cat page; fontScale1.3; drawer open",
+  "action": "native SDK child button tap (not component-host tap)",
+  "beforeDrawer": true,
+  "afterDrawer": false,
+  "fontScale": 1.3
+}

@@ -1,0 +1,330 @@
+{
+  "status": "PASS",
+  "scope": "WeChat IDE rendered preview; no physical GPS or calibration claim",
+  "records": [
+    {
+      "id": "venue",
+      "mode": "normal",
+      "page": {
+        "route": "pages/venue/venue",
+        "preview": false,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 149,
+              "bottom": 798,
+              "width": 366,
+              "height": 649
+            }
+          ],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 149,
+              "width": 390,
+              "height": 62
+            }
+          ],
+          ".venueBack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 298,
+              "right": 374,
+              "top": 95,
+              "bottom": 139,
+              "width": 76,
+              "height": 44
+            }
+          ],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 649.0000000000001,
+        "height": 649.0000000000001,
+        "x": -232.36000000000007,
+        "y": -90.86000000000007,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 149,
+              "bottom": 798,
+              "width": 366,
+              "height": 649
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 661,
+              "top": 149,
+              "bottom": 798,
+              "width": 649,
+              "height": 649
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199,
+              "top": 779.953125,
+              "bottom": 793,
+              "width": 181,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-normal\\venue.png"
+    },
+    {
+      "id": "cat",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "cat",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 690.7890625,
+              "width": 370,
+              "height": 390.3203125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 690.7890625,
+              "bottom": 844,
+              "width": 390,
+              "height": 153.2109375
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 386.3203125,
+        "height": 386.3203125,
+        "x": -64.245,
+        "y": -54.084843750000005,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 688.7890625,
+              "width": 366,
+              "height": 386.3203125
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": -52.24500274658203,
+              "right": 442.24498748779297,
+              "top": 248.3839111328125,
+              "bottom": 742.8739013671875,
+              "width": 494.489990234375,
+              "height": 494.489990234375
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199,
+              "top": 670.7421875,
+              "bottom": 683.7890625,
+              "width": 181,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-cat-scan.png",
+          "label": "扫码确认抓捕",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 413,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 206.296875,
+            "top": 734.921875,
+            "bottom": 807.1640625,
+            "width": 196.296875,
+            "height": 72.2421875
+          },
+          "image": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 206.296875,
+            "top": 734.921875,
+            "bottom": 807.1640625,
+            "width": 196.296875,
+            "height": 72.2421875
+          }
+        },
+        {
+          "skin": "/assets/pixel-v1/button-cat-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 333,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 209.296875,
+            "right": 379.9921875,
+            "top": 732.0859375,
+            "bottom": 810,
+            "width": 170.6953125,
+            "height": 77.9140625
+          },
+          "image": {
+            "id": "",
+            "dataset": {},
+            "left": 209.296875,
+            "right": 379.9921875,
+            "top": 732.0859375,
+            "bottom": 810,
+            "width": 170.6953125,
+            "height": 77.9140625
+          }
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-normal\\cat.png"
+    }
+  ]
+}

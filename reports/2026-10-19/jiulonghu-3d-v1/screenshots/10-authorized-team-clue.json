@@ -1,0 +1,123 @@
+{
+  "route": "pages/map/map",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "controller": "function",
+  "phase": "CHASING",
+  "hasSelf": true,
+  "geoData": {
+    "points": [
+      {
+        "lat": 31.887014134547908,
+        "lng": 118.81542356867979,
+        "label": "本人",
+        "tone": "self"
+      },
+      {
+        "lat": 31.886943659378275,
+        "lng": 118.82671004832497,
+        "label": "队友",
+        "tone": "ally"
+      },
+      {
+        "lng": 118.81920737398848,
+        "lat": 31.88777433108612,
+        "radiusM": 200,
+        "mapId": "seu-jiulonghu-v1",
+        "label": "集合点",
+        "tone": "venue"
+      }
+    ],
+    "regions": [
+      {
+        "lat": 31.886943659378275,
+        "lng": 118.82671004832497,
+        "radiusM": 50
+      }
+    ]
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "ready",
+    "error": "",
+    "camera": {
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 3458.9076923076923
+    },
+    "width": 390,
+    "height": 757,
+    "pins": [
+      {
+        "x": 100.87618261168218,
+        "y": 374.52299539748145,
+        "z": -22.750507302279917,
+        "fieldVerified": false,
+        "id": 0,
+        "tone": "self",
+        "label": "本人",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "x": 293.63249600348774,
+        "y": 384.6324049857951,
+        "z": 37.18188494110476,
+        "fieldVerified": false,
+        "id": 1,
+        "tone": "ally",
+        "label": "队友",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "x": 166.78142446352902,
+        "y": 365.7529816715983,
+        "z": -74.7424557942168,
+        "fieldVerified": false,
+        "id": 2,
+        "tone": "venue",
+        "label": "集合点",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "drawCount": 3,
+    "lastDrawMs": 12,
+    "omitted": 0
+  }
+}

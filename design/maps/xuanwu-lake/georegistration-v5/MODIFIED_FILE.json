@@ -1,0 +1,1450 @@
+{
+  "schema": "piecewise-affine-wgs84-art-v1",
+  "enabled": true,
+  "status": "osm-image-registered-field-unverified",
+  "date": "2026-10-15",
+  "image": {
+    "file": "artwork-original.jpg",
+    "runtimePath": "assets/maps/xuanwu-lake-v4.jpg",
+    "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+    "width": 1254,
+    "height": 1254
+  },
+  "source": {
+    "file": "../source-v1/osm-source.osm",
+    "sha256": "2ba67de27a5880686c6e6d52a7e61808f7c9ce3ff7f7335916ec67ee47ce524a",
+    "crs": "EPSG:4326",
+    "attribution": "© OpenStreetMap contributors · ODbL 1.0",
+    "url": "https://www.openstreetmap.org/copyright",
+    "snapshot": "2026-10-12"
+  },
+  "projection": "EPSG:3857",
+  "origin": [
+    13223505.741323529,
+    3772974.3737695804
+  ],
+  "world": [
+    [
+      -83.74239479005337,
+      205.8914595632814
+    ],
+    [
+      -140.1925085708499,
+      240.1273994995281
+    ],
+    [
+      136.25831486470997,
+      141.46614878578112
+    ],
+    [
+      127.58652652986348,
+      122.08870142092928
+    ],
+    [
+      115.08534771390259,
+      -67.27001003501937
+    ],
+    [
+      138.82979509979486,
+      -80.89310734067112
+    ],
+    [
+      -67.3784296438098,
+      -102.56917053321376
+    ],
+    [
+      -68.82558302395046,
+      -105.60381625732407
+    ],
+    [
+      -80.07998354174197,
+      -119.24000706756487
+    ],
+    [
+      -73.70137672126293,
+      -123.61461991351098
+    ],
+    [
+      -88.44007730297744,
+      -146.7093964619562
+    ],
+    [
+      -82.26184556260705,
+      -150.7949865553528
+    ],
+    [
+      -91.22306457161903,
+      -164.7201384822838
+    ],
+    [
+      -49.74542230181396,
+      173.1729750065133
+    ],
+    [
+      -20.640941433608532,
+      208.15108114201576
+    ],
+    [
+      104.82169066555798,
+      116.21635574661195
+    ],
+    [
+      99.04977506771684,
+      105.7394150570035
+    ],
+    [
+      117.29503960721195,
+      95.68287431774661
+    ],
+    [
+      109.08522716164589,
+      80.79842124087736
+    ],
+    [
+      128.20434970594943,
+      70.26239411300048
+    ],
+    [
+      85.05134910158813,
+      -7.115377296693623
+    ],
+    [
+      -59.4302180018276,
+      464.62089255079627
+    ],
+    [
+      -404.52063946053386,
+      -64.48495834553614
+    ],
+    [
+      244.63897109963,
+      -197.29967615799978
+    ],
+    [
+      -39.98270295932889,
+      463.4122318904847
+    ],
+    [
+      202.97208569943905,
+      191.07255649892613
+    ],
+    [
+      162.4963188432157,
+      131.12712721759453
+    ],
+    [
+      -268.2321868818253,
+      -29.17254885006696
+    ],
+    [
+      -18.319930052384734,
+      -208.6236721840687
+    ],
+    [
+      25.88503974303603,
+      -227.60644900379702
+    ],
+    [
+      224.71278224885464,
+      -106.89124148385599
+    ],
+    [
+      255.67073263786733,
+      -212.90629435237497
+    ],
+    [
+      84.89550181105733,
+      -361.7198978504166
+    ],
+    [
+      45.76670080050826,
+      -374.76464650034904
+    ],
+    [
+      -419.5932985134423,
+      -91.99388398509473
+    ],
+    [
+      -447.0001571457833,
+      -56.221758731640875
+    ],
+    [
+      -55.15554955415428,
+      249.62572246510535
+    ],
+    [
+      -210.9471769183874,
+      -15.536255790386349
+    ],
+    [
+      23.12431637197733,
+      -174.03421694226563
+    ],
+    [
+      170.70056531392038,
+      86.77584722591564
+    ],
+    [
+      167.28305694647133,
+      43.55452635884285
+    ]
+  ],
+  "pixels": [
+    [
+      612.0,
+      455.0
+    ],
+    [
+      553.0,
+      416.0
+    ],
+    [
+      884.0,
+      515.0
+    ],
+    [
+      851.0,
+      558.0
+    ],
+    [
+      834.0,
+      765.0
+    ],
+    [
+      881.0,
+      795.0
+    ],
+    [
+      636.0,
+      808.0
+    ],
+    [
+      633.0,
+      814.0
+    ],
+    [
+      620.0,
+      831.0
+    ],
+    [
+      629.0,
+      836.0
+    ],
+    [
+      613.0,
+      859.0
+    ],
+    [
+      621.0,
+      864.0
+    ],
+    [
+      602.0,
+      887.0
+    ],
+    [
+      658.0,
+      479.0
+    ],
+    [
+      687.0,
+      453.0
+    ],
+    [
+      835.0,
+      559.0
+    ],
+    [
+      830.0,
+      574.0
+    ],
+    [
+      846.0,
+      588.0
+    ],
+    [
+      840.0,
+      601.0
+    ],
+    [
+      856.0,
+      613.0
+    ],
+    [
+      816.0,
+      692.0
+    ],
+    [
+      646.0,
+      166.0
+    ],
+    [
+      246.0,
+      761.0
+    ],
+    [
+      984.0,
+      917.0
+    ],
+    [
+      665.0,
+      179.0
+    ],
+    [
+      946.0,
+      470.0
+    ],
+    [
+      911.0,
+      542.0
+    ],
+    [
+      410.0,
+      687.0
+    ],
+    [
+      687.0,
+      925.0
+    ],
+    [
+      752.0,
+      952.0
+    ],
+    [
+      949.0,
+      842.0
+    ],
+    [
+      1000.0,
+      939.0
+    ],
+    [
+      808.0,
+      1097.0
+    ],
+    [
+      761.0,
+      1117.0
+    ],
+    [
+      225.0,
+      796.0
+    ],
+    [
+      207.0,
+      751.0
+    ],
+    [
+      651.0,
+      405.0
+    ],
+    [
+      475.0,
+      706.0
+    ],
+    [
+      742.0,
+      893.0
+    ],
+    [
+      910.0,
+      598.0
+    ],
+    [
+      895.0,
+      663.0
+    ]
+  ],
+  "triangles": [
+    [
+      1,
+      21,
+      35
+    ],
+    [
+      25,
+      30,
+      31
+    ],
+    [
+      30,
+      23,
+      31
+    ],
+    [
+      40,
+      5,
+      30
+    ],
+    [
+      5,
+      23,
+      30
+    ],
+    [
+      23,
+      32,
+      31
+    ],
+    [
+      1,
+      36,
+      21
+    ],
+    [
+      5,
+      38,
+      23
+    ],
+    [
+      13,
+      6,
+      20
+    ],
+    [
+      37,
+      6,
+      13
+    ],
+    [
+      37,
+      0,
+      1
+    ],
+    [
+      0,
+      37,
+      13
+    ],
+    [
+      0,
+      36,
+      1
+    ],
+    [
+      34,
+      22,
+      35
+    ],
+    [
+      36,
+      24,
+      21
+    ],
+    [
+      24,
+      36,
+      25
+    ],
+    [
+      36,
+      14,
+      25
+    ],
+    [
+      14,
+      0,
+      13
+    ],
+    [
+      0,
+      14,
+      36
+    ],
+    [
+      4,
+      38,
+      5
+    ],
+    [
+      4,
+      40,
+      20
+    ],
+    [
+      4,
+      5,
+      40
+    ],
+    [
+      6,
+      4,
+      20
+    ],
+    [
+      4,
+      6,
+      38
+    ],
+    [
+      29,
+      32,
+      23
+    ],
+    [
+      38,
+      29,
+      23
+    ],
+    [
+      29,
+      38,
+      28
+    ],
+    [
+      33,
+      29,
+      28
+    ],
+    [
+      32,
+      29,
+      33
+    ],
+    [
+      38,
+      11,
+      28
+    ],
+    [
+      2,
+      26,
+      25
+    ],
+    [
+      14,
+      2,
+      25
+    ],
+    [
+      2,
+      14,
+      15
+    ],
+    [
+      16,
+      13,
+      20
+    ],
+    [
+      18,
+      16,
+      20
+    ],
+    [
+      16,
+      14,
+      13
+    ],
+    [
+      14,
+      16,
+      15
+    ],
+    [
+      3,
+      2,
+      15
+    ],
+    [
+      2,
+      3,
+      26
+    ],
+    [
+      12,
+      33,
+      28
+    ],
+    [
+      11,
+      12,
+      28
+    ],
+    [
+      12,
+      34,
+      33
+    ],
+    [
+      8,
+      6,
+      37
+    ],
+    [
+      16,
+      17,
+      15
+    ],
+    [
+      17,
+      3,
+      15
+    ],
+    [
+      17,
+      16,
+      18
+    ],
+    [
+      12,
+      27,
+      34
+    ],
+    [
+      27,
+      12,
+      37
+    ],
+    [
+      27,
+      22,
+      34
+    ],
+    [
+      27,
+      37,
+      1
+    ],
+    [
+      27,
+      1,
+      35
+    ],
+    [
+      22,
+      27,
+      35
+    ],
+    [
+      9,
+      11,
+      38
+    ],
+    [
+      10,
+      12,
+      11
+    ],
+    [
+      9,
+      10,
+      11
+    ],
+    [
+      10,
+      9,
+      8
+    ],
+    [
+      12,
+      10,
+      37
+    ],
+    [
+      10,
+      8,
+      37
+    ],
+    [
+      19,
+      17,
+      18
+    ],
+    [
+      40,
+      19,
+      20
+    ],
+    [
+      19,
+      18,
+      20
+    ],
+    [
+      8,
+      7,
+      6
+    ],
+    [
+      9,
+      7,
+      8
+    ],
+    [
+      6,
+      7,
+      38
+    ],
+    [
+      7,
+      9,
+      38
+    ],
+    [
+      19,
+      39,
+      17
+    ],
+    [
+      3,
+      39,
+      26
+    ],
+    [
+      17,
+      39,
+      3
+    ],
+    [
+      39,
+      19,
+      40
+    ],
+    [
+      26,
+      39,
+      25
+    ],
+    [
+      39,
+      30,
+      25
+    ],
+    [
+      39,
+      40,
+      30
+    ]
+  ],
+  "anchors": [
+    {
+      "id": "B1-0",
+      "group": "B1",
+      "way": "776728676",
+      "wgs84": [
+        118.7880209,
+        32.0751575
+      ],
+      "pixel": [
+        612,
+        455
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B1-1",
+      "group": "B1",
+      "way": "776728676",
+      "wgs84": [
+        118.7875138,
+        32.0754181
+      ],
+      "pixel": [
+        553,
+        416
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B2-0",
+      "group": "B2",
+      "way": "776728674",
+      "wgs84": [
+        118.7899972,
+        32.0746671
+      ],
+      "pixel": [
+        884,
+        515
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B2-1",
+      "group": "B2",
+      "way": "776728674",
+      "wgs84": [
+        118.7899193,
+        32.0745196
+      ],
+      "pixel": [
+        851,
+        558
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B3-0",
+      "group": "B3",
+      "way": "776728672",
+      "wgs84": [
+        118.789807,
+        32.0730782
+      ],
+      "pixel": [
+        834,
+        765
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B3-1",
+      "group": "B3",
+      "way": "776728672",
+      "wgs84": [
+        118.7900203,
+        32.0729745
+      ],
+      "pixel": [
+        881,
+        795
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-0",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7881679,
+        32.0728095
+      ],
+      "pixel": [
+        636,
+        808
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-1",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7881549,
+        32.0727864
+      ],
+      "pixel": [
+        633,
+        814
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-2",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7880538,
+        32.0726826
+      ],
+      "pixel": [
+        620,
+        831
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-3",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7881111,
+        32.0726493
+      ],
+      "pixel": [
+        629,
+        836
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-4",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7879787,
+        32.0724735
+      ],
+      "pixel": [
+        613,
+        859
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-5",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7880342,
+        32.0724424
+      ],
+      "pixel": [
+        621,
+        864
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "B4-6",
+      "group": "B4",
+      "way": "1226671818",
+      "wgs84": [
+        118.7879537,
+        32.0723364
+      ],
+      "pixel": [
+        602,
+        887
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 5
+    },
+    {
+      "id": "C0",
+      "group": "C",
+      "way": "1050092971",
+      "wgs84": [
+        118.7883263,
+        32.074908449999995
+      ],
+      "pixel": [
+        658,
+        479
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 5,6; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C1",
+      "group": "C",
+      "way": "1050092971",
+      "wgs84": [
+        118.78858775,
+        32.075174700000005
+      ],
+      "pixel": [
+        687,
+        453
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 1,11; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C2",
+      "group": "C",
+      "way": "1050092971",
+      "wgs84": [
+        118.7897148,
+        32.0744749
+      ],
+      "pixel": [
+        835,
+        559
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 0,12; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C3",
+      "group": "C",
+      "way": "1050092972",
+      "wgs84": [
+        118.78966295000001,
+        32.07439515
+      ],
+      "pixel": [
+        830,
+        574
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 2,18; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C4",
+      "group": "C",
+      "way": "1050092972",
+      "wgs84": [
+        118.78982685,
+        32.0743186
+      ],
+      "pixel": [
+        846,
+        588
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 3,16; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C5",
+      "group": "C",
+      "way": "1050092972",
+      "wgs84": [
+        118.7897531,
+        32.0742053
+      ],
+      "pixel": [
+        840,
+        601
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 4,15; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C6",
+      "group": "C",
+      "way": "1050092972",
+      "wgs84": [
+        118.78992485,
+        32.0741251
+      ],
+      "pixel": [
+        856,
+        613
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 5,14; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "C7",
+      "group": "C",
+      "way": "1050092972",
+      "wgs84": [
+        118.7895372,
+        32.0735361
+      ],
+      "pixel": [
+        816,
+        692
+      ],
+      "kind": "control",
+      "method": "manual roof-axis; OSM opposing-edge midpoint indices 9,10; not surveyed centerline",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H-N",
+      "group": "H",
+      "way": "776728681",
+      "wgs84": [
+        118.7882393,
+        32.0771269
+      ],
+      "pixel": [
+        646,
+        166
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H-W",
+      "group": "H",
+      "way": "776728680",
+      "wgs84": [
+        118.7851393,
+        32.0730994
+      ],
+      "pixel": [
+        246,
+        761
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H-E",
+      "group": "H",
+      "way": "776728669",
+      "wgs84": [
+        118.7909708,
+        32.0720884
+      ],
+      "pixel": [
+        984,
+        917
+      ],
+      "kind": "control",
+      "method": "manually matched visible bridge deck / shore junction",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H01",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.788414,
+        32.0771177
+      ],
+      "pixel": [
+        665,
+        179
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H02",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7905965,
+        32.0750447
+      ],
+      "pixel": [
+        946,
+        470
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H03",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7902329,
+        32.0745884
+      ],
+      "pixel": [
+        911,
+        542
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H05",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7863636,
+        32.0733682
+      ],
+      "pixel": [
+        410,
+        687
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H06",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7886086,
+        32.0720022
+      ],
+      "pixel": [
+        687,
+        925
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H07",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7890057,
+        32.0718577
+      ],
+      "pixel": [
+        752,
+        952
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H08",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7907918,
+        32.0727766
+      ],
+      "pixel": [
+        949,
+        842
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H09",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7910699,
+        32.0719696
+      ],
+      "pixel": [
+        1000,
+        939
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H10",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7895358,
+        32.0708368
+      ],
+      "pixel": [
+        808,
+        1097
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H11",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7891843,
+        32.0707375
+      ],
+      "pixel": [
+        761,
+        1117
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H12",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7850039,
+        32.07289
+      ],
+      "pixel": [
+        225,
+        796
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "H13",
+      "group": "H",
+      "way": "776728664",
+      "wgs84": [
+        118.7847577,
+        32.0731623
+      ],
+      "pixel": [
+        207,
+        751
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "Y01",
+      "group": "Y",
+      "way": "776728670",
+      "wgs84": [
+        118.7882777,
+        32.0754904
+      ],
+      "pixel": [
+        651,
+        405
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "Y02",
+      "group": "Y",
+      "way": "776728670",
+      "wgs84": [
+        118.7868782,
+        32.073472
+      ],
+      "pixel": [
+        475,
+        706
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "Y03",
+      "group": "Y",
+      "way": "776728670",
+      "wgs84": [
+        118.7889809,
+        32.0722655
+      ],
+      "pixel": [
+        742,
+        893
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "Y04",
+      "group": "Y",
+      "way": "776728670",
+      "wgs84": [
+        118.7903066,
+        32.0742508
+      ],
+      "pixel": [
+        910,
+        598
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    },
+    {
+      "id": "Y05",
+      "group": "Y",
+      "way": "776728670",
+      "wgs84": [
+        118.7902759,
+        32.0739218
+      ],
+      "pixel": [
+        895,
+        663
+      ],
+      "kind": "control",
+      "method": "manual generalized coastline corner; lower confidence than bridge endpoints",
+      "pixelUncertainty": 8
+    }
+  ],
+  "fieldVerified": false,
+  "extrapolation": false,
+  "coordinateInput": "WGS84 only; GCJ-02 must be independently converted before input",
+  "quality": {
+    "foldedTriangles": [],
+    "affineRmsPx": 11.135687298704804,
+    "affineMaxPx": 32.64098007131596,
+    "fitResidualMeaning": "interpolating control residual is NOT geographic accuracy",
+    "leaveFeatureOut": [
+      {
+        "group": "B1",
+        "checkCount": 2,
+        "rmsPixels": 5.180496605302495,
+        "maxPixels": 7.098572309809562
+      },
+      {
+        "group": "B2",
+        "checkCount": 2,
+        "rmsPixels": 17.410810039071347,
+        "maxPixels": 19.442504159605352
+      },
+      {
+        "group": "B3",
+        "checkCount": 2,
+        "rmsPixels": 14.074134931398671,
+        "maxPixels": 16.30890215080626
+      },
+      {
+        "group": "B4",
+        "checkCount": 7,
+        "rmsPixels": 9.336942168422972,
+        "maxPixels": 19.256193889670854
+      },
+      {
+        "group": "C",
+        "checkCount": 8,
+        "rmsPixels": 10.755315434447615,
+        "maxPixels": 16.23419332482115
+      }
+    ],
+    "withheldShorelineCheck": {
+      "wgs84": [
+        118.7881729,
+        32.0758439
+      ],
+      "manualPixel": [
+        604,
+        349
+      ],
+      "predictedPixel": [
+        637.5389778866986,
+        353.4296350896813
+      ],
+      "residualPixels": 33.830233589382644,
+      "note": "Not used in final fit. Initial fit rejected because generalized shoreline created a folded triangle; a diagnosed holdout, not blind independent validation."
+    },
+    "uncertaintyNote": "5-8 pixel manual uncertainty is an estimate, not a measured confidence interval. Corridor centerline is derived from OSM edge midpoints; roof perspective may differ from pedestrian position."
+  },
+  "affine": [
+    [
+      1.1406019481361334,
+      0.021179618904046862
+    ],
+    [
+      0.0062399110482145624,
+      -1.1381261359511148
+    ],
+    [
+      712.36585365626,
+      691.9024390237795
+    ]
+  ]
+}

@@ -1,0 +1,820 @@
+{
+  "fixture": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture",
+  "excludedNewTests": [
+    "venue-ui.test.js",
+    "pixel-ui.test.js"
+  ],
+  "nodeModulesCopied": false,
+  "files": [
+    {
+      "path": "ART_LOCK.md",
+      "source": "D:\\cat-mouse-miniprogram\\ART_LOCK.md",
+      "sha256": "7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7",
+      "bytes": 4451
+    },
+    {
+      "path": "DESIGN_BASELINE.md",
+      "source": "D:\\cat-mouse-miniprogram\\DESIGN_BASELINE.md",
+      "sha256": "b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5",
+      "bytes": 8588
+    },
+    {
+      "path": "README.md",
+      "source": "D:\\cat-mouse-miniprogram\\README.md",
+      "sha256": "115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346",
+      "bytes": 7245
+    },
+    {
+      "path": "RELEASE.md",
+      "source": "D:\\cat-mouse-miniprogram\\RELEASE.md",
+      "sha256": "94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c",
+      "bytes": 10367
+    },
+    {
+      "path": "WORK_LOG.md",
+      "source": "D:\\cat-mouse-miniprogram\\WORK_LOG.md",
+      "sha256": "45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217",
+      "bytes": 48366
+    },
+    {
+      "path": "app.json",
+      "source": "D:\\cat-mouse-miniprogram\\app.json",
+      "sha256": "55c4cd89a765bfc02716b6fd319efd84461f13eb2cb3a00f6abf612aab5d4c92",
+      "bytes": 860
+    },
+    {
+      "path": "assets/faithful-v2/FONT-LICENSE.txt",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\FONT-LICENSE.txt",
+      "sha256": "e9d9b525d384aa7d1e39650ac03047621c5d79e3a88c698aa0c522bd5d87d493",
+      "bytes": 4605
+    },
+    {
+      "path": "assets/faithful-v2/avatar-cat.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\avatar-cat.png",
+      "sha256": "5c7aa7bd5ee2158c653ef7c86c78556732c28db962a1d32047e5108eba0a1782",
+      "bytes": 3798
+    },
+    {
+      "path": "assets/faithful-v2/avatar-mouse-green.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\avatar-mouse-green.png",
+      "sha256": "f825a8fc5be4c81a99fba5854a4fc199aa31bc80563274e6ac61ddd5dc218935",
+      "bytes": 3555
+    },
+    {
+      "path": "assets/faithful-v2/avatar-mouse.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\avatar-mouse.png",
+      "sha256": "6930013725aae76ce2adca5dcfd4aac39b29bd763b193a1f44bee17d74c05fb6",
+      "bytes": 3788
+    },
+    {
+      "path": "assets/faithful-v2/create-cloud.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\create-cloud.png",
+      "sha256": "3572773d4d14b64e13265205513f0ff4dfe7eaa588307b8aad42450fc1bd14a0",
+      "bytes": 8325
+    },
+    {
+      "path": "assets/faithful-v2/display-black.woff",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\display-black.woff",
+      "sha256": "1b3720ce0ea178a6574a7a1099b36782d5100468b631af4c069d43d2e092b49f",
+      "bytes": 43164
+    },
+    {
+      "path": "assets/faithful-v2/gallery-cloud.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\gallery-cloud.png",
+      "sha256": "650123c665d07689b655c6c70a35d21e4da83394e06181848f3c4a09b4828451",
+      "bytes": 4095
+    },
+    {
+      "path": "assets/faithful-v2/hero-code.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\hero-code.png",
+      "sha256": "ea70859dc0d7c436d8a97b50eddfc5cc5c7e589d5a8becbca7df97daac8dc8b0",
+      "bytes": 69817
+    },
+    {
+      "path": "assets/faithful-v2/hero-create.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\hero-create.png",
+      "sha256": "cb465e85682f54a854bc988353ff5e211a1654f057205488429301290c21a289",
+      "bytes": 85319
+    },
+    {
+      "path": "assets/faithful-v2/hero-gallery.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\hero-gallery.png",
+      "sha256": "14d4efed3712d1d6b14d42ba3f9c0c91f8228fc35a60a1d0d1be332f34127829",
+      "bytes": 79660
+    },
+    {
+      "path": "assets/faithful-v2/hero-home.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\hero-home.png",
+      "sha256": "c65d7c889d9f284017dc0a01cec672d3f0b328dcfe21d4332b6c1b71104c97a8",
+      "bytes": 97440
+    },
+    {
+      "path": "assets/faithful-v2/hero-ready.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\hero-ready.png",
+      "sha256": "7d8f7a2818c2415452fdf9fe565efc30a9ea60489de083952749bb4b3c6f4fd1",
+      "bytes": 59829
+    },
+    {
+      "path": "assets/faithful-v2/home-canopy.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\home-canopy.png",
+      "sha256": "db4e13e7877db078364a5a63f93f78c83b3400f681e4071d6d93a4c330097297",
+      "bytes": 35525
+    },
+    {
+      "path": "assets/faithful-v2/home-cloud.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\home-cloud.png",
+      "sha256": "7f86db42618166b22a875801caf542c679fcf80d10877bae69c077a30a0d1655",
+      "bytes": 6678
+    },
+    {
+      "path": "assets/faithful-v2/icon-alert.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-alert.png",
+      "sha256": "c401bf5a24b77b25ba70812f5cabbbacf64f5e109ae52e2ffb1e085308a56dc6",
+      "bytes": 2804
+    },
+    {
+      "path": "assets/faithful-v2/icon-cancelled.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-cancelled.png",
+      "sha256": "9cc88ba64e63758efafa73d2b92ad2173526ba5cb499c6636a1d4b5eae47d70e",
+      "bytes": 3141
+    },
+    {
+      "path": "assets/faithful-v2/icon-captured.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-captured.png",
+      "sha256": "01d37d0c15d8a707d80b00f2ae6ab76d2f3372873eba8444c45216cc0cf08ee0",
+      "bytes": 3264
+    },
+    {
+      "path": "assets/faithful-v2/icon-catMap.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-catMap.png",
+      "sha256": "976ee2fb23adba1d472f1d89f6577853816a48318cb22e3f5fef18a9f0571c64",
+      "bytes": 2955
+    },
+    {
+      "path": "assets/faithful-v2/icon-catWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-catWin.png",
+      "sha256": "ac5366d1ebf80f0bc238a66920bcfcde3150c3df6781554d50ff3dc3510837d1",
+      "bytes": 3553
+    },
+    {
+      "path": "assets/faithful-v2/icon-code.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-code.png",
+      "sha256": "3c5d99382564451905cad6fe18fae759dd03c93ee1563ad5337c3262f847b78b",
+      "bytes": 3008
+    },
+    {
+      "path": "assets/faithful-v2/icon-create.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-create.png",
+      "sha256": "2e3ec8bbbae93d8b5e75b9ab2fdb490a6d3ec3fd20da09502e9edf09a3fc93e0",
+      "bytes": 3139
+    },
+    {
+      "path": "assets/faithful-v2/icon-hiding.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-hiding.png",
+      "sha256": "aa54f2d05a144a18c22d2bc2c29c3fc3650b01efd0fe5f431fd6c9a3e54f92c6",
+      "bytes": 3038
+    },
+    {
+      "path": "assets/faithful-v2/icon-home.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-home.png",
+      "sha256": "e4073429e5f5e91a74d7663d62fc12939eac81ae19cf91353fe4af0e4ea314c0",
+      "bytes": 2342
+    },
+    {
+      "path": "assets/faithful-v2/icon-mouseMap.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-mouseMap.png",
+      "sha256": "7886fab9c8731413ed3d7ba967dec62a8a28749a491297c80cf84c1db0e05a3f",
+      "bytes": 2836
+    },
+    {
+      "path": "assets/faithful-v2/icon-mouseWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-mouseWin.png",
+      "sha256": "6cb7c06e5a7f4d9284e01688d6714f7f69192448ba325ba7ef61352173f42f55",
+      "bytes": 2964
+    },
+    {
+      "path": "assets/faithful-v2/icon-offline.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-offline.png",
+      "sha256": "f56907790e5b5070854c520d79fb7bcbce669503071ce172241888fc7004ce94",
+      "bytes": 2674
+    },
+    {
+      "path": "assets/faithful-v2/icon-paused.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-paused.png",
+      "sha256": "c562ea8dcd77929c2f0344ce1385b5beaf61df92a39a74e0e834464730f0c367",
+      "bytes": 3385
+    },
+    {
+      "path": "assets/faithful-v2/icon-ready.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\icon-ready.png",
+      "sha256": "25fc7a31583ce674de00eb13c1b00e4cec7541baa0cc4cacbfa02b86a7869d81",
+      "bytes": 2327
+    },
+    {
+      "path": "assets/faithful-v2/map-canopy-left.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\map-canopy-left.png",
+      "sha256": "a6a6a4aa15e5fe561c66f4a9df8996ab0a1b780a6916508c58afed54e5ec5905",
+      "bytes": 4612
+    },
+    {
+      "path": "assets/faithful-v2/map-canopy-right.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\map-canopy-right.png",
+      "sha256": "61638f639c6eaf8e7b9fb5f030d89b3b1a3c2cfed17c85e57e6e9d93b2c2ae30",
+      "bytes": 1819
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-alert.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-alert.png",
+      "sha256": "9d89e9e5de8675f769c5a025889a17668f52b1d6ab838ec4c12d966bf28a9f25",
+      "bytes": 107975
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-cancelled.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-cancelled.png",
+      "sha256": "856aa42d8c40b4a921d5a1f0d56035a35a4171ba3608bba95ff0f1915a6a3c86",
+      "bytes": 100015
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-captured.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-captured.png",
+      "sha256": "b2a1e9b9f188b8f3a0291cb66f9119c5fce50a77caed7288c07980a5a7d4b7bf",
+      "bytes": 104733
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-cat.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-cat.png",
+      "sha256": "af34986e55f6afc8168324e47349df0fdbc189be4729e249bded849062152e09",
+      "bytes": 95219
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-catWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-catWin.png",
+      "sha256": "1e8e4c45919c5e6095645e0f69031de7f4fa64cbf87d3d4401965612e78f30e5",
+      "bytes": 96219
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-drawer.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-drawer.png",
+      "sha256": "5fc31693a8dd0489c6b4c7fab936e11c3a2ddcfeecfac2e791b64297ed56d679",
+      "bytes": 55618
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-hiding.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-hiding.png",
+      "sha256": "a87113b1f87261a1f0190c7c10f0f36b3c5fb6d95fd37b9446734162de6bcf02",
+      "bytes": 99797
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-mouse.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-mouse.png",
+      "sha256": "5f4f0532283e32c1e6102236f6b1a7dac08fa516f055883c827c88f894e739f1",
+      "bytes": 106488
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-mouseWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-mouseWin.png",
+      "sha256": "06a8b213c2c3cf70ae7102f8ba9b12f824e73622deb2a553ac8b479e2808e2e3",
+      "bytes": 87496
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-offline.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-offline.png",
+      "sha256": "304bac57039308b983c8c71349c77cf474a25b12fdb734621bfd0b8249b0ac6c",
+      "bytes": 114663
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-paused.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\park-stage-paused.png",
+      "sha256": "a409f1c385155686853cfc9207b75df8a8226c9a9c0500331aaedff9ec3a67a5",
+      "bytes": 101651
+    },
+    {
+      "path": "assets/faithful-v2/ready-cloud.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\ready-cloud.png",
+      "sha256": "ca27dfd1128b5ecfa7b07841b4aade9024d882c8a44f950bae81c8d3ffb210ba",
+      "bytes": 4914
+    },
+    {
+      "path": "assets/faithful-v2/state-cancelled.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-cancelled.png",
+      "sha256": "a130e46e879956b76fbc0e35a340fe6b3fc12518042a3e59df4f27b84cb82b9f",
+      "bytes": 26411
+    },
+    {
+      "path": "assets/faithful-v2/state-captured.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-captured.png",
+      "sha256": "e48d561b9e23213d252041b7bdeb0494b33e4d468def3e9d3a5291004aba1a51",
+      "bytes": 24125
+    },
+    {
+      "path": "assets/faithful-v2/state-catWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-catWin.png",
+      "sha256": "db8cc9ecdbe690351c5b61243d1fe5231ef919303993d4bf571198acc624952c",
+      "bytes": 41106
+    },
+    {
+      "path": "assets/faithful-v2/state-hiding.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-hiding.png",
+      "sha256": "011fb5a1027f168153eeaa7638021706445d349afdc24ccab90d93101029fffa",
+      "bytes": 28966
+    },
+    {
+      "path": "assets/faithful-v2/state-mouse.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-mouse.png",
+      "sha256": "898f29436d02d9180425f805600c8c2ca5a7f33171fe7d017a0b4d99a1efd5d2",
+      "bytes": 21757
+    },
+    {
+      "path": "assets/faithful-v2/state-mouseWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-mouseWin.png",
+      "sha256": "d01ee026e90bfe0ed5aec09793e1f7a076c1d95ae0b3b0b9f59a51ebaf15282c",
+      "bytes": 28526
+    },
+    {
+      "path": "assets/faithful-v2/state-offline.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-offline.png",
+      "sha256": "2db059b70a7aea4d81d158cc185f39433e256a0ecdcc6e6ee07ec1cc831f231f",
+      "bytes": 23829
+    },
+    {
+      "path": "assets/faithful-v2/state-paused.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\faithful-v2\\state-paused.png",
+      "sha256": "fcfab29c9df02b30cb9987ccb808b06271a9cf4415e35f047853523ad333597c",
+      "bytes": 28922
+    },
+    {
+      "path": "assets/replica-v1/cancelled.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\cancelled.png",
+      "sha256": "75d300f9dfd24d83ebbba2e9abba926f807e3cf1b0dcbeede6bfffb0bc7429c6",
+      "bytes": 26598
+    },
+    {
+      "path": "assets/replica-v1/captured-scene.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\captured-scene.png",
+      "sha256": "1f8275e7cd38675567bf14c2f4e0138984d83ee1b7ae67494e84c433aa085ecc",
+      "bytes": 24966
+    },
+    {
+      "path": "assets/replica-v1/cat-win-scene.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\cat-win-scene.png",
+      "sha256": "881f4237edc723ee90aa33636e2e3309e23067fe66e0a1a1c7997d327cd9346e",
+      "bytes": 28587
+    },
+    {
+      "path": "assets/replica-v1/compact-landscape.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\compact-landscape.png",
+      "sha256": "03d0c237091114c552a65072d29e55234bfea1d8702ff628b0e67647bd32e412",
+      "bytes": 139420
+    },
+    {
+      "path": "assets/replica-v1/hiding.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\hiding.png",
+      "sha256": "22f108b5f666671f091a870633786b93fa8c2d735703ad58c024d0902d7b4779",
+      "bytes": 25472
+    },
+    {
+      "path": "assets/replica-v1/home-landscape.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\home-landscape.png",
+      "sha256": "68a61d210c05183e958c259206c22deeaef3173641b815764056d4ee5af0d0ca",
+      "bytes": 186754
+    },
+    {
+      "path": "assets/replica-v1/mouse-win-scene.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\mouse-win-scene.png",
+      "sha256": "608d659835380f7ed1994173739f5cfd4494b1da2753d40f369127ec5386b5b6",
+      "bytes": 28389
+    },
+    {
+      "path": "assets/replica-v1/paused.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\paused.png",
+      "sha256": "ad4206713841a19f9b93c34e21c046ebc4303278aba3cfe9213c3194027293eb",
+      "bytes": 26979
+    },
+    {
+      "path": "assets/replica-v1/preview-park.png",
+      "source": "D:\\cat-mouse-miniprogram\\assets\\replica-v1\\preview-park.png",
+      "sha256": "7d69ed1e69bc9ba6074778c83855b4f96739bbd321e1023e5dcc20f98a964867",
+      "bytes": 271002
+    },
+    {
+      "path": "cat-mouse-server/package.json",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\package.json",
+      "sha256": "717b70dbc00e65a4fc3fdd802b1921b2b3270f2aa76852c2db322cc33139cd36",
+      "bytes": 582
+    },
+    {
+      "path": "cat-mouse-server/v2/client.test.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\client.test.js",
+      "sha256": "52e829ec167ba227925e41034e94571168e8b4cf139ede106e9ba68ba1dd0524",
+      "bytes": 12857
+    },
+    {
+      "path": "cat-mouse-server/v2/dev-preview.test.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\dev-preview.test.js",
+      "sha256": "a508b067681ce00520937cf621fd93cb56eb5727f70580de07a8ee49c66678be",
+      "bytes": 8276
+    },
+    {
+      "path": "cat-mouse-server/v2/integration.test.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\integration.test.js",
+      "sha256": "0d07204b75dc356a9be1ccf9e4ed545cd0409ec8c1e70e6f0e3c96aec68e5283",
+      "bytes": 15161
+    },
+    {
+      "path": "cat-mouse-server/v2/load60.cjs",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\load60.cjs",
+      "sha256": "e7999ecc80b1c060c93f07546b4f2ef2aecf4dff33d49636fba7f467e42b16ed",
+      "bytes": 6711
+    },
+    {
+      "path": "cat-mouse-server/v2/presentation.test.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js",
+      "sha256": "3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44",
+      "bytes": 9475
+    },
+    {
+      "path": "cat-mouse-server/v2/rules.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\rules.js",
+      "sha256": "062e5428e9f745fdd40db89bd62f609ff3396a48a92b5b757aad6fb8ba288488",
+      "bytes": 838
+    },
+    {
+      "path": "cat-mouse-server/v2/rules.test.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\rules.test.js",
+      "sha256": "faeb87638d0f5eee998c7151df3fce716cf0d3899ef95140d1a55258cf7fc048",
+      "bytes": 678
+    },
+    {
+      "path": "cat-mouse-server/v2/server.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\server.js",
+      "sha256": "357efc14458a3737092fcf2a5c2c2f318bacf9f24009c2d055223fc2120a1775",
+      "bytes": 7912
+    },
+    {
+      "path": "cat-mouse-server/v2/service.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\service.js",
+      "sha256": "8a0b33bfbc4c2bd153a2f353096bf4fbf9d86ba0237ebe7e7f8b1c6c238ca2bb",
+      "bytes": 17575
+    },
+    {
+      "path": "cat-mouse-server/v2/store.js",
+      "source": "D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\store.js",
+      "sha256": "24119c6a583a22b7d6af0043f692d6435548a853970dab05406369e0d6fd34c1",
+      "bytes": 2837
+    },
+    {
+      "path": "components/nav-bar/nav-bar.js",
+      "source": "D:\\cat-mouse-miniprogram\\components\\nav-bar\\nav-bar.js",
+      "sha256": "d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a",
+      "bytes": 542
+    },
+    {
+      "path": "components/nav-bar/nav-bar.json",
+      "source": "D:\\cat-mouse-miniprogram\\components\\nav-bar\\nav-bar.json",
+      "sha256": "db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b",
+      "bytes": 20
+    },
+    {
+      "path": "components/nav-bar/nav-bar.wxml",
+      "source": "D:\\cat-mouse-miniprogram\\components\\nav-bar\\nav-bar.wxml",
+      "sha256": "35040f953fb97f08c7c8a80d813b20e3d7417bf0e6e319087cc79f0f409a877d",
+      "bytes": 546
+    },
+    {
+      "path": "components/nav-bar/nav-bar.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\components\\nav-bar\\nav-bar.wxss",
+      "sha256": "2831d5c6f68c2e197c38b261ffe682f5e0ec59c8854f119a655defe87aed8234",
+      "bytes": 905
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/01-home.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\01-home.png",
+      "sha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "bytes": 1300632
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/02-create.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\02-create.png",
+      "sha256": "96d918c9d05811f939fb4a535cfb6dbc3ba6251f99662d4cda4bde1a45e7f760",
+      "bytes": 1330682
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/03-ready.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\03-ready.png",
+      "sha256": "5bd1d85579425af6d484ae1257d8f03b7a527a51b0c4db10e04ec775f5f58d40",
+      "bytes": 1281642
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/04-hiding-v2.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\04-hiding-v2.png",
+      "sha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "bytes": 1533219
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/05-cat.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\05-cat.png",
+      "sha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "bytes": 1347655
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/06-mouse-v2.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\06-mouse-v2.png",
+      "sha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "bytes": 1521011
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/07-alert.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\07-alert.png",
+      "sha256": "78f17b3ba9212d1e5d83ab33db45ff7089397ba94f6914511125c5da7f7f0531",
+      "bytes": 1480929
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/08-code.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\08-code.png",
+      "sha256": "bf21f0c9acfa926f225cd1072d912e8b82313a4f4fe620029f80256cd078a0f2",
+      "bytes": 1351765
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/09-captured.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\09-captured.png",
+      "sha256": "0ba79befb0e10a34212eecaca80c294d4b022f81cee72681f9d8179b4127f869",
+      "bytes": 1362593
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/10-paused.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\10-paused.png",
+      "sha256": "ba93ce76c10d488b153200a456a08b784f02488dff794fc1aee8da34c6a09cac",
+      "bytes": 1374717
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/11-offline.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\11-offline.png",
+      "sha256": "cf713eb08caf55833f7099c684a98fc803a4f9655a9a804848b93370ef6e9c14",
+      "bytes": 1387090
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/12-catWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\12-catWin.png",
+      "sha256": "191a1489751de8dd5d58bdb94f5f6b6a831baf794d42ad184847cb57bcdd283a",
+      "bytes": 1364623
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/13-mouseWin.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\13-mouseWin.png",
+      "sha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "bytes": 1349382
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/14-cancelled.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\14-cancelled.png",
+      "sha256": "f593d6dedc19e9c42e6296bfb92df4e59b3bb1dd35ca07707f9b13fe0f8cbecf",
+      "bytes": 1363979
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\15-dev.png",
+      "sha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "bytes": 1326055
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/16-drawer.png",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\16-drawer.png",
+      "sha256": "889cddfb0b10e7a6bd22e74c1b43c8c7ff449e992c27dd27ac420a396af23f9e",
+      "bytes": 1328429
+    },
+    {
+      "path": "design/2026-10-12/faithful-art/font.json",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\faithful-art\\font.json",
+      "sha256": "becb8b80ae7bfabf3abba236d019687be17a2ce8cecedde5a4b52f5f027857d1",
+      "bytes": 4027
+    },
+    {
+      "path": "design/2026-10-12/faithful-art/manifest.json",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\faithful-art\\manifest.json",
+      "sha256": "ed4c3a9c361c13de56046c2fd155b36f1a1fd6581521fc6995622844cd9350b4",
+      "bytes": 98163
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/runtime-lock.json",
+      "source": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\runtime-lock.json",
+      "sha256": "c38e599725ec103cb9e556c312662d82ffe0b9a8dfd54995b8607982556a911b",
+      "bytes": 3155
+    },
+    {
+      "path": "pages/dev/dev.js",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\dev\\dev.js",
+      "sha256": "6dbbd5c9b2a94ae4c58a9a190be7de8d7f00298c5b45951aa15485edbfef5d25",
+      "bytes": 712
+    },
+    {
+      "path": "pages/dev/dev.json",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\dev\\dev.json",
+      "sha256": "794147255d400e7877524116193e70c459f2d012380ff3dd6ead37275d493417",
+      "bytes": 85
+    },
+    {
+      "path": "pages/dev/dev.wxml",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\dev\\dev.wxml",
+      "sha256": "660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554",
+      "bytes": 1066
+    },
+    {
+      "path": "pages/dev/dev.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\dev\\dev.wxss",
+      "sha256": "f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd",
+      "bytes": 1458
+    },
+    {
+      "path": "pages/index/index.js",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\index\\index.js",
+      "sha256": "076ae80cddab8efb1f1d71ed39bbb8ffa7774e4b2b573c0b02dd81d6e3f5f71a",
+      "bytes": 3199
+    },
+    {
+      "path": "pages/index/index.json",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\index\\index.json",
+      "sha256": "e21084645f3cc7feafbb71c3ef046d9fc69669726c398ca780be0ae6450d39fd",
+      "bytes": 37
+    },
+    {
+      "path": "pages/index/index.wxml",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\index\\index.wxml",
+      "sha256": "e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce",
+      "bytes": 2516
+    },
+    {
+      "path": "pages/index/index.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\index\\index.wxss",
+      "sha256": "8389a1ea19e034125bbd7988c397acbdd6054283c52f2244d14b091704d222c8",
+      "bytes": 3698
+    },
+    {
+      "path": "pages/map/map.js",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\map\\map.js",
+      "sha256": "1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068",
+      "bytes": 11730
+    },
+    {
+      "path": "pages/map/map.json",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\map\\map.json",
+      "sha256": "ddf340361a2f3d1357c1b7cabb6f7cc0288a675c9538fb2bde779bace0691fa0",
+      "bytes": 137
+    },
+    {
+      "path": "pages/map/map.wxml",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\map\\map.wxml",
+      "sha256": "fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe",
+      "bytes": 12628
+    },
+    {
+      "path": "pages/map/map.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\map\\map.wxss",
+      "sha256": "849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2",
+      "bytes": 8396
+    },
+    {
+      "path": "pages/qrcode/qrcode.js",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\qrcode\\qrcode.js",
+      "sha256": "0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192",
+      "bytes": 4298
+    },
+    {
+      "path": "pages/qrcode/qrcode.json",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\qrcode\\qrcode.json",
+      "sha256": "9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197",
+      "bytes": 169
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxml",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\qrcode\\qrcode.wxml",
+      "sha256": "65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c",
+      "bytes": 2490
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\qrcode\\qrcode.wxss",
+      "sha256": "5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de",
+      "bytes": 5623
+    },
+    {
+      "path": "pages/room/room.js",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\room\\room.js",
+      "sha256": "a52b4c3a2005d3cbf2dee4bbb27e6b6ef4286c2748ccb476339480d8c54eb44c",
+      "bytes": 7003
+    },
+    {
+      "path": "pages/room/room.json",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\room\\room.json",
+      "sha256": "50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619",
+      "bytes": 117
+    },
+    {
+      "path": "pages/room/room.wxml",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml",
+      "sha256": "46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28",
+      "bytes": 6449
+    },
+    {
+      "path": "pages/room/room.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\pages\\room\\room.wxss",
+      "sha256": "bd53bd7f0de51c3c5549947e9a64b3160e1d573d02d69b66785dc9f56a55baed",
+      "bytes": 9912
+    },
+    {
+      "path": "project.config.json",
+      "source": "D:\\cat-mouse-miniprogram\\project.config.json",
+      "sha256": "720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c",
+      "bytes": 5780
+    },
+    {
+      "path": "scripts/package-release.ps1",
+      "source": "D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1",
+      "sha256": "7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b",
+      "bytes": 5385
+    },
+    {
+      "path": "utils/api.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\api.js",
+      "sha256": "9866cdad332d37b361e4760dec700b0696a40556f0c060a1ac3d47d8d4025682",
+      "bytes": 9858
+    },
+    {
+      "path": "utils/art-ratios.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\art-ratios.wxss",
+      "sha256": "2e484efefc43eca6b40893f43efa5075b8e681d4c68b40517d02edefb7a66a98",
+      "bytes": 2490
+    },
+    {
+      "path": "utils/config.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\config.js",
+      "sha256": "9d5303084117a3e41273afe7033107cd6bffbeedff7c5588a9b98b15c262eaef",
+      "bytes": 352
+    },
+    {
+      "path": "utils/dev-preview.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\dev-preview.js",
+      "sha256": "6ce576cf7b78b177e1d9c9870d13674162010318176bf9e24a685f945ae9d74c",
+      "bytes": 5856
+    },
+    {
+      "path": "utils/display-font.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\display-font.wxss",
+      "sha256": "d98ddf38ba194feeacaf986f2e49557d7115f7771fa6c234b6321008a45fbd85",
+      "bytes": 57863
+    },
+    {
+      "path": "utils/location-v2.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\location-v2.js",
+      "sha256": "ff74e385c2cc3727b4d9abe633db652d9d7305d0b809ec8014ad3dba54337203",
+      "bytes": 2763
+    },
+    {
+      "path": "utils/pixel-art-ratios.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\pixel-art-ratios.wxss",
+      "sha256": "52eae2875ee2d000d20297cb04849aa870156bb934975d149b90abb05373bbfa",
+      "bytes": 875
+    },
+    {
+      "path": "utils/pixel-font.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\pixel-font.wxss",
+      "sha256": "c40aab628e6972cf427d9686310fec5d8086a0dfa4523675d2cfefe1f731fa59",
+      "bytes": 144021
+    },
+    {
+      "path": "utils/pixel-theme.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\pixel-theme.wxss",
+      "sha256": "713871725d22017ed2beb76ae8bb21646790d83271d7d32976d2edfc0345f197",
+      "bytes": 869
+    },
+    {
+      "path": "utils/presentation.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\presentation.js",
+      "sha256": "221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556",
+      "bytes": 2710
+    },
+    {
+      "path": "utils/snapshot-v2.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\snapshot-v2.js",
+      "sha256": "9c430aff5282da4ca77162ae4ad65cfd46b9e269b84fc7c171ef16a0b084b6ca",
+      "bytes": 307
+    },
+    {
+      "path": "utils/theme.wxss",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\theme.wxss",
+      "sha256": "3b74e50ab8a761a3852ab0e60ff4e38b35c967468c1dfd037d0fcb2f1e410ccf",
+      "bytes": 3137
+    },
+    {
+      "path": "utils/v2.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\v2.js",
+      "sha256": "723124d3c7eea1e4068b8c6b46653bc2c28b9394cd9d6e3cefac5cfcd1c6f1cc",
+      "bytes": 3632
+    },
+    {
+      "path": "utils/venue-camera.js",
+      "source": "D:\\cat-mouse-miniprogram\\utils\\venue-camera.js",
+      "sha256": "50c530e7908d99d2b8d72a8a7752c3ea2fb39b2b4947619ec59dbbee7fb42c46",
+      "bytes": 1333
+    }
+  ]
+}

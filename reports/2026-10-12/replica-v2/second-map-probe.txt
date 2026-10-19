@@ -1,0 +1,9 @@
+ROUTE cat
+PASS cat
+ROUTE mouseWin
+ROUTE_RETRY mouseWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouseWin
+ROUTE drawer
+ROUTE_RETRY drawer {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS drawer
+REPLICA_UI_PASS=3 FONT_SCALE=1

@@ -1,0 +1,113 @@
+{
+  "description": "猫鼠游戏小程序 - 线下实景追逐游戏",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "cat-mouse-server"
+      },
+      {
+        "type": "folder",
+        "value": ".git"
+      },
+      {
+        "type": "folder",
+        "value": "pages/history"
+      },
+      {
+        "type": "folder",
+        "value": "pages/profile"
+      },
+      {
+        "type": "folder",
+        "value": "pages/task"
+      },
+      {
+        "type": "folder",
+        "value": "pages/quiz"
+      },
+      {
+        "type": "folder",
+        "value": "design"
+      },
+      {
+        "type": "folder",
+        "value": "reports"
+      },
+      {
+        "type": "folder",
+        "value": "dist"
+      },
+      {
+        "type": "folder",
+        "value": "scripts"
+      },
+      {
+        "type": "folder",
+        "value": "assets/markers"
+      },
+      {
+        "type": "file",
+        "value": "cat-mouse-server/趣味问题数据库.json"
+      }
+    ],
+    "include": []
+  },
+  "setting": {
+    "bundle": false,
+    "userConfirmedBundleSwitch": false,
+    "urlCheck": false,
+    "scopeDataCheck": false,
+    "coverView": true,
+    "es6": true,
+    "ignoreDevUnusedFiles": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "autoAudits": false,
+    "newFeature": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "useIsolateContext": true,
+    "nodeModules": false,
+    "enhance": true,
+    "useMultiFrameRuntime": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
+    "enableEngineNative": false,
+    "packNpmRelation": false,
+    "ignoreReqValidDate": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.15.0",
+  "appid": "wx6971da11f7bcc70f",
+  "projectname": "cat-mouse-game",
+  "condition": {
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {"id":0,"name":"界面调试台","pathName":"pages/dev/dev","query":"","scene":null},
+        {"id":1,"name":"首页预览","pathName":"pages/index/index","query":"devPreview=home","scene":null},
+        {"id":2,"name":"创建活动","pathName":"pages/room/room","query":"devPreview=create","scene":null},
+        {"id":3,"name":"房间准备","pathName":"pages/room/room","query":"devPreview=ready","scene":null},
+        {"id":4,"name":"猫队地图","pathName":"pages/map/map","query":"devPreview=cat","scene":null},
+        {"id":5,"name":"鼠队地图","pathName":"pages/map/map","query":"devPreview=mouse","scene":null},
+        {"id":6,"name":"近距预警","pathName":"pages/map/map","query":"devPreview=alert","scene":null},
+        {"id":7,"name":"躲藏阶段","pathName":"pages/map/map","query":"devPreview=hiding","scene":null},
+        {"id":8,"name":"动态码","pathName":"pages/qrcode/qrcode","query":"devPreview=code","scene":null},
+        {"id":9,"name":"被捕状态","pathName":"pages/map/map","query":"devPreview=captured","scene":null},
+        {"id":10,"name":"暂停状态","pathName":"pages/map/map","query":"devPreview=paused","scene":null},
+        {"id":11,"name":"断线重连","pathName":"pages/map/map","query":"devPreview=offline","scene":null},
+        {"id":12,"name":"猫队获胜","pathName":"pages/map/map","query":"devPreview=catWin","scene":null},
+        {"id":13,"name":"鼠队获胜","pathName":"pages/map/map","query":"devPreview=mouseWin","scene":null},
+        {"id":14,"name":"本局取消","pathName":"pages/map/map","query":"devPreview=cancelled","scene":null}
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "isGameTourist": false
+}

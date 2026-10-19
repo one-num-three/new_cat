@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "anchors": 41,
+  "triangles": 72,
+  "roundtrips": 288,
+  "maxControlResidualPixels": 4.907328195781422e-9,
+  "maxRoundtripPixels": 8.597349918632462e-9,
+  "imageHash": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+  "fieldVerified": false
+}

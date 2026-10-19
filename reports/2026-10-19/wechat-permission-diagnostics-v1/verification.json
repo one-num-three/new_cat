@@ -1,0 +1,81 @@
+{
+  "tests": 157,
+  "failures": 0,
+  "checks": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/finalize-model-evidence.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/campus-model.test.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/pixel-ui.test.js",
+      "status": 0
+    }
+  ],
+  "runtime": {
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "modelMode": true,
+    "locationOn": false,
+    "hasPosition": false,
+    "simulated": false,
+    "status": "ready",
+    "error": "",
+    "drawCount": 3,
+    "lastDrawMs": 9
+  },
+  "permissions": [
+    {
+      "kind": "setting",
+      "location": true
+    },
+    {
+      "kind": "privacy",
+      "needAuthorization": false
+    }
+  ],
+  "metadataBytes": 913,
+  "metadataSha256": "56ce0028148902d896ef2292c9c276a68dce276b71f9ea4d6c4438f9adf66e37",
+  "metadataBytesUnchanged": true,
+  "meshSha256": "68e38f332cc9548a8b140f15f0ebc27c32a01a1bd63eeca4e16d452490971127",
+  "localPackageBytes": {
+    "main": 2084378,
+    "campus3d": 1295150,
+    "venue-maps": 1981419
+  },
+  "packageFiles": 167,
+  "screenshot": {
+    "file": "3d-cold-load-final.png",
+    "sha256": "e762dab3934f83bcfd97a8745f0ff3c9a2b0718e22776b22cac8e0e01a6a0106",
+    "width": 648,
+    "height": 1402,
+    "pixelsReviewed": true
+  },
+  "userReportedPrivateLogsReproduced": false,
+  "phoneVerified": false,
+  "uploaded": false,
+  "deployed": false
+}

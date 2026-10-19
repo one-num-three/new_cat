@@ -1,0 +1,132 @@
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\dev\\dev.js" "b/pages\\dev\\dev.js"
+index 521a111..99663ba 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\dev\\dev.js"
++++ "b/pages\\dev\\dev.js"
+@@ -8,5 +8,6 @@ Page({
+   home(){wx.reLaunch({url:'/pages/index/index'});},
+   openCampus(e){if(!preview.enabled())return;wx.navigateTo({url:'/pages/map/map?devPreview=mouse&mapId='+encodeURIComponent(e.currentTarget.dataset.map)});},
+   openVenue(){wx.navigateTo({url:'/pages/venue/venue'});},
++  simulateJiulonghu(){if(!preview.enabled())return;wx.navigateTo({url:'/pages/venue/venue?mapId=seu-jiulonghu-v1&simPosition=jiulonghu-meiyuan7b'});},
+   open(e){if(!preview.enabled())return;const item=preview.cases.find(x=>x.id===e.currentTarget.dataset.id);if(item)wx.navigateTo({url:item.path});}
+ });
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\dev\\dev.wxml" "b/pages\\dev\\dev.wxml"
+index ded5317..4cdcd9e 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\dev\\dev.wxml"
++++ "b/pages\\dev\\dev.wxml"
+@@ -3,6 +3,7 @@
+  <view class="devIntro"><text class="devTitle">界面调试台</text><text class="devDescription">晴日公园 · 16-bit 像素</text><text class="devNote">样例数据 · 不连接真实对局</text><button class="venuePreviewEntry" bindtap="openVenue">三处场地地图 · 完整导览</button></view>
+  <view wx:for="{{groups}}" wx:key="title" class="previewGroup"><text class="groupTitle">{{item.title}}</text><view class="previewGrid"><button wx:for="{{item.items}}" wx:for-item="entry" wx:key="id" class="previewItem" data-id="{{entry.id}}" bindtap="open"><text class="entryNumber">{{index+1}}</text><text class="entryTitle">{{entry.label}}</text><text class="entryArrow">›</text></button></view></view>
+  <button class="venuePreviewEntry" data-map="seu-jiulonghu-v1" bindtap="openCampus">九龙湖 · 定位演示</button><button class="venuePreviewEntry" data-map="seu-sipailou-v1" bindtap="openCampus">四牌楼 · 定位演示</button>
++ <button class="venuePreviewEntry" bindtap="simulateJiulonghu">九龙湖 · 电脑模拟本人定位</button>
+  <button class="venuePreviewEntry" bindtap="openCalibration">地图位置标定 · 开发预览</button>
+  <button class="homeButton" bindtap="home">返回首页</button>
+ </view>
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\venue\\venue.js" "b/pages\\venue\\venue.js"
+index f99d6a8..795f650 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\venue\\venue.js"
++++ "b/pages\\venue\\venue.js"
+@@ -1,6 +1,7 @@
+ const presentation = require('../../utils/presentation');
+ const catalog=require('../../utils/venue-catalog');
+ const foreground=require('../../utils/foreground-location'),osm=require('../../utils/osm-art-registration'),mapMarkers=require('../../utils/map-markers');
++const scenarios=require('../../utils/location-scenarios');
+ 
+ function layoutKey(metrics) {
+   return [metrics.viewportWidth, metrics.viewportHeight, metrics.fontScale, metrics.navHeight, metrics.safeBottom].join(':');
+@@ -11,12 +12,13 @@ Page({
+     navHeight:64, viewportWidth:390, viewportHeight:844, fontScale:1, safeBottom:0,
+     mapId:catalog.DEFAULT_ID,venueOptions:catalog.options,venueMapIndex:0,venueName:catalog.get().label,layoutKey:'', venueSource:'/assets/maps/xuanwu-lake-v4.jpg',locationOn:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},artMode:true,markers:[],latitude:32.0584,longitude:118.7968,hasPosition:false,followSelf:true
+   },
+-  onLoad(options={}) { this.selectMap(options.mapId||catalog.DEFAULT_ID);this.refreshLayout(); },
+-  selectMap(id){const image=catalog.get(id);if(!image){this.setData({venueError:'未知场地地图'});return;}this.setData({mapId:image.id,venueSource:image.src,venueName:image.label,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id),venueError:''});if(this.position)this.displayPosition(this.position);},
++  onLoad(options={}) { this.selectMap(options.mapId||catalog.DEFAULT_ID);this.refreshLayout();this.simulation=scenarios.get(options.simPosition,this.data.mapId);if(options.simPosition&&!this.simulation)this.setData({locationError:'模拟定位仅限电脑开发工具；真机请点准星获取实际位置'}); },
++  selectMap(id){const image=catalog.get(id);if(!image){this.setData({venueError:'未知场地地图'});return;}if(this.simulation&&id!=='seu-jiulonghu-v1'){this.simulation=null;this.simulationStopped=true;this.stopGps();}this.setData({mapId:image.id,venueSource:image.src,venueName:image.label,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id),venueError:''});if(this.position)this.displayPosition(this.position);},
+   selectVenueMap(e){const item=catalog.options[Number(e.detail.value)];if(item)this.selectMap(item.id);},
+-  onShow() { this.active=true;this.refreshLayout(); },
++  onShow() { this.active=true;this.refreshLayout();if(this.simulation&&!this.simulationStopped)this.startSimulation(); },
+   onHide(){this.stopGps();this.active=false;},onUnload(){this.stopGps();this.active=false;},
+   locate(){
++    if(this.simulation){this.simulationStopped=false;this.startSimulation();this.focusPosition();return;}
+     if(this.data.locationOn&&this.position){this.focusPosition();return;}
+     if(this.gps?.isActive())this.gps.stop();
+     this.active=true;this.setData({locationOn:true,locationError:'',locationText:'正在获取真实位置…'});
+@@ -24,12 +26,14 @@ Page({
+     this.gps.start();
+   },
+   displayPosition(p){
+-    this.position=p;const projected=osm.project(p,'gcj02',this.data.mapId),first=!this.data.hasPosition;
+-    this.setData({hasPosition:true,...(first||this.data.followSelf?{latitude:p.lat,longitude:p.lng}:{}),locationText:'本人 · 精度约'+Math.round(p.accuracy)+'米',coordinateText:'GCJ-02 '+p.lat.toFixed(6)+', '+p.lng.toFixed(6),locationError:!this.data.artMode?'':projected?'OSM参考位置，实地精度待核验':'当前位置超出图片配准范围，可点图层切换实时地图',geoData:{points:[{...p,tone:'self',label:'本人'}],regions:[]},markers:[{id:1,latitude:p.lat,longitude:p.lng,...mapMarkers.sprite('self')} ]});
++    this.position=p;const projected=osm.project(p,'gcj02',this.data.mapId),first=!this.data.hasPosition,simulated=!!p.simulated;
++    const notice=!osm.available(this.data.mapId)?'此地图的定位参考尚未启用，可切换实时地图':catalog.contains(this.data.mapId,p)?'你在校区范围内，但这一片尚未完成图片配准；可切换实时地图':'当前位置超出所选校区，请核对场地或切换实时地图';
++    this.setData({hasPosition:true,simulated,...(first||this.data.followSelf?{latitude:p.lat,longitude:p.lng}:{}),locationText:simulated?'模拟定位 · '+p.label:'本人 · 精度约'+Math.round(p.accuracy)+'米',coordinateText:(simulated?'模拟 ':'')+'GCJ-02 '+p.lat.toFixed(6)+', '+p.lng.toFixed(6),locationError:!this.data.artMode?'':projected?'OSM参考位置，实地精度待核验':notice,geoData:{points:[{...p,tone:'self',label:simulated?'模拟本人':'本人'}],regions:[]},markers:[{id:1,latitude:p.lat,longitude:p.lng,...mapMarkers.sprite('self')} ]});
+     if(first&&projected)wx.nextTick(()=>{if(this.active&&this.position===p)this.selectComponent('.venueArt')?.focusSelf();});
+   },
+   focusPosition(){if(this.data.artMode&&!this.selectComponent('.venueArt')?.focusSelf())this.setData({locationError:'本人位置超出图片覆盖或地图未就绪，请切换实时地图'});else if(!this.data.artMode&&this.position)this.setData({latitude:this.position.lat,longitude:this.position.lng,followSelf:true});},
+-  stopGps(){if(this.gps)this.gps.stop();this.position=null;this.setData({locationOn:false,hasPosition:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},markers:[]});},
++  startSimulation(){if(this.gps)this.gps.stop();this.setData({locationOn:true});this.displayPosition(this.simulation);},
++  stopGps(e){if(e?.currentTarget)this.simulationStopped=true;if(this.gps)this.gps.stop();this.position=null;this.setData({locationOn:false,hasPosition:false,simulated:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},markers:[]});},
+   toggleLayer(){this.setData({artMode:!this.data.artMode});if(this.position)this.displayPosition(this.position);},
+   onNativeRegion(e){if((e.causedBy||e.detail?.causedBy)==='gesture')this.setData({followSelf:false});},
+   onResize(event) { this.refreshLayout(event); },
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\venue\\venue.wxml" "b/pages\\venue\\venue.wxml"
+index 3cebb06..5185dc9 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\pages\\venue\\venue.wxml"
++++ "b/pages\\venue\\venue.wxml"
+@@ -1,7 +1,7 @@
+ <view class="screen venueScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+   <nav-bar title="场地地图" />
+   <view class="venueHeading">
+-    <view class="venueSubtitle"><picker range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap"><view class="venuePickerValue"><text>{{venueName}}</text><text aria-hidden="true">›</text></view></picker><text class="venueReference">{{locationOn?'本人实时定位 · 仅本机显示':'场地导览 · 定位未开启'}}</text></view>
++    <view class="venueSubtitle"><picker range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap"><view class="venuePickerValue"><text>{{venueName}}</text><text aria-hidden="true">›</text></view></picker><text class="venueReference">{{locationOn?(simulated?'模拟定位 · 非真实GPS':'本人实时定位 · 仅本机显示'):'场地导览 · 定位未开启'}}</text></view>
+     <button class="venueBack" bindtap="goBack" aria-label="返回上一页">‹ 返回</button>
+   </view>
+   <view class="gpsInfo" role="status"><text>{{locationText}}</text><text wx:if="{{coordinateText}}" class="gpsCoordinates">{{coordinateText}}</text><text wx:if="{{locationError}}" class="gpsMessage">{{locationError}}</text></view>
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\scripts\\build-campus-runtime.cjs" "b/scripts\\build-campus-runtime.cjs"
+index 6726512..05ec7a8 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\scripts\\build-campus-runtime.cjs"
++++ "b/scripts\\build-campus-runtime.cjs"
+@@ -3,12 +3,12 @@
+ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),sharp=require('sharp');
+ const {wgs84togcj02}=require('../utils/vendor/coordtransform');
+ const root=path.resolve(__dirname,'..'),source=path.join(root,'design/maps/seu-campuses-v1'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+-const entries=[{key:'jiulonghu',id:'seu-jiulonghu-v1',label:'东南大学 · 九龙湖',bounds:[118.803,31.880,118.828,31.898]},{key:'sipailou',id:'seu-sipailou-v1',label:'东南大学 · 四牌楼',bounds:[118.780,32.052,118.797,32.062]}];
++const entries=[{key:'jiulonghu',id:'seu-jiulonghu-v1',label:'东南大学 · 九龙湖',modelPath:'design/maps/seu-jiulonghu-registration-v2/jiulonghu-registration.json',bounds:[118.803,31.880,118.828,31.898]},{key:'sipailou',id:'seu-sipailou-v1',label:'东南大学 · 四牌楼',bounds:[118.780,32.052,118.797,32.062]}];
+ (async()=>{
+  const images=[{id:'xuanwu-v4',label:'玄武湖 · 环洲樱洲',src:'/assets/maps/xuanwu-lake-v4.jpg',width:1254,height:1254,sha256:'d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540',fieldVerified:false}],models={},records=[];
+  fs.mkdirSync(path.join(root,'venue-maps/assets'),{recursive:true});
+  for(const entry of entries){
+-  const original=fs.readFileSync(path.join(source,entry.key+'-art.png')),modelBytes=fs.readFileSync(path.join(source,entry.key+'-registration.json')),m=JSON.parse(modelBytes);
++  const original=fs.readFileSync(path.join(source,entry.key+'-art.png')),modelPath=entry.modelPath||'design/maps/seu-campuses-v1/'+entry.key+'-registration.json',modelBytes=fs.readFileSync(path.join(root,modelPath)),m=JSON.parse(modelBytes);
+   if(hash(original)!==m.image.sha256||m.schema!=='piecewise-affine-wgs84-art-v1'||m.projection!=='EPSG:3857'||m.fieldVerified!==false||m.extrapolation!==false)throw Error('Unexpected source '+entry.key);
+   const runtimePath='venue-maps/assets/'+entry.key+'-v1.jpg',target=path.join(root,runtimePath);
+   const encoded=await sharp(original).jpeg({quality:86,chromaSubsampling:'4:4:4',mozjpeg:true}).toBuffer();
+@@ -16,7 +16,8 @@ const entries=[{key:'jiulonghu',id:'seu-jiulonghu-v1',label:'东南大学 · 九
+   const gcj=m.anchors.slice(0,3).map(a=>{const p=wgs84togcj02(...a.wgs84);return {lng:p[0],lat:p[1]};}),corners=[[entry.bounds[0],entry.bounds[1]],[entry.bounds[2],entry.bounds[3]]].map(p=>wgs84togcj02(...p));
+   const image={id:entry.id,label:entry.label,src:'/'+runtimePath,width:1254,height:1254,sha256:hash(encoded),sourceSha256:m.image.sha256,subpackage:'venue-maps',fieldVerified:false,gcjBounds:[corners[0][0]-.0003,corners[0][1]-.0003,corners[1][0]+.0003,corners[1][1]+.0003],demoPoints:gcj};
+   images.push(image);models[entry.id]={schema:m.schema,enabled:m.enabled,image:{id:image.id,runtimePath,width:1254,height:1254,sha256:image.sha256,sourceSha256:m.image.sha256},source:{crs:'EPSG:4326',description:'OSM building-centre / generated-art correspondence; not surveyed ground controls'},projection:m.projection,origin:m.origin,world:m.world,pixels:m.pixels,triangles:m.triangles,fieldVerified:false,extrapolation:false,sourceModelSha256:hash(modelBytes)};
+-  records.push({id:entry.id,source:entry.key+'-art.png',sourceSha256:m.image.sha256,runtimePath,runtimeSha256:image.sha256,bytes:encoded.length,width:1254,height:1254});
++  models[entry.id].registrationVersion=m.registrationVersion||'campus-reference-1';
++  records.push({id:entry.id,source:entry.key+'-art.png',sourceSha256:m.image.sha256,modelPath,modelSha256:hash(modelBytes),registrationVersion:models[entry.id].registrationVersion,runtimePath,runtimeSha256:image.sha256,bytes:encoded.length,width:1254,height:1254});
+   if(process.argv.includes('--verify')){if(hash(fs.readFileSync(target))!==image.sha256)throw Error('Runtime image differs: '+entry.key);}else fs.writeFileSync(target,encoded);
+  }
+  const files={'utils/venue-images.js':'// Generated by scripts/build-campus-runtime.cjs.\nmodule.exports='+JSON.stringify(images)+';\n','cat-mouse-server/shared/venue-images.js':'// Generated by scripts/build-campus-runtime.cjs.\nmodule.exports='+JSON.stringify(images)+';\n','utils/campus-art-models.js':'// Generated by scripts/build-campus-runtime.cjs; do not refit or hand-edit.\nmodule.exports='+JSON.stringify(models)+';\n','design/2026-10-16/campus-runtime-v1/manifest.json':JSON.stringify({source:'design/maps/seu-campuses-v1',processing:'Original dimensions; JPEG quality86 4:4:4; no repaint/crop. Registration coefficients retained.',fieldVerified:false,entries:records},null,2)+'\n'};
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\scripts\\package-release.ps1" "b/scripts\\package-release.ps1"
+index 843a1af..3cf62b4 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\scripts\\package-release.ps1"
++++ "b/scripts\\package-release.ps1"
+@@ -29,6 +29,7 @@ try {
+   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
+   $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','utils\map-markers.js','utils\venue-catalog.js','utils\venue-images.js','utils\campus-art-models.js','utils\venue-resources.js','venue-maps','assets\map-markers-v2','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
+   $miniFiles += 'utils\foreground-location.js'
++  $miniFiles += 'utils\location-scenarios.js'
+   foreach ($item in $miniFiles) {
+     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
+       throw "Required miniprogram source is missing: $item"
+diff --git "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\utils\\campus-art-models.js" "b/utils\\campus-art-models.js"
+index a9dd25a..6e5958d 100644
+--- "a/reports\\2026-10-18\\jiulonghu-location-fix-v1\\before\\utils\\campus-art-models.js"
++++ "b/utils\\campus-art-models.js"
+@@ -1,2 +1,2 @@
+ // Generated by scripts/build-campus-runtime.cjs; do not refit or hand-edit.
+-module.exports={"seu-jiulonghu-v1":{"schema":"piecewise-affine-wgs84-art-v1","enabled":true,"image":{"id":"seu-jiulonghu-v1","runtimePath":"venue-maps/assets/jiulonghu-v1.jpg","width":1254,"height":1254,"sha256":"3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5","sourceSha256":"ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e"},"source":{"crs":"EPSG:4326","description":"OSM building-centre / generated-art correspondence; not surveyed ground controls"},"projection":"EPSG:3857","origin":[13226466.479767371,3748857.1008042754],"world":[[-144.47611035779119,2.024311266373843],[-566.5318559128791,-98.55206389259547],[692.4685670714825,-105.09138671308756],[-244.89815187826753,-772.8389263940044],[210.90599680878222,368.2611458962783],[221.33315436542034,568.0926114441827],[394.0791576243937,126.11630225321278],[254.73592245019972,-50.51134735997766],[-28.00279218517244,698.854272483848],[242.64928480051458,690.2433270919137],[-972.9573068656027,600.6278780135326],[322.7973914872855,757.9690843881108],[1058.773403128609,-53.97452218551189],[-792.7617906294763,-608.9950768747367],[-767.4239565338939,-922.3453670279123],[827.5301670320332,562.4617949272506],[839.1957075353712,-592.6288146497682],[-69.26389154046774,-1087.5561004234478],[-821.720038164407,321.6573883355595],[-656.432858236134,-403.814510576427]],"pixels":[[535,576],[304,635],[995,636],[479,1004],[730,375],[736,264],[832,511],[755,605],[598,195],[747,199],[78,248],[792,162],[1198,609],[177,917],[191,1089],[1070,268],[1077,905],[576,1178],[161,403],[253,802]],"triangles":[[8,11,10],[16,3,17],[3,14,17],[14,3,13],[14,13,10],[2,16,12],[15,2,12],[2,15,6],[15,4,6],[4,8,0],[8,18,0],[18,1,0],[18,8,10],[13,18,10],[3,19,13],[19,18,13],[18,19,1],[1,19,0],[19,3,0],[7,3,16],[2,7,16],[3,7,0],[7,2,6],[7,4,0],[4,7,6],[4,5,8],[5,15,11],[5,4,15],[8,9,11],[9,5,11],[5,9,8]],"fieldVerified":false,"extrapolation":false,"sourceModelSha256":"dd93a0e9d60efe617091eb6dab71de1ffb8731a511ec72248ad58d907a7b65a3"},"seu-sipailou-v1":{"schema":"piecewise-affine-wgs84-art-v1","enabled":true,"image":{"id":"seu-sipailou-v1","runtimePath":"venue-maps/assets/sipailou-v1.jpg","width":1254,"height":1254,"sha256":"e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9","sourceSha256":"27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6"},"source":{"crs":"EPSG:4326","description":"OSM building-centre / generated-art correspondence; not surveyed ground controls"},"projection":"EPSG:3857","origin":[13223533.89885727,3770788.19432542],"world":[[2.515256103128195,134.95824459847063],[140.88158817589283,8.331345026381314],[-76.92272608168423,5.3267765692435205],[120.86356074362993,81.13407433778048],[-90.63790578953922,82.04530158964917],[-259.4984413739294,248.6171617479995],[-292.0983542520553,87.87551576690748],[-528.1068066842854,67.71359308529645],[-530.1912641488016,33.52706175064668],[-613.655835358426,205.4983514319174],[-530.299800651148,199.525237753056],[-454.3409461081028,43.8881985200569],[581.6038011889905,152.32493754150346],[519.0505963228643,-27.846564542967826],[597.068861445412,-309.89589394489303],[447.7588114310056,-465.21220928803086],[447.1176111642271,60.64904726622626],[181.07388789765537,-475.31851022783667],[506.9974784590304,-82.32091599097475],[-169.17937251925468,-50.8207530034706]],"pixels":[[641,498],[758,610],[576,611],[739,547],[563,546],[419,405],[392,540],[191,558],[191,586],[121,441],[192,448],[255,578],[1130,485],[1078,639],[1143,879],[1017,1009],[1016,564],[792,1018],[1067,685],[496,660]],"triangles":[[1,2,17],[2,19,17],[19,8,17],[10,5,9],[18,15,14],[15,18,17],[18,1,17],[4,19,2],[5,0,12],[4,0,5],[0,4,2],[10,6,5],[6,4,5],[4,6,19],[18,16,1],[19,11,8],[6,11,19],[11,6,10],[16,13,12],[13,16,18],[12,13,14],[13,18,14],[16,3,1],[1,3,2],[3,0,2],[0,3,12],[3,16,12],[11,7,8],[7,11,10],[8,7,9],[7,10,9]],"fieldVerified":false,"extrapolation":false,"sourceModelSha256":"56a6b624f02bd5ae211e24585ad504d5457ffa37eb9f3bf516eef9349b92c67e"}};
++module.exports={"seu-jiulonghu-v1":{"schema":"piecewise-affine-wgs84-art-v1","enabled":true,"image":{"id":"seu-jiulonghu-v1","runtimePath":"venue-maps/assets/jiulonghu-v1.jpg","width":1254,"height":1254,"sha256":"3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5","sourceSha256":"ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e"},"source":{"crs":"EPSG:4326","description":"OSM building-centre / generated-art correspondence; not surveyed ground controls"},"projection":"EPSG:3857","origin":[13226466.479767371,3748857.1008042754],"world":[[-144.47611035779119,2.024311266373843],[-566.5318559128791,-98.55206389259547],[692.4685670714825,-105.09138671308756],[-244.89815187826753,-772.8389263940044],[210.90599680878222,368.2611458962783],[221.33315436542034,568.0926114441827],[394.0791576243937,126.11630225321278],[254.73592245019972,-50.51134735997766],[-28.00279218517244,698.854272483848],[242.64928480051458,690.2433270919137],[-972.9573068656027,600.6278780135326],[322.7973914872855,757.9690843881108],[1058.773403128609,-53.97452218551189],[-792.7617906294763,-608.9950768747367],[-767.4239565338939,-922.3453670279123],[827.5301670320332,562.4617949272506],[839.1957075353712,-592.6288146497682],[-69.26389154046774,-1087.5561004234478],[-821.720038164407,321.6573883355595],[-656.432858236134,-403.814510576427],[850.091659296304,-776.2407486313023],[690.2034746669233,-784.6180240451358],[999.9944855980575,-505.43792960746214]],"pixels":[[535,576],[304,635],[995,636],[479,1004],[730,375],[736,264],[832,511],[755,605],[598,195],[747,199],[78,248],[792,162],[1198,609],[177,917],[191,1089],[1070,268],[1077,905],[576,1178],[161,403],[253,802],[1079,1007],[992,1012],[1165,863]],"triangles":[[8,11,10],[14,13,10],[21,3,17],[3,14,17],[14,3,13],[20,21,17],[15,2,12],[2,15,6],[15,4,6],[4,8,0],[8,18,0],[18,1,0],[18,8,10],[13,18,10],[3,19,13],[19,18,13],[18,19,1],[1,19,0],[19,3,0],[20,16,21],[16,2,21],[7,2,6],[7,4,0],[4,7,6],[3,7,0],[7,3,21],[2,7,21],[4,5,8],[5,15,11],[5,4,15],[22,16,20],[2,22,12],[16,22,2],[8,9,11],[9,5,11],[5,9,8]],"fieldVerified":false,"extrapolation":false,"sourceModelSha256":"4f3cfe8d8a386d3dc568fa467483741be3bcebe08597dcae21e155473e0f66bc","registrationVersion":"jiulonghu-reference-2"},"seu-sipailou-v1":{"schema":"piecewise-affine-wgs84-art-v1","enabled":true,"image":{"id":"seu-sipailou-v1","runtimePath":"venue-maps/assets/sipailou-v1.jpg","width":1254,"height":1254,"sha256":"e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9","sourceSha256":"27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6"},"source":{"crs":"EPSG:4326","description":"OSM building-centre / generated-art correspondence; not surveyed ground controls"},"projection":"EPSG:3857","origin":[13223533.89885727,3770788.19432542],"world":[[2.515256103128195,134.95824459847063],[140.88158817589283,8.331345026381314],[-76.92272608168423,5.3267765692435205],[120.86356074362993,81.13407433778048],[-90.63790578953922,82.04530158964917],[-259.4984413739294,248.6171617479995],[-292.0983542520553,87.87551576690748],[-528.1068066842854,67.71359308529645],[-530.1912641488016,33.52706175064668],[-613.655835358426,205.4983514319174],[-530.299800651148,199.525237753056],[-454.3409461081028,43.8881985200569],[581.6038011889905,152.32493754150346],[519.0505963228643,-27.846564542967826],[597.068861445412,-309.89589394489303],[447.7588114310056,-465.21220928803086],[447.1176111642271,60.64904726622626],[181.07388789765537,-475.31851022783667],[506.9974784590304,-82.32091599097475],[-169.17937251925468,-50.8207530034706]],"pixels":[[641,498],[758,610],[576,611],[739,547],[563,546],[419,405],[392,540],[191,558],[191,586],[121,441],[192,448],[255,578],[1130,485],[1078,639],[1143,879],[1017,1009],[1016,564],[792,1018],[1067,685],[496,660]],"triangles":[[1,2,17],[2,19,17],[19,8,17],[10,5,9],[18,15,14],[15,18,17],[18,1,17],[4,19,2],[5,0,12],[4,0,5],[0,4,2],[10,6,5],[6,4,5],[4,6,19],[18,16,1],[19,11,8],[6,11,19],[11,6,10],[16,13,12],[13,16,18],[12,13,14],[13,18,14],[16,3,1],[1,3,2],[3,0,2],[0,3,12],[3,16,12],[11,7,8],[7,11,10],[8,7,9],[7,10,9]],"fieldVerified":false,"extrapolation":false,"sourceModelSha256":"56a6b624f02bd5ae211e24585ad504d5457ffa37eb9f3bf516eef9349b92c67e","registrationVersion":"campus-reference-1"}};

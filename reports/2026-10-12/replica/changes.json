@@ -1,0 +1,226 @@
+{
+  "comparison": "saved working-tree baseline, not Git HEAD",
+  "changed": [
+    {
+      "path": "app.json",
+      "before": "c2026ccdd6c022790e27fe4026713b306dca62c8b63c9de6969a01206c783833",
+      "after": "854ee5e0d5351291c032da1a30161b97e29e6dc5aed2c8b29e3021ccde181b3b"
+    },
+    {
+      "path": "scripts/package-release.ps1",
+      "before": "6ad6e49aa749ac47684866b33db3fd6cedfb303a5c5b5139ab8a65c7c19b8193",
+      "after": "11f9ef93606fc77c537e1eccfb88efabc607c6d9fc39bc8ecbf16799f22949a3"
+    },
+    {
+      "path": "pages/index/index.js",
+      "before": "aa2a27d21866e840f7d4d5a9141ca05fd8b6a9af04d52069dd9dd20627e523fd",
+      "after": "a569f58887e029fe202d7a73bb53e679065cc0666badf2466256a688ddacf08b"
+    },
+    {
+      "path": "pages/index/index.wxml",
+      "before": "0cef944ef78c063d57677f1a65e1b3055c105eec263261fca33fd292ed2f0459",
+      "after": "541880738adc979d8de8d0396dc16b6c66c6a2f482c956dcb304e7f9a5f12333"
+    },
+    {
+      "path": "pages/index/index.wxss",
+      "before": "839d377a315438fa03093f18ffaa91b2b0b621df53626230445e90baff25f03f",
+      "after": "3ef49c93ea307dabe8a3824a24e4195c453c1428895799203bd2525b005afdf0"
+    },
+    {
+      "path": "pages/room/room.js",
+      "before": "6493c3d1a0cbae56fb40c287ff46152cb55764d7b1673bbff8bbe1b37fe0da16",
+      "after": "38464b3f1dc98d45b12b2f23af43da6d3ac2aa69400b8e2f63c322f43aabaf2f"
+    },
+    {
+      "path": "pages/room/room.json",
+      "before": "b17fe19a59e05827643e4508aa446d413f0ded17d339422935c6547073397c8c",
+      "after": "50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619"
+    },
+    {
+      "path": "pages/room/room.wxml",
+      "before": "5bde5f9d84fda50603fe9b115dbbac84a2b23ca773fbfb5d05e8db258ffefa96",
+      "after": "d3eae52c7e6de4a6debc6e63bdec6cca3a7ebdf767e5ceac987835a31cd90771"
+    },
+    {
+      "path": "pages/room/room.wxss",
+      "before": "3f60210d95e50046d977c33d2f428c9e7b55702767cc9016ede1a333ba66a90f",
+      "after": "681a58f51c025855f6f5e31bb1f83da99025ed692eea9a8b68759f6c8daf945d"
+    },
+    {
+      "path": "pages/map/map.js",
+      "before": "f2528c13782c60733d8ffb95f011551ffb1115f63023787e22289e9cb5288945",
+      "after": "6df30cbcd50457409a000ac49f0db3a18fed17cfe89e790f341595faff473908"
+    },
+    {
+      "path": "pages/map/map.json",
+      "before": "a783fc2a4e5975a724a1c1560a5a635022159d0511977024bcbd8e39f84f2042",
+      "after": "21eaf45e606422297d6b6f9cdb4b3ccc691b8980228634a5a50d2724dd3460c1"
+    },
+    {
+      "path": "pages/map/map.wxml",
+      "before": "1c3c941331d318ef30ce33612467c41a80f10295641e7176d7aaba015f90821a",
+      "after": "2022f577b9e1bb9265b959df3a69a36f37ea261b091609b07ecf6c7366e14b2e"
+    },
+    {
+      "path": "pages/map/map.wxss",
+      "before": "9bc7e8a94b8e27982c0c54351f11b13d4b3a5040144f4758321d0549462ac8cc",
+      "after": "5ff67abff39815cb03bdfcad5c69958be201bf1c197d1bb837b596aacaa15780"
+    },
+    {
+      "path": "pages/qrcode/qrcode.js",
+      "before": "c490dc5ef546737ed801f1480f7fe66a68ae7bbd493bc37008fac71b7ad6b232",
+      "after": "7aaedccebd68b10194df73aa4f5b9366516d9b09becdae2ce6eac8bebe4cd010"
+    },
+    {
+      "path": "pages/qrcode/qrcode.json",
+      "before": "db47729506d9def262ba0cbbf545171e2f64ad3bcec8cf96181759f2add03323",
+      "after": "9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197"
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxml",
+      "before": "3f4de8357ff4c8409445483937a0f3bf1b9688c14480b1fb49a5c42b3a444922",
+      "after": "a4ae5110b8ef2de96731191e71a82b703e1f8c392516bb2253b098ef63356dcd"
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxss",
+      "before": "3b0f29f863f33a9634a991b8148596f2dbfaea45d74bcd66ee0029548149e0e1",
+      "after": "e74681a16b7f7f5f72a4d78bdded7f706b0a85c42c2c5b7efd6c6e8aae89d857"
+    },
+    {
+      "path": "pages/dev/dev.js",
+      "before": "5d2e66c7a7a5a185f8a2f060762f6c577b4a745bed719ffb81a0236a67dede3a",
+      "after": "4607193c4cb35a87c5bb485913d2d65eb3e82fd8fde49a40d2bd42edd4f0b100"
+    },
+    {
+      "path": "pages/dev/dev.json",
+      "before": "a1fd47f15089e41d55fe6737868fffebe1cdaba3a0e1c0c25428eb5dd0d1cd2d",
+      "after": "794147255d400e7877524116193e70c459f2d012380ff3dd6ead37275d493417"
+    },
+    {
+      "path": "pages/dev/dev.wxml",
+      "before": "76e539e52a2a6d6354f3e127edc9c16f421fc2f5424ee4322ee3dceca16e6d69",
+      "after": "e379088814685f0304ce34adb7f32290fba41b78b77ac92877435cc35f372edf"
+    },
+    {
+      "path": "pages/dev/dev.wxss",
+      "before": "8e962ffb3c1768589e85ad9a638adca7effbf26f720eb1f27e2cf8be03c369d0",
+      "after": "c87086ca98da96ef564a708f708853bd7798346a089694988575c572c2ac8666"
+    },
+    {
+      "path": "utils/dev-preview.js",
+      "before": "47cfd4a997e2da5a41f29c719479a582d4f9f82a9f5bca6dfeeccb9705cee3fd",
+      "after": "619a2a1bc503c865dbe7429bc248111cb5b99814a2ac36c4c52518edb3e2bb15"
+    },
+    {
+      "path": "utils/theme.wxss",
+      "before": "dfe25f7190c5e570d50295295e2edcfb979190ad04454e7c1f6adcf7ef8af4f8",
+      "after": "03847fa041f312909320a7f2738a55426c18b233a85ae608795a0eb6b806482b"
+    },
+    {
+      "path": "utils/presentation.js",
+      "before": null,
+      "after": "18842d9164c1205d317cd032794679da59c33cd867b88397f4da7be588730cad"
+    },
+    {
+      "path": "pages/index/index.json",
+      "before": null,
+      "after": "e21084645f3cc7feafbb71c3ef046d9fc69669726c398ca780be0ae6450d39fd"
+    },
+    {
+      "path": "cat-mouse-server/v2/presentation.test.js",
+      "before": null,
+      "after": "0c7487c73709a66d7e6d06e5206312eb82dcd7127f54e7eea03916f0083be430"
+    },
+    {
+      "path": "scripts/build-replica-art.cjs",
+      "before": null,
+      "after": "bdd4e4fb571c660a54f5863cb01b4cfe8032ef0422c6ae1190d3d8b8dbc6b035"
+    },
+    {
+      "path": "scripts/verify-replica-art.cjs",
+      "before": null,
+      "after": "93b161676cdb106c88699465df3ff3bfe627a290dca81841310835e6bcf85508"
+    },
+    {
+      "path": "scripts/replica-review.cjs",
+      "before": null,
+      "after": "f34b6db17c0e69ec76d98d2f554a781e022d4d8c952a9848a9b11b8143b1cf28"
+    },
+    {
+      "path": "scripts/replica-interaction.cjs",
+      "before": null,
+      "after": "b5f0d92d9d31425b437808c69c8ea05dc17490889ca542f96c269fed7e9c44bb"
+    },
+    {
+      "path": "scripts/verify-replica-package.py",
+      "before": null,
+      "after": "2e2bcb31f1e0e2a8341d8e3265303bb244bd090b4ae96a9a0cd139f4dd8a21f1"
+    },
+    {
+      "path": "components/nav-bar/nav-bar.js",
+      "before": null,
+      "after": "d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a"
+    },
+    {
+      "path": "components/nav-bar/nav-bar.json",
+      "before": null,
+      "after": "db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b"
+    },
+    {
+      "path": "components/nav-bar/nav-bar.wxml",
+      "before": null,
+      "after": "69c0affca93596c71a284c0246bf3642d9add9eb54bd8cbe93b4f17a18f4ed8b"
+    },
+    {
+      "path": "components/nav-bar/nav-bar.wxss",
+      "before": null,
+      "after": "e71c879dca5d17671816b9a6251f17231d043f780bc9865208d65aba57885bcd"
+    },
+    {
+      "path": "assets/replica-v1/cancelled.png",
+      "before": null,
+      "after": "75d300f9dfd24d83ebbba2e9abba926f807e3cf1b0dcbeede6bfffb0bc7429c6"
+    },
+    {
+      "path": "assets/replica-v1/captured-scene.png",
+      "before": null,
+      "after": "1f8275e7cd38675567bf14c2f4e0138984d83ee1b7ae67494e84c433aa085ecc"
+    },
+    {
+      "path": "assets/replica-v1/cat-win-scene.png",
+      "before": null,
+      "after": "881f4237edc723ee90aa33636e2e3309e23067fe66e0a1a1c7997d327cd9346e"
+    },
+    {
+      "path": "assets/replica-v1/compact-landscape.png",
+      "before": null,
+      "after": "03d0c237091114c552a65072d29e55234bfea1d8702ff628b0e67647bd32e412"
+    },
+    {
+      "path": "assets/replica-v1/hiding.png",
+      "before": null,
+      "after": "22f108b5f666671f091a870633786b93fa8c2d735703ad58c024d0902d7b4779"
+    },
+    {
+      "path": "assets/replica-v1/home-landscape.png",
+      "before": null,
+      "after": "68a61d210c05183e958c259206c22deeaef3173641b815764056d4ee5af0d0ca"
+    },
+    {
+      "path": "assets/replica-v1/mouse-win-scene.png",
+      "before": null,
+      "after": "608d659835380f7ed1994173739f5cfd4494b1da2753d40f369127ec5386b5b6"
+    },
+    {
+      "path": "assets/replica-v1/paused.png",
+      "before": null,
+      "after": "ad4206713841a19f9b93c34e21c046ebc4303278aba3cfe9213c3194027293eb"
+    },
+    {
+      "path": "assets/replica-v1/preview-park.png",
+      "before": null,
+      "after": "7d69ed1e69bc9ba6074778c83855b4f96739bbd321e1023e5dcc20f98a964867"
+    }
+  ],
+  "unchangedBaseline": 7
+}

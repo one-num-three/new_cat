@@ -1,0 +1,54 @@
+[
+  {
+    "path": "components/venue-art/venue-art.js",
+    "sha256": "0ddfcbc1fc01846bd7ac9ef0461b4e659b5beaef16e79bacec3a89edf86a3e12"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxml",
+    "sha256": "49b7116311d69bb10499b13a0b5b94817664ca166c2cc89143099a183d36f1d6"
+  },
+  {
+    "path": "pages/map/map.js",
+    "sha256": "63181d74e7bc56d8b50728c792d6e5314c68bd94b30e8ab4f92bd631d2fb825b"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "sha256": "b7afd557dfd66a0815872e0dc74110d0b6a6e5890d071e5118607b24480b1283"
+  },
+  {
+    "path": "utils/dev-preview.js",
+    "sha256": "6ce576cf7b78b177e1d9c9870d13674162010318176bf9e24a685f945ae9d74c"
+  },
+  {
+    "path": "scripts/package-release.ps1",
+    "sha256": "891308ce6bf6bb556698b40795c198f33fed16a1b33f9edf6af3c4a0960eba71"
+  },
+  {
+    "path": "cat-mouse-server/v2/map-first.test.js",
+    "sha256": "a093411a464be93a28c8fb2b74649f202bd369b4a376057bac6a9f8cd48efb5d"
+  },
+  {
+    "path": "GEO_MAP_BINDING.md",
+    "sha256": "31e2d3b78fbb9ddf24aedbc1c352d8ae7c1b6c86a9d1472d2025bd18b0069b4a"
+  },
+  {
+    "path": "utils/venue-art-config.js",
+    "sha256": "dbcf4899d9dbed319b0f2e55d367644da776890677127b41973501d5008df0ea"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "sha256": "92dcfedfed9b695d3bc61becd800f51408ce468762d5ca0f503d798c25437192"
+  },
+  {
+    "path": "utils/fusion-font.wxss",
+    "sha256": "1c3f6d07c551090102b234ae8fc67c62c6d9fa1c75ab091f5b3ab2a1af7a80e4"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/manifest.json",
+    "sha256": "35456f256c99a4affccdc0e8630a1f1722117fe4dcd8f8396dca035531d82d4a"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/ui-subset.woff",
+    "sha256": "5d3885cd1db1801848d72cc3e95924e7bc87b4ac8c0070b4ba0caa31a8fbaa94"
+  }
+]

@@ -1,0 +1,21 @@
+2026-10-15 map-first-v1
+Scope: original pixel cards/buttons retained, independently foldable HUD/tray, approved Yingzhou/Huanzhou v4 art default. No new artwork. No server rules changes, deployment or upload.
+BASELINE: npm --prefix cat-mouse-server test = 98/98 (baseline-full.log).
+Initial sandbox run92/98: PGlite RuntimeError/Aborted. Native privileged local rerun98/98; no assertions suppressed.
+FINAL: npm --prefix cat-mouse-server test =106/106, exit0,10576.7916ms (tests-final.log). Eight added map/proof lifecycle regression cases. Shared proof utility also covered by existing standalone QR tests.
+COMPILE: official wcc.exe10 WXML / wcsc.exe14 WXSS, exit0; exact files=compile-args.json, output=*final.log.
+FONT: python scripts/build-global-font.py --verify = PASS,592glyphs23544bytes; PYTHONPATH uses existing Python313 site-packages with bundled Python runtime.
+GEO: node scripts/sync-geo-module.cjs --verify = PASS; active image bytes unchanged. Actual control points NOT_COLLECTED. Numerical/field verification not claimed.
+UI: node scripts/map-first-review.cjs OUT; native official MCP navigation/evaluate/screenshot use same runtime. First run12 layouts (7 normal/3 narrow/2 large), then found drawer exit event did not dismiss mask. Fixed220ms fallback+hide cleanup; final focused run8/8 PASS including3 narrow layouts, code sheet, drawer, folded map and native fallback.16 unique screenshot frames. Older SDK-vs-MCP runtime mismatch pictures not counted.
+First UI14 observations then failed exit: native-first-run.json. Successful focused8: native-recheck.json.
+Narrow=320x600 content in390 IDE simulator; large=application fontScale1.3. Physical small-screen, OS large-font, actual camera/GPS and outdoor trial NOT_EXECUTED.
+RELEASE: powershell -File scripts/package-release.ps1 -DirectoryOnly -OutputDirectory reports/2026-10-15/map-first-v1
+MODIFIED_FILE files=131, raw bytes=1950137; local export only, not upload approval. Includes utils/capture-proof.js.
+DIFF_FILE compares this task's saved dirty baseline, not git HEAD; existing user changes retained.
+ROLLBACK: ROLLBACK.sh invokes rollback.cjs on marked isolated fixture only.20 original files restored byte-for-byte; no live writes. Unreferenced newly added files are not deleted. This is a restore hash check, not a second full regression run on restored sources.
+MANUAL UI REVIEW: normal cat/mouse/hiding, narrow mouse/paused, code sheet, folded map images visually inspected. Map keeps uniform source ratio, controls within canvas, no invented coordinates.
+SOURCES: Material official bottom sheets and motion docs; TencentLBS official map component guide.
+https://github.com/material-components/material-components-android/blob/master/docs/components/BottomSheet.md
+https://m3.material.io/styles/motion/overview/how-it-works
+https://github.com/TencentLBS/tencentmap-miniprogram-skill/blob/main/references/map_component_guide.md
+NEXT: collect real control/check points in existing owner calibration page, deploy matching client/server only with authorization, run actual phones and independent field points.

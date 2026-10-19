@@ -1,0 +1,74 @@
+{
+  "count": 12,
+  "accepted": [
+    {
+      "file": "guide-xuanwu.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "guide-xuanwu"
+    },
+    {
+      "file": "guide-jiulonghu.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "guide-jiulonghu"
+    },
+    {
+      "file": "guide-sipailou.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "guide-sipailou"
+    },
+    {
+      "file": "play-jiulonghu-mouse.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "play-jiulonghu-mouse"
+    },
+    {
+      "file": "zoom-jiulonghu.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "zoom-jiulonghu"
+    },
+    {
+      "file": "play-sipailou-cat.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "play-sipailou-cat"
+    },
+    {
+      "file": "narrow-sipailou.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "narrow-sipailou"
+    },
+    {
+      "file": "calibrate-sipailou.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "calibrate-sipailou"
+    },
+    {
+      "file": "create-jiulonghu.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "create-jiulonghu"
+    },
+    {
+      "file": "ready-jiulonghu.png",
+      "checks": "Rendered screenshot manually inspected; runtime geometry available",
+      "name": "ready-jiulonghu"
+    },
+    {
+      "file": "cold-guide-sipailou.png",
+      "name": "native-compiled-guide",
+      "checks": "Visible simulator compiled directly to campus guide; screenshot inspected, no automator geometry claim"
+    },
+    {
+      "file": "offline-sipailou-fixed.png",
+      "name": "native-compiled-offline",
+      "checks": "Visible simulator compiled directly to corrected offline campus; screenshot inspected; no player pins"
+    }
+  ],
+  "rejected": "../rejected/status.json",
+  "notPerformed": [
+    "phone GPS",
+    "physical gestures",
+    "system font size",
+    "public multiplayer",
+    "load test",
+    "deployment"
+  ]
+}

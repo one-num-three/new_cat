@@ -1,0 +1,9 @@
+ROUTE home
+PASS home
+ROUTE alert
+PASS alert
+ROUTE captured
+PASS captured
+ROUTE paused
+PASS paused
+REPLICA_UI_PASS=4 FONT_SCALE=1

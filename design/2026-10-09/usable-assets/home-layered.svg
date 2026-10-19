@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="750" height="1334" viewBox="0 0 750 1334">
+  <title>猫鼠行动 · 首页分层设计样稿</title>
+  <desc>独立图层：底色、首页插画、文字、输入区、操作按钮。内容为设计样稿，运行状态仍由服务端提供。</desc>
+  <g id="layer-background" inkscape:groupmode="layer" inkscape:label="01 背景与安全区">
+    <rect width="750" height="1334" fill="#F5FAF1"/>
+    <rect width="750" height="88" fill="#F5FAF1"/>
+    <text x="42" y="55" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#213638">9:41</text>
+    <text x="633" y="55" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#213638">●  ▰</text>
+  </g>
+  <g id="layer-hero-surface" inkscape:groupmode="layer" inkscape:label="02 首页天空与草地底板">
+    <rect x="32" y="108" width="686" height="415" rx="34" fill="#DDF3FF"/>
+    <path d="M32 433 Q122 370 214 435 Q297 390 375 443 Q477 367 565 436 Q645 392 718 430 L718 489 Q580 530 393 509 Q204 525 32 489 Z" fill="#9BD56F"/>
+    <path d="M32 482 Q150 450 280 490 Q404 449 530 486 Q627 454 718 481 L718 523 L32 523 Z" fill="#5CB46E"/>
+    <path d="M472 520 Q481 475 522 453 Q567 430 619 448 Q670 456 718 497 L718 523 Z" fill="#FFF3D8"/>
+    <g fill="#FFFFFF"><ellipse cx="538" cy="184" rx="66" ry="27"/><ellipse cx="500" cy="188" rx="32" ry="27"/><ellipse cx="565" cy="169" rx="36" ry="30"/><ellipse cx="156" cy="304" rx="61" ry="24"/><ellipse cx="127" cy="295" rx="29" ry="29"/></g>
+  </g>
+  <g id="layer-hero-art" inkscape:groupmode="layer" inkscape:label="03 透明猫鼠角色与绿植">
+    <image x="320" y="286" width="350" height="250" href="source/cat-runner.png" xlink:href="source/cat-runner.png"/>
+    <image x="532" y="384" width="140" height="114" href="source/mouse-runner.png" xlink:href="source/mouse-runner.png"/>
+    <image x="22" y="386" width="265" height="132" href="source/park-bushes.png" xlink:href="source/park-bushes.png"/>
+  </g>
+  <g id="layer-hero-copy" inkscape:groupmode="layer" inkscape:label="04 品牌标题与说明">
+    <rect x="65" y="137" width="235" height="43" rx="20" fill="#FFFFFF"/>
+    <text x="83" y="166" font-family="Microsoft YaHei,sans-serif" font-weight="700" font-size="22" fill="#286B47">实景追逐 · 试点版</text>
+    <text x="62" y="254" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="69" fill="#213638">猫鼠行动</text>
+    <text x="66" y="304" font-family="Microsoft YaHei,sans-serif" font-size="25" fill="#315961">和熟人到户外，</text>
+    <text x="66" y="339" font-family="Microsoft YaHei,sans-serif" font-size="25" fill="#315961">玩一场短局追逐。</text>
+  </g>
+  <g id="layer-form" inkscape:groupmode="layer" inkscape:label="05 昵称与房间码输入">
+    <text x="38" y="598" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="35" fill="#213638">先取个名字</text>
+    <text x="38" y="638" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#60756C">房间里的伙伴会看到这个昵称。</text>
+    <rect x="36" y="659" width="678" height="90" rx="22" fill="#FFFFFF" stroke="#CFE2D2" stroke-width="2"/>
+    <text x="66" y="716" font-family="Microsoft YaHei,sans-serif" font-size="29" fill="#8A9C92">你的昵称</text>
+    <text x="38" y="821" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="35" fill="#213638">加入伙伴</text>
+    <text x="38" y="861" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#60756C">输入组织者分享的 10 位房间码。</text>
+    <rect x="36" y="883" width="678" height="90" rx="22" fill="#FFFFFF" stroke="#CFE2D2" stroke-width="2"/>
+    <text x="66" y="940" font-family="Microsoft YaHei,sans-serif" font-size="29" fill="#8A9C92">输入房间码</text>
+  </g>
+  <g id="layer-actions" inkscape:groupmode="layer" inkscape:label="06 主次操作与规则入口">
+    <rect x="37" y="998" width="676" height="96" rx="24" fill="#D95325"/>
+    <rect x="37" y="991" width="676" height="96" rx="24" fill="#F36A34"/>
+    <text x="375" y="1052" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="32" fill="#FFFFFF">加入房间</text>
+    <line x1="37" y1="1137" x2="713" y2="1137" stroke="#DCE9DE" stroke-width="2"/>
+    <text x="39" y="1203" font-family="Microsoft YaHei,sans-serif" font-size="26" fill="#60756C">你来组织？</text>
+    <rect x="490" y="1156" width="224" height="77" rx="23" fill="#FFFFFF" stroke="#77AF77" stroke-width="2"/>
+    <text x="602" y="1205" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-weight="700" font-size="27" fill="#276B4D">创建活动</text>
+    <text x="38" y="1293" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#60756C">30 秒躲藏 · 6 分钟追逐 · 停下扫码确认</text>
+  </g>
+</svg>

@@ -1,0 +1,2568 @@
+{
+  "status": "PASS",
+  "scope": "geometry, authorized fixture state, and intrinsic image ratios; not pixel similarity or physical device validation",
+  "layoutCanvas": null,
+  "records": [
+    {
+      "id": "cat",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cat",
+      "clock": "04:45",
+      "navHeight": 87,
+      "stateArt": "",
+      "parkArt": "/assets/faithful-v2/park-stage-cat.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 683.2109375,
+              "bottom": 741.03125,
+              "width": 352.5390625,
+              "height": 57.8203125
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 755.671875,
+              "bottom": 803.4921875,
+              "width": 352.5390625,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 591.6484375,
+              "bottom": 844,
+              "width": 390,
+              "height": 252.3515625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 611.6484375,
+              "width": 390,
+              "height": 455.515625
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-cat.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            472
+          ],
+          "rendered": [
+            390,
+            455.515625
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\cat.png"
+    },
+    {
+      "id": "mouse",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouse",
+      "clock": "04:45",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-mouse.png",
+      "parkArt": "/assets/faithful-v2/park-stage-mouse.png",
+      "roleArt": "/assets/faithful-v2/avatar-mouse.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 695.5546875,
+              "bottom": 750.734375,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 578.46875,
+              "bottom": 844,
+              "width": 390,
+              "height": 265.53125
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 173.75,
+              "top": 590.1640625,
+              "bottom": 685.5546875,
+              "width": 155.8125,
+              "height": 95.390625
+            }
+          ],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 600.6796875,
+              "width": 390,
+              "height": 444.546875
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".stateArt",
+          "src": "/assets/faithful-v2/state-mouse.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            294,
+            180
+          ],
+          "rendered": [
+            155.8125,
+            95.390625
+          ],
+          "ratioError": 0.00005014290728588833,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-mouse.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            71,
+            68
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-mouse.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            459
+          ],
+          "rendered": [
+            390,
+            444.546875
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\mouse.png"
+    },
+    {
+      "id": "alert",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouse",
+      "clock": "04:45",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-mouse.png",
+      "parkArt": "/assets/faithful-v2/park-stage-alert.png",
+      "roleArt": "/assets/faithful-v2/avatar-mouse.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 689.6796875,
+              "bottom": 744.859375,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.7265625,
+              "bottom": 808.546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 571.8125,
+              "bottom": 844,
+              "width": 390,
+              "height": 272.1875
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 591.8125,
+              "width": 390,
+              "height": 435.6796875
+            }
+          ],
+          ".warningIcon": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 34.703125,
+              "right": 81.5,
+              "top": 605.2578125,
+              "bottom": 652.0546875,
+              "width": 46.796875,
+              "height": 46.796875
+            }
+          ],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-mouse.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            71,
+            68
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-alert.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            451
+          ],
+          "rendered": [
+            390,
+            435.6796875
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".warningIcon",
+          "src": "/assets/faithful-v2/icon-alert.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            61,
+            56
+          ],
+          "rendered": [
+            46.796875,
+            46.796875
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\alert.png"
+    },
+    {
+      "id": "hiding",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "hiding",
+      "clock": "00:18",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-hiding.png",
+      "parkArt": "/assets/faithful-v2/park-stage-hiding.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 587.4296875,
+              "bottom": 844,
+              "width": 390,
+              "height": 256.5703125
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 209.1640625,
+              "top": 599.125,
+              "bottom": 719.7265625,
+              "width": 191.2265625,
+              "height": 120.6015625
+            }
+          ],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 607.4296875,
+              "width": 390,
+              "height": 451.296875
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".stateArt",
+          "src": "/assets/faithful-v2/state-hiding.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            371,
+            234
+          ],
+          "rendered": [
+            191.2265625,
+            120.6015625
+          ],
+          "ratioError": 0.00008573234014197517,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-hiding.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            468
+          ],
+          "rendered": [
+            390,
+            451.296875
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\hiding.png"
+    },
+    {
+      "id": "captured",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "captured",
+      "clock": "04:45",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-captured.png",
+      "parkArt": "/assets/faithful-v2/park-stage-captured.png",
+      "roleArt": "/assets/faithful-v2/avatar-mouse.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 601.7734375,
+              "bottom": 844,
+              "width": 390,
+              "height": 242.2265625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 162.046875,
+              "bottom": 195.546875,
+              "width": 365.8125,
+              "height": 33.5
+            }
+          ],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 184.375,
+              "top": 613.46875,
+              "bottom": 718.15625,
+              "width": 166.4375,
+              "height": 104.6875
+            }
+          ],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 621.7734375,
+              "width": 390,
+              "height": 465.640625
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".stateArt",
+          "src": "/assets/faithful-v2/state-captured.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            310,
+            195
+          ],
+          "rendered": [
+            166.4375,
+            104.6875
+          ],
+          "ratioError": 0.00006740491092926959,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-mouse.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            71,
+            68
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-captured.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            446
+          ],
+          "rendered": [
+            390,
+            465.640625
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\captured.png"
+    },
+    {
+      "id": "paused",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "paused",
+      "clock": "04:45",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-paused.png",
+      "parkArt": "/assets/faithful-v2/park-stage-paused.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 690.9375,
+              "bottom": 746.1171875,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 555.359375,
+              "bottom": 844,
+              "width": 390,
+              "height": 288.640625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 209.1640625,
+              "top": 567.0546875,
+              "bottom": 676.3203125,
+              "width": 191.2265625,
+              "height": 109.265625
+            }
+          ],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 575.359375,
+              "width": 390,
+              "height": 419.2265625
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".stateArt",
+          "src": "/assets/faithful-v2/state-paused.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            364,
+            208
+          ],
+          "rendered": [
+            191.2265625,
+            109.265625
+          ],
+          "ratioError": 0.00006128577557151793,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-paused.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            433
+          ],
+          "rendered": [
+            390,
+            419.2265625
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\paused.png"
+    },
+    {
+      "id": "offline",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "offline",
+      "clock": "--:--",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-offline.png",
+      "parkArt": "/assets/faithful-v2/park-stage-offline.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 587.4296875,
+              "bottom": 844,
+              "width": 390,
+              "height": 256.5703125
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 184.375,
+              "top": 599.125,
+              "bottom": 717.4765625,
+              "width": 166.4375,
+              "height": 118.3515625
+            }
+          ],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 607.4296875,
+              "width": 390,
+              "height": 451.296875
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".stateArt",
+          "src": "/assets/faithful-v2/state-offline.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            315,
+            224
+          ],
+          "rendered": [
+            166.4375,
+            118.3515625
+          ],
+          "ratioError": 0.00003373893399638561,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-offline.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            467
+          ],
+          "rendered": [
+            390,
+            451.296875
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\offline.png"
+    },
+    {
+      "id": "catWin",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "catWin",
+      "clock": "00:00",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-catWin.png",
+      "parkArt": "/assets/faithful-v2/park-stage-catWin.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 695.5546875,
+              "bottom": 750.734375,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 158.21875,
+              "width": 365.8125,
+              "height": 70.21875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 507.078125,
+              "bottom": 844,
+              "width": 390,
+              "height": 336.921875
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 101.3203125,
+              "bottom": 144.8984375,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 102.359375,
+              "bottom": 143.859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 99.9140625,
+              "bottom": 125.296875,
+              "width": 103.34375,
+              "height": 25.3828125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 212.703125,
+              "top": 559.2734375,
+              "bottom": 599.3046875,
+              "width": 194.765625,
+              "height": 40.03125
+            }
+          ],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 156.5078125,
+              "right": 376.0625,
+              "top": 513.7734375,
+              "bottom": 664.8828125,
+              "width": 219.5546875,
+              "height": 151.109375
+            }
+          ],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 106.53125,
+              "bottom": 139.6796875,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 548.3515625,
+              "width": 390,
+              "height": 392.21875
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".resultArt",
+          "src": "/assets/faithful-v2/state-catWin.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            401,
+            276
+          ],
+          "rendered": [
+            219.5546875,
+            151.109375
+          ],
+          "ratioError": 0.000036874002564690755,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-catWin.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            403
+          ],
+          "rendered": [
+            390,
+            392.21875
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\catWin.png"
+    },
+    {
+      "id": "mouseWin",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouseWin",
+      "clock": "00:00",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-mouseWin.png",
+      "parkArt": "/assets/faithful-v2/park-stage-mouseWin.png",
+      "roleArt": "/assets/faithful-v2/avatar-mouse-green.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 695.5546875,
+              "bottom": 750.734375,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 158.21875,
+              "width": 365.8125,
+              "height": 70.21875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 491.1640625,
+              "bottom": 844,
+              "width": 390,
+              "height": 352.8359375
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 101.3203125,
+              "bottom": 144.8984375,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 102.359375,
+              "bottom": 143.859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 99.9140625,
+              "bottom": 125.296875,
+              "width": 103.34375,
+              "height": 25.3828125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 212.703125,
+              "top": 584.859375,
+              "bottom": 626.2734375,
+              "width": 194.765625,
+              "height": 41.4140625
+            }
+          ],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 124.640625,
+              "right": 376.0625,
+              "top": 477.859375,
+              "bottom": 614.9375,
+              "width": 251.421875,
+              "height": 137.078125
+            }
+          ],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 106.53125,
+              "bottom": 139.6796875,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 527.921875,
+              "width": 390,
+              "height": 371.7890625
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".resultArt",
+          "src": "/assets/faithful-v2/state-mouseWin.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            420,
+            229
+          ],
+          "rendered": [
+            251.421875,
+            137.078125
+          ],
+          "ratioError": 0.00004857978755157255,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-mouse-green.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-mouseWin.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            367
+          ],
+          "rendered": [
+            390,
+            371.7890625
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\mouseWin.png"
+    },
+    {
+      "id": "cancelled",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cancelled",
+      "clock": "00:00",
+      "navHeight": 87,
+      "stateArt": "/assets/faithful-v2/state-cancelled.png",
+      "parkArt": "/assets/faithful-v2/park-stage-cancelled.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 695.5546875,
+              "bottom": 750.734375,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 158.21875,
+              "width": 365.8125,
+              "height": 70.21875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 523.1953125,
+              "bottom": 844,
+              "width": 390,
+              "height": 320.8046875
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 101.3203125,
+              "bottom": 144.8984375,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 102.359375,
+              "bottom": 143.859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 99.9140625,
+              "bottom": 125.296875,
+              "width": 103.34375,
+              "height": 25.3828125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 216.2421875,
+              "right": 372.0625,
+              "top": 575.390625,
+              "bottom": 606.6875,
+              "width": 155.8203125,
+              "height": 31.296875
+            }
+          ],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11.9375,
+              "right": 206.703125,
+              "top": 554.890625,
+              "bottom": 669.390625,
+              "width": 194.765625,
+              "height": 114.5
+            }
+          ],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 106.53125,
+              "bottom": 139.6796875,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 555.9453125,
+              "width": 390,
+              "height": 399.8125
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".resultArt",
+          "src": "/assets/faithful-v2/state-cancelled.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            364,
+            214
+          ],
+          "rendered": [
+            194.765625,
+            114.5
+          ],
+          "ratioError": 0.000044237967272930945,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-cancelled.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            412
+          ],
+          "rendered": [
+            390,
+            399.8125
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\cancelled.png"
+    },
+    {
+      "id": "drawer",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cat",
+      "clock": "04:45",
+      "navHeight": 87,
+      "stateArt": "",
+      "parkArt": "/assets/faithful-v2/park-stage-cat.png",
+      "roleArt": "/assets/faithful-v2/avatar-cat.png",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 683.2109375,
+              "bottom": 741.03125,
+              "width": 352.5390625,
+              "height": 57.8203125
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 755.671875,
+              "bottom": 803.4921875,
+              "width": 352.5390625,
+              "height": 47.8203125
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20.6640625,
+              "right": 354.6875,
+              "top": 768.578125,
+              "bottom": 812.8984375,
+              "width": 334.0234375,
+              "height": 44.3203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 591.6484375,
+              "bottom": 844,
+              "width": 390,
+              "height": 252.3515625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 346.046875,
+              "bottom": 844,
+              "width": 390,
+              "height": 497.953125
+            }
+          ],
+          ".drawerHeader": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 361.046875,
+              "bottom": 401.046875,
+              "width": 390,
+              "height": 40
+            }
+          ],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 55.7578125,
+              "top": 108.2578125,
+              "bottom": 141.40625,
+              "width": 33.1484375,
+              "height": 33.1484375
+            }
+          ],
+          ".parkArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 156.1328125,
+              "bottom": 346.890625,
+              "width": 390,
+              "height": 190.7578125
+            }
+          ],
+          ".warningIcon": [],
+          ".groupIcon": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 30.6640625,
+              "right": 48.6640625,
+              "top": 412.8671875,
+              "bottom": 430.8671875,
+              "width": 18,
+              "height": 18
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 30.6640625,
+              "right": 48.6640625,
+              "top": 476.8359375,
+              "bottom": 494.8359375,
+              "width": 18,
+              "height": 18
+            }
+          ],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".roleArt",
+          "src": "/assets/faithful-v2/avatar-cat.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            33.1484375,
+            33.1484375
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".parkArt",
+          "src": "/assets/faithful-v2/park-stage-drawer.png",
+          "mode": "aspectFill",
+          "intrinsic": [
+            450,
+            227
+          ],
+          "rendered": [
+            390,
+            190.7578125
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".groupIcon",
+          "src": "/assets/faithful-v2/avatar-mouse-green.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            18,
+            18
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        },
+        {
+          "selector": ".groupIcon",
+          "src": "/assets/faithful-v2/avatar-mouse-green.png",
+          "mode": "aspectFit/widthFix declared in template",
+          "intrinsic": [
+            66,
+            65
+          ],
+          "rendered": [
+            18,
+            18
+          ],
+          "ratioError": null,
+          "method": "uniform contain or cover (template mode); no scaleToFill"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map\\drawer.png"
+    }
+  ]
+}

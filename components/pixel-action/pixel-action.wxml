@@ -1,0 +1,1 @@
+<button class="pixelAction nativeAction tone-{{tone}}" style="--action-scale:{{fontScale}}" disabled="{{disabled || loading}}" loading="{{loading}}" bindtap="activate" hover-class="actionPressed" aria-label="{{label}}"><text class="actionLabel">{{label}}</text></button>

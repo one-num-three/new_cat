@@ -1,0 +1,1356 @@
+{
+  "created": "2026-10-12",
+  "root": "D:\\cat-mouse-miniprogram",
+  "records": [
+    {
+      "path": "design/2026-10-09/usable-assets/home-layered-preview.png",
+      "width": 750,
+      "height": 1334,
+      "mode": "RGB",
+      "bytes": 125761,
+      "sha256": "454bc35e130ca6539cd22ec6827977256e03d47fa4129d136116b172ddfcf361",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/map-layered-preview.png",
+      "width": 750,
+      "height": 1334,
+      "mode": "RGB",
+      "bytes": 99545,
+      "sha256": "623d1a72998a005a824c2207547a7913b26dacd2627ee3e9d0eb6d36863ba8d0",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/captured-mouse.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 491090,
+      "sha256": "d9bc9874abb519347ec1e2d482288f164a8772668edb7b2ed7e4d4e433a3c103",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 1200744,
+      "alphaPartialPixels": 370129
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/cat-avatar.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 752489,
+      "sha256": "1cf559916eed87f80d3415c3f37f2c4e5fbb6290908ee8c438d1e150c4ca38db",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 833263,
+      "alphaPartialPixels": 738451
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/cat-runner.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 656966,
+      "sha256": "48014789544079df53381d257cd46ef2722eff14e1e95d0dbd872bc7fdb9d1bb",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 967351,
+      "alphaPartialPixels": 603764
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/cat-win.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 651451,
+      "sha256": "4c6e6fd2c5a30f3d9cfdf351e3bb7bccdf56aca765cbcfe96aca20ec41442441",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 1044572,
+      "alphaPartialPixels": 525594
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/mouse-avatar.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 724192,
+      "sha256": "c3c01a4b2705eb8c1ff3f5a525c7b96693bedabd934f872720376011dabe80e2",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 926632,
+      "alphaPartialPixels": 644438
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/mouse-runner.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1004368,
+      "sha256": "21b8ed2949c06f645ba960270579c79ed2822857f70c3016b0f313e178882aa6",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 1134879,
+      "alphaPartialPixels": 437985
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/mouse-win.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 473138,
+      "sha256": "891b44a51604b11b89466ecd9763ef4c8ad6afa49866676a91166bc73d512499",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 1233567,
+      "alphaPartialPixels": 337261
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/park-bushes.png",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "bytes": 536130,
+      "sha256": "b1f8a033e7ea2dc7583bcb791c8b7e3e3ed77475c66c904add6f57cf268850e8",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 1109932,
+      "alphaPartialPixels": 462677
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/source/reconnecting.png",
+      "width": 1402,
+      "height": 1122,
+      "mode": "RGBA",
+      "bytes": 660123,
+      "sha256": "f4d986cc15877d10596514156d2c0544c0caf5e87d953cdcd13068b13b124ca9",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 1048885,
+      "alphaPartialPixels": 521207
+    },
+    {
+      "path": "design/2026-10-09/frozen/v1/selected-icon-master.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "bytes": 1280218,
+      "sha256": "bd1da2806c6bc2161aefca7a9dbc652800538cdb207b0c8ed8c7043fe59ae24c",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/01-home.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1300632,
+      "sha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/02-create.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1330682,
+      "sha256": "96d918c9d05811f939fb4a535cfb6dbc3ba6251f99662d4cda4bde1a45e7f760",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/03-ready.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1281642,
+      "sha256": "5bd1d85579425af6d484ae1257d8f03b7a527a51b0c4db10e04ec775f5f58d40",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/04-hiding-v2.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1533219,
+      "sha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/04-hiding.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1398141,
+      "sha256": "0b914059473d55d4e9a5cd2033eafc23c9fae60d303bfec7b8ef61ca0fd00e1e",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/05-cat.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1347655,
+      "sha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/06-mouse-v2.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1521011,
+      "sha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/06-mouse.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1379837,
+      "sha256": "20001b75f8dc3fbddb33e59716db280d7ef9b7641e0ee45ad27fd8f7094cf2d6",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/07-alert.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1480929,
+      "sha256": "78f17b3ba9212d1e5d83ab33db45ff7089397ba94f6914511125c5da7f7f0531",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/08-code.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1351765,
+      "sha256": "bf21f0c9acfa926f225cd1072d912e8b82313a4f4fe620029f80256cd078a0f2",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/09-captured.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1362593,
+      "sha256": "0ba79befb0e10a34212eecaca80c294d4b022f81cee72681f9d8179b4127f869",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/10-paused.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1374717,
+      "sha256": "ba93ce76c10d488b153200a456a08b784f02488dff794fc1aee8da34c6a09cac",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/11-offline.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1387090,
+      "sha256": "cf713eb08caf55833f7099c684a98fc803a4f9655a9a804848b93370ef6e9c14",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/12-catWin.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1364623,
+      "sha256": "191a1489751de8dd5d58bdb94f5f6b6a831baf794d42ad184847cb57bcdd283a",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/13-mouseWin.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1349382,
+      "sha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/14-cancelled.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1363979,
+      "sha256": "f593d6dedc19e9c42e6296bfb92df4e59b3bb1dd35ca07707f9b13fe0f8cbecf",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1326055,
+      "sha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/16-drawer.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1328429,
+      "sha256": "889cddfb0b10e7a6bd22e74c1b43c8c7ff449e992c27dd27ac420a396af23f9e",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/cancelled.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1226729,
+      "sha256": "ff336b07b85e500bcf566d3dd038ae03d1054ab636eb04385854271053c3f3a3",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 947845,
+      "alphaPartialPixels": 625019
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/captured-scene.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1182322,
+      "sha256": "d35c29f795094271fbb2e96f04526d4909d5f1b65129ebb2f580952c5d44f9f1",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 997972,
+      "alphaPartialPixels": 574892
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/cat-win-scene.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1302933,
+      "sha256": "9a6c95a740ed94053be17476cbcbf26ecd028849151672c46b199d6762dd02b0",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 786413,
+      "alphaPartialPixels": 786451
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/compact-landscape.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "bytes": 1301948,
+      "sha256": "911f25232852061a8c6cc2ee0209eb2f7acc43c8a115f8d5d9f76384f4309615",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/hiding.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1201217,
+      "sha256": "8d3f64335ea734e16e3944bbe59ef6902ee6df7cdb9cc4135041039d85172582",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 977038,
+      "alphaPartialPixels": 595826
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/home-landscape-v2.png",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "bytes": 1365425,
+      "sha256": "f776086578617fc38699b4dc6198c5ba32b946dfa4d0d7f95ba87027c2ffbdfe",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/home-landscape.png",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "bytes": 1364077,
+      "sha256": "cd5a347f86e3d2d220d44ece99de96bd2a893ce8826e65c2fb32efe7e00d5a34",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/mouse-win-scene.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1267427,
+      "sha256": "c01256c0220099580d2152f005235f3f5ddf74f24ee7a496117254a4730d86f2",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 908253,
+      "alphaPartialPixels": 664611
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/paused.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 1265386,
+      "sha256": "c0f316f0813779e0af1b09cb6b6d79e7205b060711308ae94ad26dbf69723bc3",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaZeroPixels": 837436,
+      "alphaPartialPixels": 735428
+    },
+    {
+      "path": "design/2026-10-12/runtime-art/source/preview-park.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 1437408,
+      "sha256": "c7ae67efa4a942784b138778b3e275a95b4d2520d4d5c6d878886267e9ba3a91",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "assets/brand/captured-mouse.png",
+      "width": 288,
+      "height": 288,
+      "mode": "RGBA",
+      "bytes": 36685,
+      "sha256": "f2abdf2d94f470264f0f3192e4cf1771f8cb5ff479a4cc92c1db636601369bff",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 62373,
+      "alphaPartialPixels": 19913
+    },
+    {
+      "path": "assets/brand/cat-runner.png",
+      "width": 384,
+      "height": 384,
+      "mode": "RGBA",
+      "bytes": 74667,
+      "sha256": "eb653ef085266d14a6377f5d6891ccafa7d6ba4c597323cb79e6383f9d81af02",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 90482,
+      "alphaPartialPixels": 55872
+    },
+    {
+      "path": "assets/brand/cat-win.png",
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA",
+      "bytes": 59234,
+      "sha256": "81a5808b89731156532e4b53dad8f5a3773a401add8a9efd3c4f19412591c47f",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 67045,
+      "alphaPartialPixels": 34332
+    },
+    {
+      "path": "assets/brand/mouse-runner.png",
+      "width": 320,
+      "height": 213,
+      "mode": "RGBA",
+      "bytes": 27898,
+      "sha256": "98da2438e9eb263538383f12f444c9b1f61cd79ed8e895e21be1970f28ead16b",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 48407,
+      "alphaPartialPixels": 19182
+    },
+    {
+      "path": "assets/brand/mouse-win.png",
+      "width": 320,
+      "height": 320,
+      "mode": "RGBA",
+      "bytes": 43170,
+      "sha256": "d95d456c75e8b64cdae2f9a7f9dc756b146109814c1e0971ff4c45c6b87e34be",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 79484,
+      "alphaPartialPixels": 22065
+    },
+    {
+      "path": "assets/brand/reconnecting.png",
+      "width": 288,
+      "height": 230,
+      "mode": "RGBA",
+      "bytes": 43358,
+      "sha256": "406c4f6b8e712c9a992d94dbbbb64f6adeec1109b33a962707bba84ddc635b6e",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 42941,
+      "alphaPartialPixels": 22154
+    },
+    {
+      "path": "assets/brand/selected-icon.png",
+      "width": 192,
+      "height": 192,
+      "mode": "RGBA",
+      "bytes": 46832,
+      "sha256": "ea0a7feff2a64ff0052e5880037be31adc92eed85ea8db1c339c32bdcd950b4e",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "assets/replica-v1/cancelled.png",
+      "width": 420,
+      "height": 280,
+      "mode": "P",
+      "bytes": 26598,
+      "sha256": "75d300f9dfd24d83ebbba2e9abba926f807e3cf1b0dcbeede6bfffb0bc7429c6",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 70055,
+      "alphaPartialPixels": 46803
+    },
+    {
+      "path": "assets/replica-v1/captured-scene.png",
+      "width": 420,
+      "height": 280,
+      "mode": "P",
+      "bytes": 24966,
+      "sha256": "1f8275e7cd38675567bf14c2f4e0138984d83ee1b7ae67494e84c433aa085ecc",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 73888,
+      "alphaPartialPixels": 43051
+    },
+    {
+      "path": "assets/replica-v1/cat-win-scene.png",
+      "width": 420,
+      "height": 280,
+      "mode": "P",
+      "bytes": 28587,
+      "sha256": "881f4237edc723ee90aa33636e2e3309e23067fe66e0a1a1c7997d327cd9346e",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 58508,
+      "alphaPartialPixels": 58089
+    },
+    {
+      "path": "assets/replica-v1/compact-landscape.png",
+      "width": 750,
+      "height": 422,
+      "mode": "P",
+      "bytes": 139420,
+      "sha256": "03d0c237091114c552a65072d29e55234bfea1d8702ff628b0e67647bd32e412",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "assets/replica-v1/hiding.png",
+      "width": 420,
+      "height": 280,
+      "mode": "P",
+      "bytes": 25472,
+      "sha256": "22f108b5f666671f091a870633786b93fa8c2d735703ad58c024d0902d7b4779",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 72349,
+      "alphaPartialPixels": 44507
+    },
+    {
+      "path": "assets/replica-v1/home-landscape.png",
+      "width": 750,
+      "height": 562,
+      "mode": "P",
+      "bytes": 186754,
+      "sha256": "68a61d210c05183e958c259206c22deeaef3173641b815764056d4ee5af0d0ca",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "assets/replica-v1/mouse-win-scene.png",
+      "width": 420,
+      "height": 280,
+      "mode": "P",
+      "bytes": 28389,
+      "sha256": "608d659835380f7ed1994173739f5cfd4494b1da2753d40f369127ec5386b5b6",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 66943,
+      "alphaPartialPixels": 49757
+    },
+    {
+      "path": "assets/replica-v1/paused.png",
+      "width": 420,
+      "height": 280,
+      "mode": "P",
+      "bytes": 26979,
+      "sha256": "ad4206713841a19f9b93c34e21c046ebc4303278aba3cfe9213c3194027293eb",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 62266,
+      "alphaPartialPixels": 54613
+    },
+    {
+      "path": "assets/replica-v1/preview-park.png",
+      "width": 600,
+      "height": 900,
+      "mode": "P",
+      "bytes": 271002,
+      "sha256": "7d69ed1e69bc9ba6074778c83855b4f96739bbd321e1023e5dcc20f98a964867",
+      "alphaMin": 255,
+      "alphaMax": 255,
+      "alphaZeroPixels": 0,
+      "alphaPartialPixels": 0
+    },
+    {
+      "path": "assets/markers-v1/cat.png",
+      "width": 96,
+      "height": 96,
+      "mode": "RGBA",
+      "bytes": 2867,
+      "sha256": "f84e21e122d1a3e7a4d22d89929c02fa96d7adfd3852c3d270595b4553ec65d8",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 3462,
+      "alphaPartialPixels": 305
+    },
+    {
+      "path": "assets/markers-v1/mouse.png",
+      "width": 96,
+      "height": 96,
+      "mode": "RGBA",
+      "bytes": 2723,
+      "sha256": "9a7de315a0dc1bcc3b1ee64708630fa3f2878360bb83dcb23254013164ca2caf",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 2956,
+      "alphaPartialPixels": 312
+    },
+    {
+      "path": "assets/markers-v1/self.png",
+      "width": 96,
+      "height": 96,
+      "mode": "RGBA",
+      "bytes": 1759,
+      "sha256": "e3279e4c9ac3559db189152f71a3a40a45464d96c62b0df28817bc148005720f",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 3276,
+      "alphaPartialPixels": 300
+    },
+    {
+      "path": "assets/markers-v1/venue.png",
+      "width": 96,
+      "height": 96,
+      "mode": "RGBA",
+      "bytes": 2640,
+      "sha256": "df8f19bb365748d33d5691e3f06f8b86afd4975680355d30ac167f02eafc8ace",
+      "alphaMin": 0,
+      "alphaMax": 255,
+      "alphaZeroPixels": 3276,
+      "alphaPartialPixels": 300
+    }
+  ],
+  "svgs": [
+    {
+      "path": "design/2026-10-09/skills/motion/bombard-area.svg",
+      "width": "360",
+      "height": "420",
+      "groupCount": 2,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "-126",
+          "y": "-126",
+          "width": "252",
+          "height": "252"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/eagle-eye.svg",
+      "width": "360",
+      "height": "420",
+      "groupCount": 2,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "-126",
+          "y": "-126",
+          "width": "252",
+          "height": "252"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/golden-body.svg",
+      "width": "360",
+      "height": "420",
+      "groupCount": 2,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "-126",
+          "y": "-126",
+          "width": "252",
+          "height": "252"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/invisible.svg",
+      "width": "360",
+      "height": "420",
+      "groupCount": 2,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "-126",
+          "y": "-126",
+          "width": "252",
+          "height": "252"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/radar.svg",
+      "width": "360",
+      "height": "420",
+      "groupCount": 2,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "-126",
+          "y": "-126",
+          "width": "252",
+          "height": "252"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/skills/motion/speed.svg",
+      "width": "360",
+      "height": "420",
+      "groupCount": 2,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "-126",
+          "y": "-126",
+          "width": "252",
+          "height": "252"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/skills/skill-panel-layered.svg",
+      "width": "390",
+      "height": "844",
+      "groupCount": 9,
+      "imageCount": 6,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "38",
+          "y": "219",
+          "width": "74",
+          "height": "74"
+        },
+        {
+          "href": "data:image/png",
+          "x": "220",
+          "y": "219",
+          "width": "74",
+          "height": "74"
+        },
+        {
+          "href": "data:image/png",
+          "x": "38",
+          "y": "399",
+          "width": "74",
+          "height": "74"
+        },
+        {
+          "href": "data:image/png",
+          "x": "220",
+          "y": "399",
+          "width": "74",
+          "height": "74"
+        },
+        {
+          "href": "data:image/png",
+          "x": "38",
+          "y": "579",
+          "width": "74",
+          "height": "74"
+        },
+        {
+          "href": "data:image/png",
+          "x": "220",
+          "y": "579",
+          "width": "74",
+          "height": "74"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/home-layered-standalone.svg",
+      "width": "750",
+      "height": "1334",
+      "groupCount": 7,
+      "imageCount": 3,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "320",
+          "y": "286",
+          "width": "350",
+          "height": "250"
+        },
+        {
+          "href": "data:image/png",
+          "x": "532",
+          "y": "384",
+          "width": "140",
+          "height": "114"
+        },
+        {
+          "href": "data:image/png",
+          "x": "22",
+          "y": "386",
+          "width": "265",
+          "height": "132"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/home-layered.svg",
+      "width": "750",
+      "height": "1334",
+      "groupCount": 7,
+      "imageCount": 3,
+      "images": [
+        {
+          "href": "source/cat-runner.png",
+          "x": "320",
+          "y": "286",
+          "width": "350",
+          "height": "250"
+        },
+        {
+          "href": "source/mouse-runner.png",
+          "x": "532",
+          "y": "384",
+          "width": "140",
+          "height": "114"
+        },
+        {
+          "href": "source/park-bushes.png",
+          "x": "22",
+          "y": "386",
+          "width": "265",
+          "height": "132"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/map-layered-standalone.svg",
+      "width": "750",
+      "height": "1334",
+      "groupCount": 7,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "data:image/png",
+          "x": "45",
+          "y": "52",
+          "width": "50",
+          "height": "50"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/map-layered.svg",
+      "width": "750",
+      "height": "1334",
+      "groupCount": 7,
+      "imageCount": 1,
+      "images": [
+        {
+          "href": "source/cat-avatar.png",
+          "x": "45",
+          "y": "52",
+          "width": "50",
+          "height": "50"
+        }
+      ]
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/cat.svg",
+      "width": "96",
+      "height": "96",
+      "groupCount": 0,
+      "imageCount": 0,
+      "images": []
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/mouse.svg",
+      "width": "96",
+      "height": "96",
+      "groupCount": 0,
+      "imageCount": 0,
+      "images": []
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/self.svg",
+      "width": "96",
+      "height": "96",
+      "groupCount": 0,
+      "imageCount": 0,
+      "images": []
+    },
+    {
+      "path": "design/2026-10-09/usable-assets/vector/venue.svg",
+      "width": "96",
+      "height": "96",
+      "groupCount": 0,
+      "imageCount": 0,
+      "images": []
+    }
+  ],
+  "selectedOriginalChecks": [
+    {
+      "file": "01-home.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-cd53fca5-9dce-4e49-9a74-6befef8dc118.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "02-create.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-8af219c5-1338-49ac-ab3e-46dd2ace4d01.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "03-ready.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-341f4d68-5d70-4343-861c-cbead1e57ba3.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "04-hiding-v2.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-67e7d031-894c-4f5d-8305-6a6938c1657d.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "05-cat.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-d7679710-1881-4230-87d5-8139ffbe35b6.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "06-mouse-v2.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-71d69609-f6fa-4bad-b2f7-2cf4560e6d65.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "07-alert.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-6f45f3fe-837e-499b-b2ea-6ca112d56022.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "08-code.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-0287e269-2ee2-41de-a2ce-010497064919.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "09-captured.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-ccf1c056-1560-4153-87af-6a9bad75e4fd.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "10-paused.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-cef77c1e-6103-4e68-afc6-a3f1a9838f22.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "11-offline.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-4731d1c9-3e5b-46c5-a205-b6eb71c23776.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "12-catWin.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-6c51be0f-ca19-41f6-b459-7e47ba202e9c.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "13-mouseWin.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-cdd67041-a084-42a3-9aee-b62b1dad259e.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "14-cancelled.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-8fb9a572-29a4-4293-a64c-eadf4ad3286e.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "15-dev.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-6403def1-9277-498f-b826-3a13e9e49ad5.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    },
+    {
+      "file": "16-drawer.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-467a056e-a8cd-43ad-b253-f8711a33d4bf.png",
+      "sourceExists": true,
+      "sourceIdentical": true
+    }
+  ],
+  "zipMembers": [
+    "01-home.png",
+    "02-create.png",
+    "03-ready.png",
+    "04-hiding-v2.png",
+    "05-cat.png",
+    "06-mouse-v2.png",
+    "07-alert.png",
+    "08-code.png",
+    "09-captured.png",
+    "10-paused.png",
+    "11-offline.png",
+    "12-catWin.png",
+    "13-mouseWin.png",
+    "14-cancelled.png",
+    "15-dev.png",
+    "16-drawer.png",
+    "README.md",
+    "PROMPTS.md",
+    "screens.json",
+    "REVIEW.md",
+    "VERIFICATION.txt"
+  ],
+  "mapAlignmentReadOnly": [
+    {
+      "reference": "10-paused.png",
+      "target": "04-hiding-v2.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1051,
+      "inliers": 1007,
+      "affineTargetToReference": [
+        [
+          0.99983,
+          -8e-05,
+          0.0274
+        ],
+        [
+          8e-05,
+          0.99983,
+          -0.00504
+        ]
+      ],
+      "rawExactPixelFraction": 0.00403,
+      "rawMeanAbsoluteRGBDifference": 5.607
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "05-cat.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1195,
+      "inliers": 1006,
+      "affineTargetToReference": [
+        [
+          0.99997,
+          0.0,
+          0.01337
+        ],
+        [
+          -0.0,
+          0.99997,
+          -0.02776
+        ]
+      ],
+      "rawExactPixelFraction": 0.00442,
+      "rawMeanAbsoluteRGBDifference": 9.819
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "06-mouse-v2.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1186,
+      "inliers": 1123,
+      "affineTargetToReference": [
+        [
+          1.0002,
+          1e-05,
+          -0.11618
+        ],
+        [
+          -1e-05,
+          1.0002,
+          -0.04672
+        ]
+      ],
+      "rawExactPixelFraction": 0.00717,
+      "rawMeanAbsoluteRGBDifference": 3.432
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "07-alert.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1269,
+      "inliers": 1229,
+      "affineTargetToReference": [
+        [
+          0.99977,
+          -4e-05,
+          0.05481
+        ],
+        [
+          4e-05,
+          0.99977,
+          0.02256
+        ]
+      ],
+      "rawExactPixelFraction": 0.00413,
+      "rawMeanAbsoluteRGBDifference": 3.619
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "09-captured.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 740,
+      "inliers": 596,
+      "affineTargetToReference": [
+        [
+          0.99947,
+          0.00062,
+          0.08285
+        ],
+        [
+          -0.00062,
+          0.99947,
+          -25.09635
+        ]
+      ],
+      "rawExactPixelFraction": 0.00022,
+      "rawMeanAbsoluteRGBDifference": 44.007
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "11-offline.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1338,
+      "inliers": 1296,
+      "affineTargetToReference": [
+        [
+          0.9999,
+          6e-05,
+          0.01048
+        ],
+        [
+          -6e-05,
+          0.9999,
+          0.04678
+        ]
+      ],
+      "rawExactPixelFraction": 0.00347,
+      "rawMeanAbsoluteRGBDifference": 2.685
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "12-catWin.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 968,
+      "inliers": 860,
+      "affineTargetToReference": [
+        [
+          0.99986,
+          -0.00017,
+          0.0988
+        ],
+        [
+          0.00017,
+          0.99986,
+          -0.07401
+        ]
+      ],
+      "rawExactPixelFraction": 0.00967,
+      "rawMeanAbsoluteRGBDifference": 4.744
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "13-mouseWin.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1153,
+      "inliers": 1088,
+      "affineTargetToReference": [
+        [
+          0.99997,
+          4e-05,
+          0.00446
+        ],
+        [
+          -4e-05,
+          0.99997,
+          0.06685
+        ]
+      ],
+      "rawExactPixelFraction": 0.00768,
+      "rawMeanAbsoluteRGBDifference": 8.098
+    },
+    {
+      "reference": "10-paused.png",
+      "target": "14-cancelled.png",
+      "artworkRegion": [
+        156,
+        312,
+        868,
+        946
+      ],
+      "goodMatches": 1159,
+      "inliers": 1102,
+      "affineTargetToReference": [
+        [
+          0.99981,
+          -0.00019,
+          0.13345
+        ],
+        [
+          0.00019,
+          0.99981,
+          -0.10681
+        ]
+      ],
+      "rawExactPixelFraction": 0.01705,
+      "rawMeanAbsoluteRGBDifference": 2.996
+    }
+  ]
+}

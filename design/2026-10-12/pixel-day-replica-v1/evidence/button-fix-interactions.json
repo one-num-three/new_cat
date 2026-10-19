@@ -1,0 +1,31 @@
+[
+  {
+    "check": "紧急暂停",
+    "page": "10-paused",
+    "result": "PASS"
+  },
+  {
+    "check": "恢复本局",
+    "page": "04-cat",
+    "result": "PASS"
+  },
+  {
+    "check": "队伍规则操作",
+    "page": "15-details",
+    "result": "PASS"
+  },
+  {
+    "check": "退出本局",
+    "page": "14-cancelled",
+    "result": "PASS"
+  },
+  {
+    "check": "动态按钮显示准备",
+    "result": "PASS"
+  },
+  {
+    "check": "准备后开始躲藏",
+    "page": "07-hiding",
+    "result": "PASS"
+  }
+]

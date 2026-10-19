@@ -1,0 +1,8 @@
+Use case: stylized-concept.
+Create a production pixel-art MATERIAL ATLAS, NOT a map. Reference image is STYLE ONLY: the selected sunny Chinese park 16-bit light-adventure art direction. The actual two maps will be rendered from real geographic vectors; do not introduce geographic shapes.
+Output square 1024x1024, exactly four flush equal 512x512 quadrants, no margins, no text, no borders, no labels.
+Top-left: seamless bright yellow-green grass surface with subtle small crisp pixel grass clusters, no paths, no trees, no objects. Calm tonal variation.
+Top-right: seamless sunny turquoise lake water, small sparse horizontal pale-blue pixel ripples; no land, no shoreline, no boats.
+Bottom-left: seamless top-down leafy green canopy texture with distinct small 16-bit crown clusters, dark teal-green shade and yellow-green sunlit pixels, no trunks, no shadows outside tile, no flowers or objects.
+Bottom-right: seamless warm terracotta tiled-roof texture with small stepped pixel tile rows; no separate buildings or outlines.
+All four quadrants use same 16-bit rendering scale: small crisp square pixels in 3-4px units, handcrafted retro adventure-game quality, limited coherent palette, no anti-alias blur, no gradients or 3D, not isometric. Texture detail must remain low contrast so actual vector geometry is legible. Artwork matches cream paths, grass green, sky blue, orange accents of the style reference. These are decorative materials, not surveyed vegetation/building data.

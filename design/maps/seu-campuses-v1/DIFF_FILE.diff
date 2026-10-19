@@ -1,0 +1,5 @@
+--- baseline.json
++++ MODIFIED_FILE.json
+@@ -1 +1 @@
+-{"enabled":false,"status":"unregistered","campuses":["jiulonghu","sipailou"],"fieldVerified":false}
++{"enabled":true,"status":"osm-image-registered-field-unverified","campuses":["jiulonghu","sipailou"],"fieldVerified":false}

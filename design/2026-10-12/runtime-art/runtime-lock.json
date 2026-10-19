@@ -1,0 +1,96 @@
+{
+  "version": "02-01-replica-1",
+  "transform": "resize; PNG palette192/dither0.3; no artistic editing",
+  "records": [
+    {
+      "id": "home-landscape-v2",
+      "source": "design/2026-10-12/runtime-art/source/home-landscape-v2.png",
+      "path": "assets/replica-v1/home-landscape.png",
+      "sha256": "68a61d210c05183e958c259206c22deeaef3173641b815764056d4ee5af0d0ca",
+      "width": 750,
+      "height": 562,
+      "hasAlpha": false,
+      "bytes": 186754
+    },
+    {
+      "id": "compact-landscape",
+      "source": "design/2026-10-12/runtime-art/source/compact-landscape.png",
+      "path": "assets/replica-v1/compact-landscape.png",
+      "sha256": "03d0c237091114c552a65072d29e55234bfea1d8702ff628b0e67647bd32e412",
+      "width": 750,
+      "height": 422,
+      "hasAlpha": false,
+      "bytes": 139420
+    },
+    {
+      "id": "preview-park",
+      "source": "design/2026-10-12/runtime-art/source/preview-park.png",
+      "path": "assets/replica-v1/preview-park.png",
+      "sha256": "7d69ed1e69bc9ba6074778c83855b4f96739bbd321e1023e5dcc20f98a964867",
+      "width": 600,
+      "height": 900,
+      "hasAlpha": false,
+      "bytes": 271002
+    },
+    {
+      "id": "hiding",
+      "source": "design/2026-10-12/runtime-art/source/hiding.png",
+      "path": "assets/replica-v1/hiding.png",
+      "sha256": "22f108b5f666671f091a870633786b93fa8c2d735703ad58c024d0902d7b4779",
+      "width": 420,
+      "height": 280,
+      "hasAlpha": true,
+      "bytes": 25472
+    },
+    {
+      "id": "paused",
+      "source": "design/2026-10-12/runtime-art/source/paused.png",
+      "path": "assets/replica-v1/paused.png",
+      "sha256": "ad4206713841a19f9b93c34e21c046ebc4303278aba3cfe9213c3194027293eb",
+      "width": 420,
+      "height": 280,
+      "hasAlpha": true,
+      "bytes": 26979
+    },
+    {
+      "id": "cancelled",
+      "source": "design/2026-10-12/runtime-art/source/cancelled.png",
+      "path": "assets/replica-v1/cancelled.png",
+      "sha256": "75d300f9dfd24d83ebbba2e9abba926f807e3cf1b0dcbeede6bfffb0bc7429c6",
+      "width": 420,
+      "height": 280,
+      "hasAlpha": true,
+      "bytes": 26598
+    },
+    {
+      "id": "cat-win-scene",
+      "source": "design/2026-10-12/runtime-art/source/cat-win-scene.png",
+      "path": "assets/replica-v1/cat-win-scene.png",
+      "sha256": "881f4237edc723ee90aa33636e2e3309e23067fe66e0a1a1c7997d327cd9346e",
+      "width": 420,
+      "height": 280,
+      "hasAlpha": true,
+      "bytes": 28587
+    },
+    {
+      "id": "mouse-win-scene",
+      "source": "design/2026-10-12/runtime-art/source/mouse-win-scene.png",
+      "path": "assets/replica-v1/mouse-win-scene.png",
+      "sha256": "608d659835380f7ed1994173739f5cfd4494b1da2753d40f369127ec5386b5b6",
+      "width": 420,
+      "height": 280,
+      "hasAlpha": true,
+      "bytes": 28389
+    },
+    {
+      "id": "captured-scene",
+      "source": "design/2026-10-12/runtime-art/source/captured-scene.png",
+      "path": "assets/replica-v1/captured-scene.png",
+      "sha256": "1f8275e7cd38675567bf14c2f4e0138984d83ee1b7ae67494e84c433aa085ecc",
+      "width": 420,
+      "height": 280,
+      "hasAlpha": true,
+      "bytes": 24966
+    }
+  ]
+}

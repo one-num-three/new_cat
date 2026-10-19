@@ -1,0 +1,93 @@
+diff --git "a/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/baseline/button-fix-v1/replica.js" "b/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/replica.js"
+index 1393de7..2510d7b 100644
+--- "a/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/baseline/button-fix-v1/replica.js"
++++ "b/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/replica.js"
+@@ -1,7 +1,7 @@
+ 'use strict';
+ // Coordinates below are measured in each authoritative 1024×1536 source image.
+-// CSS crops retain the original image bytes. Only illustrations/maps use source pixels;
+-// panels, controls, roster, HUD and body copy are rendered HTML.
++// CSS crops retain original image bytes for illustrations, maps and fixed button art;
++// live controls keep HTML semantics; fixed button artwork retains original type/icons.
+ const PAGES=[
+  ['01-home','首页与加入',130,108,764,1354],['02-create','创建活动',110,102,802,1368],
+  ['03-ready','房间准备',145,106,734,1354],['04-cat','猫队追逐地图',128,103,766,1353],
+@@ -16,20 +16,31 @@ const $=s=>document.querySelector(s), app=$('#app');
+ let current=PAGES[0], previousMap='05-mouse', drawerReturn='04-cat', pauseReturn='04-cat', toastTimer;
+ const data={nickname:'小橘',code:'',ready:true};
+ function el(tag,cls,x,y,w,h,text='',parent=app){const n=document.createElement(tag);n.className='el '+cls;Object.assign(n.style,{left:(x-current.x)+'px',top:(y-current.y)+'px',width:w+'px',height:h+'px'});if(text)n.textContent=text;parent.append(n);return n;}
+-function txt(text,x,y,w,h,size=32,cls='display'){const n=el('div','text '+cls,x,y,w,h,text);n.style.fontSize=size+'px';return n;}
++function txt(text,x,y,w,h,size=32,cls='display'){const n=el('div','text '+cls,x,y,w,h,text);n.style.fontSize=size+'px';if(size>=70)n.style.fontWeight='900';return n;}
+ function panel(x,y,w,h,cls=''){return el('div','pixel panel '+cls,x,y,w,h);}
+ function art(id,sx,sy,sw,sh,x=sx,y=sy,w=sw,h=sh,label='原稿插画'){const n=el('div','art',x,y,w,h);const scale=w/sw;Object.assign(n.style,{backgroundImage:`url("assets/${id}.png")`,backgroundSize:`${1024*scale}px ${1536*scale}px`,backgroundPosition:`${-sx*scale}px ${-sy*scale}px`});n.setAttribute('role','img');n.setAttribute('aria-label',label);n.dataset.source=id;n.dataset.crop=[sx,sy,sw,sh].join(',');return n;}
+-function textButton(text,x,y,w,h,color,fn,size=48){const n=el('button','pixel pixel-button '+color,x,y,w,h);n.type='button';if(w<100)n.classList.add('compact');const s=document.createElement('span');s.className='label';s.textContent=text;n.append(s);n.style.fontSize=size+'px';if(color!=='plain')skinEdges(n,x,y,w,h);if(fn)n.addEventListener('click',fn);return n;}
+-function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2500);}
+-function skinEdges(n,x,y,w,h){
+- n.classList.add('source-edge');
+- // Reuse only the artwork's border strips. The label stays real, editable HTML.
+- const t=14,b=18,l=25;
+- for(const [dx,dy,dw,dh] of [[0,0,w,t],[0,h-b,w,b],[0,t,l,h-t-b],[w-l,t,l,h-t-b]]){
+-  const s=document.createElement('span');s.className='skin-edge';s.setAttribute('aria-hidden','true');
+-  Object.assign(s.style,{left:dx+'px',top:dy+'px',width:dw+'px',height:dh+'px',backgroundImage:`url("assets/${current.id}.png")`,backgroundPosition:`-${x+dx}px -${y+dy}px`});n.prepend(s);
+- }
++function textButton(text,x,y,w,h,color,fn,size=48){
++ const n=el('button','pixel pixel-button '+color,x,y,w,h);
++ n.type='button';if(w<100)n.classList.add('compact');
++ const label=document.createElement('span');label.className='label';label.textContent=text;n.append(label);
++ n.style.fontSize=size+'px';
++ // Static original labels/icons are artwork; actual button semantics and handlers remain live.
++ // Never substitute a Roman numeral or a font arrow for the original drawn icon.
++ const dynamic=current.id==='03-ready'&&['准备','返回首页'].includes(text);
++ if(!dynamic)sourceButton(n,label,x,y,w,h);
++ if(fn)n.addEventListener('click',fn);return n;
++}
++function sourceButton(n,label,x,y,w,h){
++ n.classList.add('source-button');label.classList.add('sr-only');
++ n.dataset.buttonRendering='single-source';
++ // Extend into the surrounding paper so the source outline/shadow is never sliced.
++ const pad=8,l=Math.min(pad,x-current.x),t=Math.min(pad,y-current.y);
++ const r=Math.min(pad,current.x+current.w-x-w),b=Math.min(pad,current.y+current.h-y-h);
++ const skin=document.createElement('span');skin.className='button-art';skin.setAttribute('aria-hidden','true');
++ Object.assign(skin.style,{left:-l+'px',top:-t+'px',width:w+l+r+'px',height:h+t+b+'px',backgroundImage:`url("assets/${current.id}.png")`,backgroundPosition:`-${x-l}px -${y-t}px`});
++ n.dataset.crop=[x-l,y-t,w+l+r,h+t+b].join(',');n.prepend(skin);
+ }
++function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2500);}
+ function go(id){if(current.id==='15-details'&&id==='15-details')return;location.hash=id;}
+ function details(){drawerReturn=current.id;go('15-details');}
+ function logo(){const p=current;art('01-home',172,121,65,64,p.x+32,p.y+10,61,60,'像素猫标志');txt('猫鼠行动',p.x+106,p.y+5,310,66,38,'display left');const cap=el('div','capsule',p.x+p.w-204,p.y+6,182,64);cap.innerHTML='<span>•••</span><i></i><span></span>';cap.setAttribute('aria-hidden','true');}
+diff --git "a/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/baseline/button-fix-v1/replica.css" "b/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/replica.css"
+index 7bdba7b..c455c69 100644
+--- "a/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/baseline/button-fix-v1/replica.css"
++++ "b/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/replica.css"
+@@ -8,4 +8,17 @@
+ @media(max-width:680px){.workbench{position:relative;width:auto;border:0;border-bottom:1px solid #dce1d5;padding:14px 16px}.brand{font-size:18px}.brand span{display:inline;margin-left:12px;font-size:11px}.quiet,.scope{display:none}#pages{display:flex;overflow:auto;margin-top:14px;gap:5px}#pages a{flex:none;white-space:nowrap;padding:8px}#pages a span{display:none}.view-controls{margin-top:12px;display:flex;align-items:center;gap:12px}.view-controls select{flex:1}.view-controls label{white-space:nowrap}#opacityLabel{max-width:150px}.workspace{margin:0;padding:18px 12px 24px}.page-caption{margin-bottom:15px}.page-caption h1{font-size:17px}.canvases figure{flex-basis:100%;max-width:440px}.canvases{gap:20px;flex-wrap:wrap}.caption-note{line-height:1.7}#toast{left:50%}body[data-mode=compare] .canvases{flex-direction:column;align-items:center}}
+ .text{white-space:pre}.pixel-button.compact{clip-path:polygon(8px 0,calc(100% - 8px) 0,calc(100% - 8px) 5px,100% 5px,100% calc(100% - 8px),calc(100% - 5px) calc(100% - 8px),calc(100% - 5px) 100%,8px 100%,8px calc(100% - 5px),0 calc(100% - 5px),0 8px,5px 8px,5px 0)}.pixel-button.compact::after{display:none}
+ @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+-.pixel-button.source-edge{background:none;clip-path:none}.pixel-button.source-edge::before{inset:13px 24px 17px;clip-path:none;box-shadow:none}.pixel-button.source-edge::after{display:none}.pixel-button .skin-edge{position:absolute;background-size:1024px 1536px;background-repeat:no-repeat;z-index:0;pointer-events:none}.pixel-button.source-edge .label{z-index:2}.code-frame{--edge:#c8c8c4;clip-path:polygon(30px 0,calc(100% - 30px) 0,calc(100% - 30px) 8px,calc(100% - 16px) 8px,calc(100% - 16px) 20px,100% 20px,100% calc(100% - 30px),calc(100% - 10px) calc(100% - 30px),calc(100% - 10px) calc(100% - 15px),calc(100% - 30px) calc(100% - 15px),calc(100% - 30px) 100%,30px 100%,30px calc(100% - 8px),15px calc(100% - 8px),15px calc(100% - 20px),0 calc(100% - 20px),0 30px,8px 30px,8px 15px,30px 15px)}.code-frame::before{inset:7px}
++.code-frame{--edge:#c8c8c4;clip-path:polygon(30px 0,calc(100% - 30px) 0,calc(100% - 30px) 8px,calc(100% - 16px) 8px,calc(100% - 16px) 20px,100% 20px,100% calc(100% - 30px),calc(100% - 10px) calc(100% - 30px),calc(100% - 10px) calc(100% - 15px),calc(100% - 30px) calc(100% - 15px),calc(100% - 30px) 100%,30px 100%,30px calc(100% - 8px),15px calc(100% - 8px),15px calc(100% - 20px),0 calc(100% - 20px),0 30px,8px 30px,8px 15px,30px 15px)}.code-frame::before{inset:7px}
++
++/* Revision: continuous button artwork, no four-strip seams or substituted glyphs. */
++@font-face{font-family:ParkReplicaUI;src:url('assets/ui-variable.woff') format('woff');font-style:normal;font-weight:100 900;font-display:swap}
++#app{font-family:ParkReplicaUI,'Microsoft YaHei',sans-serif;font-weight:450;font-synthesis:none}
++#app .display,#app .pixel-button{font-family:ParkReplicaUI,'Microsoft YaHei',sans-serif;font-weight:750}
++#app .field{font-family:ParkReplicaUI,'Microsoft YaHei',sans-serif;font-weight:550}
++.pixel-button.source-button{background:transparent;clip-path:none;text-shadow:none;padding:0;overflow:visible;isolation:isolate}
++.pixel-button.source-button::before,.pixel-button.source-button::after{display:none}
++.pixel-button.source-button .button-art{position:absolute;background-size:1024px 1536px;background-repeat:no-repeat;pointer-events:none;z-index:0}
++.pixel-button.source-button .label.sr-only{position:absolute;display:block;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0)}
++/* Focus stays visible around the real control, not clipped by artwork. */
++.pixel-button.source-button:focus-visible{outline:4px solid #2677d8;outline-offset:8px}
++.capsule{font-family:Arial,sans-serif;gap:20px}.capsule span:first-child{flex:0 0 64px;text-align:center;letter-spacing:0}.capsule i{flex:0 0 2px}.capsule span:last-child{flex:0 0 34px}
+diff --git "a/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/baseline/button-fix-v1/serve.cjs" "b/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/serve.cjs"
+index 7f713c8..7ea1bf6 100644
+--- "a/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/baseline/button-fix-v1/serve.cjs"
++++ "b/D:\\cat-mouse-miniprogram\\design\\2026-10-12\\pixel-day-replica-v1/serve.cjs"
+@@ -2,7 +2,7 @@ const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
+ const root=__dirname, types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'application/javascript; charset=utf-8','.png':'image/png','.woff':'font/woff'};
+ http.createServer((req,res)=>{const name=new URL(req.url,'http://127.0.0.1').pathname;
+  const rel=name==='/'?'index.html':name.slice(1);
+- if(!(['index.html','replica.css','replica.js'].includes(rel)||/^assets\/(?:\d\d-[a-z-]+\.png|display-black\.woff)$/.test(rel))){res.writeHead(404);return res.end('Not found');}
++ if(!(['index.html','replica.css','replica.js'].includes(rel)||/^assets\/(?:\d\d-[a-z-]+\.png|(?:display-black|ui-variable)\.woff)$/.test(rel))){res.writeHead(404);return res.end('Not found');}
+  const p=path.join(root,rel);if(!fs.existsSync(p)){res.writeHead(404);return res.end('Not found');}
+  res.writeHead(200,{'Content-Type':types[path.extname(p)],'Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});fs.createReadStream(p).pipe(res);
+ }).listen(8767,'127.0.0.1',()=>console.log('PIXEL_PREVIEW http://127.0.0.1:8767 (allowlisted preview files only)'));

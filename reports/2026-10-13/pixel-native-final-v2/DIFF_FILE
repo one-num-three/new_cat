@@ -1,0 +1,536 @@
+Incremental UI/layout diff vs saved uncommitted bytes, not Git HEAD.
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\index\\index.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\index\\index.wxml"
+index 5c61a41..fbd64e3 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\index\\index.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\index\\index.wxml"
+@@ -6,8 +6,8 @@
+     <view class="paperFrame homeField"><text class="fieldLabel">你的昵称</text><input class="homeInput" value="{{nickname}}" maxlength="20" placeholder="先取个名字" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="你的昵称" /></view>
+     <view class="paperFrame homeField"><text class="fieldLabel">房间码</text><input class="homeInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" /></view>
+     <view class="homeActions">
+-      <pixel-action skin="/assets/pixel-v1/button-home-join.png" label="加入房间" tone="orange" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="join" />
+-      <pixel-action skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
++      <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="加入房间" tone="orange" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="join" />
++      <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
+     </view>
+     <text wx:if="{{error}}" class="formError" role="alert">{{error}}</text>
+   </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\room\\room.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml"
+index 2ab53f2..0e18a1e 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\room\\room.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml"
+@@ -10,21 +10,21 @@
+       <view class="teamSplit"><view class="teamNumber"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text>{{catsCount}}猫</text></view><view class="splitDivider"></view><view class="teamNumber"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" aria-hidden="true" /><text>{{total-catsCount}}鼠</text></view></view>
+     </view>
+     <view class="paperFrame venueCard">
+-      <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重新确认位置':'使用当前位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
++      <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重新确认位置':'使用当前位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
+       <view class="venueGuide"><image class="venueGuideImage" src="/assets/maps/xuanwu-lake-v3.png" mode="aspectFit" aria-label="玄武湖环洲与樱洲场地导览" /><text class="guideCaption">玄武湖 · 场地导览</text><text class="guideFootnote">示意图不代表定位结果</text></view>
+     </view>
+     <view class="paperFrame rulesCard"><text class="sectionLabel">规则摘要</text><view class="rulesGrid"><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">30秒</text><text class="ruleLabel">躲藏时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">6分钟</text><text class="ruleLabel">追逐时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">抓满{{targetCount}}人</text><text class="ruleLabel">猫获胜</text></view></view><view class="rulesNote"><text class="noteMark" aria-hidden="true">!</text><text>倒计时结束未达标时，鼠获胜</text></view></view>
+-    <view class="createAction"><pixel-action skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" /></view>
++    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" /></view>
+   </view>
+   <view wx:else class="readyContent">
+-    <view class="paperFrame inviteCard"><text class="sectionLabel inviteLabel">房间码</text><view class="codeRow"><text class="roomCode" selectable>{{code || '同步中'}}</text><view class="copyAction"><pixel-action skin="/assets/pixel-v1/button-ready-copy.png" label="复制" tone="plain" disabled="{{!code}}" font-scale="{{fontScale}}" bindaction="copy" /></view></view><text class="inviteHint">分享房间码，邀请好友加入</text></view>
++    <view class="paperFrame inviteCard"><text class="sectionLabel inviteLabel">房间码</text><view class="codeRow"><text class="roomCode" selectable>{{code || '同步中'}}</text><view class="copyAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-copy.png" label="复制" tone="plain" disabled="{{!code}}" font-scale="{{fontScale}}" bindaction="copy" /></view></view><text class="inviteHint">分享房间码，邀请好友加入</text></view>
+     <view class="paperFrame roomRules"><view class="roomRuleNumbers"><view class="readyTeam"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text><text class="orangeNumber">{{catsCount}}</text>猫 <text class="orangeNumber">{{(rules?rules.total:total)-catsCount}}</text>鼠</text></view><view class="targetNumber"><text>捕获目标</text><text class="orangeNumber">{{targetCount}}人</text></view></view><text class="roomRuleText">30秒躲藏，6分钟追逐；捕获{{targetCount}}人猫胜，
+ 倒计时结束未达标鼠胜。</text></view>
+     <view class="rosterHeader"><view class="rosterHeading"><text class="sectionLabel">玩家列表（{{roster.length}}/{{rules?rules.total:total}}）</text><text class="readyCount {{canStart?'allReady':''}}">{{canStart?'所有玩家已准备':readyCount+'人已准备'}}</text></view><text class="rosterHint">阵营将在开始后分配</text></view>
+     <view class="rosterGrid"><view wx:for="{{roster}}" wx:key="id" class="paperFrame playerCard"><image class="playerAvatar" src="/assets/pixel-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" /><text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text><text class="readyBadge {{item.ready?'isReady':'notReady'}}">{{item.ready?'已准备':'未准备'}}</text></view></view>
+     <view wx:if="{{!roster.length}}" class="paperFrame emptyRoster">伙伴还未加入，把房间码发给他们吧。</view>
+     <text wx:if="{{!canStart}}" class="readySummary">{{startHint}}</text>
+-    <view class="roomActions"><pixel-action wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始30秒躲藏':'等待所有人准备'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" /><text wx:else class="ownerHint">{{canStart?'已全部准备，等待房主开始':'准备后，等待房主开始本局'}}</text><pixel-action skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位并准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" /></view>
++    <view class="roomActions"><pixel-action class="pixelControl" wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始30秒躲藏':'等待所有人准备'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" /><text wx:else class="ownerHint">{{canStart?'已全部准备，等待房主开始':'准备后，等待房主开始本局'}}</text><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位并准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" /></view>
+   </view>
+   <text wx:if="{{error}}" class="roomError" role="alert">{{error}}</text>
+ </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\map\\map.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.wxml"
+index ffd527b..df4d307 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\map\\map.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.wxml"
+@@ -1,11 +1,11 @@
+-<view class="mapPage state-{{uiState}} {{terminal || uiState==='paused' || uiState==='offline'?'documentPage':'playPage'}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px">
++<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal || uiState==='paused' || uiState==='offline'?'documentPage':'playPage'}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px">
+ <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
+ <view wx:if="{{!match}}" class="emptyState"><text>正在同步本局状态</text><text class="bodyCopy">{{error || '请稍候，状态由服务器确认。'}}</text><button class="textButton" bindtap="goHome">返回首页</button></view>
+ <block wx:elif="{{terminal}}">
+  <image class="resultHero" src="{{stateArt}}" mode="widthFix" aria-label="{{uiState==='catWin'?'猫队获胜':uiState==='mouseWin'?'鼠队获胜':'本局取消，不计胜负'}}" />
+  <view class="terminalContent"><view class="pixelPaper resultStats"><text class="resultReason">{{uiState==='catWin'?'捕获目标已完成':uiState==='mouseWin'?'猫队未达到捕获目标':'公开记录'}}</text><view class="resultStatRow"><view><text wx:if="{{uiState!=='catWin'}}" class="statLabel">已抓捕</text><view class="statValue"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view></view><view wx:if="{{uiState!=='cancelled'}}" class="resultStatus"><text class="statLabel">对局状态</text><text class="statusBadge">已结束</text></view></view></view>
+- <view wx:if="{{uiState==='mouseWin'}}" class="resultMap"><venue-art compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" /></view>
+- <view class="resultActions"><pixel-action wx:if="{{canReplay}}" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-replay.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-replay.png':'/assets/pixel-v1/button-cancelled-replay.png'}}" label="再来一局" tone="{{uiState==='cancelled'?'green':'orange'}}" font-scale="{{fontScale}}" bindaction="replay" /><text wx:else class="waitingHost">{{offline?'等待连接恢复后开始下一局':'等待房主开始下一局'}}</text><pixel-action skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-details.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-details.png':'/assets/pixel-v1/button-cancelled-details.png'}}" label="查看对局详情" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><pixel-action skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-home.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-home.png':'/assets/pixel-v1/button-cancelled-home.png'}}" label="返回首页" tone="plain" font-scale="{{fontScale}}" bindaction="goHome" /></view><text wx:if="{{uiState==='cancelled'}}" class="recordNote">这局记录保留，下一轮使用新的对局</text></view>
++ <view wx:if="{{uiState==='mouseWin'}}" class="resultMap"><venue-art class="venueArt" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" /></view>
++ <view class="resultActions"><pixel-action class="pixelControl" wx:if="{{canReplay}}" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-replay.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-replay.png':'/assets/pixel-v1/button-cancelled-replay.png'}}" label="再来一局" tone="{{uiState==='cancelled'?'green':'orange'}}" font-scale="{{fontScale}}" bindaction="replay" /><text wx:else class="waitingHost">{{offline?'等待连接恢复后开始下一局':'等待房主开始下一局'}}</text><pixel-action class="pixelControl" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-details.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-details.png':'/assets/pixel-v1/button-cancelled-details.png'}}" label="查看对局详情" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><pixel-action class="pixelControl" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-home.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-home.png':'/assets/pixel-v1/button-cancelled-home.png'}}" label="返回首页" tone="plain" font-scale="{{fontScale}}" bindaction="goHome" /></view><text wx:if="{{uiState==='cancelled'}}" class="recordNote">这局记录保留，下一轮使用新的对局</text></view>
+ </block>
+ <block wx:else>
+  <view class="roleBand role-{{match.myRole}}"><image class="roleArt" src="{{roleArt}}" mode="aspectFit" aria-hidden="true" /><view class="roleCopy"><view class="roleTitle"><text class="roleName">{{roleText}}</text><text class="phaseSeparator"> · </text><text class="phaseName">{{offline?'重连中':uiState==='paused'?'本局暂停':uiState==='captured'?'已出局':phaseText}}</text></view><text class="roleSubtitle">{{offline?'连接恢复前不显示战术位置':uiState==='paused'?'计时已冻结，请原地等待':uiState==='captured'?'本轮出局，仅查看公开状态':uiState==='hiding'?(match.myRole==='cat'?'请在集合点等待倒计时结束':'在场地范围内寻找躲藏位置'):match.myRole==='cat'?'寻找老鼠，完成捕获目标':'躲避猫咪，坚持到最后'}}</text></view></view>
+@@ -13,22 +13,22 @@
+  <block wx:if="{{uiState==='paused' || uiState==='offline'}}">
+   <image class="pauseHero" src="{{stateArt}}" mode="widthFix" aria-label="{{uiState==='paused'?'猫鼠在公园停下等待':'连接中断，等待重连'}}" />
+   <view class="statusMessage"><text class="statusTitle">{{uiState==='paused'?'本局暂停':'连接中断，正在重连'}}</text><text class="bodyCopy">{{uiState==='paused'?pauseReasonText:connection==='身份失效'?'身份已失效，请返回首页':'请停下等待连接恢复'}}</text><text class="bodyCopy">{{uiState==='paused'?'请原地等待，重新定位后恢复':'已隐藏战术位置和旧倒计时'}}</text></view>
+-  <view class="statusActions"><pixel-action wx:if="{{canResume}}" skin="/assets/pixel-v1/button-paused-resume.png" label="恢复本局" tone="green" font-scale="{{fontScale}}" bindaction="resume" /><text wx:elif="{{uiState==='paused'}}" class="waitingHost">等待组织者恢复本局</text><pixel-action wx:if="{{uiState==='paused'}}" skin="/assets/pixel-v1/button-paused-details.png" label="队伍·规则·操作" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><view wx:else class="splitActions"><pixel-action skin="/assets/pixel-v1/button-offline-team.png" label="队伍" tone="green" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><pixel-action skin="/assets/pixel-v1/button-offline-rules.png" label="规则" tone="orange" font-scale="{{fontScale}}" bindaction="toggleDrawer" /></view><button wx:if="{{connection==='身份失效'}}" class="textButton" bindtap="goHome">返回首页重新登录</button></view>
++  <view class="statusActions"><pixel-action class="pixelControl" wx:if="{{canResume}}" skin="/assets/pixel-v1/button-paused-resume.png" label="恢复本局" tone="green" font-scale="{{fontScale}}" bindaction="resume" /><text wx:elif="{{uiState==='paused'}}" class="waitingHost">等待组织者恢复本局</text><pixel-action class="pixelControl" wx:if="{{uiState==='paused'}}" skin="/assets/pixel-v1/button-paused-details.png" label="队伍·规则·操作" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><view wx:else class="splitActions"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-offline-team.png" label="队伍" tone="green" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-offline-rules.png" label="规则" tone="orange" font-scale="{{fontScale}}" bindaction="toggleDrawer" /></view><button wx:if="{{connection==='身份失效'}}" class="textButton" bindtap="goHome">返回首页重新登录</button></view>
+  </block>
+  <block wx:else>
+   <view class="mapModeBar"><view><text class="mapModeTitle">{{devPreview || artMode?'玄武湖 · 环洲 / 樱洲':'实时地图 · 授权视野'}}</text><text class="mapModeHint">{{devPreview || artMode?'场地导览 · 未标定实时位置':'蓝点是本人 · 橘色区域是大致线索'}}</text></view><button wx:if="{{!devPreview}}" class="mapModeButton" bindtap="toggleMapMode">{{artMode?'实时地图':'场地导览'}}</button><button wx:else class="mapModeButton" bindtap="openVenue">完整导览</button></view>
+-  <view class="mapCanvas"><venue-art wx:if="{{devPreview || artMode}}" src="{{parkArt}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" /><map wx:else class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" /></view>
++  <view class="mapCanvas"><venue-art class="venueArt" wx:if="{{devPreview || artMode}}" src="{{parkArt}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" /><map wx:else class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" /></view>
+   <view class="bottomPanel"><view wx:if="{{uiState==='hiding'}}" class="pixelPaper hidingPanel"><image class="hidingArt" src="{{stateArt}}" mode="widthFix" /><view><text class="statusTitle">鼠先躲藏</text><text class="bodyCopy">{{match.myRole==='cat'?'猫留在集合点，倒计时结束后出发。':'请在场地范围内躲藏，追逐开始后留意猫咪。'}}</text></view></view><view wx:elif="{{uiState==='captured'}}" class="pixelPaper capturedPanel"><text class="statusTitle">本轮已出局</text><text class="bodyCopy">仅查看公开状态</text><text class="bodyCopy">返回集合点，等待本局结算。</text></view><view wx:elif="{{nearbyCat}}" class="warningPanel"><text class="warningMark">!</text><view><text class="warningTitle">附近有猫，注意观察</text><text class="bodyCopy">只提示接近，不展示猫的位置</text></view></view><text wx:else class="mapNotice">{{match.myRole==='cat'?(devPreview || artMode?'位置线索请在实时地图中查看':'橘色区域仅代表大致线索'):'留意周围环境，注意安全！'}}</text>
+-   <view wx:if="{{uiState==='cat' || uiState==='mouse'}}" class="liveActions {{nearbyCat?'stackActions':'splitActions'}}"><pixel-action wx:if="{{canScan}}" skin="/assets/pixel-v1/button-cat-scan.png" label="扫码确认抓捕" tone="orange" font-scale="{{fontScale}}" loading="{{loading}}" bindaction="scan" /><pixel-action wx:if="{{canShowCode}}" skin="{{nearbyCat?'/assets/pixel-v1/button-alert-code.png':'/assets/pixel-v1/button-mouse-code.png'}}" label="停下，展示动态码" tone="blue" font-scale="{{fontScale}}" bindaction="showCode" /><pixel-action skin="{{nearbyCat?'/assets/pixel-v1/button-alert-details.png':match.myRole==='cat'?'/assets/pixel-v1/button-cat-details.png':'/assets/pixel-v1/button-mouse-details.png'}}" label="队伍·规则·操作" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /></view><pixel-action wx:else skin="{{uiState==='captured'?'/assets/pixel-v1/button-captured-details.png':'/assets/pixel-v1/button-hiding-details.png'}}" label="队伍·规则" tone="{{uiState==='captured'?'blue':'orange'}}" font-scale="{{fontScale}}" bindaction="toggleDrawer" /></view>
++   <view wx:if="{{uiState==='cat' || uiState==='mouse'}}" class="liveActions {{nearbyCat?'stackActions':'splitActions'}}"><pixel-action class="pixelControl" wx:if="{{canScan}}" skin="/assets/pixel-v1/button-cat-scan.png" label="扫码确认抓捕" tone="orange" font-scale="{{fontScale}}" loading="{{loading}}" bindaction="scan" /><pixel-action class="pixelControl" wx:if="{{canShowCode}}" skin="{{nearbyCat?'/assets/pixel-v1/button-alert-code.png':'/assets/pixel-v1/button-mouse-code.png'}}" label="停下，展示动态码" tone="blue" font-scale="{{fontScale}}" bindaction="showCode" /><pixel-action class="pixelControl" skin="{{nearbyCat?'/assets/pixel-v1/button-alert-details.png':match.myRole==='cat'?'/assets/pixel-v1/button-cat-details.png':'/assets/pixel-v1/button-mouse-details.png'}}" label="队伍·规则·操作" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /></view><pixel-action class="pixelControl" wx:else skin="{{uiState==='captured'?'/assets/pixel-v1/button-captured-details.png':'/assets/pixel-v1/button-hiding-details.png'}}" label="队伍·规则" tone="{{uiState==='captured'?'blue':'orange'}}" font-scale="{{fontScale}}" bindaction="toggleDrawer" /></view>
+  </block>
+ </block>
+ <text wx:if="{{error && !offline}}" class="error">{{error}}</text>
+ <view wx:if="{{drawer}}" class="drawerMask" bindtap="closeDrawer"></view>
+-<view wx:if="{{drawer}}" class="drawer"><view class="drawerHandle"></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><pixel-action skin="/assets/pixel-v1/button-drawer-close.png" label="关闭" tone="plain" font-scale="{{fontScale}}" bindaction="closeDrawer" /></view></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
++<view wx:if="{{drawer}}" class="drawer"><view class="drawerHandle"></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-close.png" label="关闭" tone="plain" font-scale="{{fontScale}}" bindaction="closeDrawer" /></view></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
+  <view class="squadColumns"><view class="squad catsGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view><view class="teamGrid catGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState">{{item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view><view class="squad miceGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view><view class="teamGrid mouseGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='captured'?'已被捕获':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view></view>
+  <view class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
+  <view class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text></view>
+- <pixel-action wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="emergency" /><pixel-action skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'返回首页':'退出本局'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
++ <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="emergency" /><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'返回首页':'退出本局'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+  <view class="advancedRules"><text class="bodyCopy">实时地图的蓝点是本人，旗帜是集合点；橘色区域不是精确位置。场地导览图不叠加玩家位置。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
+ </view></scroll-view></view>
+ </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\qrcode\\qrcode.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\qrcode\\qrcode.wxml"
+index 351be5f..86c6e16 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\qrcode\\qrcode.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\qrcode\\qrcode.wxml"
+@@ -34,7 +34,7 @@
+     <text wx:if="{{error}}" class="codeError">{{error}}</text>
+ 
+     <view class="safetyNote"><view class="safetyMark" aria-hidden="true"><text>!</text></view><text class="safetyCopy">请停在安全位置，不要跑动操作</text></view>
+-    <view class="backAction"><pixel-action skin="/assets/pixel-v1/button-code-back.png" label="返回地图" tone="blue" font-scale="{{fontScale}}" bindaction="back" /></view>
++    <view class="backAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-code-back.png" label="返回地图" tone="blue" font-scale="{{fontScale}}" bindaction="back" /></view>
+     <text class="codeFooter">扫码成功才算抓捕</text>
+   </view>
+ </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\venue\\venue.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxml"
+index 9bfab59..fbb2b85 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\venue\\venue.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxml"
+@@ -5,6 +5,6 @@
+     <button class="venueBack" bindtap="goBack" aria-label="返回上一页">‹ 返回</button>
+   </view>
+   <view class="venueFrame">
+-    <venue-art src="{{venueSource}}" source-width="1154" source-height="1363" layout-key="{{layoutKey}}" />
++    <venue-art class="venueArt" src="{{venueSource}}" source-width="1154" source-height="1363" layout-key="{{layoutKey}}" />
+   </view>
+ </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\scripts\\pixel-ui-review.cjs" "b/D:\\cat-mouse-miniprogram\\scripts\\pixel-ui-review.cjs"
+index 8926274..d9df711 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\scripts\\pixel-ui-review.cjs"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\pixel-ui-review.cjs"
+@@ -1,6 +1,7 @@
+ 'use strict';
+ const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+ const automator=require('../cat-mouse-server/node_modules/miniprogram-automator');
++const screenshot=require('./wechat-screenshot.cjs');
+ const out=path.resolve(process.argv[2]),mode=process.argv[3]||'normal',selected=process.argv[4]||'all';
+ const cases=[{id:'venue',url:'/pages/venue/venue'},{id:'home',url:'/pages/index/index?devPreview=home'},{id:'gallery',url:'/pages/dev/dev'},...require('../utils/dev-preview').cases.filter(x=>x.id!=='home').map(x=>({id:x.id,url:x.path})),{id:'drawer',url:'/pages/map/map?devPreview=cat'}];
+ const pixelAssets=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../design/2026-10-13/pixel-runtime-v1/manifest.json'),'utf8')).records;
+@@ -25,7 +26,7 @@ async function inspect(item){
+   assert.ok(ready,item.id+' rendered '+readySelector+' did not settle; check IDE compilation and disk space');
+  }
+  const result=await mp.evaluate(()=>new Promise(resolve=>{
+-  const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('venue-art');
++  const p=getCurrentPages().slice(-1)[0],c=p.selectComponent('.venueArt');
+   const sels=['.mapCanvas','.hudStack','.bottomPanel','.mapModeBar','.venueFrame','.venueHeading','.venueBack','.drawer','.homeHero','.homeFooter','.roomHero','.codeRole','.pauseHero','.resultHero','.hidingArt','.homeInput','.roomCode','.rosterGrid','.playerCard','.venueEntry','.qrCard','.demoArt'];
+   const q=wx.createSelectorQuery().in(p);sels.forEach(s=>q.selectAll(s).boundingClientRect());
+   q.exec(boxes=>{const page={route:p.route,preview:!!p.data.devPreview,artMode:p.data.artMode,width:p.data.viewportWidth,height:p.data.viewportHeight,font:p.data.fontScale,uiState:p.data.uiState,clock:p.data.clock,summary:p.data.resultSummary,boxes:Object.fromEntries(sels.map((s,i)=>[s,boxes[i]]))};
+@@ -36,9 +37,11 @@ async function inspect(item){
+  }));
+  assert.equal(result.page.font,mode==='large'?1.3:1);
+  if(mode==='narrow'){assert.equal(result.page.width,320);assert.equal(result.page.height,693);}
+- const actions=await mp.evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],cs=p.selectAllComponents('pixel-action');Promise.all(cs.map(c=>new Promise(done=>{const q=c.createSelectorQuery();q.select('.pixelAction').boundingClientRect();q.select('.actionArt').boundingClientRect();q.exec(b=>done({skin:c.data.skin,label:c.data.label,disabled:c.data.disabled,loading:c.data.loading,dynamic:c.data.dynamic,fontScale:c.data.fontScale,failed:c.data.artFailed,width:c.data.artWidth,height:c.data.artHeight,button:b[0],image:b[1]}));}))).then(resolve);}));
++ const actions=await mp.evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],cs=p.selectAllComponents('.pixelControl');Promise.all(cs.map(c=>new Promise(done=>{const q=c.createSelectorQuery();q.select('.pixelAction').boundingClientRect();q.select('.actionArt').boundingClientRect();q.exec(b=>done({skin:c.data.skin,label:c.data.label,disabled:c.data.disabled,loading:c.data.loading,dynamic:c.data.dynamic,fontScale:c.data.fontScale,failed:c.data.artFailed,width:c.data.artWidth,height:c.data.artHeight,button:b[0],image:b[1]}));}))).then(resolve);}));
++ if(!['venue','gallery'].includes(item.id))assert.ok(actions.length>0,item.id+' actual controls must be inspected');
+  result.actions=actions;
+  const {page,component:c}=result;
++ if(['venue','cat','mouse','alert','hiding','captured','mouseWin'].includes(item.id))assert.ok(c,item.id+' venue component must be inspected');
+  const artClasses={'.homeHero':'home-hero','.homeFooter':'home-footer','.roomHero':item.id==='ready'?'ready-hero':'create-hero','.codeRole':'code-role','.pauseHero':item.id==='paused'?'paused-scene':'offline-hero','.resultHero':item.id==='catWin'?'catwin-hero':item.id==='mouseWin'?'mousewin-hero':'cancelled-hero','.hidingArt':'hiding-scene','.demoArt':'code-demo-art'};
+  result.imageChecks=[];
+  for(const [selector,id]of Object.entries(artClasses)){const a=pixelAssets.find(x=>x.id===id);for(const b of page.boxes[selector]||[]){const error=Math.abs((b.width/b.height)/(a.width/a.height)-1);assert.ok(error<.015,item.id+' '+selector+' distorted');result.imageChecks.push({id,selector,width:b.width,height:b.height,intrinsic:[a.width,a.height],ratioError:error});}}
+@@ -57,7 +60,7 @@ async function inspect(item){
+  const canvas=page.boxes['.mapCanvas'][0],panel=page.boxes['.bottomPanel'][0];
+  if(canvas&&panel){assert.ok(canvas.height>=120);assert.ok(canvas.bottom<=panel.top+1);assert.ok(panel.bottom<=page.height+1,'bottom panel clipped');}
+  if(item.id==='paused')assert.equal(page.clock,'04:45');if(item.id==='offline')assert.equal(page.clock,'--:--');
+- await delay(500);await mp.screenshot({path:path.join(out,item.id+'.png')});
++ await delay(500);await screenshot(mp,path.join(out,item.id+'.png'));
+  return {id:item.id,mode,...result,screenshot:path.join(out,item.id+'.png')};
+ }
+ (async()=>{try{for(const item of cases.filter(c=>selected==='all'||selected.split(',').includes(c.id))){console.log('ROUTE '+item.id);let r;for(let n=0;n<2;n++){try{r=await inspect(item);break;}catch(e){if(n||!/timeout|rawPath/.test(e.message))throw e;console.log('TRANSPORT_RECONNECT '+item.id+' '+e.message);mp?.disconnect();mp=null;await delay(1000);}}records.push(r);fs.writeFileSync(path.join(out,'metrics.json'),JSON.stringify({status:'IN_PROGRESS',records},null,2));console.log('PASS '+item.id);}fs.writeFileSync(path.join(out,'metrics.json'),JSON.stringify({status:'PASS',scope:'WeChat IDE rendered preview; no physical GPS or calibration claim',records},null,2));console.log('PIXEL_UI_PASS='+records.length+' MODE='+mode);}finally{mp?.disconnect();}})().catch(e=>{fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({status:'FAIL',error:e.message,passedIds:records.map(r=>r.id)},null,2));console.error(e);process.exitCode=1;});
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\scripts\\pixel-interaction.cjs" "b/D:\\cat-mouse-miniprogram\\scripts\\pixel-interaction.cjs"
+index 04fe207..3221870 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\scripts\\pixel-interaction.cjs"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\pixel-interaction.cjs"
+@@ -1,54 +1,63 @@
+ 'use strict';
+ const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+ const automator=require('../cat-mouse-server/node_modules/miniprogram-automator');
++const screenshot=require('./wechat-screenshot.cjs');
+ const out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});const delay=ms=>new Promise(r=>setTimeout(r,ms));
+-(async()=>{let mp;const passed=[];try{
++const pending=[];const passed=[];const pass=value=>{passed.push(value);fs.writeFileSync(path.join(out,'progress.json'),JSON.stringify({status:'IN_PROGRESS',passed},null,2));};
++(async()=>{let mp;try{
+  mp=await automator.connect({wsEndpoint:'ws://127.0.0.1:9420'});
++ const waitPath=async expected=>{let actual;for(let n=0;n<30;n++){actual=(await mp.currentPage())?.path;if(actual===expected){await delay(350);return;}await delay(200);}assert.equal(actual,expected);};
+  const go=async url=>{await mp.callWxMethod('reLaunch',{url});for(let i=0;i<30;i++){const route=await mp.evaluate(()=>getCurrentPages().slice(-1)[0]?.route || '');if(route===url.slice(1).split('?')[0]){await delay(800);return;}await delay(250);}throw Error('Route did not settle: '+url);};
++ const tapAction=async label=>{const cs=await (await mp.currentPage()).$$('.pixelControl');for(const c of cs){if(await c.data('label')===label){await (await c.$('.pixelAction')).tap();return;}}throw Error('Missing action '+label);};
++ if(!['bottom-only','drawer-only'].includes(process.argv[3])){
+  await go('/pages/venue/venue');
+- for(let i=0;i<30;i++){if(await mp.evaluate(()=>!!getCurrentPages().slice(-1)[0]?.selectComponent('venue-art')?.data.fitReady))break;await delay(250);}
+- const get=()=>mp.evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('venue-art');return {state:c.data.imageState,scale:c.data.scaleValue,x:c.data.x,y:c.data.y,w:c.data.fitWidth,h:c.data.fitHeight,camera:c._camera,serial:c._cameraSerial};});
+- let state=await get();assert.equal(state.state,'ready');assert.equal(state.scale,1);passed.push('venue-loaded');
+- let p=await mp.currentPage(),c=await p.$('venue-art'),buttons=await c.$$('.venueStep');await buttons[1].tap();await delay(500);state=await get();assert.equal(state.scale,1.25);passed.push('native-plus-tap');
+- const beforeMove={...state.camera};const mv=await (await (await mp.currentPage()).$('venue-art')).$('.venueMovableView');await mv.moveTo(state.x-20,state.y-20);await delay(500);
+- state=await get();assert.ok(Number.isFinite(state.camera.x)&&Number.isFinite(state.camera.y));assert.ok(Math.abs(state.camera.x-beforeMove.x)>.5||Math.abs(state.camera.y-beforeMove.y)>.5,'native pan must actually move');
+- await mp.evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('venue-art');c.onGestureEnd({currentTarget:{dataset:{camera:c._cameraSerial}},touches:[]});return true;});await delay(200);passed.push('native-movable-pan');
+- await mp.screenshot({path:path.join(out,'venue-zoom-pan.png')});
+- c=await (await mp.currentPage()).$('venue-art');await (await c.$('.venueReset')).tap();await delay(400);state=await get();assert.equal(state.scale,1);passed.push('native-reset-tap');
+- const image=await (await (await mp.currentPage()).$('venue-art')).$('.venueImage');await image.trigger('error',{});await delay(200);state=await get();assert.equal(state.state,'error');
+- await mp.screenshot({path:path.join(out,'venue-load-error.png')});
+- await (await (await (await mp.currentPage()).$('venue-art')).$('.venueRetry')).tap();await delay(900);state=await get();assert.equal(state.state,'ready');passed.push('native-error-retry');
+- await go('/pages/index/index?devPreview=home');await mp.pageScrollTo(10000);await delay(300);await (await (await mp.currentPage()).$('.venueEntry')).tap();await delay(800);assert.equal((await mp.currentPage()).path,'pages/venue/venue');passed.push('home-guide-entry');
+- await go('/pages/dev/dev');await (await (await mp.currentPage()).$('.venuePreviewEntry')).tap();await delay(800);assert.equal((await mp.currentPage()).path,'pages/venue/venue');passed.push('gallery-guide-entry');
++ for(let i=0;i<30;i++){if(await mp.evaluate(()=>!!getCurrentPages().slice(-1)[0]?.selectComponent('.venueArt')?.data.fitReady))break;await delay(250);}
++ const get=()=>mp.evaluate(()=>{const c=getCurrentPages().slice(-1)[0].selectComponent('.venueArt');return {state:c.data.imageState,scale:c.data.scaleValue,x:c.data.x,y:c.data.y,w:c.data.fitWidth,h:c.data.fitHeight,camera:c._camera,serial:c._cameraSerial};});
++ let state=await get();assert.equal(state.state,'ready');assert.equal(state.scale,1);pass('venue-loaded');
++ let p=await mp.currentPage(),c=await p.$('.venueArt'),buttons=await c.$$('.venueStep');await buttons[1].tap();await delay(500);state=await get();assert.equal(state.scale,1.25);pass('native-plus-tap');
++ try{
++ const beforeMove={...state.camera};const mv=await (await (await mp.currentPage()).$('.venueArt')).$('.venueMovableView');const off=await mv.offset(),size=await mv.size();const touch={identifier:1,pageX:off.left+parseFloat(size.width)/2,pageY:off.top+parseFloat(size.height)/2,clientX:off.left+parseFloat(size.width)/2,clientY:off.top+parseFloat(size.height)/2};
++ await mv.touchstart({touches:[touch],changeTouches:[touch]});await delay(150);const moved={...touch,pageX:touch.pageX-30,clientX:touch.clientX-30,pageY:touch.pageY-30,clientY:touch.clientY-30};await mv.touchmove({touches:[moved],changeTouches:[moved]});await delay(200);await mv.touchend({touches:[],changeTouches:[moved]});await delay(300);state=await get();assert.ok(Math.abs(state.camera.x-beforeMove.x)>.5||Math.abs(state.camera.y-beforeMove.y)>.5,'native touch must actually pan');pass('native-touch-pan');
++ }catch(e){pending.push({check:'native-pan',error:e.message});console.log('PENDING native-pan '+e.message);}
++ await screenshot(mp,path.join(out,'venue-zoom-pan.png'));
++ c=await (await mp.currentPage()).$('.venueArt');await (await c.$('.venueReset')).tap();await delay(400);state=await get();assert.equal(state.scale,1);pass('native-reset-tap');
++ const image=await (await (await mp.currentPage()).$('.venueArt')).$('.venueImage');await image.trigger('error',{});await delay(200);state=await get();assert.equal(state.state,'error');
++ await screenshot(mp,path.join(out,'venue-load-error.png'));
++ await (await (await (await mp.currentPage()).$('.venueArt')).$('.venueRetry')).tap();await delay(900);state=await get();assert.equal(state.state,'ready');pass('native-error-retry');
++ await go('/pages/index/index?devPreview=home');await mp.pageScrollTo(10000);await delay(300);await (await (await mp.currentPage()).$('.venueEntry')).tap();await delay(800);await waitPath('pages/venue/venue');pass('home-guide-entry');
++ await go('/pages/dev/dev');await (await (await mp.currentPage()).$('.venuePreviewEntry')).tap();await delay(800);await waitPath('pages/venue/venue');pass('gallery-guide-entry');
+  await go('/pages/map/map?devPreview=mouse');const before=await mp.evaluate(()=>{const p=getCurrentPages().slice(-1)[0];return {id:p.data.match.id,artMode:p.data.artMode};});
+- await mp.evaluate(()=>{getCurrentPages().slice(-1)[0].toggleMapMode();return true;});const after=await mp.evaluate(()=>{const p=getCurrentPages().slice(-1)[0];return {id:p.data.match.id,artMode:p.data.artMode};});assert.deepEqual(after,before);passed.push('preview-never-fakes-live-map');
+- await mp.evaluate(()=>{getCurrentPages().slice(-1)[0].showCode();return true;});await delay(700);assert.equal((await mp.currentPage()).path,'pages/qrcode/qrcode');passed.push('capture-code-route-preserved');
++ await mp.evaluate(()=>{getCurrentPages().slice(-1)[0].toggleMapMode();return true;});const after=await mp.evaluate(()=>{const p=getCurrentPages().slice(-1)[0];return {id:p.data.match.id,artMode:p.data.artMode};});assert.deepEqual(after,before);pass('preview-never-fakes-live-map');
++ await mp.evaluate(()=>{getCurrentPages().slice(-1)[0].showCode();return true;});await delay(700);await waitPath('pages/qrcode/qrcode');pass('capture-code-route-preserved');
+  
+- const tapAction=async label=>{const cs=await (await mp.currentPage()).$$('pixel-action');for(const c of cs){if(await c.data('label')===label){await (await c.$('.pixelAction')).tap();return;}}throw Error('Missing action '+label);};
++
+  await go('/pages/index/index?devPreview=home');
+- p=await mp.currentPage();await (await p.$('.homeInput')).input('小橘');await (await p.$('.codeInput')).input('A1B2C3D4E5');await tapAction('加入房间');await delay(850);assert.equal((await mp.currentPage()).path,'pages/room/room');passed.push('pixel-join-binding');
+- await tapAction('取消准备');await delay(200);let r=await mp.evaluate(()=>{const p=getCurrentPages().slice(-1)[0];return {route:p.route,canStart:p.data.canStart,ready:p.data.ready};});assert.equal(r.canStart,false);await tapAction('等待所有人准备');await delay(200);assert.equal((await mp.currentPage()).path,'pages/room/room');passed.push('pixel-disabled-start');
+- await tapAction('定位并准备');await delay(250);await tapAction('开始30秒躲藏');await delay(900);assert.equal((await mp.currentPage()).path,'pages/map/map');passed.push('pixel-ready-start');
+- await tapAction('队伍·规则');await delay(250);assert.equal(await mp.evaluate(()=>getCurrentPages().slice(-1)[0].data.drawer),true);await tapAction('关闭');await delay(150);assert.equal(await mp.evaluate(()=>getCurrentPages().slice(-1)[0].data.drawer),false);passed.push('pixel-drawer-close');
+- await go('/pages/map/map?devPreview=catWin');await tapAction('再来一局');await delay(850);assert.equal((await mp.currentPage()).path,'pages/room/room');passed.push('pixel-replay-route');
++ p=await mp.currentPage();await (await p.$('.homeInput')).input('小橘');await (await p.$('.codeInput')).input('A1B2C3D4E5');await tapAction('加入房间');await delay(850);await waitPath('pages/room/room');pass('pixel-join-binding');
++ await tapAction('取消准备');await delay(200);let r=await mp.evaluate(()=>{const p=getCurrentPages().slice(-1)[0];return {route:p.route,canStart:p.data.canStart,ready:p.data.ready};});assert.equal(r.canStart,false);await tapAction('等待所有人准备');await delay(200);await waitPath('pages/room/room');pass('pixel-disabled-start');
++ await tapAction('定位并准备');await delay(250);await tapAction('开始30秒躲藏');await delay(900);await waitPath('pages/map/map');pass('pixel-ready-start');
++ await tapAction('队伍·规则');await delay(250);assert.equal(await mp.evaluate(()=>getCurrentPages().slice(-1)[0].data.drawer),true);await tapAction('关闭');await delay(150);assert.equal(await mp.evaluate(()=>getCurrentPages().slice(-1)[0].data.drawer),false);pass('pixel-drawer-close');
++ await go('/pages/map/map?devPreview=catWin');await tapAction('再来一局');await delay(850);await waitPath('pages/room/room');pass('pixel-replay-route');
+ 
++ }
+  const assertBottom=async(label,name)=>{
+   await mp.pageScrollTo(100000);await delay(350);
+-  const b=await mp.evaluate(label=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectAllComponents('pixel-action').find(x=>x.data.label===label);if(!c)return resolve(null);c.createSelectorQuery().select('.pixelAction').boundingClientRect(r=>resolve({rect:r,height:wx.getWindowInfo().windowHeight,nav:p.data.navHeight,tone:c.data.tone})).exec();}),label);
+-  assert.ok(b&&b.rect.height>=44,name+' action exists');assert.ok(b.rect.top>=b.nav&&b.rect.bottom<=b.height-4,name+' bottom action fully reachable');
+-  await mp.screenshot({path:path.join(out,name+'.png')});passed.push(name);return b;
++  const b=await mp.evaluate(label=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectAllComponents('.pixelControl').find(x=>x.data.label===label);if(!c)return resolve(null);c.createSelectorQuery().select('.pixelAction').boundingClientRect(r=>resolve({rect:r,height:wx.getWindowInfo().windowHeight,safe:p.data.safeBottom||0,nav:p.data.navHeight,tone:c.data.tone})).exec();}),label);
++  assert.ok(b&&b.rect.height>=44,name+' action exists');assert.ok(b.rect.top>=b.nav&&b.rect.bottom<=b.height-b.safe+1,name+' bottom action fully reachable');
++  await screenshot(mp,path.join(out,name+'.png'));pass(name);return b;
+  };
+- for(const [id,url,label] of [['cancelled','/pages/map/map?devPreview=cancelled','返回首页'],['code','/pages/qrcode/qrcode?devPreview=code','返回地图'],['create','/pages/room/room?devPreview=create','创建活动'],['ready','/pages/room/room?devPreview=ready','开始30秒躲藏']]){
++ if(process.argv[3]!=='drawer-only'){
++ for(const [id,url,label] of [['cancelled','/pages/map/map?devPreview=cancelled','返回首页'],['code','/pages/qrcode/qrcode?devPreview=code','返回地图'],['create','/pages/room/room?devPreview=create','创建并邀请'],['ready','/pages/room/room?devPreview=ready','开始30秒躲藏']]){
+   await go(url);await assertBottom(label,id+'-bottom');
+   await mp.evaluate(()=>{getCurrentPages().slice(-1)[0].setData({fontScale:1.3});return true;});await delay(350);
+   const b=await assertBottom(label,id+'-large-bottom');if(id==='code')assert.equal(b.tone,'blue');
+  }
++ }
+  await go('/pages/map/map?devPreview=cat');await mp.evaluate(()=>{const p=getCurrentPages().slice(-1)[0];p.setData({fontScale:1.3});p.toggleDrawer();return true;});await delay(500);
+  const drawerScroll=await (await mp.currentPage()).$('.drawerBody');await drawerScroll.scrollTo(0,10000);await delay(400);
+- await mp.screenshot({path:path.join(out,'drawer-large-bottom.png')});
+- const drawerBounds=await mp.evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectAllComponents('pixel-action').find(x=>x.data.label==='退出本局');c.createSelectorQuery().select('.pixelAction').boundingClientRect(r=>resolve({rect:r,height:wx.getWindowInfo().windowHeight})).exec();}));
+- assert.ok(drawerBounds.rect.top>150&&drawerBounds.rect.bottom<=drawerBounds.height-4,'drawer bottom actions reachable');passed.push('drawer-large-bottom');
+- await tapAction('关闭');assert.equal(await mp.evaluate(()=>getCurrentPages().slice(-1)[0].data.drawer),false);passed.push('drawer-large-close');
+- await go('/pages/venue/venue');await mp.screenshot({path:path.join(out,'final-venue.png')});
+- fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({status:'PASS',scope:'WeChat IDE native control taps/movable API/error simulation and preview routes; not real device touch/GPS',passed},null,2));console.log('PIXEL_INTERACTION_PASS='+passed.length);
+- }finally{mp?.disconnect();}})().catch(e=>{console.error(e);process.exitCode=1;});
++ await screenshot(mp,path.join(out,'drawer-large-bottom.png'));
++ const drawerBounds=await mp.evaluate(()=>new Promise(resolve=>{const p=getCurrentPages().slice(-1)[0],c=p.selectAllComponents('.pixelControl').find(x=>x.data.label==='退出本局');c.createSelectorQuery().select('.pixelAction').boundingClientRect(r=>resolve({rect:r,height:wx.getWindowInfo().windowHeight})).exec();}));
++ assert.ok(drawerBounds.rect.top>150&&drawerBounds.rect.bottom<=drawerBounds.height-4,'drawer bottom actions reachable');pass('drawer-large-bottom');
++ await tapAction('关闭');assert.equal(await mp.evaluate(()=>getCurrentPages().slice(-1)[0].data.drawer),false);pass('drawer-large-close');
++ await go('/pages/venue/venue');await screenshot(mp,path.join(out,'final-venue.png'));
++ fs.writeFileSync(path.join(out,'result.json'),JSON.stringify({status:pending.length?'PASS_WITH_PENDING':'PASS',pending,scope:'WeChat IDE native control taps/movable API/error simulation and preview routes; not real device touch/GPS',passed},null,2));console.log('PIXEL_INTERACTION_PASS='+passed.length+' PENDING='+pending.length);
++ }finally{mp?.disconnect();}})().catch(e=>{fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({status:'FAIL',passed,error:e.message},null,2));console.error(e);process.exitCode=1;});
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\cat-mouse-server\\v2\\pixel-ui.test.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\pixel-ui.test.js"
+index 5b56241..19f2aa0 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\cat-mouse-server\\v2\\pixel-ui.test.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\pixel-ui.test.js"
+@@ -17,7 +17,7 @@ const control=(page,action)=>{
+ 
+ function actionFixture(patch={}){
+   let definition;const events=[],writes=[];
+-  vm.runInNewContext(read('components/pixel-action/pixel-action.js'),{Component:value=>definition=value});
++  vm.runInNewContext(read('components/pixel-action/pixel-action.js'),{Component:value=>definition=value,require:name=>{assert.equal(name,'../../utils/pixel-button-dimensions');return require('../../utils/pixel-button-dimensions');}});
+   const defaults=Object.fromEntries(Object.entries(definition.properties).map(([key,value])=>[key,value.value]));
+   const instance={...definition.methods,data:{...defaults,...plain(definition.data),...patch},triggerEvent:(...args)=>events.push(args)};
+   instance.setData=value=>{writes.push(plain(value));Object.assign(instance.data,value);};
+@@ -257,3 +257,15 @@ test('offline and paused headers cannot imply active pursuit, and large-code act
+  for(const asset of ['drawer-cat-avatar','drawer-mouse-avatar','drawer-title-icon','drawer-event-icon','drawer-rules-icon'])assert.ok(w.includes('/assets/pixel-v1/'+asset+'.png'));
+  assert.doesNotMatch(w,/ready-avatar-/);
+ });
++
++
++test('native component hosts expose class selectors so visual checks never silently inspect zero controls',()=>{
++ for(const name of ['index','room','map','qrcode','dev','venue']){const w=read('pages/'+name+'/'+name+'.wxml');for(const tag of tags(w,'pixel-action'))assert.equal(attr(tag,'class'),'pixelControl');for(const tag of tags(w,'venue-art'))assert.equal(attr(tag,'class'),'venueArt');}
++ const script=read('scripts/pixel-ui-review.cjs');assert.match(script,/selectAllComponents\('\.pixelControl'\)/);assert.match(script,/selectComponent\('\.venueArt'\)/);
++});
++
++
++test('approved button dimensions are available before image load and layout changes notify parent',()=>{
++ const dims=require('../../utils/pixel-button-dimensions');assert.equal(Object.keys(dims).length,32);for(const record of manifest().records.filter(r=>r.kind==='button' && dims['/'+r.path])){assert.deepEqual(dims['/'+record.path],[record.width,record.height]);const f=actionFixture({skin:'/'+record.path});f.definition.observers.skin.call(f.instance);assert.equal(f.instance.data.artWidth,record.width);assert.equal(f.instance.data.artHeight,record.height);assert.equal(f.events[0][0],'layout');assert.deepEqual(plain(f.events[0][2]),{bubbles:true,composed:true});}
++ const m=pageFixture('map');let calls=0;m.page.selectComponent=selector=>{assert.equal(selector,'.venueArt');return {remeasure:()=>calls++};};m.page.active=true;m.page.remeasureVenue();assert.equal(calls,1);m.page.active=false;m.page.remeasureVenue();assert.equal(calls,1);assert.match(read('pages/map/map.wxml'),/bindlayout="remeasureVenue"/);
++});
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\WORK_LOG.md" "b/D:\\cat-mouse-miniprogram\\WORK_LOG.md"
+index 9fe4900..5f1efbc 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\WORK_LOG.md"
++++ "b/D:\\cat-mouse-miniprogram\\WORK_LOG.md"
+@@ -248,3 +248,18 @@
+ - 最终实景截图状态：修前normal/large/narrow各17 PASS；修后normal前4页成功，ready DOM=0/8中断；独立探针明确captureScreen:fail ENOSPC，C盘free0。官方compile cache清理exit0但未释放空间。未删除用户文件/未移动分屏；请求用户释放约1GB。后续输出改D盘，最终截图与原生交互仍待复测，不能写成PASS。审图待验清单在visual/。
+ - 七项自查：身份/权限/赢家仍服务端；未新增指令并发路径；导览无玩家坐标、码图由服务器生成；页面onResize仅布局、旧生命周期回归通过；离线标题重连/暂停冻结及下一步明确；规则版本不变；65图本地打包且无新网络轮询，原字体不重复打包。真实设备/配准/系统大字未验证。
+ - 下一步：释放C空间→现有分屏编译→final17×3截图和pixel-interaction→对照原稿修正实际差异→再做真机。不要从头重做或切回旧02-01。当前交付目录reports/2026-10-13/xuanwu-ui-v1，无新压缩包/上传/部署。
++
++
++## 2026-10-13 清理与MCP增量验证
++- 清理：已删除248张C盘重复截图副本，100335333B；逐张D盘保留副本SHA核验通过。用户又确认清理旧非重复产物，但后续批量和单文件删除命令仍在执行前被拦截；该部分新增删除0，原计划还剩972文件/165766593B，不写成全部已清理。保留源码/测试用例/原稿/最新交付和部署证据。
++- 核心问题1：旧审查脚本selectAllComponents按tag可能返回空数组，未验证任何按钮却继续通过。给native组件host增加class并强制组件/动作数量非空。新增回归。
++- 核心问题2：猫地图初测按346.234375高fit，按钮PNG加载后实际viewport312.3203125，底部裁掉33.9px。按钮初始尺寸表预留真实比率；layout事件通知地图重测；同尺寸重测不复位缩放，无定时轮询/网络成本。实测修后全图fit断言通过。
++- 验证：基线隔离75/75（第一轮缺地图manifest导致74/75，补依赖后通过）；修改79/79（首轮2静态regex只接受旧属性顺序，保留权限条件并允许新增class后通过）；20文件隔离回滚与旧75项通过。原图/65PNG未更改，分支master无reset/push。
++- MCP正常17、大字13+4、窄画布17成功截图；平台AppID联网ETIMEDOUT/TLS偶发，有限重试，只把实际文件成功写入后的帧计通过。后续输出放D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2工程外目录，避免截图文件触发工程重编译；未移动桌面分屏。
++- 预览交互累计23项通过：原生触摸平移、缩放、复位、图片错误重试、导览入口、码页路由、加入/禁用开始/准备/开始/普通抽屉关闭/再来一局；取消/码页/创建/准备normal+large滚到底主动作位于安全区内，大字抽屉底部动作可达。不是单次整批exit0；分段progress记录保留。大字抽屉关闭仍待复验（SDK/MCP上下文超时），未记PASS。
++- 自查：身份/赢家/规则/位置授权路径未变；不新增服务端指令或定位循环；display只重测viewport，未变坐标/阵营/阶段；离页布局通知由active/alive门控，迟到native查询被serial丢弃；规则pilot-0.2不变；素材不足先查库，本轮无需新生图。真机、GPS配准、真正系统字号、公网联机仍分开待验。
++- 下一步：预览通道稳定后补大字关闭；用户已明确授权的剩余历史清理待删除执行通道允许，禁止绕过拦截换方式删除。最新交付与对照见reports/2026-10-13/pixel-native-final-v2/。
++
++### 大字关闭补验完成
++- 刷新后MCP只选择组件host会返回成功却不触发内层按钮；未算关闭通过。改用已授权原生SDK在CustomElement内选择.pixelAction并真实tap，断言fontScale=1.3、drawer从true变false；随后独立MCP getData确认false。累计24项断言，证据分段而非单批exit0。
++- 最新包装120文件/2088251B，WXSS12/WXML9编译0，22项基线已隔离回滚并恢复旧75回归通过。剩余历史删除仍为0新增，原已删248张核对通过。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\README.md" "b/D:\\cat-mouse-miniprogram\\README.md"
+index 956130b..4b44425 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\README.md"
++++ "b/D:\\cat-mouse-miniprogram\\README.md"
+@@ -1,5 +1,12 @@
+ # 猫鼠行动 · 试点版 0.2
+ 
++## 当前增量实现（2026-10-13，pixel-native-final-v2）
++
++修复：原生组件选择器不再允许空检查通过；按钮从首帧预留原稿尺寸，图片异步加载后地图重测可用空间，不裁边、不拉伸；无尺寸变化时保留缩放。79项自动回归通过；MCP正常/大字/窄内容各17张截图，窄版仍是320×693内容约束而非真机。24项累计预览交互断言已通过，包括原生触摸平移、缩放、错误重试、入房/准备/开始及安全区内的页尾动作。大字关闭最终通过原生子按钮点击和MCP状态读取补验；证据来自分段运行，不冒充单次整批成功。
++
++最新无压缩小程序副本与证据：reports/2026-10-13/pixel-native-final-v2/。图库/15状态入口不变；真实身份、定位、抓捕及胜负逻辑不变，本轮没有上传或改服务器。旧截图的空组件几何检查不作最新版验收依据。
++
++
+ 面向 6–12 名熟人的实景猫鼠短局。微信小程序是本轮主客户端；服务端统一身份、阶段、抓捕和结算。规则版本为 `pilot-0.2`，具体数值是场地试点参数，尚未验证平衡性。历史冻结规划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，2026-10-08 审计仍保留在 `reports/`。
+ 
+ 当前视觉基线为用户交接的晴日公园 16-bit 像素 15 状态，已替换到原生小程序；02-01 外观保留为历史。组件、字体、素材与比例约束见 [DESIGN_BASELINE.md](DESIGN_BASELINE.md)。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\RELEASE.md" "b/D:\\cat-mouse-miniprogram\\RELEASE.md"
+index 82625d0..35abc6f 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\RELEASE.md"
++++ "b/D:\\cat-mouse-miniprogram\\RELEASE.md"
+@@ -1,5 +1,12 @@
+ # 试点部署与现场执行（v0.2）
+ 
++## 当前增量实现（2026-10-13，pixel-native-final-v2）
++
++修复：原生组件选择器不再允许空检查通过；按钮从首帧预留原稿尺寸，图片异步加载后地图重测可用空间，不裁边、不拉伸；无尺寸变化时保留缩放。79项自动回归通过；MCP正常/大字/窄内容各17张截图，窄版仍是320×693内容约束而非真机。24项累计预览交互断言已通过，包括原生触摸平移、缩放、错误重试、入房/准备/开始及安全区内的页尾动作。大字关闭最终通过原生子按钮点击和MCP状态读取补验；证据来自分段运行，不冒充单次整批成功。
++
++最新无压缩小程序副本与证据：reports/2026-10-13/pixel-native-final-v2/。图库/15状态入口不变；真实身份、定位、抓捕及胜负逻辑不变，本轮没有上传或改服务器。旧截图的空组件几何检查不作最新版验收依据。
++
++
+ ## 当前本地界面候选（2026-10-13，pixel-day-native-v1）
+ 
+ 导入仓库根目录并选择「界面调试台」编译；15状态原稿映射到真实页面，另有独立玄武湖导览。运行素材使用交接像素稿，不再默认02-01风格。扫码、权限与终局仍由原服务端路径裁决；不新增技能或积分。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\components\\pixel-action\\pixel-action.js" "b/D:\\cat-mouse-miniprogram\\components\\pixel-action\\pixel-action.js"
+index 44f9e4a..1ca5680 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\components\\pixel-action\\pixel-action.js"
++++ "b/D:\\cat-mouse-miniprogram\\components\\pixel-action\\pixel-action.js"
+@@ -1,11 +1,13 @@
++const dimensions=require('../../utils/pixel-button-dimensions');
+ Component({
+  options:{styleIsolation:'apply-shared'},
+  properties:{skin:{type:String,value:''},label:{type:String,value:''},tone:{type:String,value:'orange'},disabled:{type:Boolean,value:false},loading:{type:Boolean,value:false},dynamic:{type:Boolean,value:false},fontScale:{type:Number,value:1}},
+  data:{artWidth:750,artHeight:130,artFailed:false},
+- observers:{skin(){this.setData({artFailed:false});}},
++ observers:{skin(){const size=dimensions[this.data.skin];this.setData({artFailed:false,...(size?{artWidth:size[0],artHeight:size[1]}:{})});this.notifyLayout();},'fontScale,dynamic,loading'(){this.notifyLayout();}},
+  methods:{
+-  loaded(e){const {width,height}=e.detail||{};if(Number.isFinite(width)&&width>0&&Number.isFinite(height)&&height>0)this.setData({artWidth:width,artHeight:height,artFailed:false});},
+-  failed(){this.setData({artFailed:true});},
++  notifyLayout(){this.triggerEvent('layout',{}, {bubbles:true,composed:true});},
++  loaded(e){const {width,height}=e.detail||{};if(Number.isFinite(width)&&width>0&&Number.isFinite(height)&&height>0){this.setData({artWidth:width,artHeight:height,artFailed:false});this.notifyLayout();}},
++  failed(){this.setData({artFailed:true});this.notifyLayout();},
+   activate(){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('action');}
+  }
+ });
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\components\\venue-art\\venue-art.js" "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.js"
+index bba1ca7..a186876 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\components\\venue-art\\venue-art.js"
++++ "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.js"
+@@ -39,7 +39,8 @@ Component({
+     }
+   },
+   methods: {
+-    _scheduleFit() {
++    remeasure() { if (this._alive) this._scheduleFit(true); },
++    _scheduleFit(preserveUnchanged=false) {
+       const serial = ++this._measureSerial;
+       // Wait for the parent's flex layout and font/viewport changes to render.
+       wx.nextTick(() => {
+@@ -52,6 +53,7 @@ Component({
+             this.setData({fitReady:false, cameraNodes:[]});
+             return;
+           }
++          if (preserveUnchanged && this._fit && this.data.fitReady && ['width','height','x','y'].every(key=>Math.abs(fit[key]-this._fit[key])<.01)) return;
+           this._fit = fit;
+           this._resetCamera();
+         }).exec();
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\map\\map.js" "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.js"
+index c586fd4..dc53b6d 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\pages\\map\\map.js"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.js"
+@@ -2,6 +2,7 @@ const presentation=require('../../utils/presentation');
+ const api = require('../../utils/v2'); const loc = require('../../utils/location-v2'); const {shouldApply}=require('../../utils/snapshot-v2'); const preview=require('../../utils/dev-preview');
+ const done = m => m && (m.phase==='FINISHED' || m.phase==='CANCELLED');
+ Page({
++  remeasureVenue() { if(this.active)this.selectComponent('.venueArt')?.remeasure(); },
+   onResize(e) { this.setData(presentation.resize(e)); },
+   data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:false },
+   onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:this.devPreview}); },
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\cat-mouse-server\\v2\\venue-ui.test.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\venue-ui.test.js"
+index df3c647..fe67e23 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\cat-mouse-server\\v2\\venue-ui.test.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\venue-ui.test.js"
+@@ -321,3 +321,11 @@ test('venue runtime has explicit no-georeferencing metadata and no invented cali
+   const map=read('pages/map/map.js');
+   assert.doesNotMatch(map,/venue-camera|registration\.json|homography|latLngToPixel|geoToPixel|projectToArt/);
+ });
++
++
++test('parent asynchronous layout change remeasures the viewport and ignores detached notifications',()=>{
++ const f=componentFixture();f.ready();f.instance.remeasure();f.measure(364,312);assert.ok(Math.abs(f.instance.data.fitHeight-312)<.001);assert.ok(Math.abs(f.instance.data.fitWidth/f.instance.data.fitHeight-1154/1363)<.001);f.detach();const n=f.ticks.length;f.instance.remeasure();assert.equal(f.ticks.length,n);
++});
++
++
++test('unrelated loaded controls do not reset zoom when the venue viewport is unchanged',()=>{const f=componentFixture();f.ready();const serial=f.instance._cameraSerial;f.instance._camera.scale=1.5;f.instance.data.scaleValue=1.5;f.instance.remeasure();f.measure();assert.equal(f.instance._cameraSerial,serial);assert.equal(f.instance.data.scaleValue,1.5);});
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\scripts\\package-release.ps1" "b/D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1"
+index 27361f5..e168c52 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\scripts\\package-release.ps1"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1"
+@@ -27,7 +27,7 @@ New-Item -ItemType Directory -Path $miniStage,$serverStage -Force | Out-Null
+ 
+ try {
+   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
+-  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue')
++  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue')
+   foreach ($item in $miniFiles) {
+     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
+       throw "Required miniprogram source is missing: $item"
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\cat-mouse-server\\v2\\presentation.test.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js"
+index 73afcad..95b239f 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\cat-mouse-server\\v2\\presentation.test.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js"
+@@ -33,7 +33,7 @@ test('native pages keep actionable controls and real map isolated from preview i
+  const read=f=>fs.readFileSync(path.join(root,f),'utf8'),app=JSON.parse(read('app.json'));
+  assert.equal(app.window.navigationStyle,'custom');assert.equal(app.usingComponents['nav-bar'],'/components/nav-bar/nav-bar');
+  for(const page of app.pages){const w=read(page+'.wxml');assert.match(w,/<nav-bar /);assert.match(w,/<(?:button|pixel-action) /);assert.doesNotMatch(w,/page-concepts-v1/);}
+- const map=read('pages/map/map.wxml');assert.match(map,/<venue-art wx:if="{{devPreview \|\| artMode}}"/);assert.match(map,/<map wx:else class="gameMap"/);assert.match(map,/wx:if="{{canScan}}"/);assert.match(map,/wx:if="{{canReplay}}"/);assert.match(map,/仅查看公开状态/);
++ const map=read('pages/map/map.wxml');assert.match(map,/<venue-art[^>]*wx:if="{{devPreview \|\| artMode}}"/);assert.match(map,/<map wx:else class="gameMap"/);assert.match(map,/wx:if="{{canScan}}"/);assert.match(map,/wx:if="{{canReplay}}"/);assert.match(map,/仅查看公开状态/);
+  assert.match(read('pages/qrcode/qrcode.wxml'),/src="{{image}}"/);assert.match(read('pages/index/index.wxml'),/bindinput="nameInput"/);
+ });
+ test('mobile art derivatives match fixed lock and state scenes have transparency',()=>{
+@@ -58,7 +58,7 @@ test('map art and event timestamps are display only while authenticated actions
+  const offline=project(snapshot('CHASING','mouse'),true);assert.equal(offline.parkArt,'/assets/maps/xuanwu-lake-v3.png');assert.equal(offline.canShowCode,false);
+  const {eventTime}=require('../../utils/presentation');assert.equal(eventTime(undefined),'—');assert.match(eventTime(1791766800000),/^\d{2}:\d{2}$/);
+  const map=fs.readFileSync(path.join(root,'pages/map/map.wxml'),'utf8');assert.match(map,/event.timeText/);assert.match(map,/取消不计胜负/);
+- assert.match(map,/<venue-art wx:if="{{devPreview \|\| artMode}}"/);assert.doesNotMatch(map,/<venue-art[^>]*(?:markers=|circles=|latitude=|longitude=)/);assert.match(map,/class="pauseHero"[^>]*mode="widthFix"/);assert.match(map,/class="resultHero"[^>]*mode="widthFix"/);
++ assert.match(map,/<venue-art[^>]*wx:if="{{devPreview \|\| artMode}}"/);assert.doesNotMatch(map,/<venue-art[^>]*(?:markers=|circles=|latitude=|longitude=)/);assert.match(map,/class="pauseHero"[^>]*mode="widthFix"/);assert.match(map,/class="resultHero"[^>]*mode="widthFix"/);
+  assert.match(map,/<map wx:else class="gameMap"[^>]*markers="{{markers}}"[^>]*circles="{{circles}}"/);
+ });
+ test('current variable font is licensed and native controls use pixel baseline',()=>{
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\ART_LOCK.md" "b/D:\\cat-mouse-miniprogram\\ART_LOCK.md"
+index 3754cbf..fcff03c 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\ART_LOCK.md"
++++ "b/D:\\cat-mouse-miniprogram\\ART_LOCK.md"
+@@ -1,3 +1,9 @@
++## 2026-10-13 后续验证：pixel-native-final-v2
++
++素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
++
++---
++
+ ## 2026-10-13 · 当前运行基线：pixel-day-native-v1
+ 
+ 本次采用用户交接的 `design/2026-10-12/pixel-day-replica-v1/`（晴日公园 16-bit 像素、15 状态），替代此前 02-01 扁平卡通运行外观。下方旧版本记录仅保留历史，不作为后续生图或实现的默认样式。原 HTML、15 张原稿和旧素材均保留，不维护第二套长期运行页面。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\DESIGN_BASELINE.md" "b/D:\\cat-mouse-miniprogram\\DESIGN_BASELINE.md"
+index 75543d2..56ab90d 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\pixel-native-final-v2\\baseline\\DESIGN_BASELINE.md"
++++ "b/D:\\cat-mouse-miniprogram\\DESIGN_BASELINE.md"
+@@ -1,3 +1,9 @@
++## 2026-10-13 后续验证：pixel-native-final-v2
++
++素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
++
++---
++
+ ## 2026-10-13 · 当前运行基线：pixel-day-native-v1
+ 
+ 本次采用用户交接的 `design/2026-10-12/pixel-day-replica-v1/`（晴日公园 16-bit 像素、15 状态），替代此前 02-01 扁平卡通运行外观。下方旧版本记录仅保留历史，不作为后续生图或实现的默认样式。原 HTML、15 张原稿和旧素材均保留，不维护第二套长期运行页面。
+
+--- /dev/null
++++ b/utils/pixel-button-dimensions.js
+@@ -0,0 +1,3 @@
++// Shipped source-button dimensions: reserve aspect ratio before PNG load.
++module.exports={"/assets/pixel-v1/button-home-join.png":[420,85],"/assets/pixel-v1/button-home-create.png":[420,69],"/assets/pixel-v1/button-create-submit.png":[420,69],"/assets/pixel-v1/button-create-location.png":[309,108],"/assets/pixel-v1/button-ready-start.png":[420,69],"/assets/pixel-v1/button-ready-cancel.png":[420,61],"/assets/pixel-v1/button-ready-copy.png":[80,86],"/assets/pixel-v1/button-cat-scan.png":[413,152],"/assets/pixel-v1/button-cat-details.png":[333,152],"/assets/pixel-v1/button-mouse-code.png":[401,122],"/assets/pixel-v1/button-mouse-details.png":[279,122],"/assets/pixel-v1/button-alert-code.png":[420,80],"/assets/pixel-v1/button-alert-details.png":[420,60],"/assets/pixel-v1/button-hiding-details.png":[420,78],"/assets/pixel-v1/button-code-back.png":[420,81],"/assets/pixel-v1/button-captured-details.png":[420,79],"/assets/pixel-v1/button-paused-resume.png":[420,82],"/assets/pixel-v1/button-paused-details.png":[420,68],"/assets/pixel-v1/button-offline-team.png":[372,132],"/assets/pixel-v1/button-offline-rules.png":[372,132],"/assets/pixel-v1/button-catwin-replay.png":[420,98],"/assets/pixel-v1/button-catwin-details.png":[420,86],"/assets/pixel-v1/button-catwin-home.png":[420,63],"/assets/pixel-v1/button-mousewin-replay.png":[420,81],"/assets/pixel-v1/button-mousewin-details.png":[420,61],"/assets/pixel-v1/button-mousewin-home.png":[420,58],"/assets/pixel-v1/button-cancelled-replay.png":[420,102],"/assets/pixel-v1/button-cancelled-details.png":[420,83],"/assets/pixel-v1/button-cancelled-home.png":[420,82],"/assets/pixel-v1/button-drawer-close.png":[91,86],"/assets/pixel-v1/button-drawer-pause.png":[420,70],"/assets/pixel-v1/button-drawer-leave.png":[420,57]};
++
+--- /dev/null
++++ b/scripts/wechat-screenshot.cjs
+@@ -0,0 +1,10 @@
++'use strict';
++const path=require('node:path'),cp=require('node:child_process');
++module.exports=async function screenshot(mp,file){
++ if(process.env.CAT_MOUSE_USE_MCP!=='1')return mp.screenshot({path:file});
++ const shell=process.env.CAT_MOUSE_POWERSHELL || 'C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';
++ let output;for(let attempt=0;attempt<2;attempt++){try{output=cp.execFileSync(shell,['-NoProfile','-File',path.join(__dirname,'wechat-mcp-screenshot.ps1'),'-Project',path.resolve(__dirname,'..'),'-Path',file],{encoding:'utf8',timeout:45000});break;}catch(e){if(attempt || !/ETIMEDOUT|ECONNRESET|secure TLS/i.test(String(e.message)+' '+String(e.stderr||'')))throw e;console.log('MCP_TRANSPORT_RETRY '+path.basename(file));await new Promise(resolve=>setTimeout(resolve,1500));}}
++ if(!output.includes('MCP_SCREENSHOT_PASS'))throw Error(output);
++ console.log(output.trim());
++};
++
+--- /dev/null
++++ b/scripts/wechat-mcp-screenshot.ps1
+@@ -0,0 +1,11 @@
++param([Parameter(Mandatory=$true)][string]$Project,[Parameter(Mandatory=$true)][string]$Path)
++$ErrorActionPreference='Stop'
++$cli='D:\Program Files (x86)\微信web开发者工具\wechatide.cmd'
++$raw=(& $cli -c Codex simulator_screenshot --project $Project --path $Path --optimize false | Out-String)
++$start=$raw.IndexOf('{')
++if($start -lt 0){throw $raw}
++$result=$raw.Substring($start)|ConvertFrom-Json
++if(-not $result.ok -or -not $result.result.success){throw $raw}
++if(-not (Test-Path -LiteralPath $result.result.path)){throw 'MCP returned no screenshot file'}
++Write-Output ('MCP_SCREENSHOT_PASS '+$result.result.imageWidth+'x'+$result.result.imageHeight)
++

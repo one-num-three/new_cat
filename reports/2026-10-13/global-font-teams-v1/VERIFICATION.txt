@@ -1,0 +1,51 @@
+当前：全页像素字体 + 人数配置 / 实现并本地验证 / 真机及线上后端同步待验
+BRANCH=master
+CHANGED_FIELDS=all6 registered native page/compound font-family CatMouseFusionUI; weight400; pixel-action native live label; room total/catsCount/miceCount inputs and teamError; server create accepts cats/mice, custom preset pilot-0.3; export runtime font/team-config dependencies.
+FOUR_PATHS:
+MODIFIED_FILE=D:/cat-mouse-miniprogram/reports/2026-10-13/global-font-teams-v1/MODIFIED_FILE
+DIFF_FILE=D:/cat-mouse-miniprogram/reports/2026-10-13/global-font-teams-v1/DIFF_FILE
+VERIFICATION.txt=D:/cat-mouse-miniprogram/reports/2026-10-13/global-font-teams-v1/VERIFICATION.txt
+ROLLBACK.sh=D:/cat-mouse-miniprogram/reports/2026-10-13/global-font-teams-v1/ROLLBACK.sh
+
+BASELINE command=npm --prefix cat-mouse-server test
+input=current dirty repository before change,84 regressions; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/global-font-teams-v1
+literal output=# tests 84; # pass 84; # fail 0; # duration_ms 8908.6273
+exit=0
+
+MODIFIED command=npm --prefix cat-mouse-server test
+input=global font + custom team configuration,88 regressions, same TEMP/TMP
+literal output=# tests 88; # pass 88; # fail 0; # duration_ms 9662.1403
+exit=0; tests-accepted.log
+All1770 positive team splits for total2-60 accepted, invalid sums/nonintegers/zero/negative/missing fields rejected on UI and authority. HTTP3 actual test sessions1cat2mice exact roles/target2, non-owner start403, client winner rejected, cancel+database restart retains rules/match. Existing core authorization/capture/deadline/restart suite remains passing. Legacy total-only preserves pilot-0.2 presets; explicit cats/mice new pilot-0.3; stored rooms not migrated. UI unit test10/3/7 submits same counts and target5; invalid sums/empty value never call create.
+Early failures retained: new test omitted nickname; VM mocks omitted new validator; old assertions expected raster labels and obsolete long button copy. Fixed actual fixtures and adjusted only font/control presentation expectations. Initial source-label assertion replacement missed the cases table; inspected exact failed line and corrected it, final88/88. Artifact export initially used invalid Python encoding spelling; corrected to utf-8-sig with idempotent document writes, original baselines preserved.
+
+ROLLBACK command="D:/Program Files/Git/bin/bash.exe" -c 'chmod +x reports/2026-10-13/global-font-teams-v1/ROLLBACK.sh && reports/2026-10-13/global-font-teams-v1/ROLLBACK.sh D:/cat-mouse-preview-evidence/2026-10-13/global-font-teams-v1/rollback-fixture'
+input=marked isolated copies of modified30 managed files, original dirty bytes/SHA stored in baseline/
+literal output=ROLLBACK_RESTORED=30/30; RESTORED=single-page trial + fixed presets pilot-0.2; LIVE_WRITES=0
+exit=0
+restored behavior/status=all30 hashes equal original; require restored rules verifies8->2cats andpilot-0.2; custom3-person input rejected by original preset; global stylesheet has no new family; original room has no new team inputs. This is isolated hash+rule smoke verification, not a replay of full88 tests on restored UI. Live and MODIFIED_FILE stay changed.
+
+FONT command=python scripts/build-global-font.py --verify
+literal output=FUSION_FONT_VERIFY_PASS scope=registered-pages-and-components version=2026.09.25
+exit=0
+Official upstream SHA unchanged6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e; OFL/inherited licenses retained and bundled in assets/pixel-v1/FUSION-FONT-LICENSE.txt. Renamed static subset539glyphs/21640B, supported punctuation included, body and component labels400weight. Dynamic unsupported nicknames/symbols fall back. Raster hero text belongs to unchanged artwork, not falsely claimed re-typeset. Idle team values are noninteractive pixel text with real input underneath; focus hides value layer and shows native input/caret. No image axis stretch.
+
+UI command=CAT_MOUSE_USE_MCP=1 node scripts/pixel-ui-review.cjs OUT normal
+input=17 normal page/state cases on actual WeChat IDE
+literal output=PIXEL_UI_PASS=17 MODE=normal
+exit=0; normal.log/normal/metrics.json
+Stage evidence: before final punctuation/idle input/short-location-label polishing. Source asset ratios, cover map bounds, authorized state and action bounds inspected; native labels instead of raster buttons. MCP transient APPID_ERROR ETIMEDOUT during gallery screenshot resolved by one bounded adapter retry, not accepted as AppID success before actual screenshot.
+commands=CAT_MOUSE_USE_MCP=1 node scripts/pixel-ui-review.cjs OUT large create,ready,home / OUT narrow create,ready,home
+literal outputs=PIXEL_UI_PASS=3 MODE=large / PIXEL_UI_PASS=3 MODE=narrow
+exit=0 each
+Final screenshot commands=CAT_MOUSE_USE_MCP=1 node scripts/custom-teams-review.cjs OUT / node scripts/pixel-ui-review.cjs OUT narrow create / node scripts/pixel-ui-review.cjs OUT large create
+literal outputs=CUSTOM_TEAMS_UI_PASS total=10 cats=3 mice=7 target=5 / PIXEL_UI_PASS=1 MODE=narrow / PIXEL_UI_PASS=1 MODE=large
+exit=0 each; delivery-ui, narrow-delivery, large-delivery. Actual native inputs, invalid sum state, enabled create after correct sum, actual component taps for venue/create,10 roster and target5 verified. Screenshots inspected individually; fixed vertical复制 and one-character location-button wrap. All screenshots registeredMCP simulator_screenshot648x1402, no desktop window movement. Large is app1.3; narrow320 content within390 simulator. Physical-device rendering/GPS and live-server stress not run for this feature.
+
+BUILD commands=official wcc.exe9 entries / wcsc.exe14 entries (exact argv compile-args.json)
+exit=0 each; compile logs kept externally on D. Offline compile is not an upload certificate.
+EXPORT command=./scripts/package-release.ps1 -DirectoryOnly -OutputDirectory D:/cat-mouse-preview-evidence/2026-10-13/global-font-teams-v1/bundle
+literal output=Created directory: D:\cat-mouse-preview-evidence\2026-10-13\global-font-teams-v1\bundle\MODIFIED_FILE
+exit=0
+Final export refreshed source files after polishing; mobile raw125files/1912068B below local2MiB envelope, backend sources under ignored cat-mouse-server/ added separately, not counted as mobile bundle. No zip/upload/deploy/online DB change. Backend still requires npm install and environment config; repository test evidence is for actual source tree, not assumed all archived tests can run without their design fixtures.
+Preview=index.html; real source project D:/cat-mouse-miniprogram; developer gallery -> create activity. Live gateway has not been upgraded; deploy this backend before actual new-field online room creation. Pilot-0.3 arbitrary ratio balance is not validated in field. Default8/2/6; room counts locked at create; adjust by creating another room, no match-time rule mutation or historical result rewrite.

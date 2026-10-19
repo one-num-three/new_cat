@@ -1,0 +1,55 @@
+{
+  "foldedTriangles": [],
+  "affineRmsPx": 11.135687298704804,
+  "affineMaxPx": 32.64098007131596,
+  "fitResidualMeaning": "interpolating control residual is NOT geographic accuracy",
+  "leaveFeatureOut": [
+    {
+      "group": "B1",
+      "checkCount": 2,
+      "rmsPixels": 5.180496605302495,
+      "maxPixels": 7.098572309809562
+    },
+    {
+      "group": "B2",
+      "checkCount": 2,
+      "rmsPixels": 17.410810039071347,
+      "maxPixels": 19.442504159605352
+    },
+    {
+      "group": "B3",
+      "checkCount": 2,
+      "rmsPixels": 14.074134931398671,
+      "maxPixels": 16.30890215080626
+    },
+    {
+      "group": "B4",
+      "checkCount": 7,
+      "rmsPixels": 9.336942168422972,
+      "maxPixels": 19.256193889670854
+    },
+    {
+      "group": "C",
+      "checkCount": 8,
+      "rmsPixels": 10.755315434447615,
+      "maxPixels": 16.23419332482115
+    }
+  ],
+  "withheldShorelineCheck": {
+    "wgs84": [
+      118.7881729,
+      32.0758439
+    ],
+    "manualPixel": [
+      604,
+      349
+    ],
+    "predictedPixel": [
+      637.5389778866986,
+      353.4296350896813
+    ],
+    "residualPixels": 33.830233589382644,
+    "note": "Not used in final fit. Initial fit rejected because generalized shoreline created a folded triangle; a diagnosed holdout, not blind independent validation."
+  },
+  "uncertaintyNote": "5-8 pixel manual uncertainty is an estimate, not a measured confidence interval. Corridor centerline is derived from OSM edge midpoints; roof perspective may differ from pedestrian position."
+}

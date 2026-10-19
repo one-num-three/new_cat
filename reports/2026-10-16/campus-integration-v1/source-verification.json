@@ -1,0 +1,216 @@
+{
+  "entries": 42,
+  "allMatch": true,
+  "checks": [
+    {
+      "file": "baseline.json",
+      "sha256": "5e3d5df8269324ad1524739e2ffe4267680249ef98f276cf261189b27645d3e5",
+      "expected": "5e3d5df8269324ad1524739e2ffe4267680249ef98f276cf261189b27645d3e5"
+    },
+    {
+      "file": "browser-check.cjs",
+      "sha256": "8e50e120d1fb5e3a3313df11ea6608ef19d2000e17179f7e50f06d49d1008a6c",
+      "expected": "8e50e120d1fb5e3a3313df11ea6608ef19d2000e17179f7e50f06d49d1008a6c"
+    },
+    {
+      "file": "browser-results.json",
+      "sha256": "4756535bbf6fabaa756732505c67a365456033b902203de22c3e739a7ebe8242",
+      "expected": "4756535bbf6fabaa756732505c67a365456033b902203de22c3e739a7ebe8242"
+    },
+    {
+      "file": "build-guides.py",
+      "sha256": "399c9c2eef2f1ace9c27cab8cbfd1a788e1bc7e8272326bb8441f89b7f9fca80",
+      "expected": "399c9c2eef2f1ace9c27cab8cbfd1a788e1bc7e8272326bb8441f89b7f9fca80"
+    },
+    {
+      "file": "build-registration.py",
+      "sha256": "ebfc6d4f2a107b38a1e1cbefdb21d64f2657027938bd0c51fd2e862058fdf05e",
+      "expected": "ebfc6d4f2a107b38a1e1cbefdb21d64f2657027938bd0c51fd2e862058fdf05e"
+    },
+    {
+      "file": "data.js",
+      "sha256": "710b28f3203dcc487b6f11924d6c5f1108c66f569b9586286912a5edc0ba321a",
+      "expected": "710b28f3203dcc487b6f11924d6c5f1108c66f569b9586286912a5edc0ba321a"
+    },
+    {
+      "file": "DIFF_FILE.diff",
+      "sha256": "a4f504919d42f1d11a932a45af34e0ec84d6781cae9ce15f626747167878abfe",
+      "expected": "a4f504919d42f1d11a932a45af34e0ec84d6781cae9ce15f626747167878abfe"
+    },
+    {
+      "file": "index.html",
+      "sha256": "cd77e93b4306ae8bf4e3fa7139ff2abb5dce8623d3500df60fa9d02b42cd8fc1",
+      "expected": "cd77e93b4306ae8bf4e3fa7139ff2abb5dce8623d3500df60fa9d02b42cd8fc1"
+    },
+    {
+      "file": "jiulonghu-anchors.csv",
+      "sha256": "3765b8131f0a060e04cb5cfe2a7142de39b9b8f375fb0d275f8ece0651e2139d",
+      "expected": "3765b8131f0a060e04cb5cfe2a7142de39b9b8f375fb0d275f8ece0651e2139d"
+    },
+    {
+      "file": "jiulonghu-art.png",
+      "sha256": "ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e",
+      "expected": "ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e"
+    },
+    {
+      "file": "jiulonghu-baseline.json",
+      "sha256": "73895a459d132ccd6efb64940fa8ec86c0e2dbad24622134f9cce8db2a82b6cf",
+      "expected": "73895a459d132ccd6efb64940fa8ec86c0e2dbad24622134f9cce8db2a82b6cf"
+    },
+    {
+      "file": "jiulonghu-geometry.pgw",
+      "sha256": "25a5186bfef3b1982ab52e0040484adcaec50962222ce2edcdeeaa98e8284bae",
+      "expected": "25a5186bfef3b1982ab52e0040484adcaec50962222ce2edcdeeaa98e8284bae"
+    },
+    {
+      "file": "jiulonghu-geometry.png",
+      "sha256": "2031fb7baea45d1ca79aa035d1a5ce336efa83836449bc873212222e3d8afa00",
+      "expected": "2031fb7baea45d1ca79aa035d1a5ce336efa83836449bc873212222e3d8afa00"
+    },
+    {
+      "file": "jiulonghu-geometry.prj",
+      "sha256": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf",
+      "expected": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf"
+    },
+    {
+      "file": "jiulonghu-guide.json",
+      "sha256": "d2d372491aa3a01a7ce482b0a7f5874d618d97651a4bee5e64dc3557f5e05fe7",
+      "expected": "d2d372491aa3a01a7ce482b0a7f5874d618d97651a4bee5e64dc3557f5e05fe7"
+    },
+    {
+      "file": "jiulonghu-reference.geojson",
+      "sha256": "9a4ae5fb496ec04e5a46657468f178c915f03ffa6da7df9e97b1cde09e15a43c",
+      "expected": "9a4ae5fb496ec04e5a46657468f178c915f03ffa6da7df9e97b1cde09e15a43c"
+    },
+    {
+      "file": "jiulonghu-registration.json",
+      "sha256": "dd93a0e9d60efe617091eb6dab71de1ffb8731a511ec72248ad58d907a7b65a3",
+      "expected": "dd93a0e9d60efe617091eb6dab71de1ffb8731a511ec72248ad58d907a7b65a3"
+    },
+    {
+      "file": "jiulonghu-review.png",
+      "sha256": "7acd9760fed6b7ce1ebfd83f5b05797c880ca515a6232f18d02248c5b49fd1f9",
+      "expected": "7acd9760fed6b7ce1ebfd83f5b05797c880ca515a6232f18d02248c5b49fd1f9"
+    },
+    {
+      "file": "jiulonghu.osm",
+      "sha256": "eaaa7f6a9e7e1fd2b189d9bab7c4eb25c043704baca6930b53996e45bc852279",
+      "expected": "eaaa7f6a9e7e1fd2b189d9bab7c4eb25c043704baca6930b53996e45bc852279"
+    },
+    {
+      "file": "mapping.js",
+      "sha256": "f4fb6a99a43cd9cb65c980975942aeb4852d857dea11fd0a9c95cade11614fa6",
+      "expected": "f4fb6a99a43cd9cb65c980975942aeb4852d857dea11fd0a9c95cade11614fa6"
+    },
+    {
+      "file": "mobile-review.png",
+      "sha256": "73f35d8c10eea04759f317a64c756f5b6220e3f43ef2908d78df0075b036c357",
+      "expected": "73f35d8c10eea04759f317a64c756f5b6220e3f43ef2908d78df0075b036c357"
+    },
+    {
+      "file": "MODIFIED_FILE.json",
+      "sha256": "52808f299d710a3f9e4ed785ec142792f43bf4c80beb73901efe97339bbe1c8f",
+      "expected": "52808f299d710a3f9e4ed785ec142792f43bf4c80beb73901efe97339bbe1c8f"
+    },
+    {
+      "file": "PROMPTS.md",
+      "sha256": "176263894975d2ed80ff389d496c10a9712144ff11e18c1f9e85120b66e2424d",
+      "expected": "176263894975d2ed80ff389d496c10a9712144ff11e18c1f9e85120b66e2424d"
+    },
+    {
+      "file": "README.md",
+      "sha256": "20208267f12a1adba787cbbc0ec9a828fe664223e490d793a113836f952e3b3a",
+      "expected": "20208267f12a1adba787cbbc0ec9a828fe664223e490d793a113836f952e3b3a"
+    },
+    {
+      "file": "rollback-test.json",
+      "sha256": "5e3d5df8269324ad1524739e2ffe4267680249ef98f276cf261189b27645d3e5",
+      "expected": "5e3d5df8269324ad1524739e2ffe4267680249ef98f276cf261189b27645d3e5"
+    },
+    {
+      "file": "ROLLBACK.sh",
+      "sha256": "ccc54f16eac8ec5f6e86b38cda150eaabe7f8982084839bacc1fbf142f2e4f80",
+      "expected": "ccc54f16eac8ec5f6e86b38cda150eaabe7f8982084839bacc1fbf142f2e4f80"
+    },
+    {
+      "file": "serve.cjs",
+      "sha256": "52c3255725a862da4742706a811580dd319ce76f55fd74f3794ea2c20e5dc766",
+      "expected": "52c3255725a862da4742706a811580dd319ce76f55fd74f3794ea2c20e5dc766"
+    },
+    {
+      "file": "sipailou-anchors.csv",
+      "sha256": "ef8e899755dd2fc7cb05500536e7fa985439dc6abe6b6f1f0cce876fedac32bc",
+      "expected": "ef8e899755dd2fc7cb05500536e7fa985439dc6abe6b6f1f0cce876fedac32bc"
+    },
+    {
+      "file": "sipailou-art.png",
+      "sha256": "27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6",
+      "expected": "27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6"
+    },
+    {
+      "file": "sipailou-baseline.json",
+      "sha256": "fbc0de3a01b907b7af0abdf6a3d4176637ef9f67d394d515f263d631c4abbeef",
+      "expected": "fbc0de3a01b907b7af0abdf6a3d4176637ef9f67d394d515f263d631c4abbeef"
+    },
+    {
+      "file": "sipailou-geometry.pgw",
+      "sha256": "817869fe75cadc0e28e1cf9212d096f1e061bd87a42efb6d9451c0a60d871816",
+      "expected": "817869fe75cadc0e28e1cf9212d096f1e061bd87a42efb6d9451c0a60d871816"
+    },
+    {
+      "file": "sipailou-geometry.png",
+      "sha256": "6a08c66250fc28346a125b64a97f319ae4570eb2faeb9d176408eebac99acee5",
+      "expected": "6a08c66250fc28346a125b64a97f319ae4570eb2faeb9d176408eebac99acee5"
+    },
+    {
+      "file": "sipailou-geometry.prj",
+      "sha256": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf",
+      "expected": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf"
+    },
+    {
+      "file": "sipailou-guide.json",
+      "sha256": "4d1884719ae85b5afd975c186e1aab6fdd8c5410ec68e2ea4e6e367d51dfaa64",
+      "expected": "4d1884719ae85b5afd975c186e1aab6fdd8c5410ec68e2ea4e6e367d51dfaa64"
+    },
+    {
+      "file": "sipailou-reference.geojson",
+      "sha256": "294748be1e8c7a8dab72fd15005dad687b81151aabcbf17d11629867730a350e",
+      "expected": "294748be1e8c7a8dab72fd15005dad687b81151aabcbf17d11629867730a350e"
+    },
+    {
+      "file": "sipailou-registration.json",
+      "sha256": "56a6b624f02bd5ae211e24585ad504d5457ffa37eb9f3bf516eef9349b92c67e",
+      "expected": "56a6b624f02bd5ae211e24585ad504d5457ffa37eb9f3bf516eef9349b92c67e"
+    },
+    {
+      "file": "sipailou-review.png",
+      "sha256": "4b41b788d2d75371197780fb51f557c0685679267bfab63c7da93a5b94c23331",
+      "expected": "4b41b788d2d75371197780fb51f557c0685679267bfab63c7da93a5b94c23331"
+    },
+    {
+      "file": "sipailou.osm",
+      "sha256": "d09483ed3b8584be320a14b820301fc50fcd4e08733741ac193c6dfdff73c09f",
+      "expected": "d09483ed3b8584be320a14b820301fc50fcd4e08733741ac193c6dfdff73c09f"
+    },
+    {
+      "file": "style-reference.jpg",
+      "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+      "expected": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540"
+    },
+    {
+      "file": "VERIFICATION.txt",
+      "sha256": "908a247cae4ab58a66a3bdbfd33a08359b99443a784fb330a7c493c0d08e3c49",
+      "expected": "908a247cae4ab58a66a3bdbfd33a08359b99443a784fb330a7c493c0d08e3c49"
+    },
+    {
+      "file": "verify.cjs",
+      "sha256": "699e6e5537607de96587c7bc1f0eb440d7317ba81a6545c525c19a71a0380cc8",
+      "expected": "699e6e5537607de96587c7bc1f0eb440d7317ba81a6545c525c19a71a0380cc8"
+    },
+    {
+      "file": "viewer.js",
+      "sha256": "b40a23d1e78aceaad93e7c2b32cf00f5404e94f859f7f54b880cfcbe007ecab4",
+      "expected": "b40a23d1e78aceaad93e7c2b32cf00f5404e94f859f7f54b880cfcbe007ecab4"
+    }
+  ]
+}

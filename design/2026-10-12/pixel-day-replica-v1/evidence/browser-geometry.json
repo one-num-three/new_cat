@@ -1,0 +1,77 @@
+[
+  {
+    "controls": 4,
+    "overflow": [],
+    "page": "01-home"
+  },
+  {
+    "controls": 4,
+    "overflow": [],
+    "page": "02-create"
+  },
+  {
+    "controls": 3,
+    "overflow": [],
+    "page": "03-ready"
+  },
+  {
+    "controls": 2,
+    "overflow": [],
+    "page": "04-cat"
+  },
+  {
+    "controls": 2,
+    "overflow": [],
+    "page": "05-mouse"
+  },
+  {
+    "controls": 2,
+    "overflow": [],
+    "page": "06-alert"
+  },
+  {
+    "controls": 1,
+    "overflow": [],
+    "page": "07-hiding"
+  },
+  {
+    "controls": 1,
+    "overflow": [],
+    "page": "08-code"
+  },
+  {
+    "controls": 1,
+    "overflow": [],
+    "page": "09-captured"
+  },
+  {
+    "controls": 2,
+    "overflow": [],
+    "page": "10-paused"
+  },
+  {
+    "controls": 2,
+    "overflow": [],
+    "page": "11-offline"
+  },
+  {
+    "controls": 3,
+    "overflow": [],
+    "page": "12-cat-win"
+  },
+  {
+    "controls": 3,
+    "overflow": [],
+    "page": "13-mouse-win"
+  },
+  {
+    "controls": 3,
+    "overflow": [],
+    "page": "14-cancelled"
+  },
+  {
+    "controls": 3,
+    "overflow": [],
+    "page": "15-details"
+  }
+]

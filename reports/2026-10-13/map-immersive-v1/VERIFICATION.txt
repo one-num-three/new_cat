@@ -1,0 +1,68 @@
+当前：单图沉浸地图 / 自动巡游与手势已实现验证 / 真机单列待验
+BRANCH=master; no reset/push/upload/deploy.
+CHANGED_FIELDS=venue-art image-only viewport / native transform animation / touch gestures / timer lifecycle; venue-camera.fitCover,boundCamera,zoomAt,perimeter; active art source v4; export dependency and ignore list.
+FOUR ARTIFACTS:
+MODIFIED_FILE=D:\cat-mouse-miniprogram\reports\2026-10-13\map-immersive-v1\MODIFIED_FILE
+DIFF_FILE=D:\cat-mouse-miniprogram\reports\2026-10-13\map-immersive-v1\DIFF_FILE
+VERIFICATION.txt=D:\cat-mouse-miniprogram\reports\2026-10-13\map-immersive-v1\VERIFICATION.txt
+ROLLBACK.sh=D:\cat-mouse-miniprogram\reports\2026-10-13\map-immersive-v1\ROLLBACK.sh
+
+BASELINE
+command=npm --prefix cat-mouse-server test
+input=old contain viewer and original79 regressions; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/map-immersive-v1/test-tmp
+literal: # tests 79 / # pass 79 / # fail 0 / # duration_ms 9315.3666
+EXIT=0; baseline-tests.log
+20 source/setting/doc files copied with original SHA, not restored from Git HEAD.
+
+MODIFIED
+command=npm --prefix cat-mouse-server test
+input=immersive cover viewer, new perimeter/touch/timer tests, retained server authorization tests; same TEMP/TMP
+literal: # tests 81 / # pass 81 / # fail 0 / # duration_ms 8553.8011
+EXIT=0; modified-tests-final.log
+WXML9 and WXSS12 official offline compiler entries EXIT=0; args in compile.json. Old contain assertions replaced only where the user explicitly changed the visual behavior to cover; original identity, role, GPS visibility, asset locks and results preserved. Initial null/undefined expectation and historical asset-path assumption failures were corrected; logs retained. Deferred animation-start tests flush nextTick explicitly and test touch-before-start cancellation.
+
+ROLLBACK
+command=D:/Program Files/Git/bin/bash.exe -c 'chmod +x reports/2026-10-13/map-immersive-v1/ROLLBACK.sh && reports/2026-10-13/map-immersive-v1/ROLLBACK.sh D:/cat-mouse-preview-evidence/2026-10-13/map-immersive-v1/rollback-fixture'
+input=marked isolated copied current runtime, no live target accepted
+literal:
+ROLLBACK_RESTORED=20/20
+LIVE_WRITES=0
+EXIT=0; rollback-restore.log
+command=node --test 'D:/cat-mouse-preview-evidence/2026-10-13/map-immersive-v1/rollback-fixture/cat-mouse-server/v2/*.test.js'
+input=restored old viewer/test bytes; NODE_PATH=D:/cat-mouse-miniprogram/cat-mouse-server/node_modules; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/map-immersive-v1/test-tmp
+literal: # tests 79 / # pass 79 / # fail 0 / # duration_ms 8782.1764
+EXIT=0; rollback-tests.log
+Restored behavior=old contain fit/footer/native movable-view in isolated fixture; original79 regressions pass. Current live and MODIFIED_FILE remain immersive and do not restore old behavior.
+
+GENERATED ART
+Built-in image_gen used; edit reference originalv3 unchanged SHA c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6.
+Saved generated source=D:/cat-mouse-miniprogram/design/maps/xuanwu-lake/immersive-v4/map-expanded-source.png
+Actual source1254x1254/2797366B, SHA8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6. Prompt requested2048, tool actual1254; no claim of2048/4K. Full original prompt saved PROMPT.md/manifest.json. No text, markers or UI in the raster.
+Runtime=/assets/maps/xuanwu-lake-v4.jpg; same1254x1254;804062B; JPEG86 4:4:4, no resize/crop/rotation. Generated artwork is outpainted including bridge endings, not a survey. georeferenced=false, geographicOverlay=false; no player coordinates on this art.
+command=node scripts/build-immersive-map.cjs --verify
+literal=IMMERSIVE_MAP_VERIFY_PASS size=1254x1254 bytes=804062 source=unchanged georeferenced=false
+EXIT=0
+Oldv3/source/pixel65 material bytes retained; oldv3 excluded from current export only.
+
+BEHAVIOR
+Default: one uniformly scaled large image covers the entire viewport; source edges intentionally crop, no axis stretch, no plain side strips, no large footer. At1.28x auto follows four corner waypoints using7.5-second native linear animation per leg (30-second repeating perimeter; initial center-entry transition extra).
+Touch freezes current interpolated camera and cancels auto immediately. One finger pans, two fingers pinch around focal centroid; clamp keeps all edges covered at1–4x. Manual drawing limited to32ms, final release commits latest camera. Releasing does not restart auto; only explicit 巡游 does. Tiny controls appear after handover; reset/居中 remains cover1x.
+One timer only. Hide clears it; show resumes only previous untouched auto. Detach invalidates queries/image/tour callbacks; manual mode not overridden by unchanged layouts. No network/GPS sampler introduced. Existing authorized native-map branch and pilot-0.2 unchanged.
+Found initial0-duration frame and first tour animation could coalesce; committed starting camera via nextTick before launching the first leg. Actual native moving image bounds then verified. Source write/refresh delays briefly caused empty-page harness failures; final existing-page test ran after stable explicit MCP navigation, not treated as success before ready.
+
+MCP / NATIVE VERIFICATION
+First cover checks: normal7, app-font1.3 large3, narrow2 =12 PNGs via registered simulator_screenshot; all actual component and cover-boundary checks passed. These precede first-leg initialization correction, preserved as stage evidence.
+Final layout recapture: normal cat+venue2, largecat1, narrowcat1 =4 successful PNGs, EXIT0; logs final-normal/large/narrow.log. Narrow320x693 content inside390-wide IDE, not physical320 device; app font1.3 not OS setting.
+command: CAT_MOUSE_USE_MCP=1 node scripts/map-immersive-review.cjs 'D:/cat-mouse-preview-evidence/2026-10-13/map-immersive-v1/interaction-final' existing
+input=stable dev-preview cat page opened via authorized MCP; actual native element touch events, no real game submission
+literal=IMMERSIVE_INTERACTION_PASS=9
+EXIT=0; interaction-final.log/result.json
+Passed: fullbleed auto start; real image bounding rectangle displacement; touch stops tour; actual one-finger pan; actual two-finger pinch; manual camera stable after waiting; center still covers viewport; explicit resume; leave map.
+MCP screenshot auto/manual files saved; no desktop window reposition. GPS/actual-device gesture fluidity/background/battery/performance not claimed tested. Artwork geography not calibrated.
+
+EXPORT
+command=./scripts/package-release.ps1 -DirectoryOnly -OutputDirectory 'D:\cat-mouse-miniprogram\reports\2026-10-13\map-immersive-v1'
+literal=Created directory: D:\cat-mouse-miniprogram\reports\2026-10-13\map-immersive-v1\MODIFIED_FILE
+EXIT=0
+Reopened121files, raw1848742B; below local2MiB envelope; source SHA match; test identities=false. Raw directory size is not certified upload bundle size. No new ZIP, public upload or server change.
+Preview entrance=visual/index.html; generated prompt/source in design/maps/xuanwu-lake/immersive-v4/. Future image edits reuse archived reference/prompt style; do not substitute real GPS projection.

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-19",
+  "screenshots": 33,
+  "visiblePages": 7,
+  "internalPages": 1,
+  "pdf": "D:\\cat-mouse-miniprogram\\output\\pdf\\猫鼠行动-产品页面总览-2026-10-19.pdf",
+  "pdfSha256": "eb0bfaaa90cfe27c11d63ae301076bcb616a2505b67bc38f1f6d337a5dbb0a5c",
+  "productionUiSourceChanged": false,
+  "onlineChanges": false,
+  "sourceFiles": [
+    {
+      "file": "app.json",
+      "sha256": "bf13146dbe9b96c7de2337d3345bf72d4d86b4b1026e4de7e518b0fe3c0b98cb"
+    },
+    {
+      "file": "utils/dev-preview.js",
+      "sha256": "c979389ae5a56625a0a5a974589eba762568397c6fb4e9747d4d4aba6a9b8336"
+    },
+    {
+      "file": "utils/team-config.js",
+      "sha256": "69dcd50cc00adcab060b31f11bdc82bdd922a29d62047c5919dadf165410bc2a"
+    },
+    {
+      "file": "scripts/capture-product-pages.cjs",
+      "sha256": "f901bef150ba902a5fad9044760d07df3df98f3ab31fa311aa43349f75b3143b"
+    },
+    {
+      "file": "scripts/build-product-handoff.py",
+      "sha256": "2c7bfad7a6a1c36e553ca92e1908e87fc7688c03ba87d8489d07536f97fdd6be"
+    }
+  ]
+}

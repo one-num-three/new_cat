@@ -1,0 +1,7 @@
+{
+  "id": "01-wayfinding/15-details",
+  "status": "revised",
+  "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a12dee-5ebe-77e0-a71e-48dee3c92e34\\exec-3c7a4fb6-f16d-429d-8c20-21e123f3ce0f.png",
+  "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/15-details-v2.png",
+  "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅校正文本与数值：顶部倒计时04:32改为04:45；已抓捕3/4改为1/4并仅1个进度块橙色；下方旧标语改为“在城市中搜寻 · 捕获4人即可获胜”；最近事件09:02改为09:01，已捕获小米右边09:02也改09:01。其他名单、抽屉布局、按钮、风格完全不变。"
+}

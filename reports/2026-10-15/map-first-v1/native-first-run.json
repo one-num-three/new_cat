@@ -1,0 +1,1776 @@
+{
+  "error": "actual exit animation must dismiss sheet\n\ntrue !== false\n",
+  "rows": [
+    {
+      "id": "cat",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 616,
+            "bottom": 798,
+            "width": 366,
+            "height": 182
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 674,
+            "bottom": 729,
+            "width": 348,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-cat.png"
+    },
+    {
+      "id": "mouse",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 616,
+            "bottom": 798,
+            "width": 366,
+            "height": 182
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 674,
+            "bottom": 729,
+            "width": 348,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-mouse.png"
+    },
+    {
+      "id": "alert",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 553.40625,
+            "bottom": 798,
+            "width": 366,
+            "height": 244.59375
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 674,
+            "bottom": 729,
+            "width": 348,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-alert.png"
+    },
+    {
+      "id": "hiding",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "00:18",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 613.40625,
+            "bottom": 798,
+            "width": 366,
+            "height": 184.59375
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-hiding.png"
+    },
+    {
+      "id": "captured",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": false,
+      "markers": 1,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 613.40625,
+            "bottom": 798,
+            "width": 366,
+            "height": 184.59375
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-captured.png"
+    },
+    {
+      "id": "paused",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": false,
+      "markers": 1,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 558.609375,
+            "bottom": 798,
+            "width": 366,
+            "height": 239.390625
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 106.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 728,
+            "bottom": 783,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-paused.png"
+    },
+    {
+      "id": "offline",
+      "mode": "normal",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": false,
+      "markers": 0,
+      "clock": "--:--",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 613.40625,
+            "bottom": 798,
+            "width": 366,
+            "height": 184.59375
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 106.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      },
+      "file": "normal-offline.png"
+    },
+    {
+      "id": "cat",
+      "mode": "narrow",
+      "route": "pages/map/map",
+      "width": 320,
+      "height": 600,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 513,
+      "fitHeight": 513,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 320,
+            "top": 87,
+            "bottom": 600,
+            "width": 320,
+            "height": 513
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 312,
+            "top": 95,
+            "bottom": 246.7890625,
+            "width": 304,
+            "height": 151.7890625
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 312,
+            "top": 371,
+            "bottom": 554,
+            "width": 304,
+            "height": 183
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 17,
+            "right": 303,
+            "top": 429,
+            "bottom": 484,
+            "width": 286,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 17,
+            "right": 303,
+            "top": 490,
+            "bottom": 545,
+            "width": 286,
+            "height": 55
+          }
+        ]
+      },
+      "file": "narrow-cat.png"
+    },
+    {
+      "id": "mouse",
+      "mode": "narrow",
+      "route": "pages/map/map",
+      "width": 320,
+      "height": 600,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 513,
+      "fitHeight": 513,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 320,
+            "top": 87,
+            "bottom": 600,
+            "width": 320,
+            "height": 513
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 312,
+            "top": 95,
+            "bottom": 246.7890625,
+            "width": 304,
+            "height": 151.7890625
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 312,
+            "top": 371,
+            "bottom": 554,
+            "width": 304,
+            "height": 183
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 17,
+            "right": 303,
+            "top": 429,
+            "bottom": 484,
+            "width": 286,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 17,
+            "right": 303,
+            "top": 490,
+            "bottom": 545,
+            "width": 286,
+            "height": 55
+          }
+        ]
+      },
+      "file": "narrow-mouse.png"
+    },
+    {
+      "id": "paused",
+      "mode": "narrow",
+      "route": "pages/map/map",
+      "width": 320,
+      "height": 600,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": false,
+      "markers": 1,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 513,
+      "fitHeight": 513,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 320,
+            "top": 87,
+            "bottom": 600,
+            "width": 320,
+            "height": 513
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 312,
+            "top": 95,
+            "bottom": 246.7890625,
+            "width": 304,
+            "height": 151.7890625
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 312,
+            "top": 314.609375,
+            "bottom": 554,
+            "width": 304,
+            "height": 239.390625
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 263,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 106.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 260,
+            "right": 308,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 17,
+            "right": 303,
+            "top": 490,
+            "bottom": 545,
+            "width": 286,
+            "height": 55
+          }
+        ]
+      },
+      "file": "narrow-paused.png"
+    },
+    {
+      "id": "cat",
+      "mode": "large",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 258.5703125,
+            "width": 370,
+            "height": 163.5703125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 601,
+            "bottom": 798,
+            "width": 366,
+            "height": 197
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 275,
+            "bottom": 446.84375,
+            "width": 48,
+            "height": 171.84375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 275,
+            "bottom": 332.28125,
+            "width": 48,
+            "height": 57.28125
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 340.28125,
+            "bottom": 392.84375,
+            "width": 48,
+            "height": 52.5625
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 400.84375,
+            "bottom": 446.84375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 659,
+            "bottom": 721.5,
+            "width": 348,
+            "height": 62.5
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 726.5,
+            "bottom": 789,
+            "width": 348,
+            "height": 62.5
+          }
+        ]
+      },
+      "file": "large-cat.png"
+    },
+    {
+      "id": "mouse",
+      "mode": "large",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 258.5703125,
+            "width": 370,
+            "height": 163.5703125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 601,
+            "bottom": 798,
+            "width": 366,
+            "height": 197
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 275,
+            "bottom": 446.84375,
+            "width": 48,
+            "height": 171.84375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 275,
+            "bottom": 332.28125,
+            "width": 48,
+            "height": 57.28125
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 340.28125,
+            "bottom": 392.84375,
+            "width": 48,
+            "height": 52.5625
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 400.84375,
+            "bottom": 446.84375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 659,
+            "bottom": 721.5,
+            "width": 348,
+            "height": 62.5
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 726.5,
+            "bottom": 789,
+            "width": 348,
+            "height": 62.5
+          }
+        ]
+      },
+      "file": "large-mouse.png"
+    },
+    {
+      "id": "code-sheet",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": true,
+      "drawer": false,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 616,
+            "bottom": 798,
+            "width": 366,
+            "height": 182
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 382,
+            "top": 844,
+            "bottom": 1297.5,
+            "width": 374,
+            "height": 453.5
+          }
+        ],
+        ".inlineQr": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 68.25,
+            "right": 321.75,
+            "top": 943,
+            "bottom": 1196.5,
+            "width": 253.5,
+            "height": 253.5
+          }
+        ],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 674,
+            "bottom": 729,
+            "width": 348,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          }
+        ]
+      }
+    },
+    {
+      "id": "rules-sheet",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": true,
+      "hud": true,
+      "tray": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 251.3828125,
+            "width": 370,
+            "height": 156.3828125
+          }
+        ],
+        ".mapBottom": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 12,
+            "right": 378,
+            "top": 616,
+            "bottom": 798,
+            "width": 366,
+            "height": 182
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 160.59375
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 263,
+            "bottom": 315.59375,
+            "width": 48,
+            "height": 52.59375
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 323.59375,
+            "bottom": 369.59375,
+            "width": 48,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 330,
+            "right": 378,
+            "top": 377.59375,
+            "bottom": 423.59375,
+            "width": 48,
+            "height": 46
+          }
+        ],
+        ".drawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 185.6875,
+            "bottom": 844,
+            "width": 390,
+            "height": 658.3125
+          }
+        ],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".pixelControl": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 674,
+            "bottom": 729,
+            "width": 348,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 21,
+            "right": 369,
+            "top": 734,
+            "bottom": 789,
+            "width": 348,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 314,
+            "right": 374,
+            "top": 200.6875,
+            "bottom": 280.6875,
+            "width": 60,
+            "height": 80
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 438.3359375,
+            "bottom": 493.3359375,
+            "width": 362,
+            "height": 55
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 500.3359375,
+            "bottom": 555.3359375,
+            "width": 362,
+            "height": 55
+          }
+        ]
+      }
+    }
+  ]
+}

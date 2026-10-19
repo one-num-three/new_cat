@@ -1,0 +1,9 @@
+// Configure this file for a local simulator or an approved HTTPS deployment.
+module.exports = {
+  mode: 'local', // local | cloud
+  baseUrl: 'http://127.0.0.1:4000',
+  wsUrl: '', // for cloud/deployment set wss://your-approved-domain
+  cloudEnv: '',
+  cloudService: '',
+  localTestIdentities: true // server accepts these only with NODE_ENV=test and ENABLE_LOCAL_TEST_IDENTITIES=true
+};

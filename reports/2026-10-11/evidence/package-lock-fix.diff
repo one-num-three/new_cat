@@ -1,0 +1,28 @@
+diff --git "a/.\\reports\\2026-10-11\\evidence\\package-lock-baseline.json" "b/.\\cat-mouse-server\\package-lock.json"
+index c066a56..256c896 100644
+--- "a/.\\reports\\2026-10-11\\evidence\\package-lock-baseline.json"
++++ "b/.\\cat-mouse-server\\package-lock.json"
+@@ -882,9 +882,9 @@
+       }
+     },
+     "node_modules/proxy-addr": {
+-      "version": "2.0.7",
+-      "resolved": "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz",
+-      "integrity": "sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==",
++      "version": "2.0.8",
++      "resolved": "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.8.tgz",
++      "integrity": "sha512-5nnx0yGyVUcY6t9RnWcARWtwT9F1D8O9rt08htPvnd49W1IgZtmLkhu9WfMzQj1cFxjHIO6connUNVW5k7AVyQ==",
+       "license": "MIT",
+       "dependencies": {
+         "forwarded": "0.2.0",
+@@ -892,6 +892,10 @@
+       },
+       "engines": {
+         "node": ">= 0.10"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/express"
+       }
+     },
+     "node_modules/qrcode": {

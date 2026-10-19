@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-13",
+  "tool": "built-in image_gen",
+  "status": "art_reference_only",
+  "geographic_revalidation": "not_performed",
+  "production_basemap_replaced": false,
+  "files": {
+    "map-small.png": {
+      "path": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-small.png",
+      "size": [
+        2400,
+        1664
+      ],
+      "sha256": "2c577bf6434e20e6610e1bbcef3573d6cf288d28fd3bbf9718fd51bcdc9ba530"
+    },
+    "map-large.png": {
+      "path": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\map-large.png",
+      "size": [
+        2400,
+        2254
+      ],
+      "sha256": "d3286c2647b9a7077b41833107912c00fb6e3bcb24af7acc542bd455a1d77fea"
+    },
+    "materials-atlas.png": {
+      "path": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\two-maps-v1\\materials-atlas.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "30b282327755b917fb5ec79574975d25b12f822c9a6b8c7c8f46286d205b0e47"
+    },
+    "small-ai-reference.png": {
+      "path": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\ai-art-reference-2026-10-13\\small-ai-reference.png",
+      "size": [
+        1506,
+        1045
+      ],
+      "sha256": "57ab71b85b7d9e0c8093f26dbec32989de3bae1b61a2fdaaff1864efeeab70b2"
+    },
+    "large-ai-reference.png": {
+      "path": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\ai-art-reference-2026-10-13\\large-ai-reference.png",
+      "size": [
+        1294,
+        1216
+      ],
+      "sha256": "304fe465140886ad43255273303cb2a0bb5726b78ee81ffb4cb4e2280a71f3a0"
+    }
+  },
+  "references": {
+    "small": [
+      "map-small.png",
+      "materials-atlas.png"
+    ],
+    "large": [
+      "map-large.png",
+      "materials-atlas.png",
+      "small-ai-reference.png"
+    ]
+  }
+}

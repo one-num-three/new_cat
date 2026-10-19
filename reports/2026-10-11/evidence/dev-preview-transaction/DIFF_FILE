@@ -1,0 +1,14 @@
+diff --git "a/reports\\2026-10-11\\evidence\\dev-preview-transaction\\BASELINE_FILE" "b/reports\\2026-10-11\\evidence\\dev-preview-transaction\\MODIFIED_FILE"
+index 241a775..27df56b 100644
+--- "a/reports\\2026-10-11\\evidence\\dev-preview-transaction\\BASELINE_FILE"
++++ "b/reports\\2026-10-11\\evidence\\dev-preview-transaction\\MODIFIED_FILE"
+@@ -1,8 +1,6 @@
+-const config = require('./config');
+-
+ function enabled() {
+   try {
+-    return config.mode === 'local' && wx.getAccountInfoSync().miniProgram.envVersion === 'develop';
++    return wx.getAccountInfoSync().miniProgram.envVersion === 'develop';
+   } catch { return false; }
+ }
+ 

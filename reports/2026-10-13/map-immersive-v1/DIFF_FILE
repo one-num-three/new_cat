@@ -1,0 +1,830 @@
+Immersive-map change vs saved uncommitted working tree, not Git HEAD.
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\components\\venue-art\\venue-art.js" "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.js"
+index a186876..86cb88f 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\components\\venue-art\\venue-art.js"
++++ "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.js"
+@@ -1,147 +1,43 @@
+-const {SOURCE_WIDTH, SOURCE_HEIGHT, MIN_SCALE, MAX_SCALE, clampScale, fitContain} = require('../../utils/venue-camera');
+-
++const geometry=require('../../utils/venue-camera');
++const art=require('../../utils/venue-art-config');
++const TOUR_ZOOM=1.28, TOUR_LEG_MS=7500;
+ Component({
+-  properties: {
+-    src: {type:String, value:'/assets/maps/xuanwu-lake-v3.png'},
+-    sourceWidth: {type:Number, value:SOURCE_WIDTH},
+-    sourceHeight: {type:Number, value:SOURCE_HEIGHT},
+-    layoutKey: {type:String, value:''},
+-    compact: {type:Boolean, value:false}
+-  },
+-  data: {
+-    fitReady:false, imageState:'loading', imageNodes:[], cameraNodes:[],
+-    fitWidth:0, fitHeight:0, x:0, y:0, scaleValue:1,
+-    zoomLabel:'1.00×', canZoomOut:false, canZoomIn:true
+-  },
+-  observers: {
+-    src() {
+-      if (this._alive) this._reloadImage();
+-    },
+-    'layoutKey, compact, sourceWidth, sourceHeight'() {
+-      if (this._alive) this._scheduleFit();
+-    }
+-  },
+-  lifetimes: {
+-    attached() {
+-      this._alive = true;
+-      this._measureSerial = this._measureSerial || 0;
+-      this._cameraSerial = this._cameraSerial || 0;
+-      this._imageSerial = this._imageSerial || 0;
+-      this._camera = {x:0, y:0, scale:1};
+-      this._reloadImage();
+-      this._scheduleFit();
+-    },
+-    detached() {
+-      this._alive = false;
+-      this._measureSerial += 1;
+-      this._imageSerial += 1;
+-      this._cameraSerial += 1;
+-    }
+-  },
+-  methods: {
+-    remeasure() { if (this._alive) this._scheduleFit(true); },
+-    _scheduleFit(preserveUnchanged=false) {
+-      const serial = ++this._measureSerial;
+-      // Wait for the parent's flex layout and font/viewport changes to render.
+-      wx.nextTick(() => {
+-        if (!this._alive || serial !== this._measureSerial) return;
+-        this.createSelectorQuery().select('.venueViewport').boundingClientRect(rect => {
+-          if (!this._alive || serial !== this._measureSerial) return;
+-          const fit = fitContain(rect && rect.width, rect && rect.height, this.data.sourceWidth, this.data.sourceHeight);
+-          if (!fit.valid) {
+-            this._fit = null;
+-            this.setData({fitReady:false, cameraNodes:[]});
+-            return;
+-          }
+-          if (preserveUnchanged && this._fit && this.data.fitReady && ['width','height','x','y'].every(key=>Math.abs(fit[key]-this._fit[key])<.01)) return;
+-          this._fit = fit;
+-          this._resetCamera();
+-        }).exec();
+-      });
+-    },
+-    _resetCamera() {
+-      if (!this._alive || !this._fit) return;
+-      const fit = this._fit;
+-      this._camera = {x:fit.x, y:fit.y, scale:MIN_SCALE};
+-      // A new native node also resets native gesture state when bound x/y/scale
+-      // still equal their old values. No CSS transform or image-axis scaling.
+-      this.setData({
+-        fitReady:true, fitWidth:fit.width, fitHeight:fit.height,
+-        x:fit.x, y:fit.y, scaleValue:MIN_SCALE,
+-        cameraNodes:[++this._cameraSerial], zoomLabel:'1.00×',
+-        canZoomOut:false, canZoomIn:true
+-      });
+-    },
+-    _reloadImage() {
+-      const generation = ++this._imageSerial;
+-      this.setData({imageState:this.data.src ? 'loading' : 'error', imageNodes:[]});
+-      wx.nextTick(() => {
+-        if (!this._alive || generation !== this._imageSerial || !this.data.src) return;
+-        this.setData({imageNodes:[generation]});
+-      });
+-    },
+-    _currentImage(event) {
+-      return this._alive && Number(event.currentTarget.dataset.generation) === this._imageSerial;
+-    },
+-    onImageLoad(event) {
+-      if (this._currentImage(event) && this.data.imageState !== 'ready') this.setData({imageState:'ready'});
+-    },
+-    onImageError(event) {
+-      if (this._currentImage(event) && this.data.imageState !== 'error') this.setData({imageState:'error'});
+-    },
+-    retry() {
+-      if (!this._alive) return;
+-      // Remount the same packaged image: no cache-busting network request.
+-      this._reloadImage();
+-      this._scheduleFit();
+-    },
+-    reset() {
+-      this._resetCamera();
+-    },
+-    _currentCamera(event) {
+-      return this._alive && Number(event.currentTarget.dataset.camera) === this._cameraSerial;
+-    },
+-    _rememberPosition(detail) {
+-      if (Number.isFinite(detail.x)) this._camera.x = detail.x;
+-      if (Number.isFinite(detail.y)) this._camera.y = detail.y;
+-    },
+-    onMove(event) {
+-      if (this._currentCamera(event)) this._rememberPosition(event.detail || {});
+-    },
+-    onScale(event) {
+-      if (!this._currentCamera(event)) return;
+-      const detail = event.detail || {};
+-      this._rememberPosition(detail);
+-      if (Number.isFinite(detail.scale)) this._camera.scale = clampScale(detail.scale);
+-      // The native component renders every gesture frame; no setData here.
+-    },
+-    onGestureEnd(event) {
+-      if (!this._currentCamera(event)) return;
+-      if (event.touches && event.touches.length) return;
+-      const serial = this._cameraSerial;
+-      wx.nextTick(() => {
+-        if (this._alive && serial === this._cameraSerial) this._commitCamera();
+-      });
+-    },
+-    _commitCamera() {
+-      const camera = this._camera;
+-      const values = {
+-        x:camera.x, y:camera.y, scaleValue:camera.scale,
+-        zoomLabel:camera.scale.toFixed(2) + '×',
+-        canZoomOut:camera.scale > MIN_SCALE, canZoomIn:camera.scale < MAX_SCALE
+-      };
+-      const patch = {};
+-      Object.keys(values).forEach(key => {
+-        if (values[key] !== this.data[key]) patch[key] = values[key];
+-      });
+-      if (Object.keys(patch).length) this.setData(patch);
+-    },
+-    _zoomBy(delta) {
+-      if (!this._alive || !this._fit || this.data.imageState !== 'ready') return;
+-      this._camera.scale = clampScale(this._camera.scale + delta);
+-      this._commitCamera();
+-    },
+-    zoomIn() { this._zoomBy(0.25); },
+-    zoomOut() { this._zoomBy(-0.25); }
+-  }
++ properties:{src:{type:String,value:art.src},sourceWidth:{type:Number,value:art.width},sourceHeight:{type:Number,value:art.height},layoutKey:{type:String,value:''},compact:{type:Boolean,value:false},autoTour:{type:Boolean,value:true}},
++ data:{fitReady:false,imageState:'loading',imageNodes:[],fitWidth:0,fitHeight:0,x:0,y:0,scaleValue:1,zoomLabel:'1.00×',canZoomOut:false,canZoomIn:true,mode:'auto',showControls:false,imageAnimation:{}},
++ observers:{src(){if(this._alive){this._fit=null;this._userInterrupted=false;this._reloadImage();this._scheduleFit();}},'layoutKey,compact,sourceWidth,sourceHeight'(){if(this._alive)this._scheduleFit(true);},autoTour(value){if(!this._alive)return;if(value&&!this._userInterrupted)this._startTour();else this._stopTour(true);}},
++ lifetimes:{attached(){this._alive=true;this._visible=true;this._measureSerial=0;this._imageSerial=0;this._tourSerial=0;this._camera={x:0,y:0,scale:1};this._reloadImage();this._scheduleFit();},detached(){this._alive=false;this._visible=false;this._measureSerial++;this._imageSerial++;this._stopTour(false);this._gesture=null;}},
++ pageLifetimes:{hide(){this._resumeAfterShow=this.data.mode==='auto';this._visible=false;this._stopTour(false);this._gesture=null;},show(){this._visible=true;if(this._resumeAfterShow&&!this._userInterrupted)this._startTour();}},
++ methods:{
++  remeasure(){if(this._alive)this._scheduleFit(true);},
++  _bound(c){return geometry.boundCamera(this._vp.width,this._vp.height,this._fit.width,this._fit.height,c);},
++  _sample(){if(!this._segment)return {...this._camera};return geometry.interpolate(this._segment.from,this._segment.to,(Date.now()-this._segment.at)/this._segment.duration);},
++  _publish(c){this.setData({x:c.x,y:c.y,scaleValue:c.scale,zoomLabel:c.scale.toFixed(2)+'×',canZoomOut:c.scale>1,canZoomIn:c.scale<geometry.MAX_SCALE});},
++  _animate(c,duration=0){if(!this._alive)return;const a=wx.createAnimation({duration,timingFunction:'linear',transformOrigin:'0 0'});a.translate3d(c.x,c.y,0).scale(c.scale).step();this.setData({imageAnimation:a.export()});},
++  _paint(c){if(!this._alive||!this._fit)return;this._camera=this._bound(c);this._publish(this._camera);this._animate(this._camera,0);},
++  _scheduleFit(preserve=true){const serial=++this._measureSerial;wx.nextTick(()=>{if(!this._alive||serial!==this._measureSerial)return;this.createSelectorQuery().select('.venueViewport').boundingClientRect(rect=>{
++   if(!this._alive||serial!==this._measureSerial)return;const fit=geometry.fitCover(rect&&rect.width,rect&&rect.height,this.data.sourceWidth,this.data.sourceHeight);
++   if(!fit.valid){this._stopTour(false);this._fit=null;this.setData({fitReady:false});return;}
++   if(preserve&&this._fit&&this.data.fitReady&&Math.abs(this._fit.width-fit.width)<.01&&Math.abs(this._fit.height-fit.height)<.01){this._vp=rect;return;}
++   const oldFit=this._fit,oldVp=this._vp,old=this._sample();this._stopTour(false);this._vp=rect;this._fit=fit;this._gesture=null;
++   let c={x:fit.x,y:fit.y,scale:1};if(preserve&&oldFit&&oldVp&&this._userInterrupted){const u=(oldVp.width/2-old.x)/(oldFit.width*old.scale),v=(oldVp.height/2-old.y)/(oldFit.height*old.scale);c={x:rect.width/2-u*fit.width*old.scale,y:rect.height/2-v*fit.height*old.scale,scale:old.scale};}
++   this.setData({fitReady:true,fitWidth:fit.width,fitHeight:fit.height});this._paint(c);if(!this._userInterrupted)this._startTour();
++  }).exec();});},
++  _reloadImage(){this._stopTour(false);const generation=++this._imageSerial;this.setData({imageState:this.data.src?'loading':'error',imageNodes:[],showControls:false});wx.nextTick(()=>{if(this._alive&&generation===this._imageSerial&&this.data.src)this.setData({imageNodes:[generation]});});},
++  _currentImage(e){return this._alive&&e.currentTarget&&Number(e.currentTarget.dataset.generation)===this._imageSerial;},
++  onImageLoad(e){if(!this._currentImage(e)||this.data.imageState==='ready')return;this.setData({imageState:'ready',...(!this.data.autoTour?{mode:'manual',showControls:true}:{})});this._startTour();},
++  onImageError(e){if(!this._currentImage(e))return;this._stopTour(false);this.setData({imageState:'error'});},
++  retry(){if(!this._alive)return;this._userInterrupted=false;this._reloadImage();this._scheduleFit();},
++  _stopTour(manual){this._tourSerial=(this._tourSerial||0)+1;if(this._tourTimer!=null)clearTimeout(this._tourTimer);this._tourTimer=null;if(this._segment&&this._fit&&this._vp){const c=this._sample();this._segment=null;this._paint(c);}this._segment=null;if(manual&&this._alive){this._userInterrupted=true;this.setData({mode:'manual',showControls:true});}},
++  _startTour(){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready'||!this.data.autoTour||this._userInterrupted)return;this._stopTour(false);this.setData({mode:'auto',showControls:false});this._paint(geometry.zoomAt(this._camera,TOUR_ZOOM,this._vp.width/2,this._vp.height/2,this._vp.width,this._vp.height,this._fit.width,this._fit.height));this._tourIndex=0;const serial=this._tourSerial;wx.nextTick(()=>{if(this._alive&&serial===this._tourSerial&&!this._userInterrupted)this._tourLeg(serial);});},
++  _tourLeg(serial){if(!this._alive||!this._visible||serial!==this._tourSerial||this._userInterrupted)return;const targets=geometry.perimeter(this._vp.width,this._vp.height,this._fit.width,this._fit.height,TOUR_ZOOM),to=targets[this._tourIndex%4],from={...this._camera};this._segment={from,to,at:Date.now(),duration:TOUR_LEG_MS};this._animate(to,TOUR_LEG_MS);this._tourTimer=setTimeout(()=>{this._tourTimer=null;if(!this._alive||!this._visible||serial!==this._tourSerial)return;this._segment=null;this._camera={...to};this._publish(to);this._tourIndex++;this._tourLeg(serial);},TOUR_LEG_MS);},
++  resumeTour(){if(!this._alive)return;this._gesture=null;this._userInterrupted=false;this._startTour();},
++  reset(){if(!this._alive||!this._fit)return;this._stopTour(true);this._gesture=null;this._paint({x:this._fit.x,y:this._fit.y,scale:1});},
++  _points(e){return (e.touches||[]).slice(0,2).map(t=>{const x=Number.isFinite(t.clientX)?t.clientX:t.pageX,y=Number.isFinite(t.clientY)?t.clientY:t.pageY;return Number.isFinite(x)&&Number.isFinite(y)?{x:x-(this._vp.left||0),y:y-(this._vp.top||0)}:null;}).filter(Boolean);},
++  _begin(points){if(!points.length){this._gesture=null;return;}const center=points.length===2?{x:(points[0].x+points[1].x)/2,y:(points[0].y+points[1].y)/2}:points[0];this._gesture={count:points.length,center,camera:{...this._camera},distance:points.length===2?Math.hypot(points[0].x-points[1].x,points[0].y-points[1].y):0};this._lastPaintAt=-Infinity;},
++  onTouchStart(e){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;const points=this._points(e);if(!points.length)return;this._stopTour(true);this._begin(points);},
++  onTouchMove(e){if(!this._alive||!this._visible||!this._gesture||!this._fit)return;const p=this._points(e);if(!p.length)return;if(p.length!==this._gesture.count){this._begin(p);return;}const g=this._gesture;let c;if(p.length===2){const center={x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2},d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);if(g.distance<1)return;const scale=geometry.clampScale(g.camera.scale*d/g.distance);c={x:center.x-(g.center.x-g.camera.x)*scale/g.camera.scale,y:center.y-(g.center.y-g.camera.y)*scale/g.camera.scale,scale};}else c={x:g.camera.x+p[0].x-g.center.x,y:g.camera.y+p[0].y-g.center.y,scale:g.camera.scale};this._camera=this._bound(c);if(Date.now()-this._lastPaintAt>=32){this._lastPaintAt=Date.now();this._paint(this._camera);}},
++  onTouchEnd(e){if(!this._alive||!this._visible||!this._fit)return;this._paint(this._camera);this._begin(this._points(e));},
++  _zoom(delta){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;this._stopTour(true);this._gesture=null;this._paint(geometry.zoomAt(this._camera,this._camera.scale+delta,this._vp.width/2,this._vp.height/2,this._vp.width,this._vp.height,this._fit.width,this._fit.height));},
++  zoomIn(){this._zoom(.25);},zoomOut(){this._zoom(-.25);}
++ }
+ });
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\components\\venue-art\\venue-art.wxml" "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.wxml"
+index a77f0d8..87e65f3 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\components\\venue-art\\venue-art.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.wxml"
+@@ -1,27 +1,15 @@
+-<view class="venueArt {{compact?'venueArtCompact':''}}">
+-  <view class="venueViewport">
+-    <movable-area class="venueMovableArea" scale-area="{{true}}">
+-      <movable-view wx:for="{{cameraNodes}}" wx:for-item="cameraId" wx:key="*this" class="venueMovableView" style="width:{{fitWidth}}px;height:{{fitHeight}}px" direction="all" x="{{x}}" y="{{y}}" scale="{{true}}" scale-min="1" scale-max="3" scale-value="{{scaleValue}}" animation="{{false}}" inertia="{{false}}" out-of-bounds="{{false}}" disabled="{{imageState!=='ready'}}" data-camera="{{cameraId}}" bindchange="onMove" bindscale="onScale" bindtouchend="onGestureEnd" bindtouchcancel="onGestureEnd">
+-        <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" src="{{src}}" mode="aspectFit" show-menu-by-longpress="{{false}}" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="玄武湖环洲与樱洲晴日像素风场地导览，非实时定位" />
+-      </movable-view>
+-    </movable-area>
+-    <view wx:if="{{imageState==='loading'}}" class="venueStatus" aria-role="status"><text class="venueStatusTitle">正在加载场地导览…</text></view>
+-    <view wx:elif="{{imageState==='error'}}" class="venueStatus" aria-role="alert">
+-      <text class="venueStatusTitle">导览图暂未加载</text>
+-      <text class="venueStatusHint">请重试加载场地图片</text>
+-      <button class="venueRetry" bindtap="retry">重新加载</button>
+-    </view>
+-  </view>
+-  <view class="venueFooter">
+-    <view class="venueToolbar">
+-      <view class="venueZoomControls">
+-        <button class="venueControl venueStep" bindtap="zoomOut" disabled="{{!fitReady || imageState!=='ready' || !canZoomOut}}" aria-label="缩小场地导览">−</button>
+-        <text class="venueZoomLabel">{{zoomLabel}}</text>
+-        <button class="venueControl venueStep" bindtap="zoomIn" disabled="{{!fitReady || imageState!=='ready' || !canZoomIn}}" aria-label="放大场地导览">+</button>
+-      </view>
+-      <button class="venueControl venueReset" bindtap="reset" disabled="{{!fitReady || imageState!=='ready'}}" aria-label="复位并完整显示场地导览">复位</button>
+-    </view>
+-    <text wx:if="{{!compact}}" class="venueGestureHint">拖动查看 · 双指缩放</text>
+-    <text class="venueAttribution">© OpenStreetMap contributors</text>
+-  </view>
++<view class="venueArt">
++ <view class="venueViewport" catchtouchstart="onTouchStart" catchtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchEnd">
++  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" animation="{{imageAnimation}}" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的玄武湖艺术导览，拖动或双指缩放，非实时定位" />
++  <view wx:if="{{imageState==='loading'}}" class="venueStatus"><text>正在加载地图…</text></view>
++  <view wx:elif="{{imageState==='error'}}" class="venueStatus"><text>地图暂未加载</text><button class="venueRetry" bindtap="retry">重新加载</button></view>
++ </view>
++ <text wx:if="{{imageState==='ready' && mode==='auto'}}" class="venueTourHint">缓慢巡游 · 轻触接管</text>
++ <view wx:if="{{showControls && imageState==='ready'}}" class="venueDock">
++  <button class="venueControl venueStep" bindtap="zoomIn" disabled="{{!canZoomIn}}" aria-label="放大地图">+</button>
++  <button class="venueControl venueStep" bindtap="zoomOut" disabled="{{!canZoomOut}}" aria-label="缩小地图">−</button>
++  <button class="venueControl venueReset" bindtap="reset" aria-label="地图居中">居中</button>
++  <button class="venueControl venueTour" bindtap="resumeTour" aria-label="恢复自动巡游">巡游</button>
++ </view>
++ <text class="venueAttribution">© OpenStreetMap contributors · 艺术导览</text>
+ </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\components\\venue-art\\venue-art.wxss" "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.wxss"
+index bf14394..38def67 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\components\\venue-art\\venue-art.wxss"
++++ "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.wxss"
+@@ -1,26 +1 @@
+-:host{display:block;width:100%;height:100%;min-height:0}
+-.venueArt{display:flex;flex-direction:column;box-sizing:border-box;width:100%;height:100%;min-height:0;overflow:hidden;background:#EAF4E5;border:1px solid #BBD3B6;border-radius:18px;color:#163E36}
+-.venueViewport{position:relative;flex:1;min-height:0;overflow:hidden;background:#0ABCE9}
+-.venueMovableArea{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
+-.venueMovableView{display:block}
+-.venueImage{display:block;width:100%;height:100%}
+-.venueStatus{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;padding:16px;text-align:center;background:#EAF4E5EE}
+-.venueStatusTitle{font-size:calc(15px * var(--font-scale,1));font-weight:700;line-height:1.5}
+-.venueStatusHint{margin-top:5px;font-size:calc(12px * var(--font-scale,1));line-height:1.5;color:#476451}
+-.venueRetry{display:flex;align-items:center;justify-content:center;min-width:120px;min-height:44px;margin:14px 0 0;padding:8px 16px;border-radius:12px;background:#175C35;color:#fff;font-size:calc(15px * var(--font-scale,1));font-weight:700;line-height:1.3}
+-.venueFooter{flex:none;padding:8px 12px 6px;box-sizing:border-box;background:#F5FAF1;border-top:1px solid #C5DAC0}
+-.venueToolbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+-.venueZoomControls{display:flex;align-items:center;gap:4px;min-width:0}
+-.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;flex:none;min-height:44px;margin:0;padding:6px 12px;border:1px solid #AFCBAB;border-radius:12px;background:#fff;color:#175C35;font-weight:700;line-height:1.2}
+-.venueControl::after,.venueRetry::after{border:0}
+-.venueStep{width:44px!important;padding:0;font-size:26px}
+-.venueReset{width:auto!important;min-width:66px;font-size:calc(14px * var(--font-scale,1))}
+-.venueControl[disabled]{background:#EDF2E9;color:#879885;border-color:#D4DED0}
+-.venueZoomLabel{min-width:48px;text-align:center;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:#385843}
+-.venueGestureHint{display:block;margin-top:5px;text-align:center;font-size:calc(12px * var(--font-scale,1));line-height:1.4;color:#476451}
+-.venueAttribution{display:block;margin-top:4px;text-align:center;font-size:10px;line-height:1.4;color:#476451;overflow-wrap:break-word}
+-.venueArtCompact{border-radius:14px}
+-.venueArtCompact .venueFooter{padding:5px 9px 4px}
+-.venueArtCompact .venueAttribution{margin-top:3px}
+-/* Shared with the current sunny-pixel UI; only the artwork carries geography. */
+-.venueArt,.venueArtCompact{background:#fcf8ed;border-color:#e8dfce;border-radius:2px;color:#11151a}.venueFooter{background:#fcf8ed;border-top:2px solid #e8dfce}.venueControl,.venueRetry{border-radius:2px;border:2px solid #17201b;font-weight:550}.venueControl{background:#fcf9f0;color:#15271b}.venueZoomLabel{color:#334332}.venueAttribution,.venueGestureHint{color:#64695e}
++:host{display:block;width:100%;height:100%;min-height:0}.venueArt{position:relative;overflow:hidden;width:100%;height:100%;min-height:0}.venueViewport{position:absolute;inset:0;overflow:hidden}.venueImage{position:absolute;left:0;top:0;display:block;transform-origin:0 0;will-change:transform}.venueTourHint{position:absolute;left:10px;top:10px;padding:5px 9px;background:#fcf8ede6;color:#24342d;font-size:11px;border-radius:3px;pointer-events:none}.venueDock{position:absolute;right:9px;bottom:25px;display:grid;grid-template-columns:44px 44px;gap:4px}.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:44px!important;min-height:44px;margin:0;padding:0;border:1px solid #617664;border-radius:5px;background:#fcf8edef;color:#173d2a;font-size:24px;line-height:1;font-weight:550}.venueControl::after,.venueRetry::after{border:0}.venueReset,.venueTour{font-size:12px}.venueControl[disabled]{opacity:.45}.venueAttribution{position:absolute;left:6px;bottom:5px;color:#153d50;font-size:9px;text-shadow:0 1px 2px #fff,1px 0 2px #fff;pointer-events:none}.venueStatus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#fcf8ed;color:#24342d;font-size:14px}.venueRetry{min-height:44px;padding:8px 20px;background:#fff;border:1px solid #617664;border-radius:4px;font-size:14px}
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\utils\\venue-camera.js" "b/D:\\cat-mouse-miniprogram\\utils\\venue-camera.js"
+index 0e5711f..e98330f 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\utils\\venue-camera.js"
++++ "b/D:\\cat-mouse-miniprogram\\utils\\venue-camera.js"
+@@ -2,7 +2,7 @@
+ const SOURCE_WIDTH = 1154;
+ const SOURCE_HEIGHT = 1363;
+ const MIN_SCALE = 1;
+-const MAX_SCALE = 3;
++const MAX_SCALE = 4;
+ 
+ function positiveFinite(value) {
+   return typeof value === 'number' && Number.isFinite(value) && value > 0;
+@@ -24,4 +24,30 @@ function fitContain(viewportWidth, viewportHeight, sourceWidth = SOURCE_WIDTH, s
+   return {valid:true, width, height, x:Math.max(0, (viewportWidth - width) / 2), y:Math.max(0, (viewportHeight - height) / 2), scale:MIN_SCALE};
+ }
+ 
+-module.exports = {SOURCE_WIDTH, SOURCE_HEIGHT, MIN_SCALE, MAX_SCALE, clampScale, fitContain};
++// Immersive cover: uniform scale, edge crop is intentional; never distort axes.
++function fitCover(vw, vh, sw = SOURCE_WIDTH, sh = SOURCE_HEIGHT) {
++  const empty={valid:false,width:0,height:0,x:0,y:0,scale:1};
++  if(![vw,vh,sw,sh].every(positiveFinite))return empty;
++  const f=Math.max(vw/sw,vh/sh),width=sw*f,height=sh*f;
++  if(![f,width,height].every(positiveFinite))return empty;
++  return {valid:true,width,height,x:(vw-width)/2,y:(vh-height)/2,scale:1};
++}
++function boundCamera(vw,vh,bw,bh,c={}) {
++  if(![vw,vh,bw,bh].every(positiveFinite))return {x:0,y:0,scale:1};
++  const scale=clampScale(c.scale),w=bw*scale,h=bh*scale;
++  if(![w,h].every(positiveFinite))return {x:0,y:0,scale:1};
++  return {x:Math.max(Math.min(0,vw-w),Math.min(0,Number.isFinite(c.x)?c.x:(vw-w)/2)),y:Math.max(Math.min(0,vh-h),Math.min(0,Number.isFinite(c.y)?c.y:(vh-h)/2)),scale};
++}
++function zoomAt(c,nextScale,px,py,vw,vh,bw,bh) {
++  const scale=clampScale(nextScale),old=clampScale(c.scale);
++  return boundCamera(vw,vh,bw,bh,{x:px-(px-c.x)*scale/old,y:py-(py-c.y)*scale/old,scale});
++}
++function perimeter(vw,vh,bw,bh,scale=1.28) {
++  const c=boundCamera(vw,vh,bw,bh,{scale,x:0,y:0}),right=vw-bw*c.scale,bottom=vh-bh*c.scale;
++  return [{x:0,y:0,scale:c.scale},{x:Math.min(0,right),y:0,scale:c.scale},{x:Math.min(0,right),y:Math.min(0,bottom),scale:c.scale},{x:0,y:Math.min(0,bottom),scale:c.scale}];
++}
++function interpolate(a,b,t) {
++  const p=Number.isFinite(t)?Math.min(1,Math.max(0,t)):0;
++  return {x:a.x+(b.x-a.x)*p,y:a.y+(b.y-a.y)*p,scale:a.scale+(b.scale-a.scale)*p};
++}
++module.exports = {SOURCE_WIDTH, SOURCE_HEIGHT, MIN_SCALE, MAX_SCALE, clampScale, fitContain,fitCover,boundCamera,zoomAt,perimeter,interpolate};
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\utils\\presentation.js" "b/D:\\cat-mouse-miniprogram\\utils\\presentation.js"
+index 953d323..cbfbd30 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\utils\\presentation.js"
++++ "b/D:\\cat-mouse-miniprogram\\utils\\presentation.js"
+@@ -15,7 +15,7 @@ function project(s,offline=false) {
+   const scenes={hiding:'hiding-scene',paused:'paused-scene',offline:'offline-hero',catWin:'catwin-hero',mouseWin:'mousewin-hero',cancelled:'cancelled-hero'};
+   const art=scenes[state]?'/assets/pixel-v1/'+scenes[state]+'.png':'';
+   // The uncalibrated v3 artwork is a public guide, never a geographic overlay.
+-  return {uiState:state,parkArt:'/assets/maps/xuanwu-lake-v3.png',stateArt:art,roleArt:'/assets/pixel-v1/role-'+(m.myRole==='cat'?'cat':'mouse')+'.png',terminal,canScan:live&&m.myRole==='cat',canShowCode:live&&m.myRole==='mouse',canResume:!offline&&m.phase==='PAUSED'&&!!s.owner,canReplay:!offline&&terminal&&!!s.owner,initialMice:mice,resultSummary:terminal&&m.phase!=='CANCELLED'?'捕获 '+m.captured+' / '+mice+' 人'+(m.outcome==='mouse_win'?'，未达目标':''):'这局记录保留，下一轮使用新的对局',cats:roster.filter(p=>p.role==='cat'),mice:roster.filter(p=>p.role==='mouse')};
++  return {uiState:state,parkArt:'/assets/maps/xuanwu-lake-v4.jpg',stateArt:art,roleArt:'/assets/pixel-v1/role-'+(m.myRole==='cat'?'cat':'mouse')+'.png',terminal,canScan:live&&m.myRole==='cat',canShowCode:live&&m.myRole==='mouse',canResume:!offline&&m.phase==='PAUSED'&&!!s.owner,canReplay:!offline&&terminal&&!!s.owner,initialMice:mice,resultSummary:terminal&&m.phase!=='CANCELLED'?'捕获 '+m.captured+' / '+mice+' 人'+(m.outcome==='mouse_win'?'，未达目标':''):'这局记录保留，下一轮使用新的对局',cats:roster.filter(p=>p.role==='cat'),mice:roster.filter(p=>p.role==='mouse')};
+ }
+ function eventTime(at) {
+   if(!Number.isFinite(at))return '—';
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\pages\\venue\\venue.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxml"
+index fbb2b85..56e5f91 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\pages\\venue\\venue.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxml"
+@@ -5,6 +5,6 @@
+     <button class="venueBack" bindtap="goBack" aria-label="返回上一页">‹ 返回</button>
+   </view>
+   <view class="venueFrame">
+-    <venue-art class="venueArt" src="{{venueSource}}" source-width="1154" source-height="1363" layout-key="{{layoutKey}}" />
++    <venue-art class="venueArt" src="{{venueSource}}"  layout-key="{{layoutKey}}" />
+   </view>
+ </view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\pages\\room\\room.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml"
+index 0e18a1e..e810212 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\pages\\room\\room.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml"
+@@ -11,7 +11,7 @@
+     </view>
+     <view class="paperFrame venueCard">
+       <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重新确认位置':'使用当前位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
+-      <view class="venueGuide"><image class="venueGuideImage" src="/assets/maps/xuanwu-lake-v3.png" mode="aspectFit" aria-label="玄武湖环洲与樱洲场地导览" /><text class="guideCaption">玄武湖 · 场地导览</text><text class="guideFootnote">示意图不代表定位结果</text></view>
++      <view class="venueGuide"><image class="venueGuideImage" src="/assets/maps/xuanwu-lake-v4.jpg" mode="aspectFit" aria-label="玄武湖环洲与樱洲场地导览" /><text class="guideCaption">玄武湖 · 场地导览</text><text class="guideFootnote">示意图不代表定位结果</text></view>
+     </view>
+     <view class="paperFrame rulesCard"><text class="sectionLabel">规则摘要</text><view class="rulesGrid"><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">30秒</text><text class="ruleLabel">躲藏时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">6分钟</text><text class="ruleLabel">追逐时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">抓满{{targetCount}}人</text><text class="ruleLabel">猫获胜</text></view></view><view class="rulesNote"><text class="noteMark" aria-hidden="true">!</text><text>倒计时结束未达标时，鼠获胜</text></view></view>
+     <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" /></view>
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\scripts\\package-release.ps1" "b/D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1"
+index e168c52..7b478c5 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\scripts\\package-release.ps1"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1"
+@@ -27,7 +27,7 @@ New-Item -ItemType Directory -Path $miniStage,$serverStage -Force | Out-Null
+ 
+ try {
+   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
+-  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue')
++  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue')
+   foreach ($item in $miniFiles) {
+     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
+       throw "Required miniprogram source is missing: $item"
+@@ -38,6 +38,8 @@ try {
+   }
+   # The licensed subset is already embedded in pixel-font.wxss. Keep its source
+   # in the repository, not duplicated in the mobile upload package.
++  $oldMap = Join-Path $miniStage 'assets\maps\xuanwu-lake-v3.png'
++  if (Test-Path -LiteralPath $oldMap) { Remove-Item -LiteralPath $oldMap -Force }
+   $embeddedFontSource = Join-Path $miniStage 'assets\pixel-v1\ui-variable.woff'
+   if (Test-Path -LiteralPath $embeddedFontSource) { Remove-Item -LiteralPath $embeddedFontSource -Force }
+   # Keep unused reference slices in the source library, not in the shipped UI.
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\scripts\\pixel-ui-review.cjs" "b/D:\\cat-mouse-miniprogram\\scripts\\pixel-ui-review.cjs"
+index d9df711..af8d5ac 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\scripts\\pixel-ui-review.cjs"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\pixel-ui-review.cjs"
+@@ -1,5 +1,6 @@
+ 'use strict';
+ const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
++const mapConfig=require('../utils/venue-art-config');
+ const automator=require('../cat-mouse-server/node_modules/miniprogram-automator');
+ const screenshot=require('./wechat-screenshot.cjs');
+ const out=path.resolve(process.argv[2]),mode=process.argv[3]||'normal',selected=process.argv[4]||'all';
+@@ -51,10 +52,10 @@ async function inspect(item){
+  for(const a of actions){assert.equal(a.failed,false,'skin load failed '+a.skin);assert.ok(a.button.height>=43,'minimum action height');assert.ok(a.button.left>=-2&&a.button.right<=page.width+2,'action horizontal overflow '+a.label);if(a.image)assert.ok(Math.abs((a.image.width/a.image.height)/(a.width/a.height)-1)<.015,'button art distorted '+a.label);}
+  
+  if(c){
+-  assert.equal(c.src,'/assets/maps/xuanwu-lake-v3.png');assert.equal(c.imageState,'ready');assert.equal(c.fitReady,true);
+-  assert.ok(Math.abs(c.width/c.height-1154/1363)<.002,'intrinsic ratio');
++  assert.equal(c.src,mapConfig.src);assert.equal(c.imageState,'ready');assert.equal(c.fitReady,true);
++  assert.ok(Math.abs(c.width/c.height-mapConfig.width/mapConfig.height)<.002,'intrinsic ratio');
+   const v=c.boxes['.venueViewport'][0],i=c.boxes['.venueImage'][0];assert.ok(v.width>0&&v.height>0);
+-  assert.ok(i.left>=v.left-1&&i.right<=v.right+1&&i.top>=v.top-1&&i.bottom<=v.bottom+1,'complete art must fit viewport');
++  assert.ok(i.left<=v.left+1&&i.right>=v.right-1&&i.top<=v.top+1&&i.bottom>=v.bottom-1,'immersive image must cover the viewport without bands');
+   for(const b of c.boxes['.venueControl'])assert.ok(b.width>=40&&b.height>=40&&b.right<=page.width+1,'map controls must stay usable');
+  }
+  const canvas=page.boxes['.mapCanvas'][0],panel=page.boxes['.bottomPanel'][0];
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\cat-mouse-server\\v2\\venue-ui.test.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\venue-ui.test.js"
+index fe67e23..9de49a8 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\cat-mouse-server\\v2\\venue-ui.test.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\venue-ui.test.js"
+@@ -5,37 +5,18 @@ const root=path.resolve(__dirname,'../..');
+ const read=name=>fs.readFileSync(path.join(root,name),'utf8');
+ const plain=value=>JSON.parse(JSON.stringify(value));
+ const camera=require('../../utils/venue-camera');
+-const asset='/assets/maps/xuanwu-lake-v3.png';
+-
+-function componentFixture(overrides={}) {
+-  let definition;
+-  const ticks=[],queries=[],writes=[];
+-  const forbidden=name=>()=>{throw Error('unexpected component side effect: '+name);};
+-  const wx=new Proxy({nextTick:fn=>ticks.push(fn)},{get:(target,key)=>key in target?target[key]:forbidden(String(key))});
+-  vm.runInNewContext(read('components/venue-art/venue-art.js'),{
+-    Component:value=>definition=value,wx,
+-    require:name=>{assert.equal(name,'../../utils/venue-camera');return camera;},
+-    setTimeout:forbidden('setTimeout'),setInterval:forbidden('setInterval'),
+-    clearTimeout:forbidden('clearTimeout'),clearInterval:forbidden('clearInterval')
+-  });
+-  const defaults=Object.fromEntries(Object.entries(definition.properties).map(([key,value])=>[key,value.value]));
+-  const instance={...definition.methods,data:{...defaults,...plain(definition.data),...overrides}};
+-  instance.setData=patch=>{writes.push(plain(patch));Object.assign(instance.data,patch);};
+-  instance.createSelectorQuery=()=>({
+-    select(selector){assert.equal(selector,'.venueViewport');return this;},
+-    boundingClientRect(callback){queries.push(callback);return this;},
+-    exec(){}
+-  });
+-  const flush=()=>{while(ticks.length)ticks.shift()();};
+-  const attach=()=>definition.lifetimes.attached.call(instance);
+-  const detach=()=>definition.lifetimes.detached.call(instance);
+-  const imageEvent=(generation=instance._imageSerial)=>({currentTarget:{dataset:{generation}}});
+-  const cameraEvent=(detail={},serial=instance._cameraSerial)=>({detail,currentTarget:{dataset:{camera:serial}}});
+-  const measure=(width=390,height=600)=>{flush();assert.ok(queries.length,'a viewport query must be scheduled');queries.shift()({width,height});};
+-  const ready=()=>{attach();measure();instance.onImageLoad(imageEvent());};
+-  return {definition,instance,ticks,queries,writes,flush,attach,detach,imageEvent,cameraEvent,measure,ready};
++const config=require('../../utils/venue-art-config');
++const asset=config.src;
++
++function componentFixture(overrides={}){
++ let definition,now=0,id=0;const ticks=[],queries=[],writes=[],timers=new Map(),animations=[];
++ const wx={nextTick:fn=>ticks.push(fn),createAnimation:options=>{const a={ops:[],translate3d(x,y,z){this.ops.push(['translate',x,y,z]);return this;},scale(s){this.ops.push(['scale',s]);return this;},step(){return this;},export(){const data={options,ops:this.ops};animations.push(plain(data));return data;}};return a;}};
++ vm.runInNewContext(read('components/venue-art/venue-art.js'),{Component:d=>definition=d,wx,Date:{now:()=>now},require:n=>n.includes('venue-camera')?camera:config,setTimeout:(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;},clearTimeout:key=>timers.delete(key)});
++ const defaults=Object.fromEntries(Object.entries(definition.properties).map(([k,v])=>[k,v.value]));const instance={...definition.methods,data:{...defaults,...plain(definition.data),autoTour:false,...overrides}};
++ instance.setData=p=>{writes.push(plain(p));Object.assign(instance.data,p);};instance.createSelectorQuery=()=>({select:s=>{assert.equal(s,'.venueViewport');return {boundingClientRect:cb=>{queries.push(cb);return {exec(){}};}};}});
++ const flush=()=>{while(ticks.length)ticks.shift()();};const measure=(width=390,height=600)=>{flush();assert.ok(queries.length);queries.shift()({width,height,left:0,top:0});};const attach=()=>definition.lifetimes.attached.call(instance),detach=()=>definition.lifetimes.detached.call(instance);const imageEvent=(generation=instance._imageSerial)=>({currentTarget:{dataset:{generation}}});const ready=()=>{attach();measure();instance.onImageLoad(imageEvent());flush();};const setNow=n=>now=n;const advance=ms=>{now+=ms;const due=[...timers].filter(([,t])=>t.at<=now);for(const [key,t]of due){timers.delete(key);t.fn();}};
++ return {definition,instance,ticks,queries,writes,timers,animations,flush,measure,attach,detach,imageEvent,ready,setNow,advance};
+ }
+-
+ function pageFixture(name,overrides={}) {
+   let page;
+   const effects=[];
+@@ -54,145 +35,21 @@ function pageFixture(name,overrides={}) {
+   return {page,effects,writes};
+ }
+ 
+-for(const [label,width,height] of [
+-  ['390 px portrait',390,640],['320 px narrow',320,489],
+-  ['large text residual viewport',320,280],['tablet',1024,1180],
+-  ['landscape',844,240],['tall display',390,1600],['source size',1154,1363]
+-]) test('venue contain preserves every edge at '+label,()=>{
+-  const fit=camera.fitContain(width,height);
+-  assert.equal(fit.valid,true);assert.equal(fit.scale,1);
+-  assert.ok(Math.abs(fit.width/fit.height-1154/1363)<1e-12);
+-  assert.ok(fit.x>=0&&fit.y>=0);
+-  assert.ok(fit.x+fit.width<=width+1e-9&&fit.y+fit.height<=height+1e-9);
+-  assert.ok(Math.abs(fit.x-(width-fit.width)/2)<1e-9);
+-  assert.ok(Math.abs(fit.y-(height-fit.height)/2)<1e-9);
+-  assert.ok(Math.abs(fit.width-width)<1e-9||Math.abs(fit.height-height)<1e-9);
+-});
+-
+-test('venue contain rejects nonfinite, nonnumeric, empty and underflow dimensions',()=>{
+-  for(const value of [0,-1,NaN,Infinity,-Infinity,null,'390',undefined]){
+-    const dimensions=[390,640,1154,1363];
+-    for(const index of [0,1,2,3]){
+-      if(value===undefined&&index>=2)continue; // Source defaults intentionally accept omitted values.
+-      const args=[...dimensions];args[index]=value;
+-      const fit=camera.fitContain(...args);
+-      assert.deepEqual(fit,{valid:false,width:0,height:0,x:0,y:0,scale:1});
+-    }
+-  }
+-  assert.equal(camera.fitContain(Number.MIN_VALUE,1,Number.MAX_VALUE,1363).valid,false);
+-  const changed=camera.fitContain(320,600,400,200);
+-  assert.equal(changed.width,320);assert.equal(changed.height,160);
+-});
+-
+-test('venue scale is finite and bounded independently of gesture input',()=>{
+-  for(const value of [NaN,Infinity,-Infinity,undefined,null,'2',{},false])assert.equal(camera.clampScale(value),1);
+-  for(const [value,expected] of [[-50,1],[0,1],[1,1],[1.25,1.25],[2.999,2.999],[3,3],[400,3]])assert.equal(camera.clampScale(value),expected);
+-});
+-
+-test('native venue component starts centered at uniform contain with a loading image',()=>{
+-  const f=componentFixture();f.attach();
+-  assert.equal(f.instance.data.imageState,'loading');assert.equal(f.instance.data.fitReady,false);
+-  f.measure(320,489);
+-  const expected=camera.fitContain(320,489);
+-  for(const [key,value] of Object.entries({fitWidth:expected.width,fitHeight:expected.height,x:expected.x,y:expected.y,scaleValue:1}))assert.equal(f.instance.data[key],value,key);
+-  assert.equal(f.instance.data.fitReady,true);assert.equal(f.instance.data.cameraNodes.length,1);assert.equal(f.instance.data.imageNodes.length,1);
+-  f.instance.onImageLoad(f.imageEvent());assert.equal(f.instance.data.imageState,'ready');
+-});
+-
+-test('native zoom buttons require loaded artwork and stop at 1x and 3x',()=>{
+-  const f=componentFixture();f.attach();f.measure();
+-  f.instance.zoomIn();assert.equal(f.instance.data.scaleValue,1);
+-  f.instance.onImageLoad(f.imageEvent());
+-  f.instance.zoomIn();assert.equal(f.instance.data.scaleValue,1.25);assert.equal(f.instance.data.zoomLabel,'1.25×');
+-  for(let i=0;i<20;i++)f.instance.zoomIn();
+-  assert.equal(f.instance.data.scaleValue,3);assert.equal(f.instance.data.canZoomIn,false);assert.equal(f.instance.data.canZoomOut,true);
+-  for(let i=0;i<20;i++)f.instance.zoomOut();
+-  assert.equal(f.instance.data.scaleValue,1);assert.equal(f.instance.data.canZoomOut,false);assert.equal(f.instance.data.canZoomIn,true);
+-});
+-
+-test('gesture frames remain native and commit a single finite camera patch on release',()=>{
+-  const f=componentFixture();f.ready();const before=f.writes.length;
+-  for(let i=0;i<200;i++)f.instance.onScale(f.cameraEvent({x:-i/2,y:-i,scale:1+i/100}));
+-  f.instance.onMove(f.cameraEvent({x:-99,y:-120}));
+-  assert.equal(f.writes.length,before,'gesture frames must not cross the setData bridge');
+-  f.instance.onGestureEnd(f.cameraEvent());assert.equal(f.writes.length,before);
+-  f.flush();assert.equal(f.writes.length,before+1);
+-  assert.equal(f.instance.data.x,-99);assert.equal(f.instance.data.y,-120);assert.equal(f.instance.data.scaleValue,2.99);assert.equal(f.instance.data.zoomLabel,'2.99×');
+-  f.instance.onScale(f.cameraEvent({x:NaN,y:Infinity,scale:Infinity}));
+-  f.instance.onGestureEnd(f.cameraEvent());f.flush();assert.equal(f.writes.length,before+1);
+-});
+-
+-test('reset recreates the native camera and ignores old gesture generation',()=>{
+-  const f=componentFixture();f.ready();const old=f.instance._cameraSerial;
+-  f.instance.onScale(f.cameraEvent({x:-60,y:-70,scale:2}));f.instance.onGestureEnd(f.cameraEvent());f.flush();
+-  f.instance.reset();const expected=camera.fitContain(390,600);
+-  assert.ok(f.instance._cameraSerial>old);assert.equal(f.instance.data.scaleValue,1);
+-  assert.equal(f.instance.data.x,expected.x);assert.equal(f.instance.data.y,expected.y);
+-  const before=f.writes.length;
+-  f.instance.onMove(f.cameraEvent({x:-800,y:-900},old));f.instance.onScale(f.cameraEvent({scale:3},old));f.instance.onGestureEnd(f.cameraEvent({},old));f.flush();
+-  assert.equal(f.writes.length,before);assert.equal(f.instance.data.scaleValue,1);
+-});
+-
+-test('viewport, compact and large font layout keys remeasure rather than crop',()=>{
+-  const f=componentFixture();f.ready();f.instance.zoomIn();
+-  Object.assign(f.instance.data,{layoutKey:'320:693:1.3:87:34',compact:true});
+-  f.definition.observers['layoutKey, compact, sourceWidth, sourceHeight'].call(f.instance);
+-  f.measure(296,250);
+-  const fit=camera.fitContain(296,250);
+-  assert.equal(f.instance.data.fitWidth,fit.width);assert.equal(f.instance.data.fitHeight,fit.height);
+-  assert.equal(f.instance.data.scaleValue,1);assert.equal(f.instance.data.y,fit.y);assert.equal(f.instance.data.x,fit.x);
+-});
+-
+-test('latest viewport query wins and an invalid viewport never publishes NaN geometry',()=>{
+-  const f=componentFixture();f.attach();f.flush();const stale=f.queries.shift();
+-  f.definition.observers['layoutKey, compact, sourceWidth, sourceHeight'].call(f.instance);f.flush();
+-  f.queries.shift()({width:320,height:400});const before=f.writes.length;
+-  stale({width:999,height:999});assert.equal(f.writes.length,before);
+-  assert.equal(f.instance.data.fitWidth,camera.fitContain(320,400).width);
+-  f.instance._scheduleFit();f.flush();f.queries.shift()({width:0,height:NaN});
+-  assert.equal(f.instance.data.fitReady,false);assert.deepEqual(plain(f.instance.data.cameraNodes),[]);
+-  for(const key of ['fitWidth','fitHeight','x','y','scaleValue'])assert.ok(Number.isFinite(f.instance.data[key]),key);
+-});
+-
+-test('image error retry remains local and rejects stale image callbacks',()=>{
+-  const f=componentFixture();f.ready();const old=f.instance._imageSerial;
+-  f.instance.onImageError(f.imageEvent());assert.equal(f.instance.data.imageState,'error');
+-  f.instance.retry();assert.equal(f.instance.data.imageState,'loading');assert.ok(f.instance._imageSerial>old);
+-  f.instance.onImageLoad(f.imageEvent(old));assert.equal(f.instance.data.imageState,'loading');
+-  f.measure();f.instance.onImageLoad(f.imageEvent());assert.equal(f.instance.data.imageState,'ready');
+-  const before=f.writes.length;f.instance.onImageError(f.imageEvent(old));assert.equal(f.writes.length,before);
+-  f.instance.data.src='';f.definition.observers.src.call(f.instance);f.flush();
+-  assert.equal(f.instance.data.imageState,'error');assert.deepEqual(plain(f.instance.data.imageNodes),[]);
+-});
+-
+-test('detach suppresses pending tick, selector, image, gesture and button writes',()=>{
+-  const f=componentFixture();f.ready();
+-  f.instance._scheduleFit();f.flush();const late=f.queries.shift();
+-  const img=f.imageEvent(),gesture=f.cameraEvent({x:-100,scale:2});
+-  f.instance.onGestureEnd(gesture);f.instance.retry();
+-  f.detach();const before=f.writes.length;
+-  late({width:320,height:400});f.flush();
+-  f.instance.onImageLoad(img);f.instance.onImageError(img);f.instance.onMove(gesture);f.instance.onScale(gesture);f.instance.onGestureEnd(gesture);
+-  f.instance.zoomIn();f.instance.zoomOut();f.instance.reset();f.instance.retry();f.flush();
+-  assert.equal(f.writes.length,before);assert.equal(f.queries.length,0);
+-});
+-
+-test('venue viewer has only display properties and native aspect-fit pan/zoom',()=>{
+-  const f=componentFixture();
+-  assert.deepEqual(Object.keys(f.definition.properties).sort(),['compact','layoutKey','sourceHeight','sourceWidth','src']);
+-  assert.equal(f.instance.data.src,asset);assert.equal(f.instance.data.sourceWidth,1154);assert.equal(f.instance.data.sourceHeight,1363);
+-  const w=read('components/venue-art/venue-art.wxml'),css=read('components/venue-art/venue-art.wxss');
+-  assert.match(w,/<movable-area\b/);assert.match(w,/<movable-view\b[^>]*direction="all"[^>]*scale="{{true}}"/);
+-  assert.match(w,/mode="aspectFit"/);assert.doesNotMatch(w,/scaleToFill|aspectFill|markers=|circles=|latitude=|longitude=/);
+-  assert.doesNotMatch(css,/scale[XY]\s*\(|object-fit\s*:\s*cover/);
+-  assert.match(w,/OpenStreetMap contributors/);assert.match(w,/非实时定位/);
+-  assert.match(css,/min-height:44px/);assert.match(css,/\.venueFooter\{flex:none/);
+-  for(const file of ['components/venue-art/venue-art.js','pages/venue/venue.js','utils/venue-camera.js']){
+-    const code=read(file);
+-    assert.doesNotMatch(code,/getLocation|startLocationUpdate|onLocationChange|connectSocket|\brequest\s*\(|StorageSync|setInterval|setTimeout|location-v2|utils\/v2|visiblePositions|\bintel\b/ ,file);
+-  }
+-});
+ 
++for(const [w,h]of [[390,640],[320,489],[320,280],[1024,1180],[844,240],[390,1600],[1254,1254]])test('immersive cover fills viewport uniformly '+w+'x'+h,()=>{const fit=camera.fitCover(w,h,config.width,config.height);assert.ok(fit.valid);assert.ok(fit.width>=w-1e-9&&fit.height>=h-1e-9);assert.ok(Math.abs(fit.width/fit.height-config.width/config.height)<1e-12);assert.ok(fit.x<=0&&fit.y<=0);for(const p of camera.perimeter(w,h,fit.width,fit.height)){assert.ok(p.x<=0&&p.y<=0);assert.ok(p.x+fit.width*p.scale>=w-1e-9);assert.ok(p.y+fit.height*p.scale>=h-1e-9);}});
++test('cover rejects invalid sizes and camera never publishes nonfinite values',()=>{for(const v of [0,-1,NaN,Infinity,'390',null])assert.equal(camera.fitCover(v,600).valid,false);assert.deepEqual(camera.boundCamera(0,1,1,1),{x:0,y:0,scale:1});const c=camera.boundCamera(320,240,320,320,{x:Infinity,y:NaN,scale:Infinity});assert.ok(Object.values(c).every(Number.isFinite));});
++test('camera scale is bounded to1–4 and pinch preserves its focal point before edge clamping',()=>{assert.equal(camera.clampScale(99),4);assert.equal(camera.clampScale(NaN),1);const c={x:-100,y:-100,scale:2},z=camera.zoomAt(c,3,150,150,300,300,300,300);assert.equal((150-z.x)/z.scale,(150-c.x)/c.scale);assert.equal((150-z.y)/z.scale,(150-c.y)/c.scale);});
++test('single image starts in cover instead of letterboxed contain',()=>{const f=componentFixture();f.ready();const fit=camera.fitCover(390,600,config.width,config.height);assert.equal(f.instance.data.fitWidth,fit.width);assert.equal(f.instance.data.fitHeight,fit.height);assert.equal(f.instance.data.imageNodes.length,1);assert.equal(f.instance.data.imageState,'ready');});
++test('automatic tour uses one native animation per leg and exactly one timer',()=>{const f=componentFixture({autoTour:true});f.ready();assert.equal(f.instance.data.mode,'auto');assert.equal(f.instance.data.showControls,false);assert.equal(f.timers.size,1);const first=f.instance._segment.to;f.advance(7500);assert.equal(f.timers.size,1);assert.notDeepEqual(plain(f.instance._segment.to),plain(first));assert.equal(f.animations.at(-1).options.duration,7500);for(let i=0;i<9;i++){f.advance(7500);assert.equal(f.timers.size,1);}});
++test('touch immediately freezes interpolated auto position and permanently hands over until explicit resume',()=>{const f=componentFixture({autoTour:true});f.ready();f.setNow(3750);const expected=f.instance._sample();f.instance.onTouchStart({touches:[{clientX:150,clientY:150}]});assert.equal(f.timers.size,0);assert.equal(f.instance.data.mode,'manual');assert.equal(f.instance.data.showControls,true);assert.ok(Math.abs(f.instance.data.x-expected.x)<.001);f.instance.onTouchEnd({touches:[]});f.advance(20000);assert.equal(f.timers.size,0);f.instance.resumeTour();f.flush();assert.equal(f.timers.size,1);});
++test('manual pan clamps edges without blank strips and throttles move paints',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();f.instance.onTouchStart({touches:[{clientX:180,clientY:300}]});const before=f.writes.length;for(let i=0;i<100;i++)f.instance.onTouchMove({touches:[{clientX:180-i*3,clientY:300-i*3}]});assert.ok(f.writes.length-before<10);f.instance.onTouchEnd({touches:[]});const c=f.instance._camera;assert.ok(c.x<=0&&c.y<=0);assert.ok(c.x+f.instance.data.fitWidth*c.scale>=390);assert.ok(c.y+f.instance.data.fitHeight*c.scale>=600);assert.equal(f.instance._gesture,null);});
++test('two finger pinch changes uniform scale and ends cleanly',()=>{const f=componentFixture();f.ready();f.instance.onTouchStart({touches:[{clientX:140,clientY:300},{clientX:240,clientY:300}]});f.instance.onTouchMove({touches:[{clientX:90,clientY:300},{clientX:290,clientY:300}]});f.instance.onTouchEnd({touches:[]});assert.equal(f.instance.data.scaleValue,2);assert.equal(f.instance.data.mode,'manual');});
++test('invalid touches and zero-distance pinch do not publish NaN',()=>{const f=componentFixture();f.ready();f.instance.onTouchStart({touches:[{clientX:NaN,clientY:2}]});assert.equal(f.instance._gesture,null);f.instance.onTouchStart({touches:[{clientX:2,clientY:2},{clientX:2,clientY:2}]});f.instance.onTouchMove({touches:[{clientX:9,clientY:2},{clientX:20,clientY:2}]});assert.ok([f.instance.data.x,f.instance.data.y,f.instance.data.scaleValue].every(Number.isFinite));});
++test('reset stays full-bleed at1x and unchanged layout retains manual zoom',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();const scale=f.instance.data.scaleValue;f.instance.remeasure();f.measure();assert.equal(f.instance.data.scaleValue,scale);f.instance.reset();assert.equal(f.instance.data.scaleValue,1);assert.equal(f.instance.data.x,camera.fitCover(390,600,config.width,config.height).x);});
++test('manual focal position survives viewport change and invalid viewport stops animation',()=>{const f=componentFixture();f.ready();f.instance.zoomIn();f.instance.remeasure();f.measure(320,280);assert.equal(f.instance.data.scaleValue,1.25);assert.ok(f.instance.data.fitWidth>=320&&f.instance.data.fitHeight>=280);f.instance.remeasure();f.measure(0,0);assert.equal(f.instance.data.fitReady,false);assert.equal(f.timers.size,0);});
++test('latest query wins; stale image callback and retry do not resurrect old assets',()=>{const f=componentFixture();f.attach();f.flush();const stale=f.queries.shift();f.instance.remeasure();f.measure(320,400);const before=f.writes.length;stale({width:999,height:999});assert.equal(f.writes.length,before);f.instance.onImageLoad(f.imageEvent());const old=f.instance._imageSerial;f.instance.onImageError(f.imageEvent());f.instance.retry();f.instance.onImageLoad(f.imageEvent(old));assert.equal(f.instance.data.imageState,'loading');f.measure();f.instance.onImageLoad(f.imageEvent());assert.equal(f.instance.data.imageState,'ready');});
++test('page hide suspends tour, show resumes only untouched auto, detach cancels timer and late writes',()=>{const f=componentFixture({autoTour:true});f.ready();const timer=[...f.timers.values()][0].fn;f.definition.pageLifetimes.hide.call(f.instance);assert.equal(f.timers.size,0);f.definition.pageLifetimes.show.call(f.instance);f.flush();assert.equal(f.timers.size,1);f.instance.onTouchStart({touches:[{clientX:5,clientY:5}]});f.definition.pageLifetimes.hide.call(f.instance);f.definition.pageLifetimes.show.call(f.instance);assert.equal(f.timers.size,0);f.detach();const before=f.writes.length;timer();f.flush();f.instance.onImageLoad(f.imageEvent());f.instance.zoomIn();f.instance.onTouchEnd({touches:[]});assert.equal(f.writes.length,before);});
++test('viewer is a single image with no footer band, no geographic input and no network sampling',()=>{const f=componentFixture();assert.deepEqual(Object.keys(f.definition.properties).sort(),['autoTour','compact','layoutKey','sourceHeight','sourceWidth','src']);const w=read('components/venue-art/venue-art.wxml'),css=read('components/venue-art/venue-art.wxss');assert.equal((w.match(/<image\b/g)||[]).length,1);assert.doesNotMatch(w,/movable-area|venueFooter|markers=|latitude=|longitude=/);assert.match(w,/catchtouchmove="onTouchMove"/);assert.match(w,/animation="{{imageAnimation}}"/);assert.doesNotMatch(css,/scale[XY]\s*\(/);for(const file of ['components/venue-art/venue-art.js','pages/venue/venue.js'])assert.doesNotMatch(read(file),/getLocation|connectSocket|\brequest\s*\(|StorageSync|setInterval/);});
+ test('public guide is registered and refreshes real layout without joining a game',()=>{
+   const app=JSON.parse(read('app.json'));assert.ok(app.pages.includes('pages/venue/venue'));
+   const config=JSON.parse(read('pages/venue/venue.json'));
+@@ -279,7 +136,7 @@ test('production snapshot renders only server-visible positions and server intel
+   assert.equal(f.page.data.latitude,32.0711);assert.equal(f.page.data.longitude,118.7922);assert.deepEqual(location,['stop']);assert.deepEqual(f.effects,[]);
+ });
+ 
+-test('every presentation state points to the shared v3 venue art without changing action gates',()=>{
++test('every presentation state points to the active uncalibrated venue artwork without changing action gates',()=>{
+   const {project}=require('../../utils/presentation');
+   for(const phase of ['HIDING','CHASING','PAUSED','FINISHED','CANCELLED'])for(const role of ['cat','mouse'])for(const offline of [false,true]){
+     const result=project({owner:true,match:{phase,myRole:role,myStatus:'active'},roster:[]},offline);
+@@ -295,7 +152,7 @@ test('packaged venue PNG and unchanged approved source match independently recor
+   const approved=JSON.parse(read('design/maps/xuanwu-lake/huanzhou-yingzhou-v3/manifest.json'));
+   const source=fs.readFileSync(path.join(root,manifest.source)),runtime=fs.readFileSync(path.join(root,manifest.path));
+   const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+-  assert.equal(manifest.path,asset.slice(1));
++  assert.equal(manifest.path,'assets/maps/xuanwu-lake-v3.png');
+   assert.equal(manifest.source,'design/maps/xuanwu-lake/huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png');
+   assert.equal(hash(source),'c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6');
+   assert.equal(hash(source),approved.output_sha256);assert.equal(hash(source),manifest.sourceSha256);
+@@ -323,9 +180,9 @@ test('venue runtime has explicit no-georeferencing metadata and no invented cali
+ });
+ 
+ 
+-test('parent asynchronous layout change remeasures the viewport and ignores detached notifications',()=>{
+- const f=componentFixture();f.ready();f.instance.remeasure();f.measure(364,312);assert.ok(Math.abs(f.instance.data.fitHeight-312)<.001);assert.ok(Math.abs(f.instance.data.fitWidth/f.instance.data.fitHeight-1154/1363)<.001);f.detach();const n=f.ticks.length;f.instance.remeasure();assert.equal(f.ticks.length,n);
+-});
+ 
+ 
+-test('unrelated loaded controls do not reset zoom when the venue viewport is unchanged',()=>{const f=componentFixture();f.ready();const serial=f.instance._cameraSerial;f.instance._camera.scale=1.5;f.instance.data.scaleValue=1.5;f.instance.remeasure();f.measure();assert.equal(f.instance._cameraSerial,serial);assert.equal(f.instance.data.scaleValue,1.5);});
++test('generated square map and packaged JPEG are independently locked without inventing calibration',()=>{const m=JSON.parse(read('design/maps/xuanwu-lake/immersive-v4/manifest.json')),hash=b=>crypto.createHash('sha256').update(b).digest('hex');assert.equal(m.width,1254);assert.equal(m.height,1254);assert.equal(m.georeferenced,false);assert.equal(m.geographicOverlay,false);assert.equal(hash(fs.readFileSync(path.join(root,m.source))),'8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6');assert.equal(hash(fs.readFileSync(path.join(root,m.path))),m.sha256);assert.equal(config.src,'/'+m.path);assert.equal(config.width,m.width);assert.equal(config.height,m.height);assert.ok(m.bytes<950000);});
++
++
++test('touch before the deferred first tour leg prevents that stale leg from starting',()=>{const f=componentFixture({autoTour:true});f.attach();f.measure();f.instance.onImageLoad(f.imageEvent());f.instance.onTouchStart({touches:[{clientX:10,clientY:10}]});f.flush();assert.equal(f.timers.size,0);assert.equal(f.instance.data.mode,'manual');});
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\cat-mouse-server\\v2\\pixel-ui.test.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\pixel-ui.test.js"
+index 19f2aa0..1581f49 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\cat-mouse-server\\v2\\pixel-ui.test.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\pixel-ui.test.js"
+@@ -227,14 +227,14 @@ test('all 65 runtime PNGs match locked bytes, dimensions and actual PLTE palette
+   assert.equal(total,m.budget.pngBytes);assert.ok(total<=m.budget.pngLimitBytes);assert.equal(m.budget.pngWithinBudget,true);
+ });
+ 
+-test('pixel asset extraction excludes map slices and keeps the separate unregistered full v3 map',()=>{
++test('pixel asset extraction excludes map slices and retains historical v3 lock and uses the separate uncalibrated v4 art',()=>{
+   const m=manifest();assert.equal(m.rules.mapsExtracted,false);
+   for(const item of m.records)assert.doesNotMatch(item.id,/map|stage|geo/i,item.id);
+   const venue=JSON.parse(read('design/maps/xuanwu-lake/runtime-v1/manifest.json'));
+   assert.equal(venue.width,1154);assert.equal(venue.height,1363);assert.equal(venue.georeferenced,false);assert.equal(venue.geographicOverlay,false);
+   assert.equal(sha(bytes(venue.source)),'c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6');assert.equal(sha(bytes(venue.path)),venue.sha256);
+-  assert.equal(require('../../utils/presentation').project({}).parkArt,'/assets/maps/xuanwu-lake-v3.png');
+-  assert.match(read('pages/room/room.wxml'),/src="\/assets\/maps\/xuanwu-lake-v3\.png" mode="aspectFit"/);
++  assert.equal(require('../../utils/presentation').project({}).parkArt,'/assets/maps/xuanwu-lake-v4.jpg');
++  assert.match(read('pages/room/room.wxml'),/src="\/assets\/maps\/xuanwu-lake-v4\.jpg" mode="aspectFit"/);
+   assert.match(read('components/venue-art/venue-art.wxml'),/mode="aspectFit"/);
+ });
+ 
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\cat-mouse-server\\v2\\presentation.test.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js"
+index 95b239f..2935072 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\cat-mouse-server\\v2\\presentation.test.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\presentation.test.js"
+@@ -55,7 +55,7 @@ test('faithful art retains approved source bytes, intrinsic aspect and separate
+ test('map art and event timestamps are display only while authenticated actions remain gated',()=>{
+  const mouse=project(snapshot('CHASING','mouse'));
+  assert.equal(mouse.stateArt,'');assert.match(mouse.roleArt,/pixel-v1\/role-mouse.png$/);
+- const offline=project(snapshot('CHASING','mouse'),true);assert.equal(offline.parkArt,'/assets/maps/xuanwu-lake-v3.png');assert.equal(offline.canShowCode,false);
++ const offline=project(snapshot('CHASING','mouse'),true);assert.equal(offline.parkArt,'/assets/maps/xuanwu-lake-v4.jpg');assert.equal(offline.canShowCode,false);
+  const {eventTime}=require('../../utils/presentation');assert.equal(eventTime(undefined),'—');assert.match(eventTime(1791766800000),/^\d{2}:\d{2}$/);
+  const map=fs.readFileSync(path.join(root,'pages/map/map.wxml'),'utf8');assert.match(map,/event.timeText/);assert.match(map,/取消不计胜负/);
+  assert.match(map,/<venue-art[^>]*wx:if="{{devPreview \|\| artMode}}"/);assert.doesNotMatch(map,/<venue-art[^>]*(?:markers=|circles=|latitude=|longitude=)/);assert.match(map,/class="pauseHero"[^>]*mode="widthFix"/);assert.match(map,/class="resultHero"[^>]*mode="widthFix"/);
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\WORK_LOG.md" "b/D:\\cat-mouse-miniprogram\\WORK_LOG.md"
+index 5f1efbc..4443c01 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\WORK_LOG.md"
++++ "b/D:\\cat-mouse-miniprogram\\WORK_LOG.md"
+@@ -263,3 +263,12 @@
+ ### 大字关闭补验完成
+ - 刷新后MCP只选择组件host会返回成功却不触发内层按钮；未算关闭通过。改用已授权原生SDK在CustomElement内选择.pixelAction并真实tap，断言fontScale=1.3、drawer从true变false；随后独立MCP getData确认false。累计24项断言，证据分段而非单批exit0。
+ - 最新包装120文件/2088251B，WXSS12/WXML9编译0，22项基线已隔离回滚并恢复旧75回归通过。剩余历史删除仍为0新增，原已删248张核对通过。
++
++
++## 2026-10-13 沉浸地图与自动巡游
++- 用户明确改变旧contain总览：要求区域铺满一张放大图、沿四周自动移动、触摸接管缩放移动。旧UI基线20项逐字节保存；baseline79/79。
++- 内置image_gen参考原v3扩绘水面，输出实际1254方图，不冒称2048；原参考SHA不变，生成源2,797,366B保留；运行JPEG804,062B。不把模型扩绘桥端作为实测地理，不叠GPS。
++- 单image无底部大栏，cover等比+均匀scale1–4，自动1.28倍率每角7.5秒一条原生动画，仅1个timer；触摸冻结按当前动画进度采样、永久手动直到显式巡游。单指拖动/双指焦点缩放/边界夹紧，32ms绘制限频；隐藏/销毁清理timer与失效回调。
++- 发现初始化连续两次animation.setData可能合并，首段没有预期位移；用nextTick先提交中心静态帧再启动巡游，增加接管先于延迟首段的竞争回归。
++- 原生SDK与MCP取证：12张正常/大字/窄内容覆盖截图；最终互动9项exit0，自动图像边界实际发生位移、触摸即停、实际单指/双指、停留稳定、居中保持填满、显式恢复、离页。旧contain断言按用户新cover规格替换，保留身份/权限/原图锁验证。
++- 自查：展示相机仅像素坐标，无地理输入；真实map及server规则授权未动；不引入网络采样或定位循环；只有一个巡游timer，手动不会自动恢复；相机无单轴变形、无空条、角色/时间/胜负未被图片接管。真机与艺术图GPS标定仍另列。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\README.md" "b/D:\\cat-mouse-miniprogram\\README.md"
+index 4b44425..151ced5 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\README.md"
++++ "b/D:\\cat-mouse-miniprogram\\README.md"
+@@ -1,5 +1,14 @@
+ # 猫鼠行动 · 试点版 0.2
+ 
++## 2026-10-13 沉浸地图 v4
++
++地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
++
++原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
++
++---
++
++
+ ## 当前增量实现（2026-10-13，pixel-native-final-v2）
+ 
+ 修复：原生组件选择器不再允许空检查通过；按钮从首帧预留原稿尺寸，图片异步加载后地图重测可用空间，不裁边、不拉伸；无尺寸变化时保留缩放。79项自动回归通过；MCP正常/大字/窄内容各17张截图，窄版仍是320×693内容约束而非真机。24项累计预览交互断言已通过，包括原生触摸平移、缩放、错误重试、入房/准备/开始及安全区内的页尾动作。大字关闭最终通过原生子按钮点击和MCP状态读取补验；证据来自分段运行，不冒充单次整批成功。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\RELEASE.md" "b/D:\\cat-mouse-miniprogram\\RELEASE.md"
+index 35abc6f..c0b2aa0 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\RELEASE.md"
++++ "b/D:\\cat-mouse-miniprogram\\RELEASE.md"
+@@ -1,5 +1,14 @@
+ # 试点部署与现场执行（v0.2）
+ 
++## 2026-10-13 沉浸地图 v4
++
++地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
++
++原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
++
++---
++
++
+ ## 当前增量实现（2026-10-13，pixel-native-final-v2）
+ 
+ 修复：原生组件选择器不再允许空检查通过；按钮从首帧预留原稿尺寸，图片异步加载后地图重测可用空间，不裁边、不拉伸；无尺寸变化时保留缩放。79项自动回归通过；MCP正常/大字/窄内容各17张截图，窄版仍是320×693内容约束而非真机。24项累计预览交互断言已通过，包括原生触摸平移、缩放、错误重试、入房/准备/开始及安全区内的页尾动作。大字关闭最终通过原生子按钮点击和MCP状态读取补验；证据来自分段运行，不冒充单次整批成功。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\ART_LOCK.md" "b/D:\\cat-mouse-miniprogram\\ART_LOCK.md"
+index fcff03c..87e5d3a 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\ART_LOCK.md"
++++ "b/D:\\cat-mouse-miniprogram\\ART_LOCK.md"
+@@ -1,3 +1,11 @@
++## 2026-10-13 沉浸地图 v4
++
++地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
++
++原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
++
++---
++
+ ## 2026-10-13 后续验证：pixel-native-final-v2
+ 
+ 素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\DESIGN_BASELINE.md" "b/D:\\cat-mouse-miniprogram\\DESIGN_BASELINE.md"
+index 56ab90d..7c66d0f 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\DESIGN_BASELINE.md"
++++ "b/D:\\cat-mouse-miniprogram\\DESIGN_BASELINE.md"
+@@ -1,3 +1,11 @@
++## 2026-10-13 沉浸地图 v4
++
++地图导览改为单张放大的图片等比cover铺满，不再保留蓝色空条和底部大工具栏。内置生图按v3原稿扩绘湖面，实际生成1254×1254；运行JPEG804062B，原PNG和v3均保留。每7.5秒沿矩形四角缓慢平移，每个完整四周环路约30秒，首次另有中心进入过渡。任意触摸即暂停自动运动，用户可拖动、双指缩放或用小控件1–4倍缩放；放手不自动抢回镜头，只有点“巡游”恢复。隐藏/离页停止计时器，同尺寸布局不扰动手动镜头。
++
++原生IDE已实测自动图像位置变化、触摸打断、单指拖动、双指缩放、停留、居中及恢复9项。此艺术图未地理配准，真实对局继续授权原生map。新证据见reports/2026-10-13/map-immersive-v1/。生图原始提示词及SHA见design/maps/xuanwu-lake/immersive-v4/；源码改动不改变pilot-0.2、身份或胜负。
++
++---
++
+ ## 2026-10-13 后续验证：pixel-native-final-v2
+ 
+ 素材仍沿用pixel-day-native-v1，不更换原稿或65张PNG。最新实现修正原生组件class选择器、按钮预留尺寸和地图异步布局重测；真实客户端仍接原服务端状态。完整回归79/79，正常17、大字17（13+4分段）、窄内容画布17的MCP截图已保存。原生触摸拖动及24项累计交互断言已有证据；大字抽屉关闭已用原生子按钮点击并由MCP读取drawer=false补验。真机、系统大字与地理标定仍待独立验证。最新对照与证据在reports/2026-10-13/pixel-native-final-v2/；下方为首次移植阶段及历史记录。
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\pages\\venue\\venue.js" "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.js"
+index 827eb52..6bd07f2 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\pages\\venue\\venue.js"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.js"
+@@ -7,7 +7,7 @@ function layoutKey(metrics) {
+ Page({
+   data: {
+     navHeight:64, viewportWidth:390, viewportHeight:844, fontScale:1, safeBottom:0,
+-    layoutKey:'', venueSource:'/assets/maps/xuanwu-lake-v3.png'
++    layoutKey:'', venueSource:'/assets/maps/xuanwu-lake-v4.jpg'
+   },
+   onLoad() { this.refreshLayout(); },
+   onShow() { this.refreshLayout(); },
+
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\project.config.json" "b/D:\\cat-mouse-miniprogram\\project.config.json"
+index 4df8f0e..55c3be0 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\map-immersive-v1\\baseline\\project.config.json"
++++ "b/D:\\cat-mouse-miniprogram\\project.config.json"
+@@ -89,6 +89,10 @@
+       {
+         "type": "file",
+         "value": "assets/pixel-v1/rules-icon-capture.png"
++      },
++      {
++        "type": "file",
++        "value": "assets/maps/xuanwu-lake-v3.png"
+       }
+     ],
+     "include": []
+
+NEW utils/venue-art-config.js bytes=128 sha256=dbcf4899d9dbed319b0f2e55d367644da776890677127b41973501d5008df0ea
+
+NEW scripts/map-immersive-review.cjs bytes=4682 sha256=5dea79971ab349d65b70dbafc58eddd40f750ac30ba21664a20a5fb76947884b
+
+NEW scripts/build-immersive-map.cjs bytes=1140 sha256=74e2b50ed0af9b5abea419a38cf598b2a9f6676568c4aeb8b0134239fb3f2728
+
+NEW assets/maps/xuanwu-lake-v4.jpg bytes=804062 sha256=d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540
+
+NEW design/maps/xuanwu-lake/immersive-v4/map-expanded-source.png bytes=2797366 sha256=8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6
+
+NEW design/maps/xuanwu-lake/immersive-v4/manifest.json bytes=2500 sha256=5c8849463a1b11e8d86501bf28a27cd9d96ab08765ec36e0b336f40f4ee7183e
+
+NEW design/maps/xuanwu-lake/immersive-v4/PROMPT.md bytes=2031 sha256=ce45105a32397be3152b4433dd241a7290f52a00c4e6e5a854ff5530f2f65674

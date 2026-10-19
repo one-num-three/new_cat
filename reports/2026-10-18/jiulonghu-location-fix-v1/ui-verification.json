@@ -1,0 +1,85 @@
+{
+  "ready": true,
+  "route": "pages/venue/venue",
+  "mapId": "seu-jiulonghu-v1",
+  "coordinate": "模拟 GCJ-02 31.882368, 118.828049",
+  "message": "OSM参考位置，实地精度待核验",
+  "simulated": true,
+  "imageState": "ready",
+  "image": {
+    "id": "",
+    "dataset": {
+      "generation": 2
+    },
+    "left": -286.0546875,
+    "right": 286.5,
+    "top": 138.931640625,
+    "bottom": 711.486328125,
+    "width": 572.5546875,
+    "height": 572.5546875
+  },
+  "marker": {
+    "id": "",
+    "dataset": {},
+    "left": 181.28125,
+    "right": 229.28125,
+    "top": 537.455078125,
+    "bottom": 585.455078125,
+    "width": 48,
+    "height": 48
+  },
+  "points": [
+    {
+      "id": 0,
+      "x": 491.3133916398798,
+      "y": 441.656294869796,
+      "label": "模拟本人",
+      "tone": "self",
+      "sprite": "/assets/map-markers-v2/self.png",
+      "width": 48,
+      "height": 48,
+      "left": -23.980861244019138,
+      "top": -43.13875598086125,
+      "anchorX": 0.4996012759170654,
+      "anchorY": 0.8987240829346093
+    }
+  ],
+  "fit": [
+    572.5546875,
+    572.5546875
+  ],
+  "camera": [
+    -298.0546875,
+    -86.51366257692456,
+    1
+  ],
+  "window": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "expectedTip": {
+    "x": 205.2587041398798,
+    "y": 580.587935494796
+  },
+  "actualTip": {
+    "x": 205.26211124401914,
+    "y": 580.5938341058612
+  },
+  "tipErrorLogicalPx": 0.006811899229611682,
+  "manuallyInspected": true,
+  "nativeZoomTap": "not accepted: timed out during recompilation",
+  "phoneGpsVerified": false
+}

@@ -1,0 +1,18 @@
+Changed branch: utils/dev-preview.js enabled() now gates on miniProgram.envVersion === 'develop', not the unrelated network transport mode. Page-level preview guards and tests are recorded in WORK_LOG.md.
+Baseline fixture SHA-256: CD20CFF7360882E21A17BAA4D40726A1CA0F91CAEA75BEFB5D6076DFE3A31CC9 (reconstructed from inspected pre-edit source).
+Modified SHA-256: BA0E7D33BE0698DDAB67EEFDFD0558EAE93DDF125B113188D6B8E4BF0016E809. Actual utils/dev-preview.js stays modified.
+
+MODIFIED_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\dev-preview-transaction\MODIFIED_FILE
+DIFF_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\dev-preview-transaction\DIFF_FILE
+VERIFICATION.txt: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\dev-preview-transaction\VERIFICATION.txt
+ROLLBACK.sh: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\dev-preview-transaction\ROLLBACK.sh
+
+BASELINE command (PowerShell): $s=Get-Content 'reports/2026-10-11/evidence/dev-preview-transaction/BASELINE_FILE' -Raw; if(-not $s.Contains("config.mode === 'local' &&")){exit 1}; Write-Output 'BASELINE_TRANSPORT_COUPLED=true'
+BASELINE input: BASELINE_FILE. Literal output: BASELINE_TRANSPORT_COUPLED=true. Exit status: 0.
+MODIFIED command (PowerShell): $s=Get-Content 'reports/2026-10-11/evidence/dev-preview-transaction/MODIFIED_FILE' -Raw; if($s.Contains("config.mode === 'local' &&") -or -not $s.Contains("envVersion === 'develop'")){exit 1}; Write-Output 'MODIFIED_DEVELOP_ONLY=true'
+MODIFIED input: MODIFIED_FILE. Literal output: MODIFIED_DEVELOP_ONLY=true. Exit status: 0.
+ROLLBACK command: bash reports/2026-10-11/evidence/dev-preview-transaction/ROLLBACK.sh reports/2026-10-11/evidence/dev-preview-transaction/ROLLBACK_TEST_COPY
+ROLLBACK input: disposable copy of MODIFIED_FILE. Literal output: RESTORED_TRANSPORT_GUARD. Exit status: 0.
+ROLLBACK verification command (PowerShell): $s=Get-Content 'reports/2026-10-11/evidence/dev-preview-transaction/ROLLBACK_TEST_COPY' -Raw; if(-not $s.Contains("config.mode === 'local' &&")){exit 1}; Write-Output 'ROLLBACK_TRANSPORT_COUPLED=true'
+ROLLBACK verification literal output: ROLLBACK_TRANSPORT_COUPLED=true. Exit status: 0. Restored behavior: transport-coupled developer gate on the disposable copy. Actual workspace code remains develop-only.
+Initial node -e probes failed with SyntaxError due PowerShell quote escaping (exit 1); changed to direct PowerShell checks, all three passed. Full npm test: 17 passed, 0 failed, exit 0. Core page node --check: exit 0. Release packaging: exit 0.

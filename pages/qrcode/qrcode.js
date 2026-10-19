@@ -1,160 +1,29 @@
-// pages/qrcode/qrcode.js - 二维码展示页面
+const presentation=require('../../utils/presentation');
+const api=require('../../utils/v2'); const loc=require('../../utils/location-v2'); const preview=require('../../utils/dev-preview');
+const proof=require('../../utils/capture-proof').create(api,wx);
 Page({
-  data: {
-    qrData: null,
-    qrCodeUrl: '',
-    qrCodePath: '', // 预缓存的本地路径
-    loading: true,
-    hasGoldenShield: false // 是否有金身保护
+  onResize(e) { this.setData(presentation.resize(e)); },
+  data:{fontScale:1,roomId:'',image:'',seconds:0,error:'',devPreview:false},
+  onLoad(o){this.setData(presentation.metrics());this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId,devPreview:this.devPreview});},
+  onShow(){if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.setData({image:'',seconds:15,error:''});return;}this.expiresAt=0;this.nextRetryAt=0;this.setData({image:'',seconds:0,error:''});loc.start(this.data.roomId,()=>{if(this.active)this.setData({error:'定位中断，请返回地图检查权限'});});this.refresh();clearInterval(this.timer);clearInterval(this.statusTimer);this.timer=setInterval(()=>{if(!this.active)return;if(!this.expiresAt){if(!this.refreshing && Date.now()>=this.nextRetryAt)this.refresh();return;}const seconds=Math.max(0,Math.ceil((this.expiresAt-Date.now())/1000));this.setData({seconds});if(seconds<=2 && !this.refreshing)this.refresh();},1000);this.statusTimer=setInterval(()=>this.checkStatus(),3000);},
+  onHide(){this.stop();},onUnload(){this.stop();},
+  removeImage:proof.removeImage,
+  stopProof(){this.stop();},
+  stop(){this.active=false;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.timer);clearInterval(this.statusTimer);this.timer=null;this.statusTimer=null;this.expiresAt=0;if(!this.devPreview)loc.stop();this.removeImage(this.imagePath);this.imagePath=null;},
+  async checkStatus(){
+    if(!this.active || this.checking)return;
+    this.checking=true;const lifecycle=this.lifecycle;
+    try{
+      const s=await api.room(this.data.roomId);
+      if(!this.active || lifecycle!==this.lifecycle)return;
+      const match=s.match;
+      if(match?.phase==='CHASING' && match.myStatus==='active' && match.myRole==='mouse')return;
+      const message=match?.myStatus==='captured'?'你已被捕，请返回地图查看本局状态':match?.phase==='PAUSED'?'本局已暂停，请返回地图等待恢复':'本局状态已变化，请返回地图查看';
+      this.stop();this.setData({image:'',seconds:0,error:message});
+    }catch(e){if(this.active && lifecycle===this.lifecycle && (e.code==='UNAUTHENTICATED' || e.code==='NOT_MEMBER')){this.stop();this.setData({image:'',seconds:0,error:'房间身份已失效，请返回首页重新进入'});}}
+    finally{this.checking=false;}
   },
-
-  onLoad(options) {
-    // 接收金身状态
-    if (options.goldenShield === '1') {
-      this.setData({ hasGoldenShield: true });
-    }
-    
-    // 优先使用预缓存的二维码
-    if (options.cached === '1' && options.path) {
-      console.log('[二维码] 使用预缓存');
-      this.setData({
-        qrCodePath: decodeURIComponent(options.path),
-        loading: false
-      });
-      
-      if (options.data) {
-        try {
-          const qrData = JSON.parse(decodeURIComponent(options.data));
-          this.setData({ qrData });
-        } catch (e) {
-          console.error('[二维码] 解析数据失败', e);
-        }
-      }
-      return;
-    }
-    
-    // 没有缓存，实时生成
-    if (options.data) {
-      try {
-        const qrData = JSON.parse(decodeURIComponent(options.data));
-        this.setData({ qrData });
-        this.generateQRCode(qrData);
-      } catch (err) {
-        console.error('[二维码] 解析失败', err);
-        wx.showToast({ title: '二维码数据错误', icon: 'none' });
-        this.setData({ loading: false });
-      }
-    }
-  },
-  
-  // 阻止触摸穿透
-  preventTouch() {
-    return false;
-  },
-
-  // 生成二维码
-  generateQRCode(data) {
-    const qrText = JSON.stringify(data);
-    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&bgcolor=ffffff&color=000000&data=${encodeURIComponent(qrText)}`;
-    
-    this.setData({ qrCodeUrl });
-  },
-
-  // 图片加载完成
-  onImageLoad() {
-    this.setData({ loading: false });
-    console.log('[二维码] 加载完成');
-  },
-
-  // 图片加载失败
-  onImageError(err) {
-    console.error('[二维码] 加载失败', err);
-    this.setData({ loading: false });
-    wx.showToast({ title: '二维码加载失败', icon: 'none' });
-  },
-
-  // 长按保存
-  onLongPress() {
-    wx.showActionSheet({
-      itemList: ['保存到相册'],
-      success: (res) => {
-        if (res.tapIndex === 0) {
-          this.saveToAlbum();
-        }
-      }
-    });
-  },
-
-  // 保存到相册
-  saveToAlbum() {
-    // 优先使用预缓存的本地路径
-    if (this.data.qrCodePath) {
-      wx.saveImageToPhotosAlbum({
-        filePath: this.data.qrCodePath,
-        success: () => {
-          wx.showToast({ title: '已保存到相册', icon: 'success' });
-        },
-        fail: (err) => {
-          if (err.errMsg && err.errMsg.includes('auth deny')) {
-            this.requestAlbumAuth();
-          } else {
-            wx.showToast({ title: '保存失败', icon: 'none' });
-          }
-        }
-      });
-      return;
-    }
-    
-    // 从网络下载后保存
-    if (!this.data.qrCodeUrl) {
-      wx.showToast({ title: '二维码未生成', icon: 'none' });
-      return;
-    }
-    
-    wx.showLoading({ title: '保存中...' });
-    
-    wx.downloadFile({
-      url: this.data.qrCodeUrl,
-      success: (res) => {
-        wx.saveImageToPhotosAlbum({
-          filePath: res.tempFilePath,
-          success: () => {
-            wx.hideLoading();
-            wx.showToast({ title: '已保存到相册', icon: 'success' });
-          },
-          fail: (err) => {
-            wx.hideLoading();
-            if (err.errMsg && err.errMsg.includes('auth deny')) {
-              this.requestAlbumAuth();
-            } else {
-              wx.showToast({ title: '保存失败', icon: 'none' });
-            }
-          }
-        });
-      },
-      fail: (err) => {
-        wx.hideLoading();
-        console.error('[下载] 失败', err);
-        wx.showToast({ title: '保存失败', icon: 'none' });
-      }
-    });
-  },
-
-  // 请求相册权限
-  requestAlbumAuth() {
-    wx.showModal({
-      title: '需要授权',
-      content: '请允许访问相册以保存图片',
-      success: (res) => {
-        if (res.confirm) {
-          wx.openSetting();
-        }
-      }
-    });
-  },
-
-  // 返回
-  onBack() {
-    wx.navigateBack();
-  }
-})
+  refresh:proof.refresh,
+  backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});},
+  back(){if(this.devPreview)wx.redirectTo({url:'/pages/map/map?devPreview=mouse'});else wx.navigateBack();}
+});

@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "status": "unregistered",
+  "image": {
+    "file": "jiulonghu-art.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "ff142d998407ddc5d361f9dcc240e6f12a1db3284e4c57cde642b5170bf0161e"
+  },
+  "fieldVerified": false
+}

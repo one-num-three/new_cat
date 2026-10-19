@@ -1,0 +1,26 @@
+{
+  "result": "IN_PROGRESS",
+  "records": [
+    {
+      "id": "gallery",
+      "path": "pages/dev/dev",
+      "fixture": true,
+      "window": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        ".screen": {
+          "offset": {
+            "left": 0,
+            "top": 0
+          },
+          "size": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      }
+    }
+  ]
+}

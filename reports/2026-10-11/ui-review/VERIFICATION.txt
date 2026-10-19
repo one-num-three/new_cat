@@ -1,0 +1,91 @@
+UI_REVIEW_VERIFICATION — 2026-10-11
+工作目录：D:\cat-mouse-miniprogram
+对象/改变：pages/map/map.wxml 的 drawerBody/drawerMask/终局标签；map.js 的 pauseReasonText/phaseText；预览 match.remainingMs（PAUSED）0→285000、HIDING captured 1→0、roster 3→8；room canStart/复制按钮 size=mini。
+窗口：用户固定分屏；只读系统截图；不操作桌面位置、大小、系统缩放。微信 IDE 突然变小的根因未确认。
+规则：pilot-0.2；视觉：visual-1.0 / 02-01；冻结素材78项不变。
+
+四个产物（已重新读取与校验）：
+MODIFIED_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\MODIFIED_FILE
+DIFF_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\DIFF_FILE
+VERIFICATION.txt: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\VERIFICATION.txt
+ROLLBACK.sh: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\ROLLBACK.sh
+
+原地图 WXML SHA256：B1172DB0486C15F8D290FA8349FF493518B5A01B5019F1A09B90399FD377E3B8
+修改地图 WXML SHA256：1C3C941331D318EF30CE33612467C41A80F10295641E7176D7AABA015F90821A
+baseline-hashes.json 仅16个原字节工作树文件；Git HEAD 上的大量既有改动不是本轮基线。
+DIFF_FILE 包括该16文件及另存的 dev.wxss 对比；qrcode.js 两个预览导航改动、SDK devDependency、新脚本和 DESIGN_BASELINE 更新单列说明，不宣称其在16文件回滚内。baseline 中 package 文件为安装 SDK 后的参考副本，不是安装前备份。
+
+BASELINE
+COMMAND (PowerShell, 上述工作目录): node scripts/verify-ui-view.cjs reports/2026-10-11/ui-review/baseline
+INPUT: Exact saved 16-file pre-edit working-tree fixture
+LITERAL OUTPUT:
+UI_CHECK={"pausedMs":0,"hidingCaptured":1,"roster":3,"cats":2,"scrollDrawer":false,"drawerMask":false}
+UI_CHECK_RESULT=FAIL
+EXIT STATUS: 1
+
+MODIFIED
+COMMAND (PowerShell, 上述工作目录): node scripts/verify-ui-view.cjs .
+INPUT: Current modified working tree
+LITERAL OUTPUT:
+UI_CHECK={"pausedMs":285000,"hidingCaptured":0,"roster":8,"cats":2,"scrollDrawer":true,"drawerMask":true}
+UI_CHECK_RESULT=PASS
+EXIT STATUS: 0
+
+ROLLBACK
+COMMAND (PowerShell, 上述工作目录): & 'D:\Program Files\Git\bin\bash.exe' reports/2026-10-11/ui-review/ROLLBACK.sh reports/2026-10-11/ui-review/rollback-fixture; exit $LASTEXITCODE
+INPUT: Isolated marked fixture freshly copied from 16 modified files
+LITERAL OUTPUT:
+ROLLBACK_FILES=16 HASHES_RESTORED=16
+UI_CHECK={"pausedMs":0,"hidingCaptured":1,"roster":3,"cats":2,"scrollDrawer":false,"drawerMask":false}
+UI_CHECK_RESULT=FAIL
+ROLLBACK_RESTORED=baseline
+EXIT STATUS: 0
+
+RESTORED BEHAVIOR: 独立副本16个原始哈希完全恢复；旧暂停0ms/躲藏已抓1/三人样例/无滚动抽屉再次复现，所以定向健康检查退出1是预期。ROLLBACK脚本退出0。真实工作树仍是修改版本，地图WXML与MODIFIED_FILE相同且不同于基线。
+ROLLBACK GUARD: command = & 'D:\Program Files\Git\bin\bash.exe' reports/2026-10-11/ui-review/ROLLBACK.sh .; exit $LASTEXITCODE
+LITERAL OUTPUT: ROLLBACK_TARGET_REJECTED
+EXIT STATUS: 64
+EXECUTABLE CHECK: Git Bash chmod +x / test -x 已执行，退出0。
+
+MODIFIED FULL REGRESSION:
+COMMAND: cd D:\cat-mouse-miniprogram\cat-mouse-server; npm test
+INPUT: 本地测试会话/数据库临时数据 + 客户端VM样例（不触碰生产数据库）。
+LITERAL RESULT: # tests 20 / # pass 20 / # fail 0 / # skipped 0
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\npm-test.txt
+改动前既有测试：17/17 退出0（在首轮实现前执行）；原始输出在当时工具记录，未单独归档。上面的BASELINE定向检查可在保存的原始字节上重现，不把旧测试通过当作健康视觉验收。
+
+REAL IDE PROBE:
+COMMAND: node scripts/ui-review.cjs all "$env:TEMP\cat-mouse-ui-review-20261011\final-metrics.json"
+INPUT: 本机开发版、官方自动化端口9420、15个编译配置、390x753视口。
+LITERAL RESULT: UI_PROBE_PASS=15
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\ide-probe.txt
+METRICS: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\after-metrics.json
+VISUALS: D:\cat-mouse-miniprogram\reports\2026-10-11\ui-review\after\ (实际系统截图，已逐图检查；不是设计图)
+早期 SDK 错回首页/第一次 probe 失败及复制按钮184px失败保留于 discarded-attempts，全部排除通过证据。修正为mini后实际宽56px，最终probe额外断言复制操作小于视口1/3且不覆盖房间码。
+
+STATIC/ART:
+COMMAND: node --check pages/room/room.js; node --check pages/map/map.js; node --check pages/qrcode/qrcode.js; node --check scripts/ui-review.cjs; node --check scripts/verify-ui-view.cjs
+LITERAL OUTPUT: (empty); EXIT STATUS: 0 for each
+COMMAND: python scripts/freeze-art.py --verify
+LITERAL OUTPUT: Verified 78 frozen art files
+EXIT STATUS: 0
+COMMAND: git diff --check
+LITERAL RESULT: no whitespace errors; EXIT STATUS: 0 (Git仅提示既有LF/CRLF换行转换)
+PRODUCTION DEPENDENCY AUDIT: production-audit.json，vulnerabilities total=0；SDK仅devDependency，非生产运行依赖。
+
+PACKAGING:
+COMMAND: powershell -ExecutionPolicy Bypass -File scripts/package-release.ps1 -OutputDirectory dist/ui-review
+LITERAL OUTPUT:
+Created: D:\cat-mouse-miniprogram\dist\ui-review\cat-mouse-miniprogram-mvp.zip
+Created: D:\cat-mouse-miniprogram\dist\ui-review\cat-mouse-server.zip
+EXIT STATUS: 0
+REOPEN ZIP LITERAL OUTPUT:
+MINI_ZIP_PASS files=40 modes=15 source_match=true
+SERVER_ZIP_PASS dev_sdk_omitted_at_install=true
+LIVE_WORKTREE_STILL_MODIFIED=true RESTORED_HASHES=16
+EXIT STATUS: 0
+
+未执行：320px小屏/系统大字体/真机日光/真实微信登录与定位扫码/原生地图设备叠层/动效帧率/公网长时间负载。模拟器fixture不会连接真实API或替代设备验收。
+本轮没有修改或发布生产服务、没有上传仓库；用户既有未提交工作保留。

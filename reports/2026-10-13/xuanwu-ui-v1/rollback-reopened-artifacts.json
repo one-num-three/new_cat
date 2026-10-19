@@ -1,0 +1,82 @@
+[
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\ROLLBACK.sh",
+    "bytes": 329,
+    "sha256": "9a042fc61653e0bde9549607c6987683f96a4886c0e2bae3d37aad243ddcc265"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-restore.cjs",
+    "bytes": 3798,
+    "sha256": "bd9dc86c08242f5fea8effe8eaaa16002b1327001a4f8e98588a80445a15c2a6"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-build-fixture.cjs",
+    "bytes": 3074,
+    "sha256": "06564fe2056fa1ecf3cf42d1d26fb74988c46c77a9357b12d1f8dfbc26f0c3a4"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-run-verification.cjs",
+    "bytes": 6010,
+    "sha256": "90cf6c2add9181c901990f67898deeb275c61e8441cabd680efe9664b4b200d7"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-VERIFICATION.txt",
+    "bytes": 32574,
+    "sha256": "7b91c7605cb373c1524faec9d89f0c298edd1a37cc044e75beeb2fa1e51ad163"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-verification.json",
+    "bytes": 38063,
+    "sha256": "653144a05e530b688f4a08cfed0fa226c5dbaa0f5bfad1c8ff960bb46dae4789"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-execution.json",
+    "bytes": 12267,
+    "sha256": "073850f19cf04e7c2b4f7db8c924f80a2dfbb885968cb05ad7aa97845ed3a690"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-restored-hashes.json",
+    "bytes": 13269,
+    "sha256": "77d98d9724e16762b9acc075e0fcdab2eb03a7367f00c3350cd7951e666e6acf"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-live-before.json",
+    "bytes": 5280,
+    "sha256": "98114016ee2280f8847f44d7bf3bc2da251eebb6b8bae7fef6151418bb5c8e1d"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture-inventory.json",
+    "bytes": 33676,
+    "sha256": "cd4a62dbf8e4d420b9e7fcda2279c4af4e9fdbd6b56d8e861cff18763938d90e"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-baseline-extension-proof.json",
+    "bytes": 1187,
+    "sha256": "e7ccdf04b9e8bbfe07e0f5eb3a325e87811deced798d035388f0b58683368e00"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-tests.txt",
+    "bytes": 7426,
+    "sha256": "5ad1c377d0355457f3da334098dc40edff5715cde02bae819c15582d55a7322f"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-guard.txt",
+    "bytes": 295,
+    "sha256": "335757f297c507b84884ab1bd8286496d601d0b5d9fc66f5cff8798746cefe67"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-restore.txt",
+    "bytes": 3503,
+    "sha256": "11d96d03805c73e4954995e0a16edca10db94d3b407febca13596c727459432f"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-executable.txt",
+    "bytes": 279,
+    "sha256": "e9be83b66d50941585316fdb626665a0366606599b962f6bfa95ca6712e3eae8"
+  },
+  {
+    "path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture-build.txt",
+    "bytes": 297,
+    "sha256": "b9c629f0035fc779e2d9dbad9d25c1cd4b3ce877d50f1df8d26e7697e7257810"
+  }
+]

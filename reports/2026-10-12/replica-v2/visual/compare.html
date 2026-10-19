@@ -1,0 +1,419 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>02-01 最终视觉审计</title><style>body{font:14px/1.6 system-ui,sans-serif;background:#eff4ee;color:#17383b;margin:32px}h1,h2{line-height:1.2}.page{background:white;padding:24px;border-radius:18px;margin:24px 0}.images{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:12px;align-items:start}.images img{width:100%;height:auto;display:block}.refCrop{width:100%;aspect-ratio:712/1454;overflow:hidden;position:relative}.refCrop img{position:absolute;width:143.820225%;left:-21.910112%;top:-2.751032%;height:auto}.images figure{margin:0}.images figcaption{font-weight:bold;padding:8px}table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:7px;border-bottom:1px solid #d5e2da;text-align:left}.bad{color:#a04426}small{color:#60737b}code{font-size:12px}@media(max-width:900px){.images{grid-template-columns:repeat(2,minmax(140px,1fr))}}@media(max-width:520px){.images{grid-template-columns:1fr}}table{display:block;overflow:auto}</style><h1>02-01 最终原生截图对照审计</h1><p>原稿、普通、大字体、窄屏均保持图片原始宽高比。数值锚点不替代插画/文字/裁切审阅；本报告不宣称像素一致。</p>
+<section class="page"><h2>量化与剩余差异</h2><p>51项核心面板/动作盒差&gt;8dp：0；位置差&gt;6dp：4。外盒接近不代表内部列/墨迹/题材完全相同。未真机/物理点按。</p><p>ready右云alpha缺口、create绿针与圆徽章差异、地图sky/grass承接条、HUD首分隔线约10dp提前、原生字形及生成稿纹理差异均保留。</p><table><tr><th>标题墨迹</th><th>Δx/Δy dp</th><th>宽相对差</th><th>高相对差</th></tr>
+<tr><td>home</td><td>+1.18/+0.97</td><td>-0.9%</td><td>-1.5%</td></tr>
+<tr><td>create</td><td>-0.19/+6.53</td><td>-1.1%</td><td>-7.3%</td></tr>
+<tr><td>ready</td><td>-1.06/+1.56</td><td>+0.1%</td><td>-1.8%</td></tr>
+<tr><td>hiding</td><td>-2.16/+4.16</td><td>-4.2%</td><td>-4.5%</td></tr>
+<tr><td>mouse</td><td>-0.75/-4.76</td><td>-3.2%</td><td>+0.4%</td></tr>
+<tr><td>alert</td><td>+1.64/-3.90</td><td>-6.2%</td><td>-9.8%</td></tr>
+<tr><td>code</td><td>+3.24/+4.44</td><td>-2.2%</td><td>-3.6%</td></tr>
+<tr><td>captured</td><td>+4.88/-7.36</td><td>-3.7%</td><td>-7.0%</td></tr>
+<tr><td>paused</td><td>+3.59/-2.40</td><td>-0.2%</td><td>-3.7%</td></tr>
+<tr><td>offline</td><td>-3.16/-5.58</td><td>+2.9%</td><td>-4.1%</td></tr>
+<tr><td>catWin</td><td>-1.55/+0.44</td><td>+2.6%</td><td>-1.5%</td></tr>
+<tr><td>mouseWin</td><td>+1.51/+0.20</td><td>+0.3%</td><td>-0.7%</td></tr>
+<tr><td>cancelled</td><td>+0.41/-1.48</td><td>+1.5%</td><td>+0.1%</td></tr>
+<tr><td>gallery</td><td>+1.40/+2.10</td><td>-1.4%</td><td>-4.0%</td></tr>
+<tr><td>drawer</td><td>+0.30/+5.18</td><td>-0.8%</td><td>-6.9%</td></tr>
+</table><p>source人工边界不确定度±4px；墨迹颜色阈值受抗锯齿影响，不混同CSS行高或DOM字盒。</p></section>
+<section class="page"><h2>home</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/home.png" alt="home 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/home.png" alt="home normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/home.png" alt="home large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/home.png" alt="home narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>首页主插画仍为同源等比片段；旧顶部矩形接缝已消失，两行副标题字号已扩大。主按钮/输入几何见下表。</li>
+<li>参考橘按钮与纸底含生成稿纹理/渐变，原生控件是近似实色与原生字形；不能据盒坐标近似就判像素一致。</li>
+</ul>
+<h3>large</h3><ul>
+<li>标题、表单和两个操作标签完整清晰；创建活动按钮下缘接近系统横条。插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>320内容列内的标题、输入与两个动作均完整；素材等比，没有旧首页矩形接缝。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>hero_region</td><td>0.00,0.00,390.00,426.06</td><td>0.00,0.00,390.00,426.00</td><td>0.00,0.00,0.00,-0.06</td></tr>
+<tr class=""><td>nickname_input</td><td>19.72,457.99,350.56,48.76</td><td>19.72,458.00,350.56,48.99</td><td>-0.00,0.01,0.00,0.23</td></tr>
+<tr class=""><td>primary_button</td><td>20.27,612.97,350.01,59.79</td><td>19.72,612.98,350.56,59.99</td><td>-0.55,0.01,0.55,0.20</td></tr>
+<tr class=""><td>secondary_button</td><td>20.27,684.95,350.01,54.56</td><td>19.72,684.96,350.56,55.00</td><td>-0.55,0.01,0.55,0.44</td></tr>
+</table>
+<p>标题墨迹 headline：参考 24.10,107.39,190.07,45.86；普通实拍 25.28,108.36,188.38,45.15 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>create</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/create.png" alt="create 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/create.png" alt="create normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/create.png" alt="create large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/create.png" alt="create narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>左上白云已完整恢复，猫鼠/橘旗比例正常；创建 CTA 与范围卡的核心盒接近参考。</li>
+<li>位置图标仍是独立绿色针形，参考为白针置于较大绿圆徽章；属于组件形态残差。</li>
+</ul>
+<h3>large</h3><ul>
+<li>人数、位置卡片和创建标签可读；创建按钮下缘在初始截图之外。插画未见比例变形。</li>
+<li>interaction-final底部截图已另行实际查看：相关底部动作/出口完整显示。该证据来自SDK handler调用+真实selector布局/滚动记录，不是物理点按或真机。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>卡片、人数、范围与创建动作均可读；原生针形与参考圆徽章的残差仍在。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>location_card</td><td>18.62,491.08,353.85,217.68</td><td>19.88,489.93,350.23,218.56</td><td>1.26,-1.15,-3.62,0.88</td></tr>
+<tr class=""><td>primary_button</td><td>20.27,720.36,350.01,58.05</td><td>19.88,720.49,350.23,58.08</td><td>-0.39,0.13,0.22,0.03</td></tr>
+</table>
+<p>标题墨迹 headline：参考 22.46,289.65,268.40,43.54；普通实拍 22.27,296.18,265.42,40.33 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>ready</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/ready.png" alt="ready 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/ready.png" alt="ready normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/ready.png" alt="ready large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/ready.png" alt="ready narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>左上白云已恢复；原生房间码、复制和8人名单均可见，无角色预分配新增。</li>
+<li>右云在原胶囊擦除区仍呈台阶形缺口，原稿轮廓没有该平切；源遮挡处未补绘，非长宽压缩。房间码/复制字面节奏与原稿仍不同。</li>
+</ul>
+<h3>large</h3><ul>
+<li>房间码和八名玩家信息完整；主操作仅露出橙色上缘，标签在初始截图之外。插画未见比例变形。</li>
+<li>interaction-final底部截图已另行实际查看：相关底部动作/出口完整显示。该证据来自SDK handler调用+真实selector布局/滚动记录，不是物理点按或真机。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>复制按窄宽换至码下方，8人名单与两个动作可见；插画等比。右云源擦除缺口仍在。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>room_code_card</td><td>14.79,247.86,360.97,87.65</td><td>14.80,247.84,360.41,86.96</td><td>0.01,-0.02,-0.56,-0.69</td></tr>
+<tr class=""><td>roster</td><td>17.53,374.40,356.04,249.60</td><td>17.55,375.19,354.91,250.44</td><td>0.02,0.80,-1.13,0.84</td></tr>
+<tr class=""><td>primary_button</td><td>16.98,664.64,356.59,58.05</td><td>17.55,665.88,354.91,57.40</td><td>0.57,1.24,-1.68,-0.65</td></tr>
+<tr class=""><td>secondary_button</td><td>17.53,732.55,356.04,46.44</td><td>17.55,733.28,354.91,46.80</td><td>0.02,0.73,-1.13,0.36</td></tr>
+</table>
+<p>标题墨迹 headline：参考 19.72,204.32,253.61,33.09；普通实拍 18.66,205.88,253.98,32.51 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>hiding</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/hiding.png" alt="hiding 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/hiding.png" alt="hiding normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/hiding.png" alt="hiding large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/hiding.png" alt="hiding narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>大型趴猫/时钟、标题、无抓捕入口与两行提示均恢复；插画仍等比。</li>
+<li>头板下约15dp天空承接条和卡前平绿承接边为不同屏比例的留白处理，原稿无相同明显色带；标题/提示墨迹高度与位置仍有小残差。</li>
+</ul>
+<h3>large</h3><ul>
+<li>纵向图文布局消除孤字换行；标题、两行说明和队伍规则按钮完整。插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>状态标题、两行提示与详情入口完整；素材宽高正常。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,3.43</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,587.43,390.00,256.57</td><td>0.00,587.43,390.00,256.57</td><td>0.00,0.00,0.00,0.00</td></tr>
+<tr class=""><td>secondary_button</td><td>16.98,752.29,356.59,55.14</td><td>17.94,753.48,354.12,55.07</td><td>0.96,1.19,-2.46,-0.07</td></tr>
+</table>
+<p>标题墨迹 state_title：参考 221.84,615.30,145.15,36.57；普通实拍 219.68,619.46,139.03,34.92 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>cat</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/cat.png" alt="cat 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/cat.png" alt="cat normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/cat.png" alt="cat large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/cat.png" alt="cat narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>地图不再额外放大裁去右亭/线索胶囊，桥/亭/集合圆比例明显接近原稿；CTA高度与裸字+横线详情入口已恢复。</li>
+<li>地图头板下约15dp天空承接条仍可见；集合圆中心人工估计约(206,374)dp，对参考约(205,366)dp，纵向仍差约8dp。此为位置/承接残差，不是图片长宽变形。</li>
+<li>HUD首条分隔线原稿x≈150dp，原生goal左沿x≈140dp，提前约10dp；外板盒接近不代表内部列全部对齐。</li>
+</ul>
+<h3>large</h3><ul>
+<li>区域线索、提醒和两项操作完整清晰；地图与图标未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>亭/区域线索胶囊完整，说明/扫描/详情入口可读，公园不再横向cover放大。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,3.43</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,591.50,390.00,252.50</td><td>0.00,591.65,390.00,252.35</td><td>0.00,0.15,0.00,-0.15</td></tr>
+<tr class=""><td>primary_button</td><td>18.62,683.79,352.75,65.01</td><td>18.73,683.36,352.54,64.06</td><td>0.11,-0.43,-0.21,-0.95</td></tr>
+</table>
+</section>
+<section class="page"><h2>mouse</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/mouse.png" alt="mouse 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/mouse.png" alt="mouse normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/mouse.png" alt="mouse large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/mouse.png" alt="mouse narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>奔跑小鼠/蓝云与双行主文、按钮结构均完整；地图右亭已完整露出。</li>
+<li>底卡略提前，CTA/详情入口比参考约早7dp，精确差值见DOM表。共享天空/草地承接带仍可见。</li>
+</ul>
+<h3>large</h3><ul>
+<li>说明以两行完整呈现，两个按钮完整；鼠插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>小鼠场景、双行主文与两个动作完整，无此前碎行问题。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,3.43</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,580.47,390.00,263.53</td><td>0.00,576.85,390.00,267.15</td><td>0.00,-3.62,0.00,3.62</td></tr>
+<tr class=""><td>primary_button</td><td>16.98,702.95,354.94,54.56</td><td>17.94,695.55,354.12,55.18</td><td>0.96,-7.39,-0.81,0.62</td></tr>
+<tr class=""><td>secondary_button</td><td>17.53,767.38,355.49,48.18</td><td>17.94,760.73,354.12,47.82</td><td>0.41,-6.65,-1.36,-0.36</td></tr>
+</table>
+<p>标题墨迹 state_title：参考 181.31,618.20,188.43,54.56；普通实拍 180.56,613.44,182.36,54.78 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>alert</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/alert.png" alt="alert 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/alert.png" alt="alert normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/alert.png" alt="alert large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/alert.png" alt="alert narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>橘圆、橘色phase、加大后的橘色警告标题和灰色原副句均已恢复；旧棕色小标题/缺副句结论不再适用。</li>
+<li>原生字形/字面宽度仍与生成稿略异，精确墨迹差见表；共享天空/草地承接条仍可见。</li>
+</ul>
+<h3>large</h3><ul>
+<li>警告标题正常换成两行，副文案和两个按钮完整清晰；圆形警告图标未见变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>橘圆、橘警告标题与灰副句、两个动作完整；没有敌方点位信息。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,3.43</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,571.76,390.00,272.24</td><td>0.00,571.81,390.00,272.19</td><td>0.00,0.05,0.00,-0.05</td></tr>
+<tr class=""><td>primary_button</td><td>20.27,688.43,350.01,58.05</td><td>17.94,685.75,354.12,57.51</td><td>-2.33,-2.68,4.12,-0.54</td></tr>
+<tr class=""><td>secondary_button</td><td>20.27,758.09,350.01,53.40</td><td>17.94,755.20,354.12,53.35</td><td>-2.33,-2.90,4.12,-0.05</td></tr>
+</table>
+<p>标题墨迹 warning_title：参考 101.88,608.91,250.87,26.70；普通实拍 103.52,605.01,235.32,24.08 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>code</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/code.png" alt="code 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/code.png" alt="code normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/code.png" alt="code large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/code.png" alt="code narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>码页保留原生示例码/不可扫描文案与动态真码路径区分；粗白对勾已改为原生边框形，不再是细字形符号。</li>
+<li>左上原稿白云仍未显示；点环大小/垂直位置、扫码提示图标与原稿存在形态/间距残差。返回按钮核心盒已接近参考。</li>
+</ul>
+<h3>large</h3><ul>
+<li>最终code间距修正的截图已重看：标题按语义两行，没有孤立末字；演示圆/文字分离，演示区可读。返回按钮位于初始帧下方。</li>
+<li>interaction-final较早底部截图已实际查看，返回动作完整；最新圆/字间距来自large-code-final独立真实DOM断言PASS，不冒充12项互动重新执行。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>before：旧演示码文字覆盖绿色圆下半；旧PNG已保留。after：最终narrow-code-final已实际重看，圆/字分离，真实DOM间距4dp且标题位于四角区内，两个标签完整。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>secondary_button</td><td>21.36,707.59,348.37,56.31</td><td>21.05,707.72,347.89,56.38</td><td>-0.30,0.13,-0.48,0.07</td></tr>
+</table>
+<p>标题墨迹 headline：参考 38.89,298.36,313.31,41.21；普通实拍 42.13,302.80,306.34,39.73 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>captured</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/captured.png" alt="captured 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/captured.png" alt="captured normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/captured.png" alt="captured large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/captured.png" alt="captured narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>公开状态条、被捕场景、大标题、加大的灰说明与详情入口均可见，无复活/抓捕入口。</li>
+<li>原约24dp平绿承接带已显著缩小；天空/草地承接仍非原稿无缝场景，灰说明字面与生成稿略异。</li>
+</ul>
+<h3>large</h3><ul>
+<li>出局插画、单行标题、返回说明与按钮完整清晰；未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>公开条/鼠场景/标题/灰说明和详情入口完整，平绿承接边已缩小。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,69.08</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,4.59</td></tr>
+<tr class=""><td>public_bar</td><td>12.05,161.95,365.90,30.18</td><td>12.09,161.67,365.81,35.00</td><td>0.04,-0.28,-0.09,4.82</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,601.94,390.00,242.06</td><td>0.00,601.77,390.00,242.23</td><td>0.00,-0.17,0.00,0.17</td></tr>
+<tr class=""><td>secondary_button</td><td>16.98,751.71,356.59,55.72</td><td>17.94,752.86,354.12,55.70</td><td>0.96,1.15,-2.46,-0.03</td></tr>
+</table>
+<p>标题墨迹 state_title：参考 189.52,645.48,164.33,33.67；普通实拍 194.40,638.12,158.29,31.30 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>paused</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/paused.png" alt="paused 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/paused.png" alt="paused normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/paused.png" alt="paused large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/paused.png" alt="paused narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>字号与标题下移已复拍，旧约12.6dp提前/12.6%过宽问题已明显改善；新墨迹数据见表。</li>
+<li>‘重新定位后恢复’已补回；灰副文仍为三行，原稿为两行，节奏不同；共享承接条仍可见。</li>
+</ul>
+<h3>large</h3><ul>
+<li>标题、暂停原因、恢复说明及两个按钮完整；地图集合点字样下部被上移面板遮住。插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>标题、组织者原因/恢复说明与两个动作完整；仍是三行灰文的运行排法。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,3.43</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,555.51,390.00,288.49</td><td>0.00,552.94,390.00,291.06</td><td>0.00,-2.57,0.00,2.57</td></tr>
+<tr class=""><td>primary_button</td><td>15.88,694.24,358.23,54.56</td><td>17.94,694.01,354.12,55.18</td><td>2.06,-0.23,-4.11,0.62</td></tr>
+<tr class=""><td>secondary_button</td><td>16.43,758.67,357.13,49.34</td><td>17.94,759.19,354.12,49.37</td><td>1.51,0.52,-3.00,0.03</td></tr>
+</table>
+<p>标题墨迹 state_title：参考 213.08,584.53,130.91,32.51；普通实拍 216.67,582.13,130.60,31.30 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>offline</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/offline.png" alt="offline 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/offline.png" alt="offline normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/offline.png" alt="offline large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/offline.png" alt="offline narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>浅蓝整片面板、断链猫鼠图、大标题及两行说明均已恢复；旧小标题/缺副文结论不再适用。</li>
+<li>重连时钟字形颜色与原稿稍异；主结构/按钮位置接近参考，共享承接带仍可见。</li>
+</ul>
+<h3>large</h3><ul>
+<li>标题、状态说明、恢复提示和按钮完整清晰，无孤字换行；插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>断链场景、标题与两行灰文、详情动作均可读，未见形变。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,73.67</td><td>0.04,0.35,-0.64,3.43</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,587.43,390.00,256.57</td><td>0.00,587.43,390.00,256.57</td><td>0.00,0.00,0.00,0.00</td></tr>
+<tr class=""><td>secondary_button</td><td>16.98,751.13,356.59,56.89</td><td>17.94,751.69,354.12,56.87</td><td>0.96,0.56,-2.46,-0.02</td></tr>
+</table>
+<p>标题墨迹 state_title：参考 181.31,628.65,190.62,23.22；普通实拍 178.15,623.07,196.20,22.27 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>catWin</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/catWin.png" alt="catWin 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/catWin.png" alt="catWin normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/catWin.png" alt="catWin large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/catWin.png" alt="catWin narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>旧标题旁细竖已消失；终局标题加大后已再拍，原生墨迹更接近参考，统计/动作/同源插画完整。</li>
+<li>原生字形、橙色/纸底生成纹理及天空/草地承接仍不逐像素一致。</li>
+</ul>
+<h3>large</h3><ul>
+<li>结算标题、原因、捕获汇总和两个按钮完整清晰；胜利插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>标题/原因/统计与两个动作均可读，同源胜利插画等比。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,70.22</td><td>0.04,0.35,-0.64,-0.02</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,528.23,390.00,315.77</td><td>0.00,524.23,390.00,319.77</td><td>0.00,-4.00,0.00,4.00</td></tr>
+<tr class=""><td>primary_button</td><td>20.27,701.20,350.01,50.50</td><td>17.94,700.24,354.12,50.49</td><td>-2.33,-0.96,4.12,-0.01</td></tr>
+<tr class=""><td>secondary_button</td><td>20.27,761.57,350.01,46.44</td><td>17.94,760.73,354.12,47.82</td><td>-2.33,-0.84,4.12,1.38</td></tr>
+</table>
+<p>标题墨迹 result_title：参考 20.81,579.89,140.22,34.83；普通实拍 19.26,580.33,143.84,34.31 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>mouseWin</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/mouseWin.png" alt="mouseWin 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/mouseWin.png" alt="mouseWin normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/mouseWin.png" alt="mouseWin large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/mouseWin.png" alt="mouseWin narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>终局标题加大后已再拍；插画宽度/越界尾巴接近参考，统计已恢复深青色与较大字号。</li>
+<li>两个动作仍约提前7–8dp，精确差见DOM表；共享承接条仍可见。</li>
+</ul>
+<h3>large</h3><ul>
+<li>结算标题、时间原因、捕获汇总和两个按钮完整清晰；胜利插画未见比例变形。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>标题/期限原因/统计与两个动作均可读，越界尾巴保持完整。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,70.22</td><td>0.04,0.35,-0.64,-0.02</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,507.91,390.00,336.09</td><td>0.00,504.62,390.00,339.38</td><td>0.00,-3.29,0.00,3.29</td></tr>
+<tr class=""><td>primary_button</td><td>20.27,703.53,350.01,56.31</td><td>17.94,695.55,354.12,55.18</td><td>-2.33,-7.97,4.12,-1.13</td></tr>
+<tr class=""><td>secondary_button</td><td>20.27,767.96,350.01,49.34</td><td>17.94,760.73,354.12,47.82</td><td>-2.33,-7.23,4.12,-1.52</td></tr>
+</table>
+<p>标题墨迹 result_title：参考 21.36,589.76,156.66,40.63；普通实拍 22.87,589.96,157.08,40.33 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>cancelled</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/cancelled.png" alt="cancelled 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/cancelled.png" alt="cancelled normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/cancelled.png" alt="cancelled large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/cancelled.png" alt="cancelled narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>终局标题与完整原稿脚注已最后补拍：‘这局记录保留，下一轮使用新的对局’为一行，没有缩短句子或孤字；左图右文与两个动作完整。</li>
+<li>结算小标签人工估计偏高约10dp；原生字形、脚注字面大小和生成稿纹理仍不同。</li>
+</ul>
+<h3>large</h3><ul>
+<li>最终cancel-line补拍已实际重看：大标题/原因/完整原稿脚注及两个动作均清晰；脚注单行无孤字。插画保持等比，构图为大字体上下排适配而非正常参考左右排。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>最终cancel-line补拍已实际重看：标题/原因/精确完整脚注及两个动作均可读，脚注单行没有末字孤行。插画等比。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>top_panel</td><td>12.05,87.65,366.45,70.24</td><td>12.09,88.00,365.81,70.22</td><td>0.04,0.35,-0.64,-0.02</td></tr>
+<tr class=""><td>bottom_panel</td><td>0.00,536.35,390.00,307.65</td><td>0.00,535.95,390.00,308.06</td><td>0.00,-0.41,0.00,0.41</td></tr>
+<tr class=""><td>primary_button</td><td>16.98,695.40,356.59,51.66</td><td>17.94,699.07,354.12,51.66</td><td>0.96,3.67,-2.46,0.00</td></tr>
+<tr class=""><td>secondary_button</td><td>17.53,758.09,356.04,49.92</td><td>17.94,760.73,354.12,47.82</td><td>0.41,2.64,-1.92,-2.10</td></tr>
+</table>
+<p>标题墨迹 result_title：参考 217.46,593.24,135.84,33.67；普通实拍 217.87,591.76,137.82,33.71 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>gallery</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/gallery.png" alt="gallery 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/gallery.png" alt="gallery normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/gallery.png" alt="gallery large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/gallery.png" alt="gallery narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>云朵已恢复完整；14态以4组、正常屏3列展示，图标题材与原稿对应。</li>
+<li>左云和场景顶部人工估计比内屏归一化位置稍低约7–9dp；其宽高保持比例。</li>
+</ul>
+<h3>large</h3><ul>
+<li>当前可见入口标签完整；下一分类标题仅局部露出，后续内容位于初始截图之外。插画未见比例变形。</li>
+<li>interaction-final底部截图已另行实际查看：相关底部动作/出口完整显示。该证据来自SDK handler调用+真实selector布局/滚动记录，不是物理点按或真机。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>改为两列，当前入口标签可读；末尾取消/返回未完整出现在此初始帧，窄canvas滚动终点未单独互动验证。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>secondary_button</td><td>15.34,767.38,359.87,46.44</td><td>15.34,767.03,359.31,46.41</td><td>0.00,-0.35,-0.56,-0.03</td></tr>
+</table>
+<p>标题墨迹 headline：参考 20.27,235.09,267.85,31.35；普通实拍 21.67,237.19,264.21,30.10 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>drawer</h2><div class="images">
+<figure><figcaption>原稿</figcaption><div class="refCrop"><img src="images/reference/drawer.png" alt="drawer 原稿"></div></figure>
+<figure><figcaption>normal</figcaption><img src="images/normal/drawer.png" alt="drawer normal"></figure>
+<figure><figcaption>large</figcaption><img src="images/large/drawer.png" alt="drawer large"></figure>
+<figure><figcaption>narrow</figcaption><img src="images/narrow/drawer.png" alt="drawer narrow"></figure>
+</div>
+<h3>normal</h3><ul>
+<li>单抽屉高度、猫/鼠分组、时间列/规则与首屏退出均接近参考；紧急暂停 CTA 已加宽至卡片宽。</li>
+<li>背景地图/头板下承接条仍不同；正文看不到旧缺图标/出口被挤掉问题，但不能由静态截图证明全部滚动规则和按钮点击效果。</li>
+</ul>
+<h3>large</h3><ul>
+<li>抽屉标题、关闭、队伍、事件和规则可读；紧急暂停与退出标签位于初始截图之外。地图未见比例变形。</li>
+<li>interaction-final底部截图已另行实际查看：相关底部动作/出口完整显示。该证据来自SDK handler调用+真实selector布局/滚动记录，不是物理点按或真机。</li>
+</ul>
+<h3>narrow</h3><ul>
+<li>名单/事件/规则可读；初始pane底部仅露紧急暂停上半，退出在内部滚动区域下方。窄canvas的滚动终点/动作未独立互动验证。</li>
+<li>这是320×693内容canvas置于390×844宿主；右侧约70dp留白/native胶囊是宿主保留，不是真实320设备截图。</li>
+</ul>
+<table><tr><th>锚点</th><th>参考 x,y,w,h dp</th><th>原生 DOM x,y,w,h dp</th><th>Δ 实拍−参考 dp</th></tr>
+<tr class=""><td>drawer</td><td>0.00,347.12,390.00,496.88</td><td>0.00,346.05,390.00,497.95</td><td>0.00,-1.07,0.00,1.07</td></tr>
+<tr class=""><td>secondary_button</td><td>20.81,769.12,349.47,38.31</td><td>20.66,768.58,348.67,38.00</td><td>-0.15,-0.54,-0.80,-0.31</td></tr>
+</table>
+<p>标题墨迹 drawer_header：参考 21.36,366.86,90.38,22.64；普通实拍 21.67,372.03,89.68,21.07 dp。<small>像素 ROI 测量，不是 DOM 字盒。</small></p>
+</section>
+<section class="page"><h2>code 间距 before→after</h2><p>旧窄屏圆/字重叠；最终三图真实DOM间距均4dp且字在四角区内。下图保留旧故障帧，仅作回归证据。</p><img style="max-width:260px" src="images/regression/narrow-code-before-spacing.png"></section>
+<section class="page"><h2>互动与滚动底部证据</h2><p>result.json记录12项PASS，环境是SDK handler调用＋真实selector/滚动布局，不是物理点按或真机。5张底部图已实际查看；最新code间距三图是独立复核，不冒充12项再跑。</p><div class="images">
+<figure><figcaption>create 大字体滚动底部</figcaption><img src="images/interaction/create-bottom.png"></figure>
+<figure><figcaption>ready 大字体滚动底部</figcaption><img src="images/interaction/ready-bottom.png"></figure>
+<figure><figcaption>code 大字体滚动底部</figcaption><img src="images/interaction/code-bottom.png"></figure>
+<figure><figcaption>gallery 大字体滚动底部</figcaption><img src="images/interaction/gallery-bottom.png"></figure>
+<figure><figcaption>drawer 大字体滚动底部</figcaption><img src="images/interaction/drawer-bottom.png"></figure>
+</div></section>
+</html>

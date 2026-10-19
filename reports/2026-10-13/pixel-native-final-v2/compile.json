@@ -1,0 +1,34 @@
+{
+  "wxss": {
+    "exit": 0,
+    "args": [
+      "pages/index/index.wxss",
+      "pages/room/room.wxss",
+      "pages/map/map.wxss",
+      "pages/qrcode/qrcode.wxss",
+      "pages/dev/dev.wxss",
+      "pages/venue/venue.wxss",
+      "components/nav-bar/nav-bar.wxss",
+      "components/pixel-action/pixel-action.wxss",
+      "components/venue-art/venue-art.wxss",
+      "utils/pixel-theme.wxss",
+      "utils/pixel-font.wxss",
+      "utils/pixel-art-ratios.wxss"
+    ]
+  },
+  "wxml": {
+    "exit": 0,
+    "args": [
+      "-d",
+      "pages/index/index.wxml",
+      "pages/room/room.wxml",
+      "pages/map/map.wxml",
+      "pages/qrcode/qrcode.wxml",
+      "pages/dev/dev.wxml",
+      "pages/venue/venue.wxml",
+      "components/nav-bar/nav-bar.wxml",
+      "components/pixel-action/pixel-action.wxml",
+      "components/venue-art/venue-art.wxml"
+    ]
+  }
+}

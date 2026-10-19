@@ -1,0 +1,16 @@
+{
+  "scope": "local Node + embedded PostgreSQL, 5 rooms x 12 WS clients, 18 reconnects, 3 concurrent HTTP snapshot waves; no device, public network, or server measurement",
+  "online": 60,
+  "wsReconnects": 18,
+  "wsFrames": 120,
+  "meanWsFrameBytes": 3066,
+  "requests": 180,
+  "failures": 0,
+  "p50Ms": 141,
+  "p95Ms": 159,
+  "p99Ms": 160,
+  "meanBodyBytes": 3036,
+  "totalBodyBytes": 546465,
+  "rssMiB": 308,
+  "measuredAt": "2026-10-08T17:03:35.601Z"
+}

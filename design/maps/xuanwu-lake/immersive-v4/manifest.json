@@ -1,0 +1,18 @@
+{
+  "version": "immersive-map-v4",
+  "source": "design/maps/xuanwu-lake/immersive-v4/map-expanded-source.png",
+  "sourceSha256": "8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6",
+  "path": "assets/maps/xuanwu-lake-v4.jpg",
+  "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+  "width": 1254,
+  "height": 1254,
+  "bytes": 804062,
+  "georeferenced": false,
+  "geographicOverlay": false,
+  "transform": "JPEG86 4:4:4; no resize/crop/rotation; source preserved",
+  "prompt": "Use case: precise-object-edit / stylized-concept. Asset type: ONE large full-bleed raster background for a mobile game illustration-map viewer, NOT a UI mockup. Edit target/reference: the attached existing top-down Xuanwu Lake Huan/Ying islands pixel-art map. Create a high-resolution SQUARE 2048×2048 (or larger square) extended map artwork in exactly the same sunny 16-bit painterly pixel-art style, bright turquoise rippled water, yellow-green lawns, dense little shaded trees, cream paths, terracotta tiled buildings and long roofed corridor. Preserve the existing islands' recognizable outline, inner lake, all visible bridge connections, winding footpaths, central island and roofed corridor arrangement; do not invent new land or change the geography. Keep their orientation upright exactly as the reference; no rotation or perspective tilt. OUTPAINT / expand the surrounding lake on all four sides so the entire existing land-and-path composition sits comfortably inside the new square with a substantial continuous water margin, about 70% of the square width and 82% height for the land. Continue the SAME finely textured pixel-water all the way to every edge; no flat turquoise strips, no blank bands, no gradients, no borders, no phone frame, no UI, no labels, no letters, no text, no markers, no characters, no arrows, no watermark. Add crisp, consistent small pixel detail at the larger resolution while retaining the warm sunny reference's palette and scale. This is artwork, not surveyed GPS data. Deliver only the single seamless-looking map illustration, suitable for uniform cover cropping and slow camera panning.",
+  "tool": "built-in image_gen",
+  "referenceSource": "design/maps/xuanwu-lake/huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png",
+  "referenceSourceSha256": "c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6",
+  "notes": "Outpainted art water/bridge endings, not a surveyed map. Tool output actual1254x1254, not requested2048."
+}

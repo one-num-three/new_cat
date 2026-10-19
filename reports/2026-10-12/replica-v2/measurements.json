@@ -1,0 +1,5792 @@
+{
+  "schema_version": "visual-audit-2.0",
+  "date": "2026-10-12",
+  "method": "独立逐图32次view_image真实阅读；局部颜色由Pillow读取像素。人工包围盒估计，不是浏览器DOM；previous_measured_layout_dp来自上一轮已保存metrics.json。",
+  "coordinates": {
+    "reference_crop_px": [
+      156,
+      40,
+      712,
+      1454
+    ],
+    "previous_crop_px": [
+      0,
+      0,
+      648,
+      1402
+    ],
+    "normalized_viewport_dp": [
+      390,
+      844
+    ],
+    "box_order": "x,y,width,height",
+    "manual_box_uncertainty_px": 4,
+    "reference_y_normalization": "参考内屏与实际比例不同；纵向坐标用于版面比例。插画/地图本身必须等比缩放，不能为匹配比例直接纵向拉伸。",
+    "ignore": [
+      "参考图片外部背景、手机黑色硬件边框、侧键",
+      "系统时间、信号状态、动态数据差异",
+      "黑色刘海、底部系统横条由运行设备负责，不复制到运行图片"
+    ],
+    "not_ignore": [
+      "标题/角色/插画内容",
+      "白色胶囊控件布局",
+      "参考APP区域内的色块、图标、字形、按钮形态",
+      "开发预览的公园地图地标与裁切比例"
+    ]
+  },
+  "acceptance": {
+    "content_mismatch_allowed": 0,
+    "missing_required_art_allowed": 0,
+    "anchor_position_tolerance_dp": 6,
+    "panel_edge_tolerance_dp": 8,
+    "art_width_relative_tolerance": 0.03,
+    "headline_ink_height_relative_tolerance": 0.05,
+    "reference_source_or_exact_derivative_required": true,
+    "map_nonuniform_scale_allowed": false,
+    "full_page_raster_as_interactive_ui_allowed": false,
+    "public_state_data_must_remain_live": true,
+    "dynamic_qr_must_remain_generated": true
+  },
+  "palette_observations": {
+    "reference_primary_region_mode": "#E66E3C",
+    "previous_primary_region_mode": "#E37847",
+    "reference_alert_region_mode": "#FDECDB",
+    "previous_alert_region_mode": "#FCF1DF",
+    "reference_offline_region_mode": "#DBF5FE",
+    "previous_offline_region_mode": "#FAFCF6",
+    "mode_note": "来源原图局部区域RGB像素众数；截图存在采样/色彩管理，验收以同管线截图比对为准。"
+  },
+  "screens": [
+    {
+      "id": "home",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\01-home.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\home.png",
+      "reference_sha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "previous_screenshot_sha256": "ecb5f125750685e3fb6f481e25938c406a593f93b2f958a82aff443efceade80",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "hero_region",
+          "reference_box_px": [
+            156,
+            40,
+            712,
+            734
+          ],
+          "previous_box_px": [
+            0,
+            0,
+            648,
+            707
+          ],
+          "target_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            426.06
+          ],
+          "previous_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            425.61
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            0.0,
+            0.0,
+            0.45
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            0.5048
+          ]
+        },
+        {
+          "name": "headline",
+          "reference_box_px": [
+            199,
+            224,
+            350,
+            80
+          ],
+          "previous_box_px": [
+            31,
+            182,
+            288,
+            71
+          ],
+          "target_box_dp": [
+            23.55,
+            106.81,
+            191.71,
+            46.44
+          ],
+          "previous_box_dp": [
+            18.66,
+            109.56,
+            173.33,
+            42.74
+          ],
+          "delta_target_minus_previous_dp": [
+            4.89,
+            -2.75,
+            18.38,
+            3.7
+          ],
+          "target_box_ratio": [
+            0.0604,
+            0.1265,
+            0.4916,
+            0.055
+          ]
+        },
+        {
+          "name": "cat_art",
+          "reference_box_px": [
+            244,
+            424,
+            338,
+            260
+          ],
+          "previous_box_px": [
+            144,
+            407,
+            205,
+            211
+          ],
+          "target_box_dp": [
+            48.2,
+            222.9,
+            185.14,
+            150.92
+          ],
+          "previous_box_dp": [
+            86.67,
+            245.01,
+            123.38,
+            127.02
+          ],
+          "delta_target_minus_previous_dp": [
+            -38.47,
+            -22.11,
+            61.76,
+            23.9
+          ],
+          "target_box_ratio": [
+            0.1236,
+            0.2641,
+            0.4747,
+            0.1788
+          ]
+        },
+        {
+          "name": "nickname_input",
+          "reference_box_px": [
+            192,
+            829,
+            640,
+            84
+          ],
+          "previous_box_px": [
+            33,
+            750,
+            583,
+            75
+          ],
+          "target_box_dp": [
+            19.72,
+            457.99,
+            350.56,
+            48.76
+          ],
+          "previous_box_dp": [
+            19.86,
+            451.5,
+            350.88,
+            45.15
+          ],
+          "delta_target_minus_previous_dp": [
+            -0.14,
+            6.49,
+            -0.32,
+            3.61
+          ],
+          "target_box_ratio": [
+            0.0506,
+            0.5426,
+            0.8989,
+            0.0578
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            193,
+            1096,
+            639,
+            103
+          ],
+          "previous_box_px": [
+            33,
+            982,
+            583,
+            96
+          ],
+          "target_box_dp": [
+            20.27,
+            612.97,
+            350.01,
+            59.79
+          ],
+          "previous_box_dp": [
+            19.86,
+            591.16,
+            350.88,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            0.41,
+            21.81,
+            -0.87,
+            2.0
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.7263,
+            0.8975,
+            0.0708
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            193,
+            1220,
+            639,
+            94
+          ],
+          "previous_box_px": [
+            33,
+            1096,
+            583,
+            92
+          ],
+          "target_box_dp": [
+            20.27,
+            684.95,
+            350.01,
+            54.56
+          ],
+          "previous_box_dp": [
+            19.86,
+            659.79,
+            350.88,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            0.41,
+            25.16,
+            -0.87,
+            -0.82
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.8116,
+            0.8975,
+            0.0646
+          ]
+        },
+        {
+          "name": "developer_link",
+          "reference_box_px": [
+            453,
+            1412,
+            120,
+            25
+          ],
+          "previous_box_px": [
+            269,
+            1260,
+            110,
+            24
+          ],
+          "target_box_dp": [
+            162.68,
+            796.4,
+            65.73,
+            14.51
+          ],
+          "previous_box_dp": [
+            161.9,
+            758.52,
+            66.2,
+            14.45
+          ],
+          "delta_target_minus_previous_dp": [
+            0.78,
+            37.88,
+            -0.47,
+            0.06
+          ],
+          "target_box_ratio": [
+            0.4171,
+            0.9436,
+            0.1685,
+            0.0172
+          ]
+        }
+      ],
+      "observations": [
+        "猫主体约47.5%W对31.6%W；实际尾部/身长与参考不同。",
+        "天空比例过大、猫鼠整体缩小；底部动作/页脚整体上移。",
+        "参考橘按钮色块主色#E66E3C，实际截图#E37847。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "bottom": 844,
+            "width": 390,
+            "height": 844
+          }
+        ],
+        ".hero": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "bottom": 426,
+            "width": 390,
+            "height": 426
+          }
+        ],
+        ".homeInput": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 450.3984375,
+            "bottom": 496.3984375,
+            "width": 352,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 534.796875,
+            "bottom": 580.796875,
+            "width": 352,
+            "height": 46
+          }
+        ],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 590.796875,
+            "bottom": 646.796875,
+            "width": 352,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 658.796875,
+            "bottom": 714.796875,
+            "width": 352,
+            "height": 56
+          }
+        ],
+        ".topPanel": [],
+        ".bottomPanel": [],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [],
+        ".goal": [],
+        ".clock": [],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "create",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\02-create.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\create.png",
+      "reference_sha256": "96d918c9d05811f939fb4a535cfb6dbc3ba6251f99662d4cda4bde1a45e7f760",
+      "previous_screenshot_sha256": "9ca61ba063a5c618b38f350046b260b2b7f3266bbafcfe6d8e76f2d17134ac84",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "hero_region",
+          "reference_box_px": [
+            156,
+            40,
+            712,
+            477
+          ],
+          "previous_box_px": [
+            0,
+            0,
+            648,
+            389
+          ],
+          "target_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            276.88
+          ],
+          "previous_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            234.18
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            0.0,
+            0.0,
+            42.7
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            0.3281
+          ]
+        },
+        {
+          "name": "headline",
+          "reference_box_px": [
+            195,
+            540,
+            500,
+            70
+          ],
+          "previous_box_px": [
+            33,
+            405,
+            311,
+            45
+          ],
+          "target_box_dp": [
+            21.36,
+            290.23,
+            273.88,
+            40.63
+          ],
+          "previous_box_dp": [
+            19.86,
+            243.81,
+            187.18,
+            27.09
+          ],
+          "delta_target_minus_previous_dp": [
+            1.5,
+            46.42,
+            86.7,
+            13.54
+          ],
+          "target_box_ratio": [
+            0.0548,
+            0.3439,
+            0.7022,
+            0.0481
+          ]
+        },
+        {
+          "name": "count_card",
+          "reference_box_px": [
+            190,
+            704,
+            646,
+            163
+          ],
+          "previous_box_px": [
+            33,
+            523,
+            584,
+            129
+          ],
+          "target_box_dp": [
+            18.62,
+            385.43,
+            353.85,
+            94.62
+          ],
+          "previous_box_dp": [
+            19.86,
+            314.84,
+            351.48,
+            77.66
+          ],
+          "delta_target_minus_previous_dp": [
+            -1.24,
+            70.59,
+            2.37,
+            16.96
+          ],
+          "target_box_ratio": [
+            0.0478,
+            0.4567,
+            0.9073,
+            0.1121
+          ]
+        },
+        {
+          "name": "location_card",
+          "reference_box_px": [
+            190,
+            886,
+            646,
+            375
+          ],
+          "previous_box_px": [
+            33,
+            670,
+            584,
+            337
+          ],
+          "target_box_dp": [
+            18.62,
+            491.08,
+            353.85,
+            217.68
+          ],
+          "previous_box_dp": [
+            19.86,
+            403.34,
+            351.48,
+            202.87
+          ],
+          "delta_target_minus_previous_dp": [
+            -1.24,
+            87.74,
+            2.37,
+            14.81
+          ],
+          "target_box_ratio": [
+            0.0478,
+            0.5818,
+            0.9073,
+            0.2579
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            193,
+            1281,
+            639,
+            100
+          ],
+          "previous_box_px": [
+            33,
+            1023,
+            583,
+            96
+          ],
+          "target_box_dp": [
+            20.27,
+            720.36,
+            350.01,
+            58.05
+          ],
+          "previous_box_dp": [
+            19.86,
+            615.84,
+            350.88,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            0.41,
+            104.52,
+            -0.87,
+            0.26
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.8535,
+            0.8975,
+            0.0688
+          ]
+        }
+      ],
+      "observations": [
+        "主标题应放大并下移；首屏底部多余空白约15%H。",
+        "定位图标实际为绿圆+白点，不是白色定位针；下拉箭头实际为字母v。",
+        "整页纵向内容压缩，主CTA提前约12.3%H。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "bottom": 844,
+            "width": 390,
+            "height": 844
+          }
+        ],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 615.8359375,
+            "bottom": 671.8359375,
+            "width": 352,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 33,
+            "right": 357,
+            "top": 517.6953125,
+            "bottom": 566.0390625,
+            "width": 324,
+            "height": 48.34375
+          }
+        ],
+        ".topPanel": [],
+        ".bottomPanel": [],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [],
+        ".goal": [],
+        ".clock": [],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "ready",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\03-ready.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\ready.png",
+      "reference_sha256": "5bd1d85579425af6d484ae1257d8f03b7a527a51b0c4db10e04ec775f5f58d40",
+      "previous_screenshot_sha256": "329b9f054c522cbdbaa4980f37b882bc46d61909366a93ff63629d710bdee69e",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "hero_region",
+          "reference_box_px": [
+            156,
+            40,
+            712,
+            380
+          ],
+          "previous_box_px": [
+            0,
+            0,
+            648,
+            362
+          ],
+          "target_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            220.58
+          ],
+          "previous_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            217.92
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            0.0,
+            0.0,
+            2.66
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            0.2613
+          ]
+        },
+        {
+          "name": "headline",
+          "reference_box_px": [
+            192,
+            392,
+            470,
+            54
+          ],
+          "previous_box_px": [
+            33,
+            372,
+            358,
+            44
+          ],
+          "target_box_dp": [
+            19.72,
+            204.32,
+            257.44,
+            31.35
+          ],
+          "previous_box_dp": [
+            19.86,
+            223.94,
+            215.46,
+            26.49
+          ],
+          "delta_target_minus_previous_dp": [
+            -0.14,
+            -19.62,
+            41.98,
+            4.86
+          ],
+          "target_box_ratio": [
+            0.0506,
+            0.2421,
+            0.6601,
+            0.0371
+          ]
+        },
+        {
+          "name": "room_code_card",
+          "reference_box_px": [
+            183,
+            467,
+            659,
+            151
+          ],
+          "previous_box_px": [
+            33,
+            436,
+            584,
+            129
+          ],
+          "target_box_dp": [
+            14.79,
+            247.86,
+            360.97,
+            87.65
+          ],
+          "previous_box_dp": [
+            19.86,
+            262.47,
+            351.48,
+            77.66
+          ],
+          "delta_target_minus_previous_dp": [
+            -5.07,
+            -14.61,
+            9.49,
+            9.99
+          ],
+          "target_box_ratio": [
+            0.0379,
+            0.2937,
+            0.9256,
+            0.1039
+          ]
+        },
+        {
+          "name": "room_code_text",
+          "reference_box_px": [
+            210,
+            543,
+            450,
+            53
+          ],
+          "previous_box_px": [
+            54,
+            505,
+            275,
+            40
+          ],
+          "target_box_dp": [
+            29.58,
+            291.98,
+            246.49,
+            30.76
+          ],
+          "previous_box_dp": [
+            32.5,
+            304.01,
+            165.51,
+            24.08
+          ],
+          "delta_target_minus_previous_dp": [
+            -2.92,
+            -12.03,
+            80.98,
+            6.68
+          ],
+          "target_box_ratio": [
+            0.0758,
+            0.3459,
+            0.632,
+            0.0365
+          ]
+        },
+        {
+          "name": "roster",
+          "reference_box_px": [
+            188,
+            685,
+            650,
+            430
+          ],
+          "previous_box_px": [
+            33,
+            625,
+            585,
+            393
+          ],
+          "target_box_dp": [
+            17.53,
+            374.4,
+            356.04,
+            249.6
+          ],
+          "previous_box_dp": [
+            19.86,
+            376.25,
+            352.08,
+            236.58
+          ],
+          "delta_target_minus_previous_dp": [
+            -2.33,
+            -1.85,
+            3.96,
+            13.02
+          ],
+          "target_box_ratio": [
+            0.0449,
+            0.4436,
+            0.9129,
+            0.2957
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            187,
+            1185,
+            651,
+            100
+          ],
+          "previous_box_px": [
+            33,
+            1073,
+            584,
+            97
+          ],
+          "target_box_dp": [
+            16.98,
+            664.64,
+            356.59,
+            58.05
+          ],
+          "previous_box_dp": [
+            19.86,
+            645.94,
+            351.48,
+            58.39
+          ],
+          "delta_target_minus_previous_dp": [
+            -2.88,
+            18.7,
+            5.11,
+            -0.34
+          ],
+          "target_box_ratio": [
+            0.0435,
+            0.7875,
+            0.9143,
+            0.0688
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            188,
+            1302,
+            650,
+            80
+          ],
+          "previous_box_px": [
+            33,
+            1184,
+            584,
+            79
+          ],
+          "target_box_dp": [
+            17.53,
+            732.55,
+            356.04,
+            46.44
+          ],
+          "previous_box_dp": [
+            19.86,
+            712.76,
+            351.48,
+            47.56
+          ],
+          "delta_target_minus_previous_dp": [
+            -2.33,
+            19.79,
+            4.56,
+            -1.12
+          ],
+          "target_box_ratio": [
+            0.0449,
+            0.868,
+            0.9129,
+            0.055
+          ]
+        }
+      ],
+      "observations": [
+        "参考无旗杆，实际错用创建页旗杆插画，属于内容错误。",
+        "房间码字宽63.2%W对42.4%W，实际明显偏小。",
+        "名单实际字形偏重/较大，开始动作下方留白偏多；不是所有文字都需要加大。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "bottom": 844,
+            "width": 390,
+            "height": 844
+          }
+        ],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 645.890625,
+            "bottom": 701.890625,
+            "width": 352,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 711.890625,
+            "bottom": 760.234375,
+            "width": 352,
+            "height": 48.34375
+          }
+        ],
+        ".topPanel": [],
+        ".bottomPanel": [],
+        ".code": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 32,
+            "right": 199.3359375,
+            "top": 295.4921875,
+            "bottom": 327.4921875,
+            "width": 167.3359375,
+            "height": 32
+          }
+        ],
+        ".copyButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 300,
+            "right": 358,
+            "top": 297.9921875,
+            "bottom": 328.9921875,
+            "width": 58,
+            "height": 31
+          }
+        ],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [],
+        ".goal": [],
+        ".clock": [],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "hiding",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\04-hiding-v2.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\hiding.png",
+      "reference_sha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "previous_screenshot_sha256": "44942013d1a02eb27dbef3cabb226becfc36f7f390628d14fd4ffc32ffe77da5",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -5.01
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "meeting_circle",
+          "reference_box_px": [
+            413,
+            565,
+            235,
+            211
+          ],
+          "previous_box_px": [
+            231,
+            687,
+            214,
+            235
+          ],
+          "target_box_dp": [
+            140.77,
+            304.75,
+            128.72,
+            122.48
+          ],
+          "previous_box_dp": [
+            139.03,
+            413.57,
+            128.8,
+            141.47
+          ],
+          "delta_target_minus_previous_dp": [
+            1.74,
+            -108.82,
+            -0.08,
+            -18.99
+          ],
+          "target_box_ratio": [
+            0.361,
+            0.3611,
+            0.3301,
+            0.1451
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            1052,
+            712,
+            442
+          ],
+          "previous_box_px": [
+            0,
+            1023,
+            648,
+            379
+          ],
+          "target_box_dp": [
+            0.0,
+            587.43,
+            390.0,
+            256.57
+          ],
+          "previous_box_dp": [
+            0.0,
+            615.84,
+            390.0,
+            228.16
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -28.41,
+            0.0,
+            28.41
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.696,
+            1.0,
+            0.304
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            174,
+            1098,
+            364,
+            220
+          ],
+          "previous_box_px": [
+            33,
+            1080,
+            217,
+            111
+          ],
+          "target_box_dp": [
+            9.86,
+            614.13,
+            199.38,
+            127.7
+          ],
+          "previous_box_dp": [
+            19.86,
+            650.16,
+            130.6,
+            66.82
+          ],
+          "delta_target_minus_previous_dp": [
+            -10.0,
+            -36.03,
+            68.78,
+            60.88
+          ],
+          "target_box_ratio": [
+            0.0253,
+            0.7276,
+            0.5112,
+            0.1513
+          ]
+        },
+        {
+          "name": "state_title",
+          "reference_box_px": [
+            557,
+            1096,
+            265,
+            68
+          ],
+          "previous_box_px": [
+            278,
+            1098,
+            188,
+            38
+          ],
+          "target_box_dp": [
+            219.65,
+            612.97,
+            145.15,
+            39.47
+          ],
+          "previous_box_dp": [
+            167.31,
+            660.99,
+            113.15,
+            22.88
+          ],
+          "delta_target_minus_previous_dp": [
+            52.34,
+            -48.02,
+            32.0,
+            16.59
+          ],
+          "target_box_ratio": [
+            0.5632,
+            0.7263,
+            0.3722,
+            0.0468
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            187,
+            1336,
+            651,
+            95
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            16.98,
+            752.29,
+            356.59,
+            55.14
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            3.14,
+            9.43,
+            -6.93,
+            -0.24
+          ],
+          "target_box_ratio": [
+            0.0435,
+            0.8913,
+            0.9143,
+            0.0653
+          ]
+        }
+      ],
+      "observations": [
+        "地图集合圆被拉成竖椭圆；整体集合区域下降约14%H。",
+        "猫+时钟场景大小仅参考约65%，标题小且正文被挤为一行。",
+        "旗杆应有白描边、白色椭圆地标，实际为纯色三角/无地标。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 616,
+            "bottom": 844,
+            "width": 390,
+            "height": 228
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "cat",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\05-cat.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\cat.png",
+      "reference_sha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "previous_screenshot_sha256": "5a874227827ea1f3dcd07924136f77148574cdcf1e18ad347c3f1fc272de2cd3",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -5.01
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "meeting_circle",
+          "reference_box_px": [
+            413,
+            565,
+            235,
+            211
+          ],
+          "previous_box_px": [
+            231,
+            687,
+            214,
+            235
+          ],
+          "target_box_dp": [
+            140.77,
+            304.75,
+            128.72,
+            122.48
+          ],
+          "previous_box_dp": [
+            139.03,
+            413.57,
+            128.8,
+            141.47
+          ],
+          "delta_target_minus_previous_dp": [
+            1.74,
+            -108.82,
+            -0.08,
+            -18.99
+          ],
+          "target_box_ratio": [
+            0.361,
+            0.3611,
+            0.3301,
+            0.1451
+          ]
+        },
+        {
+          "name": "hint_area",
+          "reference_box_px": [
+            537,
+            730,
+            301,
+            251
+          ],
+          "previous_box_px": [
+            365,
+            784,
+            216,
+            217
+          ],
+          "target_box_dp": [
+            208.69,
+            400.52,
+            164.87,
+            145.7
+          ],
+          "previous_box_dp": [
+            219.68,
+            471.97,
+            130.0,
+            130.63
+          ],
+          "delta_target_minus_previous_dp": [
+            -10.99,
+            -71.45,
+            34.87,
+            15.07
+          ],
+          "target_box_ratio": [
+            0.5351,
+            0.4746,
+            0.4228,
+            0.1726
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            1059,
+            712,
+            435
+          ],
+          "previous_box_px": [
+            0,
+            1023,
+            648,
+            379
+          ],
+          "target_box_dp": [
+            0.0,
+            591.5,
+            390.0,
+            252.5
+          ],
+          "previous_box_dp": [
+            0.0,
+            615.84,
+            390.0,
+            228.16
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -24.34,
+            0.0,
+            24.34
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.7008,
+            1.0,
+            0.2992
+          ]
+        },
+        {
+          "name": "info_card",
+          "reference_box_px": [
+            176,
+            1078,
+            672,
+            116
+          ],
+          "previous_box_px": [
+            23,
+            1043,
+            604,
+            85
+          ],
+          "target_box_dp": [
+            10.96,
+            602.53,
+            368.09,
+            67.33
+          ],
+          "previous_box_dp": [
+            13.84,
+            627.88,
+            363.52,
+            51.17
+          ],
+          "delta_target_minus_previous_dp": [
+            -2.88,
+            -25.35,
+            4.57,
+            16.16
+          ],
+          "target_box_ratio": [
+            0.0281,
+            0.7139,
+            0.9438,
+            0.0798
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            190,
+            1218,
+            644,
+            112
+          ],
+          "previous_box_px": [
+            23,
+            1145,
+            604,
+            96
+          ],
+          "target_box_dp": [
+            18.62,
+            683.79,
+            352.75,
+            65.01
+          ],
+          "previous_box_dp": [
+            13.84,
+            689.29,
+            363.52,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            4.78,
+            -5.5,
+            -10.77,
+            7.22
+          ],
+          "target_box_ratio": [
+            0.0478,
+            0.8102,
+            0.9045,
+            0.077
+          ]
+        }
+      ],
+      "observations": [
+        "集合点整体下降，区域线索大小/形状/位置不是参考。",
+        "本人点参考x32.0%W,y55.8%H；实际x29.2%W,y64.1%H。",
+        "底部蓝卡主文字偏小，详情入口缺参考左右横线。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 689.203125,
+            "bottom": 745.203125,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".secondary": [],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 616.203125,
+            "bottom": 844,
+            "width": 390,
+            "height": 227.796875
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "mouse",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\06-mouse-v2.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\mouse.png",
+      "reference_sha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "previous_screenshot_sha256": "80d0dc264cfa7dc9e62faa0d8f7d3cbcdf5203647e06b4b54d552a7c5d220383",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -5.01
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            1040,
+            712,
+            454
+          ],
+          "previous_box_px": [
+            0,
+            1050,
+            648,
+            352
+          ],
+          "target_box_dp": [
+            0.0,
+            580.47,
+            390.0,
+            263.53
+          ],
+          "previous_box_dp": [
+            0.0,
+            632.1,
+            390.0,
+            211.9
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -51.63,
+            0.0,
+            51.63
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.6878,
+            1.0,
+            0.3122
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            177,
+            1060,
+            287,
+            176
+          ],
+          "previous_box_px": null,
+          "target_box_dp": [
+            11.5,
+            592.08,
+            157.21,
+            102.16
+          ],
+          "previous_box_dp": null,
+          "delta_target_minus_previous_dp": null,
+          "target_box_ratio": [
+            0.0295,
+            0.7015,
+            0.4031,
+            0.121
+          ]
+        },
+        {
+          "name": "state_title",
+          "reference_box_px": [
+            485,
+            1109,
+            348,
+            98
+          ],
+          "previous_box_px": [
+            152,
+            1097,
+            376,
+            22
+          ],
+          "target_box_dp": [
+            180.21,
+            620.52,
+            190.62,
+            56.89
+          ],
+          "previous_box_dp": [
+            91.48,
+            660.39,
+            226.3,
+            13.24
+          ],
+          "delta_target_minus_previous_dp": [
+            88.73,
+            -39.87,
+            -35.68,
+            43.65
+          ],
+          "target_box_ratio": [
+            0.4621,
+            0.7352,
+            0.4888,
+            0.0674
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            187,
+            1251,
+            648,
+            94
+          ],
+          "previous_box_px": [
+            23,
+            1145,
+            604,
+            96
+          ],
+          "target_box_dp": [
+            16.98,
+            702.95,
+            354.94,
+            54.56
+          ],
+          "previous_box_dp": [
+            13.84,
+            689.29,
+            363.52,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            3.14,
+            13.66,
+            -8.58,
+            -3.23
+          ],
+          "target_box_ratio": [
+            0.0435,
+            0.8329,
+            0.9101,
+            0.0646
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            188,
+            1362,
+            649,
+            83
+          ],
+          "previous_box_px": null,
+          "target_box_dp": [
+            17.53,
+            767.38,
+            355.49,
+            48.18
+          ],
+          "previous_box_dp": null,
+          "delta_target_minus_previous_dp": null,
+          "target_box_ratio": [
+            0.0449,
+            0.9092,
+            0.9115,
+            0.0571
+          ]
+        }
+      ],
+      "observations": [
+        "底部奔跑小鼠场景完全缺失；双行主文案被改为很小单行。",
+        "头部应该是炭灰小鼠而不是绿色猫头；详情应是描边按钮而非裸文字。",
+        "本人点参考x35.4%W,y51.2%H；实际x29.2%W,y64.1%H。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 689.203125,
+            "bottom": 745.203125,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".secondary": [],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 632.203125,
+            "bottom": 844,
+            "width": 390,
+            "height": 211.796875
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "alert",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\07-alert.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\alert.png",
+      "reference_sha256": "78f17b3ba9212d1e5d83ab33db45ff7089397ba94f6914511125c5da7f7f0531",
+      "previous_screenshot_sha256": "d47875e87c8e6d410d89aa1fbcf371618f297947f9c5df92619aa96269511fcc",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -5.01
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            1025,
+            712,
+            469
+          ],
+          "previous_box_px": [
+            0,
+            983,
+            648,
+            419
+          ],
+          "target_box_dp": [
+            0.0,
+            571.76,
+            390.0,
+            272.24
+          ],
+          "previous_box_dp": [
+            0.0,
+            591.76,
+            390.0,
+            252.24
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -20.0,
+            0.0,
+            20.0
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.6774,
+            1.0,
+            0.3226
+          ]
+        },
+        {
+          "name": "warning_card",
+          "reference_box_px": [
+            184,
+            1050,
+            656,
+            155
+          ],
+          "previous_box_px": [
+            23,
+            1031,
+            604,
+            102
+          ],
+          "target_box_dp": [
+            15.34,
+            586.27,
+            359.33,
+            89.97
+          ],
+          "previous_box_dp": [
+            13.84,
+            620.66,
+            363.52,
+            61.4
+          ],
+          "delta_target_minus_previous_dp": [
+            1.5,
+            -34.39,
+            -4.19,
+            28.57
+          ],
+          "target_box_ratio": [
+            0.0393,
+            0.6946,
+            0.9213,
+            0.1066
+          ]
+        },
+        {
+          "name": "warning_icon",
+          "reference_box_px": [
+            216,
+            1084,
+            87,
+            88
+          ],
+          "previous_box_px": [
+            41,
+            1059,
+            46,
+            46
+          ],
+          "target_box_dp": [
+            32.87,
+            606.01,
+            47.65,
+            51.08
+          ],
+          "previous_box_dp": [
+            24.68,
+            637.51,
+            27.69,
+            27.69
+          ],
+          "delta_target_minus_previous_dp": [
+            8.19,
+            -31.5,
+            19.96,
+            23.39
+          ],
+          "target_box_ratio": [
+            0.0843,
+            0.718,
+            0.1222,
+            0.0605
+          ]
+        },
+        {
+          "name": "warning_title",
+          "reference_box_px": [
+            340,
+            1090,
+            460,
+            43
+          ],
+          "previous_box_px": [
+            100,
+            1056,
+            303,
+            27
+          ],
+          "target_box_dp": [
+            100.79,
+            609.49,
+            251.97,
+            24.96
+          ],
+          "previous_box_dp": [
+            60.19,
+            635.71,
+            182.36,
+            16.25
+          ],
+          "delta_target_minus_previous_dp": [
+            40.6,
+            -26.22,
+            69.61,
+            8.71
+          ],
+          "target_box_ratio": [
+            0.2584,
+            0.7221,
+            0.6461,
+            0.0296
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            193,
+            1226,
+            639,
+            100
+          ],
+          "previous_box_px": [
+            23,
+            1145,
+            604,
+            96
+          ],
+          "target_box_dp": [
+            20.27,
+            688.43,
+            350.01,
+            58.05
+          ],
+          "previous_box_dp": [
+            13.84,
+            689.29,
+            363.52,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            6.43,
+            -0.86,
+            -13.51,
+            0.26
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.8157,
+            0.8975,
+            0.0688
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            193,
+            1346,
+            639,
+            92
+          ],
+          "previous_box_px": null,
+          "target_box_dp": [
+            20.27,
+            758.09,
+            350.01,
+            53.4
+          ],
+          "previous_box_dp": null,
+          "delta_target_minus_previous_dp": null,
+          "target_box_ratio": [
+            0.052,
+            0.8982,
+            0.8975,
+            0.0633
+          ]
+        }
+      ],
+      "observations": [
+        "警告圈缩小约42%；标题偏小、文字色从橘变棕。",
+        "正文参考停下后再操作手机，实际换成规则说明，破坏原层级。",
+        "近距阶段字色参考为橘；实际为绿，鼠头像同样错误。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 689.203125,
+            "bottom": 745.203125,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".secondary": [],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 591.40625,
+            "bottom": 844,
+            "width": 390,
+            "height": 252.59375
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "code",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\08-code.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\code.png",
+      "reference_sha256": "bf21f0c9acfa926f225cd1072d912e8b82313a4f4fe620029f80256cd078a0f2",
+      "previous_screenshot_sha256": "4eb8d355da3e39e13f6f04662c3ee1b127f8cf13ec1299fa40d382e7b07ed089",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "hero_region",
+          "reference_box_px": [
+            156,
+            40,
+            712,
+            424
+          ],
+          "previous_box_px": [
+            0,
+            0,
+            648,
+            372
+          ],
+          "target_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            246.12
+          ],
+          "previous_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            223.94
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            0.0,
+            0.0,
+            22.18
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            0.2916
+          ]
+        },
+        {
+          "name": "role_badge",
+          "reference_box_px": [
+            335,
+            466,
+            355,
+            66
+          ],
+          "previous_box_px": [
+            222,
+            372,
+            206,
+            50
+          ],
+          "target_box_dp": [
+            98.05,
+            247.28,
+            194.45,
+            38.31
+          ],
+          "previous_box_dp": [
+            133.61,
+            223.94,
+            123.98,
+            30.1
+          ],
+          "delta_target_minus_previous_dp": [
+            -35.56,
+            23.34,
+            70.47,
+            8.21
+          ],
+          "target_box_ratio": [
+            0.2514,
+            0.293,
+            0.4986,
+            0.0454
+          ]
+        },
+        {
+          "name": "headline",
+          "reference_box_px": [
+            225,
+            556,
+            570,
+            65
+          ],
+          "previous_box_px": [
+            133,
+            449,
+            387,
+            44
+          ],
+          "target_box_dp": [
+            37.79,
+            299.52,
+            312.22,
+            37.73
+          ],
+          "previous_box_dp": [
+            80.05,
+            270.3,
+            232.92,
+            26.49
+          ],
+          "delta_target_minus_previous_dp": [
+            -42.26,
+            29.22,
+            79.3,
+            11.24
+          ],
+          "target_box_ratio": [
+            0.0969,
+            0.3549,
+            0.8006,
+            0.0447
+          ]
+        },
+        {
+          "name": "code_card",
+          "reference_box_px": [
+            225,
+            746,
+            574,
+            390
+          ],
+          "previous_box_px": [
+            56,
+            598,
+            538,
+            357
+          ],
+          "target_box_dp": [
+            37.79,
+            409.81,
+            314.41,
+            226.38
+          ],
+          "previous_box_dp": [
+            33.7,
+            359.99,
+            323.8,
+            214.91
+          ],
+          "delta_target_minus_previous_dp": [
+            4.09,
+            49.82,
+            -9.39,
+            11.47
+          ],
+          "target_box_ratio": [
+            0.0969,
+            0.4856,
+            0.8062,
+            0.2682
+          ]
+        },
+        {
+          "name": "demo_check",
+          "reference_box_px": [
+            466,
+            832,
+            94,
+            100
+          ],
+          "previous_box_px": [
+            280,
+            698,
+            90,
+            90
+          ],
+          "target_box_dp": [
+            169.8,
+            459.73,
+            51.49,
+            58.05
+          ],
+          "previous_box_dp": [
+            168.52,
+            420.19,
+            54.17,
+            54.18
+          ],
+          "delta_target_minus_previous_dp": [
+            1.28,
+            39.54,
+            -2.68,
+            3.87
+          ],
+          "target_box_ratio": [
+            0.4354,
+            0.5447,
+            0.132,
+            0.0688
+          ]
+        },
+        {
+          "name": "dotted_ring",
+          "reference_box_px": [
+            383,
+            784,
+            258,
+            267
+          ],
+          "previous_box_px": [
+            235,
+            646,
+            182,
+            173
+          ],
+          "target_box_dp": [
+            124.34,
+            431.87,
+            141.32,
+            154.98
+          ],
+          "previous_box_dp": [
+            141.44,
+            388.89,
+            109.54,
+            104.15
+          ],
+          "delta_target_minus_previous_dp": [
+            -17.1,
+            42.98,
+            31.78,
+            50.83
+          ],
+          "target_box_ratio": [
+            0.3188,
+            0.5117,
+            0.3624,
+            0.1836
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            195,
+            1259,
+            636,
+            97
+          ],
+          "previous_box_px": [
+            33,
+            1061,
+            584,
+            91
+          ],
+          "target_box_dp": [
+            21.36,
+            707.59,
+            348.37,
+            56.31
+          ],
+          "previous_box_dp": [
+            19.86,
+            638.72,
+            351.48,
+            54.78
+          ],
+          "delta_target_minus_previous_dp": [
+            1.5,
+            68.87,
+            -3.11,
+            1.53
+          ],
+          "target_box_ratio": [
+            0.0548,
+            0.8384,
+            0.8933,
+            0.0667
+          ]
+        }
+      ],
+      "observations": [
+        "插画错误：参考无旗杆，实际复用创建页；角色胶囊缺小鼠头像。",
+        "码卡整体上移约5.9%H、返回按钮上移约8%H。",
+        "确认勾应是圆头两段线，不应使用字体近似根号；虚线圆不能被文字遮出缺口。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "bottom": 844,
+            "width": 390,
+            "height": 844
+          }
+        ],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 638.1953125,
+            "bottom": 694.1953125,
+            "width": 352,
+            "height": 56
+          }
+        ],
+        ".topPanel": [],
+        ".bottomPanel": [],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [],
+        ".goal": [],
+        ".clock": [],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "captured",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\09-captured.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\captured.png",
+      "reference_sha256": "0ba79befb0e10a34212eecaca80c294d4b022f81cee72681f9d8179b4127f869",
+      "previous_screenshot_sha256": "d15474bcbe8463ec91c6b7ed7179148ac68b0cbfcee9bd30afe1d87270b38f26",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            119
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            69.08
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -6.17
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0818
+          ]
+        },
+        {
+          "name": "public_bar",
+          "reference_box_px": [
+            178,
+            319,
+            668,
+            52
+          ],
+          "previous_box_px": [
+            19,
+            287,
+            611,
+            54
+          ],
+          "target_box_dp": [
+            12.05,
+            161.95,
+            365.9,
+            30.18
+          ],
+          "previous_box_dp": [
+            11.44,
+            172.77,
+            367.73,
+            32.51
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -10.82,
+            -1.83,
+            -2.33
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1919,
+            0.9382,
+            0.0358
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            1077,
+            712,
+            417
+          ],
+          "previous_box_px": [
+            0,
+            1023,
+            648,
+            379
+          ],
+          "target_box_dp": [
+            0.0,
+            601.94,
+            390.0,
+            242.06
+          ],
+          "previous_box_dp": [
+            0.0,
+            615.84,
+            390.0,
+            228.16
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -13.9,
+            0.0,
+            13.9
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.7132,
+            1.0,
+            0.2868
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            177,
+            1125,
+            305,
+            183
+          ],
+          "previous_box_px": [
+            50,
+            1082,
+            187,
+            105
+          ],
+          "target_box_dp": [
+            11.5,
+            629.81,
+            167.06,
+            106.23
+          ],
+          "previous_box_dp": [
+            30.09,
+            651.36,
+            112.55,
+            63.21
+          ],
+          "delta_target_minus_previous_dp": [
+            -18.59,
+            -21.55,
+            54.51,
+            43.02
+          ],
+          "target_box_ratio": [
+            0.0295,
+            0.7462,
+            0.4284,
+            0.1259
+          ]
+        },
+        {
+          "name": "state_title",
+          "reference_box_px": [
+            499,
+            1150,
+            304,
+            59
+          ],
+          "previous_box_px": [
+            278,
+            1097,
+            202,
+            36
+          ],
+          "target_box_dp": [
+            187.88,
+            644.32,
+            166.52,
+            34.25
+          ],
+          "previous_box_dp": [
+            167.31,
+            660.39,
+            121.57,
+            21.67
+          ],
+          "delta_target_minus_previous_dp": [
+            20.57,
+            -16.07,
+            44.95,
+            12.58
+          ],
+          "target_box_ratio": [
+            0.4817,
+            0.7634,
+            0.427,
+            0.0406
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            187,
+            1335,
+            651,
+            96
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            16.98,
+            751.71,
+            356.59,
+            55.72
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            3.14,
+            8.85,
+            -6.93,
+            0.34
+          ],
+          "target_box_ratio": [
+            0.0435,
+            0.8906,
+            0.9143,
+            0.066
+          ]
+        }
+      ],
+      "observations": [
+        "鼠头像错误；出局阶段参考橘色，实际绿色。",
+        "公开状态条缺蓝色i图标，字色与字重也不一致。",
+        "出局场景大小约参考67%，参考大主标题实际只剩约2/3字高。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 616,
+            "bottom": 844,
+            "width": 390,
+            "height": 228
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 172,
+            "bottom": 204.5,
+            "width": 368,
+            "height": 32.5
+          }
+        ],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "paused",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\10-paused.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\paused.png",
+      "reference_sha256": "ba93ce76c10d488b153200a456a08b784f02488dff794fc1aee8da34c6a09cac",
+      "previous_screenshot_sha256": "12f06116648ffe8c0220cff0acc9fb0c2be8d559190a23c6b37e377b38f842cd",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -5.01
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            997,
+            712,
+            497
+          ],
+          "previous_box_px": [
+            0,
+            901,
+            648,
+            501
+          ],
+          "target_box_dp": [
+            0.0,
+            555.51,
+            390.0,
+            288.49
+          ],
+          "previous_box_dp": [
+            0.0,
+            542.4,
+            390.0,
+            301.6
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            13.11,
+            0.0,
+            -13.11
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.6582,
+            1.0,
+            0.3418
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            174,
+            1029,
+            356,
+            195
+          ],
+          "previous_box_px": [
+            37,
+            961,
+            216,
+            103
+          ],
+          "target_box_dp": [
+            9.86,
+            574.08,
+            195.0,
+            113.19
+          ],
+          "previous_box_dp": [
+            22.27,
+            578.52,
+            130.0,
+            62.01
+          ],
+          "delta_target_minus_previous_dp": [
+            -12.41,
+            -4.44,
+            65.0,
+            51.18
+          ],
+          "target_box_ratio": [
+            0.0253,
+            0.6802,
+            0.5,
+            0.1341
+          ]
+        },
+        {
+          "name": "state_title",
+          "reference_box_px": [
+            545,
+            1049,
+            290,
+            57
+          ],
+          "previous_box_px": [
+            278,
+            953,
+            166,
+            39
+          ],
+          "target_box_dp": [
+            213.08,
+            585.69,
+            158.85,
+            33.09
+          ],
+          "previous_box_dp": [
+            167.31,
+            573.7,
+            99.91,
+            23.48
+          ],
+          "delta_target_minus_previous_dp": [
+            45.77,
+            11.99,
+            58.94,
+            9.61
+          ],
+          "target_box_ratio": [
+            0.5463,
+            0.6939,
+            0.4073,
+            0.0392
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            185,
+            1236,
+            654,
+            94
+          ],
+          "previous_box_px": [
+            23,
+            1122,
+            604,
+            94
+          ],
+          "target_box_dp": [
+            15.88,
+            694.24,
+            358.23,
+            54.56
+          ],
+          "previous_box_dp": [
+            13.84,
+            675.44,
+            363.52,
+            56.59
+          ],
+          "delta_target_minus_previous_dp": [
+            2.04,
+            18.8,
+            -5.29,
+            -2.03
+          ],
+          "target_box_ratio": [
+            0.0407,
+            0.8226,
+            0.9185,
+            0.0646
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            186,
+            1347,
+            652,
+            85
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            16.43,
+            758.67,
+            357.13,
+            49.34
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            2.59,
+            15.81,
+            -6.39,
+            -6.04
+          ],
+          "target_box_ratio": [
+            0.0421,
+            0.8989,
+            0.9157,
+            0.0585
+          ]
+        }
+      ],
+      "observations": [
+        "状态场景虽然题材正确，实际只约67%参考宽度；两角色与暂停圈都太小。",
+        "标题和状态文字层级过弱、右侧文字列左边距过早。",
+        "地图/旗标的共同变形须一并修复。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 675,
+            "bottom": 731,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 542,
+            "bottom": 844,
+            "width": 390,
+            "height": 302
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "offline",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\11-offline.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\offline.png",
+      "reference_sha256": "cf713eb08caf55833f7099c684a98fc803a4f9655a9a804848b93370ef6e9c14",
+      "previous_screenshot_sha256": "824fbc6ebfe372ac556cddde3fd08dfa40aa70c83106b692140dc1c839658198",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            125
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            75.25
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            -5.01
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            1052,
+            712,
+            442
+          ],
+          "previous_box_px": [
+            0,
+            1023,
+            648,
+            379
+          ],
+          "target_box_dp": [
+            0.0,
+            587.43,
+            390.0,
+            256.57
+          ],
+          "previous_box_dp": [
+            0.0,
+            615.84,
+            390.0,
+            228.16
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -28.41,
+            0.0,
+            28.41
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.696,
+            1.0,
+            0.304
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            166,
+            1089,
+            311,
+            216
+          ],
+          "previous_box_px": [
+            50,
+            1084,
+            192,
+            120
+          ],
+          "target_box_dp": [
+            5.48,
+            608.91,
+            170.35,
+            125.38
+          ],
+          "previous_box_dp": [
+            30.09,
+            652.56,
+            115.56,
+            72.24
+          ],
+          "delta_target_minus_previous_dp": [
+            -24.61,
+            -43.65,
+            54.79,
+            53.14
+          ],
+          "target_box_ratio": [
+            0.014,
+            0.7215,
+            0.4368,
+            0.1486
+          ]
+        },
+        {
+          "name": "state_title",
+          "reference_box_px": [
+            486,
+            1120,
+            363,
+            41
+          ],
+          "previous_box_px": [
+            278,
+            1054,
+            166,
+            77
+          ],
+          "target_box_dp": [
+            180.76,
+            626.91,
+            198.83,
+            23.8
+          ],
+          "previous_box_dp": [
+            167.31,
+            634.5,
+            99.91,
+            46.35
+          ],
+          "delta_target_minus_previous_dp": [
+            13.45,
+            -7.59,
+            98.92,
+            -22.55
+          ],
+          "target_box_ratio": [
+            0.4635,
+            0.7428,
+            0.5098,
+            0.0282
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            187,
+            1334,
+            651,
+            98
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            16.98,
+            751.13,
+            356.59,
+            56.89
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            3.14,
+            8.27,
+            -6.93,
+            1.51
+          ],
+          "target_box_ratio": [
+            0.0435,
+            0.89,
+            0.9143,
+            0.0674
+          ]
+        }
+      ],
+      "observations": [
+        "断链+猫鼠+地面阴影被换成手机/旋转箭头场景，内容错误。",
+        "参考整片浅蓝面板#DBF5FE，实际奶油#FAFCF6，严重色块差异。",
+        "参考标题单行；实际分成连接中断/正在重连两行。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 616,
+            "bottom": 844,
+            "width": 390,
+            "height": 228
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "catWin",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\12-catWin.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\catWin.png",
+      "reference_sha256": "191a1489751de8dd5d58bdb94f5f6b6a831baf794d42ad184847cb57bcdd283a",
+      "previous_screenshot_sha256": "625ae1c3a4c6481b1505187c25f6982b386f14fb4b708d270e217504112f703c",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            108
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            65.02
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            5.22
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            950,
+            712,
+            544
+          ],
+          "previous_box_px": [
+            0,
+            858,
+            648,
+            544
+          ],
+          "target_box_dp": [
+            0.0,
+            528.23,
+            390.0,
+            315.77
+          ],
+          "previous_box_dp": [
+            0.0,
+            516.51,
+            390.0,
+            327.49
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            11.72,
+            0.0,
+            -11.72
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.6259,
+            1.0,
+            0.3741
+          ]
+        },
+        {
+          "name": "result_badge",
+          "reference_box_px": [
+            192,
+            973,
+            134,
+            44
+          ],
+          "previous_box_px": [
+            26,
+            900,
+            109,
+            40
+          ],
+          "target_box_dp": [
+            19.72,
+            541.58,
+            73.4,
+            25.54
+          ],
+          "previous_box_dp": [
+            15.65,
+            541.8,
+            65.6,
+            24.08
+          ],
+          "delta_target_minus_previous_dp": [
+            4.07,
+            -0.22,
+            7.8,
+            1.46
+          ],
+          "target_box_ratio": [
+            0.0506,
+            0.6417,
+            0.1882,
+            0.0303
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            451,
+            968,
+            396,
+            271
+          ],
+          "previous_box_px": [
+            335,
+            919,
+            267,
+            148
+          ],
+          "target_box_dp": [
+            161.59,
+            538.67,
+            216.91,
+            157.31
+          ],
+          "previous_box_dp": [
+            201.62,
+            553.24,
+            160.69,
+            89.1
+          ],
+          "delta_target_minus_previous_dp": [
+            -40.03,
+            -14.57,
+            56.22,
+            68.21
+          ],
+          "target_box_ratio": [
+            0.4143,
+            0.6382,
+            0.5562,
+            0.1864
+          ]
+        },
+        {
+          "name": "result_title",
+          "reference_box_px": [
+            192,
+            1040,
+            261,
+            60
+          ],
+          "previous_box_px": [
+            26,
+            963,
+            206,
+            48
+          ],
+          "target_box_dp": [
+            19.72,
+            580.47,
+            142.96,
+            34.83
+          ],
+          "previous_box_dp": [
+            15.65,
+            579.72,
+            123.98,
+            28.9
+          ],
+          "delta_target_minus_previous_dp": [
+            4.07,
+            0.75,
+            18.98,
+            5.93
+          ],
+          "target_box_ratio": [
+            0.0506,
+            0.6878,
+            0.3666,
+            0.0413
+          ]
+        },
+        {
+          "name": "capture_pill",
+          "reference_box_px": [
+            193,
+            1163,
+            228,
+            65
+          ],
+          "previous_box_px": null,
+          "target_box_dp": [
+            20.27,
+            651.87,
+            124.89,
+            37.73
+          ],
+          "previous_box_dp": null,
+          "delta_target_minus_previous_dp": null,
+          "target_box_ratio": [
+            0.052,
+            0.7724,
+            0.3202,
+            0.0447
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            193,
+            1248,
+            639,
+            87
+          ],
+          "previous_box_px": [
+            26,
+            1127,
+            598,
+            96
+          ],
+          "target_box_dp": [
+            20.27,
+            701.2,
+            350.01,
+            50.5
+          ],
+          "previous_box_dp": [
+            15.65,
+            678.45,
+            359.91,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            4.62,
+            22.75,
+            -9.9,
+            -7.29
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.8308,
+            0.8975,
+            0.0598
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            193,
+            1352,
+            639,
+            80
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            20.27,
+            761.57,
+            350.01,
+            46.44
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            6.43,
+            18.71,
+            -13.51,
+            -8.94
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.9023,
+            0.8975,
+            0.055
+          ]
+        }
+      ],
+      "observations": [
+        "结算插画宽55.6%W对41.2%W；应放大，不能只显示小贴纸。",
+        "捕获4/6人应在浅绿胶囊里；实际无胶囊且提前。",
+        "终局头部面板比参考矮，应与其他状态保持设计相同高度。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 678,
+            "bottom": 734,
+            "width": 360,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 156.6953125,
+            "width": 368,
+            "height": 64.6953125
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 516.1015625,
+            "bottom": 844,
+            "width": 390,
+            "height": 327.8984375
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 103.046875,
+            "bottom": 145.640625,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 106.09375,
+            "bottom": 142.59375,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 127.1953125,
+            "width": 95,
+            "height": 24.1953125
+          }
+        ],
+        ".resultTitle": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 213,
+            "top": 572.1015625,
+            "bottom": 610.8515625,
+            "width": 198,
+            "height": 38.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "mouseWin",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\13-mouseWin.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\mouseWin.png",
+      "reference_sha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "previous_screenshot_sha256": "362d6ccabe493ebd6fe7552708ad9856e40fc50715b62aa8d904383237692938",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            108
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            65.02
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            5.22
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            915,
+            712,
+            579
+          ],
+          "previous_box_px": [
+            0,
+            858,
+            648,
+            544
+          ],
+          "target_box_dp": [
+            0.0,
+            507.91,
+            390.0,
+            336.09
+          ],
+          "previous_box_dp": [
+            0.0,
+            516.51,
+            390.0,
+            327.49
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            -8.6,
+            0.0,
+            8.6
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.6018,
+            1.0,
+            0.3982
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            380,
+            896,
+            460,
+            245
+          ],
+          "previous_box_px": [
+            328,
+            918,
+            282,
+            148
+          ],
+          "target_box_dp": [
+            122.7,
+            496.88,
+            251.97,
+            142.21
+          ],
+          "previous_box_dp": [
+            197.41,
+            552.63,
+            169.72,
+            89.1
+          ],
+          "delta_target_minus_previous_dp": [
+            -74.71,
+            -55.75,
+            82.25,
+            53.11
+          ],
+          "target_box_ratio": [
+            0.3146,
+            0.5887,
+            0.6461,
+            0.1685
+          ]
+        },
+        {
+          "name": "result_title",
+          "reference_box_px": [
+            193,
+            1056,
+            297,
+            72
+          ],
+          "previous_box_px": [
+            26,
+            963,
+            206,
+            48
+          ],
+          "target_box_dp": [
+            20.27,
+            589.76,
+            162.68,
+            41.79
+          ],
+          "previous_box_dp": [
+            15.65,
+            579.72,
+            123.98,
+            28.9
+          ],
+          "delta_target_minus_previous_dp": [
+            4.62,
+            10.04,
+            38.7,
+            12.89
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.6988,
+            0.4171,
+            0.0495
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            193,
+            1252,
+            639,
+            97
+          ],
+          "previous_box_px": [
+            26,
+            1127,
+            598,
+            96
+          ],
+          "target_box_dp": [
+            20.27,
+            703.53,
+            350.01,
+            56.31
+          ],
+          "previous_box_dp": [
+            15.65,
+            678.45,
+            359.91,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            4.62,
+            25.08,
+            -9.9,
+            -1.48
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.8336,
+            0.8975,
+            0.0667
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            193,
+            1363,
+            639,
+            85
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            20.27,
+            767.96,
+            350.01,
+            49.34
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            6.43,
+            25.1,
+            -13.51,
+            -6.04
+          ],
+          "target_box_ratio": [
+            0.052,
+            0.9099,
+            0.8975,
+            0.0585
+          ]
+        }
+      ],
+      "observations": [
+        "插画宽64.6%W对43.5%W，参考越过面板上沿，实际内缩约36dp。",
+        "标题需约36%字高提升；捕获统计参考深青，不是绿。",
+        "终局面板高度不能把三个结果机械统一；本页比猫胜更早起。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 678,
+            "bottom": 734,
+            "width": 360,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 156.6953125,
+            "width": 368,
+            "height": 64.6953125
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 516.1015625,
+            "bottom": 844,
+            "width": 390,
+            "height": 327.8984375
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 103.046875,
+            "bottom": 145.640625,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 106.09375,
+            "bottom": 142.59375,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 127.1953125,
+            "width": 95,
+            "height": 24.1953125
+          }
+        ],
+        ".resultTitle": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 213,
+            "top": 572.1015625,
+            "bottom": 610.8515625,
+            "width": 198,
+            "height": 38.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "cancelled",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\14-cancelled.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\cancelled.png",
+      "reference_sha256": "f593d6dedc19e9c42e6296bfb92df4e59b3bb1dd35ca07707f9b13fe0f8cbecf",
+      "previous_screenshot_sha256": "01e4242aee8558ab73a3b65b9bcba588ac33f70bad0560ea38358e9bbddcae80",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "top_panel",
+          "reference_box_px": [
+            178,
+            191,
+            669,
+            121
+          ],
+          "previous_box_px": [
+            19,
+            153,
+            611,
+            108
+          ],
+          "target_box_dp": [
+            12.05,
+            87.65,
+            366.45,
+            70.24
+          ],
+          "previous_box_dp": [
+            11.44,
+            92.11,
+            367.73,
+            65.02
+          ],
+          "delta_target_minus_previous_dp": [
+            0.61,
+            -4.46,
+            -1.28,
+            5.22
+          ],
+          "target_box_ratio": [
+            0.0309,
+            0.1039,
+            0.9396,
+            0.0832
+          ]
+        },
+        {
+          "name": "bottom_panel",
+          "reference_box_px": [
+            156,
+            964,
+            712,
+            530
+          ],
+          "previous_box_px": [
+            0,
+            858,
+            648,
+            544
+          ],
+          "target_box_dp": [
+            0.0,
+            536.35,
+            390.0,
+            307.65
+          ],
+          "previous_box_dp": [
+            0.0,
+            516.51,
+            390.0,
+            327.49
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            19.84,
+            0.0,
+            -19.84
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.6355,
+            1.0,
+            0.3645
+          ]
+        },
+        {
+          "name": "state_art",
+          "reference_box_px": [
+            174,
+            1024,
+            355,
+            201
+          ],
+          "previous_box_px": [
+            334,
+            922,
+            268,
+            140
+          ],
+          "target_box_dp": [
+            9.86,
+            571.18,
+            194.45,
+            116.67
+          ],
+          "previous_box_dp": [
+            201.02,
+            555.04,
+            161.3,
+            84.28
+          ],
+          "delta_target_minus_previous_dp": [
+            -191.16,
+            16.14,
+            33.15,
+            32.39
+          ],
+          "target_box_ratio": [
+            0.0253,
+            0.6768,
+            0.4986,
+            0.1382
+          ]
+        },
+        {
+          "name": "result_badge",
+          "reference_box_px": [
+            550,
+            1001,
+            139,
+            42
+          ],
+          "previous_box_px": [
+            26,
+            900,
+            109,
+            40
+          ],
+          "target_box_dp": [
+            215.81,
+            557.83,
+            76.14,
+            24.38
+          ],
+          "previous_box_dp": [
+            15.65,
+            541.8,
+            65.6,
+            24.08
+          ],
+          "delta_target_minus_previous_dp": [
+            200.16,
+            16.03,
+            10.54,
+            0.3
+          ],
+          "target_box_ratio": [
+            0.5534,
+            0.6609,
+            0.1952,
+            0.0289
+          ]
+        },
+        {
+          "name": "result_title",
+          "reference_box_px": [
+            552,
+            1066,
+            264,
+            52
+          ],
+          "previous_box_px": [
+            26,
+            963,
+            206,
+            48
+          ],
+          "target_box_dp": [
+            216.91,
+            595.56,
+            144.61,
+            30.18
+          ],
+          "previous_box_dp": [
+            15.65,
+            579.72,
+            123.98,
+            28.9
+          ],
+          "delta_target_minus_previous_dp": [
+            201.26,
+            15.84,
+            20.63,
+            1.28
+          ],
+          "target_box_ratio": [
+            0.5562,
+            0.7056,
+            0.3708,
+            0.0358
+          ]
+        },
+        {
+          "name": "primary_button",
+          "reference_box_px": [
+            187,
+            1238,
+            651,
+            89
+          ],
+          "previous_box_px": [
+            26,
+            1127,
+            598,
+            96
+          ],
+          "target_box_dp": [
+            16.98,
+            695.4,
+            356.59,
+            51.66
+          ],
+          "previous_box_dp": [
+            15.65,
+            678.45,
+            359.91,
+            57.79
+          ],
+          "delta_target_minus_previous_dp": [
+            1.33,
+            16.95,
+            -3.32,
+            -6.13
+          ],
+          "target_box_ratio": [
+            0.0435,
+            0.8239,
+            0.9143,
+            0.0612
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            188,
+            1346,
+            650,
+            86
+          ],
+          "previous_box_px": [
+            23,
+            1234,
+            604,
+            92
+          ],
+          "target_box_dp": [
+            17.53,
+            758.09,
+            356.04,
+            49.92
+          ],
+          "previous_box_dp": [
+            13.84,
+            742.86,
+            363.52,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            3.69,
+            15.23,
+            -7.48,
+            -5.46
+          ],
+          "target_box_ratio": [
+            0.0449,
+            0.8982,
+            0.9129,
+            0.0591
+          ]
+        }
+      ],
+      "observations": [
+        "参考插画左/标题右；实际左右反转，结构性不通过。",
+        "本局记录胶囊也应在右列；次标题橘色不计胜负/脚注灰色分开。",
+        "参考中央旗帜为垂下软旗，实际仍是三角旗。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 678,
+            "bottom": 734,
+            "width": 360,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 742,
+            "bottom": 798,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 156.6953125,
+            "width": 368,
+            "height": 64.6953125
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 516.1015625,
+            "bottom": 844,
+            "width": 390,
+            "height": 327.8984375
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 103.046875,
+            "bottom": 145.640625,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 106.09375,
+            "bottom": 142.59375,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 127.1953125,
+            "width": 95,
+            "height": 24.1953125
+          }
+        ],
+        ".resultTitle": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 213,
+            "top": 572.1015625,
+            "bottom": 610.8515625,
+            "width": 198,
+            "height": 38.75
+          }
+        ]
+      }
+    },
+    {
+      "id": "gallery",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\15-dev.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\gallery.png",
+      "reference_sha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "previous_screenshot_sha256": "a25370513ddc9014151b50d55410d739fca28c8ca928c3c4058b10a0270d605c",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "hero_region",
+          "reference_box_px": [
+            156,
+            40,
+            712,
+            392
+          ],
+          "previous_box_px": [
+            0,
+            0,
+            648,
+            357
+          ],
+          "target_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            227.54
+          ],
+          "previous_box_dp": [
+            0.0,
+            0.0,
+            390.0,
+            214.91
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            0.0,
+            0.0,
+            12.63
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.0,
+            1.0,
+            0.2696
+          ]
+        },
+        {
+          "name": "headline",
+          "reference_box_px": [
+            192,
+            445,
+            495,
+            50
+          ],
+          "previous_box_px": [
+            33,
+            366,
+            329,
+            37
+          ],
+          "target_box_dp": [
+            19.72,
+            235.09,
+            271.14,
+            29.02
+          ],
+          "previous_box_dp": [
+            19.86,
+            220.33,
+            198.01,
+            22.27
+          ],
+          "delta_target_minus_previous_dp": [
+            -0.14,
+            14.76,
+            73.13,
+            6.75
+          ],
+          "target_box_ratio": [
+            0.0506,
+            0.2785,
+            0.6952,
+            0.0344
+          ]
+        },
+        {
+          "name": "developer_badge",
+          "reference_box_px": [
+            703,
+            467,
+            139,
+            58
+          ],
+          "previous_box_px": [
+            514,
+            362,
+            103,
+            40
+          ],
+          "target_box_dp": [
+            299.62,
+            247.86,
+            76.14,
+            33.67
+          ],
+          "previous_box_dp": [
+            309.35,
+            217.92,
+            61.99,
+            24.08
+          ],
+          "delta_target_minus_previous_dp": [
+            -9.73,
+            29.94,
+            14.15,
+            9.59
+          ],
+          "target_box_ratio": [
+            0.7683,
+            0.2937,
+            0.1952,
+            0.0399
+          ]
+        },
+        {
+          "name": "group_preparation",
+          "reference_box_px": [
+            176,
+            570,
+            672,
+            162
+          ],
+          "previous_box_px": [
+            33,
+            466,
+            584,
+            144
+          ],
+          "target_box_dp": [
+            10.96,
+            307.65,
+            368.09,
+            94.04
+          ],
+          "previous_box_dp": [
+            19.86,
+            280.53,
+            351.48,
+            86.69
+          ],
+          "delta_target_minus_previous_dp": [
+            -8.9,
+            27.12,
+            16.61,
+            7.35
+          ],
+          "target_box_ratio": [
+            0.0281,
+            0.3645,
+            0.9438,
+            0.1114
+          ]
+        },
+        {
+          "name": "group_game",
+          "reference_box_px": [
+            176,
+            746,
+            672,
+            253
+          ],
+          "previous_box_px": [
+            33,
+            622,
+            584,
+            223
+          ],
+          "target_box_dp": [
+            10.96,
+            409.81,
+            368.09,
+            146.86
+          ],
+          "previous_box_dp": [
+            19.86,
+            374.44,
+            351.48,
+            134.25
+          ],
+          "delta_target_minus_previous_dp": [
+            -8.9,
+            35.37,
+            16.61,
+            12.61
+          ],
+          "target_box_ratio": [
+            0.0281,
+            0.4856,
+            0.9438,
+            0.174
+          ]
+        },
+        {
+          "name": "group_abnormal",
+          "reference_box_px": [
+            176,
+            1012,
+            672,
+            162
+          ],
+          "previous_box_px": [
+            33,
+            856,
+            584,
+            144
+          ],
+          "target_box_dp": [
+            10.96,
+            564.21,
+            368.09,
+            94.04
+          ],
+          "previous_box_dp": [
+            19.86,
+            515.31,
+            351.48,
+            86.69
+          ],
+          "delta_target_minus_previous_dp": [
+            -8.9,
+            48.9,
+            16.61,
+            7.35
+          ],
+          "target_box_ratio": [
+            0.0281,
+            0.6685,
+            0.9438,
+            0.1114
+          ]
+        },
+        {
+          "name": "group_result",
+          "reference_box_px": [
+            176,
+            1187,
+            672,
+            161
+          ],
+          "previous_box_px": [
+            33,
+            1012,
+            584,
+            144
+          ],
+          "target_box_dp": [
+            10.96,
+            665.8,
+            368.09,
+            93.46
+          ],
+          "previous_box_dp": [
+            19.86,
+            609.22,
+            351.48,
+            86.69
+          ],
+          "delta_target_minus_previous_dp": [
+            -8.9,
+            56.58,
+            16.61,
+            6.77
+          ],
+          "target_box_ratio": [
+            0.0281,
+            0.7889,
+            0.9438,
+            0.1107
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            184,
+            1362,
+            657,
+            80
+          ],
+          "previous_box_px": [
+            33,
+            1174,
+            584,
+            92
+          ],
+          "target_box_dp": [
+            15.34,
+            767.38,
+            359.87,
+            46.44
+          ],
+          "previous_box_dp": [
+            19.86,
+            706.74,
+            351.48,
+            55.38
+          ],
+          "delta_target_minus_previous_dp": [
+            -4.52,
+            60.64,
+            8.39,
+            -8.94
+          ],
+          "target_box_ratio": [
+            0.0393,
+            0.9092,
+            0.9228,
+            0.055
+          ]
+        }
+      ],
+      "observations": [
+        "参考无旗杆；实际误用创建页旗杆。",
+        "14张卡里的功能图标多数被替换为字符/圆点/简陋猫头；不是形态复刻。",
+        "返回按钮应更靠下且更薄；调试台的大标题、开发预览深绿胶囊需加强。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "bottom": 844,
+            "width": 390,
+            "height": 844
+          }
+        ],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 19,
+            "right": 371,
+            "top": 705.890625,
+            "bottom": 761.890625,
+            "width": 352,
+            "height": 56
+          }
+        ],
+        ".topPanel": [],
+        ".bottomPanel": [],
+        ".code": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 145.6640625,
+            "right": 165.6640625,
+            "top": 468.390625,
+            "bottom": 488.390625,
+            "width": 20,
+            "height": 20
+          }
+        ],
+        ".copyButton": [],
+        ".drawer": [],
+        ".drawerHeader": [],
+        ".publicOnly": [],
+        ".roleColumn": [],
+        ".goal": [],
+        ".clock": [],
+        ".resultTitle": []
+      }
+    },
+    {
+      "id": "drawer",
+      "reference_path": "D:\\cat-mouse-miniprogram\\design\\2026-10-11\\page-concepts-v1\\16-drawer.png",
+      "previous_screenshot_path": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified\\drawer.png",
+      "reference_sha256": "889cddfb0b10e7a6bd22e74c1b43c8c7ff449e992c27dd27ac420a396af23f9e",
+      "previous_screenshot_sha256": "9f647211860445dcbb013dc76d18e35b91245a32cff42d93162ef5368f11c14e",
+      "reference_size_px": [
+        1024,
+        1536
+      ],
+      "previous_size_px": [
+        648,
+        1402
+      ],
+      "read_with_view_image": true,
+      "anchors": [
+        {
+          "name": "drawer",
+          "reference_box_px": [
+            156,
+            638,
+            712,
+            856
+          ],
+          "previous_box_px": [
+            0,
+            450,
+            648,
+            952
+          ],
+          "target_box_dp": [
+            0.0,
+            347.12,
+            390.0,
+            496.88
+          ],
+          "previous_box_dp": [
+            0.0,
+            270.9,
+            390.0,
+            573.1
+          ],
+          "delta_target_minus_previous_dp": [
+            0.0,
+            76.22,
+            0.0,
+            -76.22
+          ],
+          "target_box_ratio": [
+            0.0,
+            0.4113,
+            1.0,
+            0.5887
+          ]
+        },
+        {
+          "name": "drawer_header",
+          "reference_box_px": [
+            192,
+            675,
+            170,
+            41
+          ],
+          "previous_box_px": [
+            31,
+            494,
+            129,
+            30
+          ],
+          "target_box_dp": [
+            19.72,
+            368.6,
+            93.12,
+            23.8
+          ],
+          "previous_box_dp": [
+            18.66,
+            297.39,
+            77.64,
+            18.06
+          ],
+          "delta_target_minus_previous_dp": [
+            1.06,
+            71.21,
+            15.48,
+            5.74
+          ],
+          "target_box_ratio": [
+            0.0506,
+            0.4367,
+            0.2388,
+            0.0282
+          ]
+        },
+        {
+          "name": "cats_card",
+          "reference_box_px": [
+            194,
+            735,
+            638,
+            101
+          ],
+          "previous_box_px": [
+            31,
+            552,
+            588,
+            105
+          ],
+          "target_box_dp": [
+            20.81,
+            403.43,
+            349.47,
+            58.63
+          ],
+          "previous_box_dp": [
+            18.66,
+            332.3,
+            353.89,
+            63.21
+          ],
+          "delta_target_minus_previous_dp": [
+            2.15,
+            71.13,
+            -4.42,
+            -4.58
+          ],
+          "target_box_ratio": [
+            0.0534,
+            0.478,
+            0.8961,
+            0.0695
+          ]
+        },
+        {
+          "name": "mice_card",
+          "reference_box_px": [
+            194,
+            847,
+            638,
+            198
+          ],
+          "previous_box_px": [
+            31,
+            667,
+            588,
+            192
+          ],
+          "target_box_dp": [
+            20.81,
+            468.44,
+            349.47,
+            114.93
+          ],
+          "previous_box_dp": [
+            18.66,
+            401.53,
+            353.89,
+            115.58
+          ],
+          "delta_target_minus_previous_dp": [
+            2.15,
+            66.91,
+            -4.42,
+            -0.65
+          ],
+          "target_box_ratio": [
+            0.0534,
+            0.555,
+            0.8961,
+            0.1362
+          ]
+        },
+        {
+          "name": "events_card",
+          "reference_box_px": [
+            194,
+            1055,
+            638,
+            150
+          ],
+          "previous_box_px": [
+            31,
+            872,
+            588,
+            159
+          ],
+          "target_box_dp": [
+            20.81,
+            589.17,
+            349.47,
+            87.07
+          ],
+          "previous_box_dp": [
+            18.66,
+            524.94,
+            353.89,
+            95.72
+          ],
+          "delta_target_minus_previous_dp": [
+            2.15,
+            64.23,
+            -4.42,
+            -8.65
+          ],
+          "target_box_ratio": [
+            0.0534,
+            0.6981,
+            0.8961,
+            0.1032
+          ]
+        },
+        {
+          "name": "rules_card",
+          "reference_box_px": [
+            194,
+            1217,
+            638,
+            136
+          ],
+          "previous_box_px": [
+            31,
+            1041,
+            588,
+            218
+          ],
+          "target_box_dp": [
+            20.81,
+            683.21,
+            349.47,
+            78.94
+          ],
+          "previous_box_dp": [
+            18.66,
+            626.68,
+            353.89,
+            131.24
+          ],
+          "delta_target_minus_previous_dp": [
+            2.15,
+            56.53,
+            -4.42,
+            -52.3
+          ],
+          "target_box_ratio": [
+            0.0534,
+            0.8095,
+            0.8961,
+            0.0935
+          ]
+        },
+        {
+          "name": "secondary_button",
+          "reference_box_px": [
+            194,
+            1365,
+            638,
+            66
+          ],
+          "previous_box_px": [
+            31,
+            1272,
+            588,
+            63
+          ],
+          "target_box_dp": [
+            20.81,
+            769.12,
+            349.47,
+            38.31
+          ],
+          "previous_box_dp": [
+            18.66,
+            765.74,
+            353.89,
+            37.93
+          ],
+          "delta_target_minus_previous_dp": [
+            2.15,
+            3.38,
+            -4.42,
+            0.38
+          ],
+          "target_box_ratio": [
+            0.0534,
+            0.9113,
+            0.8961,
+            0.0454
+          ]
+        },
+        {
+          "name": "exit_link",
+          "reference_box_px": [
+            468,
+            1440,
+            78,
+            20
+          ],
+          "previous_box_px": null,
+          "target_box_dp": [
+            170.9,
+            812.65,
+            42.72,
+            11.61
+          ],
+          "previous_box_dp": null,
+          "delta_target_minus_previous_dp": null,
+          "target_box_ratio": [
+            0.4382,
+            0.9629,
+            0.1096,
+            0.0138
+          ]
+        }
+      ],
+      "observations": [
+        "抽屉上沿应41.1%H，实际32.1%H；高约76dp。",
+        "猫/鼠/事件/规则标题图标全部缺失，事件应是时间列而非1/2/3。",
+        "规则冗长挤掉退出本局，首屏未按参考保留出口；超长规则应内部滚动。"
+      ],
+      "previous_measured_layout_dp": {
+        ".screen": [],
+        ".hero": [],
+        ".homeInput": [],
+        ".primary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 689.203125,
+            "bottom": 745.203125,
+            "width": 364,
+            "height": 56
+          }
+        ],
+        ".secondary": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 18,
+            "right": 372,
+            "top": 765.0234375,
+            "bottom": 804.0234375,
+            "width": 354,
+            "height": 39
+          }
+        ],
+        ".topPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 11,
+            "right": 379,
+            "top": 92,
+            "bottom": 166.59375,
+            "width": 368,
+            "height": 74.59375
+          }
+        ],
+        ".bottomPanel": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 616.203125,
+            "bottom": 844,
+            "width": 390,
+            "height": 227.796875
+          }
+        ],
+        ".code": [],
+        ".copyButton": [],
+        ".drawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 270.0859375,
+            "bottom": 844,
+            "width": 390,
+            "height": 573.9140625
+          }
+        ],
+        ".drawerHeader": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 284.0859375,
+            "bottom": 321.0859375,
+            "width": 390,
+            "height": 37
+          }
+        ],
+        ".publicOnly": [],
+        ".roleColumn": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 20,
+            "right": 171.8046875,
+            "top": 108,
+            "bottom": 150.59375,
+            "width": 151.8046875,
+            "height": 42.59375
+          }
+        ],
+        ".goal": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171.8046875,
+            "right": 270,
+            "top": 111.046875,
+            "bottom": 147.546875,
+            "width": 98.1953125,
+            "height": 36.5
+          }
+        ],
+        ".clock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 275,
+            "right": 370,
+            "top": 103,
+            "bottom": 137.09375,
+            "width": 95,
+            "height": 34.09375
+          }
+        ],
+        ".resultTitle": []
+      }
+    }
+  ]
+}

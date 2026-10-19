@@ -1,0 +1,21 @@
+<view class="venueArt">
+ <view class="venueViewport" catchtouchstart="onTouchStart" catchtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchCancel">
+  <view class="venueScene" style="width:{{fitWidth}}px;height:{{fitHeight}}px" animation="{{imageAnimation}}">
+  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的场地艺术导览，拖动或双指缩放，{{registration?'房间标定，实地待验':osmReference?'OSM参考位置，未经实地核验':'尚未配准，不显示实时位置'}}" />
+   <view wx:for="{{overlayRegions}}" wx:key="id" class="geoRegion" style="left:{{item.x-item.rx}}px;top:{{item.y-item.ry}}px;width:{{2*item.rx}}px;height:{{2*item.ry}}px;transform:rotate({{item.angle}}deg)" aria-label="大致位置区域，不是敌方精确坐标" />
+   <view wx:for="{{overlayPoints}}" wx:key="id" class="geoAnchor" style="left:{{item.x}}px;top:{{item.y}}px"><view class="geoBadge geo-{{item.tone}}" style="transform:scale({{inverseScale}})"><image class="geoMarker" src="{{item.sprite}}" mode="aspectFit" style="width:{{item.width}}px;height:{{item.height}}px;left:{{item.left}}px;top:{{item.top}}px" aria-label="{{item.label}}位置标记"/><text class="geoLabel">{{item.label}}</text></view></view>
+   <view wx:for="{{overlayPins}}" wx:key="id" class="geoAnchor" style="left:{{item.x}}px;top:{{item.y}}px"><text class="geoPin" style="transform:translate(-50%,-50%) scale({{inverseScale}})">{{item.label}}</text></view>
+  </view>
+  <view wx:if="{{imageState==='loading'}}" class="venueStatus"><text>正在加载地图…</text></view>
+  <view wx:elif="{{imageState==='error'}}" class="venueStatus"><text>地图暂未加载</text><button class="venueRetry" bindtap="retry">重新加载</button></view>
+ </view>
+ <text wx:if="{{imageState==='ready' && mode==='auto'}}" class="venueTourHint">缓慢巡游 · 轻触接管</text>
+ <view wx:if="{{showControls && imageState==='ready'}}" class="venueDock">
+  <button class="venueControl venueStep" bindtap="zoomIn" disabled="{{!canZoomIn}}" aria-label="放大地图">+</button>
+  <button class="venueControl venueStep" bindtap="zoomOut" disabled="{{!canZoomOut}}" aria-label="缩小地图">−</button>
+  <button class="venueControl venueReset" bindtap="reset" aria-label="地图居中">居中</button>
+  <button wx:if="{{autoTour}}" class="venueControl venueTour" bindtap="resumeTour" aria-label="恢复自动巡游">巡游</button>
+  <button wx:if="{{showSelf}}" class="venueControl venueReset" bindtap="focusSelf">本人</button>
+ </view>
+ <text class="venueAttribution">© OpenStreetMap contributors · 艺术导览</text>
+</view>

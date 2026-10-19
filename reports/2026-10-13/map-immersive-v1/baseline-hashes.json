@@ -1,0 +1,102 @@
+[
+  {
+    "path": "components/venue-art/venue-art.js",
+    "bytes": 5622,
+    "sha256": "d6e1e10a6113edac4ea7ee7345fce25ccba64f99298c6ac00040e9b5e393255b"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxml",
+    "bytes": 2377,
+    "sha256": "881f759561ec0c3844935279dd9c53414d48aa8ff37d86297cc748a827610ebf"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxss",
+    "bytes": 2962,
+    "sha256": "28f1f167d68dc6f9e7fa41fdf5786bf105bde22b10d81ca6f11d37ebdcead369"
+  },
+  {
+    "path": "utils/venue-camera.js",
+    "bytes": 1333,
+    "sha256": "50c530e7908d99d2b8d72a8a7752c3ea2fb39b2b4947619ec59dbbee7fb42c46"
+  },
+  {
+    "path": "utils/presentation.js",
+    "bytes": 2710,
+    "sha256": "221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556"
+  },
+  {
+    "path": "pages/venue/venue.wxml",
+    "bytes": 678,
+    "sha256": "e9193f5d2cece9ebf6a0bbf5c21f600adde89088f0b123715998f89762527096"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "bytes": 12984,
+    "sha256": "f2e6d79f8801ecd2393bf239387a82378018746be4d18b9834a41e0d0f8a9ed1"
+  },
+  {
+    "path": "pages/room/room.wxml",
+    "bytes": 6554,
+    "sha256": "2a6046790faf87959860efbd6533ead14795d3090cb1443c16ec19888f97fcd9"
+  },
+  {
+    "path": "scripts/package-release.ps1",
+    "bytes": 5420,
+    "sha256": "810113b31ed458c562c331904dd91e2883c8ad41f82253e723a12ea0dec8dc95"
+  },
+  {
+    "path": "scripts/pixel-ui-review.cjs",
+    "bytes": 8394,
+    "sha256": "981b0f0db0ff17f80029dd0c97b52abd0f45f49a421cb11553e7d609d9d1596d"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "bytes": 23262,
+    "sha256": "30499cb0ec15bf4737cccf3a6f53c55505de2791ff43cd54ceb426a009c57e2d"
+  },
+  {
+    "path": "cat-mouse-server/v2/pixel-ui.test.js",
+    "bytes": 22713,
+    "sha256": "18443bdc2ad84c8e8d6789d4860f875acc179c302b693bd48f205fcf7d01afc7"
+  },
+  {
+    "path": "cat-mouse-server/v2/presentation.test.js",
+    "bytes": 9483,
+    "sha256": "b2355357b9c2de8373fe7dde5d61365dee473e401d99616f38f888065b6d6401"
+  },
+  {
+    "path": "WORK_LOG.md",
+    "bytes": 53972,
+    "sha256": "bb84fc84a7ad5c731bb5a0d67bb9a8d649d6e0889ee5151ad4f59effc83a1728"
+  },
+  {
+    "path": "README.md",
+    "bytes": 9348,
+    "sha256": "239f7454e5c66dc259ab02071430d547770ebfeb4bb85d6a4c90462045cf5782"
+  },
+  {
+    "path": "RELEASE.md",
+    "bytes": 13010,
+    "sha256": "9fbdd0d0562b511a83ca302106003aa66f99653a35c9a62f3ac9c13ca92ec918"
+  },
+  {
+    "path": "ART_LOCK.md",
+    "bytes": 7933,
+    "sha256": "6ad70c8fcdb66016086e6ab22cd3f87d1fa6adde5902209943e3fb1b8834a177"
+  },
+  {
+    "path": "DESIGN_BASELINE.md",
+    "bytes": 12070,
+    "sha256": "0bf2ce1640348e8f649a9ec53a7add1dcb393a1256a159eac35f3ed51e5f6555"
+  },
+  {
+    "path": "pages/venue/venue.js",
+    "bytes": 793,
+    "sha256": "5430e5358f8fa67347f597a0b69ac34057070092b181aafdad227dba0100c548"
+  },
+  {
+    "path": "project.config.json",
+    "bytes": 5780,
+    "sha256": "720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c"
+  }
+]

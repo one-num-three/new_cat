@@ -1,0 +1,7304 @@
+[
+  {
+    "id": "M3_NE",
+    "name_cn": "风雨操场（东北规划小体量）",
+    "group": "M3",
+    "status": "planned",
+    "footprint_px": [
+      [
+        665.0,
+        178.0
+      ],
+      [
+        680.0,
+        178.0
+      ],
+      [
+        680.0,
+        187.0
+      ],
+      [
+        665.0,
+        187.0
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "低置信度概念高度8m；M3为风雨操场，图示很小，简化为有顶体育设施。",
+    "plan_label": "M3",
+    "footprint_note": "M3标记覆盖小型浅色轮廓，具体屋顶边界不清；未将周边草地体量化。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 135.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "L_01",
+    "name_cn": "医院",
+    "group": "L",
+    "status": "existing",
+    "footprint_px": [
+      [
+        658.0,
+        195.0
+      ],
+      [
+        687.0,
+        195.0
+      ],
+      [
+        691.0,
+        199.0
+      ],
+      [
+        691.0,
+        221.0
+      ],
+      [
+        684.0,
+        221.0
+      ],
+      [
+        684.0,
+        204.0
+      ],
+      [
+        658.0,
+        204.0
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "L",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 408.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "N_01",
+    "name_cn": "保卫及后勤楼",
+    "group": "N",
+    "status": "existing",
+    "footprint_px": [
+      [
+        673.0,
+        231.0
+      ],
+      [
+        687.0,
+        231.0
+      ],
+      [
+        693.0,
+        235.0
+      ],
+      [
+        694.0,
+        241.0
+      ],
+      [
+        674.0,
+        242.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "N",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 196.5,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "E3_NW",
+    "name_cn": "兰园宿舍1 · 西北体量",
+    "group": "E3",
+    "status": "existing",
+    "footprint_px": [
+      [
+        701.0,
+        175.0
+      ],
+      [
+        705.0,
+        175.0
+      ],
+      [
+        705.0,
+        170.0
+      ],
+      [
+        722.0,
+        170.0
+      ],
+      [
+        726.0,
+        173.0
+      ],
+      [
+        723.0,
+        185.0
+      ],
+      [
+        702.0,
+        185.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "高度24m仅为统一示意值，非实测。项目官方报道为5栋、最高18层及地下1层，未能将具体楼栋层数与本图逐一对应，因此未把全部楼栋建为18层。",
+    "plan_label": "E3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_source": "https://xxgk.seu.edu.cn/2025/0825/c10804a537033/page.htm",
+    "height_source": "https://www.sbc-mcc.com/mtzx/xmdt/202507/t20250729_296751.html",
+    "footprint_area_px2": 326.0,
+    "plan_status_2025": "under_construction",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E3_E",
+    "name_cn": "兰园宿舍1 · 东侧折线体量",
+    "group": "E3",
+    "status": "existing",
+    "footprint_px": [
+      [
+        732.0,
+        169.0
+      ],
+      [
+        765.0,
+        169.0
+      ],
+      [
+        765.0,
+        212.0
+      ],
+      [
+        761.0,
+        217.0
+      ],
+      [
+        757.0,
+        213.0
+      ],
+      [
+        757.0,
+        204.0
+      ],
+      [
+        744.0,
+        201.0
+      ],
+      [
+        741.0,
+        193.0
+      ],
+      [
+        756.0,
+        193.0
+      ],
+      [
+        756.0,
+        178.0
+      ],
+      [
+        732.0,
+        178.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "高度24m仅为统一示意值，非实测。项目官方报道为5栋、最高18层及地下1层，未能将具体楼栋层数与本图逐一对应，因此未把全部楼栋建为18层。",
+    "plan_label": "E3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_source": "https://xxgk.seu.edu.cn/2025/0825/c10804a537033/page.htm",
+    "height_source": "https://www.sbc-mcc.com/mtzx/xmdt/202507/t20250729_296751.html",
+    "footprint_area_px2": 741.5,
+    "plan_status_2025": "under_construction",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E3_SW",
+    "name_cn": "兰园宿舍1 · 西南庭院翼",
+    "group": "E3",
+    "status": "existing",
+    "footprint_px": [
+      [
+        706.0,
+        200.0
+      ],
+      [
+        731.0,
+        200.0
+      ],
+      [
+        734.0,
+        209.0
+      ],
+      [
+        720.0,
+        209.0
+      ],
+      [
+        724.0,
+        229.0
+      ],
+      [
+        746.0,
+        225.0
+      ],
+      [
+        751.0,
+        235.0
+      ],
+      [
+        715.0,
+        239.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "高度24m仅为统一示意值，非实测。项目官方报道为5栋、最高18层及地下1层，未能将具体楼栋层数与本图逐一对应，因此未把全部楼栋建为18层。",
+    "plan_label": "E3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_source": "https://xxgk.seu.edu.cn/2025/0825/c10804a537033/page.htm",
+    "height_source": "https://www.sbc-mcc.com/mtzx/xmdt/202507/t20250729_296751.html",
+    "footprint_area_px2": 800.0,
+    "plan_status_2025": "under_construction",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E4_NW",
+    "name_cn": "兰园宿舍2 · 西北翼",
+    "group": "E4",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        168.0
+      ],
+      [
+        811.0,
+        168.0
+      ],
+      [
+        807.0,
+        177.0
+      ],
+      [
+        783.0,
+        177.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E4",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 234.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E4_NE",
+    "name_cn": "兰园宿舍2 · 东北折翼",
+    "group": "E4",
+    "status": "existing",
+    "footprint_px": [
+      [
+        817.0,
+        168.0
+      ],
+      [
+        838.0,
+        168.0
+      ],
+      [
+        838.0,
+        191.0
+      ],
+      [
+        831.0,
+        191.0
+      ],
+      [
+        831.0,
+        177.0
+      ],
+      [
+        814.0,
+        177.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E4",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 300.5,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E4_S",
+    "name_cn": "兰园宿舍2 · 东南翼",
+    "group": "E4",
+    "status": "existing",
+    "footprint_px": [
+      [
+        816.0,
+        192.0
+      ],
+      [
+        838.0,
+        192.0
+      ],
+      [
+        838.0,
+        200.0
+      ],
+      [
+        816.0,
+        200.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E4",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 176.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E4_DIAG",
+    "name_cn": "兰园宿舍2 · 斜向连翼",
+    "group": "E4",
+    "status": "existing",
+    "footprint_px": [
+      [
+        807.0,
+        178.0
+      ],
+      [
+        813.0,
+        178.0
+      ],
+      [
+        801.0,
+        192.0
+      ],
+      [
+        795.0,
+        192.0
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E4",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 84.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "I_01",
+    "name_cn": "教师公寓",
+    "group": "I",
+    "status": "existing",
+    "footprint_px": [
+      [
+        782.0,
+        193.0
+      ],
+      [
+        805.0,
+        193.0
+      ],
+      [
+        805.0,
+        201.0
+      ],
+      [
+        782.0,
+        201.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "I",
+    "footprint_note": "I标记位于E4南侧蓝灰窄翼；E4及I分界受图例标记遮挡，边界为近似。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 184.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "Q_N",
+    "name_cn": "创新中心 · 北翼",
+    "group": "Q",
+    "status": "planned",
+    "footprint_px": [
+      [
+        865.0,
+        171.0
+      ],
+      [
+        880.0,
+        171.0
+      ],
+      [
+        880.0,
+        183.0
+      ],
+      [
+        889.0,
+        183.0
+      ],
+      [
+        897.0,
+        196.0
+      ],
+      [
+        890.0,
+        198.0
+      ],
+      [
+        883.0,
+        188.0
+      ],
+      [
+        865.0,
+        188.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "Q",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 386.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "Q_W",
+    "name_cn": "创新中心 · 西翼",
+    "group": "Q",
+    "status": "planned",
+    "footprint_px": [
+      [
+        859.0,
+        185.0
+      ],
+      [
+        865.0,
+        188.0
+      ],
+      [
+        865.0,
+        225.0
+      ],
+      [
+        857.0,
+        225.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "Q",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 271.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "Q_S",
+    "name_cn": "创新中心 · 南翼",
+    "group": "Q",
+    "status": "planned",
+    "footprint_px": [
+      [
+        853.0,
+        224.0
+      ],
+      [
+        880.0,
+        224.0
+      ],
+      [
+        880.0,
+        229.0
+      ],
+      [
+        888.0,
+        230.0
+      ],
+      [
+        888.0,
+        235.0
+      ],
+      [
+        854.0,
+        235.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "Q",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 335.5,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "Q_E",
+    "name_cn": "创新中心 · 东翼",
+    "group": "Q",
+    "status": "planned",
+    "footprint_px": [
+      [
+        882.0,
+        211.0
+      ],
+      [
+        901.0,
+        211.0
+      ],
+      [
+        901.0,
+        226.0
+      ],
+      [
+        882.0,
+        226.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "Q",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 285.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "G6_01",
+    "name_cn": "兰园食堂",
+    "group": "G6",
+    "status": "planned",
+    "footprint_px": [
+      [
+        847.0,
+        250.0
+      ],
+      [
+        860.0,
+        250.0
+      ],
+      [
+        860.0,
+        279.0
+      ],
+      [
+        847.0,
+        279.0
+      ]
+    ],
+    "height_m": 10,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "G6",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 377.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "E5_N",
+    "name_cn": "兰园宿舍3 · 北翼",
+    "group": "E5",
+    "status": "existing",
+    "footprint_px": [
+      [
+        868.0,
+        251.0
+      ],
+      [
+        897.0,
+        251.0
+      ],
+      [
+        897.0,
+        259.0
+      ],
+      [
+        868.0,
+        259.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E5",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 232.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E5_M",
+    "name_cn": "兰园宿舍3 · 中翼",
+    "group": "E5",
+    "status": "existing",
+    "footprint_px": [
+      [
+        865.0,
+        263.0
+      ],
+      [
+        895.0,
+        263.0
+      ],
+      [
+        895.0,
+        270.0
+      ],
+      [
+        865.0,
+        270.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E5",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 210.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E5_S",
+    "name_cn": "兰园宿舍3 · 南翼",
+    "group": "E5",
+    "status": "existing",
+    "footprint_px": [
+      [
+        868.0,
+        273.0
+      ],
+      [
+        897.0,
+        273.0
+      ],
+      [
+        897.0,
+        281.0
+      ],
+      [
+        868.0,
+        281.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E5",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 232.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "E5_E",
+    "name_cn": "兰园宿舍3 · 东连翼",
+    "group": "E5",
+    "status": "existing",
+    "footprint_px": [
+      [
+        892.0,
+        257.0
+      ],
+      [
+        898.0,
+        257.0
+      ],
+      [
+        898.0,
+        276.0
+      ],
+      [
+        892.0,
+        276.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "E5",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 114.0,
+    "plan_status_2025": "planned",
+    "status_current": "existing_confirmed_by_user_2026_10_16",
+    "status_current_note": "用户2026-10-16查看全校预览后确认右上兰园宿舍已经建成；仅更正兰园宿舍E3/E4/E5，不连带改相邻设施。",
+    "status_confirmation_date": "2026-10-16"
+  },
+  {
+    "id": "F1_NW_01_N",
+    "name_cn": "桃园西北片1号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        665.0,
+        264.0
+      ],
+      [
+        687.0,
+        260.0
+      ],
+      [
+        684.52,
+        265.5
+      ],
+      [
+        669.37,
+        268.22
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 93.45,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_01_E",
+    "name_cn": "桃园西北片1号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        687.0,
+        260.0
+      ],
+      [
+        691.0,
+        278.0
+      ],
+      [
+        686.28,
+        273.78
+      ],
+      [
+        684.52,
+        265.5
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.15,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_01_S",
+    "name_cn": "桃园西北片1号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        691.0,
+        278.0
+      ],
+      [
+        668.0,
+        282.0
+      ],
+      [
+        670.83,
+        276.5
+      ],
+      [
+        686.28,
+        273.78
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 96.61,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_01_W",
+    "name_cn": "桃园西北片1号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        668.0,
+        282.0
+      ],
+      [
+        665.0,
+        264.0
+      ],
+      [
+        669.37,
+        268.22
+      ],
+      [
+        670.83,
+        276.5
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 48.73,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_02_N",
+    "name_cn": "桃园西北片2号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        690.0,
+        259.0
+      ],
+      [
+        709.0,
+        255.0
+      ],
+      [
+        707.27,
+        260.54
+      ],
+      [
+        694.16,
+        263.45
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 84.39,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_02_E",
+    "name_cn": "桃园西北片2号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        709.0,
+        255.0
+      ],
+      [
+        714.0,
+        273.0
+      ],
+      [
+        709.49,
+        268.9
+      ],
+      [
+        707.27,
+        260.54
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.72,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_02_S",
+    "name_cn": "桃园西北片2号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        714.0,
+        273.0
+      ],
+      [
+        694.0,
+        278.0
+      ],
+      [
+        696.08,
+        272.11
+      ],
+      [
+        709.49,
+        268.9
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 88.43,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_02_W",
+    "name_cn": "桃园西北片2号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        694.0,
+        278.0
+      ],
+      [
+        690.0,
+        259.0
+      ],
+      [
+        694.16,
+        263.45
+      ],
+      [
+        696.08,
+        272.11
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.28,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_03_N",
+    "name_cn": "桃园西北片3号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        670.0,
+        290.0
+      ],
+      [
+        693.0,
+        286.0
+      ],
+      [
+        690.4,
+        291.77
+      ],
+      [
+        674.76,
+        294.49
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 102.74,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_03_E",
+    "name_cn": "桃园西北片3号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        693.0,
+        286.0
+      ],
+      [
+        697.0,
+        305.0
+      ],
+      [
+        692.24,
+        300.51
+      ],
+      [
+        690.4,
+        291.77
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 52.91,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_03_S",
+    "name_cn": "桃园西北片3号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        697.0,
+        305.0
+      ],
+      [
+        674.0,
+        309.0
+      ],
+      [
+        676.6,
+        303.23
+      ],
+      [
+        692.24,
+        300.51
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 102.74,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_03_W",
+    "name_cn": "桃园西北片3号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        674.0,
+        309.0
+      ],
+      [
+        670.0,
+        290.0
+      ],
+      [
+        674.76,
+        294.49
+      ],
+      [
+        676.6,
+        303.23
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 52.91,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_04_N",
+    "name_cn": "桃园西北片4号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        696.0,
+        285.0
+      ],
+      [
+        718.0,
+        281.0
+      ],
+      [
+        715.29,
+        286.54
+      ],
+      [
+        700.33,
+        289.45
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 95.11,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_04_E",
+    "name_cn": "桃园西北片4号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        718.0,
+        281.0
+      ],
+      [
+        721.0,
+        299.0
+      ],
+      [
+        716.67,
+        294.9
+      ],
+      [
+        715.29,
+        286.54
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 47.97,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_04_S",
+    "name_cn": "桃园西北片4号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        721.0,
+        299.0
+      ],
+      [
+        699.0,
+        304.0
+      ],
+      [
+        701.71,
+        298.11
+      ],
+      [
+        716.67,
+        294.9
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 95.63,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NW_04_W",
+    "name_cn": "桃园西北片4号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        699.0,
+        304.0
+      ],
+      [
+        696.0,
+        285.0
+      ],
+      [
+        700.33,
+        289.45
+      ],
+      [
+        701.71,
+        298.11
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 50.26,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_01_N",
+    "name_cn": "桃园中北片1号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        719.0,
+        255.0
+      ],
+      [
+        744.0,
+        251.0
+      ],
+      [
+        740.45,
+        256.23
+      ],
+      [
+        723.09,
+        258.95
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 98.12,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_01_E",
+    "name_cn": "桃园中北片1号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        744.0,
+        251.0
+      ],
+      [
+        746.0,
+        268.0
+      ],
+      [
+        741.23,
+        264.05
+      ],
+      [
+        740.45,
+        256.23
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 52.52,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_01_S",
+    "name_cn": "桃园中北片1号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        746.0,
+        268.0
+      ],
+      [
+        719.0,
+        272.0
+      ],
+      [
+        723.23,
+        266.77
+      ],
+      [
+        741.23,
+        264.05
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 104.18,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_01_W",
+    "name_cn": "桃园中北片1号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        719.0,
+        272.0
+      ],
+      [
+        719.0,
+        255.0
+      ],
+      [
+        723.09,
+        258.95
+      ],
+      [
+        723.23,
+        266.77
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 51.67,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_02_N",
+    "name_cn": "桃园中北片2号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        747.0,
+        251.0
+      ],
+      [
+        769.0,
+        247.0
+      ],
+      [
+        766.25,
+        251.96
+      ],
+      [
+        751.1,
+        254.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 82.51,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_02_E",
+    "name_cn": "桃园中北片2号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        769.0,
+        247.0
+      ],
+      [
+        772.0,
+        263.0
+      ],
+      [
+        767.55,
+        259.32
+      ],
+      [
+        766.25,
+        251.96
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.42,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_02_S",
+    "name_cn": "桃园中北片2号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        772.0,
+        263.0
+      ],
+      [
+        749.0,
+        267.0
+      ],
+      [
+        752.1,
+        262.04
+      ],
+      [
+        767.55,
+        259.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 85.32,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_02_W",
+    "name_cn": "桃园中北片2号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        749.0,
+        267.0
+      ],
+      [
+        747.0,
+        251.0
+      ],
+      [
+        751.1,
+        254.68
+      ],
+      [
+        752.1,
+        262.04
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.01,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_03_N",
+    "name_cn": "桃园中北片3号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        721.0,
+        282.0
+      ],
+      [
+        746.0,
+        278.0
+      ],
+      [
+        742.77,
+        283.77
+      ],
+      [
+        725.58,
+        286.49
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 110.49,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_03_E",
+    "name_cn": "桃园中北片3号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        746.0,
+        278.0
+      ],
+      [
+        749.0,
+        297.0
+      ],
+      [
+        744.07,
+        292.51
+      ],
+      [
+        742.77,
+        283.77
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 57.97,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_03_S",
+    "name_cn": "桃园中北片3号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        749.0,
+        297.0
+      ],
+      [
+        723.0,
+        301.0
+      ],
+      [
+        726.58,
+        295.23
+      ],
+      [
+        744.07,
+        292.51
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 113.82,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_03_W",
+    "name_cn": "桃园中北片3号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        301.0
+      ],
+      [
+        721.0,
+        282.0
+      ],
+      [
+        725.58,
+        286.49
+      ],
+      [
+        726.58,
+        295.23
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 57.55,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_04_N",
+    "name_cn": "桃园中北片4号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        749.0,
+        278.0
+      ],
+      [
+        774.0,
+        274.0
+      ],
+      [
+        770.58,
+        279.54
+      ],
+      [
+        753.77,
+        282.45
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 106.75,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_04_E",
+    "name_cn": "桃园中北片4号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        774.0,
+        274.0
+      ],
+      [
+        776.0,
+        292.0
+      ],
+      [
+        771.58,
+        287.9
+      ],
+      [
+        770.58,
+        279.54
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 52.75,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_04_S",
+    "name_cn": "桃园中北片4号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        776.0,
+        292.0
+      ],
+      [
+        752.0,
+        297.0
+      ],
+      [
+        755.07,
+        291.11
+      ],
+      [
+        771.58,
+        287.9
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 103.94,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NC_04_W",
+    "name_cn": "桃园中北片4号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        752.0,
+        297.0
+      ],
+      [
+        749.0,
+        278.0
+      ],
+      [
+        753.77,
+        282.45
+      ],
+      [
+        755.07,
+        291.11
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 55.76,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_01_N",
+    "name_cn": "桃园东北片1号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        782.0,
+        248.0
+      ],
+      [
+        805.0,
+        248.0
+      ],
+      [
+        801.32,
+        252.36
+      ],
+      [
+        785.68,
+        252.55
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 86.07,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_01_E",
+    "name_cn": "桃园东北片1号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        805.0,
+        248.0
+      ],
+      [
+        805.0,
+        264.0
+      ],
+      [
+        801.32,
+        259.8
+      ],
+      [
+        801.32,
+        252.36
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_01_S",
+    "name_cn": "桃园东北片1号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        805.0,
+        264.0
+      ],
+      [
+        782.0,
+        265.0
+      ],
+      [
+        785.68,
+        260.29
+      ],
+      [
+        801.32,
+        259.8
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 86.07,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_01_W",
+    "name_cn": "桃园东北片1号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        782.0,
+        265.0
+      ],
+      [
+        782.0,
+        248.0
+      ],
+      [
+        785.68,
+        252.55
+      ],
+      [
+        785.68,
+        260.29
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.52,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_02_N",
+    "name_cn": "桃园东北片2号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        248.0
+      ],
+      [
+        832.0,
+        248.0
+      ],
+      [
+        827.93,
+        252.32
+      ],
+      [
+        811.8,
+        252.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 86.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_02_E",
+    "name_cn": "桃园东北片2号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        832.0,
+        248.0
+      ],
+      [
+        831.0,
+        264.0
+      ],
+      [
+        827.55,
+        259.68
+      ],
+      [
+        827.93,
+        252.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.92,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_02_S",
+    "name_cn": "桃园东北片2号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        831.0,
+        264.0
+      ],
+      [
+        808.0,
+        264.0
+      ],
+      [
+        811.72,
+        259.68
+      ],
+      [
+        827.55,
+        259.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 83.87,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_02_W",
+    "name_cn": "桃园东北片2号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        264.0
+      ],
+      [
+        808.0,
+        248.0
+      ],
+      [
+        811.8,
+        252.32
+      ],
+      [
+        811.72,
+        259.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.92,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_03_N",
+    "name_cn": "桃园东北片3号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        782.0,
+        275.0
+      ],
+      [
+        805.0,
+        275.0
+      ],
+      [
+        801.32,
+        279.63
+      ],
+      [
+        785.68,
+        279.82
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 91.29,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_03_E",
+    "name_cn": "桃园东北片3号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        805.0,
+        275.0
+      ],
+      [
+        805.0,
+        292.0
+      ],
+      [
+        801.32,
+        287.53
+      ],
+      [
+        801.32,
+        279.63
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.82,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_03_S",
+    "name_cn": "桃园东北片3号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        805.0,
+        292.0
+      ],
+      [
+        782.0,
+        293.0
+      ],
+      [
+        785.68,
+        288.02
+      ],
+      [
+        801.32,
+        287.53
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 91.29,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_03_W",
+    "name_cn": "桃园东北片3号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        782.0,
+        293.0
+      ],
+      [
+        782.0,
+        275.0
+      ],
+      [
+        785.68,
+        279.82
+      ],
+      [
+        785.68,
+        288.02
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 48.21,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_04_N",
+    "name_cn": "桃园东北片4号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        275.0
+      ],
+      [
+        832.0,
+        275.0
+      ],
+      [
+        827.93,
+        279.59
+      ],
+      [
+        811.8,
+        279.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.1,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_04_E",
+    "name_cn": "桃园东北片4号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        832.0,
+        275.0
+      ],
+      [
+        831.0,
+        292.0
+      ],
+      [
+        827.55,
+        287.41
+      ],
+      [
+        827.93,
+        279.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 46.66,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_04_S",
+    "name_cn": "桃园东北片4号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        831.0,
+        292.0
+      ],
+      [
+        808.0,
+        292.0
+      ],
+      [
+        811.72,
+        287.41
+      ],
+      [
+        827.55,
+        287.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 89.11,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_NE_04_W",
+    "name_cn": "桃园东北片4号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        292.0
+      ],
+      [
+        808.0,
+        275.0
+      ],
+      [
+        811.8,
+        279.59
+      ],
+      [
+        811.72,
+        287.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 46.66,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_01_N",
+    "name_cn": "桃园中东片1号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        778.0,
+        309.0
+      ],
+      [
+        801.0,
+        309.0
+      ],
+      [
+        797.32,
+        313.36
+      ],
+      [
+        781.68,
+        313.55
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 86.07,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_01_E",
+    "name_cn": "桃园中东片1号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        309.0
+      ],
+      [
+        801.0,
+        325.0
+      ],
+      [
+        797.32,
+        320.8
+      ],
+      [
+        797.32,
+        313.36
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_01_S",
+    "name_cn": "桃园中东片1号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        325.0
+      ],
+      [
+        778.0,
+        326.0
+      ],
+      [
+        781.68,
+        321.29
+      ],
+      [
+        797.32,
+        320.8
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 86.07,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_01_W",
+    "name_cn": "桃园中东片1号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        778.0,
+        326.0
+      ],
+      [
+        778.0,
+        309.0
+      ],
+      [
+        781.68,
+        313.55
+      ],
+      [
+        781.68,
+        321.29
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.52,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_02_N",
+    "name_cn": "桃园中东片2号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        804.0,
+        309.0
+      ],
+      [
+        827.0,
+        309.0
+      ],
+      [
+        823.32,
+        313.32
+      ],
+      [
+        807.68,
+        313.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 83.46,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_02_E",
+    "name_cn": "桃园中东片2号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        827.0,
+        309.0
+      ],
+      [
+        827.0,
+        325.0
+      ],
+      [
+        823.32,
+        320.68
+      ],
+      [
+        823.32,
+        313.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 42.98,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_02_S",
+    "name_cn": "桃园中东片2号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        827.0,
+        325.0
+      ],
+      [
+        804.0,
+        325.0
+      ],
+      [
+        807.68,
+        320.68
+      ],
+      [
+        823.32,
+        320.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 83.46,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_02_W",
+    "name_cn": "桃园中东片2号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        804.0,
+        325.0
+      ],
+      [
+        804.0,
+        309.0
+      ],
+      [
+        807.68,
+        313.32
+      ],
+      [
+        807.68,
+        320.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 42.98,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_03_N",
+    "name_cn": "桃园中东片3号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        777.0,
+        336.0
+      ],
+      [
+        801.0,
+        336.0
+      ],
+      [
+        797.16,
+        340.59
+      ],
+      [
+        780.84,
+        340.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.53,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_03_E",
+    "name_cn": "桃园中东片3号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        336.0
+      ],
+      [
+        801.0,
+        353.0
+      ],
+      [
+        797.16,
+        348.41
+      ],
+      [
+        797.16,
+        340.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 47.65,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_03_S",
+    "name_cn": "桃园中东片3号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        353.0
+      ],
+      [
+        777.0,
+        353.0
+      ],
+      [
+        780.84,
+        348.41
+      ],
+      [
+        797.16,
+        348.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.53,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_03_W",
+    "name_cn": "桃园中东片3号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        777.0,
+        353.0
+      ],
+      [
+        777.0,
+        336.0
+      ],
+      [
+        780.84,
+        340.59
+      ],
+      [
+        780.84,
+        348.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 47.65,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_04_N",
+    "name_cn": "桃园中东片4号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        804.0,
+        336.0
+      ],
+      [
+        827.0,
+        336.0
+      ],
+      [
+        823.32,
+        340.59
+      ],
+      [
+        807.68,
+        340.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 88.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_04_E",
+    "name_cn": "桃园中东片4号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        827.0,
+        336.0
+      ],
+      [
+        827.0,
+        353.0
+      ],
+      [
+        823.32,
+        348.41
+      ],
+      [
+        823.32,
+        340.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.67,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_04_S",
+    "name_cn": "桃园中东片4号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        827.0,
+        353.0
+      ],
+      [
+        804.0,
+        353.0
+      ],
+      [
+        807.68,
+        348.41
+      ],
+      [
+        823.32,
+        348.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 88.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_ME_04_W",
+    "name_cn": "桃园中东片4号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        804.0,
+        353.0
+      ],
+      [
+        804.0,
+        336.0
+      ],
+      [
+        807.68,
+        340.59
+      ],
+      [
+        807.68,
+        348.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.67,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_01_N",
+    "name_cn": "桃园东南片1号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        775.0,
+        366.0
+      ],
+      [
+        798.0,
+        366.0
+      ],
+      [
+        794.32,
+        370.63
+      ],
+      [
+        778.68,
+        370.82
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 91.29,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_01_E",
+    "name_cn": "桃园东南片1号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        798.0,
+        366.0
+      ],
+      [
+        798.0,
+        383.0
+      ],
+      [
+        794.32,
+        378.53
+      ],
+      [
+        794.32,
+        370.63
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 45.82,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_01_S",
+    "name_cn": "桃园东南片1号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        798.0,
+        383.0
+      ],
+      [
+        775.0,
+        384.0
+      ],
+      [
+        778.68,
+        379.02
+      ],
+      [
+        794.32,
+        378.53
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 91.29,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_01_W",
+    "name_cn": "桃园东南片1号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        775.0,
+        384.0
+      ],
+      [
+        775.0,
+        366.0
+      ],
+      [
+        778.68,
+        370.82
+      ],
+      [
+        778.68,
+        379.02
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 48.21,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_02_N",
+    "name_cn": "桃园东南片2号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        366.0
+      ],
+      [
+        823.0,
+        366.0
+      ],
+      [
+        819.48,
+        370.59
+      ],
+      [
+        804.52,
+        370.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 84.82,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_02_E",
+    "name_cn": "桃园东南片2号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        823.0,
+        366.0
+      ],
+      [
+        823.0,
+        383.0
+      ],
+      [
+        819.48,
+        378.41
+      ],
+      [
+        819.48,
+        370.59
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_02_S",
+    "name_cn": "桃园东南片2号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        823.0,
+        383.0
+      ],
+      [
+        801.0,
+        383.0
+      ],
+      [
+        804.52,
+        378.41
+      ],
+      [
+        819.48,
+        378.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 84.82,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_02_W",
+    "name_cn": "桃园东南片2号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        383.0
+      ],
+      [
+        801.0,
+        366.0
+      ],
+      [
+        804.52,
+        370.59
+      ],
+      [
+        804.52,
+        378.41
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 43.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_03_N",
+    "name_cn": "桃园东南片3号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        774.0,
+        394.0
+      ],
+      [
+        798.0,
+        394.0
+      ],
+      [
+        794.16,
+        398.32
+      ],
+      [
+        777.84,
+        398.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 87.09,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_03_E",
+    "name_cn": "桃园东南片3号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        798.0,
+        394.0
+      ],
+      [
+        798.0,
+        410.0
+      ],
+      [
+        794.16,
+        405.68
+      ],
+      [
+        794.16,
+        398.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 44.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_03_S",
+    "name_cn": "桃园东南片3号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        798.0,
+        410.0
+      ],
+      [
+        774.0,
+        410.0
+      ],
+      [
+        777.84,
+        405.68
+      ],
+      [
+        794.16,
+        405.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 87.09,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_03_W",
+    "name_cn": "桃园东南片3号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        774.0,
+        410.0
+      ],
+      [
+        774.0,
+        394.0
+      ],
+      [
+        777.84,
+        398.32
+      ],
+      [
+        777.84,
+        405.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 44.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_04_N",
+    "name_cn": "桃园东南片4号院 · 北翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        394.0
+      ],
+      [
+        823.0,
+        394.0
+      ],
+      [
+        819.48,
+        398.32
+      ],
+      [
+        804.52,
+        398.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 79.83,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_04_E",
+    "name_cn": "桃园东南片4号院 · 东翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        823.0,
+        394.0
+      ],
+      [
+        823.0,
+        410.0
+      ],
+      [
+        819.48,
+        405.68
+      ],
+      [
+        819.48,
+        398.32
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 41.11,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_04_S",
+    "name_cn": "桃园东南片4号院 · 南翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        823.0,
+        410.0
+      ],
+      [
+        801.0,
+        410.0
+      ],
+      [
+        804.52,
+        405.68
+      ],
+      [
+        819.48,
+        405.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 79.83,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1_SE_04_W",
+    "name_cn": "桃园东南片4号院 · 西翼",
+    "group": "F1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        801.0,
+        410.0
+      ],
+      [
+        801.0,
+        394.0
+      ],
+      [
+        804.52,
+        398.32
+      ],
+      [
+        804.52,
+        405.68
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 41.11,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F1c_ADD",
+    "name_cn": "桃园宿舍书院增建 · F1c",
+    "group": "F1c",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        810.5,
+        269.5
+      ],
+      [
+        809.04,
+        273.39
+      ],
+      [
+        805.5,
+        275.0
+      ],
+      [
+        801.96,
+        273.39
+      ],
+      [
+        800.5,
+        269.5
+      ],
+      [
+        801.96,
+        265.61
+      ],
+      [
+        805.5,
+        264.0
+      ],
+      [
+        809.04,
+        265.61
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "橙黄色书院增建小体量，8m为示意估计。",
+    "plan_label": "F1c",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 77.84,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F1b_ADD",
+    "name_cn": "桃园宿舍书院增建 · F1b",
+    "group": "F1b",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        807.5,
+        329.5
+      ],
+      [
+        806.04,
+        333.39
+      ],
+      [
+        802.5,
+        335.0
+      ],
+      [
+        798.96,
+        333.39
+      ],
+      [
+        797.5,
+        329.5
+      ],
+      [
+        798.96,
+        325.61
+      ],
+      [
+        802.5,
+        324.0
+      ],
+      [
+        806.04,
+        325.61
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "橙黄色书院增建小体量，8m为示意估计。",
+    "plan_label": "F1b",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 77.84,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F1a_ADD",
+    "name_cn": "桃园宿舍书院增建 · F1a",
+    "group": "F1a",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        804.5,
+        389.5
+      ],
+      [
+        803.04,
+        393.39
+      ],
+      [
+        799.5,
+        395.0
+      ],
+      [
+        795.96,
+        393.39
+      ],
+      [
+        794.5,
+        389.5
+      ],
+      [
+        795.96,
+        385.61
+      ],
+      [
+        799.5,
+        384.0
+      ],
+      [
+        803.04,
+        385.61
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "橙黄色书院增建小体量，8m为示意估计。",
+    "plan_label": "F1a",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 77.84,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "G3_01",
+    "name_cn": "桃园食堂2（北）",
+    "group": "G3",
+    "status": "existing",
+    "footprint_px": [
+      [
+        690.0,
+        322.0
+      ],
+      [
+        719.0,
+        316.0
+      ],
+      [
+        728.0,
+        348.0
+      ],
+      [
+        696.0,
+        351.0
+      ]
+    ],
+    "height_m": 10,
+    "height_confidence": "estimated",
+    "height_note": "官方餐饮服务介绍桃园北、南食堂各2层；屋顶高度仍按约10m估计，非测量高度。",
+    "plan_label": "G3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "height_source": "https://zwc.seu.edu.cn/_t3170/cyfw_61983/list.psp",
+    "footprint_area_px2": 964.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "G2_01",
+    "name_cn": "桃园食堂1（南）",
+    "group": "G2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        718.0,
+        350.0
+      ],
+      [
+        730.0,
+        350.0
+      ],
+      [
+        731.0,
+        364.0
+      ],
+      [
+        734.0,
+        368.0
+      ],
+      [
+        733.0,
+        386.0
+      ],
+      [
+        700.0,
+        386.0
+      ],
+      [
+        699.0,
+        376.0
+      ],
+      [
+        693.0,
+        372.0
+      ],
+      [
+        693.0,
+        363.0
+      ],
+      [
+        718.0,
+        363.0
+      ]
+    ],
+    "height_m": 10,
+    "height_confidence": "estimated",
+    "height_note": "官方餐饮服务介绍桃园北、南食堂各2层；屋顶高度仍按约10m估计，非测量高度。",
+    "plan_label": "G2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "height_source": "https://zwc.seu.edu.cn/_t3170/cyfw_61983/list.psp",
+    "footprint_area_px2": 1010.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "H_01",
+    "name_cn": "大学生活动中心（焦廷标馆）",
+    "group": "H",
+    "status": "existing",
+    "footprint_px": [
+      [
+        704.0,
+        397.0
+      ],
+      [
+        731.0,
+        397.0
+      ],
+      [
+        731.0,
+        394.0
+      ],
+      [
+        745.0,
+        394.0
+      ],
+      [
+        749.0,
+        400.0
+      ],
+      [
+        748.0,
+        428.0
+      ],
+      [
+        744.0,
+        432.0
+      ],
+      [
+        727.0,
+        432.0
+      ],
+      [
+        725.0,
+        423.0
+      ],
+      [
+        715.0,
+        423.0
+      ],
+      [
+        710.0,
+        427.0
+      ],
+      [
+        705.0,
+        427.0
+      ],
+      [
+        702.0,
+        424.0
+      ],
+      [
+        700.0,
+        418.0
+      ],
+      [
+        703.0,
+        413.0
+      ],
+      [
+        708.0,
+        407.0
+      ],
+      [
+        705.0,
+        403.0
+      ]
+    ],
+    "height_m": 22,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "H",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 1437.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_MAIN",
+    "name_cn": "体育馆 · 主馆",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        779.0,
+        488.5
+      ],
+      [
+        778.58,
+        492.79
+      ],
+      [
+        777.33,
+        496.92
+      ],
+      [
+        775.29,
+        500.72
+      ],
+      [
+        772.56,
+        504.06
+      ],
+      [
+        769.22,
+        506.79
+      ],
+      [
+        765.42,
+        508.83
+      ],
+      [
+        761.29,
+        510.08
+      ],
+      [
+        757.0,
+        510.5
+      ],
+      [
+        752.71,
+        510.08
+      ],
+      [
+        748.58,
+        508.83
+      ],
+      [
+        744.78,
+        506.79
+      ],
+      [
+        741.44,
+        504.06
+      ],
+      [
+        738.71,
+        500.72
+      ],
+      [
+        736.67,
+        496.92
+      ],
+      [
+        735.42,
+        492.79
+      ],
+      [
+        735.0,
+        488.5
+      ],
+      [
+        735.42,
+        484.21
+      ],
+      [
+        736.67,
+        480.08
+      ],
+      [
+        738.71,
+        476.28
+      ],
+      [
+        741.44,
+        472.94
+      ],
+      [
+        744.78,
+        470.21
+      ],
+      [
+        748.58,
+        468.17
+      ],
+      [
+        752.71,
+        466.92
+      ],
+      [
+        757.0,
+        466.5
+      ],
+      [
+        761.29,
+        466.92
+      ],
+      [
+        765.42,
+        468.17
+      ],
+      [
+        769.22,
+        470.21
+      ],
+      [
+        772.56,
+        472.94
+      ],
+      [
+        775.29,
+        476.28
+      ],
+      [
+        777.33,
+        480.08
+      ],
+      [
+        778.58,
+        484.21
+      ]
+    ],
+    "height_m": 22,
+    "height_confidence": "estimated",
+    "height_note": "体育馆高度22m为示意估计；中央近圆形屋顶按平面图简化。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 1510.99,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_W",
+    "name_cn": "体育馆 · 西耳房",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        480.0
+      ],
+      [
+        738.0,
+        480.0
+      ],
+      [
+        738.0,
+        497.0
+      ],
+      [
+        725.0,
+        497.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 221.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_E",
+    "name_cn": "体育馆 · 东耳房",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        776.0,
+        480.0
+      ],
+      [
+        789.0,
+        480.0
+      ],
+      [
+        789.0,
+        497.0
+      ],
+      [
+        776.0,
+        497.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 221.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_NW",
+    "name_cn": "体育馆 · 西北翼",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        719.0,
+        456.0
+      ],
+      [
+        750.0,
+        456.0
+      ],
+      [
+        754.0,
+        459.0
+      ],
+      [
+        754.0,
+        467.0
+      ],
+      [
+        718.0,
+        468.0
+      ],
+      [
+        715.0,
+        464.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 422.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_NE",
+    "name_cn": "体育馆 · 东北翼",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        762.0,
+        457.0
+      ],
+      [
+        792.0,
+        457.0
+      ],
+      [
+        797.0,
+        462.0
+      ],
+      [
+        796.0,
+        466.0
+      ],
+      [
+        762.0,
+        468.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 334.5,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_SW",
+    "name_cn": "体育馆 · 西南翼",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        717.0,
+        509.0
+      ],
+      [
+        749.0,
+        507.0
+      ],
+      [
+        754.0,
+        510.0
+      ],
+      [
+        754.0,
+        518.0
+      ],
+      [
+        721.0,
+        518.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 349.5,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_SE",
+    "name_cn": "体育馆 · 东南翼",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        762.0,
+        508.0
+      ],
+      [
+        790.0,
+        509.0
+      ],
+      [
+        798.0,
+        512.0
+      ],
+      [
+        795.0,
+        518.0
+      ],
+      [
+        762.0,
+        518.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 317.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_NLINK",
+    "name_cn": "体育馆 · 北连廊",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        753.0,
+        459.0
+      ],
+      [
+        762.0,
+        459.0
+      ],
+      [
+        762.0,
+        470.0
+      ],
+      [
+        753.0,
+        470.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 99.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M1_SLINK",
+    "name_cn": "体育馆 · 南连廊",
+    "group": "M1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        753.0,
+        507.0
+      ],
+      [
+        762.0,
+        507.0
+      ],
+      [
+        762.0,
+        517.0
+      ],
+      [
+        753.0,
+        517.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "M1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 90.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "M2_01",
+    "name_cn": "游泳馆",
+    "group": "M2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        776.0,
+        419.0
+      ],
+      [
+        811.0,
+        419.0
+      ],
+      [
+        817.0,
+        423.0
+      ],
+      [
+        818.0,
+        433.0
+      ],
+      [
+        814.0,
+        438.0
+      ],
+      [
+        776.0,
+        438.0
+      ],
+      [
+        771.0,
+        434.0
+      ],
+      [
+        770.0,
+        424.0
+      ]
+    ],
+    "height_m": 11.05,
+    "height_confidence": "official_reported",
+    "height_note": "东南大学官方报道：地上2层、地下1层，建筑高度11.05m。",
+    "plan_label": "M2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "height_source": "https://news.seu.edu.cn/2019/0430/c5486a271243/page.htm",
+    "footprint_area_px2": 847.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "P11_01_N",
+    "name_cn": "发展学科楼（北侧，图标近似P11） · 北翼",
+    "group": "P11",
+    "status": "planned",
+    "footprint_px": [
+      [
+        842.0,
+        446.0
+      ],
+      [
+        882.0,
+        446.0
+      ],
+      [
+        873.2,
+        452.75
+      ],
+      [
+        850.8,
+        452.75
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "24m为规划体量示意估计；北侧图标小字疑似P11，待高清源核对。",
+    "plan_label": "P11",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 210.6,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P11_01_E",
+    "name_cn": "发展学科楼（北侧，图标近似P11） · 东翼",
+    "group": "P11",
+    "status": "planned",
+    "footprint_px": [
+      [
+        882.0,
+        446.0
+      ],
+      [
+        882.0,
+        473.0
+      ],
+      [
+        873.2,
+        466.25
+      ],
+      [
+        873.2,
+        452.75
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "24m为规划体量示意估计；北侧图标小字疑似P11，待高清源核对。",
+    "plan_label": "P11",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 178.2,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P11_01_S",
+    "name_cn": "发展学科楼（北侧，图标近似P11） · 南翼",
+    "group": "P11",
+    "status": "planned",
+    "footprint_px": [
+      [
+        882.0,
+        473.0
+      ],
+      [
+        842.0,
+        473.0
+      ],
+      [
+        850.8,
+        466.25
+      ],
+      [
+        873.2,
+        466.25
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "24m为规划体量示意估计；北侧图标小字疑似P11，待高清源核对。",
+    "plan_label": "P11",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 210.6,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P11_01_W",
+    "name_cn": "发展学科楼（北侧，图标近似P11） · 西翼",
+    "group": "P11",
+    "status": "planned",
+    "footprint_px": [
+      [
+        842.0,
+        473.0
+      ],
+      [
+        842.0,
+        446.0
+      ],
+      [
+        850.8,
+        452.75
+      ],
+      [
+        850.8,
+        466.25
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "24m为规划体量示意估计；北侧图标小字疑似P11，待高清源核对。",
+    "plan_label": "P11",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 178.2,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P18_01_N",
+    "name_cn": "发展学科楼（南侧） · 北翼",
+    "group": "P18",
+    "status": "planned",
+    "footprint_px": [
+      [
+        842.0,
+        503.0
+      ],
+      [
+        882.0,
+        503.0
+      ],
+      [
+        872.0,
+        510.54
+      ],
+      [
+        852.0,
+        510.54
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P18",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 226.2,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P18_01_E",
+    "name_cn": "发展学科楼（南侧） · 东翼",
+    "group": "P18",
+    "status": "planned",
+    "footprint_px": [
+      [
+        882.0,
+        503.0
+      ],
+      [
+        882.0,
+        532.0
+      ],
+      [
+        872.0,
+        524.46
+      ],
+      [
+        872.0,
+        510.54
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P18",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 214.6,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P18_01_S",
+    "name_cn": "发展学科楼（南侧） · 南翼",
+    "group": "P18",
+    "status": "planned",
+    "footprint_px": [
+      [
+        882.0,
+        532.0
+      ],
+      [
+        842.0,
+        532.0
+      ],
+      [
+        852.0,
+        524.46
+      ],
+      [
+        872.0,
+        524.46
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P18",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 226.2,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P18_01_W",
+    "name_cn": "发展学科楼（南侧） · 西翼",
+    "group": "P18",
+    "status": "planned",
+    "footprint_px": [
+      [
+        842.0,
+        532.0
+      ],
+      [
+        842.0,
+        503.0
+      ],
+      [
+        852.0,
+        510.54
+      ],
+      [
+        852.0,
+        524.46
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P18",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 214.6,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "F3_NW_N",
+    "name_cn": "梅园宿舍综合体 · 西北北翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        696.0,
+        541.0
+      ],
+      [
+        748.0,
+        541.0
+      ],
+      [
+        748.0,
+        549.0
+      ],
+      [
+        696.0,
+        549.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 416.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NW_S",
+    "name_cn": "梅园宿舍综合体 · 西北南翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        696.0,
+        568.0
+      ],
+      [
+        748.0,
+        568.0
+      ],
+      [
+        748.0,
+        575.0
+      ],
+      [
+        696.0,
+        575.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 364.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NW_M1",
+    "name_cn": "梅园宿舍综合体 · 西北中西翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        716.0,
+        547.0
+      ],
+      [
+        720.0,
+        547.0
+      ],
+      [
+        720.0,
+        570.0
+      ],
+      [
+        716.0,
+        570.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NW_M2",
+    "name_cn": "梅园宿舍综合体 · 西北中东翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        727.0,
+        547.0
+      ],
+      [
+        731.0,
+        547.0
+      ],
+      [
+        731.0,
+        570.0
+      ],
+      [
+        727.0,
+        570.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NE_N",
+    "name_cn": "梅园宿舍综合体 · 东北北翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        764.0,
+        541.0
+      ],
+      [
+        818.0,
+        541.0
+      ],
+      [
+        818.0,
+        549.0
+      ],
+      [
+        764.0,
+        549.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 432.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NE_S",
+    "name_cn": "梅园宿舍综合体 · 东北南翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        764.0,
+        568.0
+      ],
+      [
+        818.0,
+        568.0
+      ],
+      [
+        818.0,
+        575.0
+      ],
+      [
+        764.0,
+        575.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 378.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NE_M1",
+    "name_cn": "梅园宿舍综合体 · 东北中西翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        782.0,
+        547.0
+      ],
+      [
+        786.0,
+        547.0
+      ],
+      [
+        786.0,
+        570.0
+      ],
+      [
+        782.0,
+        570.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_NE_M2",
+    "name_cn": "梅园宿舍综合体 · 东北中东翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        793.0,
+        547.0
+      ],
+      [
+        797.0,
+        547.0
+      ],
+      [
+        797.0,
+        570.0
+      ],
+      [
+        793.0,
+        570.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 92.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_SE_N",
+    "name_cn": "梅园宿舍综合体 · 东南北翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        764.0,
+        592.0
+      ],
+      [
+        819.0,
+        592.0
+      ],
+      [
+        819.0,
+        600.0
+      ],
+      [
+        764.0,
+        600.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 440.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_SE_S",
+    "name_cn": "梅园宿舍综合体 · 东南南翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        764.0,
+        620.0
+      ],
+      [
+        819.0,
+        620.0
+      ],
+      [
+        819.0,
+        627.0
+      ],
+      [
+        764.0,
+        627.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 385.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F3_SE_M",
+    "name_cn": "梅园宿舍综合体 · 东南中翼",
+    "group": "F3",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        782.0,
+        599.0
+      ],
+      [
+        785.0,
+        599.0
+      ],
+      [
+        785.0,
+        621.0
+      ],
+      [
+        782.0,
+        621.0
+      ]
+    ],
+    "height_m": 26,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "F3",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 66.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "G5_01",
+    "name_cn": "梅园食堂2（北）",
+    "group": "G5",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        701.0,
+        586.0
+      ],
+      [
+        744.0,
+        586.0
+      ],
+      [
+        744.0,
+        594.0
+      ],
+      [
+        723.0,
+        594.0
+      ],
+      [
+        723.0,
+        608.0
+      ],
+      [
+        701.0,
+        608.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "新建食堂体量高度估计12m；未沿用旧梅园食堂2层证据。",
+    "plan_label": "G5",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 652.0,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "G4_01",
+    "name_cn": "梅园食堂1（南）",
+    "group": "G4",
+    "status": "existing",
+    "footprint_px": [
+      [
+        726.0,
+        595.0
+      ],
+      [
+        739.0,
+        595.0
+      ],
+      [
+        739.0,
+        616.0
+      ],
+      [
+        743.0,
+        620.0
+      ],
+      [
+        742.0,
+        637.0
+      ],
+      [
+        715.0,
+        637.0
+      ],
+      [
+        709.0,
+        633.0
+      ],
+      [
+        708.0,
+        618.0
+      ],
+      [
+        726.0,
+        618.0
+      ]
+    ],
+    "height_m": 10,
+    "height_confidence": "estimated",
+    "height_note": "按旧食堂约2层体量估计10m；图示蓝灰色既有建筑。",
+    "plan_label": "G4",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 932.0,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_1_N",
+    "name_cn": "梅园宿舍1 · 北部庭院1 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        761.0,
+        644.0
+      ],
+      [
+        785.0,
+        644.0
+      ],
+      [
+        780.92,
+        648.0
+      ],
+      [
+        765.08,
+        648.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 79.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_1_E",
+    "name_cn": "梅园宿舍1 · 北部庭院1 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        644.0
+      ],
+      [
+        785.0,
+        660.0
+      ],
+      [
+        780.92,
+        656.0
+      ],
+      [
+        780.92,
+        648.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 48.96,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_1_S",
+    "name_cn": "梅园宿舍1 · 北部庭院1 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        660.0
+      ],
+      [
+        761.0,
+        660.0
+      ],
+      [
+        765.08,
+        656.0
+      ],
+      [
+        780.92,
+        656.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 79.68,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_1_W",
+    "name_cn": "梅园宿舍1 · 北部庭院1 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        761.0,
+        660.0
+      ],
+      [
+        761.0,
+        644.0
+      ],
+      [
+        765.08,
+        648.0
+      ],
+      [
+        765.08,
+        656.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 48.96,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_2_N",
+    "name_cn": "梅园宿舍1 · 北部庭院2 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        789.0,
+        644.0
+      ],
+      [
+        812.0,
+        644.0
+      ],
+      [
+        808.09,
+        648.0
+      ],
+      [
+        792.91,
+        648.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 76.36,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_2_E",
+    "name_cn": "梅园宿舍1 · 北部庭院2 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        812.0,
+        644.0
+      ],
+      [
+        812.0,
+        660.0
+      ],
+      [
+        808.09,
+        656.0
+      ],
+      [
+        808.09,
+        648.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 46.92,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_2_S",
+    "name_cn": "梅园宿舍1 · 北部庭院2 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        812.0,
+        660.0
+      ],
+      [
+        789.0,
+        660.0
+      ],
+      [
+        792.91,
+        656.0
+      ],
+      [
+        808.09,
+        656.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 76.36,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_N_2_W",
+    "name_cn": "梅园宿舍1 · 北部庭院2 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        789.0,
+        660.0
+      ],
+      [
+        789.0,
+        644.0
+      ],
+      [
+        792.91,
+        648.0
+      ],
+      [
+        792.91,
+        656.0
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 46.92,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_1_N",
+    "name_cn": "梅园宿舍1 · 1区1排1号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        700.0,
+        673.0
+      ],
+      [
+        723.0,
+        673.0
+      ],
+      [
+        719.09,
+        677.25
+      ],
+      [
+        703.91,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_1_E",
+    "name_cn": "梅园宿舍1 · 1区1排1号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        673.0
+      ],
+      [
+        723.0,
+        690.0
+      ],
+      [
+        719.09,
+        685.75
+      ],
+      [
+        719.09,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_1_S",
+    "name_cn": "梅园宿舍1 · 1区1排1号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        690.0
+      ],
+      [
+        700.0,
+        690.0
+      ],
+      [
+        703.91,
+        685.75
+      ],
+      [
+        719.09,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_1_W",
+    "name_cn": "梅园宿舍1 · 1区1排1号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        700.0,
+        690.0
+      ],
+      [
+        700.0,
+        673.0
+      ],
+      [
+        703.91,
+        677.25
+      ],
+      [
+        703.91,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_2_N",
+    "name_cn": "梅园宿舍1 · 1区1排2号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        673.0
+      ],
+      [
+        748.0,
+        673.0
+      ],
+      [
+        744.09,
+        677.25
+      ],
+      [
+        728.91,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_2_E",
+    "name_cn": "梅园宿舍1 · 1区1排2号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        748.0,
+        673.0
+      ],
+      [
+        748.0,
+        690.0
+      ],
+      [
+        744.09,
+        685.75
+      ],
+      [
+        744.09,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_2_S",
+    "name_cn": "梅园宿舍1 · 1区1排2号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        748.0,
+        690.0
+      ],
+      [
+        725.0,
+        690.0
+      ],
+      [
+        728.91,
+        685.75
+      ],
+      [
+        744.09,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_1_2_W",
+    "name_cn": "梅园宿舍1 · 1区1排2号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        690.0
+      ],
+      [
+        725.0,
+        673.0
+      ],
+      [
+        728.91,
+        677.25
+      ],
+      [
+        728.91,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_1_N",
+    "name_cn": "梅园宿舍1 · 1区2排1号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        700.0,
+        701.0
+      ],
+      [
+        723.0,
+        701.0
+      ],
+      [
+        719.09,
+        705.25
+      ],
+      [
+        703.91,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_1_E",
+    "name_cn": "梅园宿舍1 · 1区2排1号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        701.0
+      ],
+      [
+        723.0,
+        718.0
+      ],
+      [
+        719.09,
+        713.75
+      ],
+      [
+        719.09,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_1_S",
+    "name_cn": "梅园宿舍1 · 1区2排1号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        718.0
+      ],
+      [
+        700.0,
+        718.0
+      ],
+      [
+        703.91,
+        713.75
+      ],
+      [
+        719.09,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_1_W",
+    "name_cn": "梅园宿舍1 · 1区2排1号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        700.0,
+        718.0
+      ],
+      [
+        700.0,
+        701.0
+      ],
+      [
+        703.91,
+        705.25
+      ],
+      [
+        703.91,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_2_N",
+    "name_cn": "梅园宿舍1 · 1区2排2号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        701.0
+      ],
+      [
+        748.0,
+        701.0
+      ],
+      [
+        744.09,
+        705.25
+      ],
+      [
+        728.91,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_2_E",
+    "name_cn": "梅园宿舍1 · 1区2排2号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        748.0,
+        701.0
+      ],
+      [
+        748.0,
+        718.0
+      ],
+      [
+        744.09,
+        713.75
+      ],
+      [
+        744.09,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_2_S",
+    "name_cn": "梅园宿舍1 · 1区2排2号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        748.0,
+        718.0
+      ],
+      [
+        725.0,
+        718.0
+      ],
+      [
+        728.91,
+        713.75
+      ],
+      [
+        744.09,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_2_2_W",
+    "name_cn": "梅园宿舍1 · 1区2排2号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        718.0
+      ],
+      [
+        725.0,
+        701.0
+      ],
+      [
+        728.91,
+        705.25
+      ],
+      [
+        728.91,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_1_N",
+    "name_cn": "梅园宿舍1 · 1区3排1号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        700.0,
+        729.0
+      ],
+      [
+        723.0,
+        729.0
+      ],
+      [
+        719.09,
+        733.25
+      ],
+      [
+        703.91,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_1_E",
+    "name_cn": "梅园宿舍1 · 1区3排1号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        729.0
+      ],
+      [
+        723.0,
+        746.0
+      ],
+      [
+        719.09,
+        741.75
+      ],
+      [
+        719.09,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_1_S",
+    "name_cn": "梅园宿舍1 · 1区3排1号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        723.0,
+        746.0
+      ],
+      [
+        700.0,
+        746.0
+      ],
+      [
+        703.91,
+        741.75
+      ],
+      [
+        719.09,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_1_W",
+    "name_cn": "梅园宿舍1 · 1区3排1号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        700.0,
+        746.0
+      ],
+      [
+        700.0,
+        729.0
+      ],
+      [
+        703.91,
+        733.25
+      ],
+      [
+        703.91,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_2_N",
+    "name_cn": "梅园宿舍1 · 1区3排2号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        729.0
+      ],
+      [
+        748.0,
+        729.0
+      ],
+      [
+        744.09,
+        733.25
+      ],
+      [
+        728.91,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_2_E",
+    "name_cn": "梅园宿舍1 · 1区3排2号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        748.0,
+        729.0
+      ],
+      [
+        748.0,
+        746.0
+      ],
+      [
+        744.09,
+        741.75
+      ],
+      [
+        744.09,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_2_S",
+    "name_cn": "梅园宿舍1 · 1区3排2号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        748.0,
+        746.0
+      ],
+      [
+        725.0,
+        746.0
+      ],
+      [
+        728.91,
+        741.75
+      ],
+      [
+        744.09,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_1_3_2_W",
+    "name_cn": "梅园宿舍1 · 1区3排2号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        725.0,
+        746.0
+      ],
+      [
+        725.0,
+        729.0
+      ],
+      [
+        728.91,
+        733.25
+      ],
+      [
+        728.91,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_1_N",
+    "name_cn": "梅园宿舍1 · 2区1排1号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        760.0,
+        673.0
+      ],
+      [
+        783.0,
+        673.0
+      ],
+      [
+        779.09,
+        677.25
+      ],
+      [
+        763.91,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_1_E",
+    "name_cn": "梅园宿舍1 · 2区1排1号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        673.0
+      ],
+      [
+        783.0,
+        690.0
+      ],
+      [
+        779.09,
+        685.75
+      ],
+      [
+        779.09,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_1_S",
+    "name_cn": "梅园宿舍1 · 2区1排1号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        690.0
+      ],
+      [
+        760.0,
+        690.0
+      ],
+      [
+        763.91,
+        685.75
+      ],
+      [
+        779.09,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_1_W",
+    "name_cn": "梅园宿舍1 · 2区1排1号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        760.0,
+        690.0
+      ],
+      [
+        760.0,
+        673.0
+      ],
+      [
+        763.91,
+        677.25
+      ],
+      [
+        763.91,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_2_N",
+    "name_cn": "梅园宿舍1 · 2区1排2号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        673.0
+      ],
+      [
+        808.0,
+        673.0
+      ],
+      [
+        804.09,
+        677.25
+      ],
+      [
+        788.91,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_2_E",
+    "name_cn": "梅园宿舍1 · 2区1排2号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        673.0
+      ],
+      [
+        808.0,
+        690.0
+      ],
+      [
+        804.09,
+        685.75
+      ],
+      [
+        804.09,
+        677.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_2_S",
+    "name_cn": "梅园宿舍1 · 2区1排2号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        690.0
+      ],
+      [
+        785.0,
+        690.0
+      ],
+      [
+        788.91,
+        685.75
+      ],
+      [
+        804.09,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_1_2_W",
+    "name_cn": "梅园宿舍1 · 2区1排2号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        690.0
+      ],
+      [
+        785.0,
+        673.0
+      ],
+      [
+        788.91,
+        677.25
+      ],
+      [
+        788.91,
+        685.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_1_N",
+    "name_cn": "梅园宿舍1 · 2区2排1号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        760.0,
+        701.0
+      ],
+      [
+        783.0,
+        701.0
+      ],
+      [
+        779.09,
+        705.25
+      ],
+      [
+        763.91,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_1_E",
+    "name_cn": "梅园宿舍1 · 2区2排1号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        701.0
+      ],
+      [
+        783.0,
+        718.0
+      ],
+      [
+        779.09,
+        713.75
+      ],
+      [
+        779.09,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_1_S",
+    "name_cn": "梅园宿舍1 · 2区2排1号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        718.0
+      ],
+      [
+        760.0,
+        718.0
+      ],
+      [
+        763.91,
+        713.75
+      ],
+      [
+        779.09,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_1_W",
+    "name_cn": "梅园宿舍1 · 2区2排1号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        760.0,
+        718.0
+      ],
+      [
+        760.0,
+        701.0
+      ],
+      [
+        763.91,
+        705.25
+      ],
+      [
+        763.91,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_2_N",
+    "name_cn": "梅园宿舍1 · 2区2排2号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        701.0
+      ],
+      [
+        808.0,
+        701.0
+      ],
+      [
+        804.09,
+        705.25
+      ],
+      [
+        788.91,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_2_E",
+    "name_cn": "梅园宿舍1 · 2区2排2号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        701.0
+      ],
+      [
+        808.0,
+        718.0
+      ],
+      [
+        804.09,
+        713.75
+      ],
+      [
+        804.09,
+        705.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_2_S",
+    "name_cn": "梅园宿舍1 · 2区2排2号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        718.0
+      ],
+      [
+        785.0,
+        718.0
+      ],
+      [
+        788.91,
+        713.75
+      ],
+      [
+        804.09,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_2_2_W",
+    "name_cn": "梅园宿舍1 · 2区2排2号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        718.0
+      ],
+      [
+        785.0,
+        701.0
+      ],
+      [
+        788.91,
+        705.25
+      ],
+      [
+        788.91,
+        713.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_1_N",
+    "name_cn": "梅园宿舍1 · 2区3排1号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        760.0,
+        729.0
+      ],
+      [
+        783.0,
+        729.0
+      ],
+      [
+        779.09,
+        733.25
+      ],
+      [
+        763.91,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_1_E",
+    "name_cn": "梅园宿舍1 · 2区3排1号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        729.0
+      ],
+      [
+        783.0,
+        746.0
+      ],
+      [
+        779.09,
+        741.75
+      ],
+      [
+        779.09,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_1_S",
+    "name_cn": "梅园宿舍1 · 2区3排1号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        783.0,
+        746.0
+      ],
+      [
+        760.0,
+        746.0
+      ],
+      [
+        763.91,
+        741.75
+      ],
+      [
+        779.09,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_1_W",
+    "name_cn": "梅园宿舍1 · 2区3排1号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        760.0,
+        746.0
+      ],
+      [
+        760.0,
+        729.0
+      ],
+      [
+        763.91,
+        733.25
+      ],
+      [
+        763.91,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_2_N",
+    "name_cn": "梅园宿舍1 · 2区3排2号院 · 北翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        729.0
+      ],
+      [
+        808.0,
+        729.0
+      ],
+      [
+        804.09,
+        733.25
+      ],
+      [
+        788.91,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_2_E",
+    "name_cn": "梅园宿舍1 · 2区3排2号院 · 东翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        729.0
+      ],
+      [
+        808.0,
+        746.0
+      ],
+      [
+        804.09,
+        741.75
+      ],
+      [
+        804.09,
+        733.25
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_2_S",
+    "name_cn": "梅园宿舍1 · 2区3排2号院 · 南翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        808.0,
+        746.0
+      ],
+      [
+        785.0,
+        746.0
+      ],
+      [
+        788.91,
+        741.75
+      ],
+      [
+        804.09,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 81.13,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2_2_3_2_W",
+    "name_cn": "梅园宿舍1 · 2区3排2号院 · 西翼",
+    "group": "F2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        785.0,
+        746.0
+      ],
+      [
+        785.0,
+        729.0
+      ],
+      [
+        788.91,
+        733.25
+      ],
+      [
+        788.91,
+        741.75
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "旧宿舍概念体量高度估计20m，约相当于六层；未查得逐栋实测高度，不作为层数或高度的事实断言。",
+    "plan_label": "F2",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 49.85,
+    "plan_status_2025": "existing"
+  },
+  {
+    "id": "F2a_ADD",
+    "name_cn": "梅园宿舍书院增建 · F2a",
+    "group": "F2a",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        729.5,
+        721.5
+      ],
+      [
+        728.04,
+        725.39
+      ],
+      [
+        724.5,
+        727.0
+      ],
+      [
+        720.96,
+        725.39
+      ],
+      [
+        719.5,
+        721.5
+      ],
+      [
+        720.96,
+        717.61
+      ],
+      [
+        724.5,
+        716.0
+      ],
+      [
+        728.04,
+        717.61
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "橙黄色书院增建小体量，8m为示意估计。",
+    "plan_label": "F2a",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 77.84,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "F2b_ADD",
+    "name_cn": "梅园宿舍书院增建 · F2b",
+    "group": "F2b",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        787.5,
+        722.5
+      ],
+      [
+        786.04,
+        726.39
+      ],
+      [
+        782.5,
+        728.0
+      ],
+      [
+        778.96,
+        726.39
+      ],
+      [
+        777.5,
+        722.5
+      ],
+      [
+        778.96,
+        718.61
+      ],
+      [
+        782.5,
+        717.0
+      ],
+      [
+        786.04,
+        718.61
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "橙黄色书院增建小体量，8m为示意估计。",
+    "plan_label": "F2b",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 77.84,
+    "plan_status_2025": "under_construction"
+  },
+  {
+    "id": "W1_01",
+    "name_cn": "停车楼",
+    "group": "W1",
+    "status": "planned",
+    "footprint_px": [
+      [
+        831.0,
+        679.0
+      ],
+      [
+        858.0,
+        679.0
+      ],
+      [
+        858.0,
+        691.0
+      ],
+      [
+        831.0,
+        691.0
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "W1",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 324.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P9_NE",
+    "name_cn": "发展学科楼 · 东北楼",
+    "group": "P9",
+    "status": "planned",
+    "footprint_px": [
+      [
+        865.0,
+        683.0
+      ],
+      [
+        886.0,
+        683.0
+      ],
+      [
+        886.0,
+        695.0
+      ],
+      [
+        865.0,
+        695.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P9",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 252.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P9_W",
+    "name_cn": "发展学科楼 · 西北折楼",
+    "group": "P9",
+    "status": "planned",
+    "footprint_px": [
+      [
+        832.0,
+        705.0
+      ],
+      [
+        846.0,
+        705.0
+      ],
+      [
+        846.0,
+        716.0
+      ],
+      [
+        839.0,
+        716.0
+      ],
+      [
+        839.0,
+        727.0
+      ],
+      [
+        832.0,
+        727.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P9",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 231.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P9_E",
+    "name_cn": "发展学科楼 · 东中楼",
+    "group": "P9",
+    "status": "planned",
+    "footprint_px": [
+      [
+        858.0,
+        710.0
+      ],
+      [
+        879.0,
+        710.0
+      ],
+      [
+        879.0,
+        721.0
+      ],
+      [
+        858.0,
+        721.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P9",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 231.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P9_SW",
+    "name_cn": "发展学科楼 · 西南楼",
+    "group": "P9",
+    "status": "planned",
+    "footprint_px": [
+      [
+        831.0,
+        734.0
+      ],
+      [
+        851.0,
+        734.0
+      ],
+      [
+        851.0,
+        745.0
+      ],
+      [
+        831.0,
+        745.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P9",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 220.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P9_SE",
+    "name_cn": "发展学科楼 · 东南楼",
+    "group": "P9",
+    "status": "planned",
+    "footprint_px": [
+      [
+        859.0,
+        733.0
+      ],
+      [
+        878.0,
+        733.0
+      ],
+      [
+        878.0,
+        743.0
+      ],
+      [
+        859.0,
+        743.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P9",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 190.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P9_LINK",
+    "name_cn": "发展学科楼 · 连廊",
+    "group": "P9",
+    "status": "planned",
+    "footprint_px": [
+      [
+        845.0,
+        702.0
+      ],
+      [
+        860.0,
+        702.0
+      ],
+      [
+        860.0,
+        708.0
+      ],
+      [
+        876.0,
+        708.0
+      ],
+      [
+        876.0,
+        711.0
+      ],
+      [
+        854.0,
+        711.0
+      ],
+      [
+        854.0,
+        723.0
+      ],
+      [
+        851.0,
+        723.0
+      ],
+      [
+        851.0,
+        708.0
+      ],
+      [
+        845.0,
+        708.0
+      ]
+    ],
+    "height_m": 10,
+    "height_confidence": "estimated",
+    "height_note": "连廊10m为示意估计；灰色连接区与屋顶阴影分界模糊。",
+    "plan_label": "P9",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 201.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_N_N",
+    "name_cn": "发展学科楼P8 · 北庭院 · 北翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        631.0,
+        504.0
+      ],
+      [
+        676.0,
+        504.0
+      ],
+      [
+        667.45,
+        511.0
+      ],
+      [
+        639.55,
+        511.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 255.15,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_N_E",
+    "name_cn": "发展学科楼P8 · 北庭院 · 东翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        676.0,
+        504.0
+      ],
+      [
+        676.0,
+        532.0
+      ],
+      [
+        667.45,
+        525.0
+      ],
+      [
+        667.45,
+        511.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 179.55,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_N_S",
+    "name_cn": "发展学科楼P8 · 北庭院 · 南翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        676.0,
+        532.0
+      ],
+      [
+        631.0,
+        532.0
+      ],
+      [
+        639.55,
+        525.0
+      ],
+      [
+        667.45,
+        525.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 255.15,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_N_W",
+    "name_cn": "发展学科楼P8 · 北庭院 · 西翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        631.0,
+        532.0
+      ],
+      [
+        631.0,
+        504.0
+      ],
+      [
+        639.55,
+        511.0
+      ],
+      [
+        639.55,
+        525.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 179.55,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_MLINK",
+    "name_cn": "发展学科楼P8 · 中连楼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        657.0,
+        532.0
+      ],
+      [
+        667.0,
+        532.0
+      ],
+      [
+        667.0,
+        547.0
+      ],
+      [
+        657.0,
+        547.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 150.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_M",
+    "name_cn": "发展学科楼P8 · 中横楼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        640.0,
+        548.0
+      ],
+      [
+        677.0,
+        548.0
+      ],
+      [
+        677.0,
+        557.0
+      ],
+      [
+        640.0,
+        557.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 333.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_W",
+    "name_cn": "发展学科楼P8 · 中西翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        635.0,
+        553.0
+      ],
+      [
+        644.0,
+        553.0
+      ],
+      [
+        644.0,
+        575.0
+      ],
+      [
+        635.0,
+        575.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 198.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_E",
+    "name_cn": "发展学科楼P8 · 中东翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        658.0,
+        556.0
+      ],
+      [
+        665.0,
+        556.0
+      ],
+      [
+        665.0,
+        579.0
+      ],
+      [
+        658.0,
+        579.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 161.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_S",
+    "name_cn": "发展学科楼P8 · 南折翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        636.0,
+        580.0
+      ],
+      [
+        663.0,
+        580.0
+      ],
+      [
+        663.0,
+        600.0
+      ],
+      [
+        654.0,
+        600.0
+      ],
+      [
+        654.0,
+        588.0
+      ],
+      [
+        636.0,
+        588.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "依2025年官方总平面图手工描摹的简化轮廓；保留主要凹口及庭院，不代表施工图精度。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 324.0,
+    "plan_status_2025": "planned"
+  },
+  {
+    "id": "P8_SW",
+    "name_cn": "发展学科楼P8 · 西南翼",
+    "group": "P8",
+    "status": "planned",
+    "footprint_px": [
+      [
+        622.0,
+        597.0
+      ],
+      [
+        641.0,
+        597.0
+      ],
+      [
+        641.0,
+        606.0
+      ],
+      [
+        622.0,
+        606.0
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "概念体量估计，非测量高度；按建筑用途赋值。",
+    "plan_label": "P8",
+    "footprint_note": "P8西南浅色短翼跨出东区边界，整体归P8以保持完整。",
+    "source_image": "seu-jiulonghu-official-masterplan-2025.jpg; original image 1375 x 867 pixels",
+    "footprint_area_px2": 171.0,
+    "plan_status_2025": "planned"
+  }
+]

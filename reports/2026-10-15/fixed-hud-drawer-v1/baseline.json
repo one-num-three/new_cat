@@ -1,0 +1,86 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "cdc358db96610cb9f6118d6af7f7684ecf08f32c29e0f717e1e1bd189d9542c9"
+  },
+  {
+    "path": "ART_LOCK.md",
+    "sha256": "3aa4edbde53a953c871ec760b707058714955452e9c6f5fb24d3285f1ae72af5"
+  },
+  {
+    "path": "cat-mouse-server/v2/custom-teams.test.js",
+    "sha256": "87fe82b443a7650940427c7ede5dd840da8d6bdb6efa5984fdd81ceda6b5a3c6"
+  },
+  {
+    "path": "cat-mouse-server/v2/dev-preview.test.js",
+    "sha256": "7d15c0786ca8a41b2915af61f685aa998edfdfa70c687eea93a9221d471c5cea"
+  },
+  {
+    "path": "cat-mouse-server/v2/geo-registration.test.js",
+    "sha256": "25fa082c913d27f5c71fa46e8ae4b32843d4535d0230340daa5ef2a05e22f5bf"
+  },
+  {
+    "path": "cat-mouse-server/v2/map-first.test.js",
+    "sha256": "d6c5daf0c3e7fe86a012122547f272f52c2fe740c480ffd2098546e99bc442f0"
+  },
+  {
+    "path": "cat-mouse-server/v2/pixel-ui.test.js",
+    "sha256": "f5d3a25ee4d14d3ef8373d7cb9c85fb8f475f6c6b52b347e2ffcaa06919c9b63"
+  },
+  {
+    "path": "cat-mouse-server/v2/presentation.test.js",
+    "sha256": "83e572b89a99ba6a1e45e233503a2352ad64b62ef6aede203e2e154802432e28"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/manifest.json",
+    "sha256": "87bd5da06395ca88d594b7a9324c335b02484fea53b50b65a1ab01707dcbb3b9"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/ui-subset.woff",
+    "sha256": "38534f83226e8aad78f149be459e6ad3092d3f2f5a8ff9e5f33c9083c9794468"
+  },
+  {
+    "path": "design/2026-10-15/map-icon-previews-v1/manifest.json",
+    "sha256": "b2ad6ff9858f753076d6cb6787ca77a225a4f1d03338ac9e38af0d7d89e92ee7"
+  },
+  {
+    "path": "DESIGN_BASELINE.md",
+    "sha256": "5066617a1fd88f621edb30da0076b4116c5e665cdff7e28d1dfcd0d0d14c6585"
+  },
+  {
+    "path": "pages/map/map.js",
+    "sha256": "9d4355b03adf13dd3d3ddda6b5c732cdefcd87d35ff02503f1d2e9d6a88737fd"
+  },
+  {
+    "path": "pages/map/map.json",
+    "sha256": "4d6957efad2b49dd3d00d10c07375e971ac84c6e10cdaa1dd7649a7014f6e351"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "sha256": "5af98c76a884b1f306e38550e528bb9c06ab78d1991eeb2a988be42a41fa6621"
+  },
+  {
+    "path": "pages/map/map.wxss",
+    "sha256": "b6c322505260ec7dbf1b118c74786f7789095522f9d0519c9631acae628767f5"
+  },
+  {
+    "path": "README.md",
+    "sha256": "21b8b05ebe9743553aabd2cccff4ed37845798b7ded1a8f5a31ee96585a78471"
+  },
+  {
+    "path": "RELEASE.md",
+    "sha256": "4f4d76a3d8a8947167a1bc2ef208b611ad3dacbadc43129fac912b3ec91c4fac"
+  },
+  {
+    "path": "scripts/map-first-review.cjs",
+    "sha256": "b68d21148888d6b77ac318d8f6aa10a33370cba7055825e8c8844ee93cd8ea56"
+  },
+  {
+    "path": "utils/fusion-font.wxss",
+    "sha256": "adfe246c1bde2066e4b0d5a49bcc1e85744bc8877446f9a80f90a712f08341e5"
+  },
+  {
+    "path": "WORK_LOG.md",
+    "sha256": "112ccac2e05a114a5267eb5831ba988b0652d7174cd5079548ab7131a032d954"
+  }
+]

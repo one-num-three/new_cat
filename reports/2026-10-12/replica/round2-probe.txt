@@ -1,0 +1,53 @@
+ROUTE gallery
+PASS gallery
+ROUTE home
+ROUTE_RETRY home {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS home
+ROUTE create
+ROUTE_RETRY create {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS create
+ROUTE ready
+ROUTE_RETRY ready {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS ready
+ROUTE cat
+ROUTE_RETRY cat {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cat
+ROUTE mouse
+ROUTE_RETRY mouse {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouse
+ROUTE alert
+ROUTE_RETRY alert {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS alert
+ROUTE hiding
+ROUTE_RETRY hiding {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS hiding
+ROUTE code
+ROUTE_RETRY code {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS code
+ROUTE captured
+ROUTE_RETRY captured {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS captured
+ROUTE paused
+ROUTE_RETRY paused {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS paused
+ROUTE offline
+ROUTE_RETRY offline {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS offline
+ROUTE catWin
+ROUTE_RETRY catWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS catWin
+ROUTE mouseWin
+ROUTE_RETRY mouseWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouseWin
+ROUTE cancelled
+Error: timeout waiting for automator response
+    at Connection.onMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\out\Connection.js:1:985)
+    at Transport.emit (node:events:518:28)
+    at WebSocket.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\out\Transport.js:1:220)
+    at WebSocket.onMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\event-target.js:120:16)
+    at WebSocket.emit (node:events:518:28)
+    at Receiver.receiverOnMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\websocket.js:807:20)
+    at Receiver.emit (node:events:518:28)
+    at Receiver.dataMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\receiver.js:448:14)
+    at Receiver.getData (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\receiver.js:377:17)
+    at Receiver.startLoop (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\receiver.js:158:22)

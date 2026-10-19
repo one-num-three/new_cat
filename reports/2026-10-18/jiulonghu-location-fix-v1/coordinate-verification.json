@@ -1,0 +1,57 @@
+{
+  "input": {
+    "lat": 31.882368,
+    "lng": 118.828049,
+    "crs": "gcj02"
+  },
+  "inCampus": true,
+  "wgs84": {
+    "lng": 118.82293269397611,
+    "lat": 31.884449176129447
+  },
+  "oldProjection": null,
+  "oldVerifiedByRegressionTest": true,
+  "newImagePixel": {
+    "x": 1076.0666300831033,
+    "y": 967.3084612842754
+  },
+  "fieldVerified": false,
+  "checks": [
+    {
+      "osmId": "way/630141894",
+      "name": "梅园7B",
+      "pixel": [
+        1077,
+        965
+      ],
+      "estimatedManualUncertaintyPx": 10,
+      "wgs84": [
+        118.82296582,
+        31.88448356
+      ],
+      "predicted": [
+        1078.1651833849257,
+        964.7957816295815
+      ],
+      "errorPx": 1.1829444041557489
+    },
+    {
+      "osmId": "way/630141889",
+      "name": "梅园6B",
+      "pixel": [
+        1035,
+        968
+      ],
+      "estimatedManualUncertaintyPx": 10,
+      "wgs84": [
+        118.82220551999998,
+        31.8844437
+      ],
+      "predicted": [
+        1032.0951838200265,
+        967.882136301633
+      ],
+      "errorPx": 2.907206372246168
+    }
+  ]
+}

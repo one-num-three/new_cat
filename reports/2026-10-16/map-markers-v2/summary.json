@@ -1,0 +1,23 @@
+{
+  "screenshots": 7,
+  "maxTipErrorLogicalPx": 0.005943484373290175,
+  "maxSpriteSizeErrorLogicalPx": 0,
+  "regression": {
+    "passed": 122,
+    "failed": 0
+  },
+  "compile": {
+    "wxml": 11,
+    "wxss": 15,
+    "exitCode": 0
+  },
+  "runtimePngBytes": 68882,
+  "package": {
+    "Files": 144,
+    "Bytes": 2035886
+  },
+  "unchangedMapSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+  "nativeMapScreenshot": true,
+  "phoneVerification": false,
+  "fieldVerification": false
+}

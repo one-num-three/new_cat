@@ -1,0 +1,2645 @@
+{
+  "status": "PASS",
+  "scope": "WeChat IDE rendered preview; no physical GPS or calibration claim",
+  "records": [
+    {
+      "id": "venue",
+      "mode": "normal",
+      "page": {
+        "route": "pages/venue/venue",
+        "preview": false,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 149,
+              "bottom": 798,
+              "width": 366,
+              "height": 649
+            }
+          ],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 149,
+              "width": 390,
+              "height": 62
+            }
+          ],
+          ".venueBack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 298,
+              "right": 374,
+              "top": 95,
+              "bottom": 139,
+              "width": 76,
+              "height": 44
+            }
+          ],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 649.0000000000001,
+        "height": 649.0000000000001,
+        "x": -232.36000000000007,
+        "y": -90.86000000000007,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 149,
+              "bottom": 798,
+              "width": 366,
+              "height": 649
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": -129.5,
+              "right": 519.5,
+              "top": 149,
+              "bottom": 798,
+              "width": 649,
+              "height": 649
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 779.953125,
+              "bottom": 793,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\venue.png"
+    },
+    {
+      "id": "home",
+      "mode": "normal",
+      "page": {
+        "route": "pages/index/index",
+        "preview": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 381.9375,
+              "width": 390,
+              "height": 294.9375
+            }
+          ],
+          ".homeFooter": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 652.9375,
+              "bottom": 715.5,
+              "width": 390,
+              "height": 62.5625
+            }
+          ],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 119.5,
+              "right": 364,
+              "top": 405.9375,
+              "bottom": 447.9375,
+              "width": 244.5,
+              "height": 42
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 119.5,
+              "right": 364,
+              "top": 473.9375,
+              "bottom": 515.9375,
+              "width": 244.5,
+              "height": 42
+            }
+          ],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 16,
+              "right": 374,
+              "top": 721.5,
+              "bottom": 784.6484375,
+              "width": 358,
+              "height": 63.1484375
+            }
+          ],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-home-join.png",
+          "label": "加入房间",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 85,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 533.9375,
+            "bottom": 588.9375,
+            "width": 362,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-home-create.png",
+          "label": "创建活动",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 592.9375,
+            "bottom": 647.9375,
+            "width": 362,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "home-hero",
+          "selector": ".homeHero",
+          "width": 390,
+          "height": 294.9375,
+          "intrinsic": [
+            480,
+            363
+          ],
+          "ratioError": 0
+        },
+        {
+          "id": "home-footer",
+          "selector": ".homeFooter",
+          "width": 390,
+          "height": 62.5625,
+          "intrinsic": [
+            480,
+            77
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\home.png"
+    },
+    {
+      "id": "gallery",
+      "mode": "normal",
+      "page": {
+        "route": "pages/dev/dev",
+        "preview": false,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\gallery.png"
+    },
+    {
+      "id": "create",
+      "mode": "normal",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 183.4609375,
+              "top": 364.3359375,
+              "bottom": 385.9296875,
+              "width": 165.4609375,
+              "height": 21.59375
+            }
+          ],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 184.5,
+              "width": 390,
+              "height": 97.5
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-create-location.png",
+          "label": "重新确认位置",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 309,
+          "height": 108,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 18,
+            "right": 183.4609375,
+            "top": 463.7734375,
+            "bottom": 518.7734375,
+            "width": 165.4609375,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-create-submit.png",
+          "label": "创建并邀请",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 7,
+            "right": 383,
+            "top": 696.90625,
+            "bottom": 751.90625,
+            "width": 376,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "create-hero",
+          "selector": ".roomHero",
+          "width": 390,
+          "height": 97.5,
+          "intrinsic": [
+            480,
+            120
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\create.png"
+    },
+    {
+      "id": "ready",
+      "mode": "normal",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 227.5625,
+              "width": 390,
+              "height": 140.5625
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 78.5,
+              "right": 266.5,
+              "top": 279.1953125,
+              "bottom": 323.109375,
+              "width": 188,
+              "height": 43.9140625
+            }
+          ],
+          ".rosterGrid": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 376,
+              "top": 506.140625,
+              "bottom": 667.140625,
+              "width": 362,
+              "height": 161
+            }
+          ],
+          ".playerCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 192.5,
+              "top": 506.140625,
+              "bottom": 544.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 197.5,
+              "right": 376,
+              "top": 506.140625,
+              "bottom": 544.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 192.5,
+              "top": 547.140625,
+              "bottom": 585.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 197.5,
+              "right": 376,
+              "top": 547.140625,
+              "bottom": 585.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 192.5,
+              "top": 588.140625,
+              "bottom": 626.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 197.5,
+              "right": 376,
+              "top": 588.140625,
+              "bottom": 626.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 192.5,
+              "top": 629.140625,
+              "bottom": 667.140625,
+              "width": 178.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 197.5,
+              "right": 376,
+              "top": 629.140625,
+              "bottom": 667.140625,
+              "width": 178.5,
+              "height": 38
+            }
+          ],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-ready-copy.png",
+          "label": "复制",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 80,
+          "height": 86,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 272.5,
+            "right": 311.5,
+            "top": 261.15625,
+            "bottom": 341.15625,
+            "width": 39,
+            "height": 80
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-ready-start.png",
+          "label": "开始30秒躲藏",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 671.140625,
+            "bottom": 726.140625,
+            "width": 364,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-ready-cancel.png",
+          "label": "取消准备",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 61,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 377,
+            "top": 730.140625,
+            "bottom": 785.140625,
+            "width": 364,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "ready-hero",
+          "selector": ".roomHero",
+          "width": 390,
+          "height": 140.5625,
+          "intrinsic": [
+            480,
+            173
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\ready.png"
+    },
+    {
+      "id": "cat",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "cat",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 688.703125,
+              "width": 370,
+              "height": 388.234375
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 688.703125,
+              "bottom": 844,
+              "width": 390,
+              "height": 155.296875
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 384.234375,
+        "height": 384.234375,
+        "x": -62.91,
+        "y": -53.7928125,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 686.703125,
+              "width": 366,
+              "height": 384.234375
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 396.234375,
+              "top": 302.46875,
+              "bottom": 686.703125,
+              "width": 384.234375,
+              "height": 384.234375
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 668.65625,
+              "bottom": 681.703125,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-cat-scan.png",
+          "label": "扫码确认抓捕",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 413,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 206.296875,
+            "top": 742.5,
+            "bottom": 797.5,
+            "width": 196.296875,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-cat-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 333,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 209.296875,
+            "right": 379.9921875,
+            "top": 730,
+            "bottom": 810,
+            "width": 170.6953125,
+            "height": 80
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\cat.png"
+    },
+    {
+      "id": "mouse",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "mouse",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 688.703125,
+              "width": 370,
+              "height": 388.234375
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 688.703125,
+              "bottom": 844,
+              "width": 390,
+              "height": 155.296875
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 384.234375,
+        "height": 384.234375,
+        "x": -62.91,
+        "y": -53.7928125,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 686.703125,
+              "width": 366,
+              "height": 384.234375
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 396.234375,
+              "top": 302.46875,
+              "bottom": 686.703125,
+              "width": 384.234375,
+              "height": 384.234375
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 668.65625,
+              "bottom": 681.703125,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-mouse-code.png",
+          "label": "停下，展示动态码",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 401,
+          "height": 122,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 206.296875,
+            "top": 742.5,
+            "bottom": 797.5,
+            "width": 196.296875,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-mouse-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 279,
+          "height": 122,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 209.296875,
+            "right": 379.9921875,
+            "top": 730,
+            "bottom": 810,
+            "width": 170.6953125,
+            "height": 80
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\mouse.png"
+    },
+    {
+      "id": "alert",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "mouse",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 608.3515625,
+              "width": 370,
+              "height": 307.8828125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 608.3515625,
+              "bottom": 844,
+              "width": 390,
+              "height": 235.6484375
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 366.00000000000006,
+        "height": 366.00000000000006,
+        "x": -51.24000000000004,
+        "y": -82.29859375000004,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 606.3515625,
+              "width": 366,
+              "height": 303.8828125
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 378,
+              "top": 271.41015625,
+              "bottom": 637.41015625,
+              "width": 366,
+              "height": 366
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 588.3046875,
+              "bottom": 601.3515625,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-alert-code.png",
+          "label": "停下，展示动态码",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 80,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 693,
+            "bottom": 748,
+            "width": 370,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-alert-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 60,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 755,
+            "bottom": 810,
+            "width": 370,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\alert.png"
+    },
+    {
+      "id": "hiding",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "hiding",
+        "clock": "00:18",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 634.59375,
+              "width": 370,
+              "height": 334.125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 634.59375,
+              "bottom": 844,
+              "width": 390,
+              "height": 209.40625
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 227.3984375,
+              "top": 642.59375,
+              "bottom": 747,
+              "width": 215.3984375,
+              "height": 104.40625
+            }
+          ],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 366.00000000000006,
+        "height": 366.00000000000006,
+        "x": -51.24000000000004,
+        "y": -69.17750000000004,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 632.59375,
+              "width": 366,
+              "height": 330.125
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 378,
+              "top": 284.53125,
+              "bottom": 650.53125,
+              "width": 366,
+              "height": 366
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 614.546875,
+              "bottom": 627.59375,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-hiding-details.png",
+          "label": "队伍·规则",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 78,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 755,
+            "bottom": 810,
+            "width": 370,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "hiding-scene",
+          "selector": ".hidingArt",
+          "width": 215.3984375,
+          "height": 104.40625,
+          "intrinsic": [
+            458,
+            222
+          ],
+          "ratioError": 0.00000816898426214685
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\hiding.png"
+    },
+    {
+      "id": "code",
+      "mode": "normal",
+      "page": {
+        "route": "pages/qrcode/qrcode",
+        "preview": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 158.5,
+              "width": 390,
+              "height": 71.5
+            }
+          ],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 85.8828125,
+              "right": 304.1171875,
+              "top": 347.140625,
+              "bottom": 528.9375,
+              "width": 218.234375,
+              "height": 181.796875
+            }
+          ],
+          ".demoArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 96.8828125,
+              "right": 293.1171875,
+              "top": 364.140625,
+              "bottom": 443.4453125,
+              "width": 196.234375,
+              "height": 79.3046875
+            }
+          ]
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-code-back.png",
+          "label": "返回地图",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 81,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 17,
+            "right": 373,
+            "top": 628.734375,
+            "bottom": 683.734375,
+            "width": 356,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "code-role",
+          "selector": ".codeRole",
+          "width": 390,
+          "height": 71.5,
+          "intrinsic": [
+            480,
+            88
+          ],
+          "ratioError": 0
+        },
+        {
+          "id": "code-demo-art",
+          "selector": ".demoArt",
+          "width": 196.234375,
+          "height": 79.3046875,
+          "intrinsic": [
+            240,
+            97
+          ],
+          "ratioError": 0.00008455652973426986
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\code.png"
+    },
+    {
+      "id": "captured",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "captured",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 650.1015625,
+              "width": 370,
+              "height": 349.6328125
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 650.1015625,
+              "bottom": 844,
+              "width": 390,
+              "height": 193.8984375
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 366.00000000000006,
+        "height": 366.00000000000006,
+        "x": -51.24000000000004,
+        "y": -61.42359375000004,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 648.1015625,
+              "width": 366,
+              "height": 345.6328125
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 668.46875,
+              "width": 366,
+              "height": 366
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 630.0546875,
+              "bottom": 643.1015625,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-captured-details.png",
+          "label": "队伍·规则",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 79,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 755,
+            "bottom": 810,
+            "width": 370,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\captured.png"
+    },
+    {
+      "id": "paused",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "paused",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 260.46875,
+              "bottom": 533.46875,
+              "width": 390,
+              "height": 273
+            }
+          ],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-paused-resume.png",
+          "label": "恢复本局",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 82,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 644.3671875,
+            "bottom": 699.3671875,
+            "width": 362,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-paused-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 68,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 706.3671875,
+            "bottom": 761.3671875,
+            "width": 362,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "paused-scene",
+          "selector": ".pauseHero",
+          "width": 390,
+          "height": 273,
+          "intrinsic": [
+            480,
+            336
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\paused.png"
+    },
+    {
+      "id": "offline",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "offline",
+        "clock": "--:--",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 260.46875,
+              "bottom": 358.78125,
+              "width": 390,
+              "height": 98.3125
+            }
+          ],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-offline-team.png",
+          "label": "队伍",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 372,
+          "height": 132,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 206.015625,
+            "top": 469.6796875,
+            "bottom": 524.6796875,
+            "width": 192.015625,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-offline-rules.png",
+          "label": "规则",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 372,
+          "height": 132,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 209.015625,
+            "right": 375.9921875,
+            "top": 469.6796875,
+            "bottom": 524.6796875,
+            "width": 166.9765625,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "offline-hero",
+          "selector": ".pauseHero",
+          "width": 390,
+          "height": 98.3125,
+          "intrinsic": [
+            480,
+            121
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\offline.png"
+    },
+    {
+      "id": "catWin",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "catWin",
+        "clock": "00:00",
+        "summary": "捕获 4 / 6 人",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 347.8125,
+              "width": 390,
+              "height": 260.8125
+            }
+          ],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-catwin-replay.png",
+          "label": "再来一局",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 98,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 588.9453125,
+            "bottom": 643.9453125,
+            "width": 360,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-catwin-details.png",
+          "label": "查看对局详情",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 86,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 650.9453125,
+            "bottom": 705.9453125,
+            "width": 360,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-catwin-home.png",
+          "label": "返回首页",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 63,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 58.203125,
+            "right": 331.796875,
+            "top": 712.9453125,
+            "bottom": 767.9453125,
+            "width": 273.59375,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "catwin-hero",
+          "selector": ".resultHero",
+          "width": 390,
+          "height": 260.8125,
+          "intrinsic": [
+            480,
+            321
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\catWin.png"
+    },
+    {
+      "id": "mouseWin",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "mouseWin",
+        "clock": "00:00",
+        "summary": "捕获 3 / 6 人，未达目标",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 316.9375,
+              "width": 390,
+              "height": 229.9375
+            }
+          ],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 356,
+        "height": 356,
+        "x": -49.84,
+        "y": -139.84,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17,
+              "right": 373,
+              "top": 469.890625,
+              "bottom": 645.890625,
+              "width": 356,
+              "height": 176
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 17,
+              "right": 373,
+              "top": 469.890625,
+              "bottom": 825.890625,
+              "width": 356,
+              "height": 356
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 23,
+              "right": 204.140625,
+              "top": 627.84375,
+              "bottom": 640.890625,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-mousewin-replay.png",
+          "label": "再来一局",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 81,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 659.890625,
+            "bottom": 714.890625,
+            "width": 360,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-mousewin-details.png",
+          "label": "查看对局详情",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 61,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 721.890625,
+            "bottom": 776.890625,
+            "width": 360,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-mousewin-home.png",
+          "label": "返回首页",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 58,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 58.203125,
+            "right": 331.796875,
+            "top": 783.890625,
+            "bottom": 838.890625,
+            "width": 273.59375,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "mousewin-hero",
+          "selector": ".resultHero",
+          "width": 390,
+          "height": 229.9375,
+          "intrinsic": [
+            480,
+            283
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\mouseWin.png"
+    },
+    {
+      "id": "cancelled",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "cancelled",
+        "clock": "00:00",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 87,
+              "bottom": 464.8125,
+              "width": 390,
+              "height": 377.8125
+            }
+          ],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-cancelled-replay.png",
+          "label": "再来一局",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 102,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 628.9140625,
+            "bottom": 683.9140625,
+            "width": 360,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-cancelled-details.png",
+          "label": "查看对局详情",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 83,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 15,
+            "right": 375,
+            "top": 690.9140625,
+            "bottom": 745.9140625,
+            "width": 360,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-cancelled-home.png",
+          "label": "返回首页",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 82,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 58.203125,
+            "right": 331.796875,
+            "top": 752.9140625,
+            "bottom": 807.9140625,
+            "width": 273.59375,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "cancelled-hero",
+          "selector": ".resultHero",
+          "width": 390,
+          "height": 377.8125,
+          "intrinsic": [
+            480,
+            465
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\cancelled.png"
+    },
+    {
+      "id": "drawer",
+      "mode": "normal",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1,
+        "uiState": "cat",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 300.46875,
+              "bottom": 688.703125,
+              "width": 370,
+              "height": 388.234375
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 170.5,
+              "bottom": 252.46875,
+              "width": 372,
+              "height": 81.96875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 688.703125,
+              "bottom": 844,
+              "width": 390,
+              "height": 155.296875
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 252.46875,
+              "bottom": 300.46875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 185.6875,
+              "bottom": 844,
+              "width": 390,
+              "height": 658.3125
+            }
+          ],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 384.234375,
+        "height": 384.234375,
+        "x": -62.91,
+        "y": -53.7928125,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 302.46875,
+              "bottom": 686.703125,
+              "width": 366,
+              "height": 384.234375
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": 12,
+              "right": 396.234375,
+              "top": 302.46875,
+              "bottom": 686.703125,
+              "width": 384.234375,
+              "height": 384.234375
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199.140625,
+              "top": 668.65625,
+              "bottom": 681.703125,
+              "width": 181.140625,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-cat-scan.png",
+          "label": "扫码确认抓捕",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 413,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 206.296875,
+            "top": 742.5,
+            "bottom": 797.5,
+            "width": 196.296875,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-cat-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 333,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 209.296875,
+            "right": 379.9921875,
+            "top": 730,
+            "bottom": 810,
+            "width": 170.6953125,
+            "height": 80
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-drawer-close.png",
+          "label": "关闭",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 91,
+          "height": 86,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 331,
+            "right": 374,
+            "top": 191.6875,
+            "bottom": 271.6875,
+            "width": 43,
+            "height": 80
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-drawer-pause.png",
+          "label": "紧急暂停",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 70,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 697.484375,
+            "bottom": 752.484375,
+            "width": 362,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-drawer-leave.png",
+          "label": "退出本局",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 57,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 376,
+            "top": 759.484375,
+            "bottom": 814.484375,
+            "width": 362,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\normal\\drawer.png"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "campusSwitch": true,
+  "anchorSelection": true,
+  "meshToggle": true,
+  "outsideRejected": true,
+  "mobileLayout": true,
+  "baselineRollbackDisabled": true,
+  "pageErrors": []
+}

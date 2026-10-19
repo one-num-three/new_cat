@@ -1,0 +1,6 @@
+{
+  "status": 1,
+  "file": "pages/map/map.wxss",
+  "stderr": "ERR: path `../../utils/pixel-theme.wxss` not found from `pages/map/map.wxss`.\r\n\r\nerror file count: 0\r\n",
+  "outputBytes": 0
+}

@@ -1,88 +1,9 @@
-# 猫鼠游戏后端服务器 🐱🐭
+# 服务端 v0.2
 
-## 快速开始
+单进程 Express + 原生 WebSocket。`npm start` 启动 `v2/server.js`；旧 `server.js` 只供追溯审计，不再接管服务。环境变量见 `.env.example`，本地运行和试点说明见仓库根目录 `README.md` 与 `RELEASE.md`。
 
-```bash
-# 安装依赖
-npm install
+本地默认用持久化 PGlite；生产用 `DATABASE_URL` 连接 PostgreSQL。`/health` 检查进程，`/ready` 检查数据库查询。测试身份仅在 `NODE_ENV=test` 与 `ENABLE_LOCAL_TEST_IDENTITIES=true` 同时设置时可创建；真实微信登录需要服务端持有 AppID 与密钥。
 
-# 启动服务器
-npm start
+主要接口：`POST /api/v2/session/{test,wechat}`、`POST /api/v2/rooms`、`POST /api/v2/rooms/:id/join`、`GET /api/v2/rooms/:id`、`POST /api/v2/rooms/:id/{location,ready,start,token,capture,pause,resume,cancel,leave}`、`GET /api/v2/matches/:id/result`。所有房间接口使用 `Authorization: Bearer <session token>`；WebSocket 握手也使用该请求头。`capture` 需要 UUID `commandId`、`matchId` 和扫码 token。
 
-# 开发模式
-npm run dev
-```
-
-## API 文档
-
-服务器地址：`http://118.178.85.214:3004`
-
-### 用户系统
-
-| 接口 | 方法 | 说明 |
-|------|------|------|
-| `/api/user/login` | POST | 微信登录 |
-| `/api/user/profile` | GET | 获取用户信息 |
-| `/api/user/profile` | PUT | 更新用户信息 |
-
-### 房间管理
-
-| 接口 | 方法 | 说明 |
-|------|------|------|
-| `/api/game/room` | POST | 创建房间 |
-| `/api/game/room/:id` | GET | 获取房间信息 |
-| `/api/game/room/:id` | POST | 加入房间 |
-| `/api/game/room/:id/start` | POST | 开始游戏 |
-
-### 游戏进行
-
-| 接口 | 方法 | 说明 |
-|------|------|------|
-| `/api/game/:id/status` | GET | 获取游戏状态 |
-| `/api/game/:id/location` | POST | 更新位置 |
-| `/api/game/:id/item` | POST | 使用道具 |
-| `/api/game/:id/end` | POST | 结束游戏 |
-
-### 游戏历史
-
-| 接口 | 方法 | 说明 |
-|------|------|------|
-| `/api/game/history/:userId` | GET | 获取游戏历史 |
-
-## 测试示例
-
-### 创建房间
-```bash
-curl -X POST http://localhost:3004/api/game/room \
-  -H "Content-Type: application/json" \
-  -d '{"catCount":1,"mouseCount":5,"gameDuration":600,"mapRange":1000}'
-```
-
-### 加入房间
-```bash
-curl -X POST http://localhost:3004/api/game/room/123456 \
-  -H "Content-Type: application/json" \
-  -d '{"playerId":"player_001","nickname":"测试玩家"}'
-```
-
-### 开始游戏
-```bash
-curl -X POST http://localhost:3004/api/game/room/123456/start \
-  -H "Content-Type: application/json" \
-  -d '{"playerId":"player_001"}'
-```
-
-## 数据存储
-
-当前使用内存存储（Map），重启后数据会丢失。生产环境应使用数据库（如 MongoDB/MySQL）。
-
-## 部署
-
-使用 PM2 进行生产部署：
-
-```bash
-npm install -g pm2
-pm2 start server.js --name cat-mouse-api
-pm2 save
-pm2 startup
-```
+本地回归：`npm test`。PGlite 与 PostgreSQL 共用 SQL 和事务路径，但仍须在目标 PostgreSQL 上做部署验证。

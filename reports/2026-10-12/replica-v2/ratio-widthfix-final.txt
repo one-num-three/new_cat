@@ -1,0 +1,5 @@
+normal routes=16 intrinsicWidthFixBoxes=52 maxRatioError=0.000252569898719468
+large routes=16 intrinsicWidthFixBoxes=52 maxRatioError=0.000252569898719468
+narrow routes=16 intrinsicWidthFixBoxes=52 maxRatioError=0.00033697263782195286
+WIDTHFIX_IMAGE_BOXES=156 MAX_RATIO_ERROR=0.00033697263782195286
+ASPECTFIT_ICON_BOXES_EXCLUDED=container is not image-content bounds; native aspectFit preserves content ratio

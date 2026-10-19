@@ -1,4 +1,7 @@
 // /home/transplanted/cat-mouse-server/server.js
+if (process.env.NODE_ENV === 'production') {
+  throw new Error('Legacy server is disabled in production. Use npm start (v2/server.js).');
+}
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
@@ -14,15 +17,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 加载题库
+// 轻量健康检查：部署平台可用它判断容器是否已就绪
+app.get('/health', (_req, res) => {
+  res.json({ ok: true, service: 'cat-mouse-server', time: new Date().toISOString() });
+});
+
+// 任务点/题库是实验功能，发布版默认关闭，避免把非核心资源带入最小镜像。
+const ENABLE_TASKS = process.env.ENABLE_TASKS === 'true';
 let questionBank = null;
-try {
-  const questionPath = path.join(__dirname, '趣味问题数据库.json');
-  const questionData = fs.readFileSync(questionPath, 'utf-8');
-  questionBank = JSON.parse(questionData);
-  console.log('[题库] 加载成功，共', questionBank.questions.length, '道题目');
-} catch (err) {
-  console.error('[题库] 加载失败:', err);
+if (ENABLE_TASKS) {
+  try {
+    const questionPath = path.join(__dirname, '趣味问题数据库.json');
+    const questionData = fs.readFileSync(questionPath, 'utf-8');
+    questionBank = JSON.parse(questionData);
+    console.log('[题库] 加载成功，共', questionBank.questions.length, '道题目');
+  } catch (err) {
+    console.error('[题库] 加载失败:', err);
+  }
 }
 
 // 缓存存储（生产环境建议用 Redis）
@@ -129,6 +140,11 @@ app.post('/api/game/room/:roomId', (req, res) => {
     
     if (room.status !== 'waiting') {
       return res.status(400).json({ success: false, message: '游戏已开始' });
+    }
+
+    const maxPlayers = (room.settings.catCount || 1) + (room.settings.mouseCount || 5);
+    if (room.players.length >= maxPlayers) {
+      return res.status(400).json({ success: false, message: '房间人数已满' });
     }
     
     // 使用传入的 playerId 或生成新的
@@ -285,7 +301,9 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
     // 分配猫角色
     for (let i = 0; i < Math.min(catCount, shuffled.length); i++) {
       shuffled[i].role = 'cat';
-      shuffled[i].items = { speed: 1, invisible: 0, radar: 0 }; // 猫初始 1 个加速
+      // MVP 只保留一次性隐身，避免前端展示尚未接通的技能
+      shuffled[i].items = { invisible: 0, invisibleCount: 1 };
+      shuffled[i].score = 20;
       shuffled[i].catchCount = 0;
       // 分配谜底
       shuffled[i].taskRiddle = riddleMode === 'same' ? sharedRiddle : generateRiddle();
@@ -294,7 +312,8 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
     // 分配鼠角色
     for (let i = catCount; i < catCount + Math.min(mouseCount, shuffled.length - catCount); i++) {
       shuffled[i].role = 'mouse';
-      shuffled[i].items = { speed: 0, invisible: 0, radar: 1 }; // 老鼠初始 1 个雷达
+      shuffled[i].items = { invisible: 0, invisibleCount: 1 };
+      shuffled[i].score = 0;
       shuffled[i].isCaught = false;
       // 分配谜底
       shuffled[i].taskRiddle = riddleMode === 'same' ? sharedRiddle : generateRiddle();
@@ -363,11 +382,21 @@ app.get('/api/game/:gameId/status', (req, res) => {
   // 检查游戏是否结束
   if (room.status === 'playing' && countdown <= 0) {
     room.status = 'ended';
+    room.winner = 'mouse';
+    room.winReason = 'time_up';
+    room.endTime = room.endTime || now;
     roomCache.set(gameId, room);
+    io.to(`room_${gameId}`).emit('gameEnd', {
+      status: 'ended',
+      winner: room.winner,
+      winReason: room.winReason,
+      endTime: room.endTime
+    });
   }
   
   // 更新任务点状态
   const taskPoint = updateTaskPoint(room);
+  const game = gameCache.get(gameId) || {};
   if (taskPoint !== room.taskPoint) {
     roomCache.set(gameId, room);
   }
@@ -377,10 +406,58 @@ app.get('/api/game/:gameId/status', (req, res) => {
     status: room.status,
     playerRole: req.query.playerRole || null, // 实际应从 token 获取
     players: room.players,
+    // 兼容前端状态页：没有独立持久化层时直接返回房间快照
+    allPlayers: room.players,
+    events: game.events || [],
+    goldenShields: room.goldenShields || [],
+    bombardZones: room.bombardZones || [],
+    winReason: room.winReason || null,
     countdown,
     settings: room.settings,
     taskPoint: taskPoint
   });
+});
+
+// 重新加入：保留原玩家身份和积分，适用于短暂掉线后的恢复
+app.post('/api/game/room/:roomId/rejoin', (req, res) => {
+  try {
+    const { roomId } = req.params;
+    const { playerId } = req.body;
+    const room = roomCache.get(roomId);
+    if (!room) return res.status(404).json({ success: false, message: '房间不存在' });
+    const player = room.players.find(p => p.id === playerId);
+    if (!player) return res.status(404).json({ success: false, message: '玩家不存在' });
+
+    player.isOffline = false;
+    player.lastUpdate = Date.now();
+    roomCache.set(roomId, room);
+    io.to(`room_${roomId}`).emit('playerRejoined', { player, players: room.players });
+    res.json({ success: true, player, players: room.players });
+  } catch (error) {
+    console.error('[重新加入失败]', error);
+    res.status(500).json({ success: false, message: '重新加入失败' });
+  }
+});
+
+// 主动离开/标记掉线：不删除玩家数据，便于短暂断线后恢复
+app.post('/api/game/:gameId/leave', (req, res) => {
+  try {
+    const { gameId } = req.params;
+    const { playerId } = req.body;
+    const room = roomCache.get(gameId);
+    if (!room) return res.status(404).json({ success: false, message: '游戏不存在' });
+    const player = room.players.find(p => p.id === playerId);
+    if (!player) return res.status(404).json({ success: false, message: '玩家不存在' });
+
+    player.isOffline = true;
+    player.lastUpdate = Date.now();
+    roomCache.set(gameId, room);
+    io.to(`room_${gameId}`).emit('playerLeft', { playerId, players: room.players });
+    res.json({ success: true, message: '已离开游戏' });
+  } catch (error) {
+    console.error('[离开游戏失败]', error);
+    res.status(500).json({ success: false, message: '离开失败' });
+  }
 });
 
 // 计算两点距离（Haversine 公式）- 用于附近玩家检测
@@ -507,12 +584,14 @@ app.post('/api/game/:gameId/catch', (req, res) => {
     if (caughtMice === totalMice) {
       room.status = 'ended';
       room.winner = 'cat';
+      room.winReason = 'all_mice_caught';
       room.endTime = Date.now();
       roomCache.set(gameId, room);
       
       io.to(`room_${gameId}`).emit('gameEnd', {
         status: 'ended',
         winner: 'cat',
+        winReason: room.winReason,
         endTime: room.endTime
       });
       
@@ -551,26 +630,23 @@ app.post('/api/game/:gameId/item', (req, res) => {
       return res.status(404).json({ success: false, message: '玩家不存在' });
     }
     
-    // 检查道具数量
-    if (!player.items || player.items[itemId] <= 0) {
+    // 检查道具数量（MVP 仅支持一次性隐身）
+    if (itemId !== 'invisible' || !player.items || (player.items.invisibleCount || 0) <= 0) {
       return res.status(400).json({ success: false, message: '道具不足' });
     }
+
+    const itemPrice = 15;
+    if ((player.score || 0) < itemPrice) {
+      return res.status(400).json({ success: false, message: '积分不足' });
+    }
+    player.score -= itemPrice;
     
     let effect = null;
     
     switch (itemId) {
-      case 'speed': // 加速 - 30 秒内移动速度提升
-        player.items.speed--;
-        effect = { type: 'speed', duration: 30, target: playerId };
-        io.to(`room_${gameId}`).emit('itemUsed', {
-          playerId,
-          itemId,
-          effect
-        });
-        break;
-        
       case 'invisible': // 隐身 - 15 秒内对其他玩家隐藏
-        player.items.invisible--;
+        player.items.invisibleCount--;
+        player.items.invisible = Date.now() + 15 * 1000;
         effect = { type: 'invisible', duration: 15, target: playerId };
         io.to(`room_${gameId}`).emit('itemUsed', {
           playerId,
@@ -578,26 +654,6 @@ app.post('/api/game/:gameId/item', (req, res) => {
           effect
         });
         break;
-        
-      case 'radar': // 雷达 - 显示所有玩家位置
-        player.items.radar--;
-        const otherPlayers = room.players
-          .filter(p => p.id !== playerId && p.latitude && p.longitude)
-          .map(p => ({
-            id: p.id,
-            nickname: p.nickname,
-            role: p.role,
-            latitude: p.latitude,
-            longitude: p.longitude
-          }));
-        effect = { type: 'radar', players: otherPlayers };
-        res.json({
-          success: true,
-          message: '道具使用成功',
-          itemId,
-          effect
-        });
-        return;
         
       default:
         return res.status(400).json({ success: false, message: '未知道具' });
@@ -609,7 +665,8 @@ app.post('/api/game/:gameId/item', (req, res) => {
       success: true,
       message: '道具使用成功',
       itemId,
-      effect
+      effect,
+      remainingScore: player.score
     });
   } catch (error) {
     console.error('[使用道具失败]', error);
@@ -630,14 +687,16 @@ app.post('/api/game/:gameId/end', (req, res) => {
     
     room.status = 'ended';
     room.endTime = Date.now();
-    room.winner = winner;
+    room.winner = winner === 'cat' ? 'cat' : 'mouse';
+    room.winReason = 'manual';
     roomCache.set(gameId, room);
     
     // 通知所有玩家游戏结束
     io.to(`room_${gameId}`).emit('gameEnd', {
       status: 'ended',
       endTime: room.endTime,
-      winner
+      winner: room.winner,
+      winReason: room.winReason
     });
     
     console.log('[游戏结束] roomId:', gameId, '获胜者:', winner);
@@ -645,7 +704,7 @@ app.post('/api/game/:gameId/end', (req, res) => {
     res.json({
       success: true,
       message: '游戏已结束',
-      result: { winner, endTime: room.endTime }
+      result: { winner: room.winner, endTime: room.endTime }
     });
   } catch (error) {
     console.error('[结束游戏失败]', error);
@@ -698,6 +757,9 @@ app.get('/api/game/history/:userId', (req, res) => {
 // 获取玩家的任务谜底
 app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
   try {
+    if (!ENABLE_TASKS) {
+      return res.status(404).json({ success: false, message: '任务功能未启用' });
+    }
     const { gameId, playerId } = req.params;
     const room = roomCache.get(gameId);
     
@@ -736,6 +798,9 @@ app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
 // 获取趣味问答题目
 app.get('/api/game/:gameId/task/quiz/:playerId', (req, res) => {
   try {
+    if (!ENABLE_TASKS) {
+      return res.status(404).json({ success: false, message: '任务功能未启用' });
+    }
     const { gameId, playerId } = req.params;
     const room = roomCache.get(gameId);
     
@@ -848,6 +913,7 @@ function generateTaskPoint(room) {
 
 // 获取游戏状态时更新任务点
 function updateTaskPoint(room) {
+  if (!ENABLE_TASKS) return null;
   const now = Date.now();
   
   // 如果没有任务点，开局10秒后生成
@@ -880,6 +946,9 @@ function updateTaskPoint(room) {
 // 完成任务（猜数字游戏）
 app.post('/api/game/:gameId/task/complete', (req, res) => {
   try {
+    if (!ENABLE_TASKS) {
+      return res.status(404).json({ success: false, message: '任务功能未启用' });
+    }
     const { gameId } = req.params;
     const { playerId, taskType, attempts, timeUsed, reward } = req.body;
     const room = roomCache.get(gameId);
@@ -970,24 +1039,31 @@ app.post('/api/game/:gameId/task/complete', (req, res) => {
   }
 });
 
-// ========== HTTPS 配置 ==========
+// ========== 服务启动配置 ==========
+// 云托管/容器平台通常在入口网关终止 HTTPS，因此应用默认只监听 HTTP。
+// 只有显式提供三份证书路径时，才在进程内启用 HTTPS。
 const https = require('https');
-
-// SSL 证书路径（复用 campus-link.fit 证书）
-const SSL_OPTIONS = {
-  key: fs.readFileSync('/home/admin/.acme.sh/campus-link.fit_ecc/campus-link.fit.key'),
-  cert: fs.readFileSync('/home/admin/.acme.sh/campus-link.fit_ecc/campus-link.fit.cer'),
-  ca: fs.readFileSync('/home/admin/.acme.sh/campus-link.fit_ecc/ca.cer')
+const sslPaths = {
+  key: process.env.SSL_KEY_PATH,
+  cert: process.env.SSL_CERT_PATH,
+  ca: process.env.SSL_CA_PATH
 };
+const useHttps = Boolean(
+  sslPaths.key && sslPaths.cert && sslPaths.ca &&
+  fs.existsSync(sslPaths.key) && fs.existsSync(sslPaths.cert) && fs.existsSync(sslPaths.ca)
+);
 
-// 创建 HTTPS 服务器
-const httpsServer = https.createServer(SSL_OPTIONS, app);
-const io = new Server(httpsServer, {
-  cors: { origin: '*', methods: ['GET', 'POST'] }
+const primaryServer = useHttps
+  ? https.createServer({
+      key: fs.readFileSync(sslPaths.key),
+      cert: fs.readFileSync(sslPaths.cert),
+      ca: fs.readFileSync(sslPaths.ca)
+    }, app)
+  : http.createServer(app);
+
+const io = new Server(primaryServer, {
+  cors: { origin: process.env.CORS_ORIGIN || '*', methods: ['GET', 'POST', 'PUT'] }
 });
-
-// 创建 HTTP 服务器（开发用）
-const httpServer = http.createServer(app);
 
 // ========== WebSocket 连接 ==========
 io.on('connection', (socket) => {
@@ -1011,17 +1087,8 @@ io.on('connection', (socket) => {
 });
 
 // 启动服务器
-const PORT = process.env.PORT || 4000;
-const HTTP_PORT = process.env.HTTP_PORT || 4001;
+const PORT = Number(process.env.PORT || 4000);
 
-// HTTPS 服务器（生产用）
-httpsServer.listen(PORT, '0.0.0.0', () => {
-  console.log(`🐱🐭 猫鼠游戏 HTTPS 服务器启动在端口 ${PORT}`);
-  console.log(`🔒 HTTPS 地址：https://campus-link.fit:${PORT}`);
-});
-
-// HTTP 服务器（开发测试用）
-httpServer.listen(HTTP_PORT, '0.0.0.0', () => {
-  console.log(`🐱🐭 猫鼠游戏 HTTP 服务器启动在端口 ${HTTP_PORT}`);
-  console.log(`⚠️ HTTP 地址：http://118.178.85.214:${HTTP_PORT}`);
+primaryServer.listen(PORT, '0.0.0.0', () => {
+  console.log(`🐱🐭 猫鼠游戏服务器已启动：${useHttps ? 'HTTPS' : 'HTTP'} ${PORT}`);
 });

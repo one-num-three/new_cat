@@ -1,0 +1,227 @@
+
+> cat-mouse-server@0.2.0 test
+> node --test v2/*.test.js
+
+TAP version 13
+# Subtest: duplicate and out-of-order snapshots cannot roll client back
+ok 1 - duplicate and out-of-order snapshots cannot roll client back
+  ---
+  duration_ms: 0.7492
+  type: 'test'
+  ...
+# Subtest: map state stops location immediately on terminal snapshot
+ok 2 - map state stops location immediately on terminal snapshot
+  ---
+  duration_ms: 4.4214
+  type: 'test'
+  ...
+# Subtest: map falls back to polling, reconnects socket and clears timers on leave
+ok 3 - map falls back to polling, reconnects socket and clears timers on leave
+  ---
+  duration_ms: 5.2534
+  type: 'test'
+  ...
+# Subtest: location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+ok 4 - location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+  ---
+  duration_ms: 2.8569
+  type: 'test'
+  ...
+# Subtest: waiting room retries network entry and keeps one location request in flight
+ok 5 - waiting room retries network entry and keeps one location request in flight
+  ---
+  duration_ms: 2.7977
+  type: 'test'
+  ...
+# Subtest: concurrent session callers share one identity and retry after failure
+ok 6 - concurrent session callers share one identity and retry after failure
+  ---
+  duration_ms: 1.7997
+  type: 'test'
+  ...
+# Subtest: home resume routes waiting room and finished match to the correct page
+ok 7 - home resume routes waiting room and finished match to the correct page
+  ---
+  duration_ms: 1.7738
+  type: 'test'
+  ...
+# Subtest: catch code page ignores late token, detects capture and cleans temporary files
+ok 8 - catch code page ignores late token, detects capture and cleans temporary files
+  ---
+  duration_ms: 2.9719
+  type: 'test'
+  ...
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 9 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 9.0626
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 10 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 17.1772
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 11 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 7.1008
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 12 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.2317
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 13 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 2.0056
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+ok 14 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 2.4166
+  type: 'test'
+  ...
+# Subtest: trusted two identity round trip, permissions, capture, persistence and restart
+not ok 15 - trusted two identity round trip, permissions, capture, persistence and restart
+  ---
+  duration_ms: 259.5032
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\integration.test.js:11:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'close')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\v2\integration.test.js:98:25)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: failed database write rolls back capture and token consumption
+not ok 16 - failed database write rolls back capture and token consumption
+  ---
+  duration_ms: 228.6824
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\integration.test.js:101:1'
+  failureType: 'testCodeFailure'
+  error: 'Aborted(). Build with -sASSERTIONS for more info.'
+  code: 'ERR_TEST_FAILURE'
+  name: 'RuntimeError'
+  stack: |-
+    abort (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:10:81629)
+    __abort_js (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:11:63256)
+    wasm://wasm/021d3ac6:wasm-function[11084]:0x5b015a
+    wasm://wasm/021d3ac6:wasm-function[9513]:0x50b61b
+    wasm://wasm/021d3ac6:wasm-function[9509]:0x508b2d
+    wasm://wasm/021d3ac6:wasm-function[1592]:0x10e4b1
+    wasm://wasm/021d3ac6:wasm-function[182]:0x6b459
+    Module._pgl_initdb (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:25451)
+    ge.qs (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:225962)
+    async ge._checkReady (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:220341)
+  ...
+# Subtest: standard six player preset serializes two cats capturing one mouse
+not ok 17 - standard six player preset serializes two cats capturing one mouse
+  ---
+  duration_ms: 235.3064
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\integration.test.js:120:1'
+  failureType: 'testCodeFailure'
+  error: 'Aborted(). Build with -sASSERTIONS for more info.'
+  code: 'ERR_TEST_FAILURE'
+  name: 'RuntimeError'
+  stack: |-
+    abort (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:10:81629)
+    __abort_js (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:11:63256)
+    wasm://wasm/021d3ac6:wasm-function[11084]:0x5b015a
+    wasm://wasm/021d3ac6:wasm-function[9513]:0x50b61b
+    wasm://wasm/021d3ac6:wasm-function[9509]:0x508b2d
+    wasm://wasm/021d3ac6:wasm-function[1592]:0x10e4b1
+    wasm://wasm/021d3ac6:wasm-function[182]:0x6b459
+    Module._pgl_initdb (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:25451)
+    ge.qs (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:225962)
+    async ge._checkReady (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:220341)
+  ...
+# Subtest: active match restart pauses and requires fresh positions
+not ok 18 - active match restart pauses and requires fresh positions
+  ---
+  duration_ms: 203.9856
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\integration.test.js:153:1'
+  failureType: 'testCodeFailure'
+  error: 'Aborted(). Build with -sASSERTIONS for more info.'
+  code: 'ERR_TEST_FAILURE'
+  name: 'RuntimeError'
+  stack: |-
+    abort (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:10:81629)
+    __abort_js (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:11:63256)
+    wasm://wasm/021d3ac6:wasm-function[11084]:0x5b015a
+    wasm://wasm/021d3ac6:wasm-function[9513]:0x50b61b
+    wasm://wasm/021d3ac6:wasm-function[9509]:0x508b2d
+    wasm://wasm/021d3ac6:wasm-function[1592]:0x10e4b1
+    wasm://wasm/021d3ac6:wasm-function[182]:0x6b459
+    Module._pgl_initdb (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:25451)
+    ge.qs (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:225962)
+    async ge._checkReady (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\@electric-sql\pglite\dist\index.cjs:12:220341)
+  ...
+# Subtest: native template expressions parse including conditional accessibility classes
+ok 19 - native template expressions parse including conditional accessibility classes
+  ---
+  duration_ms: 4.1182
+  type: 'test'
+  ...
+# Subtest: presentation only exposes role and stage appropriate primary actions
+ok 20 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 1.3159
+  type: 'test'
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 21 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.2248
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 22 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 1.1806
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 23 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 1.6166
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 24 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 4.2438
+  type: 'test'
+  ...
+# Subtest: pilot presets and quota stay fixed
+ok 25 - pilot presets and quota stay fixed
+  ---
+  duration_ms: 0.9365
+  type: 'test'
+  ...
+# Subtest: distance handles zero and same coordinate
+ok 26 - distance handles zero and same coordinate
+  ---
+  duration_ms: 0.1961
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 22
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1536.7376

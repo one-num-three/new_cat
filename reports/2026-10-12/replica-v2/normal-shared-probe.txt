@@ -1,0 +1,25 @@
+ROUTE gallery
+SDK_RECONNECT gallery timeout waiting for automator response
+PASS gallery
+ROUTE home
+SDK_RECONNECT home timeout waiting for automator response
+PASS home
+ROUTE create
+SDK_RECONNECT create timeout waiting for automator response
+PASS create
+ROUTE ready
+SDK_RECONNECT ready timeout waiting for automator response
+PASS ready
+ROUTE cat
+SDK_RECONNECT cat timeout waiting for automator response
+Error: timeout waiting for automator response
+    at Connection.onMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\out\Connection.js:1:985)
+    at Transport.emit (node:events:518:28)
+    at WebSocket.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\out\Transport.js:1:220)
+    at WebSocket.onMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\event-target.js:120:16)
+    at WebSocket.emit (node:events:518:28)
+    at Receiver.receiverOnMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\websocket.js:807:20)
+    at Receiver.emit (node:events:518:28)
+    at Receiver.dataMessage (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\receiver.js:448:14)
+    at Receiver.getData (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\receiver.js:377:17)
+    at Receiver.startLoop (D:\cat-mouse-miniprogram\cat-mouse-server\node_modules\miniprogram-automator\node_modules\ws\lib\receiver.js:158:22)

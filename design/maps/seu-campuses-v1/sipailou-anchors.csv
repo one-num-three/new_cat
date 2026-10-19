@@ -1,0 +1,21 @@
+﻿id,name,osm_id,longitude_wgs84,latitude_wgs84,image_x,image_y,method
+A01,东南大学大礼堂,way/236944775,118.7890487090909,32.057974981818184,641,498,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A02,逸夫建筑馆,way/236945039,118.79029167499999,32.057010925,758,610,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A03,孟芳图书馆,way/236945093,118.78833510555556,32.05698805,576,611,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A04,健雄院,way/236945198,118.79011185,32.0575652,739,547,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A05,吴健雄纪念馆,way/236945199,118.7882119,32.0575721375,563,546,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A06,体育馆,way/237316228,118.786695,32.0588403,419,405,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A07,逸夫科技馆,way/237488978,118.78640215,32.057616525,392,540,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A08,继续教育学院,way/237316231,118.78428205,32.057463025000004,191,558,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A09,集成电路学院,way/237316232,118.784263325,32.05720275,191,586,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A10,岩土工程馆,way/1056580749,118.78351355,32.058512025,121,441,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A11,软件学院,way/1056580750,118.78426235,32.05846655,192,448,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A12,交通学院 综合楼,way/189318592,118.7849447,32.05728163333333,255,578,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A13,新一舍,way/1056854753,118.79425075,32.058107199999995,1130,485,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A14,莘园餐厅,way/1056854748,118.793688825,32.0567354875,1078,639,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A15,文昌十舍,way/1056854738,118.79438967499999,32.054588100000004,1143,879,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A16,6栋,way/1056854730,118.7930484,32.053405575,1017,1009,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A17,教职工宿舍,way/1056854755,118.79304264,32.057409240000005,1016,564,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A18,南京图书馆成贤街分馆,way/404071182,118.79065272857143,32.05332862857143,792,1018,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A19,老六舍,way/237174909,118.79358055,32.05632075,1067,685,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A20,图书资料室,way/1056580741,118.78750635,32.056560575,496,660,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection

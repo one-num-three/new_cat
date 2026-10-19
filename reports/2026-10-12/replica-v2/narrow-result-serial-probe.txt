@@ -1,0 +1,9 @@
+ROUTE catWin
+SDK_FAIL_PHASE catWin screenshot timeout waiting for automator response
+SDK_RECONNECT catWin timeout waiting for automator response
+PASS catWin
+ROUTE mouseWin
+PASS mouseWin
+ROUTE cancelled
+PASS cancelled
+REPLICA_UI_PASS=3 FONT_SCALE=1

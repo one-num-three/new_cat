@@ -1,0 +1,9 @@
+ROUTE ready
+2026-10-12T06:19:50.981Z automator:protocol 2026-10-12 14:19:50:980 SEND ► {"id":"b434cf13-dffe-4e7e-83c6-34662d1840aa","method":"Tool.getInfo",
+2026-10-12T06:19:50.986Z automator:protocol 2026-10-12 14:19:50:986 SEND ► {"id":"f65f298d-6064-4151-a7c7-89ecc94df70f","method":"App.callWxMethod",
+2026-10-12T06:19:50.998Z automator:protocol 2026-10-12 14:19:50:998 SEND ► {"id":"69003e3c-c955-4cee-915f-5087a9d4a02d","method":"App.callWxMethod",
+2026-10-12T06:19:53.566Z automator:protocol 2026-10-12 14:19:53:566 SEND ► {"id":"7d52b4b1-740a-42a8-b318-7a42ec20796b","method":"App.callFunction",
+2026-10-12T06:19:54.279Z automator:protocol 2026-10-12 14:19:54:279 SEND ► {"id":"51b55320-73d1-436c-bbdd-247be3135ea0","method":"App.callFunction",
+2026-10-12T06:19:54.730Z automator:protocol 2026-10-12 14:19:54:730 SEND ► {"id":"bd14f932-94a9-4995-916e-8862bf4be5a9","method":"App.captureScreenshot",
+PASS ready
+REPLICA_UI_PASS=1 FONT_SCALE=1

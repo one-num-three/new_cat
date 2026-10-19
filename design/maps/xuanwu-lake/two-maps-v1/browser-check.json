@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "atlas_size": [
+    1254,
+    1254
+  ],
+  "exports": [
+    {
+      "id": "small",
+      "size": [
+        2400,
+        1664
+      ]
+    },
+    {
+      "id": "large",
+      "size": [
+        2400,
+        2254
+      ]
+    }
+  ],
+  "geometry_source": "WGS84 OSM",
+  "decoration": "non-surveyed tree/grass/water/roof texture only",
+  "product_files_modified": false
+}

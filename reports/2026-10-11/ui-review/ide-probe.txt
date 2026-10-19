@@ -1,0 +1,16 @@
+PASS gallery
+PASS home
+PASS create
+PASS ready
+PASS cat
+PASS mouse
+PASS alert
+PASS hiding
+PASS code
+PASS captured
+PASS paused
+PASS offline
+PASS catWin
+PASS mouseWin
+PASS cancelled
+UI_PROBE_PASS=15

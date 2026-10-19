@@ -1,0 +1,130 @@
+02-01 全页面稿验证记录
+日期: 2026-10-11
+工作目录: D:\cat-mouse-miniprogram
+变更: 新增 page-concepts-v1 设计稿与档案；不修改运行 UI 和 visual-1.0 冻结母版。
+输入: screens.json 中 16 张选中图、2 张保留草稿、原始工具输出与引用文件。
+产出: 16 张 1024x1536 PNG；内置 image_gen 16 次生成 + 2 次编辑。
+
+[PNG / 哈希 / 提示词验证]
+精确命令:
+@'
+import hashlib,json
+from pathlib import Path
+from PIL import Image
+root=Path(r"D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1")
+m=json.loads((root/"screens.json").read_text(encoding="utf-8"))
+assert len(m["screens"])==16
+for c in m["screens"]:
+    p=root/c["file"]
+    with Image.open(p) as im:
+        assert im.format=="PNG"
+        im.verify()
+    with Image.open(p) as im:
+        im.load()
+        c["width"],c["height"]=im.size
+        c["mode"]=im.mode
+    assert (c["width"],c["height"])==(1024,1536),(p,im.size)
+    c["bytes"]=p.stat().st_size
+    c["sha256"]=hashlib.sha256(p.read_bytes()).hexdigest()
+    assert c["sha256"]==hashlib.sha256(Path(c["source"]).read_bytes()).hexdigest(),p
+    for call in c["calls"]:
+        assert Path(call["source"]).is_file()
+        for ref in call["referenced_image_paths"]:
+            assert Path(ref).is_file(),ref
+    for old in c["superseded"]:
+        q=Path(old["absolute_path"])
+        with Image.open(q) as im: im.verify()
+        old["sha256"]=hashlib.sha256(q.read_bytes()).hexdigest()
+        assert old["sha256"]==hashlib.sha256(Path(old["source"]).read_bytes()).hexdigest()
+(root/"screens.json").write_text(json.dumps(m,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+print("PASS: 16 selected PNGs decode; all 1024x1536; SHA-256 matches original outputs")
+print("PASS: 2 superseded PNGs preserved and hash-matched; all input references exist")
+print("PASS: 16 generation prompts and 2 edit prompts archived")
+'@ | python -
+输出:
+PASS: 16 selected PNGs decode; all 1024x1536; SHA-256 matches original outputs
+PASS: 2 superseded PNGs preserved and hash-matched; all input references exist
+PASS: 16 generation prompts and 2 edit prompts archived
+
+退出状态: 0
+
+[旧冻结素材验证]
+命令: python scripts/freeze-art.py --verify
+输入: design/2026-10-09/frozen/v1/art-manifest.json 与所列 78 个文件
+输出:
+Verified 78 frozen art files
+
+退出状态: 0
+
+[Git 空白检查]
+命令: git diff --check
+输入: 当前仓库已有 tracked diff；新设计文件另由 PNG 和 JSON 验证。
+输出:
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'cat-mouse-server/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'cat-mouse-server/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'cat-mouse-server/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/index/index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/index/index.wxml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/index/index.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/map/map.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/map/map.wxml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/map/map.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/qrcode/qrcode.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/qrcode/qrcode.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/qrcode/qrcode.wxml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/qrcode/qrcode.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/quiz/quiz.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/room/room.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/room/room.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/room/room.wxml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/room/room.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/task/task.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'utils/api.js', LF will be replaced by CRLF the next time Git touches it
+
+退出状态: 0
+
+[目视核对]
+逐张检查工具展示的 16 张选中图；修正 04 躲藏本人点与 06 鼠本人点。
+详细发现: REVIEW.md
+运行 UI 测试、模拟器、真机、定位、动画性能: 本轮未执行；这些 PNG 不是运行验证。
+
+[路径]
+页面目录: D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1
+选中图清单: D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1\screens.json
+实际提示词: D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1\PROMPTS.md
+页面目录文档: D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1\README.md
+检查记录: D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1\REVIEW.md
+
+[ZIP 归档与重新打开验证]
+命令:
+@'
+import hashlib,json,zipfile
+from pathlib import Path
+root=Path(r"D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1")
+m=json.loads((root/"screens.json").read_text(encoding="utf-8"))
+paths=[root/c["file"] for c in m["screens"]]+[root/n for n in ["README.md","PROMPTS.md","screens.json","REVIEW.md","VERIFICATION.txt"]]
+archive=root/"02-01-pages-v1.zip"
+with zipfile.ZipFile(archive,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+    for p in paths: z.write(p,p.name)
+with zipfile.ZipFile(archive) as z:
+    assert z.testzip() is None
+    assert len(z.namelist())==21
+    for c in m["screens"]:
+        assert hashlib.sha256(z.read(c["file"])).hexdigest()==c["sha256"]
+    assert "04-hiding.png" not in z.namelist()
+    assert "06-mouse.png" not in z.namelist()
+print("PASS: ZIP contains 16 selected PNGs + 5 documents; CRC and PNG SHA-256 verified")
+print("PASS: superseded drafts excluded from ZIP")
+'@ | python -
+输入: 16 张选中图 + README.md / PROMPTS.md / screens.json / REVIEW.md / VERIFICATION.txt
+输出:
+PASS: ZIP contains 16 selected PNGs + 5 documents; CRC and PNG SHA-256 verified
+PASS: superseded drafts excluded from ZIP
+
+退出状态: 0
+归档: D:\cat-mouse-miniprogram\design\2026-10-11\page-concepts-v1\02-01-pages-v1.zip
+
+

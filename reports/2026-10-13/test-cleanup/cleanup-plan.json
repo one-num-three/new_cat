@@ -1,0 +1,383 @@
+{
+  "status": "NOT_EXECUTED",
+  "reason": "Native deletion commands rejected before execution. No alternate deletion mechanism attempted.",
+  "deletedFiles": 0,
+  "deletedBytes": 0,
+  "potentialFiles": 1220,
+  "potentialBytes": 266101926,
+  "targets": [
+    {
+      "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\final-readonly-audit",
+      "files": 87,
+      "bytes": 39916507,
+      "drive": "C"
+    },
+    {
+      "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-audit",
+      "files": 2,
+      "bytes": 32129,
+      "drive": "C"
+    },
+    {
+      "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\pixel-native-v1",
+      "files": 72,
+      "bytes": 23452825,
+      "drive": "C"
+    },
+    {
+      "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native",
+      "files": 304,
+      "bytes": 76515829,
+      "drive": "C"
+    },
+    {
+      "target": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\xuanwu-ui-v1",
+      "files": 14,
+      "bytes": 4029455,
+      "drive": "C"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\baseline-home-desktop.png",
+      "files": 1,
+      "bytes": 862486,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\final",
+      "files": 17,
+      "bytes": 5940254,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\interactions",
+      "files": 2,
+      "bytes": 168341,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large",
+      "files": 17,
+      "bytes": 5844104,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\MODIFIED_FILE.zip",
+      "files": 1,
+      "bytes": 1136443,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\round2",
+      "files": 15,
+      "bytes": 5223227,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\screenshots",
+      "files": 3,
+      "bytes": 1076036,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\second",
+      "files": 2,
+      "bytes": 343389,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\verified",
+      "files": 17,
+      "bytes": 5934209,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\alert-bottom-diagnostic.png",
+      "files": 1,
+      "bytes": 11045,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\fifth-map",
+      "files": 8,
+      "bytes": 3170045,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\first-map",
+      "files": 7,
+      "bytes": 2478657,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\fourth-map",
+      "files": 4,
+      "bytes": 1323391,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\MODIFIED_FILE.zip",
+      "files": 1,
+      "bytes": 1910668,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\normal-check",
+      "files": 6,
+      "bytes": 1547509,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\normal-direct",
+      "files": 4,
+      "bytes": 895155,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\normal-r2",
+      "files": 3,
+      "bytes": 639842,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\normal-shared",
+      "files": 5,
+      "bytes": 1130191,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\ready-diagnostic",
+      "files": 2,
+      "bytes": 231139,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\rollback-fixture",
+      "files": 205,
+      "bytes": 1634640,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\rollback-intermediate-before-second-ready",
+      "files": 4,
+      "bytes": 39627,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\second-map",
+      "files": 4,
+      "bytes": 1155109,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\third-map",
+      "files": 12,
+      "bytes": 4757718,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\verified",
+      "files": 17,
+      "bytes": 6204446,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\visual",
+      "files": 132,
+      "bytes": 57655143,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\01-home-before.png",
+      "files": 1,
+      "bytes": 129945,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\alert-before-window.png",
+      "files": 1,
+      "bytes": 129926,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\cancelled-before-window.png",
+      "files": 1,
+      "bytes": 129130,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\captured-before-window.png",
+      "files": 1,
+      "bytes": 131829,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\cat-before-window.png",
+      "files": 1,
+      "bytes": 127597,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\catWin-before-window.png",
+      "files": 1,
+      "bytes": 125304,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\code-before-window.png",
+      "files": 1,
+      "bytes": 109607,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\create-after-window.png",
+      "files": 1,
+      "bytes": 123986,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\create-before-window.png",
+      "files": 1,
+      "bytes": 106881,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\gallery-after-window.png",
+      "files": 1,
+      "bytes": 126544,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\gallery-before.png",
+      "files": 1,
+      "bytes": 119801,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\hiding-before-window.png",
+      "files": 1,
+      "bytes": 134605,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\home-before.png",
+      "files": 1,
+      "bytes": 129867,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\mouse-before-window.png",
+      "files": 1,
+      "bytes": 125779,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\mouseWin-before-window.png",
+      "files": 1,
+      "bytes": 124995,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\offline-before-window.png",
+      "files": 1,
+      "bytes": 131891,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\paused-after-window.png",
+      "files": 1,
+      "bytes": 144289,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\paused-before-window.png",
+      "files": 1,
+      "bytes": 131009,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\ready-before-window.png",
+      "files": 1,
+      "bytes": 111416,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\ready-bottom-after-window.png",
+      "files": 1,
+      "bytes": 124058,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\result-drawer-after-window.png",
+      "files": 1,
+      "bytes": 125729,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-11\\ui-review\\result-drawer-before-window.png",
+      "files": 1,
+      "bytes": 123057,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\candidate-1",
+      "files": 116,
+      "bytes": 2073847,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\partial-final-normal",
+      "files": 5,
+      "bytes": 1471062,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\test-tmp",
+      "files": 98,
+      "bytes": 281024,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\compiled-wxml.js",
+      "files": 1,
+      "bytes": 131428,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\compiled-wxss.js",
+      "files": 1,
+      "bytes": 150592,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\dist\\ui-review",
+      "files": 2,
+      "bytes": 417130,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\dist\\dev-preview",
+      "files": 2,
+      "bytes": 405794,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\dist\\replica-02-01",
+      "files": 2,
+      "bytes": 1184178,
+      "drive": "D"
+    },
+    {
+      "target": "D:\\cat-mouse-miniprogram\\dist\\replica-02-01-v2",
+      "files": 2,
+      "bytes": 1960067,
+      "drive": "D"
+    }
+  ],
+  "preserved": [
+    "live source and regression tests",
+    "design originals and source assets",
+    "latest MODIFIED_FILE / CURRENT_FILE / visual comparison / 33-file baseline and latest rollback fixture",
+    "initial audit reports and server deployment evidence"
+  ],
+  "excludedJunction": "reports/2026-10-12/replica/rollback-fixture/cat-mouse-server/node_modules -> live server dependencies"
+}

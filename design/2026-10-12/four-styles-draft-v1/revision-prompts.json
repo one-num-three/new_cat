@@ -1,0 +1,104 @@
+[
+  {
+    "id": "01-wayfinding/04-cat",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/04-cat.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/04-cat-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅修改计时卡下的黑色细横条文案，把“在城市中搜寻 · 缩小包围 · 抓住所有老鼠”替换为“在城市中搜寻 · 捕获4人即可获胜”。其余图像布局保持完全一致。"
+  },
+  {
+    "id": "01-wayfinding/05-mouse",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/05-mouse.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/05-mouse-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅修改底部“停下，展示动态码”主按钮为饱和电蓝色背景+白色文字/图标，匹配鼠队蓝色身份。其余完全不变。"
+  },
+  {
+    "id": "01-wayfinding/11-offline",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/11-offline.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/11-offline-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n删除顶部右侧“已连接3/4”以及4个小进度块；同一位置只保留大字“等待同步”和简单断线图标，不要伪造任何在线人数。倒计时仍为--:--。其余不变。"
+  },
+  {
+    "id": "01-wayfinding/12-cat-win",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/12-cat-win.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/12-cat-win-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只修正对局状态下方白底队伍行。左边改为“猫队 2人”，右边改为“鼠队 6人”，去掉该行错误的4/4和0/6。上方黄色捕获目标“4/4”正确，必须保留。其余不变。"
+  },
+  {
+    "id": "01-wayfinding/14-cancelled",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/14-cancelled.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/14-cancelled-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只修正白底队伍行数字，左边从“猫队2/8”改为“猫队 2人”，右边从“鼠队6/8”改为“鼠队 6人”。其余不变，包括公共记录已抓捕1/4和不计胜负。"
+  },
+  {
+    "id": "01-wayfinding/15-details",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/15-details.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/15-details-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅校正文本与数值：顶部倒计时04:32改为04:45；已抓捕3/4改为1/4并仅1个进度块橙色；下方旧标语改为“在城市中搜寻 · 捕获4人即可获胜”；最近事件09:02改为09:01，已捕获小米右边09:02也改09:01。其他名单、抽屉布局、按钮、风格完全不变。"
+  },
+  {
+    "id": "02-acrylic/02-create",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/02-create.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/02-create-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只修改底部规则摘要第一个30秒卡的解释，把“猫先闭眼 鼠前往躲藏”改为“猫在集合点 鼠先去躲藏”。其余所有元素保持不变。"
+  },
+  {
+    "id": "02-acrylic/05-mouse",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/05-mouse.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/05-mouse-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅修改底部“停下，展示动态码”橙色主按钮：改为饱和电蓝色亚克力按钮+白色图标与文字，匹配鼠队主题。保留厚度、高光、螺钉、尺寸、排版。其他所有元素不变。"
+  },
+  {
+    "id": "02-acrylic/06-alert",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/06-alert.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/06-alert-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅把底部“停下，展示动态码”橙色主按钮改为饱和电蓝色亚克力按钮+白色文字图标。预警条仍是橙色，不改变任何文案或其他元素。"
+  },
+  {
+    "id": "02-acrylic/08-code",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/08-code.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/08-code-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅把底部“返回地图”橙色主按钮改为饱和电蓝色亚克力按钮+白色文字图标，匹配鼠队。其余所有元素不变。"
+  },
+  {
+    "id": "02-acrylic/15-details",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/15-details.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/02-acrylic/15-details-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅校正顶部悬浮信息卡和最近事件：左上03:28改为04:45；右上“6/8 存活人数”改为“1/4 已抓捕”；最近事件09:02改为09:01。保持现有名单、抽屉、按钮、材质布局全部不变。"
+  },
+  {
+    "id": "03-pixel-day/03-ready",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/03-ready.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/03-ready-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n准备页阵营尚未分配。只改玩家列表里的8个头像，全部换成穿便服的中性像素人类头像，不是猫鼠头像，不用橙蓝阵营区分；8个昵称和已准备状态完全保留。在“玩家列表（8/8）”下添加清晰小字“阵营将在开始后分配”。顶部猫鼠品牌插画、人数配置2猫6鼠、10位房间码A1B2C3D4E5、规则、按钮完全不变。"
+  },
+  {
+    "id": "03-pixel-day/05-mouse",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/05-mouse.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/05-mouse-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n仅做两项精准修改：底部“停下，展示动态码”主按钮由橙色改为鲜亮蓝色，白字和像素描边保留；蓝色本人定位点从湖水上移动到最近的浅黄色步道上。其余完全保持不变。"
+  },
+  {
+    "id": "03-pixel-day/07-hiding",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/07-hiding.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/07-hiding-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只移除主地图上四个小老鼠角色标记，原位置恢复成正常地图树木/草地/步道；猫方躲藏阶段地图不展示敌人的精确位置。地图外下方“鼠先躲藏”卡片里的猫鼠装饰插画必须保留。其他元素、文字、00:18、0/4完全不变。"
+  },
+  {
+    "id": "03-pixel-day/15-details",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/15-details.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/15-details-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只校正顶部倒计时04:32为04:45、已抓捕3/4为1/4，最近事件09:02为09:01。其他一切包括8人名单和所有按钮、抽屉、地图、颜色不变。"
+  },
+  {
+    "id": "04-pixel-retro/03-ready",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/04-pixel-retro/03-ready.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/04-pixel-retro/03-ready-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n准备页阵营尚未分配。只改玩家列表里的8个头像，全部换成不同发型的中性像素人类头像，不是猫鼠，不区分阵营；8个昵称和已准备状态保留。在“玩家列表（8/8）”下添加清晰小字“阵营将在开始后分配”。上方猫鼠品牌插画、2猫6鼠配置、房间码A1B2C3D4E5、捕获目标4人和所有按钮保持不变。"
+  },
+  {
+    "id": "04-pixel-retro/15-details",
+    "reference": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/04-pixel-retro/15-details.png",
+    "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/04-pixel-retro/15-details-v2.png",
+    "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只修正这张猫方对局详情页的文本/图标：顶部身份从“我是鼠”改为“我是猫”；倒计时05:18改为04:45；鼠队6人标题旁误用的猫图标替换成鼠图标；最近事件09:02改为09:01。名单中我仍在猫队。其他一切不变。"
+  }
+]

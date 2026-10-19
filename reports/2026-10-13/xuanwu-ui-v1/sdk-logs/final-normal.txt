@@ -1,0 +1,23 @@
+ROUTE venue
+PASS venue
+ROUTE home
+PASS home
+ROUTE gallery
+TRANSPORT_RECONNECT gallery timeout waiting for automator response
+PASS gallery
+ROUTE create
+PASS create
+ROUTE ready
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 8
+
+    at inspect (D:\cat-mouse-miniprogram\scripts\pixel-ui-review.cjs:36:69)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async D:\cat-mouse-miniprogram\scripts\pixel-ui-review.cjs:54:168 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 8,
+  operator: 'strictEqual'
+}

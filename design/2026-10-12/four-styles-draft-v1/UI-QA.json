@@ -1,0 +1,30 @@
+{
+  "browser": "Codex in-app browser",
+  "url": "http://127.0.0.1:8787/index.html",
+  "checks": [
+    {
+      "case": "Default cross-style home comparison",
+      "result": "PASS: 4 cards / 60 total"
+    },
+    {
+      "case": "Select 15-details",
+      "result": "PASS: all 4 selected v2 files visible; 1024x1536 natural dimensions loaded"
+    },
+    {
+      "case": "Open and close acrylic detail zoom",
+      "result": "PASS: dialog showed correct title and original PNG link"
+    },
+    {
+      "case": "Acrylic complete flow",
+      "result": "PASS: 15 cards / 60 total"
+    },
+    {
+      "case": "Desktop layout",
+      "result": "PASS: document clientWidth=1888, scrollWidth=1888"
+    },
+    {
+      "case": "Delivery state",
+      "result": "PASS: reset to all/01-home and marked deliverable"
+    }
+  ]
+}

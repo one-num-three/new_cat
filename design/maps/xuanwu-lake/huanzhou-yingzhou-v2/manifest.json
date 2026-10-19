@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-13",
+  "tool": "built-in image_gen",
+  "scope": "complete Huanzhou + Yingzhou, waterways and mapped connecting bridges",
+  "output": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\huanzhou-yingzhou-v2\\huanzhou-yingzhou-complete.png",
+  "size": [
+    1154,
+    1363
+  ],
+  "sha256": "c87aa0695531239ff72beeba2ffe278a87471181a569f5c88c92135e7e9781fe",
+  "inputs": [
+    "complete-geometry.png",
+    "../yingzhou-verified-v1/yingzhou-pixel-reference.png"
+  ],
+  "visual_review": "Both island bodies visible; Huanzhou north tip and south arc included; Yingzhou mapped corridor and paved bridge expression retained. Outward connections continue off frame.",
+  "geographic_status": "art reference based on OSM guide; generated-image georeferencing and field accuracy remain unverified",
+  "previous_files_overwritten": false
+}

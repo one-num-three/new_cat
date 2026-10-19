@@ -1,0 +1,54 @@
+[
+  {
+    "path": "components/venue-art/venue-art.js",
+    "sha256": "1f6d64554aeccf58dc8e284d3b1f1eabf615c6d471d22478077163f70e403491"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxml",
+    "sha256": "ee3490f4e3fa32155eed00b4ee9eebc94268622da9833db5a4824eac6f2dbd07"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxss",
+    "sha256": "54bf7c02176a85f5ef8e2f9536b9a034cc0a17cd35897963ddf7776b1b071e9c"
+  },
+  {
+    "path": "utils/venue-camera.js",
+    "sha256": "ac8fb41ec0f6113e7885f2a8e773952dbbb1a1642dbba1818aca9dd08f6d20df"
+  },
+  {
+    "path": "pages/map/map.js",
+    "sha256": "dd9830bbc4581bf79440dd79388168de177bd0fa73d860eefa52fe155d9f4f62"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "sha256": "50e11cbd6ae9810fa23755b502b540437e7b58c508adafe10b522b781300b78b"
+  },
+  {
+    "path": "pages/map/map.wxss",
+    "sha256": "d5730b7d9a2dac3a69dd42614309976415b791b7817901cf7f606daf8fdc7641"
+  },
+  {
+    "path": "components/map-icon/map-icon.js",
+    "sha256": "b7174d619e49815cf0f58e08e863723fca1a964ca72ddd97fb111cc8a84d775f"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "sha256": "9a06ef808f87594fb2dabea52cf85132934f4910ed6e7cd04cd0352c1bf2babf"
+  },
+  {
+    "path": "cat-mouse-server/v2/map-first.test.js",
+    "sha256": "71bad801db937808043587d1383bed01e853cbe77b6900367306dbe3fd8f6203"
+  },
+  {
+    "path": "utils/fusion-font.wxss",
+    "sha256": "3d811ad5a3c5f94b19dabc3b79ca017ce9fa16d5dd98a875a28d4b9dbae01286"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/manifest.json",
+    "sha256": "d647549790563c8149818c15db0c1b93464375da1ca781696da8b77e62e49832"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/ui-subset.woff",
+    "sha256": "d39be6b8ad2dd78f10f469e153e6b435bba0b84eb61c25e7bc59d82f7059861b"
+  }
+]

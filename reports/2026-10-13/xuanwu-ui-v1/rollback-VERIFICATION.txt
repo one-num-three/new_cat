@@ -1,0 +1,304 @@
+ROLLBACK COPY VERIFICATION — 2026-10-13
+Managed baseline: 33 files; manifest SHA256 b5953497ee187de27bf88341c0ea26d7acd7b972d853e7b439a8d00b8b606980
+Baseline extended by room.wxml/room.wxss only after matching previous verified changes.json after SHA256; see rollback-baseline-extension-proof.json.
+Input: report-local marked rollback-fixture; all 135 dependencies were copied from the working tree, then exactly 33 saved baseline files were restored.
+New venue-ui.test.js and pixel-ui.test.js excluded from the old-test fixture. No node_modules copy; NODE_PATH uses the installed live dependencies read-only.
+Git Bash executable check: EXECUTABLE=true; exit 0.
+Guard negative test input: D:/cat-mouse-miniprogram; literal stderr: ROLLBACK_GUARD target must be this report rollback-fixture; exit 1.
+Actual restore: BASELINE_SHA_VALIDATED=33/33; CURRENT_BYTES_BACKED_UP=33/33; ROLLBACK_RESTORED=33/33; LIVE_WRITES=0; exit 0.
+Restored behavior: previous faithful home art and previous previewMap/native map split; registered old pages; 31 existing tests pass.
+Tests literal tail: 1..31 / # tests 31 / # pass 31 / # fail 0; exit 0.
+Byte proof at execution: baseline valid 33/33; restored 33/33; current backup match 33/33; live before/after unchanged 33/33; live remains modified vs baseline 23/33; additional new live files unchanged 8/8.
+This records the observed run; later independent edits to live files do not affect the fixture-only restore script guard.
+
+COMMANDS / INPUTS / LITERAL OUTPUTS / EXIT STATUS:
+{"command":"D:/Program Files/Git/bin/bash.exe","args":["-c","chmod +x ./ROLLBACK.sh && test -x ./ROLLBACK.sh && printf \"EXECUTABLE=true\\n\""],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1","env":{}}
+STDOUT:
+EXECUTABLE=true
+STDERR:
+EXIT_STATUS=0
+
+{"command":"D:/Program Files/Git/bin/bash.exe","args":["-c","./ROLLBACK.sh \"$1\"","--","D:\\cat-mouse-miniprogram"],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1","env":{}}
+STDOUT:
+STDERR:
+ROLLBACK_GUARD target must be this report rollback-fixture
+EXIT_STATUS=1
+
+{"command":"D:/Program Files/Git/bin/bash.exe","args":["-c","./ROLLBACK.sh \"$1\"","--","D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture"],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1","env":{}}
+STDOUT:
+BASELINE_SHA_VALIDATED=33/33
+CURRENT_BYTES_BACKED_UP=33/33
+ROLLBACK_RESTORED=33/33
+HASH app.json 854ee5e0d5351291c032da1a30161b97e29e6dc5aed2c8b29e3021ccde181b3b
+HASH project.config.json 911cb4f9b29b96595a7fe5a0ae7511cbf688683089428315e3b762f2c66e3cf8
+HASH pages/map/map.js f1f6b5901e7e8aaaec4e2b2eb3b84c1dd9a1ee086ecfefcd9338173064f1a3e7
+HASH pages/map/map.wxml 7c7a216239979adbf3d8b7a30eb45f482e4a54ed8d92eb2bfa03dc0817253ec3
+HASH pages/map/map.wxss d220eb6840b5b25c5674bcf8d6e4b5d65b04247ca00b332d3e733fabeb371472
+HASH pages/map/map.json 21eaf45e606422297d6b6f9cdb4b3ccc691b8980228634a5a50d2724dd3460c1
+HASH pages/dev/dev.js 9584c1a90e8fac6f2b4a16d626164dc5b627cfa14c223f666bac6b5ddb4fcec2
+HASH pages/dev/dev.wxml 2ce8d313f4007362aa8439e7c0f82214204a7790bdc86bf91e797aee2e9790fc
+HASH pages/dev/dev.wxss 784335e2ec38c12f310d2cc00a7ef0af9b23ebe3183f22d041928a500691829b
+HASH pages/index/index.js bc8bfd688eb9f9b6534038c3d59f9b5cf32f0d2289e24b90380ef370ce621e6c
+HASH pages/index/index.wxml e46f588bfaa64ef54f2c2b18740338130cf2749875c576b734d89a39d3983f45
+HASH pages/index/index.wxss ef1e16177843179f7cba767a1c492ea736b5abe19f7c8158f572a4662460d9d4
+HASH utils/presentation.js 74da87bceec6aeb370d1e67f3aae044563051d9857e6709aa3c06a0ed1f9a46a
+HASH cat-mouse-server/v2/presentation.test.js a7c2eeffdc7067787ff8e2288c117a05b884f59ab363e7b3bf80ce7a1e7f81f3
+HASH cat-mouse-server/v2/dev-preview.test.js 19f2c60937804f1ac106e2caac7df5c41929da9a9e300cec5a990ec69837e086
+HASH scripts/package-release.ps1 eced0e93f850122c8b855c8e070c089f1bf840b8ee6506993c84010397e9b8c3
+HASH README.md 115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346
+HASH RELEASE.md 94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c
+HASH ART_LOCK.md 7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7
+HASH DESIGN_BASELINE.md b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5
+HASH WORK_LOG.md 45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217
+HASH components/nav-bar/nav-bar.js d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a
+HASH components/nav-bar/nav-bar.json db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b
+HASH components/nav-bar/nav-bar.wxml 69c0affca93596c71a284c0246bf3642d9add9eb54bd8cbe93b4f17a18f4ed8b
+HASH components/nav-bar/nav-bar.wxss e71c879dca5d17671816b9a6251f17231d043f780bc9865208d65aba57885bcd
+HASH pages/room/room.js 4d3b7f3ab937e295b9a00cd48838ec10770b2366027799b24f20730b26f62e3c
+HASH pages/room/room.json 50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619
+HASH pages/qrcode/qrcode.js 0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192
+HASH pages/qrcode/qrcode.json 9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197
+HASH pages/qrcode/qrcode.wxml 00fbd059cd9f63e103faab8a89c9d39d7500f2fb7dd4b8a942e5f1328a3cbcc8
+HASH pages/qrcode/qrcode.wxss 2c0ed0d640ea97a167a270c6548d10262ba8a797b0761909ac7cf42ea8ecdae3
+HASH pages/room/room.wxml 8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6
+HASH pages/room/room.wxss 33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90
+TARGET=D:\cat-mouse-miniprogram\reports\2026-10-13\xuanwu-ui-v1\rollback-fixture
+LIVE_WRITES=0
+STDERR:
+EXIT_STATUS=0
+
+{"command":"C:\\Program Files\\nodejs\\node.exe","args":["--test","v2/client.test.js","v2/dev-preview.test.js","v2/integration.test.js","v2/presentation.test.js","v2/rules.test.js"],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\cat-mouse-server","env":{"NODE_PATH":"D:\\cat-mouse-miniprogram\\cat-mouse-server\\node_modules","TEMP":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\test-temp","TMP":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\test-temp","TMPDIR":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\test-temp"}}
+STDOUT:
+TAP version 13
+# Subtest: duplicate and out-of-order snapshots cannot roll client back
+ok 1 - duplicate and out-of-order snapshots cannot roll client back
+  ---
+  duration_ms: 1.1192
+  type: 'test'
+  ...
+# Subtest: map state stops location immediately on terminal snapshot
+ok 2 - map state stops location immediately on terminal snapshot
+  ---
+  duration_ms: 4.4211
+  type: 'test'
+  ...
+# Subtest: map falls back to polling, reconnects socket and clears timers on leave
+ok 3 - map falls back to polling, reconnects socket and clears timers on leave
+  ---
+  duration_ms: 6.433
+  type: 'test'
+  ...
+# Subtest: location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+ok 4 - location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+  ---
+  duration_ms: 1.9888
+  type: 'test'
+  ...
+# Subtest: waiting room retries network entry and keeps one location request in flight
+ok 5 - waiting room retries network entry and keeps one location request in flight
+  ---
+  duration_ms: 2.0638
+  type: 'test'
+  ...
+# Subtest: concurrent session callers share one identity and retry after failure
+ok 6 - concurrent session callers share one identity and retry after failure
+  ---
+  duration_ms: 1.8264
+  type: 'test'
+  ...
+# Subtest: home resume routes waiting room and finished match to the correct page
+ok 7 - home resume routes waiting room and finished match to the correct page
+  ---
+  duration_ms: 1.3661
+  type: 'test'
+  ...
+# Subtest: catch code page ignores late token, detects capture and cleans temporary files
+ok 8 - catch code page ignores late token, detects capture and cleans temporary files
+  ---
+  duration_ms: 2.6231
+  type: 'test'
+  ...
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 9 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 7.7122
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 10 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 17.6218
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 11 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 7.2349
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 12 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.1976
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 13 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 1.7472
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+ok 14 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 2.1088
+  type: 'test'
+  ...
+# Subtest: trusted two identity round trip, permissions, capture, persistence and restart
+ok 15 - trusted two identity round trip, permissions, capture, persistence and restart
+  ---
+  duration_ms: 3953.1596
+  type: 'test'
+  ...
+# Subtest: failed database write rolls back capture and token consumption
+ok 16 - failed database write rolls back capture and token consumption
+  ---
+  duration_ms: 2535.8075
+  type: 'test'
+  ...
+# Subtest: standard six player preset serializes two cats capturing one mouse
+ok 17 - standard six player preset serializes two cats capturing one mouse
+  ---
+  duration_ms: 2717.6823
+  type: 'test'
+  ...
+# Subtest: active match restart pauses and requires fresh positions
+ok 18 - active match restart pauses and requires fresh positions
+  ---
+  duration_ms: 2682.804
+  type: 'test'
+  ...
+# Subtest: native template expressions parse including conditional accessibility classes
+ok 19 - native template expressions parse including conditional accessibility classes
+  ---
+  duration_ms: 3.8044
+  type: 'test'
+  ...
+# Subtest: presentation only exposes role and stage appropriate primary actions
+ok 20 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 1.3373
+  type: 'test'
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 21 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.2138
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 22 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 1.1446
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 23 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 6.4005
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 24 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 3.201
+  type: 'test'
+  ...
+# Subtest: faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+ok 25 - faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+  ---
+  duration_ms: 24.0155
+  type: 'test'
+  ...
+# Subtest: map art and event timestamps are display only while authenticated actions remain gated
+ok 26 - map art and event timestamps are display only while authenticated actions remain gated
+  ---
+  duration_ms: 0.7516
+  type: 'test'
+  ...
+# Subtest: static display font is licensed and preserves native fallback and controls
+ok 27 - static display font is licensed and preserves native fallback and controls
+  ---
+  duration_ms: 2.5871
+  type: 'test'
+  ...
+# Subtest: every native page responds to viewport resize without changing match/action state
+ok 28 - every native page responds to viewport resize without changing match/action state
+  ---
+  duration_ms: 5.03
+  type: 'test'
+  ...
+# Subtest: responsive UI never uses nonuniform image scaling and narrow canvas keeps native controls
+ok 29 - responsive UI never uses nonuniform image scaling and narrow canvas keeps native controls
+  ---
+  duration_ms: 2.1234
+  type: 'test'
+  ...
+# Subtest: pilot presets and quota stay fixed
+ok 30 - pilot presets and quota stay fixed
+  ---
+  duration_ms: 0.8192
+  type: 'test'
+  ...
+# Subtest: distance handles zero and same coordinate
+ok 31 - distance handles zero and same coordinate
+  ---
+  duration_ms: 0.1576
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12357.1495
+STDERR:
+EXIT_STATUS=0
+
+ALL 33 RESTORED HASHES AND LIVE / BACKUP PROOF:
+{"path":"app.json","baselineSha256":"854ee5e0d5351291c032da1a30161b97e29e6dc5aed2c8b29e3021ccde181b3b","currentBeforeSha256":"55c4cd89a765bfc02716b6fd319efd84461f13eb2cb3a00f6abf612aab5d4c92","liveAfterSha256":"55c4cd89a765bfc02716b6fd319efd84461f13eb2cb3a00f6abf612aab5d4c92","backupSha256":"55c4cd89a765bfc02716b6fd319efd84461f13eb2cb3a00f6abf612aab5d4c92","restoredSha256":"854ee5e0d5351291c032da1a30161b97e29e6dc5aed2c8b29e3021ccde181b3b","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"project.config.json","baselineSha256":"911cb4f9b29b96595a7fe5a0ae7511cbf688683089428315e3b762f2c66e3cf8","currentBeforeSha256":"720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c","liveAfterSha256":"720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c","backupSha256":"720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c","restoredSha256":"911cb4f9b29b96595a7fe5a0ae7511cbf688683089428315e3b762f2c66e3cf8","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/map/map.js","baselineSha256":"f1f6b5901e7e8aaaec4e2b2eb3b84c1dd9a1ee086ecfefcd9338173064f1a3e7","currentBeforeSha256":"1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068","liveAfterSha256":"1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068","backupSha256":"1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068","restoredSha256":"f1f6b5901e7e8aaaec4e2b2eb3b84c1dd9a1ee086ecfefcd9338173064f1a3e7","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/map/map.wxml","baselineSha256":"7c7a216239979adbf3d8b7a30eb45f482e4a54ed8d92eb2bfa03dc0817253ec3","currentBeforeSha256":"fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe","liveAfterSha256":"fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe","backupSha256":"fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe","restoredSha256":"7c7a216239979adbf3d8b7a30eb45f482e4a54ed8d92eb2bfa03dc0817253ec3","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/map/map.wxss","baselineSha256":"d220eb6840b5b25c5674bcf8d6e4b5d65b04247ca00b332d3e733fabeb371472","currentBeforeSha256":"849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2","liveAfterSha256":"849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2","backupSha256":"849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2","restoredSha256":"d220eb6840b5b25c5674bcf8d6e4b5d65b04247ca00b332d3e733fabeb371472","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/map/map.json","baselineSha256":"21eaf45e606422297d6b6f9cdb4b3ccc691b8980228634a5a50d2724dd3460c1","currentBeforeSha256":"ddf340361a2f3d1357c1b7cabb6f7cc0288a675c9538fb2bde779bace0691fa0","liveAfterSha256":"ddf340361a2f3d1357c1b7cabb6f7cc0288a675c9538fb2bde779bace0691fa0","backupSha256":"ddf340361a2f3d1357c1b7cabb6f7cc0288a675c9538fb2bde779bace0691fa0","restoredSha256":"21eaf45e606422297d6b6f9cdb4b3ccc691b8980228634a5a50d2724dd3460c1","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/dev/dev.js","baselineSha256":"9584c1a90e8fac6f2b4a16d626164dc5b627cfa14c223f666bac6b5ddb4fcec2","currentBeforeSha256":"6dbbd5c9b2a94ae4c58a9a190be7de8d7f00298c5b45951aa15485edbfef5d25","liveAfterSha256":"6dbbd5c9b2a94ae4c58a9a190be7de8d7f00298c5b45951aa15485edbfef5d25","backupSha256":"6dbbd5c9b2a94ae4c58a9a190be7de8d7f00298c5b45951aa15485edbfef5d25","restoredSha256":"9584c1a90e8fac6f2b4a16d626164dc5b627cfa14c223f666bac6b5ddb4fcec2","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/dev/dev.wxml","baselineSha256":"2ce8d313f4007362aa8439e7c0f82214204a7790bdc86bf91e797aee2e9790fc","currentBeforeSha256":"660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554","liveAfterSha256":"660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554","backupSha256":"660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554","restoredSha256":"2ce8d313f4007362aa8439e7c0f82214204a7790bdc86bf91e797aee2e9790fc","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/dev/dev.wxss","baselineSha256":"784335e2ec38c12f310d2cc00a7ef0af9b23ebe3183f22d041928a500691829b","currentBeforeSha256":"f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd","liveAfterSha256":"f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd","backupSha256":"f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd","restoredSha256":"784335e2ec38c12f310d2cc00a7ef0af9b23ebe3183f22d041928a500691829b","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/index/index.js","baselineSha256":"bc8bfd688eb9f9b6534038c3d59f9b5cf32f0d2289e24b90380ef370ce621e6c","currentBeforeSha256":"076ae80cddab8efb1f1d71ed39bbb8ffa7774e4b2b573c0b02dd81d6e3f5f71a","liveAfterSha256":"076ae80cddab8efb1f1d71ed39bbb8ffa7774e4b2b573c0b02dd81d6e3f5f71a","backupSha256":"076ae80cddab8efb1f1d71ed39bbb8ffa7774e4b2b573c0b02dd81d6e3f5f71a","restoredSha256":"bc8bfd688eb9f9b6534038c3d59f9b5cf32f0d2289e24b90380ef370ce621e6c","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/index/index.wxml","baselineSha256":"e46f588bfaa64ef54f2c2b18740338130cf2749875c576b734d89a39d3983f45","currentBeforeSha256":"e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce","liveAfterSha256":"e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce","backupSha256":"e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce","restoredSha256":"e46f588bfaa64ef54f2c2b18740338130cf2749875c576b734d89a39d3983f45","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/index/index.wxss","baselineSha256":"ef1e16177843179f7cba767a1c492ea736b5abe19f7c8158f572a4662460d9d4","currentBeforeSha256":"8389a1ea19e034125bbd7988c397acbdd6054283c52f2244d14b091704d222c8","liveAfterSha256":"8389a1ea19e034125bbd7988c397acbdd6054283c52f2244d14b091704d222c8","backupSha256":"8389a1ea19e034125bbd7988c397acbdd6054283c52f2244d14b091704d222c8","restoredSha256":"ef1e16177843179f7cba767a1c492ea736b5abe19f7c8158f572a4662460d9d4","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"utils/presentation.js","baselineSha256":"74da87bceec6aeb370d1e67f3aae044563051d9857e6709aa3c06a0ed1f9a46a","currentBeforeSha256":"221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556","liveAfterSha256":"221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556","backupSha256":"221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556","restoredSha256":"74da87bceec6aeb370d1e67f3aae044563051d9857e6709aa3c06a0ed1f9a46a","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"cat-mouse-server/v2/presentation.test.js","baselineSha256":"a7c2eeffdc7067787ff8e2288c117a05b884f59ab363e7b3bf80ce7a1e7f81f3","currentBeforeSha256":"3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44","liveAfterSha256":"3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44","backupSha256":"3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44","restoredSha256":"a7c2eeffdc7067787ff8e2288c117a05b884f59ab363e7b3bf80ce7a1e7f81f3","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"cat-mouse-server/v2/dev-preview.test.js","baselineSha256":"19f2c60937804f1ac106e2caac7df5c41929da9a9e300cec5a990ec69837e086","currentBeforeSha256":"a508b067681ce00520937cf621fd93cb56eb5727f70580de07a8ee49c66678be","liveAfterSha256":"a508b067681ce00520937cf621fd93cb56eb5727f70580de07a8ee49c66678be","backupSha256":"a508b067681ce00520937cf621fd93cb56eb5727f70580de07a8ee49c66678be","restoredSha256":"19f2c60937804f1ac106e2caac7df5c41929da9a9e300cec5a990ec69837e086","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"scripts/package-release.ps1","baselineSha256":"eced0e93f850122c8b855c8e070c089f1bf840b8ee6506993c84010397e9b8c3","currentBeforeSha256":"7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b","liveAfterSha256":"7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b","backupSha256":"7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b","restoredSha256":"eced0e93f850122c8b855c8e070c089f1bf840b8ee6506993c84010397e9b8c3","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"README.md","baselineSha256":"115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346","currentBeforeSha256":"115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346","liveAfterSha256":"115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346","backupSha256":"115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346","restoredSha256":"115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"RELEASE.md","baselineSha256":"94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c","currentBeforeSha256":"94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c","liveAfterSha256":"94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c","backupSha256":"94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c","restoredSha256":"94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"ART_LOCK.md","baselineSha256":"7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7","currentBeforeSha256":"7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7","liveAfterSha256":"7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7","backupSha256":"7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7","restoredSha256":"7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"DESIGN_BASELINE.md","baselineSha256":"b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5","currentBeforeSha256":"b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5","liveAfterSha256":"b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5","backupSha256":"b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5","restoredSha256":"b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"WORK_LOG.md","baselineSha256":"45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217","currentBeforeSha256":"45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217","liveAfterSha256":"45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217","backupSha256":"45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217","restoredSha256":"45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"components/nav-bar/nav-bar.js","baselineSha256":"d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a","currentBeforeSha256":"d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a","liveAfterSha256":"d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a","backupSha256":"d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a","restoredSha256":"d3ddd3a4580818b3f5697f87b15ab6a0d2a2f5b5a7348ddbcb127ff59f923b6a","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"components/nav-bar/nav-bar.json","baselineSha256":"db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b","currentBeforeSha256":"db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b","liveAfterSha256":"db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b","backupSha256":"db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b","restoredSha256":"db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"components/nav-bar/nav-bar.wxml","baselineSha256":"69c0affca93596c71a284c0246bf3642d9add9eb54bd8cbe93b4f17a18f4ed8b","currentBeforeSha256":"35040f953fb97f08c7c8a80d813b20e3d7417bf0e6e319087cc79f0f409a877d","liveAfterSha256":"35040f953fb97f08c7c8a80d813b20e3d7417bf0e6e319087cc79f0f409a877d","backupSha256":"35040f953fb97f08c7c8a80d813b20e3d7417bf0e6e319087cc79f0f409a877d","restoredSha256":"69c0affca93596c71a284c0246bf3642d9add9eb54bd8cbe93b4f17a18f4ed8b","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"components/nav-bar/nav-bar.wxss","baselineSha256":"e71c879dca5d17671816b9a6251f17231d043f780bc9865208d65aba57885bcd","currentBeforeSha256":"2831d5c6f68c2e197c38b261ffe682f5e0ec59c8854f119a655defe87aed8234","liveAfterSha256":"2831d5c6f68c2e197c38b261ffe682f5e0ec59c8854f119a655defe87aed8234","backupSha256":"2831d5c6f68c2e197c38b261ffe682f5e0ec59c8854f119a655defe87aed8234","restoredSha256":"e71c879dca5d17671816b9a6251f17231d043f780bc9865208d65aba57885bcd","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/room/room.js","baselineSha256":"4d3b7f3ab937e295b9a00cd48838ec10770b2366027799b24f20730b26f62e3c","currentBeforeSha256":"a52b4c3a2005d3cbf2dee4bbb27e6b6ef4286c2748ccb476339480d8c54eb44c","liveAfterSha256":"a52b4c3a2005d3cbf2dee4bbb27e6b6ef4286c2748ccb476339480d8c54eb44c","backupSha256":"a52b4c3a2005d3cbf2dee4bbb27e6b6ef4286c2748ccb476339480d8c54eb44c","restoredSha256":"4d3b7f3ab937e295b9a00cd48838ec10770b2366027799b24f20730b26f62e3c","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/room/room.json","baselineSha256":"50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619","currentBeforeSha256":"50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619","liveAfterSha256":"50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619","backupSha256":"50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619","restoredSha256":"50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"pages/qrcode/qrcode.js","baselineSha256":"0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192","currentBeforeSha256":"0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192","liveAfterSha256":"0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192","backupSha256":"0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192","restoredSha256":"0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"pages/qrcode/qrcode.json","baselineSha256":"9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197","currentBeforeSha256":"9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197","liveAfterSha256":"9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197","backupSha256":"9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197","restoredSha256":"9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":false,"scriptEvidenceMatches":true}
+{"path":"pages/qrcode/qrcode.wxml","baselineSha256":"00fbd059cd9f63e103faab8a89c9d39d7500f2fb7dd4b8a942e5f1328a3cbcc8","currentBeforeSha256":"65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c","liveAfterSha256":"65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c","backupSha256":"65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c","restoredSha256":"00fbd059cd9f63e103faab8a89c9d39d7500f2fb7dd4b8a942e5f1328a3cbcc8","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/qrcode/qrcode.wxss","baselineSha256":"2c0ed0d640ea97a167a270c6548d10262ba8a797b0761909ac7cf42ea8ecdae3","currentBeforeSha256":"5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de","liveAfterSha256":"5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de","backupSha256":"5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de","restoredSha256":"2c0ed0d640ea97a167a270c6548d10262ba8a797b0761909ac7cf42ea8ecdae3","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/room/room.wxml","baselineSha256":"8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6","currentBeforeSha256":"46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28","liveAfterSha256":"46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28","backupSha256":"46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28","restoredSha256":"8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}
+{"path":"pages/room/room.wxss","baselineSha256":"33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90","currentBeforeSha256":"bd53bd7f0de51c3c5549947e9a64b3160e1d573d02d69b66785dc9f56a55baed","liveAfterSha256":"bd53bd7f0de51c3c5549947e9a64b3160e1d573d02d69b66785dc9f56a55baed","backupSha256":"bd53bd7f0de51c3c5549947e9a64b3160e1d573d02d69b66785dc9f56a55baed","restoredSha256":"33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90","baselineValid":true,"liveUnchanged":true,"backupMatches":true,"restored":true,"liveRemainsModified":true,"scriptEvidenceMatches":true}

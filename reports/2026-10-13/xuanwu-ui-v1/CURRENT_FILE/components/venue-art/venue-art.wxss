@@ -1,0 +1,26 @@
+:host{display:block;width:100%;height:100%;min-height:0}
+.venueArt{display:flex;flex-direction:column;box-sizing:border-box;width:100%;height:100%;min-height:0;overflow:hidden;background:#EAF4E5;border:1px solid #BBD3B6;border-radius:18px;color:#163E36}
+.venueViewport{position:relative;flex:1;min-height:0;overflow:hidden;background:#0ABCE9}
+.venueMovableArea{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
+.venueMovableView{display:block}
+.venueImage{display:block;width:100%;height:100%}
+.venueStatus{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;padding:16px;text-align:center;background:#EAF4E5EE}
+.venueStatusTitle{font-size:calc(15px * var(--font-scale,1));font-weight:700;line-height:1.5}
+.venueStatusHint{margin-top:5px;font-size:calc(12px * var(--font-scale,1));line-height:1.5;color:#476451}
+.venueRetry{display:flex;align-items:center;justify-content:center;min-width:120px;min-height:44px;margin:14px 0 0;padding:8px 16px;border-radius:12px;background:#175C35;color:#fff;font-size:calc(15px * var(--font-scale,1));font-weight:700;line-height:1.3}
+.venueFooter{flex:none;padding:8px 12px 6px;box-sizing:border-box;background:#F5FAF1;border-top:1px solid #C5DAC0}
+.venueToolbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.venueZoomControls{display:flex;align-items:center;gap:4px;min-width:0}
+.venueControl{display:flex;align-items:center;justify-content:center;box-sizing:border-box;flex:none;min-height:44px;margin:0;padding:6px 12px;border:1px solid #AFCBAB;border-radius:12px;background:#fff;color:#175C35;font-weight:700;line-height:1.2}
+.venueControl::after,.venueRetry::after{border:0}
+.venueStep{width:44px!important;padding:0;font-size:26px}
+.venueReset{width:auto!important;min-width:66px;font-size:calc(14px * var(--font-scale,1))}
+.venueControl[disabled]{background:#EDF2E9;color:#879885;border-color:#D4DED0}
+.venueZoomLabel{min-width:48px;text-align:center;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:#385843}
+.venueGestureHint{display:block;margin-top:5px;text-align:center;font-size:calc(12px * var(--font-scale,1));line-height:1.4;color:#476451}
+.venueAttribution{display:block;margin-top:4px;text-align:center;font-size:10px;line-height:1.4;color:#476451;overflow-wrap:break-word}
+.venueArtCompact{border-radius:14px}
+.venueArtCompact .venueFooter{padding:5px 9px 4px}
+.venueArtCompact .venueAttribution{margin-top:3px}
+/* Shared with the current sunny-pixel UI; only the artwork carries geography. */
+.venueArt,.venueArtCompact{background:#fcf8ed;border-color:#e8dfce;border-radius:2px;color:#11151a}.venueFooter{background:#fcf8ed;border-top:2px solid #e8dfce}.venueControl,.venueRetry{border-radius:2px;border:2px solid #17201b;font-weight:550}.venueControl{background:#fcf9f0;color:#15271b}.venueZoomLabel{color:#334332}.venueAttribution,.venueGestureHint{color:#64695e}

@@ -1,0 +1,107 @@
+{
+  "route": "pages/map/map",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "controller": "function",
+  "phase": "CHASING",
+  "hasSelf": true,
+  "geoData": {
+    "points": [
+      {
+        "lat": 31.887014134547908,
+        "lng": 118.81542356867979,
+        "label": "本人",
+        "tone": "self"
+      },
+      {
+        "lat": 31.886943659378275,
+        "lng": 118.82671004832497,
+        "label": "队友",
+        "tone": "ally"
+      },
+      {
+        "lng": 118.81920737398848,
+        "lat": 31.88777433108612,
+        "radiusM": 200,
+        "mapId": "seu-jiulonghu-v1",
+        "label": "集合点",
+        "tone": "venue"
+      }
+    ],
+    "regions": [
+      {
+        "lat": 31.886943659378275,
+        "lng": 118.82671004832497,
+        "radiusM": 50
+      }
+    ]
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "ready",
+    "error": "",
+    "camera": {
+      "x": -430.0734231021111,
+      "z": -22.750507302279917,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 1000
+    },
+    "width": 320,
+    "height": 513,
+    "pins": [
+      {
+        "x": 160.00000251919988,
+        "y": 256.1731412098047,
+        "z": -22.750507302279917,
+        "fieldVerified": false,
+        "id": 0,
+        "tone": "self",
+        "label": "本人",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "x": 314.48289757145733,
+        "y": 235.6160929796447,
+        "z": -74.7424557942168,
+        "fieldVerified": false,
+        "id": 2,
+        "tone": "venue",
+        "label": "集合点",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "drawCount": 2,
+    "lastDrawMs": 16,
+    "omitted": 0
+  }
+}

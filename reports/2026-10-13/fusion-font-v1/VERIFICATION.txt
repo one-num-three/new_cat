@@ -1,0 +1,37 @@
+当前：界面调试台单页字体 / Fusion Pixel 试样验证完成 / 等用户选择后再决定扩展
+BRANCH=master
+CHANGED_FIELD=pages/dev font-family: CatMouseFusionTrial; weight400; devTitle24px; one trial caption. No global font or gameplay/UI art changed.
+FOUR_PATHS:
+MODIFIED_FILE=D:/cat-mouse-miniprogram/reports/2026-10-13/fusion-font-v1/MODIFIED_FILE
+DIFF_FILE=D:/cat-mouse-miniprogram/reports/2026-10-13/fusion-font-v1/DIFF_FILE
+VERIFICATION.txt=D:/cat-mouse-miniprogram/reports/2026-10-13/fusion-font-v1/VERIFICATION.txt
+ROLLBACK.sh=D:/cat-mouse-miniprogram/reports/2026-10-13/fusion-font-v1/ROLLBACK.sh
+
+BASELINE command=npm --prefix cat-mouse-server test
+input=unmodified current UI and81 regressions; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/fusion-font-v1
+literal output=# tests 81; # pass 81; # fail 0; # duration_ms 12045.5889
+exit=0
+
+MODIFIED command=npm --prefix cat-mouse-server test
+input=one-page font trial and3 new scope/hash/coverage regressions; same TEMP/TMP
+literal output=# tests 84; # pass 84; # fail 0; # duration_ms 11003.1295
+exit=0
+First run83/84: test attempted to read nonexistent app.wxss; corrected to check it if present, all real global/theme/gameplay files remain asserted. First build detected unsupported ›; arrow explicitly retains fallback, all Chinese labels and ASCII covered.
+
+ROLLBACK command="D:/Program Files/Git/bin/bash.exe" -c 'chmod +x reports/2026-10-13/fusion-font-v1/ROLLBACK.sh && reports/2026-10-13/fusion-font-v1/ROLLBACK.sh D:/cat-mouse-preview-evidence/2026-10-13/fusion-font-v1/rollback-fixture'
+input=marked isolated copy of modified dev WXSS/WXML, original2 files andSHA hashes retained
+literal output=ROLLBACK_RESTORED=2/2; RESTORED_FONT=ParkReplicaUI; LIVE_WRITES=0
+exit=0
+restored behavior/status=original two UI files byte-identical; no trial import/caption in isolated copy. Live files and MODIFIED_FILE remain changed. No Git reset or user work restored from HEAD.
+
+FONT command=python scripts/build-fusion-font.py --verify
+literal output=FUSION_FONT_VERIFY_PASS scope=pages/dev version=2026.09.25
+exit=0
+Upstream12px proportional zh-Hans, release2026.09.25, official release download. Original WOFF SHA6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e retained with original OFL and inherited licenses. Renamed subset CatMouseFusionTrial,8352B/197glyphs, embedded WXSS. No full CJK asset in mobile runtime; subset only static dev labels. Fallback ParkReplicaUI; arrow › falls back explicitly. Raster art labels not modified.
+
+UI command=CAT_MOUSE_USE_MCP=1 node scripts/fusion-font-review.cjs D:/cat-mouse-preview-evidence/2026-10-13/fusion-font-v1/ui
+input=actual IDE dev page; normal390px; app fontScale1.3; narrow320px content inside390px simulator, not a physical320px device
+literal output=FUSION_FONT_UI_PASS=3 BUTTON_NAVIGATION_PASS=1
+exit=0
+Each mode verified14 actual button/label bounds and readable title, no horizontal overflow; click first real button navigated to home. Three screenshots via registered simulator_screenshot,648x1402, no window reposition. Images viewed individually: normal, large, narrow. Initial MCP style returned "CatMouseFusionTrial, ParkReplicaUI, sans-serif" on .devTitle; screenshots visibly show pixel glyphs. Later read after report file writes returned no such element as watcher recompiled to home; not counted as a font failure or successful second read. Final navigation done after report writes.
+Native screenshots=before.png and ui/normal.png; comparison=index.html. IDE results only; physical-device font rasterization remains untested. No upload/deploy/server changes. Baseline dev CSS SHA=f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd.

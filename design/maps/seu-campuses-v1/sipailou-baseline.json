@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "status": "unregistered",
+  "image": {
+    "file": "sipailou-art.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "27dfbd14abb1c59106d1d4dc43f1cb60d97156e294343131dba4c9aa04458ac6"
+  },
+  "fieldVerified": false
+}

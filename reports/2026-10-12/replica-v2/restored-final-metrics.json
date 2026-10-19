@@ -1,0 +1,302 @@
+{
+  "status": "PASS",
+  "scope": "geometry, authorized fixture state, and intrinsic image ratios; not pixel similarity or physical device validation",
+  "layoutCanvas": null,
+  "records": [
+    {
+      "id": "gallery",
+      "route": "pages/dev/dev",
+      "preview": false,
+      "available": true,
+      "navHeight": 87,
+      "fontScale": 1,
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844,
+              "width": 390,
+              "height": 844
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15.34375,
+              "right": 374.65625,
+              "top": 767.03125,
+              "bottom": 813.4453125,
+              "width": 359.3125,
+              "height": 46.4140625
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [],
+          ".parkArt": [],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [],
+          ".rosterCard": [],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": [],
+          ".devHeroArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 74.71875,
+              "bottom": 227.5390625,
+              "width": 390,
+              "height": 152.8203125
+            }
+          ],
+          ".galleryCloud": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 84.3515625,
+              "top": 54.4453125,
+              "bottom": 87.3046875,
+              "width": 84.3515625,
+              "height": 32.859375
+            }
+          ],
+          ".galleryIcon": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 24.0078125,
+              "right": 53.2578125,
+              "top": 353.046875,
+              "bottom": 385.53125,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 143.3671875,
+              "right": 172.6171875,
+              "top": 353.046875,
+              "bottom": 385.53125,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 262.7265625,
+              "right": 291.9765625,
+              "top": 353.046875,
+              "bottom": 385.53125,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 24.0078125,
+              "right": 53.2578125,
+              "top": 455.046875,
+              "bottom": 487.53125,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 143.3671875,
+              "right": 172.6171875,
+              "top": 455.046875,
+              "bottom": 487.53125,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 262.7265625,
+              "right": 291.9765625,
+              "top": 455.046875,
+              "bottom": 487.53125,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 24.0078125,
+              "right": 58.3203125,
+              "top": 507.5390625,
+              "bottom": 540.0234375,
+              "width": 34.3125,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 143.3671875,
+              "right": 172.6171875,
+              "top": 507.5390625,
+              "bottom": 540.0234375,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 24.0078125,
+              "right": 58.3203125,
+              "top": 609.0390625,
+              "bottom": 641.5234375,
+              "width": 34.3125,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 143.3671875,
+              "right": 172.6171875,
+              "top": 609.0390625,
+              "bottom": 641.5234375,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 262.7265625,
+              "right": 297.0390625,
+              "top": 609.0390625,
+              "bottom": 641.5234375,
+              "width": 34.3125,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 24.0078125,
+              "right": 58.3203125,
+              "top": 711.0390625,
+              "bottom": 743.5234375,
+              "width": 34.3125,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 143.3671875,
+              "right": 172.6171875,
+              "top": 711.0390625,
+              "bottom": 743.5234375,
+              "width": 29.25,
+              "height": 32.484375
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 262.7265625,
+              "right": 291.9765625,
+              "top": 711.0390625,
+              "bottom": 743.5234375,
+              "width": 29.25,
+              "height": 32.484375
+            }
+          ],
+          ".icon-": [],
+          ".demoRing": [],
+          ".demoCheck": [],
+          ".demoTitle": [],
+          ".qrCorners": [],
+          ".resultSummary": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".devHeroArt",
+          "src": "/assets/faithful-v2/hero-gallery.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            712,
+            279
+          ],
+          "rendered": [
+            390,
+            152.8203125
+          ],
+          "ratioError": 0.000017806584875046383,
+          "method": "actual rendered box / original PNG aspect"
+        },
+        {
+          "selector": ".galleryCloud",
+          "src": "/assets/faithful-v2/gallery-cloud.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            154,
+            60
+          ],
+          "rendered": [
+            84.3515625,
+            32.859375
+          ],
+          "ratioError": 0.00014821127517272714,
+          "method": "actual rendered box / original PNG aspect"
+        }
+      ],
+      "screenshot": "C:\\Users\\Keke_\\.codex\\visualizations\\2026\\10\\08\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\replica-v2-native\\restored-line-final\\gallery.png"
+    }
+  ]
+}

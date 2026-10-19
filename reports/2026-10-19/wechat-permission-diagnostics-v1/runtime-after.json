@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "tool": "automation_evaluate",
+  "clientName": "Codex",
+  "result": {
+    "success": true,
+    "result": {
+      "result": {
+        "route": "pages/venue/venue",
+        "mapId": "seu-jiulonghu-v1",
+        "modelMode": true,
+        "locationOn": false,
+        "hasPosition": false,
+        "simulated": false,
+        "status": "ready",
+        "error": "",
+        "drawCount": 3,
+        "lastDrawMs": 9
+      }
+    }
+  }
+}

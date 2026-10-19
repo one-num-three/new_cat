@@ -1,0 +1,606 @@
+{
+  "date": "2026-10-13",
+  "source_crs": "WGS84",
+  "guide_projection": "EPSG:3857",
+  "guide_size": [
+    1536,
+    1813
+  ],
+  "guide_bbox_wgs84": [
+    118.7842,
+    32.0702,
+    118.7916,
+    32.0776
+  ],
+  "guide_world_bounds": [
+    13222996.658286367,
+    3772528.9995764056,
+    13223820.422518237,
+    3773501.1488867244
+  ],
+  "old_image_nominal_rect_fraction": [
+    0.03587924570630406,
+    0.2136414158200191,
+    0.9542997735125284,
+    0.9446438157231469
+  ],
+  "full_island_way_ids": [
+    "776728664",
+    "776728670"
+  ],
+  "island_ring_vertices_inside_guide": true,
+  "features": [
+    {
+      "id": "95918069",
+      "tags": {
+        "highway": "footway",
+        "name": "环湖路",
+        "name:zh": "环湖路",
+        "name:zh-Hans": "环湖路",
+        "name:zh-Hant": "環湖路",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "764871115",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "776728668",
+      "tags": {
+        "highway": "service",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "776728669",
+      "tags": {
+        "bridge": "yes",
+        "highway": "service",
+        "layer": "1",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "776728671",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "776728672",
+      "tags": {
+        "bridge": "yes",
+        "highway": "footway",
+        "layer": "1",
+        "name": "月影桥",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "776728673",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "776728674",
+      "tags": {
+        "bridge": "yes",
+        "highway": "footway",
+        "layer": "1",
+        "name": "白桥",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "776728675",
+      "tags": {
+        "highway": "footway",
+        "surface": "pebblestone"
+      }
+    },
+    {
+      "id": "776728676",
+      "tags": {
+        "bridge": "yes",
+        "highway": "footway",
+        "layer": "1",
+        "name": "樱桥",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "776728677",
+      "tags": {
+        "highway": "service",
+        "motor_vehicle": "private",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "776728678",
+      "tags": {
+        "fixme": "待具体化",
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "776728679",
+      "tags": {
+        "highway": "service",
+        "motor_vehicle": "private",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "776728680",
+      "tags": {
+        "bridge": "yes",
+        "highway": "service",
+        "layer": "1",
+        "motor_vehicle": "private",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "776728681",
+      "tags": {
+        "bridge": "yes",
+        "highway": "service",
+        "layer": "1",
+        "motor_vehicle": "private",
+        "name": "芳桥",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "803760094",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760095",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760096",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760097",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760098",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760099",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760100",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760101",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760102",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760103",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760104",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760105",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760106",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760107",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760108",
+      "tags": {
+        "building": "yes"
+      }
+    },
+    {
+      "id": "803760109",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "803760111",
+      "tags": {
+        "highway": "footway",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "803760112",
+      "tags": {
+        "highway": "footway",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "803760113",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "803760114",
+      "tags": {
+        "highway": "footway"
+      }
+    },
+    {
+      "id": "803760115",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "803760119",
+      "tags": {
+        "highway": "footway",
+        "surface": "pebblestone"
+      }
+    },
+    {
+      "id": "803760120",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "803760121",
+      "tags": {
+        "natural": "water",
+        "water": "pond"
+      }
+    },
+    {
+      "id": "803760136",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "803760137",
+      "tags": {
+        "highway": "footway",
+        "surface": "dirt"
+      }
+    },
+    {
+      "id": "803760138",
+      "tags": {
+        "natural": "water",
+        "water": "pond"
+      }
+    },
+    {
+      "id": "1226671818",
+      "tags": {
+        "bridge": "yes",
+        "highway": "footway",
+        "layer": "1",
+        "name": "莲桥",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1279082219",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1279082220",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1279082221",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1332131600",
+      "tags": {
+        "highway": "service",
+        "motor_vehicle": "private",
+        "surface": "concrete"
+      }
+    },
+    {
+      "id": "1332131961",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1332131962",
+      "tags": {
+        "highway": "steps"
+      }
+    },
+    {
+      "id": "1332131963",
+      "tags": {
+        "highway": "steps",
+        "surface": "pebblestone"
+      }
+    },
+    {
+      "id": "1332131964",
+      "tags": {
+        "highway": "path",
+        "surface": "pebblestone"
+      }
+    },
+    {
+      "id": "1428510100",
+      "tags": {
+        "highway": "footway",
+        "surface": "dirt"
+      }
+    },
+    {
+      "id": "1428510101",
+      "tags": {
+        "highway": "path",
+        "surface": "dirt"
+      }
+    },
+    {
+      "id": "1428510102",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1428510103",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1428510104",
+      "tags": {
+        "highway": "footway"
+      }
+    },
+    {
+      "id": "1428510108",
+      "tags": {
+        "highway": "footway"
+      }
+    },
+    {
+      "id": "1428510109",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1443667892",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443671108",
+      "tags": {
+        "highway": "footway",
+        "surface": "wood"
+      }
+    },
+    {
+      "id": "1443715933",
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "surface": "pebblestone"
+      }
+    },
+    {
+      "id": "1443715934",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1443839198",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839199",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839200",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839201",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839202",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839203",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839204",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839205",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839206",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1443839207",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1485883264",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1485883265",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1485883266",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1485883267",
+      "tags": {
+        "highway": "footway",
+        "surface": "sett"
+      }
+    },
+    {
+      "id": "1485883268",
+      "tags": {
+        "highway": "footway",
+        "surface": "paving_stones"
+      }
+    },
+    {
+      "id": "1485883269",
+      "tags": {
+        "highway": "footway",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "1485883270",
+      "tags": {
+        "highway": "footway",
+        "surface": "paving_stones"
+      }
+    },
+    {
+      "id": "1485883271",
+      "tags": {
+        "highway": "footway",
+        "surface": "paving_stones"
+      }
+    }
+  ],
+  "generated_image_georeferencing": "NOT_VALIDATED; guide bounds are not automatically valid for generative output"
+}

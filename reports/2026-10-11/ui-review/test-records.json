@@ -1,0 +1,36 @@
+{
+  "BASELINE": {
+    "command": "node scripts/verify-ui-view.cjs reports/2026-10-11/ui-review/baseline",
+    "input": "Exact saved 16-file pre-edit working-tree fixture",
+    "chunk_id": "dc8c7b",
+    "wall_time_seconds": 0.4535094,
+    "exit_code": 1,
+    "original_token_count": 31,
+    "output": "UI_CHECK={\"pausedMs\":0,\"hidingCaptured\":1,\"roster\":3,\"cats\":2,\"scrollDrawer\":false,\"drawerMask\":false}\nUI_CHECK_RESULT=FAIL\n"
+  },
+  "MODIFIED": {
+    "command": "node scripts/verify-ui-view.cjs .",
+    "input": "Current modified working tree",
+    "chunk_id": "1795f2",
+    "wall_time_seconds": 0.4044683,
+    "exit_code": 0,
+    "original_token_count": 32,
+    "output": "UI_CHECK={\"pausedMs\":285000,\"hidingCaptured\":0,\"roster\":8,\"cats\":2,\"scrollDrawer\":true,\"drawerMask\":true}\nUI_CHECK_RESULT=PASS\n"
+  },
+  "ROLLBACK": {
+    "command": "& 'D:\\Program Files\\Git\\bin\\bash.exe' reports/2026-10-11/ui-review/ROLLBACK.sh reports/2026-10-11/ui-review/rollback-fixture; exit $LASTEXITCODE",
+    "input": "Isolated marked fixture freshly copied from 16 modified files",
+    "chunk_id": "ade66c",
+    "wall_time_seconds": 2.9768993,
+    "exit_code": 0,
+    "original_token_count": 47,
+    "output": "ROLLBACK_FILES=16 HASHES_RESTORED=16\nUI_CHECK={\"pausedMs\":0,\"hidingCaptured\":1,\"roster\":3,\"cats\":2,\"scrollDrawer\":false,\"drawerMask\":false}\nUI_CHECK_RESULT=FAIL\nROLLBACK_RESTORED=baseline\n"
+  },
+  "ROLLBACK_GUARD": {
+    "chunk_id": "40bcef",
+    "wall_time_seconds": 0.5542986,
+    "exit_code": 64,
+    "original_token_count": 7,
+    "output": "ROLLBACK_TARGET_REJECTED\n"
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "comparison": "saved working-tree baseline",
+  "baselineFiles": 42,
+  "changed": [
+    {
+      "path": "ART_LOCK.md",
+      "before": "0c4485e5be4dfd49991bf96491abc7f9e8f0978449d783c1c4e70b18d0f2a322",
+      "after": "7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7"
+    },
+    {
+      "path": "cat-mouse-server/v2/dev-preview.test.js",
+      "before": "9106e2c3c80294541d8c94e141418c2f1ec7962a34677887a64b1e1be8f81644",
+      "after": "19f2c60937804f1ac106e2caac7df5c41929da9a9e300cec5a990ec69837e086"
+    },
+    {
+      "path": "cat-mouse-server/v2/presentation.test.js",
+      "before": "0c7487c73709a66d7e6d06e5206312eb82dcd7127f54e7eea03916f0083be430",
+      "after": "a7c2eeffdc7067787ff8e2288c117a05b884f59ab363e7b3bf80ce7a1e7f81f3"
+    },
+    {
+      "path": "DESIGN_BASELINE.md",
+      "before": "78ff3bb8602ce7417e3bc65e4822a3495a83bb69ba113fb87117edf735ccd35e",
+      "after": "b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5"
+    },
+    {
+      "path": "pages/dev/dev.js",
+      "before": "4607193c4cb35a87c5bb485913d2d65eb3e82fd8fde49a40d2bd42edd4f0b100",
+      "after": "9584c1a90e8fac6f2b4a16d626164dc5b627cfa14c223f666bac6b5ddb4fcec2"
+    },
+    {
+      "path": "pages/dev/dev.wxml",
+      "before": "e379088814685f0304ce34adb7f32290fba41b78b77ac92877435cc35f372edf",
+      "after": "2ce8d313f4007362aa8439e7c0f82214204a7790bdc86bf91e797aee2e9790fc"
+    },
+    {
+      "path": "pages/dev/dev.wxss",
+      "before": "c87086ca98da96ef564a708f708853bd7798346a089694988575c572c2ac8666",
+      "after": "784335e2ec38c12f310d2cc00a7ef0af9b23ebe3183f22d041928a500691829b"
+    },
+    {
+      "path": "pages/index/index.js",
+      "before": "a569f58887e029fe202d7a73bb53e679065cc0666badf2466256a688ddacf08b",
+      "after": "bc8bfd688eb9f9b6534038c3d59f9b5cf32f0d2289e24b90380ef370ce621e6c"
+    },
+    {
+      "path": "pages/index/index.wxml",
+      "before": "541880738adc979d8de8d0396dc16b6c66c6a2f482c956dcb304e7f9a5f12333",
+      "after": "e46f588bfaa64ef54f2c2b18740338130cf2749875c576b734d89a39d3983f45"
+    },
+    {
+      "path": "pages/index/index.wxss",
+      "before": "3ef49c93ea307dabe8a3824a24e4195c453c1428895799203bd2525b005afdf0",
+      "after": "ef1e16177843179f7cba767a1c492ea736b5abe19f7c8158f572a4662460d9d4"
+    },
+    {
+      "path": "pages/map/map.js",
+      "before": "6df30cbcd50457409a000ac49f0db3a18fed17cfe89e790f341595faff473908",
+      "after": "f1f6b5901e7e8aaaec4e2b2eb3b84c1dd9a1ee086ecfefcd9338173064f1a3e7"
+    },
+    {
+      "path": "pages/map/map.wxml",
+      "before": "2022f577b9e1bb9265b959df3a69a36f37ea261b091609b07ecf6c7366e14b2e",
+      "after": "7c7a216239979adbf3d8b7a30eb45f482e4a54ed8d92eb2bfa03dc0817253ec3"
+    },
+    {
+      "path": "pages/map/map.wxss",
+      "before": "5ff67abff39815cb03bdfcad5c69958be201bf1c197d1bb837b596aacaa15780",
+      "after": "d220eb6840b5b25c5674bcf8d6e4b5d65b04247ca00b332d3e733fabeb371472"
+    },
+    {
+      "path": "pages/qrcode/qrcode.js",
+      "before": "7aaedccebd68b10194df73aa4f5b9366516d9b09becdae2ce6eac8bebe4cd010",
+      "after": "0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192"
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxml",
+      "before": "a4ae5110b8ef2de96731191e71a82b703e1f8c392516bb2253b098ef63356dcd",
+      "after": "00fbd059cd9f63e103faab8a89c9d39d7500f2fb7dd4b8a942e5f1328a3cbcc8"
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxss",
+      "before": "e74681a16b7f7f5f72a4d78bdded7f706b0a85c42c2c5b7efd6c6e8aae89d857",
+      "after": "2c0ed0d640ea97a167a270c6548d10262ba8a797b0761909ac7cf42ea8ecdae3"
+    },
+    {
+      "path": "pages/room/room.js",
+      "before": "38464b3f1dc98d45b12b2f23af43da6d3ac2aa69400b8e2f63c322f43aabaf2f",
+      "after": "4d3b7f3ab937e295b9a00cd48838ec10770b2366027799b24f20730b26f62e3c"
+    },
+    {
+      "path": "pages/room/room.wxml",
+      "before": "d3eae52c7e6de4a6debc6e63bdec6cca3a7ebdf767e5ceac987835a31cd90771",
+      "after": "8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6"
+    },
+    {
+      "path": "pages/room/room.wxss",
+      "before": "681a58f51c025855f6f5e31bb1f83da99025ed692eea9a8b68759f6c8daf945d",
+      "after": "33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90"
+    },
+    {
+      "path": "scripts/package-release.ps1",
+      "before": "11f9ef93606fc77c537e1eccfb88efabc607c6d9fc39bc8ecbf16799f22949a3",
+      "after": "eced0e93f850122c8b855c8e070c089f1bf840b8ee6506993c84010397e9b8c3"
+    },
+    {
+      "path": "scripts/replica-interaction.cjs",
+      "before": "b5f0d92d9d31425b437808c69c8ea05dc17490889ca542f96c269fed7e9c44bb",
+      "after": "02bbd93a8526c05753694bda7df725a0c70d9a97c93a9e86768a6c7df2eecb94"
+    },
+    {
+      "path": "scripts/replica-review.cjs",
+      "before": "f34b6db17c0e69ec76d98d2f554a781e022d4d8c952a9848a9b11b8143b1cf28",
+      "after": "59cd0f3d13aefe8b2e3eef41f64891f5d86829a0513b995bf9acade490db2354"
+    },
+    {
+      "path": "utils/dev-preview.js",
+      "before": "619a2a1bc503c865dbe7429bc248111cb5b99814a2ac36c4c52518edb3e2bb15",
+      "after": "6ce576cf7b78b177e1d9c9870d13674162010318176bf9e24a685f945ae9d74c"
+    },
+    {
+      "path": "utils/presentation.js",
+      "before": "18842d9164c1205d317cd032794679da59c33cd867b88397f4da7be588730cad",
+      "after": "74da87bceec6aeb370d1e67f3aae044563051d9857e6709aa3c06a0ed1f9a46a"
+    },
+    {
+      "path": "utils/theme.wxss",
+      "before": "03847fa041f312909320a7f2738a55426c18b233a85ae608795a0eb6b806482b",
+      "after": "3b74e50ab8a761a3852ab0e60ff4e38b35c967468c1dfd037d0fcb2f1e410ccf"
+    },
+    {
+      "path": "WORK_LOG.md",
+      "before": "881943320cecb50fcf79b62ffa2f924608b3b24f068541b973f8f3efa556980b",
+      "after": "45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217"
+    },
+    {
+      "path": "assets/faithful-v2/FONT-LICENSE.txt",
+      "before": null,
+      "after": "e9d9b525d384aa7d1e39650ac03047621c5d79e3a88c698aa0c522bd5d87d493"
+    },
+    {
+      "path": "assets/faithful-v2/avatar-cat.png",
+      "before": null,
+      "after": "5c7aa7bd5ee2158c653ef7c86c78556732c28db962a1d32047e5108eba0a1782"
+    },
+    {
+      "path": "assets/faithful-v2/avatar-mouse-green.png",
+      "before": null,
+      "after": "f825a8fc5be4c81a99fba5854a4fc199aa31bc80563274e6ac61ddd5dc218935"
+    },
+    {
+      "path": "assets/faithful-v2/avatar-mouse.png",
+      "before": null,
+      "after": "6930013725aae76ce2adca5dcfd4aac39b29bd763b193a1f44bee17d74c05fb6"
+    },
+    {
+      "path": "assets/faithful-v2/create-cloud.png",
+      "before": null,
+      "after": "3572773d4d14b64e13265205513f0ff4dfe7eaa588307b8aad42450fc1bd14a0"
+    },
+    {
+      "path": "assets/faithful-v2/display-black.woff",
+      "before": null,
+      "after": "1b3720ce0ea178a6574a7a1099b36782d5100468b631af4c069d43d2e092b49f"
+    },
+    {
+      "path": "assets/faithful-v2/gallery-cloud.png",
+      "before": null,
+      "after": "650123c665d07689b655c6c70a35d21e4da83394e06181848f3c4a09b4828451"
+    },
+    {
+      "path": "assets/faithful-v2/hero-code.png",
+      "before": null,
+      "after": "ea70859dc0d7c436d8a97b50eddfc5cc5c7e589d5a8becbca7df97daac8dc8b0"
+    },
+    {
+      "path": "assets/faithful-v2/hero-create.png",
+      "before": null,
+      "after": "cb465e85682f54a854bc988353ff5e211a1654f057205488429301290c21a289"
+    },
+    {
+      "path": "assets/faithful-v2/hero-gallery.png",
+      "before": null,
+      "after": "14d4efed3712d1d6b14d42ba3f9c0c91f8228fc35a60a1d0d1be332f34127829"
+    },
+    {
+      "path": "assets/faithful-v2/hero-home.png",
+      "before": null,
+      "after": "c65d7c889d9f284017dc0a01cec672d3f0b328dcfe21d4332b6c1b71104c97a8"
+    },
+    {
+      "path": "assets/faithful-v2/hero-ready.png",
+      "before": null,
+      "after": "7d8f7a2818c2415452fdf9fe565efc30a9ea60489de083952749bb4b3c6f4fd1"
+    },
+    {
+      "path": "assets/faithful-v2/home-canopy.png",
+      "before": null,
+      "after": "db4e13e7877db078364a5a63f93f78c83b3400f681e4071d6d93a4c330097297"
+    },
+    {
+      "path": "assets/faithful-v2/home-cloud.png",
+      "before": null,
+      "after": "7f86db42618166b22a875801caf542c679fcf80d10877bae69c077a30a0d1655"
+    },
+    {
+      "path": "assets/faithful-v2/icon-alert.png",
+      "before": null,
+      "after": "c401bf5a24b77b25ba70812f5cabbbacf64f5e109ae52e2ffb1e085308a56dc6"
+    },
+    {
+      "path": "assets/faithful-v2/icon-cancelled.png",
+      "before": null,
+      "after": "9cc88ba64e63758efafa73d2b92ad2173526ba5cb499c6636a1d4b5eae47d70e"
+    },
+    {
+      "path": "assets/faithful-v2/icon-captured.png",
+      "before": null,
+      "after": "01d37d0c15d8a707d80b00f2ae6ab76d2f3372873eba8444c45216cc0cf08ee0"
+    },
+    {
+      "path": "assets/faithful-v2/icon-catMap.png",
+      "before": null,
+      "after": "976ee2fb23adba1d472f1d89f6577853816a48318cb22e3f5fef18a9f0571c64"
+    },
+    {
+      "path": "assets/faithful-v2/icon-catWin.png",
+      "before": null,
+      "after": "ac5366d1ebf80f0bc238a66920bcfcde3150c3df6781554d50ff3dc3510837d1"
+    },
+    {
+      "path": "assets/faithful-v2/icon-code.png",
+      "before": null,
+      "after": "3c5d99382564451905cad6fe18fae759dd03c93ee1563ad5337c3262f847b78b"
+    },
+    {
+      "path": "assets/faithful-v2/icon-create.png",
+      "before": null,
+      "after": "2e3ec8bbbae93d8b5e75b9ab2fdb490a6d3ec3fd20da09502e9edf09a3fc93e0"
+    },
+    {
+      "path": "assets/faithful-v2/icon-hiding.png",
+      "before": null,
+      "after": "aa54f2d05a144a18c22d2bc2c29c3fc3650b01efd0fe5f431fd6c9a3e54f92c6"
+    },
+    {
+      "path": "assets/faithful-v2/icon-home.png",
+      "before": null,
+      "after": "e4073429e5f5e91a74d7663d62fc12939eac81ae19cf91353fe4af0e4ea314c0"
+    },
+    {
+      "path": "assets/faithful-v2/icon-mouseMap.png",
+      "before": null,
+      "after": "7886fab9c8731413ed3d7ba967dec62a8a28749a491297c80cf84c1db0e05a3f"
+    },
+    {
+      "path": "assets/faithful-v2/icon-mouseWin.png",
+      "before": null,
+      "after": "6cb7c06e5a7f4d9284e01688d6714f7f69192448ba325ba7ef61352173f42f55"
+    },
+    {
+      "path": "assets/faithful-v2/icon-offline.png",
+      "before": null,
+      "after": "f56907790e5b5070854c520d79fb7bcbce669503071ce172241888fc7004ce94"
+    },
+    {
+      "path": "assets/faithful-v2/icon-paused.png",
+      "before": null,
+      "after": "c562ea8dcd77929c2f0344ce1385b5beaf61df92a39a74e0e834464730f0c367"
+    },
+    {
+      "path": "assets/faithful-v2/icon-ready.png",
+      "before": null,
+      "after": "25fc7a31583ce674de00eb13c1b00e4cec7541baa0cc4cacbfa02b86a7869d81"
+    },
+    {
+      "path": "assets/faithful-v2/map-canopy-left.png",
+      "before": null,
+      "after": "a6a6a4aa15e5fe561c66f4a9df8996ab0a1b780a6916508c58afed54e5ec5905"
+    },
+    {
+      "path": "assets/faithful-v2/map-canopy-right.png",
+      "before": null,
+      "after": "61638f639c6eaf8e7b9fb5f030d89b3b1a3c2cfed17c85e57e6e9d93b2c2ae30"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-alert.png",
+      "before": null,
+      "after": "9d89e9e5de8675f769c5a025889a17668f52b1d6ab838ec4c12d966bf28a9f25"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-cancelled.png",
+      "before": null,
+      "after": "856aa42d8c40b4a921d5a1f0d56035a35a4171ba3608bba95ff0f1915a6a3c86"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-captured.png",
+      "before": null,
+      "after": "b2a1e9b9f188b8f3a0291cb66f9119c5fce50a77caed7288c07980a5a7d4b7bf"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-cat.png",
+      "before": null,
+      "after": "af34986e55f6afc8168324e47349df0fdbc189be4729e249bded849062152e09"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-catWin.png",
+      "before": null,
+      "after": "1e8e4c45919c5e6095645e0f69031de7f4fa64cbf87d3d4401965612e78f30e5"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-drawer.png",
+      "before": null,
+      "after": "5fc31693a8dd0489c6b4c7fab936e11c3a2ddcfeecfac2e791b64297ed56d679"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-hiding.png",
+      "before": null,
+      "after": "a87113b1f87261a1f0190c7c10f0f36b3c5fb6d95fd37b9446734162de6bcf02"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-mouse.png",
+      "before": null,
+      "after": "5f4f0532283e32c1e6102236f6b1a7dac08fa516f055883c827c88f894e739f1"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-mouseWin.png",
+      "before": null,
+      "after": "06a8b213c2c3cf70ae7102f8ba9b12f824e73622deb2a553ac8b479e2808e2e3"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-offline.png",
+      "before": null,
+      "after": "304bac57039308b983c8c71349c77cf474a25b12fdb734621bfd0b8249b0ac6c"
+    },
+    {
+      "path": "assets/faithful-v2/park-stage-paused.png",
+      "before": null,
+      "after": "a409f1c385155686853cfc9207b75df8a8226c9a9c0500331aaedff9ec3a67a5"
+    },
+    {
+      "path": "assets/faithful-v2/ready-cloud.png",
+      "before": null,
+      "after": "ca27dfd1128b5ecfa7b07841b4aade9024d882c8a44f950bae81c8d3ffb210ba"
+    },
+    {
+      "path": "assets/faithful-v2/state-cancelled.png",
+      "before": null,
+      "after": "a130e46e879956b76fbc0e35a340fe6b3fc12518042a3e59df4f27b84cb82b9f"
+    },
+    {
+      "path": "assets/faithful-v2/state-captured.png",
+      "before": null,
+      "after": "e48d561b9e23213d252041b7bdeb0494b33e4d468def3e9d3a5291004aba1a51"
+    },
+    {
+      "path": "assets/faithful-v2/state-catWin.png",
+      "before": null,
+      "after": "db8cc9ecdbe690351c5b61243d1fe5231ef919303993d4bf571198acc624952c"
+    },
+    {
+      "path": "assets/faithful-v2/state-hiding.png",
+      "before": null,
+      "after": "011fb5a1027f168153eeaa7638021706445d349afdc24ccab90d93101029fffa"
+    },
+    {
+      "path": "assets/faithful-v2/state-mouse.png",
+      "before": null,
+      "after": "898f29436d02d9180425f805600c8c2ca5a7f33171fe7d017a0b4d99a1efd5d2"
+    },
+    {
+      "path": "assets/faithful-v2/state-mouseWin.png",
+      "before": null,
+      "after": "d01ee026e90bfe0ed5aec09793e1f7a076c1d95ae0b3b0b9f59a51ebaf15282c"
+    },
+    {
+      "path": "assets/faithful-v2/state-offline.png",
+      "before": null,
+      "after": "2db059b70a7aea4d81d158cc185f39433e256a0ecdcc6e6ee07ec1cc831f231f"
+    },
+    {
+      "path": "assets/faithful-v2/state-paused.png",
+      "before": null,
+      "after": "fcfab29c9df02b30cb9987ccb808b06271a9cf4415e35f047853523ad333597c"
+    },
+    {
+      "path": "design/2026-10-12/faithful-art/font.json",
+      "before": null,
+      "after": "becb8b80ae7bfabf3abba236d019687be17a2ce8cecedde5a4b52f5f027857d1"
+    },
+    {
+      "path": "design/2026-10-12/faithful-art/manifest.json",
+      "before": null,
+      "after": "ed4c3a9c361c13de56046c2fd155b36f1a1fd6581521fc6995622844cd9350b4"
+    },
+    {
+      "path": "scripts/build-display-font.py",
+      "before": null,
+      "after": "0b2cd46cda202763c675fdbba773079d6e579a284d16978dc3e5671257cd648d"
+    },
+    {
+      "path": "scripts/build-faithful-art.cjs",
+      "before": null,
+      "after": "74e287b9a87927d0b2b48a37f50a30f018974cbf8714bdfdc9a78f93158c0315"
+    },
+    {
+      "path": "scripts/verify-replica-package.py",
+      "before": null,
+      "after": "0eb9013493fcb0a6c5d221b5b724367601538703175d20aee0def567ba99767f"
+    },
+    {
+      "path": "utils/art-ratios.wxss",
+      "before": null,
+      "after": "2e484efefc43eca6b40893f43efa5075b8e681d4c68b40517d02edefb7a66a98"
+    },
+    {
+      "path": "utils/display-font.wxss",
+      "before": null,
+      "after": "d98ddf38ba194feeacaf986f2e49557d7115f7771fa6c234b6321008a45fbd85"
+    }
+  ]
+}

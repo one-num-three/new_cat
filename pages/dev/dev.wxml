@@ -1,0 +1,10 @@
+<view wx:if="{{available}}" class="screen devScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px">
+ <nav-bar title="猫鼠行动" />
+ <view class="devIntro"><text class="devTitle">界面调试台</text><text class="devDescription">晴日公园 · 16-bit 像素</text><text class="devNote">样例数据 · 不连接真实对局</text><button class="venuePreviewEntry" bindtap="openVenue">三处场地地图 · 完整导览</button></view>
+ <view wx:for="{{groups}}" wx:key="title" class="previewGroup"><text class="groupTitle">{{item.title}}</text><view class="previewGrid"><button wx:for="{{item.items}}" wx:for-item="entry" wx:key="id" class="previewItem" data-id="{{entry.id}}" bindtap="open"><text class="entryNumber">{{index+1}}</text><text class="entryTitle">{{entry.label}}</text><text class="entryArrow">›</text></button></view></view>
+ <button class="venuePreviewEntry" data-map="seu-jiulonghu-v1" bindtap="openCampus">九龙湖 · 定位演示</button><button class="venuePreviewEntry" data-map="seu-sipailou-v1" bindtap="openCampus">四牌楼 · 定位演示</button>
+ <button class="venuePreviewEntry" bindtap="simulateJiulonghu">九龙湖 · 电脑模拟本人定位</button>
+ <button class="venuePreviewEntry" bindtap="simulateJiulonghuBoundary">九龙湖 · 东北校界模拟</button>
+ <button class="venuePreviewEntry" bindtap="openCalibration">地图位置标定 · 开发预览</button>
+ <button class="homeButton" bindtap="home">返回首页</button>
+</view>

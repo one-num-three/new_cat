@@ -1,0 +1,50 @@
+{
+  "status": "preview-only-awaiting-selection",
+  "date": "2026-10-15",
+  "tool": "built-in image_gen",
+  "runtimeChanged": false,
+  "calibration": "actual control points not yet collected; do not use generated UI boards for calibration",
+  "baseline": "pixel-day-native-v1 + xuanwu-v4",
+  "inputReferences": [
+    "D:/cat-mouse-miniprogram/reports/2026-10-15/map-first-v1/screenshots/normal-mouse.png",
+    "D:/cat-mouse-miniprogram/reports/2026-10-15/map-first-v1/screenshots/folded-map.png",
+    "D:/cat-mouse-miniprogram/assets/maps/xuanwu-lake-v4.jpg"
+  ],
+  "variants": [
+    {
+      "id": "01",
+      "name": "边缘折叠箭头",
+      "file": "01-chevron-panels.png",
+      "source": "C:/Users/Keke_/.codex/generated_images/01a11c62-1472-7df3-b8a1-a6a4aff1d66b/exec-6848404d-7528-42f0-bf52-1478c3f5a279.png",
+      "prompt": "Create revised PREVIEW01 from this CURRENT WeChat pixel-art mouse game screenshot. Same pixel art, gray mouse portrait, cyan/ivory/black pixel UI, Chinese pixel font, and this Yingzhou island map unchanged and uniformly scaled.\nLandscape comparison board: two large equal slim black iPhone mockups with WeChat 猫鼠行动 title row and right capsule, identical game/map state. LEFT expanded old-style role panel+timer and bottom action card; RIGHT panels compact, mostly map. Outer small01. Preserve 鼠队·追逐中,04:45,1/4, subtle待标定.\nALL BUTTONS MUST BE ICON ONLY, including the lower detail entry. Absolutely no visible button words: 收起,展开,收回,详情,队伍,规则,操作,更多,关闭,本人,实时图. Remove all existing textual toggle strips and the entire old text footer. Instead: small square UP-chevron endcap on expanded TOP panel, DOWN-chevron on compact top status strip; DOWN-chevron on expanded BOTTOM dock, UP-chevron on collapsed bottom-center cyan QR badge. Expanded bottom dock contains ONLY a large cyan four-square-code icon and two ivory team-silhouette/open-book icon buttons. No lettered footer underneath. Crosshair and pause-bars at right. Compact top strip contains mouse avatar,time,progress only. Stepped square pixel corners, black outlines, paper surfaces, original app feel, no glass/gradients/new mascots. No player dots/enemy pins/fake dense QR.\nAdd a narrow three-frame graphic motion storyboard below: top panel slides up into strip; bottom panel slides down into code badge, arrows reverse. Icons and direction arrows only, no caption text. Actual mobile safe areas, readable typography, preserve all image proportions."
+    },
+    {
+      "id": "02",
+      "name": "抽屉把手",
+      "file": "02-drawer-handles.png",
+      "source": "C:/Users/Keke_/.codex/generated_images/01a11c62-1472-7df3-b8a1-a6a4aff1d66b/exec-f7517ca0-39fd-495d-b96d-3db9730905c7.png",
+      "prompt": "Reimagine the supplied CURRENT WeChat mouse game screen as PREVIEW02: PIXEL PAPER DRAWER HANDLES. Preserve the same sunny16-bit pixel art, gray mouse face, cyan/ivory/black paper UI, Chinese pixel font, same Yingzhou island map and its existing shoreline/bridges/paths, uniformly scaled, no new geography.\nLandscape comparison image, two large equal slim black iPhones with identical state and map center/scale; LEFT expanded, RIGHT collapsed; small outside02. Both phones MUST keep iOS status safe area and full WeChat navigation row: back arrow, 猫鼠行动 title, right capsule with ... and small circle. All panel content begins BELOW this native nav. Bottom controls stay above home indicator.\nReplace all textual collapse/detail buttons with ONLY ICONS. No control labels 收起/展开/收回/详情/队伍/规则/操作/更多/关闭/本人/实时图. Essential content text only 鼠队·追逐中,04:45,1/4,small待标定.\nDistinctive02 design: a short BLACK HORIZONTAL DRAG GRIP at center of expanded TOP HUD lower edge, and another centered on expanded BOTTOM drawer upper edge. Keep familiar rectangular cyan mouse role panel and ivory clock/progress card. Compact top is a slim segmented ivory status strip with mouse,time,progress, and a centered little pull-down grip. Bottom expanded shallow ivory drawer holds exactly THREE ICON buttons: cyan code-square main action, black team-silhouette, black open-book. When folded only a small bottom-center pull-up tab with code-square remains, no large footer or label. Recenter crosshair and pause bars are small square pixel buttons at right. Original pixel app identity, no glossy curved modern design, no gradient.\nNarrow three-frame motion storyboard beneath the phones: bottom drawer open, halfway translated downward, neatly docked with handle and code icon visible. Direction arrows and panel silhouettes only. High legibility, tidy safe areas, map remains primary. No player or enemy pins, fake QR matrix, new mascot, skills or scores. STATIC UI preview and motion storyboard."
+    },
+    {
+      "id": "03",
+      "name": "角色徽章浮层",
+      "file": "03-character-badges.png",
+      "source": "C:/Users/Keke_/.codex/generated_images/01a11c62-1472-7df3-b8a1-a6a4aff1d66b/exec-f9d75cfb-0675-4ee1-b4a1-77c9ba92e19d.png",
+      "prompt": "Edit the supplied current WeChat game UI into PREVIEW03: a playful PIXEL MOUSE BADGE anchored panel concept. Keep EXACTLY this existing app's sunny 16-bit pixel art identity, ivory paper, gray pixel mouse, cyan mouse role card, black stepped borders, legible Chinese pixel font, and the SAME existing Yingzhou/Huanzhou illustrated map with bridges/paths/shoreline unchanged, upright, uniformly scaled. No new map geography or illustration style.\nOne high-resolution landscape image, two large aligned slim black iPhones on ivory, same size and390:844 screen proportions; left expanded, right collapsed. Keep the iOS status safe area AND the actual WeChat title row 猫鼠行动, back arrow and right capsule visible in BOTH phones, as in reference. Small outside03.\nMain rule: use icon-only reveal/hide controls, NEVER text buttons 收起/展开/收回/详情/更多/关闭/操作. Remove the existing full-width 本局状态/收起状态/收起操作 strips. Essential content stays readable: 鼠队 · 追逐中, 04:45, 1 / 4, subtle 待标定.\nLEFT: retain original pixel mouse role panel+ivory clock/progress card, place a tiny diagonal inward arrow in a CORNER as the collapse affordance. Original cyan QR action panel and team/rules icons sit at bottom, all icon-only controls. RIGHT: top panel is folded toward a small stepped-square MOUSE PORTRAIT badge at top-left, attached to a small ivory status plate with04:45 and1/4 plus a tiny downward-chevron notch. Bottom action group retracts to a CYAN QR stepped-square badge at BOTTOM-RIGHT with a tiny upward-chevron cap. Only crosshair recenter and two-bar pause remain on the right edge. All hit areas44px or larger. NO full-width bottom label, text control caption, tiny vague dots, round modern floating menu or glass. Make the right phone visually distinct from a horizontal bottom-center drawer: use a bottom-right badge anchor. Map remains broad and clear at center, about85% unobstructed when folded.\nBelow the phones add three compact graphic motion storyboard frames of the bottom panel sliding diagonally down-right and uniformly shrinking toward the QR badge; little arrows, no explanation words. Keep the mouse portrait static, do not spin or bounce. This is a STILL design concept. No live-player dot, enemy pin, skills/store, fake scan matrix,3D art, glowing particles or nonpixel icons."
+    }
+  ],
+  "qualityNotes": [
+    "Static generated concept images and motion storyboards, not runnable UI or video.",
+    "All three final variants remove textual collapse/detail controls; essential game state remains readable.",
+    "Source Yingzhou map and runtime geometry are unchanged; generated preview geography is not a surveying source.",
+    "02 bottom QR tab needs measured bottom safe-area padding when implemented.",
+    "Actual labels, touch targets and map layers will remain native code after selection."
+  ],
+  "attempts": [
+    "Initial three-reference parallel calls all failed at network transport.",
+    "Single screenshot sequential calls produced 01/02/03.",
+    "Targeted 01 edit using generated board failed at network transport.",
+    "Revised01 regenerated from original screenshot successfully; all bottom action entries use icons.",
+    "Revised02 regenerated from original screenshot successfully; WeChat nav restored."
+  ]
+}

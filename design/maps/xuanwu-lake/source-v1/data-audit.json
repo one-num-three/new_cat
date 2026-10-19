@@ -1,0 +1,57 @@
+{
+  "source_xml_parse": "PASS",
+  "source_sha256": "2ba67de27a5880686c6e6d52a7e61808f7c9ce3ff7f7335916ec67ee47ce524a",
+  "raw_element_counts": {
+    "bounds": 1,
+    "node": 29659,
+    "way": 3756,
+    "relation": 229
+  },
+  "selection_bbox_wgs84": [
+    118.78,
+    32.063,
+    118.795,
+    32.076
+  ],
+  "feature_counts_by_layer": {
+    "road": 148,
+    "land": 15,
+    "waterway": 2,
+    "wall": 9,
+    "building": 49,
+    "water": 6,
+    "entrance": 3
+  },
+  "missing_way_node_references": [],
+  "lake_relation": "https://www.openstreetmap.org/relation/2138994",
+  "lake_outer_rings": 1,
+  "lake_inner_rings": 7,
+  "lake_all_rings_closed": true,
+  "multipolygon_relations_not_converted": [
+    {
+      "osm_id": "14016036",
+      "tags": {
+        "building": "yes",
+        "type": "multipolygon"
+      },
+      "reason": "Preserved in raw source; not assembled in this initial extract"
+    }
+  ],
+  "anchor_count": 8,
+  "mercator_roundtrip_max_error_degrees": 1.4210854715202004e-14,
+  "gcj02_conversion": "NOT_PERFORMED",
+  "independent_anchor_error_m": null,
+  "coverage_completeness": "NOT_VERIFIED_AGAINST_AMAP_OR_FIELD_SURVEY",
+  "accessibility_and_current_closures": "NOT_VERIFIED",
+  "source_api": "https://api.openstreetmap.org/api/0.6/map?bbox=118.77,32.06,118.82,32.105",
+  "task_date_asia_shanghai": "2026-10-12",
+  "attribution": "© OpenStreetMap contributors; https://www.openstreetmap.org/copyright",
+  "unique_anchor_position_count": 7,
+  "duplicate_anchor_pairs": [
+    [
+      "A4",
+      "A6"
+    ]
+  ],
+  "anchor_spatial_distribution": "Not adequate for full-area independent accuracy validation; collect distributed shoreline controls."
+}

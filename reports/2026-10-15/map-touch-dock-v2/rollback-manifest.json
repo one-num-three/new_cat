@@ -1,0 +1,67 @@
+[
+  {
+    "path": "components/venue-art/venue-art.js",
+    "before": "1f6d64554aeccf58dc8e284d3b1f1eabf615c6d471d22478077163f70e403491",
+    "after": "bde9834efa9739234bdaab9f0df4a2a05e7698a7a11afac663f87d6512073728"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxml",
+    "before": "ee3490f4e3fa32155eed00b4ee9eebc94268622da9833db5a4824eac6f2dbd07",
+    "after": "ee3490f4e3fa32155eed00b4ee9eebc94268622da9833db5a4824eac6f2dbd07"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxss",
+    "before": "54bf7c02176a85f5ef8e2f9536b9a034cc0a17cd35897963ddf7776b1b071e9c",
+    "after": "0e552c2ab0ad7e6b46d12418c979b4a0e806fbf12a021792aab6788ca508fd79"
+  },
+  {
+    "path": "utils/venue-camera.js",
+    "before": "ac8fb41ec0f6113e7885f2a8e773952dbbb1a1642dbba1818aca9dd08f6d20df",
+    "after": "8c5dec5f84b028f7e1e135e0a47149f44c5d249c8cd1d18c7653a3e09ba13732"
+  },
+  {
+    "path": "pages/map/map.js",
+    "before": "dd9830bbc4581bf79440dd79388168de177bd0fa73d860eefa52fe155d9f4f62",
+    "after": "0ac4ecd232abec548bd5acffc89ef897bacfcf3afb6692257e39c052b88fdf9f"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "before": "50e11cbd6ae9810fa23755b502b540437e7b58c508adafe10b522b781300b78b",
+    "after": "9979c1ad37a4b6ebabfe65752704ca23c4aed207d566514dabc5eb3aba07f5fe"
+  },
+  {
+    "path": "pages/map/map.wxss",
+    "before": "d5730b7d9a2dac3a69dd42614309976415b791b7817901cf7f606daf8fdc7641",
+    "after": "1855ba697e60bdf1ed4fab93e2ae026f464740e492016b2e65ca4a2f673a1018"
+  },
+  {
+    "path": "components/map-icon/map-icon.js",
+    "before": "b7174d619e49815cf0f58e08e863723fca1a964ca72ddd97fb111cc8a84d775f",
+    "after": "d6be804211c809e0e7751e945b6c4c3618516bcc54fed243a37a3d190b6dcfb5"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "before": "9a06ef808f87594fb2dabea52cf85132934f4910ed6e7cd04cd0352c1bf2babf",
+    "after": "3a0c8b2d649b8ddf9a0dddf1a3ec58cee6615ce201b978a977fe499e4606946e"
+  },
+  {
+    "path": "cat-mouse-server/v2/map-first.test.js",
+    "before": "71bad801db937808043587d1383bed01e853cbe77b6900367306dbe3fd8f6203",
+    "after": "2ff8e6d9bd89d58cccc4a4c6754089d1453ad00277436bab3e3ebd7f37ca7159"
+  },
+  {
+    "path": "utils/fusion-font.wxss",
+    "before": "3d811ad5a3c5f94b19dabc3b79ca017ce9fa16d5dd98a875a28d4b9dbae01286",
+    "after": "8d2fbc30c33e7afdc30d07d4c7eabb650906cb9d6a822534ce55ec648da41440"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/manifest.json",
+    "before": "d647549790563c8149818c15db0c1b93464375da1ca781696da8b77e62e49832",
+    "after": "8011af67f0086679c4154c0ba509bddc52a591173125c983c5454e84a4546d66"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/ui-subset.woff",
+    "before": "d39be6b8ad2dd78f10f469e153e6b435bba0b84eb61c25e7bc59d82f7059861b",
+    "after": "6c45c6726bdc895037de21b5e0ab8a7dbb19b87315ec868529252d586eb3bfee"
+  }
+]

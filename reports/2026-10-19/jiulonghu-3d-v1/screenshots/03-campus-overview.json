@@ -1,0 +1,73 @@
+{
+  "route": "pages/venue/venue",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "error": "3D近似参考，实地精度待核验",
+  "hasSelf": true,
+  "geoData": {
+    "points": [
+      {
+        "lat": 31.882368,
+        "lng": 118.828049,
+        "label": "模拟本人",
+        "accuracy": 6,
+        "coordinateSystem": "gcj02",
+        "simulated": true,
+        "tone": "self"
+      }
+    ],
+    "regions": []
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "ready",
+    "error": "",
+    "camera": {
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 2787.684298155738
+    },
+    "width": 366,
+    "height": 572.5546875,
+    "pins": [
+      {
+        "x": 289.98965475654364,
+        "y": 359.6591577415088,
+        "z": 464.3886129343271,
+        "fieldVerified": false,
+        "id": 0,
+        "tone": "self",
+        "label": "模拟本人",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "drawCount": 3,
+    "lastDrawMs": 11,
+    "omitted": 0
+  }
+}

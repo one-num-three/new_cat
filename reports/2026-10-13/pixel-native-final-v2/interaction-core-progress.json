@@ -1,0 +1,19 @@
+{
+  "status": "IN_PROGRESS",
+  "passed": [
+    "venue-loaded",
+    "native-plus-tap",
+    "native-touch-pan",
+    "native-reset-tap",
+    "native-error-retry",
+    "home-guide-entry",
+    "gallery-guide-entry",
+    "preview-never-fakes-live-map",
+    "capture-code-route-preserved",
+    "pixel-join-binding",
+    "pixel-disabled-start",
+    "pixel-ready-start",
+    "pixel-drawer-close",
+    "pixel-replay-route"
+  ]
+}

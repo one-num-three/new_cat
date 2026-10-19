@@ -1,0 +1,38 @@
+✔ immersive cover fills viewport uniformly 390x640 (0.8015ms)
+✔ immersive cover fills viewport uniformly 320x489 (0.1167ms)
+✔ immersive cover fills viewport uniformly 320x280 (0.0655ms)
+✔ immersive cover fills viewport uniformly 1024x1180 (0.0955ms)
+✔ immersive cover fills viewport uniformly 844x240 (0.0756ms)
+✔ immersive cover fills viewport uniformly 390x1600 (0.052ms)
+✔ immersive cover fills viewport uniformly 1254x1254 (0.1008ms)
+✔ cover rejects invalid sizes and camera never publishes nonfinite values (1.0479ms)
+✔ camera scale is bounded to1–4 and pinch preserves its focal point before edge clamping (0.2591ms)
+✔ single image starts in cover instead of letterboxed contain (1.6808ms)
+✔ automatic tour uses one native animation per leg and exactly one timer (1.289ms)
+✔ touch immediately freezes interpolated auto position and permanently hands over until explicit resume (0.9321ms)
+✔ manual pan clamps edges without blank strips and throttles move paints (1.0991ms)
+✔ two finger pinch changes uniform scale and ends cleanly (0.7481ms)
+✔ invalid touches and zero-distance pinch do not publish NaN (0.7687ms)
+✔ reset stays full-bleed at1x and unchanged layout retains manual zoom (1.1538ms)
+✔ manual focal position survives viewport change and invalid viewport stops animation (0.8142ms)
+✔ latest query wins; stale image callback and retry do not resurrect old assets (0.8577ms)
+✔ page hide suspends tour, show resumes only untouched auto, detach cancels timer and late writes (0.8341ms)
+✔ viewer is a single image with no footer band, no geographic input and no network sampling (1.1461ms)
+✔ public guide is registered and refreshes real layout without joining a game (1.2971ms)
+✔ map display toggle changes only artMode and never restarts server or location work (1.6281ms)
+✔ developer preview remains illustration-only after repeated map toggles (2.6157ms)
+✔ actual developer map cases enter art mode without timers, storage, network or GPS (9.9289ms)
+✔ home, gallery and preview-map guide buttons navigate without authentication or room mutation (2.4498ms)
+✔ production snapshot renders only server-visible positions and server intel on native map (1.0787ms)
+✔ every presentation state points to the active uncalibrated venue artwork without changing action gates (0.2529ms)
+✔ packaged venue PNG and unchanged approved source match independently recorded hashes (4.3436ms)
+✔ venue runtime has explicit no-georeferencing metadata and no invented calibration (0.7701ms)
+✔ generated square map and packaged JPEG are independently locked without inventing calibration (2.4909ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.9863

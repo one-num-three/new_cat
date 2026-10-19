@@ -1,0 +1,28 @@
+{
+  "version": "jiulonghu-reference-3",
+  "base": "design/maps/seu-jiulonghu-registration-v2/jiulonghu-registration.json",
+  "imageUnchanged": true,
+  "fieldVerified": false,
+  "method": "Peripheral road junctions matched manually in the preserved art and preserved OSM XML. Existing 23 controls remain exact. Road centre lines in stylized art are approximate, not surveyed GPS controls. No synthetic boundary controls or infinite extrapolation.",
+  "additional": [
+    {"osmId":"node/1072122164","name":"西北外围·吉印大道与苏源大道路口","pixel":[11,190],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/4227473049","name":"东北外围·吉印大道与双龙大道路口","pixel":[1235,111],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/1072121845","name":"东南外围·东南大学路与双龙大道路口","pixel":[1236,1057],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/1072121984","name":"西南外围·东南大学路与苏源大道路口","pixel":[138,1146],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/1072121990","name":"西侧外围·南工路与苏源大道路口","pixel":[31,676],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/1887979104","name":"北门外围·两江东路与吉印大道路口","pixel":[778,146],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/7783252832","name":"北侧湖桥·吉印大道南幅西端","pixel":[263,169],"estimatedManualUncertaintyPx":15},
+    {"osmId":"node/5950411022","name":"南门外围·中央大道与东南大学路路口","pixel":[555,1116],"estimatedManualUncertaintyPx":15}
+  ],
+  "checks": [
+    {"osmId":"way/630141894","name":"梅园7B","pixel":[1077,965],"estimatedManualUncertaintyPx":10},
+    {"osmId":"way/630141889","name":"梅园6B","pixel":[1035,968],"estimatedManualUncertaintyPx":10}
+  ],
+  "coverage": {
+    "osmId": "way/171389014",
+    "reference": "design/maps/seu-campuses-v1/jiulonghu-reference.geojson",
+    "boundarySamplingM": 5,
+    "interiorGridM": 10,
+    "scope": "Saved OSM campus polygon only; not an independently surveyed/current legal campus boundary. Includes water and buildings as geometric samples, not playable or safe ground."
+  }
+}

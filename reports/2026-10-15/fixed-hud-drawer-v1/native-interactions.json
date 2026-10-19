@@ -1,0 +1,1645 @@
+{
+  "status": "PASS",
+  "scope": "official MCP runtime + screenshots; simulated identities/coordinates; 320x600 content inside390 simulator; app fontScale1.3; separate native element taps, 8000ms development-only motion inspection (production260ms), fixed header geometry; swipe handler invoked through runtime.",
+  "rows": [
+    {
+      "id": "collapse-motion",
+      "motion": [
+        {
+          "label": "open",
+          "route": "pages/map/map",
+          "width": 390,
+          "height": 844,
+          "nav": 87,
+          "safe": 34,
+          "tray": true,
+          "artMode": true,
+          "hasSelf": true,
+          "markers": 3,
+          "clock": "04:45",
+          "code": false,
+          "drawer": false,
+          "source": "/assets/maps/xuanwu-lake-v4.jpg",
+          "overlayCount": 0,
+          "fitWidth": 756.9999999999999,
+          "fitHeight": 756.9999999999999,
+          "boxes": {
+            ".mapCanvas": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 0,
+                "right": 390,
+                "top": 87,
+                "bottom": 844,
+                "width": 390,
+                "height": 757
+              }
+            ],
+            ".playHud": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 95,
+                "bottom": 157,
+                "width": 370,
+                "height": 62
+              }
+            ],
+            ".actionDrawer": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 8,
+                "right": 382,
+                "top": 686,
+                "bottom": 844,
+                "width": 374,
+                "height": 158
+              }
+            ],
+            ".collapsedDock": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 156,
+                "right": 234,
+                "top": 720,
+                "bottom": 820,
+                "width": 78,
+                "height": 100
+              }
+            ],
+            ".mapTools": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 331,
+                "width": 46,
+                "height": 156
+              }
+            ],
+            ".edgeButton": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 221,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 230,
+                "bottom": 276,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 285,
+                "bottom": 331,
+                "width": 46,
+                "height": 46
+              }
+            ],
+            ".iconAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 71,
+                "right": 135,
+                "top": 732,
+                "bottom": 796,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "team"
+                },
+                "left": 163,
+                "right": 227,
+                "top": 732,
+                "bottom": 796,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "rules"
+                },
+                "left": 255,
+                "right": 319,
+                "top": 732,
+                "bottom": 796,
+                "width": 64,
+                "height": 64
+              }
+            ],
+            ".trayGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 22,
+                "right": 368,
+                "top": 688,
+                "bottom": 732,
+                "width": 346,
+                "height": 44
+              }
+            ],
+            ".dockGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 168,
+                "right": 222,
+                "top": 722,
+                "bottom": 766,
+                "width": 54,
+                "height": 44
+              }
+            ],
+            ".dockAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 171,
+                "right": 219,
+                "top": 766,
+                "bottom": 810,
+                "width": 48,
+                "height": 44
+              }
+            ],
+            ".drawer": [],
+            ".codeSheet": [],
+            ".inlineQr": [],
+            ".mapStatusRegion": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 670,
+                "bottom": 670,
+                "width": 370,
+                "height": 0
+              }
+            ]
+          }
+        },
+        {
+          "label": "mid-1",
+          "route": "pages/map/map",
+          "width": 390,
+          "height": 844,
+          "nav": 87,
+          "safe": 34,
+          "tray": false,
+          "artMode": true,
+          "hasSelf": true,
+          "markers": 3,
+          "clock": "04:45",
+          "code": false,
+          "drawer": false,
+          "source": "/assets/maps/xuanwu-lake-v4.jpg",
+          "overlayCount": 0,
+          "fitWidth": 756.9999999999999,
+          "fitHeight": 756.9999999999999,
+          "boxes": {
+            ".mapCanvas": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 0,
+                "right": 390,
+                "top": 87,
+                "bottom": 844,
+                "width": 390,
+                "height": 757
+              }
+            ],
+            ".playHud": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 95,
+                "bottom": 157,
+                "width": 370,
+                "height": 62
+              }
+            ],
+            ".actionDrawer": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 8,
+                "right": 382,
+                "top": 767.1707153320312,
+                "bottom": 925.1707153320312,
+                "width": 374,
+                "height": 158
+              }
+            ],
+            ".collapsedDock": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 156,
+                "right": 234,
+                "top": 702,
+                "bottom": 802,
+                "width": 78,
+                "height": 100
+              }
+            ],
+            ".mapTools": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 331,
+                "width": 46,
+                "height": 156
+              }
+            ],
+            ".edgeButton": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 221,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 230,
+                "bottom": 276,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 285,
+                "bottom": 331,
+                "width": 46,
+                "height": 46
+              }
+            ],
+            ".iconAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 71,
+                "right": 135,
+                "top": 813.1707153320312,
+                "bottom": 877.1707153320312,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "team"
+                },
+                "left": 163,
+                "right": 227,
+                "top": 813.1707153320312,
+                "bottom": 877.1707153320312,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "rules"
+                },
+                "left": 255,
+                "right": 319,
+                "top": 813.1707153320312,
+                "bottom": 877.1707153320312,
+                "width": 64,
+                "height": 64
+              }
+            ],
+            ".trayGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 22,
+                "right": 368,
+                "top": 769.1707153320312,
+                "bottom": 813.1707153320312,
+                "width": 346,
+                "height": 44
+              }
+            ],
+            ".dockGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 168,
+                "right": 222,
+                "top": 704,
+                "bottom": 748,
+                "width": 54,
+                "height": 44
+              }
+            ],
+            ".dockAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 171,
+                "right": 219,
+                "top": 748,
+                "bottom": 792,
+                "width": 48,
+                "height": 44
+              }
+            ],
+            ".drawer": [],
+            ".codeSheet": [],
+            ".inlineQr": [],
+            ".mapStatusRegion": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 679.78125,
+                "bottom": 679.78125,
+                "width": 370,
+                "height": 0
+              }
+            ]
+          }
+        },
+        {
+          "label": "mid-2",
+          "route": "pages/map/map",
+          "width": 390,
+          "height": 844,
+          "nav": 87,
+          "safe": 34,
+          "tray": false,
+          "artMode": true,
+          "hasSelf": true,
+          "markers": 3,
+          "clock": "04:45",
+          "code": false,
+          "drawer": false,
+          "source": "/assets/maps/xuanwu-lake-v4.jpg",
+          "overlayCount": 0,
+          "fitWidth": 756.9999999999999,
+          "fitHeight": 756.9999999999999,
+          "boxes": {
+            ".mapCanvas": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 0,
+                "right": 390,
+                "top": 87,
+                "bottom": 844,
+                "width": 390,
+                "height": 757
+              }
+            ],
+            ".playHud": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 95,
+                "bottom": 157,
+                "width": 370,
+                "height": 62
+              }
+            ],
+            ".actionDrawer": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 8,
+                "right": 382,
+                "top": 852,
+                "bottom": 1010,
+                "width": 374,
+                "height": 158
+              }
+            ],
+            ".collapsedDock": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 156,
+                "right": 234,
+                "top": 702,
+                "bottom": 802,
+                "width": 78,
+                "height": 100
+              }
+            ],
+            ".mapTools": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 331,
+                "width": 46,
+                "height": 156
+              }
+            ],
+            ".edgeButton": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 221,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 230,
+                "bottom": 276,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 285,
+                "bottom": 331,
+                "width": 46,
+                "height": 46
+              }
+            ],
+            ".iconAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 71,
+                "right": 135,
+                "top": 898,
+                "bottom": 962,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "team"
+                },
+                "left": 163,
+                "right": 227,
+                "top": 898,
+                "bottom": 962,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "rules"
+                },
+                "left": 255,
+                "right": 319,
+                "top": 898,
+                "bottom": 962,
+                "width": 64,
+                "height": 64
+              }
+            ],
+            ".trayGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 22,
+                "right": 368,
+                "top": 854,
+                "bottom": 898,
+                "width": 346,
+                "height": 44
+              }
+            ],
+            ".dockGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 168,
+                "right": 222,
+                "top": 704,
+                "bottom": 748,
+                "width": 54,
+                "height": 44
+              }
+            ],
+            ".dockAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 171,
+                "right": 219,
+                "top": 748,
+                "bottom": 792,
+                "width": 48,
+                "height": 44
+              }
+            ],
+            ".drawer": [],
+            ".codeSheet": [],
+            ".inlineQr": [],
+            ".mapStatusRegion": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 690,
+                "bottom": 690,
+                "width": 370,
+                "height": 0
+              }
+            ]
+          }
+        },
+        {
+          "label": "closed",
+          "route": "pages/map/map",
+          "width": 390,
+          "height": 844,
+          "nav": 87,
+          "safe": 34,
+          "tray": false,
+          "artMode": true,
+          "hasSelf": true,
+          "markers": 3,
+          "clock": "04:45",
+          "code": false,
+          "drawer": false,
+          "source": "/assets/maps/xuanwu-lake-v4.jpg",
+          "overlayCount": 0,
+          "fitWidth": 756.9999999999999,
+          "fitHeight": 756.9999999999999,
+          "boxes": {
+            ".mapCanvas": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 0,
+                "right": 390,
+                "top": 87,
+                "bottom": 844,
+                "width": 390,
+                "height": 757
+              }
+            ],
+            ".playHud": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 95,
+                "bottom": 157,
+                "width": 370,
+                "height": 62
+              }
+            ],
+            ".actionDrawer": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 8,
+                "right": 382,
+                "top": 852,
+                "bottom": 1010,
+                "width": 374,
+                "height": 158
+              }
+            ],
+            ".collapsedDock": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 156,
+                "right": 234,
+                "top": 702,
+                "bottom": 802,
+                "width": 78,
+                "height": 100
+              }
+            ],
+            ".mapTools": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 331,
+                "width": 46,
+                "height": 156
+              }
+            ],
+            ".edgeButton": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 175,
+                "bottom": 221,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 230,
+                "bottom": 276,
+                "width": 46,
+                "height": 46
+              },
+              {
+                "id": "",
+                "dataset": {},
+                "left": 332,
+                "right": 378,
+                "top": 285,
+                "bottom": 331,
+                "width": 46,
+                "height": 46
+              }
+            ],
+            ".iconAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 71,
+                "right": 135,
+                "top": 898,
+                "bottom": 962,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "team"
+                },
+                "left": 163,
+                "right": 227,
+                "top": 898,
+                "bottom": 962,
+                "width": 64,
+                "height": 64
+              },
+              {
+                "id": "",
+                "dataset": {
+                  "tab": "rules"
+                },
+                "left": 255,
+                "right": 319,
+                "top": 898,
+                "bottom": 962,
+                "width": 64,
+                "height": 64
+              }
+            ],
+            ".trayGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 22,
+                "right": 368,
+                "top": 854,
+                "bottom": 898,
+                "width": 346,
+                "height": 44
+              }
+            ],
+            ".dockGrip": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 168,
+                "right": 222,
+                "top": 704,
+                "bottom": 748,
+                "width": 54,
+                "height": 44
+              }
+            ],
+            ".dockAction": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 171,
+                "right": 219,
+                "top": 748,
+                "bottom": 792,
+                "width": 48,
+                "height": 44
+              }
+            ],
+            ".drawer": [],
+            ".codeSheet": [],
+            ".inlineQr": [],
+            ".mapStatusRegion": [
+              {
+                "id": "",
+                "dataset": {},
+                "left": 10,
+                "right": 380,
+                "top": 690,
+                "bottom": 690,
+                "width": 370,
+                "height": 0
+              }
+            ]
+          }
+        }
+      ],
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "safe": 34,
+      "tray": false,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 382,
+            "top": 852,
+            "bottom": 1010,
+            "width": 374,
+            "height": 158
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 156,
+            "right": 234,
+            "top": 702,
+            "bottom": 802,
+            "width": 78,
+            "height": 100
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 331,
+            "width": 46,
+            "height": 156
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 221,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 230,
+            "bottom": 276,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 285,
+            "bottom": 331,
+            "width": 46,
+            "height": 46
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 71,
+            "right": 135,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 163,
+            "right": 227,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 255,
+            "right": 319,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          }
+        ],
+        ".trayGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 22,
+            "right": 368,
+            "top": 854,
+            "bottom": 898,
+            "width": 346,
+            "height": 44
+          }
+        ],
+        ".dockGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 168,
+            "right": 222,
+            "top": 704,
+            "bottom": 748,
+            "width": 54,
+            "height": 44
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171,
+            "right": 219,
+            "top": 748,
+            "bottom": 792,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".mapStatusRegion": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 690,
+            "bottom": 690,
+            "width": 370,
+            "height": 0
+          }
+        ]
+      },
+      "file": "mouse-collapsed.png"
+    },
+    {
+      "id": "code-sheet",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "safe": 34,
+      "tray": false,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": true,
+      "drawer": false,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 382,
+            "top": 852,
+            "bottom": 1010,
+            "width": 374,
+            "height": 158
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 156,
+            "right": 234,
+            "top": 702,
+            "bottom": 802,
+            "width": 78,
+            "height": 100
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 331,
+            "width": 46,
+            "height": 156
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 221,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 230,
+            "bottom": 276,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 285,
+            "bottom": 331,
+            "width": 46,
+            "height": 46
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 71,
+            "right": 135,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 163,
+            "right": 227,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 255,
+            "right": 319,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          }
+        ],
+        ".trayGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 22,
+            "right": 368,
+            "top": 854,
+            "bottom": 898,
+            "width": 346,
+            "height": 44
+          }
+        ],
+        ".dockGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 168,
+            "right": 222,
+            "top": 704,
+            "bottom": 748,
+            "width": 54,
+            "height": 44
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171,
+            "right": 219,
+            "top": 748,
+            "bottom": 792,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 382,
+            "top": 390.5,
+            "bottom": 844,
+            "width": 374,
+            "height": 453.5
+          }
+        ],
+        ".inlineQr": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 68.25,
+            "right": 321.75,
+            "top": 489.5,
+            "bottom": 743,
+            "width": 253.5,
+            "height": 253.5
+          }
+        ],
+        ".mapStatusRegion": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 690,
+            "bottom": 690,
+            "width": 370,
+            "height": 0
+          }
+        ]
+      },
+      "file": "mouse-code-sheet.png"
+    },
+    {
+      "id": "swipe-expanded",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "safe": 34,
+      "tray": true,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": false,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 382,
+            "top": 852,
+            "bottom": 1010,
+            "width": 374,
+            "height": 158
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 156,
+            "right": 234,
+            "top": 702,
+            "bottom": 802,
+            "width": 78,
+            "height": 100
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 331,
+            "width": 46,
+            "height": 156
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 221,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 230,
+            "bottom": 276,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 285,
+            "bottom": 331,
+            "width": 46,
+            "height": 46
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 71,
+            "right": 135,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 163,
+            "right": 227,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 255,
+            "right": 319,
+            "top": 898,
+            "bottom": 962,
+            "width": 64,
+            "height": 64
+          }
+        ],
+        ".trayGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 22,
+            "right": 368,
+            "top": 854,
+            "bottom": 898,
+            "width": 346,
+            "height": 44
+          }
+        ],
+        ".dockGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 168,
+            "right": 222,
+            "top": 704,
+            "bottom": 748,
+            "width": 54,
+            "height": 44
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171,
+            "right": 219,
+            "top": 748,
+            "bottom": 792,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".drawer": [],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".mapStatusRegion": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 690,
+            "bottom": 690,
+            "width": 370,
+            "height": 0
+          }
+        ]
+      },
+      "file": "swipe-expanded.png"
+    },
+    {
+      "id": "rules-sheet",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "nav": 87,
+      "safe": 34,
+      "tray": true,
+      "artMode": true,
+      "hasSelf": true,
+      "markers": 3,
+      "clock": "04:45",
+      "code": false,
+      "drawer": true,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "overlayCount": 0,
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "boxes": {
+        ".mapCanvas": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 87,
+            "bottom": 844,
+            "width": 390,
+            "height": 757
+          }
+        ],
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 8,
+            "right": 382,
+            "top": 686,
+            "bottom": 844,
+            "width": 374,
+            "height": 158
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 156,
+            "right": 234,
+            "top": 720,
+            "bottom": 820,
+            "width": 78,
+            "height": 100
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 331,
+            "width": 46,
+            "height": 156
+          }
+        ],
+        ".edgeButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 175,
+            "bottom": 221,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 230,
+            "bottom": 276,
+            "width": 46,
+            "height": 46
+          },
+          {
+            "id": "",
+            "dataset": {},
+            "left": 332,
+            "right": 378,
+            "top": 285,
+            "bottom": 331,
+            "width": 46,
+            "height": 46
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 71,
+            "right": 135,
+            "top": 732,
+            "bottom": 796,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 163,
+            "right": 227,
+            "top": 732,
+            "bottom": 796,
+            "width": 64,
+            "height": 64
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 255,
+            "right": 319,
+            "top": 732,
+            "bottom": 796,
+            "width": 64,
+            "height": 64
+          }
+        ],
+        ".trayGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 22,
+            "right": 368,
+            "top": 688,
+            "bottom": 732,
+            "width": 346,
+            "height": 44
+          }
+        ],
+        ".dockGrip": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 168,
+            "right": 222,
+            "top": 722,
+            "bottom": 766,
+            "width": 54,
+            "height": 44
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 171,
+            "right": 219,
+            "top": 766,
+            "bottom": 810,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".drawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 0,
+            "right": 390,
+            "top": 185.6875,
+            "bottom": 844,
+            "width": 390,
+            "height": 658.3125
+          }
+        ],
+        ".codeSheet": [],
+        ".inlineQr": [],
+        ".mapStatusRegion": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 670,
+            "bottom": 670,
+            "width": 370,
+            "height": 0
+          }
+        ]
+      },
+      "file": "rules-sheet.png"
+    }
+  ]
+}

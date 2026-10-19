@@ -1,0 +1,13 @@
+{
+  "schema": "piecewise-affine-wgs84-art-v1",
+  "enabled": false,
+  "status": "unregistered",
+  "image": {
+    "file": "artwork-original.jpg",
+    "runtimePath": "assets/maps/xuanwu-lake-v4.jpg",
+    "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+    "width": 1254,
+    "height": 1254
+  },
+  "fieldVerified": false
+}

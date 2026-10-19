@@ -1,0 +1,14 @@
+{
+  "status": "IN_PROGRESS",
+  "passed": [
+    "cancelled-bottom",
+    "cancelled-large-bottom",
+    "code-bottom",
+    "code-large-bottom",
+    "create-bottom",
+    "create-large-bottom",
+    "ready-bottom",
+    "ready-large-bottom",
+    "drawer-large-bottom"
+  ]
+}

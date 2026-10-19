@@ -1,0 +1,90 @@
+[
+  {
+    "path": "app.json",
+    "sha256": "55c4cd89a765bfc02716b6fd319efd84461f13eb2cb3a00f6abf612aab5d4c92"
+  },
+  {
+    "path": "README.md",
+    "sha256": "a0762907d29a4783b06dea7ad2069e201ee2ed047270c9a9ded3283fe9d2866f"
+  },
+  {
+    "path": "RELEASE.md",
+    "sha256": "0a3bb235d52befa2344716703a1a2ee3d9faa00db66774e1f16fde27b27b7958"
+  },
+  {
+    "path": "WORK_LOG.md",
+    "sha256": "0f78a9394f163f2ee8eae86c482c9342bdc45b539bdd21fb3747516f1e3e5bb6"
+  },
+  {
+    "path": "cat-mouse-server/Dockerfile",
+    "sha256": "61903ebd659e84566ff5fa562d3e85a8641f840f5af16857324dce711225560a"
+  },
+  {
+    "path": "scripts/package-release.ps1",
+    "sha256": "ca9b53bb2eeee85117cf2853b522564900d1130408262e4546d9489cb5126443"
+  },
+  {
+    "path": "utils/fusion-font.wxss",
+    "sha256": "b0c6ea3cf873ad1a47f8aba9061883a0d354c060766c738fb79fb88e7d12674f"
+  },
+  {
+    "path": "utils/v2.js",
+    "sha256": "723124d3c7eea1e4068b8c6b46653bc2c28b9394cd9d6e3cefac5cfcd1c6f1cc"
+  },
+  {
+    "path": "pages/dev/dev.js",
+    "sha256": "6dbbd5c9b2a94ae4c58a9a190be7de8d7f00298c5b45951aa15485edbfef5d25"
+  },
+  {
+    "path": "pages/dev/dev.wxml",
+    "sha256": "570227d0e82ecacff3a6a42a56915ed785271b5968985e324f476a87a9346c68"
+  },
+  {
+    "path": "pages/map/map.js",
+    "sha256": "d8e63567365152969ebda61063c60b681cfe7969701b57ab721213bf5bf4e8e1"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "sha256": "f2e6d79f8801ecd2393bf239387a82378018746be4d18b9834a41e0d0f8a9ed1"
+  },
+  {
+    "path": "pages/room/room.js",
+    "sha256": "98b4b17abc3f5113f93dbd379efaeb7af27b53b0e58254fdf989d9c5087be51e"
+  },
+  {
+    "path": "pages/room/room.wxml",
+    "sha256": "a9c300f764713f5ec1d67167d423e19a18aa869ffa0dad2cbec3f9ae96bb8348"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/manifest.json",
+    "sha256": "2ee4216f37294fbd9c7d5f0b6d762964085c39e4e755276c83dab18bf16ff17c"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/ui-subset.woff",
+    "sha256": "062d1166fe21083515c4b43ff19a3958965861f2d320906e5b8d4625dd893eb1"
+  },
+  {
+    "path": "components/venue-art/venue-art.js",
+    "sha256": "36d355b580d7bf94e59adfa8738e47adf22a158e5a06a2d93f9ccaa01083f140"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxml",
+    "sha256": "3b8b9bf2e23d502c40a408d36b40e59faa18e26952e77db47a5c7c2e292f5fe3"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxss",
+    "sha256": "0d850bf66f6fbfe6ab6d7f26e65d13d14dc15ae20db06aa6ee158decaa267441"
+  },
+  {
+    "path": "cat-mouse-server/v2/server.js",
+    "sha256": "357efc14458a3737092fcf2a5c2c2f318bacf9f24009c2d055223fc2120a1775"
+  },
+  {
+    "path": "cat-mouse-server/v2/service.js",
+    "sha256": "f754f997db6c66e2a4a6387c40f027d3821300960920ff1f0f61be13786e28a7"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "sha256": "cabed3df41536b637a52ec18261421093c2909c8e4cccd0fd8dc14ba7037e63b"
+  }
+]

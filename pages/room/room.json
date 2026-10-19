@@ -1,4 +1,5 @@
 {
-  "navigationBarTitleText": "房间等待",
-  "enablePullDownRefresh": false
+  "navigationBarTitleText": "房间准备",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom"
 }

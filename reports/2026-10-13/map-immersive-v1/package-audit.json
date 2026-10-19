@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "files": 121,
+  "bytes": 1848742,
+  "allShaMatch": true,
+  "oldAssetOnlyExcludedFromExport": true,
+  "sourcePreserved": true,
+  "testIdentities": false,
+  "baselineRestored": 20
+}

@@ -1,5 +1,6 @@
 {
-  "navigationBarTitleText": "我的二维码",
-  "navigationBarBackgroundColor": "#667eea",
-  "navigationBarTextStyle": "white"
+  "navigationBarTitleText": "动态抓捕码",
+  "navigationBarBackgroundColor": "#F5FAF1",
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom"
 }

@@ -1,0 +1,131 @@
+{
+  "branch": "master",
+  "baseline": 20,
+  "changed": [
+    {
+      "path": "components/venue-art/venue-art.js",
+      "before": "d6e1e10a6113edac4ea7ee7345fce25ccba64f99298c6ac00040e9b5e393255b",
+      "after": "36d355b580d7bf94e59adfa8738e47adf22a158e5a06a2d93f9ccaa01083f140"
+    },
+    {
+      "path": "components/venue-art/venue-art.wxml",
+      "before": "881f759561ec0c3844935279dd9c53414d48aa8ff37d86297cc748a827610ebf",
+      "after": "3b8b9bf2e23d502c40a408d36b40e59faa18e26952e77db47a5c7c2e292f5fe3"
+    },
+    {
+      "path": "components/venue-art/venue-art.wxss",
+      "before": "28f1f167d68dc6f9e7fa41fdf5786bf105bde22b10d81ca6f11d37ebdcead369",
+      "after": "c7cb1e6878c8223d43734d329e145c83883a076fa9791cb17ffcdbdc110d9fe7"
+    },
+    {
+      "path": "utils/venue-camera.js",
+      "before": "50c530e7908d99d2b8d72a8a7752c3ea2fb39b2b4947619ec59dbbee7fb42c46",
+      "after": "ac8fb41ec0f6113e7885f2a8e773952dbbb1a1642dbba1818aca9dd08f6d20df"
+    },
+    {
+      "path": "utils/presentation.js",
+      "before": "221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556",
+      "after": "8642563b1691da0586b6c3ec374e31f026ab20808685bdb96a36a9cf2c9e8f89"
+    },
+    {
+      "path": "pages/venue/venue.wxml",
+      "before": "e9193f5d2cece9ebf6a0bbf5c21f600adde89088f0b123715998f89762527096",
+      "after": "546136f2f98cb01ce82fc9fb7ae301b9e0015e64c42f1abe9bbe9df3f5da1ca9"
+    },
+    {
+      "path": "pages/room/room.wxml",
+      "before": "2a6046790faf87959860efbd6533ead14795d3090cb1443c16ec19888f97fcd9",
+      "after": "642b5c7d9a6e15ba344cf7d7c8c1f89e25e93fb741ac0ebc5d6bbc7fe32b5c76"
+    },
+    {
+      "path": "scripts/package-release.ps1",
+      "before": "810113b31ed458c562c331904dd91e2883c8ad41f82253e723a12ea0dec8dc95",
+      "after": "d2441c0a84d944fcfc7bc029942527aaea0a1c3d00ee54c36e4b6c9a9df8b38c"
+    },
+    {
+      "path": "scripts/pixel-ui-review.cjs",
+      "before": "981b0f0db0ff17f80029dd0c97b52abd0f45f49a421cb11553e7d609d9d1596d",
+      "after": "dabf5b5f51dc2ce6f89ddbdff673757bd90b7b0dfea1f42db3b919012eacefac"
+    },
+    {
+      "path": "cat-mouse-server/v2/venue-ui.test.js",
+      "before": "30499cb0ec15bf4737cccf3a6f53c55505de2791ff43cd54ceb426a009c57e2d",
+      "after": "cabed3df41536b637a52ec18261421093c2909c8e4cccd0fd8dc14ba7037e63b"
+    },
+    {
+      "path": "cat-mouse-server/v2/pixel-ui.test.js",
+      "before": "18443bdc2ad84c8e8d6789d4860f875acc179c302b693bd48f205fcf7d01afc7",
+      "after": "06a836ac7aaf8529f5ddaeb2fdd53ee19eee9a03f848fc1bc5808f6c3277ccf2"
+    },
+    {
+      "path": "cat-mouse-server/v2/presentation.test.js",
+      "before": "b2355357b9c2de8373fe7dde5d61365dee473e401d99616f38f888065b6d6401",
+      "after": "3c8930a96334c2e81378477b5248803ac3c3475413e00f47e99268904da671a9"
+    },
+    {
+      "path": "WORK_LOG.md",
+      "before": "bb84fc84a7ad5c731bb5a0d67bb9a8d649d6e0889ee5151ad4f59effc83a1728",
+      "after": "0d096bf06702eee72c6a5b00105dac991f8a513f61282510b19d2317c62cc370"
+    },
+    {
+      "path": "README.md",
+      "before": "239f7454e5c66dc259ab02071430d547770ebfeb4bb85d6a4c90462045cf5782",
+      "after": "4735ba8cf5f3d02584654191a2365786e06eef874ebc6331e76d3f4185439d5d"
+    },
+    {
+      "path": "RELEASE.md",
+      "before": "9fbdd0d0562b511a83ca302106003aa66f99653a35c9a62f3ac9c13ca92ec918",
+      "after": "ceec147df9ec549d1add2841131b8f29a0c4f19c29f71300c6f214b107f8afc2"
+    },
+    {
+      "path": "ART_LOCK.md",
+      "before": "6ad70c8fcdb66016086e6ab22cd3f87d1fa6adde5902209943e3fb1b8834a177",
+      "after": "3aa4edbde53a953c871ec760b707058714955452e9c6f5fb24d3285f1ae72af5"
+    },
+    {
+      "path": "DESIGN_BASELINE.md",
+      "before": "0bf2ce1640348e8f649a9ec53a7add1dcb393a1256a159eac35f3ed51e5f6555",
+      "after": "5066617a1fd88f621edb30da0076b4116c5e665cdff7e28d1dfcd0d0d14c6585"
+    },
+    {
+      "path": "pages/venue/venue.js",
+      "before": "5430e5358f8fa67347f597a0b69ac34057070092b181aafdad227dba0100c548",
+      "after": "96671623880af768a4afab2145beb129be0518ac704aa3d8b0678cbdd84db642"
+    },
+    {
+      "path": "project.config.json",
+      "before": "720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c",
+      "after": "3fd10a1e8325a7efcd5f7dc110dd7a5bacbe9feaa286a17047a7745788ff0d0c"
+    }
+  ],
+  "added": [
+    {
+      "path": "utils/venue-art-config.js",
+      "sha256": "dbcf4899d9dbed319b0f2e55d367644da776890677127b41973501d5008df0ea"
+    },
+    {
+      "path": "scripts/map-immersive-review.cjs",
+      "sha256": "5dea79971ab349d65b70dbafc58eddd40f750ac30ba21664a20a5fb76947884b"
+    },
+    {
+      "path": "scripts/build-immersive-map.cjs",
+      "sha256": "74e2b50ed0af9b5abea419a38cf598b2a9f6676568c4aeb8b0134239fb3f2728"
+    },
+    {
+      "path": "assets/maps/xuanwu-lake-v4.jpg",
+      "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540"
+    },
+    {
+      "path": "design/maps/xuanwu-lake/immersive-v4/map-expanded-source.png",
+      "sha256": "8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6"
+    },
+    {
+      "path": "design/maps/xuanwu-lake/immersive-v4/manifest.json",
+      "sha256": "5c8849463a1b11e8d86501bf28a27cd9d96ab08765ec36e0b336f40f4ee7183e"
+    },
+    {
+      "path": "design/maps/xuanwu-lake/immersive-v4/PROMPT.md",
+      "sha256": "ce45105a32397be3152b4433dd241a7290f52a00c4e6e5a854ff5530f2f65674"
+    }
+  ]
+}

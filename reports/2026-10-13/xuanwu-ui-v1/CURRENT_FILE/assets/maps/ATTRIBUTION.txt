@@ -1,0 +1,5 @@
+玄武湖 环洲/樱洲 · 美术场地导览 v3
+地图数据 © OpenStreetMap contributors · ODbL 1.0
+https://www.openstreetmap.org/copyright
+源图由用户提供的 image_gen 稿派生；未完成经纬度标定，不叠加实时玩家坐标。
+PNG运行版仅作256色编码优化；原图1154×1363和哈希保留在design/maps/xuanwu-lake。

@@ -1,0 +1,19 @@
+Changed field: project.config.json condition.miniprogram; current=0 selects developer gallery, list contains gallery plus 14 individual UI states. Runtime app.json first page remains unchanged.
+Baseline fixture SHA-256 7224811138B2A36FC51FB99D0707EAC75BF0D3C065415781092842FB46F56C06. It is a JSON-normalized reconstruction of the inspected empty-condition baseline, not a claim about the byte hash of the original file. Modified SHA-256 911CB4F9B29B96595A7FE5A0AE7511CBF688683089428315E3B762F2C66E3CF8. Workspace project.config.json remains modified.
+
+MODIFIED_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\ide-compile-transaction\MODIFIED_FILE
+DIFF_FILE: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\ide-compile-transaction\DIFF_FILE
+VERIFICATION.txt: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\ide-compile-transaction\VERIFICATION.txt
+ROLLBACK.sh: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\ide-compile-transaction\ROLLBACK.sh
+
+BASELINE command: PowerShell Get-Content reports/2026-10-11/evidence/ide-compile-transaction/BASELINE_FILE -Raw | ConvertFrom-Json; assert condition has 0 properties.
+BASELINE input: BASELINE_FILE. Literal output: BASELINE_EMPTY=true. Exit status: 0.
+MODIFIED command: PowerShell Get-Content reports/2026-10-11/evidence/ide-compile-transaction/MODIFIED_FILE -Raw | ConvertFrom-Json; assert condition.miniprogram.list.Count is 15.
+MODIFIED input: MODIFIED_FILE. Literal output: MODIFIED_MODES=15. Exit status: 0.
+ROLLBACK command: bash reports/2026-10-11/evidence/ide-compile-transaction/ROLLBACK.sh reports/2026-10-11/evidence/ide-compile-transaction/ROLLBACK_TEST_COPY
+ROLLBACK input: disposable copy of MODIFIED_FILE. Literal output: RESTORED_EMPTY_COMPILE_MODES. Exit status: 0.
+ROLLBACK verification command: PowerShell Get-Content reports/2026-10-11/evidence/ide-compile-transaction/ROLLBACK_TEST_COPY -Raw | ConvertFrom-Json; assert condition has 0 properties.
+ROLLBACK verification literal output: ROLLBACK_EMPTY=true. Exit status: 0. Restored behavior: no explicit IDE compile modes in the disposable copy; actual workspace file retains 15 modes.
+First baseline assertion used a PowerShell property count incorrectly and exited 1 without output; corrected to @($base.condition.PSObject.Properties).Count, then all checks exited 0.
+
+WeChat Developer Tools was already running with this project. The actual simulator rendered the home page; screenshot: D:\cat-mouse-miniprogram\reports\2026-10-11\evidence\ide-home-preview.png. IDE CLI open command returned "IDE service port disabled". No successful programmatic navigation of all 14 states was observed; compile mode registration was verified in the release ZIP and unit tests. npm test: 17/17, exit 0.

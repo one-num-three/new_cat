@@ -1,0 +1,4 @@
+<button class="pixelAction {{fontScale>1.15 || dynamic || loading || artFailed || !skin?'nativeAction':'sourceAction'}} tone-{{tone}}" style="--action-scale:{{fontScale}}" disabled="{{disabled || loading}}" loading="{{loading}}" bindtap="activate" hover-class="actionPressed" aria-label="{{label}}">
+ <image wx:if="{{skin && !dynamic && !loading && !artFailed && fontScale<=1.15}}" class="actionArt" style="aspect-ratio:{{artWidth}} / {{artHeight}};height:auto" src="{{skin}}" mode="widthFix" bindload="loaded" binderror="failed" aria-hidden="true" />
+ <text wx:else class="actionLabel">{{label}}</text>
+</button>

@@ -1,0 +1,27 @@
+<view class="venueArt {{compact?'venueArtCompact':''}}">
+  <view class="venueViewport">
+    <movable-area class="venueMovableArea" scale-area="{{true}}">
+      <movable-view wx:for="{{cameraNodes}}" wx:for-item="cameraId" wx:key="*this" class="venueMovableView" style="width:{{fitWidth}}px;height:{{fitHeight}}px" direction="all" x="{{x}}" y="{{y}}" scale="{{true}}" scale-min="1" scale-max="3" scale-value="{{scaleValue}}" animation="{{false}}" inertia="{{false}}" out-of-bounds="{{false}}" disabled="{{imageState!=='ready'}}" data-camera="{{cameraId}}" bindchange="onMove" bindscale="onScale" bindtouchend="onGestureEnd" bindtouchcancel="onGestureEnd">
+        <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" src="{{src}}" mode="aspectFit" show-menu-by-longpress="{{false}}" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="玄武湖环洲与樱洲晴日像素风场地导览，非实时定位" />
+      </movable-view>
+    </movable-area>
+    <view wx:if="{{imageState==='loading'}}" class="venueStatus" aria-role="status"><text class="venueStatusTitle">正在加载场地导览…</text></view>
+    <view wx:elif="{{imageState==='error'}}" class="venueStatus" aria-role="alert">
+      <text class="venueStatusTitle">导览图暂未加载</text>
+      <text class="venueStatusHint">请重试加载场地图片</text>
+      <button class="venueRetry" bindtap="retry">重新加载</button>
+    </view>
+  </view>
+  <view class="venueFooter">
+    <view class="venueToolbar">
+      <view class="venueZoomControls">
+        <button class="venueControl venueStep" bindtap="zoomOut" disabled="{{!fitReady || imageState!=='ready' || !canZoomOut}}" aria-label="缩小场地导览">−</button>
+        <text class="venueZoomLabel">{{zoomLabel}}</text>
+        <button class="venueControl venueStep" bindtap="zoomIn" disabled="{{!fitReady || imageState!=='ready' || !canZoomIn}}" aria-label="放大场地导览">+</button>
+      </view>
+      <button class="venueControl venueReset" bindtap="reset" disabled="{{!fitReady || imageState!=='ready'}}" aria-label="复位并完整显示场地导览">复位</button>
+    </view>
+    <text wx:if="{{!compact}}" class="venueGestureHint">拖动查看 · 双指缩放</text>
+    <text class="venueAttribution">© OpenStreetMap contributors</text>
+  </view>
+</view>

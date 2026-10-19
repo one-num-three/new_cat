@@ -1,0 +1,20 @@
+diff --git "a/reports\\2026-10-11\\evidence\\domain-config-transaction\\BASELINE_FILE" "b/reports\\2026-10-11\\evidence\\domain-config-transaction\\MODIFIED_FILE"
+index 68bcbcf..a7d334c 100644
+--- "a/reports\\2026-10-11\\evidence\\domain-config-transaction\\BASELINE_FILE"
++++ "b/reports\\2026-10-11\\evidence\\domain-config-transaction\\MODIFIED_FILE"
+@@ -1,9 +1,9 @@
+-// Configure this file for a local simulator or an approved HTTPS deployment.
++// Pilot gateway. Local two-identity tests use the isolated server test harness.
+ module.exports = {
+   mode: 'local', // local | cloud
+-  baseUrl: 'http://127.0.0.1:4000',
+-  wsUrl: '', // for cloud/deployment set wss://your-approved-domain
++  baseUrl: 'https://seu-link.fit/catmouse',
++  wsUrl: 'wss://seu-link.fit/catmouse',
+   cloudEnv: '',
+   cloudService: '',
+-  localTestIdentities: true // server accepts these only with NODE_ENV=test and ENABLE_LOCAL_TEST_IDENTITIES=true
+-};
+\ No newline at end of file
++  localTestIdentities: false // production uses wx.login; server test identities stay disabled
++};

@@ -1,0 +1,24 @@
+ROUTE /pages/index/index?devPreview=home
+INVOKE nameInput
+INVOKE codeInput
+PASS input-handler-binding
+INVOKE join
+PASS join-preview-route
+INVOKE toggleReady
+INVOKE start
+PASS not-ready-start-guard
+INVOKE toggleReady
+INVOKE start
+PASS ready-start-hiding
+INVOKE toggleDrawer
+INVOKE closeDrawer
+PASS drawer-open-close-render
+ROUTE /pages/map/map?devPreview=mouse
+INVOKE showCode
+INVOKE back
+PASS mouse-code-return
+ROUTE /pages/map/map?devPreview=offline
+PASS offline-no-tactical-action
+ROUTE /pages/dev/dev
+PASS large-gallery-scroll-reachable
+REPLICA_INTERACTION_PASS=8

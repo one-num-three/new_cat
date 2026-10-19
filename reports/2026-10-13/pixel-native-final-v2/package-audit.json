@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "files": 120,
+  "rawBytes": 2088251,
+  "remainingTo2MiB": 8901,
+  "exportAndLiveShaEqual": true,
+  "testIdentities": false,
+  "restoredBaselineSha": 22,
+  "uiScreenshots": 51,
+  "changedFiles": 19,
+  "added": [
+    "utils/pixel-button-dimensions.js",
+    "scripts/wechat-screenshot.cjs",
+    "scripts/wechat-mcp-screenshot.ps1"
+  ]
+}

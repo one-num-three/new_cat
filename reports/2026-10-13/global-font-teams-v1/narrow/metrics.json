@@ -1,0 +1,517 @@
+{
+  "status": "PASS",
+  "scope": "WeChat IDE rendered preview; no physical GPS or calibration claim",
+  "records": [
+    {
+      "id": "home",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/index/index",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 329,
+              "width": 320,
+              "height": 242
+            }
+          ],
+          ".homeFooter": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 600,
+              "bottom": 651.328125,
+              "width": 320,
+              "height": 51.328125
+            }
+          ],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 102,
+              "right": 294,
+              "top": 353,
+              "bottom": 395,
+              "width": 192,
+              "height": 42
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 102,
+              "right": 294,
+              "top": 421,
+              "bottom": 463,
+              "width": 192,
+              "height": 42
+            }
+          ],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 16,
+              "right": 304,
+              "top": 657.328125,
+              "bottom": 720.4765625,
+              "width": 288,
+              "height": 63.1484375
+            }
+          ],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-home-join.png",
+          "label": "加入房间",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 85,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 306,
+            "top": 481,
+            "bottom": 536,
+            "width": 292,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-home-create.png",
+          "label": "创建活动",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 14,
+            "right": 306,
+            "top": 540,
+            "bottom": 595,
+            "width": 292,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "home-hero",
+          "selector": ".homeHero",
+          "width": 320,
+          "height": 242,
+          "intrinsic": [
+            480,
+            363
+          ],
+          "ratioError": 0
+        },
+        {
+          "id": "home-footer",
+          "selector": ".homeFooter",
+          "width": 320,
+          "height": 51.328125,
+          "intrinsic": [
+            480,
+            77
+          ],
+          "ratioError": 0.00010147133434790234
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow\\home.png"
+    },
+    {
+      "id": "create",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 16,
+              "right": 152.125,
+              "top": 346.8359375,
+              "bottom": 367.0859375,
+              "width": 136.125,
+              "height": 20.25
+            }
+          ],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 167,
+              "width": 320,
+              "height": 80
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-create-location.png",
+          "label": "重新确认位置",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 309,
+          "height": 108,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 16,
+            "right": 152.125,
+            "top": 433.5703125,
+            "bottom": 513.5703125,
+            "width": 136.125,
+            "height": 80
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-create-submit.png",
+          "label": "创建并邀请",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 7,
+            "right": 313,
+            "top": 691.703125,
+            "bottom": 746.703125,
+            "width": 306,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "create-hero",
+          "selector": ".roomHero",
+          "width": 320,
+          "height": 80,
+          "intrinsic": [
+            480,
+            120
+          ],
+          "ratioError": 0
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow\\create.png"
+    },
+    {
+      "id": "ready",
+      "mode": "narrow",
+      "page": {
+        "route": "pages/room/room",
+        "preview": true,
+        "width": 320,
+        "height": 693,
+        "font": 1,
+        "boxes": {
+          ".mapCanvas": [],
+          ".hudStack": [],
+          ".bottomPanel": [],
+          ".mapModeBar": [],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 320,
+              "top": 87,
+              "bottom": 202.328125,
+              "width": 320,
+              "height": 115.328125
+            }
+          ],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 43.5,
+              "right": 231.5,
+              "top": 235.9609375,
+              "bottom": 279.875,
+              "width": 188,
+              "height": 43.9140625
+            }
+          ],
+          ".rosterGrid": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 306,
+              "top": 444.90625,
+              "bottom": 605.90625,
+              "width": 292,
+              "height": 161
+            }
+          ],
+          ".playerCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 444.90625,
+              "bottom": 482.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 444.90625,
+              "bottom": 482.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 485.90625,
+              "bottom": 523.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 485.90625,
+              "bottom": 523.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 526.90625,
+              "bottom": 564.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 526.90625,
+              "bottom": 564.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 14,
+              "right": 157.5,
+              "top": 567.90625,
+              "bottom": 605.90625,
+              "width": 143.5,
+              "height": 38
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 162.5,
+              "right": 306,
+              "top": 567.90625,
+              "bottom": 605.90625,
+              "width": 143.5,
+              "height": 38
+            }
+          ],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": null,
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-ready-copy.png",
+          "label": "复制",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 80,
+          "height": 86,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 237.5,
+            "right": 276.5,
+            "top": 235.921875,
+            "bottom": 279.921875,
+            "width": 39,
+            "height": 44
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-ready-start.png",
+          "label": "开始30秒躲藏",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 69,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 307,
+            "top": 609.90625,
+            "bottom": 664.90625,
+            "width": 294,
+            "height": 55
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-ready-cancel.png",
+          "label": "取消准备",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1,
+          "failed": false,
+          "width": 420,
+          "height": 61,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 13,
+            "right": 307,
+            "top": 668.90625,
+            "bottom": 723.90625,
+            "width": 294,
+            "height": 55
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [
+        {
+          "id": "ready-hero",
+          "selector": ".roomHero",
+          "width": 320,
+          "height": 115.328125,
+          "intrinsic": [
+            480,
+            173
+          ],
+          "ratioError": 0.00004516099896134662
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\global-font-teams-v1\\narrow\\ready.png"
+    }
+  ]
+}

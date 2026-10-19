@@ -1,14 +1,12 @@
 // utils/api.js - 服务器 API 调用封装（支持微信云托管）
 
-// 云托管配置
-const CLOUD_ENV = 'prod-2g2i6z425323d612';
-const CLOUD_SERVICE = 'mousecat';
-
 // 基础请求封装（支持云托管）
 function request(options) {
   const app = getApp();
   const env = app?.globalData?.env || 'cloud';
   const isCloud = env === 'cloud';
+  const cloudEnv = app?.globalData?.cloudEnv || '';
+  const cloudService = app?.globalData?.cloudService || '';
   
   console.log('[API 调试] ========================================');
   console.log('[API 调试] 环境:', isCloud ? '微信云托管' : '本地开发');
@@ -25,11 +23,11 @@ function request(options) {
       // 注意：云托管服务冷启动可能需要较长时间，设置 30 秒超时
       wx.cloud.callContainer({
         config: {
-          env: CLOUD_ENV
+          env: cloudEnv
         },
         path: options.url,
         header: {
-          'X-WX-SERVICE': CLOUD_SERVICE,
+          'X-WX-SERVICE': cloudService,
           'Content-Type': 'application/json',
           'Authorization': wx.getStorageSync('token') || ''
         },
@@ -48,10 +46,10 @@ function request(options) {
             // 延迟 2 秒后重试
             setTimeout(() => {
               wx.cloud.callContainer({
-                config: { env: CLOUD_ENV },
+                config: { env: cloudEnv },
                 path: options.url,
                 header: {
-                  'X-WX-SERVICE': CLOUD_SERVICE,
+                  'X-WX-SERVICE': cloudService,
                   'Content-Type': 'application/json'
                 },
                 method: options.method || 'GET',
@@ -114,7 +112,7 @@ function handleSuccess(res, startTime, resolve, reject) {
   } else if (res.statusCode === 401) {
     console.error('[API 调试] 未授权');
     wx.showToast({ title: '请先登录', icon: 'none' });
-    wx.navigateTo({ url: '/pages/profile/profile' });
+    wx.navigateTo({ url: '/pages/index/index' });
     reject(new Error('未登录'));
   } else {
     console.error('[API 调试] HTTP 错误:', res.statusCode);

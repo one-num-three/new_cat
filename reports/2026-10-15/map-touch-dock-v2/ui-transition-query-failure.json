@@ -1,0 +1,1677 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(Math.abs(d.right-s.width)<1)\n\n    at D:\\cat-mouse-miniprogram\\scripts\\map-touch-dock-review.cjs:24:285\n    at Object.<anonymous> (D:\\cat-mouse-miniprogram\\scripts\\map-touch-dock-review.cjs:29:114)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49",
+  "rows": [
+    {
+      "name": "open-mouse",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 1,
+      "camera": {
+        "x": -183.49999999999994,
+        "y": 5.684341886080802e-14,
+        "scale": 1
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 208.84375,
+          "right": 256.84375,
+          "top": 515.08203125,
+          "bottom": 537.02734375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "zoom-in",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 1.25,
+      "camera": {
+        "x": -278.12499999999994,
+        "y": -94.62499999999994,
+        "scale": 1.25
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -278.125,
+        "right": 668.125,
+        "top": -7.625,
+        "bottom": 938.625,
+        "width": 946.25,
+        "height": 946.25
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 218.3046875,
+          "right": 266.3046875,
+          "top": 530.220703125,
+          "bottom": 552.166015625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 70.87109375,
+          "right": 129.87109375,
+          "top": 416.67578125,
+          "bottom": 438.62109375,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "zoom-out-whole",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 0.5151915455746368,
+      "camera": {
+        "x": 2.842170943040401e-14,
+        "y": 183.50000000000003,
+        "scale": 0.5151915455746368
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": 2.842170943040401e-14,
+        "right": 390,
+        "top": 270.5,
+        "bottom": 660.5,
+        "width": 390,
+        "height": 390
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219.00001525878906,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48.00001525878906,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 190.4967803955078,
+          "right": 238.49679565429688,
+          "top": 485.724609375,
+          "bottom": 507.669921875,
+          "width": 48.00001525878906,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 126.4983901977539,
+          "right": 185.49839782714844,
+          "top": 438.92669677734375,
+          "bottom": 460.87200927734375,
+          "width": 59.00000762939453,
+          "height": 21.9453125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "runtime-pan-right",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 1.0151915455746368,
+      "camera": {
+        "x": -129.25,
+        "y": -5.749999999999943,
+        "scale": 1.0151915455746368
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -129.25,
+        "right": 639.25,
+        "top": 81.25,
+        "bottom": 849.75,
+        "width": 768.5,
+        "height": 768.5
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 231,
+          "right": 279,
+          "top": 454.52734375,
+          "bottom": 476.4726867675781,
+          "width": 48,
+          "height": 21.945343017578125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 269.41864013671875,
+          "right": 317.4186706542969,
+          "top": 516.001953125,
+          "bottom": 537.947265625,
+          "width": 48.000030517578125,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 148.64682006835938,
+          "right": 207.6468505859375,
+          "top": 423.78607177734375,
+          "bottom": 445.7314147949219,
+          "width": 59.000030517578125,
+          "height": 21.945343017578125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "runtime-pan-left",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 1.0151915455746368,
+      "camera": {
+        "x": -229.25,
+        "y": -5.749999999999943,
+        "scale": 1.0151915455746368
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -229.25,
+        "right": 539.25,
+        "top": 81.25,
+        "bottom": 849.75,
+        "width": 768.5,
+        "height": 768.5
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 131,
+          "right": 179,
+          "top": 454.52734375,
+          "bottom": 476.4726867675781,
+          "width": 48,
+          "height": 21.945343017578125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 169.41864013671875,
+          "right": 217.41867065429688,
+          "top": 516.001953125,
+          "bottom": 537.947265625,
+          "width": 48.000030517578125,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 48.646820068359375,
+          "right": 107.6468505859375,
+          "top": 423.78607177734375,
+          "bottom": 445.7314147949219,
+          "width": 59.000030517578125,
+          "height": 21.945343017578125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "runtime-pinch-out",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 2.0303830911492735,
+      "camera": {
+        "x": -648.5,
+        "y": -274.4999999999999,
+        "scale": 2.0303830911492735
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -648.5,
+        "right": 888.5,
+        "top": -187.5,
+        "bottom": 1349.5,
+        "width": 1537,
+        "height": 1537
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 96,
+          "right": 144,
+          "top": 570.02734375,
+          "bottom": 591.97265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 172.8372802734375,
+          "right": 220.83734130859375,
+          "top": 692.9765625,
+          "bottom": 714.921875,
+          "width": 48.00006103515625,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": -63.206298828125,
+          "right": -4.20635986328125,
+          "top": 508.5447998046875,
+          "bottom": 530.4901123046875,
+          "width": 58.99993896484375,
+          "height": 21.9453125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "runtime-pinch-in",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 0.8121532364597094,
+      "camera": {
+        "x": -145.39999999999998,
+        "y": 71.10000000000002,
+        "scale": 0.8121532364597094
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -145.39999389648438,
+        "right": 469.3999938964844,
+        "top": 158.10000610351562,
+        "bottom": 772.8999328613281,
+        "width": 614.7999877929688,
+        "height": 614.7999267578125
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 138,
+          "right": 186,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 168.73492431640625,
+          "right": 216.73492431640625,
+          "top": 503.70703125,
+          "bottom": 525.65234375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 71.01747131347656,
+          "right": 130.0174560546875,
+          "top": 429.934326171875,
+          "bottom": 451.879638671875,
+          "width": 58.99998474121094,
+          "height": 21.9453125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": true,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "name": "right-edge-docked",
+      "route": "pages/map/map",
+      "width": 390,
+      "height": 844,
+      "safe": 34,
+      "scale": 0.8121532364597094,
+      "camera": {
+        "x": -145.39999999999998,
+        "y": 71.10000000000002,
+        "scale": 0.8121532364597094
+      },
+      "minScale": 0.5151915455746368,
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -145.39999389648438,
+        "right": 469.3999938964844,
+        "top": 158.10000610351562,
+        "bottom": 772.8999328613281,
+        "width": 614.7999877929688,
+        "height": 614.7999267578125
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 138,
+          "right": 186,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 168.73492431640625,
+          "right": 216.73492431640625,
+          "top": 503.70703125,
+          "bottom": 525.65234375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 71.01747131347656,
+          "right": 130.0174560546875,
+          "top": 429.934326171875,
+          "bottom": 451.879638671875,
+          "width": 58.99998474121094,
+          "height": 21.9453125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "tray": false,
+      "code": false,
+      "offline": false,
+      "boxes": {
+        ".playHud": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 95,
+            "bottom": 157,
+            "width": 370,
+            "height": 62
+          }
+        ],
+        ".actionDrawer": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 142,
+            "right": 382,
+            "top": 708,
+            "bottom": 804,
+            "width": 240,
+            "height": 96
+          }
+        ],
+        ".collapsedDock": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 228,
+            "top": 710,
+            "bottom": 804,
+            "width": 58,
+            "height": 94
+          }
+        ],
+        ".dockAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 178,
+            "right": 222,
+            "top": 756,
+            "bottom": 800,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        ".iconAction": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 170,
+            "right": 218,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "team"
+            },
+            "left": 238,
+            "right": 286,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "id": "",
+            "dataset": {
+              "tab": "rules"
+            },
+            "left": 306,
+            "right": 354,
+            "top": 754,
+            "bottom": 798,
+            "width": 48,
+            "height": 44
+          }
+        ],
+        ".mapTools": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 175,
+            "bottom": 419,
+            "width": 46,
+            "height": 244
+          }
+        ],
+        ".mapStatus": [],
+        ".zoomInButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 279,
+            "bottom": 323,
+            "width": 46,
+            "height": 44
+          }
+        ],
+        ".zoomOutButton": [
+          {
+            "id": "",
+            "dataset": {},
+            "left": 334,
+            "right": 380,
+            "top": 323,
+            "bottom": 367,
+            "width": 46,
+            "height": 44
+          }
+        ]
+      }
+    }
+  ]
+}

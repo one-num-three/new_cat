@@ -1,0 +1,34 @@
+ROUTE cat
+ROUTE_RETRY cat {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cat
+ROUTE mouse
+ROUTE_RETRY mouse {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouse
+ROUTE alert
+ROUTE_RETRY alert {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS alert
+ROUTE hiding
+ROUTE_RETRY hiding {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS hiding
+ROUTE captured
+ROUTE_RETRY captured {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS captured
+ROUTE paused
+SDK_RECONNECT paused timeout waiting for automator response
+PASS paused
+ROUTE offline
+ROUTE_RETRY offline {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS offline
+ROUTE catWin
+ROUTE_RETRY catWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS catWin
+ROUTE mouseWin
+ROUTE_RETRY mouseWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouseWin
+ROUTE cancelled
+ROUTE_RETRY cancelled {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cancelled
+ROUTE drawer
+ROUTE_RETRY drawer {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS drawer
+REPLICA_UI_PASS=11 FONT_SCALE=1

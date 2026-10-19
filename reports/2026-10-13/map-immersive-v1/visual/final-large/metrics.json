@@ -1,0 +1,189 @@
+{
+  "status": "PASS",
+  "scope": "WeChat IDE rendered preview; no physical GPS or calibration claim",
+  "records": [
+    {
+      "id": "cat",
+      "mode": "large",
+      "page": {
+        "route": "pages/map/map",
+        "preview": true,
+        "artMode": true,
+        "width": 390,
+        "height": 844,
+        "font": 1.3,
+        "uiState": "cat",
+        "clock": "04:45",
+        "summary": "这局记录保留，下一轮使用新的对局",
+        "boxes": {
+          ".mapCanvas": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 10,
+              "right": 380,
+              "top": 356.21875,
+              "bottom": 634.609375,
+              "width": 370,
+              "height": 278.390625
+            }
+          ],
+          ".hudStack": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 9,
+              "right": 381,
+              "top": 220.40625,
+              "bottom": 308.21875,
+              "width": 372,
+              "height": 87.8125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 634.609375,
+              "bottom": 844,
+              "width": 390,
+              "height": 209.390625
+            }
+          ],
+          ".mapModeBar": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 308.21875,
+              "bottom": 356.21875,
+              "width": 390,
+              "height": 48
+            }
+          ],
+          ".venueFrame": [],
+          ".venueHeading": [],
+          ".venueBack": [],
+          ".drawer": [],
+          ".homeHero": [],
+          ".homeFooter": [],
+          ".roomHero": [],
+          ".codeRole": [],
+          ".pauseHero": [],
+          ".resultHero": [],
+          ".hidingArt": [],
+          ".homeInput": [],
+          ".roomCode": [],
+          ".rosterGrid": [],
+          ".playerCard": [],
+          ".venueEntry": [],
+          ".qrCard": [],
+          ".demoArt": []
+        }
+      },
+      "component": {
+        "src": "/assets/maps/xuanwu-lake-v4.jpg",
+        "imageState": "ready",
+        "fitReady": true,
+        "width": 366.00000000000006,
+        "height": 366.00000000000006,
+        "x": -51.24000000000004,
+        "y": -97.04468750000004,
+        "scale": 1.28,
+        "boxes": {
+          ".venueViewport": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12,
+              "right": 378,
+              "top": 358.21875,
+              "bottom": 632.609375,
+              "width": 366,
+              "height": 274.390625
+            }
+          ],
+          ".venueImage": [
+            {
+              "id": "",
+              "dataset": {
+                "generation": 1
+              },
+              "left": -52.24500274658203,
+              "right": 416.23497772216797,
+              "top": 304.1339111328125,
+              "bottom": 772.6138916015625,
+              "width": 468.47998046875,
+              "height": 468.47998046875
+            }
+          ],
+          ".venueControl": [],
+          ".venueAttribution": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 199,
+              "top": 614.5625,
+              "bottom": 627.609375,
+              "width": 181,
+              "height": 13.046875
+            }
+          ],
+          ".venueStatus": []
+        }
+      },
+      "actions": [
+        {
+          "skin": "/assets/pixel-v1/button-cat-scan.png",
+          "label": "扫码确认抓捕",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1.3,
+          "failed": false,
+          "width": 413,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 682,
+            "bottom": 744.5,
+            "width": 370,
+            "height": 62.5
+          },
+          "image": null
+        },
+        {
+          "skin": "/assets/pixel-v1/button-cat-details.png",
+          "label": "队伍·规则·操作",
+          "disabled": false,
+          "loading": false,
+          "dynamic": false,
+          "fontScale": 1.3,
+          "failed": false,
+          "width": 333,
+          "height": 152,
+          "button": {
+            "id": "",
+            "dataset": {},
+            "left": 10,
+            "right": 380,
+            "top": 747.5,
+            "bottom": 810,
+            "width": 370,
+            "height": 62.5
+          },
+          "image": null
+        }
+      ],
+      "imageChecks": [],
+      "screenshot": "D:\\cat-mouse-preview-evidence\\2026-10-13\\map-immersive-v1\\final-large\\cat.png"
+    }
+  ]
+}

@@ -1,0 +1,775 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at Object.<anonymous> (D:\\cat-mouse-miniprogram\\scripts\\osm-art-review.cjs:17:272)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)\n    at Module.load (node:internal/modules/cjs/loader:1465:32)\n    at Function._load (node:internal/modules/cjs/loader:1282:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)\n    at node:internal/main/run_main_module:36:49",
+  "rows": [
+    {
+      "name": "normal-cat",
+      "file": "normal-cat.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 208.84375,
+          "right": 256.84375,
+          "top": 515.08203125,
+          "bottom": 537.02734375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 132.1796875,
+          "right": 256.5234375,
+          "top": 477.8203125,
+          "bottom": 606.3515625,
+          "width": 124.34375,
+          "height": 128.53125
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [
+        {
+          "id": 0,
+          "x": 377.85962378844516,
+          "y": 455.08837043916674,
+          "rx": 62.17470065919073,
+          "ry": 64.26605846576558,
+          "angle": 0
+        }
+      ],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "cat",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "normal-mouse",
+      "file": "normal-mouse.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 208.84375,
+          "right": 256.84375,
+          "top": 515.08203125,
+          "bottom": 537.02734375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "mouse",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "normal-captured",
+      "file": "normal-captured.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [],
+      "points": [
+        {
+          "id": 0,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "captured",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "已出局 · 仅公开位置"
+    },
+    {
+      "name": "normal-offline",
+      "file": "normal-offline.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 2
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [],
+      "regions": [],
+      "points": [],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "--:--",
+      "offline": true,
+      "phase": "offline",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "等待重连 · 位置已隐藏"
+    },
+    {
+      "name": "narrow-cat",
+      "file": "narrow-cat.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -96.5,
+        "right": 416.5,
+        "top": 87,
+        "bottom": 600,
+        "width": 513,
+        "height": 513
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 136,
+          "right": 184,
+          "top": 332.52734375,
+          "bottom": 354.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 161.6484375,
+          "right": 209.6484375,
+          "top": 373.56640625,
+          "bottom": 395.51171875,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 79.1953125,
+          "right": 138.1953125,
+          "top": 312.00390625,
+          "bottom": 333.94921875,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 117.4296875,
+          "right": 201.6953125,
+          "top": 351.84375,
+          "bottom": 438.9453125,
+          "width": 84.265625,
+          "height": 87.1015625
+        }
+      ],
+      "points": [
+        {
+          "id": 0,
+          "x": 256.50000000100727,
+          "y": 256.499999998096,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 282.1500000015439,
+          "y": 297.53999999893506,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 205.2000000006994,
+          "y": 235.97999999839334,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [
+        {
+          "id": 0,
+          "x": 256.06603302968614,
+          "y": 308.4020264667008,
+          "rx": 42.134242322542754,
+          "ry": 43.551503293180666,
+          "angle": 0
+        }
+      ],
+      "fitWidth": 513,
+      "fitHeight": 513,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "cat",
+      "width": 320,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "large-mouse",
+      "file": "large-mouse.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 208.84375,
+          "right": 256.84375,
+          "top": 515.08203125,
+          "bottom": 537.02734375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "mouse",
+      "width": 390,
+      "font": 1.3,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "self-before",
+      "file": "self-before.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 208.84375,
+          "right": 256.84375,
+          "top": 515.08203125,
+          "bottom": 537.02734375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "mouse",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "self-focused",
+      "file": "self-focused.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -183.5,
+        "right": 573.5,
+        "top": 87,
+        "bottom": 844,
+        "width": 757,
+        "height": 757
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 171,
+          "right": 219,
+          "top": 454.52734375,
+          "bottom": 476.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 208.84375,
+          "right": 256.84375,
+          "top": 515.08203125,
+          "bottom": 537.02734375,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 89.796875,
+          "right": 148.796875,
+          "top": 424.24609375,
+          "bottom": 446.19140625,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "mouse",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "runtime-pan-zoom",
+      "file": "runtime-pan-zoom.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -218.125,
+        "right": 728.125,
+        "top": 32.375,
+        "bottom": 978.625,
+        "width": 946.25,
+        "height": 946.25
+      },
+      "badges": [
+        {
+          "id": "",
+          "dataset": {},
+          "left": 231,
+          "right": 279,
+          "top": 494.52734375,
+          "bottom": 516.47265625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 278.3046875,
+          "right": 326.3046875,
+          "top": 570.220703125,
+          "bottom": 592.166015625,
+          "width": 48,
+          "height": 21.9453125
+        },
+        {
+          "id": "",
+          "dataset": {},
+          "left": 130.87109375,
+          "right": 189.87109375,
+          "top": 456.67578125,
+          "bottom": 478.62109375,
+          "width": 59,
+          "height": 21.9453125
+        }
+      ],
+      "regions": [],
+      "points": [
+        {
+          "id": 0,
+          "x": 378.5000000014863,
+          "y": 378.4999999971903,
+          "label": "本人",
+          "tone": "self"
+        },
+        {
+          "id": 1,
+          "x": 416.35000000227814,
+          "y": 439.05999999842845,
+          "label": "队友",
+          "tone": "ally"
+        },
+        {
+          "id": 2,
+          "x": 302.800000001032,
+          "y": 348.2199999976291,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "mouse",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    },
+    {
+      "name": "outside-reference",
+      "file": "outside-reference.png",
+      "route": "pages/map/map",
+      "image": {
+        "id": "",
+        "dataset": {
+          "generation": 1
+        },
+        "left": -218.125,
+        "right": 728.125,
+        "top": 32.375,
+        "bottom": 978.625,
+        "width": 946.25,
+        "height": 946.25
+      },
+      "badges": [],
+      "regions": [],
+      "points": [],
+      "areas": [],
+      "fitWidth": 756.9999999999999,
+      "fitHeight": 756.9999999999999,
+      "source": "/assets/maps/xuanwu-lake-v4.jpg",
+      "osm": true,
+      "art": true,
+      "omitted": 0,
+      "clock": "04:45",
+      "offline": false,
+      "phase": "mouse",
+      "width": 390,
+      "font": 1,
+      "error": "",
+      "locationText": "本人 · 精度约6米"
+    }
+  ]
+}

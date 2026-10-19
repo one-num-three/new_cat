@@ -1,0 +1,7 @@
+{
+  "source": "https://github.com/wandergis/coordtransform/blob/master/index.js",
+  "retrieved": "2026-10-15",
+  "license": "MIT; see coordtransform.LICENSE",
+  "scope": "Adapted WGS84-to-GCJ02 subset; project code supplies iterative inverse; no upstream download/commit pin claimed",
+  "sha256": "4d149551ba6a3fd12d720f811c6501636fb1ba73e3ba92193222b4f8ad9ca58c"
+}

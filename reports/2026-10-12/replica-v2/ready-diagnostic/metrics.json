@@ -1,0 +1,180 @@
+{
+  "status": "PASS",
+  "scope": "geometry, authorized fixture state, and intrinsic image ratios; not pixel similarity or physical device validation",
+  "layoutCanvas": null,
+  "records": [
+    {
+      "id": "ready",
+      "route": "pages/room/room",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "roomId": "dev-preview-room",
+      "fontScale": 1,
+      "layoutCanvas": null,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 864.828125,
+              "width": 390,
+              "height": 864.828125
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.8828125,
+              "right": 370.1171875,
+              "top": 666.7421875,
+              "bottom": 724.140625,
+              "width": 350.234375,
+              "height": 57.3984375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.8828125,
+              "right": 370.1171875,
+              "top": 734.140625,
+              "bottom": 780.9453125,
+              "width": 350.234375,
+              "height": 46.8046875
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 35.8828125,
+              "right": 285.1171875,
+              "top": 283.0390625,
+              "bottom": 327.65625,
+              "width": 249.234375,
+              "height": 44.6171875
+            }
+          ],
+          ".copyButton": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 295.1171875,
+              "right": 354.1171875,
+              "top": 288.34375,
+              "bottom": 322.34375,
+              "width": 59,
+              "height": 34
+            }
+          ],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": [],
+          ".heroScene": [],
+          ".heroArt": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 79.3046875,
+              "bottom": 220.6171875,
+              "width": 390,
+              "height": 141.3125
+            }
+          ],
+          ".sceneArt": [],
+          ".heroCat": [],
+          ".cloudArt": [],
+          ".treeArt": [],
+          ".stateArt": [],
+          ".resultArt": [],
+          ".roleArt": [],
+          ".parkArt": [],
+          ".warningIcon": [],
+          ".groupIcon": [],
+          ".formTitle": [],
+          ".inviteCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.8828125,
+              "right": 370.1171875,
+              "top": 247.8359375,
+              "bottom": 335.65625,
+              "width": 350.234375,
+              "height": 87.8203125
+            }
+          ],
+          ".rosterCard": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19.8828125,
+              "right": 370.1171875,
+              "top": 376.0546875,
+              "bottom": 626.4921875,
+              "width": 350.234375,
+              "height": 250.4375
+            }
+          ],
+          ".roomCodeCard": [],
+          ".venueCard": [],
+          ".galleryGroup": [],
+          ".devLink": [],
+          ".heroCopy": []
+        }
+      },
+      "imageChecks": [
+        {
+          "selector": ".heroArt",
+          "src": "/assets/faithful-v2/hero-ready.png",
+          "mode": "widthFix",
+          "intrinsic": [
+            712,
+            258
+          ],
+          "rendered": [
+            390,
+            141.3125
+          ],
+          "ratioError": 0.0000546640891720962,
+          "method": "actual rendered box / original PNG aspect"
+        }
+      ],
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\ready-diagnostic\\ready.png"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "baselineDate": "2026-10-08",
+  "nodeVersion": "v22.17.1",
+  "serverSha256": "d72de30996a0e936137d5e2efbc5d422e972231b4271d02f749dea22fc12e651",
+  "scope": "Disposable localhost-only HTTP audit, tasks disabled, no production service, no true devices or load test",
+  "checks": [
+    {
+      "id": "R01",
+      "name": "Anonymous settings update accepted",
+      "reproduced": true,
+      "observed": {
+        "httpStatus": 200,
+        "duration": 900
+      }
+    },
+    {
+      "id": "R02",
+      "name": "Vision and riddle settings silently discarded",
+      "reproduced": true,
+      "observed": {
+        "catCount": 1,
+        "mouseCount": 1,
+        "gameDuration": 900,
+        "mapRange": 1000,
+        "revealTime": 180
+      }
+    },
+    {
+      "id": "R03",
+      "name": "Anonymous start with one cat and no mouse accepted",
+      "reproduced": true,
+      "observed": {
+        "players": 1,
+        "roles": [
+          "cat"
+        ]
+      }
+    },
+    {
+      "id": "R04",
+      "name": "Existing player retry rejected when room is full",
+      "reproduced": true,
+      "observed": {
+        "success": false,
+        "message": "房间人数已满"
+      }
+    },
+    {
+      "id": "R05",
+      "name": "Item success is not persisted and can be repeated",
+      "reproduced": true,
+      "observed": {
+        "first": {
+          "success": true,
+          "message": "道具使用成功",
+          "itemId": "invisible",
+          "effect": {
+            "type": "invisible",
+            "duration": 15,
+            "target": "p1"
+          },
+          "remainingScore": 5
+        },
+        "second": {
+          "success": true,
+          "message": "道具使用成功",
+          "itemId": "invisible",
+          "effect": {
+            "type": "invisible",
+            "duration": 15,
+            "target": "p1"
+          },
+          "remainingScore": 5
+        },
+        "storedScore": 20,
+        "storedItems": {
+          "invisible": 0,
+          "invisibleCount": 1
+        }
+      }
+    },
+    {
+      "id": "R06",
+      "name": "Mouse cannot afford the only enabled item",
+      "reproduced": true,
+      "observed": {
+        "success": false,
+        "message": "积分不足"
+      }
+    },
+    {
+      "id": "R07",
+      "name": "Capture without authentication, QR proof or either location succeeds",
+      "reproduced": true,
+      "observed": {
+        "success": true,
+        "message": "抓住成功",
+        "catchCount": 1,
+        "remaining": 0
+      }
+    },
+    {
+      "id": "R08",
+      "name": "Status omits winner and capture history after terminal capture",
+      "reproduced": true,
+      "observed": {
+        "status": "ended",
+        "winnerPresent": false,
+        "winReason": "all_mice_caught",
+        "events": []
+      }
+    },
+    {
+      "id": "R09",
+      "name": "Finished match can be started again without state guard",
+      "reproduced": true,
+      "observed": {
+        "roles": [
+          "cat",
+          "mouse"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "Anonymous caller can choose winner and overwrite result",
+      "reproduced": true,
+      "observed": {
+        "success": true,
+        "message": "游戏已结束",
+        "result": {
+          "winner": "mouse",
+          "endTime": 1791472798532
+        }
+      }
+    },
+    {
+      "id": "R11",
+      "name": "Anonymous status exposes distant opponents, roles and hidden riddle",
+      "reproduced": true,
+      "observed": {
+        "positions": [
+          {
+            "role": "mouse",
+            "latitude": 33,
+            "longitude": 119
+          },
+          {
+            "role": "cat",
+            "latitude": 31,
+            "longitude": 118
+          }
+        ],
+        "duplicateAllPlayers": true,
+        "riddleVisible": true
+      }
+    },
+    {
+      "id": "R12",
+      "name": "Caller can overwrite another player location and bypass distance",
+      "reproduced": true,
+      "observed": {
+        "beforeSpoofStatus": 400,
+        "afterSpoofStatus": 200
+      }
+    },
+    {
+      "id": "R13",
+      "name": "Capture after deadline accepted if status has not been read",
+      "reproduced": true,
+      "observed": {
+        "durationSeconds": 0.05,
+        "waitedMs": 100,
+        "result": {
+          "success": true,
+          "message": "抓住成功",
+          "catchCount": 1,
+          "remaining": 0
+        }
+      }
+    },
+    {
+      "id": "R14",
+      "name": "Floor countdown ends match during its final partial second",
+      "reproduced": true,
+      "observed": {
+        "durationSeconds": 0.8,
+        "immediateStatus": "ended",
+        "countdown": 0
+      }
+    },
+    {
+      "id": "R15",
+      "name": "Join request can replace host",
+      "reproduced": true,
+      "observed": {
+        "ownerId": "intruder",
+        "hostFlags": 2
+      }
+    },
+    {
+      "id": "R16",
+      "name": "Home version endpoint is missing",
+      "reproduced": true,
+      "observed": {
+        "httpStatus": 404
+      }
+    }
+  ],
+  "payloadSamples": [
+    {
+      "players": 6,
+      "statusBodyBytes": 3372,
+      "pollingBodyMbps100Online": 1.349
+    },
+    {
+      "players": 12,
+      "statusBodyBytes": 6489,
+      "pollingBodyMbps100Online": 2.596
+    },
+    {
+      "players": 20,
+      "statusBodyBytes": 10665,
+      "pollingBodyMbps100Online": 4.266
+    }
+  ]
+}

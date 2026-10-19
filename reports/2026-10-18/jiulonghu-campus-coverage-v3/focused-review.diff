@@ -1,0 +1,325 @@
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\cat-mouse-server\\v2\\jiulonghu-location.test.js" b/cat-mouse-server/v2/jiulonghu-location.test.js
+index 01b796c..edff31d 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\cat-mouse-server\\v2\\jiulonghu-location.test.js"
++++ b/cat-mouse-server/v2/jiulonghu-location.test.js
+@@ -28,7 +28,15 @@ test('public page shows reported simulated point explicitly and clears it on sto
+  p.selectMap('seu-sipailou-v1');assert.equal(p.data.hasPosition,false);assert.equal(p.simulation,null);
+  const phone=page('ios');phone.onLoad({mapId:id,simPosition:'jiulonghu-meiyuan7b'});phone.onShow();assert.equal(phone.data.hasPosition,false);assert.match(phone.data.locationError,/仅限电脑/);
+ });
+-test('guide distinguishes unregistered image area from being outside the selected campus',()=>{
+- const p=page();p.onLoad({mapId:id});p.onShow();const inside={lat:31.8956,lng:118.82,accuracy:5};assert.equal(catalog.contains(id,inside),true);assert.equal(osm.project(inside,'gcj02',id),null);p.displayPosition(inside);assert.match(p.data.locationError,/校区范围内/);assert.match(p.data.locationError,/尚未完成图片配准/);
+- p.displayPosition({lat:0,lng:0,accuracy:5});assert.match(p.data.locationError,/超出所选校区/);
++test('guide distinguishes reference footprint from broad venue bounding box without claiming campus membership',()=>{
++ const p=page();p.onLoad({mapId:id});p.onShow();const insideBox={lat:31.8956,lng:118.82,accuracy:5};assert.equal(catalog.contains(id,insideBox),true);assert.equal(osm.project(insideBox,'gcj02',id),null);p.displayPosition(insideBox);assert.match(p.data.locationError,/超出图片参考范围/);assert.doesNotMatch(p.data.locationError,/你在校区范围内/);
++ p.displayPosition({lat:0,lng:0,accuracy:5});assert.match(p.data.locationError,/远离所选场地/);
++});
++
++test('first local position waits for rendered art before focusing once, and late readiness cannot restart stopped GPS',()=>{
++ const p=page();let ready=false,focus=0;p.selectComponent=()=>({focusSelf:()=>{focus++;return ready;}});
++ p.onLoad({mapId:id,simPosition:'jiulonghu-meiyuan7b'});p.onShow();assert.equal(p.needsInitialFocus,true);const waiting=focus;
++ ready=true;p.onArtReady();assert.equal(p.needsInitialFocus,false);assert.equal(focus,waiting+1);
++ p.onArtReady();assert.equal(focus,waiting+1,'Readiness must not repeatedly recenter a manually panned map');
++ p.stopGps({currentTarget:{}});p.onArtReady();assert.equal(focus,waiting+1);assert.equal(p.data.hasPosition,false);
+ });
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\cat-mouse-server\\v2\\map-motion-gps.test.js" b/cat-mouse-server/v2/map-motion-gps.test.js
+index 483ca52..72c7ce2 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\cat-mouse-server\\v2\\map-motion-gps.test.js"
++++ b/cat-mouse-server/v2/map-motion-gps.test.js
+@@ -42,7 +42,7 @@ function guide(){
+ test('public guide renders only live local self, supports campus switching and clears on hide, failure and stop',()=>{
+  const f=guide();assert.equal(f.starts,0);f.p.locate();assert.equal(f.starts,1);const image=catalog.get('seu-sipailou-v1');f.p.selectMap(image.id);const pos={...image.demoPoints[0],accuracy:6,receivedAt:Date.now(),coordinateSystem:'gcj02'};f.push(pos);
+  assert.equal(f.p.data.geoData.points.length,1);assert.equal(f.p.data.geoData.points[0].tone,'self');assert.equal(f.p.data.markers.length,1);assert.ok(f.focus>0);f.p.locate();assert.equal(f.starts,1);
+- f.p.selectMap('seu-jiulonghu-v1');assert.match(f.p.data.locationError,/超出/);assert.equal(f.p.data.markers[0].latitude,pos.lat);
++ f.p.selectMap('seu-jiulonghu-v1');assert.match(f.p.data.locationError,/远离所选场地/);assert.equal(f.p.data.markers[0].latitude,pos.lat);
+  f.p.toggleLayer();assert.equal(f.p.data.locationError,'');const center=f.p.data.latitude;f.p.onNativeRegion({causedBy:'gesture'});f.push({...pos,lat:pos.lat+.0001});assert.equal(f.p.data.latitude,center);f.p.locate();assert.equal(f.p.data.latitude,pos.lat+.0001);assert.equal(f.p.data.followSelf,true);
+  f.fail(Error('stale'));assert.equal(f.p.data.geoData.points.length,0);assert.equal(f.p.data.markers.length,0);f.p.onHide();f.push(pos);assert.equal(f.p.data.hasPosition,false);assert.equal(f.p.data.coordinateText,'');f.p.onShow();assert.equal(f.p.data.locationOn,false);
+ });
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\cat-mouse-server\\v2\\venue-ui.test.js" b/cat-mouse-server/v2/venue-ui.test.js
+index 0e81320..1dd844f 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\cat-mouse-server\\v2\\venue-ui.test.js"
++++ b/cat-mouse-server/v2/venue-ui.test.js
+@@ -13,7 +13,7 @@ function componentFixture(overrides={}){
+  const wx={nextTick:fn=>ticks.push(fn),createAnimation:options=>{const a={ops:[],translate3d(x,y,z){this.ops.push(['translate',x,y,z]);return this;},scale(s){this.ops.push(['scale',s]);return this;},step(){return this;},export(){const data={options,ops:this.ops};animations.push(plain(data));return data;}};return a;}};
+  vm.runInNewContext(read('components/venue-art/venue-art.js'),{Component:d=>definition=d,wx,Date:{now:()=>now},require:n=>n.includes('venue-catalog')?require('../../utils/venue-catalog'):n.includes('venue-resources')?require('../../utils/venue-resources'):n.includes('map-markers')?require('../../utils/map-markers'):n.includes('osm-art-registration')?require('../../utils/osm-art-registration'):n.includes('geo-registration')?require('../../utils/geo-registration'):n.includes('venue-camera')?camera:config,setTimeout:(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;},clearTimeout:key=>timers.delete(key)});
+  const defaults=Object.fromEntries(Object.entries(definition.properties).map(([k,v])=>[k,v.value]));const instance={...definition.methods,data:{...defaults,...plain(definition.data),autoTour:false,...overrides}};
+- instance.setData=p=>{writes.push(plain(p));Object.assign(instance.data,p);};instance.createSelectorQuery=()=>({select:s=>{assert.equal(s,'.venueViewport');return {boundingClientRect:cb=>{queries.push(cb);return {exec(){}};}};}});
++ instance.triggerEvent=()=>{};instance.setData=p=>{writes.push(plain(p));Object.assign(instance.data,p);};instance.createSelectorQuery=()=>({select:s=>{assert.equal(s,'.venueViewport');return {boundingClientRect:cb=>{queries.push(cb);return {exec(){}};}};}});
+  const flush=()=>{while(ticks.length)ticks.shift()();};const measure=(width=390,height=600)=>{flush();assert.ok(queries.length);queries.shift()({width,height,left:0,top:0});};const attach=()=>definition.lifetimes.attached.call(instance),detach=()=>definition.lifetimes.detached.call(instance);const imageEvent=(generation=instance._imageSerial)=>({currentTarget:{dataset:{generation}}});const ready=()=>{attach();measure();instance.onImageLoad(imageEvent());flush();};const setNow=n=>now=n;const advance=ms=>{now+=ms;const due=[...timers].filter(([,t])=>t.at<=now);for(const [key,t]of due){timers.delete(key);t.fn();}};
+  return {definition,instance,ticks,queries,writes,timers,animations,flush,measure,attach,detach,imageEvent,ready,setNow,advance};
+ }
+@@ -213,7 +213,7 @@ test('geographic overlays share the image scene, clear on invalidation and keep
+  f.instance.data.geoData={points:[{...pos,tone:'self'}]};f.instance.data.src='wrong-image.jpg';f.instance._overlays();assert.equal(f.instance.data.overlayPoints.length,0);
+ });
+ test('calibration tap reports source image coordinates but pan and canceled touches do not create points',()=>{
+- const f=componentFixture({calibrationMode:true});const events=[];f.instance.triggerEvent=(...args)=>events.push(args);f.ready();
++ const f=componentFixture({calibrationMode:true});const events=[];f.instance.triggerEvent=(...args)=>{if(args[0]==='point')events.push(args);};f.ready();
+  const p={clientX:195,clientY:300};f.instance.onTouchStart({touches:[p]});f.instance.onTouchEnd({touches:[],changedTouches:[p]});assert.equal(events.length,1);assert.ok(Math.abs(events[0][1].u-.5)<1e-9);assert.ok(Math.abs(events[0][1].v-.5)<1e-9);
+  f.instance.onTouchStart({touches:[p]});const q={clientX:120,clientY:280};f.instance.onTouchMove({touches:[q]});f.instance.onTouchEnd({touches:[],changedTouches:[q]});assert.equal(events.length,1);f.instance.onTouchStart({touches:[p]});f.instance.onTouchCancel();assert.equal(events.length,1);
+ });
+@@ -227,3 +227,12 @@ test('OSM authorized points share uniform art camera; disabled reference and for
+ });
+ 
+ test('calibration coordinates account for document scroll without deforming the image',()=>{const f=componentFixture();f.ready();f.instance._vp.top=200;f.instance._vpScrollTop=0;f.instance.data.scrollTop=150;const q=f.instance._points({touches:[{clientX:100,clientY:100,pageX:100,pageY:250}]})[0];assert.equal(q.y,50);});
++
++test('art readiness supports either image/measurement order and never permits focusing an unloaded image',()=>{
++ for(const imageFirst of [true,false]){
++  const f=componentFixture(),ready=[];f.instance.triggerEvent=name=>{if(name==='ready')ready.push(name);};f.attach();assert.equal(f.instance.focusSelf(),false);
++  if(imageFirst){f.instance.onImageLoad(f.imageEvent());assert.equal(ready.length,0);f.measure();}
++  else{f.measure();assert.equal(ready.length,0);f.instance.onImageLoad(f.imageEvent());}
++  assert.equal(ready.length,1);f.detach();f.instance.onImageLoad(f.imageEvent());assert.equal(ready.length,1);
++ }
++});
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\components\\venue-art\\venue-art.js" b/components/venue-art/venue-art.js
+index ba8f7d6..2049de5 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\components\\venue-art\\venue-art.js"
++++ b/components/venue-art/venue-art.js
+@@ -27,11 +27,11 @@ Component({
+    if(preserve&&this._fit&&this.data.fitReady&&Math.abs(this._fit.width-fit.width)<.01&&Math.abs(this._fit.height-fit.height)<.01){const previous=this._vp,current=this._sample(),changed=previous.width!==rect.width||previous.height!==rect.height;this._vp=rect;this._vpScrollTop=this.data.scrollTop;if(changed){this._stopTour(false);this._paint({...current,x:current.x+(rect.width-previous.width)/2,y:current.y+(rect.height-previous.height)/2});if(!this._userInterrupted)this._startTour();}return;}
+    const oldFit=this._fit,oldVp=this._vp,old=this._sample();this._stopTour(false);this._vp=rect;this._vpScrollTop=this.data.scrollTop;this._fit=fit;this._gesture=null;
+    let c={x:fit.x,y:fit.y,scale:1};if(preserve&&oldFit&&oldVp&&this._userInterrupted){const u=(oldVp.width/2-old.x)/(oldFit.width*old.scale),v=(oldVp.height/2-old.y)/(oldFit.height*old.scale);c={x:rect.width/2-u*fit.width*old.scale,y:rect.height/2-v*fit.height*old.scale,scale:old.scale};}
+-   this.setData({fitReady:true,fitWidth:fit.width,fitHeight:fit.height});this._paint(c);this._overlays();if(!this._userInterrupted)this._startTour();
++   this.setData({fitReady:true,fitWidth:fit.width,fitHeight:fit.height});this._paint(c);this._overlays();if(!this._userInterrupted)this._startTour();if(this.data.imageState==='ready')this.triggerEvent('ready');
+   }).exec();});},
+   _reloadImage(){this._stopTour(false);const generation=++this._imageSerial;this.setData({imageState:this.data.src?'loading':'error',imageNodes:[],overlayPoints:[],overlayRegions:[],showSelf:false,showControls:false});const mount=()=>wx.nextTick(()=>{if(this._alive&&generation===this._imageSerial&&this.data.src)this.setData({imageNodes:[generation]});});const image=catalog.get(this.data.imageId);if(image?.subpackage&&this.data.src===image.src)resources.ensure(image.id).then(mount,()=>{if(this._alive&&generation===this._imageSerial)this.setData({imageState:'error'});});else mount();},
+   _currentImage(e){return this._alive&&e.currentTarget&&Number(e.currentTarget.dataset.generation)===this._imageSerial;},
+-  onImageLoad(e){if(!this._currentImage(e)||this.data.imageState==='ready')return;this.setData({imageState:'ready',...(!this.data.autoTour?{mode:'manual',showControls:true}:{})});this._startTour();},
++  onImageLoad(e){if(!this._currentImage(e)||this.data.imageState==='ready')return;this.setData({imageState:'ready',...(!this.data.autoTour?{mode:'manual',showControls:true}:{})});this._startTour();if(this._fit)this.triggerEvent('ready');},
+   onImageError(e){if(!this._currentImage(e))return;this._stopTour(false);this.setData({imageState:'error'});},
+   retry(){if(!this._alive)return;this._userInterrupted=false;this._reloadImage();this._scheduleFit();},
+   _stopTour(manual){this._tourSerial=(this._tourSerial||0)+1;if(this._tourTimer!=null)clearTimeout(this._tourTimer);this._tourTimer=null;if(this._segment&&this._fit&&this._vp){const elastic=!!this._segment.elastic,c=this._sample();this._segment=null;if(elastic){this._camera=c;this._publish(c);this._animate(c,0);}else this._paint(c);}this._segment=null;if(manual&&this._alive){this._userInterrupted=true;this.setData({mode:'manual',showControls:true});}},
+@@ -47,7 +47,7 @@ Component({
+   onTouchCancel(){this._tapMoved=true;this._tapStart=null;this._gesture=null;if(this._alive&&this._visible&&this._fit)this._settle();},
+   _settle(){const from={...this._camera},to=this._bound(from);this._camera=to;this._publish(to);const delta=Math.hypot(from.x-to.x,from.y-to.y);this._segment=delta>.1?{from,to,at:Date.now(),duration:220,elastic:true}:null;this._animate(to,delta>.1?220:0,'ease-out');},
+   _zoom(delta){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return;this._stopTour(true);this._gesture=null;this._paint(geometry.zoomAt(this._camera,this._camera.scale+delta,this._vp.width/2,this._vp.height/2,this._vp.width,this._vp.height,this._fit.width,this._fit.height,this._minScale(),this._padding()));},
+-  focusSelf(){if(!this._alive||!this._visible||!this._fit)return false;const p=(this.data.overlayPoints||[]).find(x=>x.tone==='self');if(!p)return false;this._stopTour(true);this._paint({scale:this._camera.scale,x:this._vp.width/2-p.x*this._camera.scale,y:this._vp.height/2-p.y*this._camera.scale});return true;},
++  focusSelf(){if(!this._alive||!this._visible||!this._fit||this.data.imageState!=='ready')return false;const p=(this.data.overlayPoints||[]).find(x=>x.tone==='self');if(!p)return false;this._stopTour(true);this._paint({scale:this._camera.scale,x:this._vp.width/2-p.x*this._camera.scale,y:this._vp.height/2-p.y*this._camera.scale});return true;},
+   zoomIn(){this._zoom(.25);},zoomOut(){this._zoom(-.25);}
+  }
+ });
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\GEO_MAP_BINDING.md" b/GEO_MAP_BINDING.md
+index 6212760..35b9d16 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\GEO_MAP_BINDING.md"
++++ b/GEO_MAP_BINDING.md
+@@ -1,5 +1,11 @@
+ # 图片与真实位置绑定 · 2026-10-14
+ 
++## 当前九龙湖 v3 全校参考覆盖（2026-10-18）
++
++当前唯一运行来源为 `design/maps/seu-jiulonghu-registration-v3/jiulonghu-registration.json`。在v2的23点上，增加8个保存OSM XML节点对应的外围道路路口/桥端图面参考点，共31点/53分区；不使用伪造GPS或无限外推，原画、原23地标及梅园反馈落点保持。保存校园校界 `way/171389014` 的86个独立顶点全部位于有限控制网内，因控制网凸包覆盖全部顶点，亦覆盖该校园多边形内部。另以沿界5米、校内10米网格通过实际GCJ-02运行投影复核；无图外落点、无折叠、无网边交叉。
++
++这解决图面覆盖缺口，不证明道路中心线/屋顶配准的现场精度。参考校界不是实时权属测绘或可通行/可追逐区域；游戏仍使用房主确认的活动范围和服务端授权。`fieldVerified=false`、`extrapolation=false`；校界外围道路在有限参考网内可显示，网外仍返回空并可切原生地图。旧v1/v2保留历史，四牌楼未变。新增电脑开发工具校界模拟入口不采GPS、不上传对局，手机/体验/正式版无法开启。证据与边界图：`reports/2026-10-18/jiulonghu-campus-coverage-v3`。
++
+ ## 九龙湖 v2 参考覆盖（2026-10-18）
+ 
+ 九龙湖运行模型改用 `design/maps/seu-jiulonghu-registration-v2/jiulonghu-registration.json`，23控制点/36分区，原20点和图片SHA保持。新增梅园5C、梅园1C与东侧田径场控制点，补旧凸包遗漏的梅园东南区域；反馈GCJ-02 31.882368,118.828049已能映射到原图(1076.07,967.31)。该用户坐标仅回归、不参与拟合。原v1交接不修改，四牌楼仍用原20点/31分区。仍不外推、未实地验收；当前房间真实标定优先规则不变。模拟入口仅电脑开发工具可用，不能向对局上报模拟位置。
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\dev\\dev.js" b/pages/dev/dev.js
+index 99663ba..dd6a4d3 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\dev\\dev.js"
++++ b/pages/dev/dev.js
+@@ -9,5 +9,6 @@ Page({
+   openCampus(e){if(!preview.enabled())return;wx.navigateTo({url:'/pages/map/map?devPreview=mouse&mapId='+encodeURIComponent(e.currentTarget.dataset.map)});},
+   openVenue(){wx.navigateTo({url:'/pages/venue/venue'});},
+   simulateJiulonghu(){if(!preview.enabled())return;wx.navigateTo({url:'/pages/venue/venue?mapId=seu-jiulonghu-v1&simPosition=jiulonghu-meiyuan7b'});},
++  simulateJiulonghuBoundary(){if(!preview.enabled())return;wx.navigateTo({url:'/pages/venue/venue?mapId=seu-jiulonghu-v1&simPosition=jiulonghu-northeast'});},
+   open(e){if(!preview.enabled())return;const item=preview.cases.find(x=>x.id===e.currentTarget.dataset.id);if(item)wx.navigateTo({url:item.path});}
+ });
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\dev\\dev.wxml" b/pages/dev/dev.wxml
+index 4cdcd9e..f4d0293 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\dev\\dev.wxml"
++++ b/pages/dev/dev.wxml
+@@ -4,6 +4,7 @@
+  <view wx:for="{{groups}}" wx:key="title" class="previewGroup"><text class="groupTitle">{{item.title}}</text><view class="previewGrid"><button wx:for="{{item.items}}" wx:for-item="entry" wx:key="id" class="previewItem" data-id="{{entry.id}}" bindtap="open"><text class="entryNumber">{{index+1}}</text><text class="entryTitle">{{entry.label}}</text><text class="entryArrow">›</text></button></view></view>
+  <button class="venuePreviewEntry" data-map="seu-jiulonghu-v1" bindtap="openCampus">九龙湖 · 定位演示</button><button class="venuePreviewEntry" data-map="seu-sipailou-v1" bindtap="openCampus">四牌楼 · 定位演示</button>
+  <button class="venuePreviewEntry" bindtap="simulateJiulonghu">九龙湖 · 电脑模拟本人定位</button>
++ <button class="venuePreviewEntry" bindtap="simulateJiulonghuBoundary">九龙湖 · 东北校界模拟</button>
+  <button class="venuePreviewEntry" bindtap="openCalibration">地图位置标定 · 开发预览</button>
+  <button class="homeButton" bindtap="home">返回首页</button>
+ </view>
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\venue\\venue.js" b/pages/venue/venue.js
+index 795f650..8929861 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\venue\\venue.js"
++++ b/pages/venue/venue.js
+@@ -27,13 +27,14 @@ Page({
+   },
+   displayPosition(p){
+     this.position=p;const projected=osm.project(p,'gcj02',this.data.mapId),first=!this.data.hasPosition,simulated=!!p.simulated;
+-    const notice=!osm.available(this.data.mapId)?'此地图的定位参考尚未启用，可切换实时地图':catalog.contains(this.data.mapId,p)?'你在校区范围内，但这一片尚未完成图片配准；可切换实时地图':'当前位置超出所选校区，请核对场地或切换实时地图';
++    const notice=!osm.available(this.data.mapId)?'此地图的定位参考尚未启用，可切换实时地图':catalog.contains(this.data.mapId,p)?'当前位置超出图片参考范围；可切换实时地图':'当前位置远离所选场地，请核对场地或切换实时地图';
+     this.setData({hasPosition:true,simulated,...(first||this.data.followSelf?{latitude:p.lat,longitude:p.lng}:{}),locationText:simulated?'模拟定位 · '+p.label:'本人 · 精度约'+Math.round(p.accuracy)+'米',coordinateText:(simulated?'模拟 ':'')+'GCJ-02 '+p.lat.toFixed(6)+', '+p.lng.toFixed(6),locationError:!this.data.artMode?'':projected?'OSM参考位置，实地精度待核验':notice,geoData:{points:[{...p,tone:'self',label:simulated?'模拟本人':'本人'}],regions:[]},markers:[{id:1,latitude:p.lat,longitude:p.lng,...mapMarkers.sprite('self')} ]});
+-    if(first&&projected)wx.nextTick(()=>{if(this.active&&this.position===p)this.selectComponent('.venueArt')?.focusSelf();});
++    if(first&&projected){this.needsInitialFocus=true;wx.nextTick(()=>{if(this.position===p)this.onArtReady();});}
+   },
++  onArtReady(){if(this.active&&this.position&&this.needsInitialFocus&&this.data.artMode&&this.selectComponent('.venueArt')?.focusSelf())this.needsInitialFocus=false;},
+   focusPosition(){if(this.data.artMode&&!this.selectComponent('.venueArt')?.focusSelf())this.setData({locationError:'本人位置超出图片覆盖或地图未就绪，请切换实时地图'});else if(!this.data.artMode&&this.position)this.setData({latitude:this.position.lat,longitude:this.position.lng,followSelf:true});},
+   startSimulation(){if(this.gps)this.gps.stop();this.setData({locationOn:true});this.displayPosition(this.simulation);},
+-  stopGps(e){if(e?.currentTarget)this.simulationStopped=true;if(this.gps)this.gps.stop();this.position=null;this.setData({locationOn:false,hasPosition:false,simulated:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},markers:[]});},
++  stopGps(e){if(e?.currentTarget)this.simulationStopped=true;if(this.gps)this.gps.stop();this.position=null;this.needsInitialFocus=false;this.setData({locationOn:false,hasPosition:false,simulated:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},markers:[]});},
+   toggleLayer(){this.setData({artMode:!this.data.artMode});if(this.position)this.displayPosition(this.position);},
+   onNativeRegion(e){if((e.causedBy||e.detail?.causedBy)==='gesture')this.setData({followSelf:false});},
+   onResize(event) { this.refreshLayout(event); },
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\venue\\venue.wxml" b/pages/venue/venue.wxml
+index 5185dc9..4c97ad2 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\pages\\venue\\venue.wxml"
++++ b/pages/venue/venue.wxml
+@@ -6,7 +6,7 @@
+   </view>
+   <view class="gpsInfo" role="status"><text>{{locationText}}</text><text wx:if="{{coordinateText}}" class="gpsCoordinates">{{coordinateText}}</text><text wx:if="{{locationError}}" class="gpsMessage">{{locationError}}</text></view>
+   <view class="venueFrame">
+-    <venue-art wx:if="{{artMode}}" class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" geo-data="{{geoData}}" osm-reference="{{locationOn}}" auto-tour="{{!locationOn}}" layout-key="{{layoutKey+'-'+locationOn+'-'+hasPosition+'-'+locationError}}" />
++    <venue-art wx:if="{{artMode}}" class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" geo-data="{{geoData}}" osm-reference="{{locationOn}}" auto-tour="{{!locationOn}}" layout-key="{{layoutKey+'-'+locationOn+'-'+hasPosition+'-'+locationError}}" bind:ready="onArtReady" />
+     <map wx:else class="guideNativeMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" show-location="{{false}}" enable-rotate="{{false}}" bindregionchange="onNativeRegion" />
+     <view class="guideTools"><button class="guideIcon {{locationOn?'active':''}}" bindtap="locate" aria-label="开启定位或回到本人"><map-icon kind="locate" size="26" /></button><button class="guideIcon" bindtap="toggleLayer" aria-label="切换艺术图与实时地图"><map-icon kind="layers" size="26" /></button><button wx:if="{{locationOn}}" class="guideIcon" bindtap="stopGps" aria-label="停止本人定位"><map-icon kind="close" size="22" /></button></view>
+   </view>
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\README.md" b/README.md
+index 05edebf..cdb51e5 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\README.md"
++++ b/README.md
+@@ -1,5 +1,9 @@
+ # 猫鼠行动 · 试点版 0.2
+ 
++## 2026-10-18 九龙湖全校参考覆盖 v3
++
++当前运行模型补齐外围8个道路路口/桥端参考点，共31控制点、53分区，完整覆盖保存的OSM校园多边形。运行投影检查86个独立校界顶点、沿界约5米采样和校内10米网格，无遗漏或图外位置；原23地标和梅园反馈坐标保持。模型与原画不等于实地测量，`fieldVerified=false`；定位覆盖边界也不是游戏活动范围。边界图、复核命令与证据见 [本轮说明](reports/2026-10-18/jiulonghu-campus-coverage-v3/README.md)。重新编译小程序即可使用，手机仍读取真实GCJ-02定位。
++
+ ## 2026-10-18 九龙湖梅园定位覆盖修复
+ 
+ 已复现并修复梅园7B附近“校区内却提示图片配准范围外”：补3个OSM/原画地标，将九龙湖控制网扩为23点/36分区，原画不变。开发调试台新增「九龙湖 · 电脑模拟本人定位」，仅电脑开发工具启用，明确标记模拟；手机仍采实际GPS。139项回归通过；详情与截图见 [本轮记录](reports/2026-10-18/jiulonghu-location-fix-v1/README.md)。
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\scripts\\build-campus-runtime.cjs" b/scripts/build-campus-runtime.cjs
+index 05ec7a8..03a037f 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\scripts\\build-campus-runtime.cjs"
++++ b/scripts/build-campus-runtime.cjs
+@@ -3,7 +3,7 @@
+ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),sharp=require('sharp');
+ const {wgs84togcj02}=require('../utils/vendor/coordtransform');
+ const root=path.resolve(__dirname,'..'),source=path.join(root,'design/maps/seu-campuses-v1'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+-const entries=[{key:'jiulonghu',id:'seu-jiulonghu-v1',label:'东南大学 · 九龙湖',modelPath:'design/maps/seu-jiulonghu-registration-v2/jiulonghu-registration.json',bounds:[118.803,31.880,118.828,31.898]},{key:'sipailou',id:'seu-sipailou-v1',label:'东南大学 · 四牌楼',bounds:[118.780,32.052,118.797,32.062]}];
++const entries=[{key:'jiulonghu',id:'seu-jiulonghu-v1',label:'东南大学 · 九龙湖',modelPath:'design/maps/seu-jiulonghu-registration-v3/jiulonghu-registration.json',bounds:[118.803,31.880,118.828,31.898]},{key:'sipailou',id:'seu-sipailou-v1',label:'东南大学 · 四牌楼',bounds:[118.780,32.052,118.797,32.062]}];
+ (async()=>{
+  const images=[{id:'xuanwu-v4',label:'玄武湖 · 环洲樱洲',src:'/assets/maps/xuanwu-lake-v4.jpg',width:1254,height:1254,sha256:'d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540',fieldVerified:false}],models={},records=[];
+  fs.mkdirSync(path.join(root,'venue-maps/assets'),{recursive:true});
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\scripts\\build-jiulonghu-registration.py" b/scripts/build-jiulonghu-registration.py
+index 3aa9901..cacdc24 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\scripts\\build-jiulonghu-registration.py"
++++ b/scripts/build-jiulonghu-registration.py
+@@ -1,18 +1,27 @@
+-"""Extend independently reviewed southeast controls; preserve original handoff."""
++"""Build versioned reference controls; preserve original art and historical models."""
+ from pathlib import Path
+ import copy, hashlib, json, math, sys
+ import numpy as np
+ from scipy.spatial import Delaunay
++import xml.etree.ElementTree as ET
+ 
+ root = Path(__file__).resolve().parent.parent
+-folder = root / 'design/maps/seu-jiulonghu-registration-v2'
++manifest = sys.argv[sys.argv.index('--controls') + 1] if '--controls' in sys.argv else 'design/maps/seu-jiulonghu-registration-v3/controls.json'
++folder = (root / manifest).parent
+ controls = json.loads((folder / 'controls.json').read_text(encoding='utf8'))
+ base_bytes = (root / controls['base']).read_bytes()
+ m = json.loads(base_bytes)
+ features = json.loads((root / 'design/maps/seu-campuses-v1/jiulonghu-reference.geojson').read_text(encoding='utf8'))['features']
+ by_id = {f['id']: f for f in features}
++xml_nodes = None
+ 
+ def reference(item):
++    global xml_nodes
++    if item['osmId'].startswith('node/'):
++        if xml_nodes is None:
++            xml_nodes = {n.attrib['id']: [float(n.attrib['lon']), float(n.attrib['lat'])]
++                         for n in ET.parse(root / 'design/maps/seu-campuses-v1/jiulonghu.osm').findall('node')}
++        return xml_nodes[item['osmId'].split('/')[1]]
+     f = by_id[item['osmId']]
+     assert f['geometry']['type'] == 'Polygon'
+     ring = f['geometry']['coordinates'][0]
+@@ -26,16 +35,28 @@ def world(ll):
+ anchors = copy.deepcopy(m['anchors'])
+ for item in controls['additional']:
+     ll = reference(item)
+-    anchors.append(dict(item, id='A' + str(len(anchors) + 1).zfill(2), wgs84=ll,
+-                        method='manual original-art roof/track centre matched to preserved OSM vertex-mean; field unverified'))
++    method = ('manual original-art road junction/bridge matched to preserved OSM node; field unverified'
++              if item['osmId'].startswith('node/') else
++              'manual original-art roof/track centre matched to preserved OSM vertex-mean; field unverified')
++    anchors.append(dict(item, id='A' + str(len(anchors) + 1).zfill(2), wgs84=ll, method=method))
+ worlds = np.array([world(a['wgs84']) for a in anchors])
+ pixels = np.array([a['pixel'] for a in anchors], dtype=float)
++assert np.all(pixels >= 0) and np.all(pixels[:,0] <= m['image']['width']) and np.all(pixels[:,1] <= m['image']['height']), 'Control outside art image'
+ tri = Delaunay(worlds)
+ triangles = tri.simplices.tolist()
+ def det(points):
+     return float(np.linalg.det(np.column_stack((points[1] - points[0], points[2] - points[0]))))
+ folds = [i for i,t in enumerate(triangles) if det(worlds[t]) * det(pixels[t]) >= 0]
+ assert not folds, folds
++edges = sorted({tuple(sorted((t[i],t[(i+1)%3]))) for t in triangles for i in range(3)})
++def crosses(e,f):
++    if set(e) & set(f):
++        return False
++    a,b = pixels[list(e)];c,d = pixels[list(f)]
++    def side(p,q,r):
++        return float((q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0]))
++    return side(a,b,c)*side(a,b,d) < -1e-8 and side(c,d,a)*side(c,d,b) < -1e-8
++assert not any(crosses(e,f) for i,e in enumerate(edges) for f in edges[i+1:]), 'Image mesh overlaps'
+ checks = []
+ for item in controls['checks']:
+     q = np.array(world(reference(item)))
+@@ -52,10 +73,41 @@ m.update(anchors=anchors, world=worlds.tolist(), pixels=pixels.tolist(), triangl
+          sourceBaseSha256=hashlib.sha256(base_bytes).hexdigest(),
+          quality=dict(folds=folds, independentImageChecks=checks,
+                       note='Two extra image/OSM checks excluded from fitting; NOT independent field GPS validation.'))
++
++if 'coverage' in controls:
++    c = controls['coverage']
++    ring = np.array([world(ll) for ll in by_id[c['osmId']]['geometry']['coordinates'][0]])
++    def inside(p):
++        yes = False
++        for a,b in zip(ring[:-1],ring[1:]):
++            if (a[1] > p[1]) != (b[1] > p[1]) and p[0] < (b[0]-a[0])*(p[1]-a[1])/(b[1]-a[1])+a[0]:
++                yes = not yes
++        return yes
++    scale = math.cos(math.radians(float(np.mean([a['wgs84'][1] for a in anchors]))))
++    boundary = []
++    for a,b in zip(ring[:-1],ring[1:]):
++        count = max(1, math.ceil(float(np.linalg.norm(b-a))*scale/c['boundarySamplingM']))
++        boundary.extend(a+(b-a)*i/count for i in range(count))
++    step = c['interiorGridM']/scale
++    interior = [np.array([x,y]) for x in np.arange(ring[:,0].min(),ring[:,0].max()+step,step)
++                for y in np.arange(ring[:,1].min(),ring[:,1].max()+step,step) if inside([x,y])]
++    samples = np.array([*ring[:-1],*boundary,*interior])
++    indices = tri.find_simplex(samples, tol=1e-8)
++    assert np.all(indices >= 0), ('Campus uncovered', samples[indices < 0][:10].tolist())
++    q = tri.transform[indices,:2] @ (samples-tri.transform[indices,2])[:,:,None]
++    b = np.concatenate((q[:,:,0], 1-q[:,:,0].sum(axis=1,keepdims=True)),axis=1)
++    mapped = (b[:,:,None]*pixels[tri.simplices[indices]]).sum(axis=1)
++    assert np.all(mapped >= 0) and np.all(mapped <= 1254), ('Campus maps outside image', mapped.min(axis=0),mapped.max(axis=0))
++    m['quality']['campusCoverage'] = dict(c, sourceSha256=hashlib.sha256((root/c['reference']).read_bytes()).hexdigest(),
++        osmXmlSha256=hashlib.sha256((root/'design/maps/seu-campuses-v1/jiulonghu.osm').read_bytes()).hexdigest(),
++        boundaryVertices=len(ring)-1, boundarySamples=len(boundary), interiorSamples=len(interior),
++        uncovered=0, outsideImage=0, crossingImageEdges=0, mappedBounds=[*mapped.min(axis=0).tolist(),*mapped.max(axis=0).tolist()],
++        proof='Every polygon vertex lies inside convex triangulation hull; hence entire polygon is covered. No folds. Dense samples additionally check image bounds; not a GPS accuracy measurement.')
+ target = folder / 'jiulonghu-registration.json'
+ content = json.dumps(m, ensure_ascii=False, indent=2) + '\n'
+ if '--verify' in sys.argv:
+     assert target.read_text(encoding='utf8') == content, 'Generated model differs'
+ else:
+     target.write_text(content, encoding='utf8')
+-print(json.dumps(dict(anchors=len(anchors), triangles=len(triangles), folds=folds, checks=checks, fieldVerified=False), ensure_ascii=False))
++print(json.dumps(dict(anchors=len(anchors), triangles=len(triangles), folds=folds, checks=checks,
++                     coverage=m['quality'].get('campusCoverage'), fieldVerified=False), ensure_ascii=False))
+diff --git "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\utils\\location-scenarios.js" b/utils/location-scenarios.js
+index 8df3aba..718440d 100644
+--- "a/reports\\2026-10-18\\jiulonghu-campus-coverage-v3\\before\\utils\\location-scenarios.js"
++++ b/utils/location-scenarios.js
+@@ -2,6 +2,12 @@
+ function enabled(){try{const info=wx.getDeviceInfo?wx.getDeviceInfo():wx.getSystemInfoSync();return wx.getAccountInfoSync().miniProgram.envVersion==='develop'&&info.platform==='devtools';}catch{return false;}}
+ function get(id,mapId){if(!enabled()||mapId!=='seu-jiulonghu-v1')return null;const points={
+  'jiulonghu-meiyuan7b':{lat:31.882368,lng:118.828049,label:'梅园7B附近 · 反馈坐标'},
+- 'jiulonghu-library':{lat:31.88777433108612,lng:118.81920737398848,label:'李文正图书馆'}
++ 'jiulonghu-library':{lat:31.88777433108612,lng:118.81920737398848,label:'李文正图书馆'},
++ // Saved OSM campus-boundary vertices converted to GCJ02; developer fixtures, not GPS samples.
++ 'jiulonghu-northwest':{lat:31.892569519589912,lng:118.81101082774053,label:'西北校界 · 参考点'},
++ 'jiulonghu-northeast':{lat:31.894127849461455,lng:118.82999843499006,label:'东北校界 · 参考点'},
++ 'jiulonghu-southeast':{lat:31.88143701609742,lng:118.83023008418435,label:'东南校界 · 参考点'},
++ 'jiulonghu-southwest':{lat:31.88003022694977,lng:118.81354645328248,label:'西南校界 · 参考点'},
++ 'jiulonghu-west':{lat:31.885355259089867,lng:118.81171560943383,label:'西侧校界 · 参考点'}
+ };const p=points[id];return p?{...p,accuracy:6,coordinateSystem:'gcj02',simulated:true}:null;}
+ module.exports={enabled,get};

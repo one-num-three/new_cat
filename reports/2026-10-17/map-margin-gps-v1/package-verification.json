@@ -1,0 +1,14 @@
+{
+  "main": {
+    "files": 145,
+    "bytes": 2050624
+  },
+  "subpackage": {
+    "files": 6,
+    "bytes": 1981419
+  },
+  "total": {
+    "files": 151,
+    "bytes": 4032043
+  }
+}

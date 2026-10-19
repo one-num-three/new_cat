@@ -1,245 +1,30 @@
-<!--pages/room/room.wxml - 房间等待页面-->
-<view class="container">
-  <!-- 房间头部 -->
-  <view class="room-header">
-    <view class="room-id-box">
-      <text class="room-label">房间号</text>
-      <text class="room-id">{{roomId}}</text>
-      <view class="copy-btn" bindtap="onCopyRoomId">复制</view>
+<view class="screen roomScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--vw:{{viewportWidth}}px">
+  <nav-bar title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
+  <image class="roomHero {{roomId?'readyHero':'createHero'}}" src="{{roomId?'/assets/pixel-v1/ready-hero.png':'/assets/pixel-v1/create-hero.png'}}" mode="widthFix" aria-label="{{roomId?'房间准备，猫鼠伙伴在公园集合':'组织一场追逐'}}" />
+  <view wx:if="{{!roomId}}" class="createContent">
+    <view class="paperFrame totalCard">
+      <text class="sectionLabel">本局人数</text>
+      <view class="teamInputs"><view class="teamField"><text>总人数</text><input type="number" value="{{total}}" maxlength="2" data-field="total" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='total'?'editing':''}}" aria-label="总人数" /><text wx:if="{{editingField!=='total'}}" class="teamValue" aria-hidden="true">{{total}}</text></view><view class="teamField"><text>猫人数</text><input type="number" value="{{catsCount}}" maxlength="2" data-field="catsCount" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='catsCount'?'editing':''}}" aria-label="猫人数" /><text wx:if="{{editingField!=='catsCount'}}" class="teamValue" aria-hidden="true">{{catsCount}}</text></view><view class="teamField"><text>鼠人数</text><input type="number" value="{{miceCount}}" maxlength="2" data-field="miceCount" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='miceCount'?'editing':''}}" aria-label="鼠人数" /><text wx:if="{{editingField!=='miceCount'}}" class="teamValue" aria-hidden="true">{{miceCount}}</text></view></view>
+      <text class="teamHint">猫 + 鼠 = 总人数 · 各至少1人 · 总计2–60人</text><text wx:if="{{teamError}}" class="roomError" role="alert">{{teamError}}</text>
     </view>
-    <view class="room-status">
-      <text class="status-dot"></text>
-      <text class="status-text">等待玩家加入...</text>
+    <view class="paperFrame venueSelectCard"><text class="sectionLabel">场地地图</text><picker class="venuePicker" range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap"><view class="venuePickerValue"><text>{{venueName}}</text><text aria-hidden="true">›</text></view></picker><text class="venueSelectionNote">切换场地后，请重新到场确认集合点</text></view>
+    <view class="paperFrame venueCard">
+      <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重选位置':'确认位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
+      <view class="venueGuide"><image wx:if="{{venueResource==='ready'}}" class="venueGuideImage" src="{{venueSource}}" mode="aspectFit" aria-label="{{venueName}}场地导览" /><view wx:else class="venueGuideLoading"><text>{{venueResource==='error'?'地图加载失败':'正在加载地图…'}}</text><button wx:if="{{venueResource==='error'}}" class="textButton" bindtap="loadVenueArt">重试</button></view><text class="guideCaption">{{venueName}}</text><text class="guideFootnote">示意图不代表定位结果</text></view>
     </view>
+    <view class="paperFrame rulesCard"><text class="sectionLabel">规则摘要</text><view class="rulesGrid"><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">30秒</text><text class="ruleLabel">躲藏时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">6分钟</text><text class="ruleLabel">追逐时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">抓满{{targetCount}}人</text><text class="ruleLabel">猫获胜</text></view></view><view class="rulesNote"><text class="noteMark" aria-hidden="true">!</text><text>倒计时结束未达标时，鼠获胜</text></view></view>
+    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError || venueResource!=='ready'}}" font-scale="{{fontScale}}" bindaction="create" /></view>
   </view>
-
-  <!-- 玩家列表 -->
-  <view class="players-section">
-    <view class="section-header">
-      <text class="section-title">玩家列表</text>
-      <text class="player-count">{{players.length}} 人</text>
-    </view>
-    
-    <view class="players-grid">
-      <view class="player-card" wx:for="{{players}}" wx:key="id">
-        <view class="player-avatar">
-          <text wx:if="{{!item.avatarUrl}}">👤</text>
-          <image wx:else src="{{item.avatarUrl}}" mode="aspectFill"/>
-        </view>
-        <view class="player-info">
-          <text class="player-nickname">{{item.nickname}}</text>
-          <text class="player-join-time" wx:if="{{item.joinedAt}}">已加入</text>
-        </view>
-        <view class="player-badge" wx:if="{{item.isOwner}}">房主</view>
-      </view>
-      
-      <!-- 空位提示 -->
-      <view class="empty-slot" wx:if="{{players.length === 0}}">
-        <text class="empty-text">等待其他玩家加入...</text>
-      </view>
-    </view>
+  <view wx:else class="readyContent">
+    <view class="paperFrame inviteCard"><text class="sectionLabel inviteLabel">房间码</text><view class="codeRow"><text class="roomCode" selectable>{{code || '同步中'}}</text><view class="copyAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-copy.png" label="复制" tone="plain" disabled="{{!code}}" font-scale="{{fontScale}}" bindaction="copy" /></view></view><text class="inviteHint">分享房间码，邀请好友加入</text></view>
+    <view class="paperFrame roomRules"><view class="roomRuleNumbers"><view class="readyTeam"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text><text class="orangeNumber">{{catsCount}}</text>猫 <text class="orangeNumber">{{(rules?rules.total:total)-catsCount}}</text>鼠</text></view><view class="targetNumber"><text>捕获目标</text><text class="orangeNumber">{{targetCount}}人</text></view></view><text class="venueSelectionNote">{{venueName}}</text><text class="roomRuleText">30秒躲藏，6分钟追逐；捕获{{targetCount}}人猫胜，
+倒计时结束未达标鼠胜。</text></view>
+    <button wx:if="{{owner && (!match || match.phase==='FINISHED' || match.phase==='CANCELLED')}}" class="textButton" bindtap="openCalibration">图片与真实位置标定</button>
+    <view class="rosterHeader"><view class="rosterHeading"><text class="sectionLabel">玩家列表（{{roster.length}}/{{rules?rules.total:total}}）</text><text class="readyCount {{canStart?'allReady':''}}">{{canStart?'所有玩家已准备':readyCount+'人已准备'}}</text></view><text class="rosterHint">阵营将在开始后分配</text></view>
+    <view class="rosterGrid"><view wx:for="{{roster}}" wx:key="id" class="paperFrame playerCard"><image class="playerAvatar" src="/assets/pixel-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" /><text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text><text class="readyBadge {{item.ready?'isReady':'notReady'}}">{{item.ready?'已准备':'未准备'}}</text></view></view>
+    <view wx:if="{{!roster.length}}" class="paperFrame emptyRoster">伙伴还未加入，把房间码发给他们吧。</view>
+    <text wx:if="{{!canStart}}" class="readySummary">{{startHint}}</text>
+    <view class="roomActions"><pixel-action class="pixelControl" wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始30秒躲藏':'等待所有人准备'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" /><text wx:else class="ownerHint">{{canStart?'已全部准备，等待房主开始':'准备后，等待房主开始本局'}}</text><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位并准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" /></view>
   </view>
-
-  <!-- 身份选择（开发模式） -->
-  <view class="role-select-section" wx:if="{{devMode && !playerId}}">
-    <view class="section-header">
-      <text class="section-title">🎭 选择身份（开发模式）</text>
-      <text class="dev-badge">DEV</text>
-    </view>
-    <view class="role-options">
-      <view class="role-option {{selectedRole === 'cat' ? 'selected' : ''}}" 
-            bindtap="onSelectRole" data-role="cat">
-        <text class="role-icon">🐱</text>
-        <text class="role-name">猫</text>
-        <text class="role-desc">追捕老鼠</text>
-      </view>
-      <view class="role-option {{selectedRole === 'mouse' ? 'selected' : ''}}" 
-            bindtap="onSelectRole" data-role="mouse">
-        <text class="role-icon">🐭</text>
-        <text class="role-name">鼠</text>
-        <text class="role-desc">躲避追捕</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 已选择身份提示 -->
-  <view class="selected-role-tip" wx:if="{{devMode && playerId && selectedRole}}">
-    <text class="tip-icon">{{selectedRole === 'cat' ? '🐱' : '🐭'}}</text>
-    <text class="tip-text">你选择了：{{selectedRole === 'cat' ? '猫' : '鼠'}}</text>
-  </view>
-
-  <!-- 谜底选择区域（仅房主可见） -->
-  <view class="riddle-section" wx:if="{{isOwner && roomInfo}}">
-    <view class="section-header">
-      <text class="section-title">🎯 任务谜底设置</text>
-    </view>
-    <view class="riddle-options">
-      <!-- 统一谜底 -->
-      <view class="riddle-option {{riddleMode === 'same' ? 'selected' : ''}}" bindtap="onSelectRiddleMode" data-mode="same">
-        <view class="riddle-header">
-          <text class="riddle-radio">{{riddleMode === 'same' ? '✓' : ''}}</text>
-          <text class="riddle-title">统一谜底</text>
-        </view>
-        <text class="riddle-desc">所有人的谜底相同</text>
-      </view>
-      
-      <!-- 不同谜底 -->
-      <view class="riddle-option {{riddleMode === 'different' ? 'selected' : ''}}" bindtap="onSelectRiddleMode" data-mode="different">
-        <view class="riddle-header">
-          <text class="riddle-radio">{{riddleMode === 'different' ? '✓' : ''}}</text>
-          <text class="riddle-title">不同谜底</text>
-        </view>
-        <text class="riddle-desc">每个人随机生成不同谜底</text>
-      </view>
-    </view>
-    <text class="riddle-notice">⚠️ 玩家不会看到谜底，只能通过猜测得知</text>
-  </view>
-
-  <!-- 游戏设置（仅房主可见） -->
-  <view class="settings-section" wx:if="{{isOwner && roomInfo}}">
-    <view class="section-header">
-      <text class="section-title">⚙️ 游戏设置</text>
-      <text class="edit-btn" bindtap="onEditSettings">修改</text>
-    </view>
-    <view class="settings-grid">
-      <view class="setting-item">
-        <text class="setting-label">🐱 猫</text>
-        <text class="setting-value">{{roomInfo.settings.catCount}}只</text>
-      </view>
-      <view class="setting-item">
-        <text class="setting-label">🐭 鼠</text>
-        <text class="setting-value">{{roomInfo.settings.mouseCount}}只</text>
-      </view>
-      <view class="setting-item">
-        <text class="setting-label">⏱️ 时长</text>
-        <text class="setting-value">{{durationText}}</text>
-      </view>
-      <view class="setting-item">
-        <text class="setting-label">📍 范围</text>
-        <text class="setting-value">{{rangeText}}</text>
-      </view>
-      <view class="setting-item full-width">
-        <text class="setting-label">🎭 揭秘时间</text>
-        <text class="setting-value">{{revealTimeText}}</text>
-      </view>
-      <view class="setting-item full-width">
-        <text class="setting-label">👁️ 视野范围</text>
-        <text class="setting-value">{{visionRangeText}}</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 设置编辑弹窗 -->
-  <view class="modal-mask" wx:if="{{showSettingsModal}}" bindtap="onCloseSettingsModal">
-    <view class="modal-content" catchtap="true">
-      <view class="modal-header">
-        <text class="modal-title">游戏设置</text>
-        <text class="modal-close" bindtap="onCloseSettingsModal">×</text>
-      </view>
-      
-      <view class="modal-body">
-        <!-- 猫的数量 -->
-        <view class="setting-row">
-          <text class="setting-row-label">🐱 猫的数量</text>
-          <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="catCount" data-min="1" data-max="5">−</view>
-            <text class="stepper-value">{{tempSettings.catCount}}</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="catCount" data-min="1" data-max="5">+</view>
-          </view>
-        </view>
-        
-        <!-- 老鼠数量 -->
-        <view class="setting-row">
-          <text class="setting-row-label">🐭 老鼠数量</text>
-          <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="mouseCount" data-min="3" data-max="20">−</view>
-            <text class="stepper-value">{{tempSettings.mouseCount}}</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="mouseCount" data-min="3" data-max="20">+</view>
-          </view>
-        </view>
-        
-        <!-- 游戏时长 -->
-        <view class="setting-row">
-          <text class="setting-row-label">⏱️ 游戏时长</text>
-          <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="gameDuration" data-min="5" data-max="30" data-step="5">−</view>
-            <text class="stepper-value">{{tempSettings.gameDuration}}分钟</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="gameDuration" data-min="5" data-max="30" data-step="5">+</view>
-          </view>
-        </view>
-        
-        <!-- 活动范围 -->
-        <view class="setting-row">
-          <text class="setting-row-label">📍 活动范围</text>
-          <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="mapRange" data-min="500" data-max="5000" data-step="500">−</view>
-            <text class="stepper-value">{{tempSettings.mapRange / 1000}}km</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="mapRange" data-min="500" data-max="5000" data-step="500">+</view>
-          </view>
-        </view>
-        
-        <!-- 揭秘身份时间 -->
-        <view class="setting-row">
-          <text class="setting-row-label">🎭 揭秘身份时间</text>
-          <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="revealTime" data-min="0" data-max="10" data-step="1">−</view>
-            <text class="stepper-value">{{tempSettings.revealTime}}分钟</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="revealTime" data-min="0" data-max="10" data-step="1">+</view>
-          </view>
-        </view>
-        <text class="setting-tip">游戏开始后多久公开身份（0=立即揭秘）</text>
-        
-        <!-- 视野范围 -->
-        <view class="setting-row">
-          <text class="setting-row-label">👁️ 视野范围</text>
-          <view class="stepper">
-            <view class="stepper-btn" bindtap="onDecrease" data-field="visionRange" data-min="50" data-max="2000" data-step="50">−</view>
-            <text class="stepper-value">{{tempSettings.visionRange}}米</text>
-            <view class="stepper-btn" bindtap="onIncrease" data-field="visionRange" data-min="50" data-max="2000" data-step="50">+</view>
-          </view>
-        </view>
-        <text class="setting-tip">不同阵营玩家的可视距离（同阵营互相可见）</text>
-      </view>
-      
-      <view class="modal-footer">
-        <button class="btn-cancel" bindtap="onCloseSettingsModal">取消</button>
-        <button class="btn-confirm" bindtap="onSaveSettings">保存</button>
-      </view>
-    </view>
-  </view>
-
-  <!-- 底部操作区 -->
-  <view class="action-bar">
-    <!-- 房主未创建房间：显示创建按钮 -->
-    <button class="btn-start" wx:if="{{isOwner && !roomId}}" bindtap="onCreateRoom">
-      <text class="btn-text">🏠 创建房间</text>
-      <text class="btn-subtitle" wx:if="{{devMode && !selectedRole}}">（未选身份，将随机分配）</text>
-    </button>
-    
-    <!-- 房主已创建房间：显示开始游戏按钮 -->
-    <button class="btn-start" wx:elif="{{isOwner && roomId}}" bindtap="onStartGame">
-      <text class="btn-text">🎮 开始游戏</text>
-      <text class="btn-subtitle" wx:if="{{players.length < 2}}">（至少 2 人）</text>
-    </button>
-    
-    <!-- 非房主未加入：显示加入按钮 -->
-    <button class="btn-start" wx:elif="{{!isOwner && roomId && !playerId}}" bindtap="onJoinRoom">
-      <text class="btn-text">🚪 加入房间</text>
-      <text class="btn-subtitle" wx:if="{{devMode && !selectedRole}}">（未选身份，将随机分配）</text>
-    </button>
-    
-    <!-- 非房主已加入：等待提示 -->
-    <view class="waiting-tip" wx:elif="{{!isOwner && playerId}}">
-      <text class="tip-icon">⏳</text>
-      <text class="tip-text">等待房主开始游戏</text>
-    </view>
-  </view>
-
-  <!-- 分享按钮 -->
-  <view class="share-section">
-    <button class="btn-share" open-type="share">
-      <text class="share-icon">📤</text>
-      <text class="share-text">邀请好友加入</text>
-    </button>
-  </view>
+  <text wx:if="{{error}}" class="roomError" role="alert">{{error}}</text>
 </view>

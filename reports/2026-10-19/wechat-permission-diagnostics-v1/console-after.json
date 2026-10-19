@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "tool": "get_simulator_console",
+  "clientName": "Codex",
+  "result": "1:[\"[info]\",\"[system]\",\"WeChatLib: 3.17.4 (2026.10.14 17:14:32)\"]\n2:[\"[info]\",\"[system]\",\"No. of subpackages: 2\"]"
+}

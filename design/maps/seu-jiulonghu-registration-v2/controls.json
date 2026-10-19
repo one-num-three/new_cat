@@ -1,0 +1,16 @@
+{
+  "version": "jiulonghu-reference-2",
+  "base": "design/maps/seu-campuses-v1/jiulonghu-registration.json",
+  "imageUnchanged": true,
+  "fieldVerified": false,
+  "method": "Manually compare preserved OSM geometry and original artwork. Roof/track centres are approximate, not surveyed pedestrian controls. User GPS is a regression sample, never a fitting control.",
+  "additional": [
+    {"osmId":"way/630141902","name":"梅园5C","pixel":[1079,1007],"estimatedManualUncertaintyPx":10},
+    {"osmId":"way/630141866","name":"梅园1C","pixel":[992,1012],"estimatedManualUncertaintyPx":10},
+    {"osmId":"way/630436323","name":"梅园东侧田径场","pixel":[1165,863],"estimatedManualUncertaintyPx":10}
+  ],
+  "checks": [
+    {"osmId":"way/630141894","name":"梅园7B","pixel":[1077,965],"estimatedManualUncertaintyPx":10},
+    {"osmId":"way/630141889","name":"梅园6B","pixel":[1035,968],"estimatedManualUncertaintyPx":10}
+  ]
+}

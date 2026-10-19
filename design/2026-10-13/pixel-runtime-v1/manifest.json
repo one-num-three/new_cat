@@ -1,0 +1,2366 @@
+{
+  "version": "pixel-runtime-v1",
+  "date": "2026-10-13",
+  "sourceDir": "design/2026-10-12/pixel-day-replica-v1",
+  "outputDir": "assets/pixel-v1",
+  "renderer": {
+    "sharp": "0.35.5",
+    "vips": "8.18.7"
+  },
+  "rules": {
+    "originalsUnchanged": true,
+    "htmlUnchanged": true,
+    "widthOnlyResize": true,
+    "mapsExtracted": false,
+    "buttons": "replica.js textButton original rectangle plus sourceButton pad8, bounded by its PAGES rectangle",
+    "pausedScene": "[158,509,709,497] excludes timer/capture HUD and organizer-specific pause-reason sign",
+    "base59Sha256": "58fbcef3ee6471cc36f8c0fb9a3ef112644086e1e7fcdc8e9f4aec920c810fe7",
+    "supplementalArt": "6 exact source crops; code-demo-art width-only resized to240; five drawer icons/avatars retain original dimensions",
+    "font": "Variable WOFF retained verbatim with original OFL license; root WXSS can embed the same bytes"
+  },
+  "budget": {
+    "pngBytes": 763445,
+    "supplementalPngBytes": 18259,
+    "pngTargetBytes": 650000,
+    "pngWithinTarget": false,
+    "pngLimitBytes": 790000,
+    "pngWithinBudget": true,
+    "fontBytes": 107816,
+    "fontBase64Bytes": 143756,
+    "licenseBytes": 4605,
+    "runtimeAssetBytes": 875866
+  },
+  "sources": [
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/replica.js",
+      "sha256": "cd3cd6fdf62d34017d8eb85cc01454fc8a8dcc59c9cb0c0ddcd1ada01f9fcc33",
+      "bytes": 19653
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/replica.css",
+      "sha256": "25fb69f0ba4dec1edcc28cd6db50ef53555947ac23b7e9714233409285fecc4f",
+      "bytes": 10721
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/sources.json",
+      "sha256": "1127bec8194a0a2a53c07198ae06819fda037fbd89cb8930d033aa7f7504e100",
+      "bytes": 10498
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/index.html",
+      "sha256": "cf77bcd05f8800d3b70adc6cca9d6ea7fdb30242f3ade07d595fe84b2ff82a50",
+      "bytes": 2034
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/ui-variable.woff",
+      "sha256": "11e128112254d25a1439408158c8a8aac7cda64ca07772705b2d1aa769463819",
+      "bytes": 107816
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/FONT-LICENSE.txt",
+      "sha256": "e9d9b525d384aa7d1e39650ac03047621c5d79e3a88c698aa0c522bd5d87d493",
+      "bytes": 4605
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/01-home.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/01-home.png",
+      "sha256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+      "bytes": 1626716,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/02-create.png",
+      "sha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "bytes": 1574660,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/03-ready-v2.png",
+      "sha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "bytes": 1668670,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/04-cat.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/04-cat.png",
+      "sha256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+      "bytes": 1741769,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/05-mouse.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/05-mouse-v2.png",
+      "sha256": "7e2bb8c75bab0250acda7792fc7050727457caf3ac5a723e44296635776ab125",
+      "bytes": 1808678,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/06-alert.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/06-alert.png",
+      "sha256": "fbb7313a5755161937901bd9fbeef3d1c888b27de168bdb2bfbebc9638012ab9",
+      "bytes": 1619001,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/07-hiding.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/07-hiding-v2.png",
+      "sha256": "0b17eacca2ed7963d2279b41ac623eeea1696a72337ea2ac768275ec5efc2ce9",
+      "bytes": 1913780,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/08-code.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/08-code.png",
+      "sha256": "817d1ac985e100ab91af6d7ec1577cecd55529bd06df49805f6d1c4a8fb3ff10",
+      "bytes": 1384853,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/09-captured.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/09-captured.png",
+      "sha256": "ac037f002c72c380277316464e2df994851ea2140af9685e463cfaab3d4675f7",
+      "bytes": 1594482,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/10-paused.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/10-paused.png",
+      "sha256": "79669a938b2038c79af276e8beb3a0cbc57d07ec4a4fbf13e0722e1736107345",
+      "bytes": 1583406,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/11-offline.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/11-offline.png",
+      "sha256": "7c7f8a00e2d75f70958018f6e4f72164556a092baf69bd55b3b39d2ccd5d2b26",
+      "bytes": 1503403,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/12-cat-win.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/12-cat-win.png",
+      "sha256": "b1ecfa931e9bca605dbd677ba22c118a38e50baba70559b6b153c59777f847a6",
+      "bytes": 1524601,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/13-mouse-win.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/13-mouse-win.png",
+      "sha256": "0ba2ed792c4d95eea1dae4c48832f10c2d027c0fdc5cba3cf2eaac6bd207a5b7",
+      "bytes": 1758422,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/14-cancelled.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/14-cancelled.png",
+      "sha256": "2871c97ec71a98f69ddb4bdd13ddbd3f5be9c84487f108b48cb2557904bd6ff5",
+      "bytes": 1511626,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "original": "design/2026-10-12/four-styles-draft-v1/03-pixel-day/15-details-v2.png",
+      "sha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "bytes": 1658042,
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "records": [
+    {
+      "id": "home-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/01-home.png",
+      "crop": [
+        130,
+        198,
+        764,
+        577
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/home-hero.png",
+      "sourceSha256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+      "width": 480,
+      "height": 363,
+      "dimensions": {
+        "width": 480,
+        "height": 363
+      },
+      "aspectRatio": 1.3240901213171576,
+      "bytes": 51924,
+      "sha256": "98b283c293588ea42e7c304f5c8b75459f07017e2f17ab76fee358b78b1b3ce7",
+      "actualColours": 46,
+      "paletteQuality": 2,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "home-footer",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/01-home.png",
+      "crop": [
+        130,
+        1340,
+        764,
+        122
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/home-footer.png",
+      "sourceSha256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+      "width": 480,
+      "height": 77,
+      "dimensions": {
+        "width": 480,
+        "height": 77
+      },
+      "aspectRatio": 6.262295081967213,
+      "bytes": 12614,
+      "sha256": "c95baa63f24786899c6daf4fd9be5c4aaaece6450bd5e250c644bdcf8b43d3b2",
+      "actualColours": 57,
+      "paletteQuality": 49,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "create-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "crop": [
+        110,
+        177,
+        802,
+        201
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/create-hero.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 480,
+      "height": 120,
+      "dimensions": {
+        "width": 480,
+        "height": 120
+      },
+      "aspectRatio": 3.990049751243781,
+      "bytes": 19448,
+      "sha256": "be0f43f9d63e1e8bc7ba405251d8318acdb46f7a80cd29983f1d9e3afc181bf5",
+      "actualColours": 58,
+      "paletteQuality": 5,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        145,
+        190,
+        734,
+        265
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-hero.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 480,
+      "height": 173,
+      "dimensions": {
+        "width": 480,
+        "height": 173
+      },
+      "aspectRatio": 2.769811320754717,
+      "bytes": 27211,
+      "sha256": "abb7f8195e9dcbfced14740afae0d938eaf70731294880d245f0b833159df341",
+      "actualColours": 46,
+      "paletteQuality": 2,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "code-role",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/08-code.png",
+      "crop": [
+        128,
+        194,
+        768,
+        140
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/code-role.png",
+      "sourceSha256": "817d1ac985e100ab91af6d7ec1577cecd55529bd06df49805f6d1c4a8fb3ff10",
+      "width": 480,
+      "height": 88,
+      "dimensions": {
+        "width": 480,
+        "height": 88
+      },
+      "aspectRatio": 5.485714285714286,
+      "bytes": 14144,
+      "sha256": "6d5b500308917bd3cfadd79023b6418b39219738bc7c05a5e31f6aeb1e11e856",
+      "actualColours": 60,
+      "paletteQuality": 11,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "hiding-scene",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/07-hiding.png",
+      "crop": [
+        164,
+        1084,
+        458,
+        222
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/hiding-scene.png",
+      "sourceSha256": "0b17eacca2ed7963d2279b41ac623eeea1696a72337ea2ac768275ec5efc2ce9",
+      "width": 458,
+      "height": 222,
+      "dimensions": {
+        "width": 458,
+        "height": 222
+      },
+      "aspectRatio": 2.063063063063063,
+      "bytes": 31141,
+      "sha256": "71fa21d6657615f81f48a4e5a7e06950ce9a6a8914572848ff0a1cf3e5071251",
+      "actualColours": 61,
+      "paletteQuality": 3,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "offline-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/11-offline.png",
+      "crop": [
+        128,
+        449,
+        768,
+        194
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/offline-hero.png",
+      "sourceSha256": "7c7f8a00e2d75f70958018f6e4f72164556a092baf69bd55b3b39d2ccd5d2b26",
+      "width": 480,
+      "height": 121,
+      "dimensions": {
+        "width": 480,
+        "height": 121
+      },
+      "aspectRatio": 3.9587628865979383,
+      "bytes": 14947,
+      "sha256": "fff7eb52502be677580f313a08986a336d5cd4d98ef80325c9261c36d7bfb064",
+      "actualColours": 61,
+      "paletteQuality": 30,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "catwin-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/12-cat-win.png",
+      "crop": [
+        135,
+        189,
+        751,
+        503
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/catwin-hero.png",
+      "sourceSha256": "b1ecfa931e9bca605dbd677ba22c118a38e50baba70559b6b153c59777f847a6",
+      "width": 480,
+      "height": 321,
+      "dimensions": {
+        "width": 480,
+        "height": 321
+      },
+      "aspectRatio": 1.4930417495029822,
+      "bytes": 42011,
+      "sha256": "0820ef7745078650d2fd8596148bfdfcc3d24fce6329e9378cd762706ed88b6b",
+      "actualColours": 46,
+      "paletteQuality": 2,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "mousewin-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/13-mouse-win.png",
+      "crop": [
+        135,
+        181,
+        751,
+        443
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/mousewin-hero.png",
+      "sourceSha256": "0ba2ed792c4d95eea1dae4c48832f10c2d027c0fdc5cba3cf2eaac6bd207a5b7",
+      "width": 480,
+      "height": 283,
+      "dimensions": {
+        "width": 480,
+        "height": 283
+      },
+      "aspectRatio": 1.6952595936794583,
+      "bytes": 44096,
+      "sha256": "8216747665eb28176ec34f09b63db6dd9f1a255c0e14c07e2945b10cab4f5916",
+      "actualColours": 55,
+      "paletteQuality": 3,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "cancelled-hero",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/14-cancelled.png",
+      "crop": [
+        164,
+        189,
+        696,
+        674
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/cancelled-hero.png",
+      "sourceSha256": "2871c97ec71a98f69ddb4bdd13ddbd3f5be9c84487f108b48cb2557904bd6ff5",
+      "width": 480,
+      "height": 465,
+      "dimensions": {
+        "width": 480,
+        "height": 465
+      },
+      "aspectRatio": 1.032640949554896,
+      "bytes": 64103,
+      "sha256": "f4fc61cefabc7cd824ed6bd7a4384877f06e03225683c078434e9d3ec1fee7e9",
+      "actualColours": 57,
+      "paletteQuality": 3,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "paused-scene",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/10-paused.png",
+      "crop": [
+        158,
+        509,
+        709,
+        497
+      ],
+      "kind": "illustration",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/paused-scene.png",
+      "sourceSha256": "79669a938b2038c79af276e8beb3a0cbc57d07ec4a4fbf13e0722e1736107345",
+      "width": 480,
+      "height": 336,
+      "dimensions": {
+        "width": 480,
+        "height": 336
+      },
+      "aspectRatio": 1.4265593561368208,
+      "bytes": 52505,
+      "sha256": "b8a468fafbca25dff8c50086c64fbf0d05257af8f5575f8669ca3c139362a711",
+      "actualColours": 56,
+      "paletteQuality": 3,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "logo",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/01-home.png",
+      "crop": [
+        172,
+        121,
+        65,
+        64
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/logo.png",
+      "sourceSha256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+      "width": 65,
+      "height": 64,
+      "dimensions": {
+        "width": 65,
+        "height": 64
+      },
+      "aspectRatio": 1.015625,
+      "bytes": 2373,
+      "sha256": "f0806065ba7493c3a6ab43f5f97c089106657f240b6637aeecf33ab74891655f",
+      "actualColours": 64,
+      "paletteQuality": 32,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "role-cat",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/04-cat.png",
+      "crop": [
+        184,
+        197,
+        121,
+        116
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/role-cat.png",
+      "sourceSha256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+      "width": 121,
+      "height": 116,
+      "dimensions": {
+        "width": 121,
+        "height": 116
+      },
+      "aspectRatio": 1.043103448275862,
+      "bytes": 4220,
+      "sha256": "46a34f01d23c8b44232778ea0b220d1d240988166d29c98e3cf3cf851bf652da",
+      "actualColours": 61,
+      "paletteQuality": 48,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "role-mouse",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/05-mouse.png",
+      "crop": [
+        200,
+        207,
+        130,
+        110
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/role-mouse.png",
+      "sourceSha256": "7e2bb8c75bab0250acda7792fc7050727457caf3ac5a723e44296635776ab125",
+      "width": 130,
+      "height": 110,
+      "dimensions": {
+        "width": 130,
+        "height": 110
+      },
+      "aspectRatio": 1.1818181818181819,
+      "bytes": 4894,
+      "sha256": "3df968a9ac82fecf6adaae2e117bda0e13ce29eacb4bdee2f8f40479dc651bdc",
+      "actualColours": 64,
+      "paletteQuality": 67,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "rules-icon-clock",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "crop": [
+        231,
+        1090,
+        65,
+        70
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/rules-icon-clock.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 65,
+      "height": 70,
+      "dimensions": {
+        "width": 65,
+        "height": 70
+      },
+      "aspectRatio": 0.9285714285714286,
+      "bytes": 2242,
+      "sha256": "15c1287b49feda3887d2eeeec3dddf90b3efc9f974feb9553f0369d55120b405",
+      "actualColours": 62,
+      "paletteQuality": 56,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "rules-icon-cat",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "crop": [
+        725,
+        1090,
+        77,
+        72
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/rules-icon-cat.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 77,
+      "height": 72,
+      "dimensions": {
+        "width": 77,
+        "height": 72
+      },
+      "aspectRatio": 1.0694444444444444,
+      "bytes": 2759,
+      "sha256": "4a56bec321c437339596960af468c8f62c7b1e07ba30ba41f074dabe855e843a",
+      "actualColours": 64,
+      "paletteQuality": 34,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "rules-icon-capture",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        196,
+        680,
+        72,
+        68
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/rules-icon-capture.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 72,
+      "height": 68,
+      "dimensions": {
+        "width": 72,
+        "height": 68
+      },
+      "aspectRatio": 1.0588235294117647,
+      "bytes": 2418,
+      "sha256": "402735b8b9464b46c165a15de0a4848958618dc0d6f68e4609e6fe9b93e60b3c",
+      "actualColours": 63,
+      "paletteQuality": 33,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-0",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        188,
+        934,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-0.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2167,
+      "sha256": "c87bd6d67cd4a069e5e3a9bf5eeb43e1bc3f6a84353be7b8be9b195e4675cb7d",
+      "actualColours": 54,
+      "paletteQuality": 36,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-1",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        188,
+        1015,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-1.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2187,
+      "sha256": "7267c32bc91d93b9bfe6dfbc4b825528bc0ad0d232f56b963fd55a5ffc399dde",
+      "actualColours": 63,
+      "paletteQuality": 52,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-2",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        188,
+        1096,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-2.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2258,
+      "sha256": "38a7a0c36b4d6257e98c42220786af49253b174635d7872ffca6a86e69d3a4d8",
+      "actualColours": 61,
+      "paletteQuality": 46,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-3",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        188,
+        1177,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-3.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2207,
+      "sha256": "c7c4a0781f757510099698606cdb1eb0b14272c05aa1ef5ebc4cda69fb033d6e",
+      "actualColours": 61,
+      "paletteQuality": 60,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-4",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        531,
+        934,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-4.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2372,
+      "sha256": "21abf78692df11a7d6915a73b7f9ca9605ee90c504b0b57e23207b20b5e249ad",
+      "actualColours": 64,
+      "paletteQuality": 62,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-5",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        531,
+        1015,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-5.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2194,
+      "sha256": "a8a0a6fcc2753a1a4499ed308528a21eb6713349f724b247eb81f3e429ec64bf",
+      "actualColours": 59,
+      "paletteQuality": 49,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-6",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        531,
+        1096,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-6.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2282,
+      "sha256": "3229a9f5ed1d87f496483b367f2e2985c5642131d9c2c3ae97bead8ded6a6349",
+      "actualColours": 63,
+      "paletteQuality": 41,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "ready-avatar-7",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "crop": [
+        531,
+        1177,
+        69,
+        64
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/ready-avatar-7.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 69,
+      "height": 64,
+      "dimensions": {
+        "width": 69,
+        "height": 64
+      },
+      "aspectRatio": 1.078125,
+      "bytes": 2220,
+      "sha256": "352b109a7e6d9f9557a9197a39b3e6ba590aeca3a1f5daf54e036246c613e8b7",
+      "actualColours": 64,
+      "paletteQuality": 60,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-home-join",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/01-home.png",
+      "kind": "button",
+      "rect": [
+        162,
+        1078,
+        700,
+        129
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        154,
+        1070,
+        716,
+        145
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-home-join.png",
+      "sourceSha256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+      "width": 420,
+      "height": 85,
+      "dimensions": {
+        "width": 420,
+        "height": 85
+      },
+      "aspectRatio": 4.937931034482759,
+      "bytes": 9393,
+      "sha256": "5590ef3efabed2850829fd396e01f745ef2ee402a64114b5d6d96e3230e3ee5c",
+      "actualColours": 64,
+      "paletteQuality": 80,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-home-create",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/01-home.png",
+      "kind": "button",
+      "rect": [
+        163,
+        1220,
+        700,
+        102
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        155,
+        1212,
+        716,
+        118
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-home-create.png",
+      "sourceSha256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+      "width": 420,
+      "height": 69,
+      "dimensions": {
+        "width": 420,
+        "height": 69
+      },
+      "aspectRatio": 6.067796610169491,
+      "bytes": 9665,
+      "sha256": "86c9630fc1d6919e2f97283ddb022112359d1be17c56775d53627e1426abef61",
+      "actualColours": 55,
+      "paletteQuality": 94,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-create-minus",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "kind": "button",
+      "rect": [
+        326,
+        466,
+        66,
+        66
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        318,
+        458,
+        82,
+        82
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-create-minus.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 82,
+      "height": 82,
+      "dimensions": {
+        "width": 82,
+        "height": 82
+      },
+      "aspectRatio": 1,
+      "bytes": 2916,
+      "sha256": "dfc8046824191d58ec9cf676a3905fe86bc3376a631bc3aba2ada80400bfc5fb",
+      "actualColours": 53,
+      "paletteQuality": 97,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-create-plus",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "kind": "button",
+      "rect": [
+        634,
+        464,
+        67,
+        67
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        626,
+        456,
+        83,
+        83
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-create-plus.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 83,
+      "height": 83,
+      "dimensions": {
+        "width": 83,
+        "height": 83
+      },
+      "aspectRatio": 1,
+      "bytes": 3019,
+      "sha256": "3287b3ca22359fc7e6f0a4f41ee4f05d44027c719b8685991583a75eee412d7c",
+      "actualColours": 57,
+      "paletteQuality": 89,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-create-submit",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "kind": "button",
+      "rect": [
+        135,
+        1352,
+        754,
+        114
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 4
+      },
+      "crop": [
+        127,
+        1344,
+        770,
+        126
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-create-submit.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 420,
+      "height": 69,
+      "dimensions": {
+        "width": 420,
+        "height": 69
+      },
+      "aspectRatio": 6.111111111111111,
+      "bytes": 8213,
+      "sha256": "172ca3d06dc547f31877e822e04160e23cac35c55b56fff969ce8e5d7b941a2c",
+      "actualColours": 59,
+      "paletteQuality": 80,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-create-location",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/02-create.png",
+      "kind": "button",
+      "rect": [
+        151,
+        882,
+        293,
+        92
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        143,
+        874,
+        309,
+        108
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-create-location.png",
+      "sourceSha256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+      "width": 309,
+      "height": 108,
+      "dimensions": {
+        "width": 309,
+        "height": 108
+      },
+      "aspectRatio": 2.861111111111111,
+      "bytes": 11099,
+      "sha256": "725555abcf60bd860ee9b159d6c14f0276a1c07a5457682381cef3f7af4b478b",
+      "actualColours": 58,
+      "paletteQuality": 92,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-ready-start",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "kind": "button",
+      "rect": [
+        170,
+        1253,
+        684,
+        99
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        162,
+        1245,
+        700,
+        115
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-ready-start.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 420,
+      "height": 69,
+      "dimensions": {
+        "width": 420,
+        "height": 69
+      },
+      "aspectRatio": 6.086956521739131,
+      "bytes": 7617,
+      "sha256": "36121da6ec95fd810b40d24c0ad22486f99a4028c93ccd2ec01e38ad9c963988",
+      "actualColours": 61,
+      "paletteQuality": 80,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-ready-cancel",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "kind": "button",
+      "rect": [
+        173,
+        1362,
+        676,
+        84
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        165,
+        1354,
+        692,
+        100
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-ready-cancel.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 420,
+      "height": 61,
+      "dimensions": {
+        "width": 420,
+        "height": 61
+      },
+      "aspectRatio": 6.92,
+      "bytes": 8434,
+      "sha256": "50a747f3fb05d21f719b95f404d7814a0bdd18ccf425e1ec537af8a04332cfe7",
+      "actualColours": 63,
+      "paletteQuality": 95,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-ready-copy",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/03-ready.png",
+      "kind": "button",
+      "rect": [
+        761,
+        528,
+        64,
+        70
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        753,
+        520,
+        80,
+        86
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-ready-copy.png",
+      "sourceSha256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+      "width": 80,
+      "height": 86,
+      "dimensions": {
+        "width": 80,
+        "height": 86
+      },
+      "aspectRatio": 0.9302325581395349,
+      "bytes": 3111,
+      "sha256": "367295dc9e6fec7b7f0e3a9d72c1ce5a9f605c97f5c47b3fb6b12ecd996660cb",
+      "actualColours": 61,
+      "paletteQuality": 93,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-cat-scan",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/04-cat.png",
+      "kind": "button",
+      "rect": [
+        150,
+        1306,
+        397,
+        136
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        142,
+        1298,
+        413,
+        152
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-cat-scan.png",
+      "sourceSha256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+      "width": 413,
+      "height": 152,
+      "dimensions": {
+        "width": 413,
+        "height": 152
+      },
+      "aspectRatio": 2.7171052631578947,
+      "bytes": 16148,
+      "sha256": "8bd7374e6f5550f37b9ba979fd1e4d3475cc45434d3b13d765bfd0bad486e0af",
+      "actualColours": 63,
+      "paletteQuality": 75,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-cat-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/04-cat.png",
+      "kind": "button",
+      "rect": [
+        559,
+        1306,
+        317,
+        136
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        551,
+        1298,
+        333,
+        152
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-cat-details.png",
+      "sourceSha256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+      "width": 333,
+      "height": 152,
+      "dimensions": {
+        "width": 333,
+        "height": 152
+      },
+      "aspectRatio": 2.1907894736842106,
+      "bytes": 15886,
+      "sha256": "b4400da9752fa9ea409016b2cdc9aea38281ce6b87a5108cc3c3c53c4136739d",
+      "actualColours": 63,
+      "paletteQuality": 92,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-mouse-code",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/05-mouse.png",
+      "kind": "button",
+      "rect": [
+        184,
+        1334,
+        385,
+        106
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        176,
+        1326,
+        401,
+        122
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-mouse-code.png",
+      "sourceSha256": "7e2bb8c75bab0250acda7792fc7050727457caf3ac5a723e44296635776ab125",
+      "width": 401,
+      "height": 122,
+      "dimensions": {
+        "width": 401,
+        "height": 122
+      },
+      "aspectRatio": 3.2868852459016393,
+      "bytes": 12366,
+      "sha256": "664075da46dfda736f4d427e91156bec44c6110f773870553590fd8e55ebfbf2",
+      "actualColours": 61,
+      "paletteQuality": 77,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-mouse-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/05-mouse.png",
+      "kind": "button",
+      "rect": [
+        577,
+        1334,
+        263,
+        106
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        569,
+        1326,
+        279,
+        122
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-mouse-details.png",
+      "sourceSha256": "7e2bb8c75bab0250acda7792fc7050727457caf3ac5a723e44296635776ab125",
+      "width": 279,
+      "height": 122,
+      "dimensions": {
+        "width": 279,
+        "height": 122
+      },
+      "aspectRatio": 2.2868852459016393,
+      "bytes": 12572,
+      "sha256": "e9f71f7962f7685d254c8689139e8a0f5f1d2344886d7b69b5e24aac13ce98ec",
+      "actualColours": 62,
+      "paletteQuality": 93,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-alert-code",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/06-alert.png",
+      "kind": "button",
+      "rect": [
+        184,
+        1231,
+        659,
+        112
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        176,
+        1223,
+        675,
+        128
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-alert-code.png",
+      "sourceSha256": "fbb7313a5755161937901bd9fbeef3d1c888b27de168bdb2bfbebc9638012ab9",
+      "width": 420,
+      "height": 80,
+      "dimensions": {
+        "width": 420,
+        "height": 80
+      },
+      "aspectRatio": 5.2734375,
+      "bytes": 8635,
+      "sha256": "15b5e61b32a17a9c29bb1f8015ffbad5be69c00dd3ee6c61825b461ca39c39bb",
+      "actualColours": 61,
+      "paletteQuality": 76,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-alert-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/06-alert.png",
+      "kind": "button",
+      "rect": [
+        184,
+        1357,
+        659,
+        81
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        176,
+        1349,
+        675,
+        97
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-alert-details.png",
+      "sourceSha256": "fbb7313a5755161937901bd9fbeef3d1c888b27de168bdb2bfbebc9638012ab9",
+      "width": 420,
+      "height": 60,
+      "dimensions": {
+        "width": 420,
+        "height": 60
+      },
+      "aspectRatio": 6.958762886597938,
+      "bytes": 8671,
+      "sha256": "4c711aafd5cd81dea5cafb9dd45b98d3c38c175e34064c44417e017782eac918",
+      "actualColours": 61,
+      "paletteQuality": 93,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-hiding-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/07-hiding.png",
+      "kind": "button",
+      "rect": [
+        174,
+        1327,
+        677,
+        112
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        166,
+        1319,
+        693,
+        128
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-hiding-details.png",
+      "sourceSha256": "0b17eacca2ed7963d2279b41ac623eeea1696a72337ea2ac768275ec5efc2ce9",
+      "width": 420,
+      "height": 78,
+      "dimensions": {
+        "width": 420,
+        "height": 78
+      },
+      "aspectRatio": 5.4140625,
+      "bytes": 9228,
+      "sha256": "4d22342c4530f4ef6b577d4b10f807e0f024a95858c07ae178d6cf4f25dcbd5b",
+      "actualColours": 62,
+      "paletteQuality": 81,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-code-back",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/08-code.png",
+      "kind": "button",
+      "rect": [
+        164,
+        1281,
+        694,
+        121
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        156,
+        1273,
+        710,
+        137
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-code-back.png",
+      "sourceSha256": "817d1ac985e100ab91af6d7ec1577cecd55529bd06df49805f6d1c4a8fb3ff10",
+      "width": 420,
+      "height": 81,
+      "dimensions": {
+        "width": 420,
+        "height": 81
+      },
+      "aspectRatio": 5.182481751824818,
+      "bytes": 9499,
+      "sha256": "e87d95d7b5d66fb9bbccd224e837c580a21586f16d20a8580a6de0d59d08188c",
+      "actualColours": 60,
+      "paletteQuality": 84,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-captured-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/09-captured.png",
+      "kind": "button",
+      "rect": [
+        157,
+        1327,
+        710,
+        121
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        149,
+        1319,
+        726,
+        137
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-captured-details.png",
+      "sourceSha256": "ac037f002c72c380277316464e2df994851ea2140af9685e463cfaab3d4675f7",
+      "width": 420,
+      "height": 79,
+      "dimensions": {
+        "width": 420,
+        "height": 79
+      },
+      "aspectRatio": 5.299270072992701,
+      "bytes": 8727,
+      "sha256": "ff4181b054ba832f9a3dfd66af6085eca8b26e92c8c08d8aac9afc9f943e9021",
+      "actualColours": 62,
+      "paletteQuality": 83,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-paused-resume",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/10-paused.png",
+      "kind": "button",
+      "rect": [
+        164,
+        1206,
+        696,
+        123
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        156,
+        1198,
+        712,
+        139
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-paused-resume.png",
+      "sourceSha256": "79669a938b2038c79af276e8beb3a0cbc57d07ec4a4fbf13e0722e1736107345",
+      "width": 420,
+      "height": 82,
+      "dimensions": {
+        "width": 420,
+        "height": 82
+      },
+      "aspectRatio": 5.122302158273381,
+      "bytes": 9196,
+      "sha256": "f845ea265e7256e566b772e923acbf275ebe3c7c1f0c43984c21ba121b8751f8",
+      "actualColours": 61,
+      "paletteQuality": 82,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-paused-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/10-paused.png",
+      "kind": "button",
+      "rect": [
+        164,
+        1349,
+        696,
+        100
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        156,
+        1341,
+        712,
+        116
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-paused-details.png",
+      "sourceSha256": "79669a938b2038c79af276e8beb3a0cbc57d07ec4a4fbf13e0722e1736107345",
+      "width": 420,
+      "height": 68,
+      "dimensions": {
+        "width": 420,
+        "height": 68
+      },
+      "aspectRatio": 6.137931034482759,
+      "bytes": 10264,
+      "sha256": "ddd4db365d813fa6ae8ccd8465b338f8b1bcc66f449be9ad6f3543882d281a62",
+      "actualColours": 63,
+      "paletteQuality": 91,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-offline-team",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/11-offline.png",
+      "kind": "button",
+      "rect": [
+        147,
+        1332,
+        356,
+        116
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        139,
+        1324,
+        372,
+        132
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-offline-team.png",
+      "sourceSha256": "7c7f8a00e2d75f70958018f6e4f72164556a092baf69bd55b3b39d2ccd5d2b26",
+      "width": 372,
+      "height": 132,
+      "dimensions": {
+        "width": 372,
+        "height": 132
+      },
+      "aspectRatio": 2.8181818181818183,
+      "bytes": 12356,
+      "sha256": "d2da7f1b3de9b2632242aa19255b30d3969f7768aecb2e430cd405d06f0c38cd",
+      "actualColours": 63,
+      "paletteQuality": 83,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-offline-rules",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/11-offline.png",
+      "kind": "button",
+      "rect": [
+        522,
+        1332,
+        356,
+        116
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        514,
+        1324,
+        372,
+        132
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-offline-rules.png",
+      "sourceSha256": "7c7f8a00e2d75f70958018f6e4f72164556a092baf69bd55b3b39d2ccd5d2b26",
+      "width": 372,
+      "height": 132,
+      "dimensions": {
+        "width": 372,
+        "height": 132
+      },
+      "aspectRatio": 2.8181818181818183,
+      "bytes": 11530,
+      "sha256": "9bbc0cb3b018ccdea9144d4ddb8dd93fe9db30101898a156d97ddb475177c626",
+      "actualColours": 64,
+      "paletteQuality": 79,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-catwin-replay",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/12-cat-win.png",
+      "kind": "button",
+      "rect": [
+        179,
+        1071,
+        664,
+        143
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        171,
+        1063,
+        680,
+        159
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-catwin-replay.png",
+      "sourceSha256": "b1ecfa931e9bca605dbd677ba22c118a38e50baba70559b6b153c59777f847a6",
+      "width": 420,
+      "height": 98,
+      "dimensions": {
+        "width": 420,
+        "height": 98
+      },
+      "aspectRatio": 4.276729559748428,
+      "bytes": 11481,
+      "sha256": "e58129b138cfde135382eaa734346524854798ad6c7313729a4aad4fac9c0ef7",
+      "actualColours": 64,
+      "paletteQuality": 82,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-catwin-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/12-cat-win.png",
+      "kind": "button",
+      "rect": [
+        179,
+        1230,
+        664,
+        123
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        171,
+        1222,
+        680,
+        139
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-catwin-details.png",
+      "sourceSha256": "b1ecfa931e9bca605dbd677ba22c118a38e50baba70559b6b153c59777f847a6",
+      "width": 420,
+      "height": 86,
+      "dimensions": {
+        "width": 420,
+        "height": 86
+      },
+      "aspectRatio": 4.892086330935252,
+      "bytes": 12782,
+      "sha256": "54e9ca0c0142bb33a72dff6abbc03574ff6a6f0d742a554149e5e88f2c93c83c",
+      "actualColours": 64,
+      "paletteQuality": 93,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-catwin-home",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/12-cat-win.png",
+      "kind": "button",
+      "rect": [
+        269,
+        1374,
+        490,
+        60
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        261,
+        1366,
+        506,
+        76
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-catwin-home.png",
+      "sourceSha256": "b1ecfa931e9bca605dbd677ba22c118a38e50baba70559b6b153c59777f847a6",
+      "width": 420,
+      "height": 63,
+      "dimensions": {
+        "width": 420,
+        "height": 63
+      },
+      "aspectRatio": 6.657894736842105,
+      "bytes": 13134,
+      "sha256": "41a7f4442a18e4d79f9d7f845e2ac78551aa340be22b1f9eff99515a51606dfc",
+      "actualColours": 61,
+      "paletteQuality": 96,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-mousewin-replay",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/13-mouse-win.png",
+      "kind": "button",
+      "rect": [
+        181,
+        1190,
+        660,
+        115
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        173,
+        1182,
+        676,
+        131
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-mousewin-replay.png",
+      "sourceSha256": "0ba2ed792c4d95eea1dae4c48832f10c2d027c0fdc5cba3cf2eaac6bd207a5b7",
+      "width": 420,
+      "height": 81,
+      "dimensions": {
+        "width": 420,
+        "height": 81
+      },
+      "aspectRatio": 5.1603053435114505,
+      "bytes": 8328,
+      "sha256": "5515bbef5d5bf5321aad72dc61f33d2e33c04b3c3fbca0ffee0477a39335ce07",
+      "actualColours": 63,
+      "paletteQuality": 82,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-mousewin-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/13-mouse-win.png",
+      "kind": "button",
+      "rect": [
+        181,
+        1323,
+        660,
+        82
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        173,
+        1315,
+        676,
+        98
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-mousewin-details.png",
+      "sourceSha256": "0ba2ed792c4d95eea1dae4c48832f10c2d027c0fdc5cba3cf2eaac6bd207a5b7",
+      "width": 420,
+      "height": 61,
+      "dimensions": {
+        "width": 420,
+        "height": 61
+      },
+      "aspectRatio": 6.8979591836734695,
+      "bytes": 8977,
+      "sha256": "572a332bc5080baca48935f1c0220216b53df1c47b938ca7093f15175ed23391",
+      "actualColours": 60,
+      "paletteQuality": 94,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-mousewin-home",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/13-mouse-win.png",
+      "kind": "button",
+      "rect": [
+        302,
+        1415,
+        424,
+        50
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 3
+      },
+      "crop": [
+        294,
+        1407,
+        440,
+        61
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-mousewin-home.png",
+      "sourceSha256": "0ba2ed792c4d95eea1dae4c48832f10c2d027c0fdc5cba3cf2eaac6bd207a5b7",
+      "width": 420,
+      "height": 58,
+      "dimensions": {
+        "width": 420,
+        "height": 58
+      },
+      "aspectRatio": 7.213114754098361,
+      "bytes": 10794,
+      "sha256": "b96c5c7789d30066e7b8a516078a7913f9b0e82e47db69e877a9df1f2432d02f",
+      "actualColours": 57,
+      "paletteQuality": 96,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-cancelled-replay",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/14-cancelled.png",
+      "kind": "button",
+      "rect": [
+        194,
+        1057,
+        638,
+        143
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        186,
+        1049,
+        654,
+        159
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-cancelled-replay.png",
+      "sourceSha256": "2871c97ec71a98f69ddb4bdd13ddbd3f5be9c84487f108b48cb2557904bd6ff5",
+      "width": 420,
+      "height": 102,
+      "dimensions": {
+        "width": 420,
+        "height": 102
+      },
+      "aspectRatio": 4.113207547169812,
+      "bytes": 10803,
+      "sha256": "71e77c397230d6953100aafdeca3d0cfa92b66d8982d86c496302344d69953e2",
+      "actualColours": 57,
+      "paletteQuality": 85,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-cancelled-details",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/14-cancelled.png",
+      "kind": "button",
+      "rect": [
+        194,
+        1223,
+        638,
+        113
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        186,
+        1215,
+        654,
+        129
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-cancelled-details.png",
+      "sourceSha256": "2871c97ec71a98f69ddb4bdd13ddbd3f5be9c84487f108b48cb2557904bd6ff5",
+      "width": 420,
+      "height": 83,
+      "dimensions": {
+        "width": 420,
+        "height": 83
+      },
+      "aspectRatio": 5.069767441860465,
+      "bytes": 11205,
+      "sha256": "49c13031fdab7a84a6bdf926a97ac5f1dc5783a9600b411daf3bfb67171274b3",
+      "actualColours": 58,
+      "paletteQuality": 94,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-cancelled-home",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/14-cancelled.png",
+      "kind": "button",
+      "rect": [
+        298,
+        1360,
+        427,
+        70
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        290,
+        1352,
+        443,
+        86
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-cancelled-home.png",
+      "sourceSha256": "2871c97ec71a98f69ddb4bdd13ddbd3f5be9c84487f108b48cb2557904bd6ff5",
+      "width": 420,
+      "height": 82,
+      "dimensions": {
+        "width": 420,
+        "height": 82
+      },
+      "aspectRatio": 5.151162790697675,
+      "bytes": 16843,
+      "sha256": "cfac03a53d234d64b8cbf5fe3900173b71411b442d97f2c4e8bb3562bfba2ef7",
+      "actualColours": 53,
+      "paletteQuality": 97,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-drawer-close",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "kind": "button",
+      "rect": [
+        782,
+        373,
+        75,
+        70
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        774,
+        365,
+        91,
+        86
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-drawer-close.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 91,
+      "height": 86,
+      "dimensions": {
+        "width": 91,
+        "height": 86
+      },
+      "aspectRatio": 1.058139534883721,
+      "bytes": 3793,
+      "sha256": "be7844b1587409bb71223d60e7aea6a1ef04012f236fae492793a1ee009a7dba",
+      "actualColours": 55,
+      "paletteQuality": 95,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-drawer-pause",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "kind": "button",
+      "rect": [
+        173,
+        1263,
+        678,
+        99
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        165,
+        1255,
+        694,
+        115
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-drawer-pause.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 420,
+      "height": 70,
+      "dimensions": {
+        "width": 420,
+        "height": 70
+      },
+      "aspectRatio": 6.034782608695652,
+      "bytes": 7747,
+      "sha256": "ebb4c9f3a6cb3f21fee6d6937bb0a67906deaf766519ad165d9a0377ce85a82c",
+      "actualColours": 59,
+      "paletteQuality": 83,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "button-drawer-leave",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "kind": "button",
+      "rect": [
+        173,
+        1378,
+        678,
+        78
+      ],
+      "padding": {
+        "left": 8,
+        "top": 8,
+        "right": 8,
+        "bottom": 8
+      },
+      "crop": [
+        165,
+        1370,
+        694,
+        94
+      ],
+      "maxWidth": 420,
+      "colours": 64,
+      "path": "assets/pixel-v1/button-drawer-leave.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 420,
+      "height": 57,
+      "dimensions": {
+        "width": 420,
+        "height": 57
+      },
+      "aspectRatio": 7.382978723404255,
+      "bytes": 9817,
+      "sha256": "4768bcbc879411188da5a5de09617b2541915b435dab644071777e0b73b90664",
+      "actualColours": 63,
+      "paletteQuality": 95,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "code-demo-art",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/08-code.png",
+      "crop": [
+        312,
+        746,
+        401,
+        162
+      ],
+      "kind": "illustration",
+      "maxWidth": 240,
+      "colours": 64,
+      "path": "assets/pixel-v1/code-demo-art.png",
+      "sourceSha256": "817d1ac985e100ab91af6d7ec1577cecd55529bd06df49805f6d1c4a8fb3ff10",
+      "width": 240,
+      "height": 97,
+      "dimensions": {
+        "width": 240,
+        "height": 97
+      },
+      "aspectRatio": 2.4753086419753085,
+      "bytes": 7625,
+      "sha256": "1b75b52d29949804c8f0e1d473856033d060838ab217a0be899e7d1b59aa558d",
+      "actualColours": 62,
+      "paletteQuality": 49,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "drawer-cat-avatar",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "crop": [
+        187,
+        584,
+        77,
+        80
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/drawer-cat-avatar.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 77,
+      "height": 80,
+      "dimensions": {
+        "width": 77,
+        "height": 80
+      },
+      "aspectRatio": 0.9625,
+      "bytes": 2609,
+      "sha256": "a190cd07ac7bf7e215069a542d673fd60a88511629ac1f1daf4095f15a20d2ce",
+      "actualColours": 54,
+      "paletteQuality": 29,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "drawer-mouse-avatar",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "crop": [
+        459,
+        582,
+        77,
+        80
+      ],
+      "kind": "avatar",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/drawer-mouse-avatar.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 77,
+      "height": 80,
+      "dimensions": {
+        "width": 77,
+        "height": 80
+      },
+      "aspectRatio": 0.9625,
+      "bytes": 2950,
+      "sha256": "d0919e6e8feafcf0f64b48a93c53b3e8e2f402f23040686003fe42ad993e4a11",
+      "actualColours": 64,
+      "paletteQuality": 68,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "drawer-title-icon",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "crop": [
+        177,
+        379,
+        65,
+        77
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/drawer-title-icon.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 65,
+      "height": 77,
+      "dimensions": {
+        "width": 65,
+        "height": 77
+      },
+      "aspectRatio": 0.8441558441558441,
+      "bytes": 2380,
+      "sha256": "f0e40d9c83d75ecfc5a902774858fb1654a3627479ef6b76412dcfe8194ac004",
+      "actualColours": 63,
+      "paletteQuality": 87,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "drawer-event-icon",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "crop": [
+        177,
+        890,
+        45,
+        45
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/drawer-event-icon.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 45,
+      "height": 45,
+      "dimensions": {
+        "width": 45,
+        "height": 45
+      },
+      "aspectRatio": 1,
+      "bytes": 1482,
+      "sha256": "bd0f8b54bd567977af48242e2c8c2c110e46e3067d9c86d5cdf794999154a169",
+      "actualColours": 60,
+      "paletteQuality": 90,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    },
+    {
+      "id": "drawer-rules-icon",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/15-details.png",
+      "crop": [
+        177,
+        1072,
+        44,
+        44
+      ],
+      "kind": "icon",
+      "maxWidth": 480,
+      "colours": 64,
+      "path": "assets/pixel-v1/drawer-rules-icon.png",
+      "sourceSha256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+      "width": 44,
+      "height": 44,
+      "dimensions": {
+        "width": 44,
+        "height": 44
+      },
+      "aspectRatio": 1,
+      "bytes": 1213,
+      "sha256": "288b3dcc90006868978ba20e4b627b00d6c756e45253f3fa4145eaf1d9da7fa6",
+      "actualColours": 59,
+      "paletteQuality": 90,
+      "transform": "exact integer crop; width-only Lanczos3 resize; PNG actual PLTE<=64; dither0; no artistic edit"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/pixel-v1/ui-variable.woff",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/ui-variable.woff",
+      "bytes": 107816,
+      "sha256": "11e128112254d25a1439408158c8a8aac7cda64ca07772705b2d1aa769463819",
+      "transform": "verbatim copy"
+    },
+    {
+      "path": "assets/pixel-v1/FONT-LICENSE.txt",
+      "source": "design/2026-10-12/pixel-day-replica-v1/assets/FONT-LICENSE.txt",
+      "bytes": 4605,
+      "sha256": "e9d9b525d384aa7d1e39650ac03047621c5d79e3a88c698aa0c522bd5d87d493",
+      "transform": "verbatim copy"
+    }
+  ]
+}

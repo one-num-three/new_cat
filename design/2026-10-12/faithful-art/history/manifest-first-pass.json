@@ -1,0 +1,3084 @@
+{
+  "version": "original-page-pixel-faithful-v2",
+  "created": "2026-10-12",
+  "generatedArt": false,
+  "notes": [
+    "Source fragments are exact RGB crops. Only alpha is edited in cutouts; mobile files use deterministic resizing/palette encoding.",
+    "Five hero compositions are separate. Create alone contains its original orange flag. Ready/gallery original capsule overlap and ready adjacent heading are cleared in alpha; render against the native sky/cream underlay.",
+    "Park-stage crops contain original public/sample flags, own-location sample or clue illustration when present. Explicit developer preview only; never geographic runtime maps.",
+    "Unknown pixels hidden behind original HUD/panels have not been invented or repainted. Mouse-win adjacent title occlusion is removed in alpha without repainting hidden art; its map stage stops at y893 before the tail protrusion.",
+    "Drawer park crop already includes its original dimming; do not add another dim mask unless replacing it with a bright-stage crop.",
+    "Every resize specifies width only. Integer output-height rounding is recorded by source/crop/runtime aspectRatio; no nonuniform scaling is applied."
+  ],
+  "sources": [
+    {
+      "path": "design/2026-10-11/page-concepts-v1/01-home.png",
+      "sha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/02-create.png",
+      "sha256": "96d918c9d05811f939fb4a535cfb6dbc3ba6251f99662d4cda4bde1a45e7f760",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/03-ready.png",
+      "sha256": "5bd1d85579425af6d484ae1257d8f03b7a527a51b0c4db10e04ec775f5f58d40",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/04-hiding-v2.png",
+      "sha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/05-cat.png",
+      "sha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/06-mouse-v2.png",
+      "sha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/07-alert.png",
+      "sha256": "78f17b3ba9212d1e5d83ab33db45ff7089397ba94f6914511125c5da7f7f0531",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/08-code.png",
+      "sha256": "bf21f0c9acfa926f225cd1072d912e8b82313a4f4fe620029f80256cd078a0f2",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/09-captured.png",
+      "sha256": "0ba79befb0e10a34212eecaca80c294d4b022f81cee72681f9d8179b4127f869",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/10-paused.png",
+      "sha256": "ba93ce76c10d488b153200a456a08b784f02488dff794fc1aee8da34c6a09cac",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/11-offline.png",
+      "sha256": "cf713eb08caf55833f7099c684a98fc803a4f9655a9a804848b93370ef6e9c14",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/12-catWin.png",
+      "sha256": "191a1489751de8dd5d58bdb94f5f6b6a831baf794d42ad184847cb57bcdd283a",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/13-mouseWin.png",
+      "sha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/14-cancelled.png",
+      "sha256": "f593d6dedc19e9c42e6296bfb92df4e59b3bb1dd35ca07707f9b13fe0f8cbecf",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "design/2026-10-11/page-concepts-v1/16-drawer.png",
+      "sha256": "889cddfb0b10e7a6bd22e74c1b43c8c7ff449e992c27dd27ac420a396af23f9e",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "runtimeBytes": 1787409,
+  "assets": [
+    {
+      "id": "hero-home",
+      "kind": "hero",
+      "source": "design/2026-10-11/page-concepts-v1/01-home.png",
+      "sourceSha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "crop": {
+        "left": 156,
+        "top": 420,
+        "width": 712,
+        "height": 356
+      },
+      "path": "assets/faithful-v2/hero-home.png",
+      "sha256": "f8db2b86705dbddcbda805cecd20969709d95ba9cbc98257811227b54a97d3dc",
+      "width": 712,
+      "height": 356,
+      "bytes": 100313,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 253472,
+        "total": 253472,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 712,
+          "height": 356
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 712,
+        "height": 356
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 2,
+        "runtime": 2
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/hero-home-source.png",
+      "sourceFragmentSha256": "58d71b6cff4e2fc98d53fe13de9e260b436491e4e6fc97ad6d032e55bb06d41a",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/hero-home.png",
+      "fragmentSha256": "c249cf149df64f2ccced3524282fb2910b49ffee9a7d4df8a81b7b20e5309d54",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 712,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "hero-create",
+      "kind": "hero",
+      "source": "design/2026-10-11/page-concepts-v1/02-create.png",
+      "sourceSha256": "96d918c9d05811f939fb4a535cfb6dbc3ba6251f99662d4cda4bde1a45e7f760",
+      "crop": {
+        "left": 156,
+        "top": 180,
+        "width": 712,
+        "height": 340
+      },
+      "path": "assets/faithful-v2/hero-create.png",
+      "sha256": "cb465e85682f54a854bc988353ff5e211a1654f057205488429301290c21a289",
+      "width": 712,
+      "height": 340,
+      "bytes": 85319,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 242080,
+        "total": 242080,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 712,
+          "height": 340
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 712,
+        "height": 340
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 2.0941176470588236,
+        "runtime": 2.0941176470588236
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/hero-create-source.png",
+      "sourceFragmentSha256": "37f42fe6b115d193643ca92abae13160d0fc6c13742e37cfd02bb0fb07c45fb1",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/hero-create.png",
+      "fragmentSha256": "b1be2594cd1c5680fc89bb3af3ecd4baf7e6b8cbb3b3fd9f9bf8a0d6d7455aff",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 712,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "hero-ready",
+      "kind": "hero",
+      "source": "design/2026-10-11/page-concepts-v1/03-ready.png",
+      "sourceSha256": "5bd1d85579425af6d484ae1257d8f03b7a527a51b0c4db10e04ec775f5f58d40",
+      "crop": {
+        "left": 156,
+        "top": 162,
+        "width": 712,
+        "height": 258
+      },
+      "path": "assets/faithful-v2/hero-ready.png",
+      "sha256": "7d8f7a2818c2415452fdf9fe565efc30a9ea60489de083952749bb4b3c6f4fd1",
+      "width": 712,
+      "height": 258,
+      "bytes": 59829,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 20770,
+        "partial": 0,
+        "opaque": 162926,
+        "total": 183696,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 712,
+          "height": 258
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 712,
+        "height": 258
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 2.75968992248062,
+        "runtime": 2.75968992248062
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/hero-ready-source.png",
+      "sourceFragmentSha256": "46f4508c1ccc7e4e85e6ad3ca9ed05e91870c6252aa6cc784efebb5fea0762ad",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/hero-ready.png",
+      "fragmentSha256": "d223056dcc9560731b07a200285cf1fb8ebb8ee5fa41aa602f4a847d57c2f63c",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [
+          [
+            684,
+            162,
+            174,
+            16
+          ],
+          [
+            156,
+            386,
+            529,
+            34
+          ]
+        ],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 712,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "hero-code",
+      "kind": "hero",
+      "source": "design/2026-10-11/page-concepts-v1/08-code.png",
+      "sourceSha256": "bf21f0c9acfa926f225cd1072d912e8b82313a4f4fe620029f80256cd078a0f2",
+      "crop": {
+        "left": 156,
+        "top": 178,
+        "width": 712,
+        "height": 288
+      },
+      "path": "assets/faithful-v2/hero-code.png",
+      "sha256": "ea70859dc0d7c436d8a97b50eddfc5cc5c7e589d5a8becbca7df97daac8dc8b0",
+      "width": 712,
+      "height": 288,
+      "bytes": 69817,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 205056,
+        "total": 205056,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 712,
+          "height": 288
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 712,
+        "height": 288
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 2.4722222222222223,
+        "runtime": 2.4722222222222223
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/hero-code-source.png",
+      "sourceFragmentSha256": "2cd219ff11374ab776fcb49f00f1a9b38ae9a90ed98a5eb82d2861b74a278029",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/hero-code.png",
+      "fragmentSha256": "1fba1d63f13d3b4c4ad78eb7c3a8f791a15f82e942762d70b5248303597e6ae6",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 712,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "hero-gallery",
+      "kind": "hero",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 156,
+        "top": 157,
+        "width": 712,
+        "height": 279
+      },
+      "path": "assets/faithful-v2/hero-gallery.png",
+      "sha256": "14d4efed3712d1d6b14d42ba3f9c0c91f8228fc35a60a1d0d1be332f34127829",
+      "width": 712,
+      "height": 279,
+      "bytes": 79660,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 3633,
+        "partial": 0,
+        "opaque": 195015,
+        "total": 198648,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 712,
+          "height": 279
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 712,
+        "height": 279
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 2.5519713261648747,
+        "runtime": 2.5519713261648747
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/hero-gallery-source.png",
+      "sourceFragmentSha256": "a49a93824b34994030418a221ec53eef86bc193d1ed26e70ab1bdb2b4e9dce85",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/hero-gallery.png",
+      "fragmentSha256": "d566100331ab0410e7682954c9e2251432b0222a41b08697372a4865e7cd6426",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [
+          [
+            685,
+            157,
+            173,
+            21
+          ]
+        ],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 712,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "home-cloud",
+      "kind": "element",
+      "source": "design/2026-10-11/page-concepts-v1/01-home.png",
+      "sourceSha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "crop": {
+        "left": 156,
+        "top": 111,
+        "width": 188,
+        "height": 88
+      },
+      "path": "assets/faithful-v2/home-cloud.png",
+      "sha256": "7f86db42618166b22a875801caf542c679fcf80d10877bae69c077a30a0d1655",
+      "width": 188,
+      "height": 88,
+      "bytes": 6678,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 6274,
+        "partial": 0,
+        "opaque": 10270,
+        "total": 16544,
+        "bbox": {
+          "left": 0,
+          "top": 3,
+          "width": 186,
+          "height": 83
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 3,
+        "width": 186,
+        "height": 83
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 2.1363636363636362,
+        "runtime": 2.1363636363636362
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/home-cloud-source.png",
+      "sourceFragmentSha256": "da9e294ce15a074ab63771d61d9ec2525aaa409fc74a8c87ea0e7825d0c7881e",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/home-cloud.png",
+      "fragmentSha256": "762ca5f907dba29bc52db138edd22bdcded6aa2d82ce20a890b12bb0989b912c",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "sky",
+        "removedBackgroundPixels": 6274,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 188,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "home-canopy",
+      "kind": "element",
+      "source": "design/2026-10-11/page-concepts-v1/01-home.png",
+      "sourceSha256": "c58c67b8f8ff891c5a9763b9d31559593acd26737b03c44eb11cb0170eb8a564",
+      "crop": {
+        "left": 591,
+        "top": 196,
+        "width": 277,
+        "height": 318
+      },
+      "path": "assets/faithful-v2/home-canopy.png",
+      "sha256": "db4e13e7877db078364a5a63f93f78c83b3400f681e4071d6d93a4c330097297",
+      "width": 277,
+      "height": 318,
+      "bytes": 35525,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 28799,
+        "partial": 0,
+        "opaque": 59287,
+        "total": 88086,
+        "bbox": {
+          "left": 0,
+          "top": 3,
+          "width": 277,
+          "height": 315
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 3,
+        "width": 277,
+        "height": 315
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 0.8710691823899371,
+        "runtime": 0.8710691823899371
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/home-canopy-source.png",
+      "sourceFragmentSha256": "a86df066a5798bb6a66fbab48e59ea54f7b2876acae3656c1b00b067e20874b6",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/home-canopy.png",
+      "fragmentSha256": "a77895027a5e474e12dc6b109f6f972fee51ca39eed6c65c926c346f027c3a2c",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "sky",
+        "removedBackgroundPixels": 28799,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 277,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "map-canopy-left",
+      "kind": "element",
+      "source": "design/2026-10-11/page-concepts-v1/05-cat.png",
+      "sourceSha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "crop": {
+        "left": 156,
+        "top": 149,
+        "width": 258,
+        "height": 43
+      },
+      "path": "assets/faithful-v2/map-canopy-left.png",
+      "sha256": "a6a6a4aa15e5fe561c66f4a9df8996ab0a1b780a6916508c58afed54e5ec5905",
+      "width": 258,
+      "height": 43,
+      "bytes": 4612,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 6248,
+        "partial": 0,
+        "opaque": 4846,
+        "total": 11094,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 179,
+          "height": 43
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 179,
+        "height": 43
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 6,
+        "runtime": 6
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/map-canopy-left-source.png",
+      "sourceFragmentSha256": "d870dca6d74b655323016e3580cb87b35cf7e96cbab9287b98b6358c18bcfed6",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/map-canopy-left.png",
+      "fragmentSha256": "670f33b5db92e5781495748408d0ede2adfea9c1925c63430da0d2309bc4bc6b",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "sky",
+        "removedBackgroundPixels": 6248,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 258,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "map-canopy-right",
+      "kind": "element",
+      "source": "design/2026-10-11/page-concepts-v1/05-cat.png",
+      "sourceSha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "crop": {
+        "left": 579,
+        "top": 149,
+        "width": 289,
+        "height": 43
+      },
+      "path": "assets/faithful-v2/map-canopy-right.png",
+      "sha256": "61638f639c6eaf8e7b9fb5f030d89b3b1a3c2cfed17c85e57e6e9d93b2c2ae30",
+      "width": 289,
+      "height": 43,
+      "bytes": 1819,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 11653,
+        "partial": 0,
+        "opaque": 774,
+        "total": 12427,
+        "bbox": {
+          "left": 4,
+          "top": 0,
+          "width": 285,
+          "height": 43
+        }
+      },
+      "alphaBBox": {
+        "left": 4,
+        "top": 0,
+        "width": 285,
+        "height": 43
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 6.72093023255814,
+        "runtime": 6.72093023255814
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/map-canopy-right-source.png",
+      "sourceFragmentSha256": "db50898bbcf750109b0f4758dd45367b9fc8d877b7e6243de3385661fba812d1",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/map-canopy-right.png",
+      "fragmentSha256": "8e59416632a5449424146729460a8bda5271a89cbcf77bde930a99fdcd4da050",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "sky",
+        "removedBackgroundPixels": 11653,
+        "clearRects": [
+          [
+            685,
+            149,
+            175,
+            29
+          ]
+        ],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 289,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-mouse",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/06-mouse-v2.png",
+      "sourceSha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "crop": {
+        "left": 173,
+        "top": 1058,
+        "width": 294,
+        "height": 180
+      },
+      "path": "assets/faithful-v2/state-mouse.png",
+      "sha256": "898f29436d02d9180425f805600c8c2ca5a7f33171fe7d017a0b4d99a1efd5d2",
+      "width": 294,
+      "height": 180,
+      "bytes": 21757,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 12641,
+        "partial": 0,
+        "opaque": 40279,
+        "total": 52920,
+        "bbox": {
+          "left": 3,
+          "top": 2,
+          "width": 289,
+          "height": 175
+        }
+      },
+      "alphaBBox": {
+        "left": 3,
+        "top": 2,
+        "width": 289,
+        "height": 175
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.6333333333333333,
+        "runtime": 1.6333333333333333
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-mouse-source.png",
+      "sourceFragmentSha256": "9fa97753345465fba69ac32221ef7bc93357d9a06749bf2edded6155901663bd",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-mouse.png",
+      "fragmentSha256": "a22e6565aa5deaa6a84d46a997711e9de971a735fdc9d6d18dd325e9d4b9b284",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 12641,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 294,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-hiding",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/04-hiding-v2.png",
+      "sourceSha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "crop": {
+        "left": 170,
+        "top": 1087,
+        "width": 371,
+        "height": 234
+      },
+      "path": "assets/faithful-v2/state-hiding.png",
+      "sha256": "011fb5a1027f168153eeaa7638021706445d349afdc24ccab90d93101029fffa",
+      "width": 371,
+      "height": 234,
+      "bytes": 28966,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 27288,
+        "partial": 0,
+        "opaque": 59526,
+        "total": 86814,
+        "bbox": {
+          "left": 3,
+          "top": 1,
+          "width": 365,
+          "height": 231
+        }
+      },
+      "alphaBBox": {
+        "left": 3,
+        "top": 1,
+        "width": 365,
+        "height": 231
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.5854700854700854,
+        "runtime": 1.5854700854700854
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-hiding-source.png",
+      "sourceFragmentSha256": "0f005d10b70dd6a1b560d15dd050a5c1dde925db2d792c14f54a12718cf8c201",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-hiding.png",
+      "fragmentSha256": "3558ef35476c01f2559396ea959fa57fa603ee374d8b1ea82d7013156c96b672",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 27288,
+        "clearRects": [],
+        "protectedPolygons": [
+          [
+            [
+              181,
+              1223
+            ],
+            [
+              217,
+              1191
+            ],
+            [
+              265,
+              1190
+            ],
+            [
+              292,
+              1164
+            ],
+            [
+              324,
+              1167
+            ],
+            [
+              358,
+              1190
+            ],
+            [
+              397,
+              1201
+            ],
+            [
+              428,
+              1230
+            ],
+            [
+              433,
+              1274
+            ],
+            [
+              415,
+              1307
+            ],
+            [
+              354,
+              1310
+            ],
+            [
+              297,
+              1300
+            ],
+            [
+              256,
+              1284
+            ],
+            [
+              213,
+              1290
+            ],
+            [
+              185,
+              1270
+            ]
+          ]
+        ],
+        "specialCleanup": null,
+        "resizeWidth": 371,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-captured",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/09-captured.png",
+      "sourceSha256": "0ba79befb0e10a34212eecaca80c294d4b022f81cee72681f9d8179b4127f869",
+      "crop": {
+        "left": 174,
+        "top": 1121,
+        "width": 310,
+        "height": 195
+      },
+      "path": "assets/faithful-v2/state-captured.png",
+      "sha256": "e48d561b9e23213d252041b7bdeb0494b33e4d468def3e9d3a5291004aba1a51",
+      "width": 310,
+      "height": 195,
+      "bytes": 24125,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 17040,
+        "partial": 0,
+        "opaque": 43410,
+        "total": 60450,
+        "bbox": {
+          "left": 2,
+          "top": 0,
+          "width": 305,
+          "height": 192
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 0,
+        "width": 305,
+        "height": 192
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.5897435897435896,
+        "runtime": 1.5897435897435896
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-captured-source.png",
+      "sourceFragmentSha256": "6d13d9129aaad1b1f5ae84041d057275b68e5437ab2650928fa384697f2fd451",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-captured.png",
+      "fragmentSha256": "1f205bc79ba4a9a082fc957af9f6d779f0ae437018cffe6bcb23e98534e40848",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 17040,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 310,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-paused",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/10-paused.png",
+      "sourceSha256": "ba93ce76c10d488b153200a456a08b784f02488dff794fc1aee8da34c6a09cac",
+      "crop": {
+        "left": 169,
+        "top": 1022,
+        "width": 364,
+        "height": 208
+      },
+      "path": "assets/faithful-v2/state-paused.png",
+      "sha256": "fcfab29c9df02b30cb9987ccb808b06271a9cf4415e35f047853523ad333597c",
+      "width": 364,
+      "height": 208,
+      "bytes": 28922,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 15380,
+        "partial": 0,
+        "opaque": 60332,
+        "total": 75712,
+        "bbox": {
+          "left": 3,
+          "top": 2,
+          "width": 358,
+          "height": 202
+        }
+      },
+      "alphaBBox": {
+        "left": 3,
+        "top": 2,
+        "width": 358,
+        "height": 202
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.75,
+        "runtime": 1.75
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-paused-source.png",
+      "sourceFragmentSha256": "b30f257941f681b2aa041ea0013ae8bd998e66c853141ab4cc72c430f1b31d63",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-paused.png",
+      "fragmentSha256": "c29c71820a9d0d5d1e1642fdfcc1755e5ad5fa0339297869404fdfc824a4032c",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 15380,
+        "clearRects": [],
+        "protectedPolygons": [
+          [
+            [
+              177,
+              1164
+            ],
+            [
+              211,
+              1127
+            ],
+            [
+              269,
+              1110
+            ],
+            [
+              304,
+              1136
+            ],
+            [
+              346,
+              1141
+            ],
+            [
+              372,
+              1165
+            ],
+            [
+              386,
+              1192
+            ],
+            [
+              380,
+              1215
+            ],
+            [
+              348,
+              1225
+            ],
+            [
+              298,
+              1224
+            ],
+            [
+              266,
+              1213
+            ],
+            [
+              226,
+              1220
+            ],
+            [
+              184,
+              1208
+            ]
+          ]
+        ],
+        "specialCleanup": null,
+        "resizeWidth": 364,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-offline",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/11-offline.png",
+      "sourceSha256": "cf713eb08caf55833f7099c684a98fc803a4f9655a9a804848b93370ef6e9c14",
+      "crop": {
+        "left": 163,
+        "top": 1086,
+        "width": 315,
+        "height": 224
+      },
+      "path": "assets/faithful-v2/state-offline.png",
+      "sha256": "2db059b70a7aea4d81d158cc185f39433e256a0ecdcc6e6ee07ec1cc831f231f",
+      "width": 315,
+      "height": 224,
+      "bytes": 23829,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 30535,
+        "partial": 0,
+        "opaque": 40025,
+        "total": 70560,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 309,
+          "height": 219
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 309,
+        "height": 219
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.40625,
+        "runtime": 1.40625
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-offline-source.png",
+      "sourceFragmentSha256": "b9e5b17dc84b14b249e715b796e8330bddefefaed18a39856d0bf39f3f110176",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-offline.png",
+      "fragmentSha256": "d1f587f1507bc4a2f60b2abbd2b04248f498cb0280e0fafb84c037fe4683b869",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "blue-card",
+        "removedBackgroundPixels": 30535,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 315,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-catWin",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/12-catWin.png",
+      "sourceSha256": "191a1489751de8dd5d58bdb94f5f6b6a831baf794d42ad184847cb57bcdd283a",
+      "crop": {
+        "left": 449,
+        "top": 964,
+        "width": 401,
+        "height": 276
+      },
+      "path": "assets/faithful-v2/state-catWin.png",
+      "sha256": "baac1b20eb03be1e2bb70e11f7b0c86a1d790e3ce14232178fc4088400ffdf05",
+      "width": 401,
+      "height": 276,
+      "bytes": 38856,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 20130,
+        "partial": 0,
+        "opaque": 90546,
+        "total": 110676,
+        "bbox": {
+          "left": 0,
+          "top": 4,
+          "width": 399,
+          "height": 268
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 4,
+        "width": 399,
+        "height": 268
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.4528985507246377,
+        "runtime": 1.4528985507246377
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-catWin-source.png",
+      "sourceFragmentSha256": "6cd2e5f208992b5d35f5af54b90721e39f55f3f3a6d2b9fa97fa84483b5126de",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-catWin.png",
+      "fragmentSha256": "3fec0753e33bf49aa69e573b3ae1309b49ff7b36ea406be7caf16612d6fd5f34",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 20130,
+        "clearRects": [],
+        "protectedPolygons": [
+          [
+            [
+              476,
+              1149
+            ],
+            [
+              493,
+              1096
+            ],
+            [
+              526,
+              1095
+            ],
+            [
+              548,
+              1053
+            ],
+            [
+              580,
+              1060
+            ],
+            [
+              613,
+              1081
+            ],
+            [
+              649,
+              1091
+            ],
+            [
+              684,
+              1085
+            ],
+            [
+              698,
+              1119
+            ],
+            [
+              667,
+              1151
+            ],
+            [
+              650,
+              1180
+            ],
+            [
+              618,
+              1225
+            ],
+            [
+              579,
+              1220
+            ],
+            [
+              542,
+              1196
+            ],
+            [
+              507,
+              1203
+            ],
+            [
+              475,
+              1185
+            ]
+          ],
+          [
+            [
+              794,
+              1018
+            ],
+            [
+              831,
+              1016
+            ],
+            [
+              848,
+              1031
+            ],
+            [
+              848,
+              1075
+            ],
+            [
+              798,
+              1075
+            ],
+            [
+              787,
+              1061
+            ]
+          ]
+        ],
+        "specialCleanup": null,
+        "resizeWidth": 401,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-mouseWin",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/13-mouseWin.png",
+      "sourceSha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "crop": {
+        "left": 378,
+        "top": 893,
+        "width": 468,
+        "height": 255
+      },
+      "path": "assets/faithful-v2/state-mouseWin.png",
+      "sha256": "d01ee026e90bfe0ed5aec09793e1f7a076c1d95ae0b3b0b9f59a51ebaf15282c",
+      "width": 420,
+      "height": 229,
+      "bytes": 28526,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 43107,
+        "partial": 4565,
+        "opaque": 48508,
+        "total": 96180,
+        "bbox": {
+          "left": 0,
+          "top": 1,
+          "width": 417,
+          "height": 223
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 1,
+        "width": 417,
+        "height": 223
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.8352941176470587,
+        "runtime": 1.834061135371179
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-mouseWin-source.png",
+      "sourceFragmentSha256": "c5c45bc8d67c56a33c30024ddffa3c8a7fc22be9eb7b19c8d90d71e58efe1188",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-mouseWin.png",
+      "fragmentSha256": "05b7c6f696c6efdedda3be53e79fa865dbd349420b1ea9d30e60dffae213888b",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 55927,
+        "clearRects": [],
+        "protectedPolygons": [
+          [
+            [
+              407,
+              1041
+            ],
+            [
+              425,
+              1004
+            ],
+            [
+              466,
+              990
+            ],
+            [
+              497,
+              962
+            ],
+            [
+              526,
+              964
+            ],
+            [
+              552,
+              997
+            ],
+            [
+              583,
+              1001
+            ],
+            [
+              616,
+              1022
+            ],
+            [
+              633,
+              1061
+            ],
+            [
+              620,
+              1093
+            ],
+            [
+              589,
+              1106
+            ],
+            [
+              551,
+              1108
+            ],
+            [
+              511,
+              1091
+            ],
+            [
+              476,
+              1084
+            ],
+            [
+              441,
+              1090
+            ],
+            [
+              410,
+              1075
+            ]
+          ]
+        ],
+        "specialCleanup": "mouseWin",
+        "resizeWidth": 420,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "state-cancelled",
+      "kind": "state",
+      "source": "design/2026-10-11/page-concepts-v1/14-cancelled.png",
+      "sourceSha256": "f593d6dedc19e9c42e6296bfb92df4e59b3bb1dd35ca07707f9b13fe0f8cbecf",
+      "crop": {
+        "left": 170,
+        "top": 1018,
+        "width": 364,
+        "height": 214
+      },
+      "path": "assets/faithful-v2/state-cancelled.png",
+      "sha256": "a130e46e879956b76fbc0e35a340fe6b3fc12518042a3e59df4f27b84cb82b9f",
+      "width": 364,
+      "height": 214,
+      "bytes": 26411,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 26116,
+        "partial": 0,
+        "opaque": 51780,
+        "total": 77896,
+        "bbox": {
+          "left": 3,
+          "top": 5,
+          "width": 356,
+          "height": 205
+        }
+      },
+      "alphaBBox": {
+        "left": 3,
+        "top": 5,
+        "width": 356,
+        "height": 205
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.7009345794392523,
+        "runtime": 1.7009345794392523
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/state-cancelled-source.png",
+      "sourceFragmentSha256": "7330d0c5c8bbf461409b93c073e568d980a0f68acb7b39dc818cb8d27d86c908",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/state-cancelled.png",
+      "fragmentSha256": "a7cb7c85946879eb057cce0a6ef043956fd6c447eb2bb1ee4d140466657af2ec",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 26116,
+        "clearRects": [],
+        "protectedPolygons": [
+          [
+            [
+              186,
+              1154
+            ],
+            [
+              223,
+              1124
+            ],
+            [
+              274,
+              1104
+            ],
+            [
+              299,
+              1126
+            ],
+            [
+              338,
+              1133
+            ],
+            [
+              366,
+              1154
+            ],
+            [
+              391,
+              1198
+            ],
+            [
+              389,
+              1218
+            ],
+            [
+              360,
+              1228
+            ],
+            [
+              308,
+              1226
+            ],
+            [
+              266,
+              1217
+            ],
+            [
+              232,
+              1220
+            ],
+            [
+              195,
+              1208
+            ]
+          ]
+        ],
+        "specialCleanup": null,
+        "resizeWidth": 364,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "avatar-cat",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/04-hiding-v2.png",
+      "sourceSha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "crop": {
+        "left": 203,
+        "top": 221,
+        "width": 66,
+        "height": 65
+      },
+      "path": "assets/faithful-v2/avatar-cat.png",
+      "sha256": "5c7aa7bd5ee2158c653ef7c86c78556732c28db962a1d32047e5108eba0a1782",
+      "width": 66,
+      "height": 65,
+      "bytes": 3798,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 995,
+        "partial": 0,
+        "opaque": 3295,
+        "total": 4290,
+        "bbox": {
+          "left": 1,
+          "top": 0,
+          "width": 65,
+          "height": 65
+        }
+      },
+      "alphaBBox": {
+        "left": 1,
+        "top": 0,
+        "width": 65,
+        "height": 65
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0153846153846153,
+        "runtime": 1.0153846153846153
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/avatar-cat-source.png",
+      "sourceFragmentSha256": "3e905131066e72f65fd4f3372ee406e3c92f4d9f615c461ea0bd12540296dcac",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/avatar-cat.png",
+      "fragmentSha256": "b908b6be72e3c78949ded5ac08b2af560aa1708daeec834a95c4976327d750b9",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 995,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 66,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "avatar-mouse",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/06-mouse-v2.png",
+      "sourceSha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "crop": {
+        "left": 202,
+        "top": 219,
+        "width": 71,
+        "height": 68
+      },
+      "path": "assets/faithful-v2/avatar-mouse.png",
+      "sha256": "6930013725aae76ce2adca5dcfd4aac39b29bd763b193a1f44bee17d74c05fb6",
+      "width": 71,
+      "height": 68,
+      "bytes": 3788,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1741,
+        "partial": 0,
+        "opaque": 3087,
+        "total": 4828,
+        "bbox": {
+          "left": 1,
+          "top": 1,
+          "width": 68,
+          "height": 66
+        }
+      },
+      "alphaBBox": {
+        "left": 1,
+        "top": 1,
+        "width": 68,
+        "height": 66
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0441176470588236,
+        "runtime": 1.0441176470588236
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/avatar-mouse-source.png",
+      "sourceFragmentSha256": "c31b967b3b33288cb6543ad5fe00fa234fc9c3f4f01f43834c4cac4b4a7a10ca",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/avatar-mouse.png",
+      "fragmentSha256": "5eb1ffcdae2d54d6831ea4f88fb82cb6bce6ba03d50ebda7cd292fe004f44e13",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 1741,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 71,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "avatar-mouse-green",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/13-mouseWin.png",
+      "sourceSha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "crop": {
+        "left": 203,
+        "top": 220,
+        "width": 66,
+        "height": 65
+      },
+      "path": "assets/faithful-v2/avatar-mouse-green.png",
+      "sha256": "f825a8fc5be4c81a99fba5854a4fc199aa31bc80563274e6ac61ddd5dc218935",
+      "width": 66,
+      "height": 65,
+      "bytes": 3555,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1345,
+        "partial": 0,
+        "opaque": 2945,
+        "total": 4290,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 62,
+          "height": 61
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 62,
+        "height": 61
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0153846153846153,
+        "runtime": 1.0153846153846153
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/avatar-mouse-green-source.png",
+      "sourceFragmentSha256": "2f9eea79cf0c37c68e2364685df0aea13666a5cc94e982d4dbeafe80fcc5cdfb",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/avatar-mouse-green.png",
+      "fragmentSha256": "bd2fa2a779917e16207641d3a78d065a8ae107eaf10bd39c092870449a43e8d5",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "cream",
+        "removedBackgroundPixels": 1345,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 66,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-home",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 201,
+        "top": 649,
+        "width": 53,
+        "height": 51
+      },
+      "path": "assets/faithful-v2/icon-home.png",
+      "sha256": "e4073429e5f5e91a74d7663d62fc12939eac81ae19cf91353fe4af0e4ea314c0",
+      "width": 53,
+      "height": 51,
+      "bytes": 2342,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1273,
+        "partial": 0,
+        "opaque": 1430,
+        "total": 2703,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 49,
+          "height": 47
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 49,
+        "height": 47
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0392156862745099,
+        "runtime": 1.0392156862745099
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-home-source.png",
+      "sourceFragmentSha256": "ca80f7301778304de9959a40ae5e90bac9cc075a3e812a864563ad889bef316d",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-home.png",
+      "fragmentSha256": "da8dc165eb4b4a6eabd441ca11dd940a2f40518640fa0fe4898c49f5a4526aec",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1273,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 53,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-create",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 422,
+        "top": 649,
+        "width": 57,
+        "height": 57
+      },
+      "path": "assets/faithful-v2/icon-create.png",
+      "sha256": "2e3ec8bbbae93d8b5e75b9ab2fdb490a6d3ec3fd20da09502e9edf09a3fc93e0",
+      "width": 57,
+      "height": 57,
+      "bytes": 3139,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1022,
+        "partial": 0,
+        "opaque": 2227,
+        "total": 3249,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 53,
+          "height": 53
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 53,
+        "height": 53
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1,
+        "runtime": 1
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-create-source.png",
+      "sourceFragmentSha256": "3053e8d3a2c23b18cb195d05615229f2ff6c28db6e4b08db616936e3fc00e67c",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-create.png",
+      "fragmentSha256": "736e77324b18f1c8afa372944f32fc3793b5cb9ac45a5156609cc5d522ffad0b",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1022,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 57,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-ready",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 641,
+        "top": 653,
+        "width": 54,
+        "height": 46
+      },
+      "path": "assets/faithful-v2/icon-ready.png",
+      "sha256": "25fc7a31583ce674de00eb13c1b00e4cec7541baa0cc4cacbfa02b86a7869d81",
+      "width": 54,
+      "height": 46,
+      "bytes": 2327,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1113,
+        "partial": 0,
+        "opaque": 1371,
+        "total": 2484,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 50,
+          "height": 42
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 50,
+        "height": 42
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.173913043478261,
+        "runtime": 1.173913043478261
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-ready-source.png",
+      "sourceFragmentSha256": "ba05ca1d41442cb6adde42586bcbf13f59a242df976ab063f0fedcb1f9e32584",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-ready.png",
+      "fragmentSha256": "0588fd37ec650673c407322a7931e5cd4e896a63b39f5906ccdb084f4ce940b2",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1113,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 54,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-catMap",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 203,
+        "top": 820,
+        "width": 58,
+        "height": 57
+      },
+      "path": "assets/faithful-v2/icon-catMap.png",
+      "sha256": "976ee2fb23adba1d472f1d89f6577853816a48318cb22e3f5fef18a9f0571c64",
+      "width": 58,
+      "height": 57,
+      "bytes": 2955,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1166,
+        "partial": 0,
+        "opaque": 2140,
+        "total": 3306,
+        "bbox": {
+          "left": 1,
+          "top": 2,
+          "width": 56,
+          "height": 53
+        }
+      },
+      "alphaBBox": {
+        "left": 1,
+        "top": 2,
+        "width": 56,
+        "height": 53
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0175438596491229,
+        "runtime": 1.0175438596491229
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-catMap-source.png",
+      "sourceFragmentSha256": "efa69103312c6166c03016ca53949cca86dbe103323ca0d13ea3ac56ac4c5100",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-catMap.png",
+      "fragmentSha256": "e9e0936aad829fcefc6adf65f1f359b0a67cea0b075747a5ad87c25c729aaf13",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1166,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 58,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-mouseMap",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 423,
+        "top": 819,
+        "width": 58,
+        "height": 58
+      },
+      "path": "assets/faithful-v2/icon-mouseMap.png",
+      "sha256": "7886fab9c8731413ed3d7ba967dec62a8a28749a491297c80cf84c1db0e05a3f",
+      "width": 58,
+      "height": 58,
+      "bytes": 2836,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1253,
+        "partial": 0,
+        "opaque": 2111,
+        "total": 3364,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 54,
+          "height": 54
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 54,
+        "height": 54
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1,
+        "runtime": 1
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-mouseMap-source.png",
+      "sourceFragmentSha256": "3ce6ebc6d5b1ec64244e3afc17b9ae7b49c2d8755ce3af9fcedc8550777dd0bc",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-mouseMap.png",
+      "fragmentSha256": "4bed088246d01b94ea2c6dada2cc0f8e34dafbce253d6a3b162781a103348441",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1253,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 58,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-alert",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 638,
+        "top": 821,
+        "width": 61,
+        "height": 56
+      },
+      "path": "assets/faithful-v2/icon-alert.png",
+      "sha256": "c401bf5a24b77b25ba70812f5cabbbacf64f5e109ae52e2ffb1e085308a56dc6",
+      "width": 61,
+      "height": 56,
+      "bytes": 2804,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1463,
+        "partial": 0,
+        "opaque": 1953,
+        "total": 3416,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 57,
+          "height": 52
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 57,
+        "height": 52
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0892857142857142,
+        "runtime": 1.0892857142857142
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-alert-source.png",
+      "sourceFragmentSha256": "ac296dc91a2ed40013b9a35ee60fa5008198e3a4deee716155a349b02069bece",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-alert.png",
+      "fragmentSha256": "5a91ddd6ac0ce11b371613a22a176ea2a96a61c4cc4c237c6982a5f3b061602f",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1463,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 61,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-hiding",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 197,
+        "top": 917,
+        "width": 70,
+        "height": 52
+      },
+      "path": "assets/faithful-v2/icon-hiding.png",
+      "sha256": "aa54f2d05a144a18c22d2bc2c29c3fc3650b01efd0fe5f431fd6c9a3e54f92c6",
+      "width": 70,
+      "height": 52,
+      "bytes": 3038,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1276,
+        "partial": 0,
+        "opaque": 2364,
+        "total": 3640,
+        "bbox": {
+          "left": 1,
+          "top": 2,
+          "width": 67,
+          "height": 49
+        }
+      },
+      "alphaBBox": {
+        "left": 1,
+        "top": 2,
+        "width": 67,
+        "height": 49
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.3461538461538463,
+        "runtime": 1.3461538461538463
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-hiding-source.png",
+      "sourceFragmentSha256": "3edf7b2b23235f01d1f0b02c82c1aa6012755d633787e1e2d9deeebdf1fa5e85",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-hiding.png",
+      "fragmentSha256": "d97b558deec93c68b460a4c4843a271b159bbd09e4de5ebe59154a06490b0329",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1276,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 70,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-code",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 427,
+        "top": 916,
+        "width": 54,
+        "height": 54
+      },
+      "path": "assets/faithful-v2/icon-code.png",
+      "sha256": "3c5d99382564451905cad6fe18fae759dd03c93ee1563ad5337c3262f847b78b",
+      "width": 54,
+      "height": 54,
+      "bytes": 3008,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 884,
+        "partial": 0,
+        "opaque": 2032,
+        "total": 2916,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 50,
+          "height": 50
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 50,
+        "height": 50
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1,
+        "runtime": 1
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-code-source.png",
+      "sourceFragmentSha256": "1f217c32676cd634effdd2d86e042500decc4f071ddc5235415f20e45c06f021",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-code.png",
+      "fragmentSha256": "b198daaa6a0445e2313dbf12681e4c12a91d71e3fe11ee0c0b147580e03e6f2c",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 884,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 54,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-captured",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 198,
+        "top": 1090,
+        "width": 70,
+        "height": 59
+      },
+      "path": "assets/faithful-v2/icon-captured.png",
+      "sha256": "01d37d0c15d8a707d80b00f2ae6ab76d2f3372873eba8444c45216cc0cf08ee0",
+      "width": 70,
+      "height": 59,
+      "bytes": 3264,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1696,
+        "partial": 0,
+        "opaque": 2434,
+        "total": 4130,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 66,
+          "height": 55
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 66,
+        "height": 55
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.1864406779661016,
+        "runtime": 1.1864406779661016
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-captured-source.png",
+      "sourceFragmentSha256": "cc6abb75dc7ed3eb239027b9fb3709eacaaf75012711748edc4f8132cf90d9f0",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-captured.png",
+      "fragmentSha256": "33a35ad234190994d5eb213bcff02f0cb3df1a1eb887d9e0a836fe034b094714",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1696,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 70,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-paused",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 421,
+        "top": 1087,
+        "width": 62,
+        "height": 62
+      },
+      "path": "assets/faithful-v2/icon-paused.png",
+      "sha256": "c562ea8dcd77929c2f0344ce1385b5beaf61df92a39a74e0e834464730f0c367",
+      "width": 62,
+      "height": 62,
+      "bytes": 3385,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1224,
+        "partial": 0,
+        "opaque": 2620,
+        "total": 3844,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 58,
+          "height": 58
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 58,
+        "height": 58
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1,
+        "runtime": 1
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-paused-source.png",
+      "sourceFragmentSha256": "846326aced4ab52e12acf2328091ce62042368a6e79c89562ab2dd6e45d81b06",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-paused.png",
+      "fragmentSha256": "e8595ae98a6a6f7d3bafedc138f974ec1dcb9749cdc5fde58a19745a74aed2dd",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1224,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 62,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-offline",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 638,
+        "top": 1091,
+        "width": 68,
+        "height": 58
+      },
+      "path": "assets/faithful-v2/icon-offline.png",
+      "sha256": "f56907790e5b5070854c520d79fb7bcbce669503071ce172241888fc7004ce94",
+      "width": 68,
+      "height": 58,
+      "bytes": 2674,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 2316,
+        "partial": 0,
+        "opaque": 1628,
+        "total": 3944,
+        "bbox": {
+          "left": 2,
+          "top": 2,
+          "width": 64,
+          "height": 54
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 2,
+        "width": 64,
+        "height": 54
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.1724137931034482,
+        "runtime": 1.1724137931034482
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-offline-source.png",
+      "sourceFragmentSha256": "6dabb50a00d7a7c7ab5a1cde9402753cd979ac94248402f30b03b7e8242725b8",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-offline.png",
+      "fragmentSha256": "3ae58eac9207d51ae7af550543d0696ca96eb9dcf6e67d3c3750d0b6ccf38f85",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 2316,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 68,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-catWin",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 199,
+        "top": 1262,
+        "width": 67,
+        "height": 62
+      },
+      "path": "assets/faithful-v2/icon-catWin.png",
+      "sha256": "ac5366d1ebf80f0bc238a66920bcfcde3150c3df6781554d50ff3dc3510837d1",
+      "width": 67,
+      "height": 62,
+      "bytes": 3553,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 1329,
+        "partial": 0,
+        "opaque": 2825,
+        "total": 4154,
+        "bbox": {
+          "left": 2,
+          "top": 1,
+          "width": 63,
+          "height": 59
+        }
+      },
+      "alphaBBox": {
+        "left": 2,
+        "top": 1,
+        "width": 63,
+        "height": 59
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0806451612903225,
+        "runtime": 1.0806451612903225
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-catWin-source.png",
+      "sourceFragmentSha256": "8768ae7e42a3be4f0bb6c3d176f133342e285c3aa50ca9a70452d3a2e1570d6f",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-catWin.png",
+      "fragmentSha256": "d47a4bd415ea291bd258772f1ed00bec7de4ad745c1e4d6ac1eeab0bae68558c",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 1329,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 67,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-mouseWin",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 422,
+        "top": 1269,
+        "width": 59,
+        "height": 52
+      },
+      "path": "assets/faithful-v2/icon-mouseWin.png",
+      "sha256": "6cb7c06e5a7f4d9284e01688d6714f7f69192448ba325ba7ef61352173f42f55",
+      "width": 59,
+      "height": 52,
+      "bytes": 2964,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 938,
+        "partial": 0,
+        "opaque": 2130,
+        "total": 3068,
+        "bbox": {
+          "left": 1,
+          "top": 1,
+          "width": 57,
+          "height": 49
+        }
+      },
+      "alphaBBox": {
+        "left": 1,
+        "top": 1,
+        "width": 57,
+        "height": 49
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.1346153846153846,
+        "runtime": 1.1346153846153846
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-mouseWin-source.png",
+      "sourceFragmentSha256": "3132b5dbb6a01884a3629dd8f24411d2527caf9cee992dacb684ebf7932936d3",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-mouseWin.png",
+      "fragmentSha256": "2734ecfcbe9a11f121183d4ab9b8b159e0ebce9fc0da318f4913a0e330a65dfb",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 938,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 59,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "icon-cancelled",
+      "kind": "icon",
+      "source": "design/2026-10-11/page-concepts-v1/15-dev.png",
+      "sourceSha256": "73b06208f03f4d9805f35a69b52d06da38b08ae7ae71628de98597172e6b8fb5",
+      "crop": {
+        "left": 639,
+        "top": 1264,
+        "width": 57,
+        "height": 57
+      },
+      "path": "assets/faithful-v2/icon-cancelled.png",
+      "sha256": "9cc88ba64e63758efafa73d2b92ad2173526ba5cb499c6636a1d4b5eae47d70e",
+      "width": 57,
+      "height": 57,
+      "bytes": 3141,
+      "hasAlpha": true,
+      "alpha": {
+        "transparent": 991,
+        "partial": 0,
+        "opaque": 2258,
+        "total": 3249,
+        "bbox": {
+          "left": 1,
+          "top": 1,
+          "width": 54,
+          "height": 54
+        }
+      },
+      "alphaBBox": {
+        "left": 1,
+        "top": 1,
+        "width": 54,
+        "height": 54
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1,
+        "runtime": 1
+      },
+      "previewOnly": false,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/icon-cancelled-source.png",
+      "sourceFragmentSha256": "a86ddbbcfbb60fe142a6d7d974a90eac40931d2dad3f961a8e10aa4ef6a726fe",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/icon-cancelled.png",
+      "fragmentSha256": "29eddb5fd693f21b225266b63eda9ee9d2a38b1bd61bb9484cee0fd3b35ec44b",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": "white",
+        "removedBackgroundPixels": 991,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 57,
+        "paletteColours": 192,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-hiding",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/04-hiding-v2.png",
+      "sourceSha256": "36084c4d28d02f58b4b0c34eec7becd00dd2fad65df0b8e55e28c89ffd65a25a",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 740
+      },
+      "path": "assets/faithful-v2/park-stage-hiding.png",
+      "sha256": "a87113b1f87261a1f0190c7c10f0f36b3c5fb6d95fd37b9446734162de6bcf02",
+      "width": 450,
+      "height": 468,
+      "bytes": 99797,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 210600,
+        "total": 210600,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 468
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 468
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 0.9621621621621622,
+        "runtime": 0.9615384615384616
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-hiding-source.png",
+      "sourceFragmentSha256": "ff6b3f176523cc467b65847ac892aa143087465094daeed2f37dab5cc955d8f0",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-hiding.png",
+      "fragmentSha256": "e3f5500a07d5e002726fce8fe526166fcb50363efcedb171d5567ea607828b66",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-cat",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/05-cat.png",
+      "sourceSha256": "bd51b6f7d3e5d06073f9d1542601b8563edb4c8fb02c3e85f1be773e42b35657",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 747
+      },
+      "path": "assets/faithful-v2/park-stage-cat.png",
+      "sha256": "af34986e55f6afc8168324e47349df0fdbc189be4729e249bded849062152e09",
+      "width": 450,
+      "height": 472,
+      "bytes": 95219,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 212400,
+        "total": 212400,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 472
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 472
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 0.9531459170013387,
+        "runtime": 0.9533898305084746
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-cat-source.png",
+      "sourceFragmentSha256": "c6d877877967bc818a397cc632261ef9f31dc288e4005bf10e504026e43b576a",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-cat.png",
+      "fragmentSha256": "3d220e964ab93dd297f8a826d6d11b47091c2c394d77f09a429c121c79bdc29d",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-mouse",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/06-mouse-v2.png",
+      "sourceSha256": "eeb8c9040d74ebd857174ac86db48509ecd7f6d5a449e473f8a8e6bfd431116e",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 727
+      },
+      "path": "assets/faithful-v2/park-stage-mouse.png",
+      "sha256": "5f4f0532283e32c1e6102236f6b1a7dac08fa516f055883c827c88f894e739f1",
+      "width": 450,
+      "height": 459,
+      "bytes": 106488,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 206550,
+        "total": 206550,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 459
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 459
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 0.9793672627235214,
+        "runtime": 0.9803921568627451
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-mouse-source.png",
+      "sourceFragmentSha256": "d3e5efa1c435b4ca1cdae8bfd3bac2951b24cf2977240aee31bd0192add45d96",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-mouse.png",
+      "fragmentSha256": "c293448fdbd48298dbbb8176214aff2623df4f9bf25b4b19d5736b6ce5916519",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-alert",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/07-alert.png",
+      "sourceSha256": "78f17b3ba9212d1e5d83ab33db45ff7089397ba94f6914511125c5da7f7f0531",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 713
+      },
+      "path": "assets/faithful-v2/park-stage-alert.png",
+      "sha256": "9d89e9e5de8675f769c5a025889a17668f52b1d6ab838ec4c12d966bf28a9f25",
+      "width": 450,
+      "height": 451,
+      "bytes": 107975,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 202950,
+        "total": 202950,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 451
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 451
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 0.9985974754558204,
+        "runtime": 0.9977827050997783
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-alert-source.png",
+      "sourceFragmentSha256": "baf06ecdf5950e16db86e02d74fa89f6975b9e326c71d89ace3485506cdd6400",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-alert.png",
+      "fragmentSha256": "d3b6193bd03183716ac009a924f68ab1b5637c5ce694826d0d93d2d5d045d1f0",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-captured",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/09-captured.png",
+      "sourceSha256": "0ba79befb0e10a34212eecaca80c294d4b022f81cee72681f9d8179b4127f869",
+      "crop": {
+        "left": 156,
+        "top": 371,
+        "width": 712,
+        "height": 706
+      },
+      "path": "assets/faithful-v2/park-stage-captured.png",
+      "sha256": "b2a1e9b9f188b8f3a0291cb66f9119c5fce50a77caed7288c07980a5a7d4b7bf",
+      "width": 450,
+      "height": 446,
+      "bytes": 104733,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 200700,
+        "total": 200700,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 446
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 446
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0084985835694051,
+        "runtime": 1.0089686098654709
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-captured-source.png",
+      "sourceFragmentSha256": "c381fd29222b2756b9a994cabcc6bacbf0b2ce7cbf2d250528d601bfbe265b6c",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-captured.png",
+      "fragmentSha256": "4d6ec806185475c8c2466c94206b2090171cf1246cd61c8fccf0f6248836ee3f",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-paused",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/10-paused.png",
+      "sourceSha256": "ba93ce76c10d488b153200a456a08b784f02488dff794fc1aee8da34c6a09cac",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 685
+      },
+      "path": "assets/faithful-v2/park-stage-paused.png",
+      "sha256": "a409f1c385155686853cfc9207b75df8a8226c9a9c0500331aaedff9ec3a67a5",
+      "width": 450,
+      "height": 433,
+      "bytes": 101651,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 194850,
+        "total": 194850,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 433
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 433
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0394160583941605,
+        "runtime": 1.0392609699769053
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-paused-source.png",
+      "sourceFragmentSha256": "a8267af76eac78167ed0a68fba6a4bc43b93b3b16ee6dd3e30bd93123c8a77c8",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-paused.png",
+      "fragmentSha256": "8220c81aea5243cc93767c6993c918bd40ef6c5e8831adeb403d792c420dce27",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-offline",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/11-offline.png",
+      "sourceSha256": "cf713eb08caf55833f7099c684a98fc803a4f9655a9a804848b93370ef6e9c14",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 739
+      },
+      "path": "assets/faithful-v2/park-stage-offline.png",
+      "sha256": "304bac57039308b983c8c71349c77cf474a25b12fdb734621bfd0b8249b0ac6c",
+      "width": 450,
+      "height": 467,
+      "bytes": 114663,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 210150,
+        "total": 210150,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 467
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 467
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 0.9634641407307172,
+        "runtime": 0.9635974304068522
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-offline-source.png",
+      "sourceFragmentSha256": "fb420b17749eb7f7b7ebd11f8426a65183f59fc569d9002c81078c901b378bfa",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-offline.png",
+      "fragmentSha256": "93ef17e7d190b098d14b4fdecc31a34d922a4746b2e1971465c05704b54fdfde",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-catWin",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/12-catWin.png",
+      "sourceSha256": "191a1489751de8dd5d58bdb94f5f6b6a831baf794d42ad184847cb57bcdd283a",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 638
+      },
+      "path": "assets/faithful-v2/park-stage-catWin.png",
+      "sha256": "1e8e4c45919c5e6095645e0f69031de7f4fa64cbf87d3d4401965612e78f30e5",
+      "width": 450,
+      "height": 403,
+      "bytes": 96219,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 181350,
+        "total": 181350,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 403
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 403
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.115987460815047,
+        "runtime": 1.1166253101736974
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-catWin-source.png",
+      "sourceFragmentSha256": "e3d7c26974d31c4b157b0e04e0ad766859ef839eac4bcfa105d9934c9ae69855",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-catWin.png",
+      "fragmentSha256": "1ea918f46ba9ef15a6b94c1381ab3bdd5edbff4bb2a30240eb152f798c2e8b76",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-mouseWin",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/13-mouseWin.png",
+      "sourceSha256": "d2b2d1d7b8dd7cc357ddf6857c268235bed6905a2c25fa4093664b44cb934cab",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 581
+      },
+      "path": "assets/faithful-v2/park-stage-mouseWin.png",
+      "sha256": "06a8b213c2c3cf70ae7102f8ba9b12f824e73622deb2a553ac8b479e2808e2e3",
+      "width": 450,
+      "height": 367,
+      "bytes": 87496,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 165150,
+        "total": 165150,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 367
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 367
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.225473321858864,
+        "runtime": 1.2261580381471389
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-mouseWin-source.png",
+      "sourceFragmentSha256": "5837d8a74f3b0976a6abd4b03626bd7ebc04fb7323eb9d6a98a02a7d45a4af22",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-mouseWin.png",
+      "fragmentSha256": "b91073a4ecc2cd9edc7c4eb506f305c83204ef9c4a87f2bde0f774c06758dac0",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-cancelled",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/14-cancelled.png",
+      "sourceSha256": "f593d6dedc19e9c42e6296bfb92df4e59b3bb1dd35ca07707f9b13fe0f8cbecf",
+      "crop": {
+        "left": 156,
+        "top": 312,
+        "width": 712,
+        "height": 652
+      },
+      "path": "assets/faithful-v2/park-stage-cancelled.png",
+      "sha256": "856aa42d8c40b4a921d5a1f0d56035a35a4171ba3608bba95ff0f1915a6a3c86",
+      "width": 450,
+      "height": 412,
+      "bytes": 100015,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 185400,
+        "total": 185400,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 412
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 412
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.0920245398773005,
+        "runtime": 1.0922330097087378
+      },
+      "previewOnly": true,
+      "bakedDim": false,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-cancelled-source.png",
+      "sourceFragmentSha256": "78e49f0ea9749be2a08ca17f446c04b77cd8470fb91778fc091e20b97774fef2",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-cancelled.png",
+      "fragmentSha256": "76bcad6417c699a015fb9767279ed3563a7afc832887ff9494c1a3a3276ec3dc",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    },
+    {
+      "id": "park-stage-drawer",
+      "kind": "park-stage",
+      "source": "design/2026-10-11/page-concepts-v1/16-drawer.png",
+      "sourceSha256": "889cddfb0b10e7a6bd22e74c1b43c8c7ff449e992c27dd27ac420a396af23f9e",
+      "crop": {
+        "left": 156,
+        "top": 279,
+        "width": 712,
+        "height": 359
+      },
+      "path": "assets/faithful-v2/park-stage-drawer.png",
+      "sha256": "5fc31693a8dd0489c6b4c7fab936e11c3a2ddcfeecfac2e791b64297ed56d679",
+      "width": 450,
+      "height": 227,
+      "bytes": 55618,
+      "hasAlpha": false,
+      "alpha": {
+        "transparent": 0,
+        "partial": 0,
+        "opaque": 102150,
+        "total": 102150,
+        "bbox": {
+          "left": 0,
+          "top": 0,
+          "width": 450,
+          "height": 227
+        }
+      },
+      "alphaBBox": {
+        "left": 0,
+        "top": 0,
+        "width": 450,
+        "height": 227
+      },
+      "aspectRatio": {
+        "source": 0.6666666666666666,
+        "crop": 1.9832869080779945,
+        "runtime": 1.9823788546255507
+      },
+      "previewOnly": true,
+      "bakedDim": true,
+      "sourceFragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-drawer-source.png",
+      "sourceFragmentSha256": "8a631dd2061960e07f63d24a3330ed62b10318b39137d2beb1ae52fc4c8048dd",
+      "fragmentPath": "design/2026-10-12/faithful-art/fragments/park-stage-drawer.png",
+      "fragmentSha256": "dde8c7a3c2f18defade038e5a375078ae660ba6cbbdbf50cd56381bf03645d58",
+      "transform": {
+        "type": "source-pixel-crop",
+        "backgroundKey": null,
+        "removedBackgroundPixels": 0,
+        "clearRects": [],
+        "protectedPolygons": [],
+        "specialCleanup": null,
+        "resizeWidth": 450,
+        "paletteColours": 128,
+        "dither": 0.15
+      }
+    }
+  ]
+}

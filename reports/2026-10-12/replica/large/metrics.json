@@ -1,0 +1,1818 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": "gallery",
+      "route": "pages/dev/dev",
+      "preview": false,
+      "available": true,
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 1010.828125,
+              "width": 390,
+              "height": 1010.828125
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 899.984375,
+              "bottom": 962.828125,
+              "width": 352,
+              "height": 62.84375
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 31,
+              "right": 51,
+              "top": 568.484375,
+              "bottom": 588.484375,
+              "width": 20,
+              "height": 20
+            }
+          ],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\gallery.png"
+    },
+    {
+      "id": "home",
+      "route": "pages/index/index",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 854.0625,
+              "width": 390,
+              "height": 854.0625
+            }
+          ],
+          ".hero": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 426,
+              "width": 390,
+              "height": 426
+            }
+          ],
+          ".homeInput": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 457.109375,
+              "bottom": 503.109375,
+              "width": 352,
+              "height": 46
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 548.21875,
+              "bottom": 594.21875,
+              "width": 352,
+              "height": 46
+            }
+          ],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 604.21875,
+              "bottom": 665.0625,
+              "width": 352,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 677.0625,
+              "bottom": 739.90625,
+              "width": 352,
+              "height": 62.84375
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\home.png"
+    },
+    {
+      "id": "create",
+      "route": "pages/room/room",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844,
+              "width": 390,
+              "height": 844
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 642.046875,
+              "bottom": 702.890625,
+              "width": 352,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 33,
+              "right": 357,
+              "top": 535.40625,
+              "bottom": 592.25,
+              "width": 324,
+              "height": 56.84375
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\create.png"
+    },
+    {
+      "id": "ready",
+      "route": "pages/room/room",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 867,
+              "width": 390,
+              "height": 867
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 659.3125,
+              "bottom": 720.15625,
+              "width": 352,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 730.15625,
+              "bottom": 787,
+              "width": 352,
+              "height": 56.84375
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 32,
+              "right": 199.3359375,
+              "top": 302.203125,
+              "bottom": 334.203125,
+              "width": 167.3359375,
+              "height": 32
+            }
+          ],
+          ".copyButton": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 300,
+              "right": 358,
+              "top": 304.703125,
+              "bottom": 335.703125,
+              "width": 58,
+              "height": 31
+            }
+          ],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\ready.png"
+    },
+    {
+      "id": "cat",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cat",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 677.21875,
+              "bottom": 738.0625,
+              "width": 364,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 597.9140625,
+              "bottom": 844,
+              "width": 390,
+              "height": 246.0859375
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\cat.png"
+    },
+    {
+      "id": "mouse",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouse",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 677.21875,
+              "bottom": 738.0625,
+              "width": 364,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 613.9140625,
+              "bottom": 844,
+              "width": 390,
+              "height": 230.0859375
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\mouse.png"
+    },
+    {
+      "id": "alert",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouse",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 677.21875,
+              "bottom": 738.0625,
+              "width": 364,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 579.421875,
+              "bottom": 844,
+              "width": 390,
+              "height": 264.578125
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\alert.png"
+    },
+    {
+      "id": "hiding",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "hiding",
+      "clock": "00:18",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 616,
+              "bottom": 844,
+              "width": 390,
+              "height": 228
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\hiding.png"
+    },
+    {
+      "id": "code",
+      "route": "pages/qrcode/qrcode",
+      "preview": true,
+      "available": false,
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "bottom": 844,
+              "width": 390,
+              "height": 844
+            }
+          ],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 19,
+              "right": 371,
+              "top": 638.1953125,
+              "bottom": 701.0390625,
+              "width": 352,
+              "height": 62.84375
+            }
+          ],
+          ".topPanel": [],
+          ".bottomPanel": [],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [],
+          ".goal": [],
+          ".clock": [],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\code.png"
+    },
+    {
+      "id": "captured",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "captured",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 616,
+              "bottom": 844,
+              "width": 390,
+              "height": 228
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 189,
+              "bottom": 221.5,
+              "width": 368,
+              "height": 32.5
+            }
+          ],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\captured.png"
+    },
+    {
+      "id": "paused",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "paused",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 670.15625,
+              "bottom": 731,
+              "width": 364,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 537.15625,
+              "bottom": 844,
+              "width": 390,
+              "height": 306.84375
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\paused.png"
+    },
+    {
+      "id": "offline",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "offline",
+      "clock": "--:--",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 589.234375,
+              "bottom": 844,
+              "width": 390,
+              "height": 254.765625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\offline.png"
+    },
+    {
+      "id": "catWin",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "catWin",
+      "clock": "00:00",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15,
+              "right": 375,
+              "top": 673.15625,
+              "bottom": 734,
+              "width": 360,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 169.0625,
+              "width": 368,
+              "height": 77.0625
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 511.2578125,
+              "bottom": 844,
+              "width": 390,
+              "height": 332.7421875
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 103,
+              "bottom": 158.0625,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 109.78125,
+              "bottom": 151.28125,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 109.1796875,
+              "bottom": 133.375,
+              "width": 109,
+              "height": 24.1953125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15,
+              "right": 213,
+              "top": 567.2578125,
+              "bottom": 606.0078125,
+              "width": 198,
+              "height": 38.75
+            }
+          ]
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\catWin.png"
+    },
+    {
+      "id": "mouseWin",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouseWin",
+      "clock": "00:00",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15,
+              "right": 375,
+              "top": 673.15625,
+              "bottom": 734,
+              "width": 360,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 169.0625,
+              "width": 368,
+              "height": 77.0625
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 511.2578125,
+              "bottom": 844,
+              "width": 390,
+              "height": 332.7421875
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 103,
+              "bottom": 158.0625,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 109.78125,
+              "bottom": 151.28125,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 109.1796875,
+              "bottom": 133.375,
+              "width": 109,
+              "height": 24.1953125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15,
+              "right": 213,
+              "top": 567.2578125,
+              "bottom": 606.0078125,
+              "width": 198,
+              "height": 38.75
+            }
+          ]
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\mouseWin.png"
+    },
+    {
+      "id": "cancelled",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cancelled",
+      "clock": "00:00",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15,
+              "right": 375,
+              "top": 673.15625,
+              "bottom": 734,
+              "width": 360,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 742,
+              "bottom": 798,
+              "width": 364,
+              "height": 56
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 169.0625,
+              "width": 368,
+              "height": 77.0625
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 511.2578125,
+              "bottom": 844,
+              "width": 390,
+              "height": 332.7421875
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 103,
+              "bottom": 158.0625,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 109.78125,
+              "bottom": 151.28125,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 109.1796875,
+              "bottom": 133.375,
+              "width": 109,
+              "height": 24.1953125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 15,
+              "right": 213,
+              "top": 567.2578125,
+              "bottom": 606.0078125,
+              "width": 198,
+              "height": 38.75
+            }
+          ]
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\cancelled.png"
+    },
+    {
+      "id": "drawer",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cat",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1.3,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 13,
+              "right": 377,
+              "top": 677.21875,
+              "bottom": 738.0625,
+              "width": 364,
+              "height": 60.84375
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18,
+              "right": 372,
+              "top": 765.0234375,
+              "bottom": 804.0234375,
+              "width": 354,
+              "height": 39
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 11,
+              "right": 379,
+              "top": 92,
+              "bottom": 176.8203125,
+              "width": 368,
+              "height": 84.8203125
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 597.9140625,
+              "bottom": 844,
+              "width": 390,
+              "height": 246.0859375
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 270.0859375,
+              "bottom": 844,
+              "width": 390,
+              "height": 573.9140625
+            }
+          ],
+          ".drawerHeader": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 284.0859375,
+              "bottom": 321.0859375,
+              "width": 390,
+              "height": 37
+            }
+          ],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20,
+              "right": 142.34375,
+              "top": 106.875,
+              "bottom": 161.9375,
+              "width": 122.34375,
+              "height": 55.0625
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 142.34375,
+              "right": 256,
+              "top": 113.65625,
+              "bottom": 155.15625,
+              "width": 113.65625,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 261,
+              "right": 370,
+              "top": 103,
+              "bottom": 147.3203125,
+              "width": 109,
+              "height": 44.3203125
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica\\large\\drawer.png"
+    }
+  ]
+}

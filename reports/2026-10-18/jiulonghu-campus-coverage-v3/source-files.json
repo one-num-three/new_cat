@@ -1,0 +1,132 @@
+[
+  {
+    "file": "cat-mouse-server/v2/jiulonghu-location.test.js",
+    "bytes": 5400,
+    "sha256": "701fee2178db38ca097be07a0a091bf7f0f574ba96272823663c02bb2f47827c"
+  },
+  {
+    "file": "cat-mouse-server/v2/map-motion-gps.test.js",
+    "bytes": 5822,
+    "sha256": "cf6b28007e0793619e91d3bc42aeba4b1d02293b1e219ef6d59c8013c68e7c18"
+  },
+  {
+    "file": "cat-mouse-server/v2/venue-ui.test.js",
+    "bytes": 29435,
+    "sha256": "c7e2cd7f82550609bb0ef616e73bd0d59bb1fa4fba30b0ce105dfca80993a3cf"
+  },
+  {
+    "file": "components/venue-art/venue-art.js",
+    "bytes": 13109,
+    "sha256": "1adfd3983b047d4a52eeeabe45d07103c698f1e54c347206c2260bc61bcda880"
+  },
+  {
+    "file": "GEO_MAP_BINDING.md",
+    "bytes": 10496,
+    "sha256": "56a1a52f914879a065f6284c43b692ac4679e3a6306de315feb274ec3c994fd9"
+  },
+  {
+    "file": "pages/dev/dev.js",
+    "bytes": 1278,
+    "sha256": "31f3a434386306137c04f87bb477de1c42df5aee606075c2c36bda9f7308bde3"
+  },
+  {
+    "file": "pages/dev/dev.wxml",
+    "bytes": 1633,
+    "sha256": "93a5972f00898d52282259130e0e7eaaa74e8f5db2c66566912b871b54ffb395"
+  },
+  {
+    "file": "pages/venue/venue.js",
+    "bytes": 5561,
+    "sha256": "15155c9dc452b6a9b1edb424ba81d03c56b12706502a2eccb1980b2c3926f26b"
+  },
+  {
+    "file": "pages/venue/venue.wxml",
+    "bytes": 2087,
+    "sha256": "5060fe75f07c52ecc64b7ed70a8ef82974768afccc800c95850a92c21c892390"
+  },
+  {
+    "file": "README.md",
+    "bytes": 23084,
+    "sha256": "296afd08908197fdf1d052c9760f442f581944d20f72f69b81da6bbd01bbc033"
+  },
+  {
+    "file": "scripts/build-campus-runtime.cjs",
+    "bytes": 4484,
+    "sha256": "23c2be5c4240efcd3cfa97b88af3c01ea34861417d08e7f44875f00b06fc1675"
+  },
+  {
+    "file": "scripts/build-jiulonghu-registration.py",
+    "bytes": 6645,
+    "sha256": "91382c289b52fe99d0f3359c3506bd61c9b96c0b1fa54bff89c08b88c2fa1183"
+  },
+  {
+    "file": "utils/campus-art-models.js",
+    "bytes": 4956,
+    "sha256": "eb89b8647747c3fad01e2753db7657d52b46f3bb6763616e53781053da5418be"
+  },
+  {
+    "file": "utils/fusion-font.wxss",
+    "bytes": 33420,
+    "sha256": "550aaac68015968d982db0afab7bd810cebca8d262c826fc2652cd3427d8ae07"
+  },
+  {
+    "file": "utils/location-scenarios.js",
+    "bytes": 1310,
+    "sha256": "339533cd8e9d02837cb09d508ca0f9688979a40f8511e9fc3b778e8fdf8f7ca0"
+  },
+  {
+    "file": "utils/osm-art-registration.js",
+    "bytes": 4895,
+    "sha256": "753d9fd450a9239a46b2fabec4757fc133f58cb729e61c3b962d33192538ec68"
+  },
+  {
+    "file": "scripts/verify-jiulonghu-coverage.cjs",
+    "bytes": 3404,
+    "sha256": "ae97fe73f2f766b9969207c164051d3c1cae603b0d575acffd991e95c4afa6ae"
+  },
+  {
+    "file": "scripts/review-jiulonghu-coverage.py",
+    "bytes": 4581,
+    "sha256": "cbdf29b8057a28ac23b874f54a94e2f455024d7fe132f930cf07ec4cd40390c7"
+  },
+  {
+    "file": "scripts/jiulonghu-boundary-review.cjs",
+    "bytes": 3773,
+    "sha256": "34e51a48f7bfa5c8b9e094dac27ae8eaa467a5d85a7c6cf0a3e6cfae06880a4a"
+  },
+  {
+    "file": "cat-mouse-server/v2/jiulonghu-coverage.test.js",
+    "bytes": 2772,
+    "sha256": "3799050e042236bfd217694c2c6e1eddcaf4c0c836059ef3e763d7ed83560103"
+  },
+  {
+    "file": "design/maps/seu-jiulonghu-registration-v3/controls.json",
+    "bytes": 2196,
+    "sha256": "d41c1b75788b3807f1f05d8e838f8e3a27761ee05d570b9223c21611be48d4f5"
+  },
+  {
+    "file": "design/maps/seu-jiulonghu-registration-v3/jiulonghu-registration.json",
+    "bytes": 73017,
+    "sha256": "966129ee78988ca691b9c415716e05866bdefc2c6ca86dbf6e9c613fa837d589"
+  },
+  {
+    "file": "design/maps/seu-jiulonghu-registration-v3/README.md",
+    "bytes": 1748,
+    "sha256": "d7c8ace5da53f447facc4c211bb97b24402c5a6f6118df585f82b023799f287b"
+  },
+  {
+    "file": "WORK_LOG.md",
+    "bytes": 96030,
+    "sha256": "e7ac266118131ee6ae3b0556088e74424713506276761408861ba52337edfb6f"
+  },
+  {
+    "file": "design/2026-10-16/campus-runtime-v1/manifest.json",
+    "bytes": 1429,
+    "sha256": "91a4dacc4d6a7c698bd16b47065ef65d9db88516c69cd954aceace85d51f3726"
+  },
+  {
+    "file": "design/2026-10-13/global-font-v1/manifest.json",
+    "bytes": 8025,
+    "sha256": "c914b418cc33a652307355e46ab943e974500470d69fa2e619b656017015e72d"
+  }
+]

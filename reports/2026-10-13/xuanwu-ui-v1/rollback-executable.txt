@@ -1,0 +1,7 @@
+COMMAND={"command":"D:/Program Files/Git/bin/bash.exe","args":["-c","chmod +x ./ROLLBACK.sh && test -x ./ROLLBACK.sh && printf \"EXECUTABLE=true\\n\""],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1","env":{}}
+STDOUT:
+EXECUTABLE=true
+
+STDERR:
+
+EXIT_STATUS=0

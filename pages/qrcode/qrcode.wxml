@@ -1,65 +1,40 @@
-<!--pages/qrcode/qrcode.wxml-->
-<view class="qrcode-container">
-  <view class="qrcode-card {{hasGoldenShield ? 'golden-shield' : ''}}">
-    <view class="qrcode-title">🐭 我的二维码</view>
-    <view class="qrcode-subtitle">向猫展示此二维码</view>
-    
-    <!-- 金身保护提示 -->
-    <view class="golden-shield-banner" wx:if="{{hasGoldenShield}}">
-      <text>🛡️ 金身保护中 - 圈内不可被抓</text>
-    </view>
-    
-    <!-- 二维码区域 -->
-    <view class="qrcode-image-wrapper {{hasGoldenShield ? 'protected' : ''}}" bindlongpress="onLongPress">
-      <!-- 预缓存的本地图片（秒开） -->
-      <image 
-        wx:if="{{qrCodePath}}"
-        class="qrcode-image" 
-        src="{{qrCodePath}}" 
-        mode="aspectFit"
-        show-menu-by-longpress="{{true}}"
-      />
-      
-      <!-- 网络图片（备用） -->
-      <image 
-        wx:elif="{{qrCodeUrl}}"
-        class="qrcode-image" 
-        src="{{qrCodeUrl}}" 
-        mode="aspectFit"
-        bindload="onImageLoad"
-        binderror="onImageError"
-        show-menu-by-longpress="{{true}}"
-      />
-      
-      <!-- 加载提示 -->
-      <view wx:if="{{loading && !qrCodePath}}" class="qrcode-loading">
-        <text>⏳ 生成中...</text>
+<view class="codeScreen {{fontScale>1.15?'fontLarge':''}}" style="--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;min-height:{{viewportHeight}}px;padding-bottom:{{safeBottom}}px">
+  <nav-bar title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
+  <view class="navSpace" style="height:{{navHeight}}px"></view>
+  <image class="codeRole" src="/assets/pixel-v1/code-role.png" mode="widthFix" aria-label="鼠队行动，躲避猫咪，坚持到最后" />
+
+  <view class="codePaper">
+    <view class="codeHeader">
+      <view class="codeTitle"><text>动态抓捕码</text></view>
+      <text wx:if="{{fontScale>1.15}}" class="heading">停下，<text class="lineBreak">展示动态码</text></text>
+      <text wx:else class="heading">停下，展示动态码</text>
+      <view class="codeHints">
+        <text class="codeHint">和猫当面确认后再展示</text>
+        <text class="codeHint">GPS 只作辅助校验</text>
       </view>
     </view>
-    
-    <!-- 金身完全遮罩（覆盖整个二维码区域） -->
-    <view class="golden-shield-full-overlay" wx:if="{{hasGoldenShield}}" catchtouchmove="preventTouch">
-      <view class="shield-icon">🛡️</view>
-      <view class="shield-title">金身保护中</view>
-      <view class="shield-desc">圈内无法被扫码抓住</view>
+
+    <view class="qrCard {{devPreview?'demoCard':''}}">
+      <view wx:if="{{devPreview}}" class="qrDemo">
+        <image class="demoArt" src="/assets/pixel-v1/code-demo-art.png" mode="widthFix" aria-hidden="true" />
+        <text class="demoTitle">演示码</text>
+        <text class="demoCaption">不可扫描</text>
+      </view>
+      <image wx:elif="{{image}}" src="{{image}}" mode="aspectFit" class="qr" aria-label="本局动态抓捕码" />
+      <view wx:elif="{{error}}" class="qrState">
+        <text class="qrStateMark">!</text>
+        <text class="qrLoading">当前无法展示动态码</text>
+      </view>
+      <view wx:else class="qrState">
+        <view class="loadingPixels" aria-hidden="true"><view></view><view></view><view></view></view>
+        <text class="qrLoading">正在生成动态码…</text>
+      </view>
     </view>
-    
-    <!-- 玩家信息 -->
-    <view class="player-info" wx:if="{{qrData}}">
-      <text class="nickname">{{qrData.nickname}}</text>
-      <text class="role-tag">🐭 老鼠</text>
-    </view>
-    
-    <!-- 重要提示 -->
-    <view class="warning-tip {{hasGoldenShield ? 'protected-tip' : ''}}">
-      <text wx:if="{{hasGoldenShield}}">🛡️ 你正在金身保护圈内，猫无法扫码抓住你！</text>
-      <text wx:else>⚠️ 被猫扫到即被抓住！</text>
-    </view>
-    
-    <!-- 操作按钮 -->
-    <view class="actions">
-      <button class="btn-save" bindtap="saveToAlbum">💾 保存到相册</button>
-      <button class="btn-back" bindtap="onBack">返回游戏</button>
-    </view>
+    <text wx:if="{{devPreview || image}}" class="refreshInfo">{{devPreview?'15 秒有效期 · 示例':seconds+' 秒后自动更新'}}</text>
+    <text wx:if="{{error}}" class="codeError">{{error}}</text>
+
+    <view class="safetyNote"><view class="safetyMark" aria-hidden="true"><text>!</text></view><text class="safetyCopy">请停在安全位置，不要跑动操作</text></view>
+    <view class="backAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-code-back.png" label="返回地图" tone="blue" font-scale="{{fontScale}}" bindaction="back" /></view>
+    <text class="codeFooter">扫码成功才算抓捕</text>
   </view>
 </view>

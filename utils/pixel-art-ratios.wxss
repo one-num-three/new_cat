@@ -1,0 +1,14 @@
+/* Generated intrinsic PNG ratios. Resizing the layout never scales only one axis. */
+.homeHero{aspect-ratio:480 / 363;height:auto!important}
+.homeFooter{aspect-ratio:480 / 77;height:auto!important}
+.roomHero.createHero{aspect-ratio:480 / 120;height:auto!important}
+.roomHero.readyHero{aspect-ratio:480 / 173;height:auto!important}
+.codeRole{aspect-ratio:480 / 88;height:auto!important}
+.hidingArt{aspect-ratio:458 / 222;height:auto!important}
+.state-paused .pauseHero{aspect-ratio:480 / 336;height:auto!important}
+.state-offline .pauseHero{aspect-ratio:480 / 121;height:auto!important}
+.state-catWin .resultHero{aspect-ratio:480 / 321;height:auto!important}
+.state-mouseWin .resultHero{aspect-ratio:480 / 283;height:auto!important}
+.state-cancelled .resultHero{aspect-ratio:480 / 465;height:auto!important}
+
+.demoArt{aspect-ratio:240 / 97;height:auto!important}

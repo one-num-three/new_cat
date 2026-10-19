@@ -1,0 +1,25 @@
+{
+  "description": "用户选定的晴日16-bit像素视觉参考；仅用于地图风格，不是本会话重做的界面",
+  "source_manifest": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/manifest.json",
+  "style": {
+    "id": "03-pixel-day",
+    "name": "晴日16-bit像素",
+    "style": "严格匹配参考的晴日16-bit像素：奶油白、草绿、天蓝、橙色，精致硬边像素猫鼠和公园、小型像素标题边框、阶梯像素按钮。中文功能字保持清晰黑体，禁止3D或模糊假像素。"
+  },
+  "item": {
+    "id": "03-pixel-day/04-cat",
+    "style": "03-pixel-day",
+    "styleName": "晴日16-bit像素",
+    "page": "04-cat",
+    "pageName": "猫队追逐地图",
+    "route": "pages/map/map?devPreview=cat",
+    "file": "03-pixel-day/04-cat.png",
+    "absolutePath": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/04-cat.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 1741769,
+    "sha256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+    "revised": false,
+    "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a12dee-5ebe-77e0-a71e-48dee3c92e34\\exec-a91431c9-fe44-4eeb-8480-4ee2eee2147f.png"
+  }
+}

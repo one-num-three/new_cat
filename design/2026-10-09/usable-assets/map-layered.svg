@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="750" height="1334" viewBox="0 0 750 1334">
+  <title>猫鼠行动 · 猫队地图分层设计样稿</title>
+  <desc>图层分开存放示意地图、服务端区域线索、本人位置、顶部状态、底部动作。地图为插画示意，不是实际场地或实时定位。</desc>
+  <g id="layer-map-base" inkscape:groupmode="layer" inkscape:label="01 地图底图示意">
+    <rect width="750" height="1334" fill="#BFE9AB"/>
+    <path d="M0 672 Q111 626 169 684 Q247 731 332 671 Q431 610 523 659 Q634 715 750 669 L750 955 Q605 887 526 935 Q407 993 303 915 Q214 865 111 926 Q58 952 0 908 Z" fill="#D4EDBB"/>
+    <path d="M0 319 Q161 355 240 276 Q327 226 418 299 Q568 376 750 270" fill="none" stroke="#FFF7D9" stroke-width="42"/>
+    <path d="M-35 1045 Q133 928 229 939 Q351 945 407 802 Q495 640 763 650" fill="none" stroke="#FFF7D9" stroke-width="55"/>
+    <path d="M279 -10 Q254 167 321 302 Q402 495 389 697 Q379 963 495 1350" fill="none" stroke="#FFF7D9" stroke-width="46"/>
+    <path d="M-25 854 Q66 790 169 822 Q199 849 208 935 Q175 1033 0 1032 Z" fill="#81C8EB"/>
+    <g fill="#5CB46E"><circle cx="67" cy="249" r="38"/><circle cx="126" cy="548" r="45"/><circle cx="604" cy="220" r="52"/><circle cx="676" cy="470" r="47"/><circle cx="91" cy="757" r="34"/><circle cx="588" cy="837" r="40"/><circle cx="674" cy="1042" r="41"/><circle cx="204" cy="1108" r="35"/><circle cx="525" cy="1193" r="52"/></g>
+    <g fill="#86CC6A"><circle cx="67" cy="249" r="25"/><circle cx="126" cy="548" r="30"/><circle cx="604" cy="220" r="35"/><circle cx="676" cy="470" r="31"/><circle cx="91" cy="757" r="22"/><circle cx="588" cy="837" r="27"/><circle cx="674" cy="1042" r="27"/><circle cx="204" cy="1108" r="23"/><circle cx="525" cy="1193" r="36"/></g>
+    <text x="65" y="439" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#4B6D59">公园入口</text>
+    <text x="551" y="606" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#4B6D59">中央草坪</text>
+  </g>
+  <g id="layer-server-clue" inkscape:groupmode="layer" inkscape:label="02 服务端授权区域线索 · 无精确点">
+    <path d="M391 375 Q462 298 565 324 Q661 348 689 435 Q713 524 654 582 Q591 647 490 613 Q397 580 370 489 Q357 422 391 375 Z" fill="#F36A34" fill-opacity="0.22" stroke="#F36A34" stroke-width="6"/>
+    <rect x="432" y="433" width="203" height="49" rx="22" fill="#FFFFFF"/>
+    <text x="534" y="466" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-weight="700" font-size="22" fill="#B9532B">大致线索区域</text>
+  </g>
+  <g id="layer-self-position" inkscape:groupmode="layer" inkscape:label="03 本人位置与集合点">
+    <circle cx="226" cy="890" r="36" fill="#3D9BE8" fill-opacity="0.18"/>
+    <circle cx="226" cy="890" r="24" fill="#FFFFFF"/>
+    <circle cx="226" cy="890" r="16" fill="#3D9BE8"/>
+    <rect x="255" y="866" width="127" height="47" rx="21" fill="#FFFFFF"/>
+    <text x="319" y="897" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-weight="700" font-size="21" fill="#213638">我的位置</text>
+    <path d="M87 1114 C87 1089 108 1070 132 1070 C157 1070 177 1089 177 1114 C177 1146 132 1194 132 1194 C132 1194 87 1146 87 1114 Z" fill="#286B47" stroke="#FFFFFF" stroke-width="7"/>
+    <circle cx="132" cy="1112" r="14" fill="#FFFFFF"/>
+    <rect x="168" y="1090" width="115" height="46" rx="21" fill="#FFFFFF"/>
+    <text x="225" y="1120" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-weight="700" font-size="20" fill="#213638">集合点</text>
+  </g>
+  <g id="layer-top-status" inkscape:groupmode="layer" inkscape:label="04 阵营、目标与服务端时间">
+    <rect x="22" y="28" width="706" height="191" rx="28" fill="#FFFFFF"/>
+    <rect x="22" y="28" width="706" height="9" rx="5" fill="#F36A34"/>
+    <rect x="42" y="53" width="128" height="52" rx="15" fill="#FFF0E4"/>
+    <image x="45" y="52" width="50" height="50" href="source/cat-avatar.png" xlink:href="source/cat-avatar.png"/>
+    <text x="100" y="87" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="23" fill="#C95828">猫队</text>
+    <text x="187" y="88" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#60756C">追逐中</text>
+    <text x="48" y="160" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="39" fill="#213638">已抓 3 / 4</text>
+    <text x="683" y="148" text-anchor="end" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="50" fill="#213638">04:32</text>
+    <text x="682" y="180" text-anchor="end" font-family="Microsoft YaHei,sans-serif" font-size="19" fill="#60756C">剩余时间</text>
+    <text x="48" y="198" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#60756C">实时连接 · 地图按身份显示</text>
+  </g>
+  <g id="layer-bottom-action" inkscape:groupmode="layer" inkscape:label="05 当前提示与主动作">
+    <rect x="22" y="1062" width="706" height="248" rx="30" fill="#FFFFFF"/>
+    <text x="49" y="1115" font-family="Microsoft YaHei,sans-serif" font-size="24" fill="#35514B">橘色区域是鼠的大致线索，</text>
+    <text x="49" y="1152" font-family="Microsoft YaHei,sans-serif" font-size="24" fill="#35514B">线下接近并停下后扫码。</text>
+    <rect x="42" y="1180" width="666" height="79" rx="22" fill="#D95325"/>
+    <rect x="42" y="1174" width="666" height="79" rx="22" fill="#F36A34"/>
+    <text x="375" y="1224" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-weight="800" font-size="29" fill="#FFFFFF">扫码确认抓捕</text>
+    <text x="375" y="1289" text-anchor="middle" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#276B4D">队伍 · 规则 · 操作  ▴</text>
+  </g>
+</svg>

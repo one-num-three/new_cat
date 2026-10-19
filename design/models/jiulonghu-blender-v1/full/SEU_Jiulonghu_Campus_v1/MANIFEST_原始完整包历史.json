@@ -1,0 +1,210 @@
+{
+  "title": "SEU Jiulonghu campus schematic editable massing v1",
+  "date": "2026-10-16",
+  "blender_version": "4.3.2",
+  "building_components": 439,
+  "not_a_building_count": true,
+  "historical_plan_status_counts": {
+    "existing": 291,
+    "under_construction": 32,
+    "planned": 116
+  },
+  "current_model_status_counts": {
+    "existing": 302,
+    "under_construction": 29,
+    "planned": 108
+  },
+  "status_update": "Lan yuan E3/E4/E5 existing per user confirmation2026-10-16; other baseline classifications from2025plan",
+  "coordinate_scale_m_per_pixel": 1.9,
+  "coordinate_precision": "approximate, not georeferenced",
+  "render_checks": {
+    "01_全校区鸟瞰.png": {
+      "pixels": [
+        2400,
+        2110
+      ],
+      "file_bytes": 4273797
+    },
+    "02_全校区俯视.png": {
+      "pixels": [
+        2400,
+        2110
+      ],
+      "file_bytes": 5150433
+    },
+    "03_中心教学区.png": {
+      "pixels": [
+        2400,
+        2110
+      ],
+      "file_bytes": 5483234
+    }
+  },
+  "verification": {
+    "building_components": 439,
+    "unique_ids": 439,
+    "status_counts": {
+      "existing": 302,
+      "planned": 108,
+      "under_construction": 29
+    },
+    "packed_images": [
+      [
+        "landcover_schematic.png",
+        true
+      ],
+      [
+        "seu-jiulonghu-official-masterplan-2025.jpg",
+        true
+      ]
+    ],
+    "camera_names": [
+      "01 全校区 · 东南鸟瞰",
+      "02 全校区 · 正北俯视",
+      "03 图书馆与教学区"
+    ],
+    "verification": "PASS: re-opened final blend, inspected geometry, roof transforms, units, sources, packed assets."
+  },
+  "files": [
+    {
+      "path": "README_中文.md",
+      "bytes": 7054,
+      "sha256": "f88c8013ac20d0d721ba7cc61fbe03386d854e7de60c445858dffcb6257bf567"
+    },
+    {
+      "path": "SOURCES_研究与证据.md",
+      "bytes": 8371,
+      "sha256": "9693608cd53d62403f486284e4b79cdaabc23a453456eb1ba3964fa7105c95fd"
+    },
+    {
+      "path": "data/buildings.json",
+      "bytes": 334885,
+      "sha256": "a2d6c6bd405d148770d44cbb2e2785de7606b0937e636884cbefc03f19e083ed"
+    },
+    {
+      "path": "data/east_buildings.json",
+      "bytes": 193496,
+      "sha256": "c20468ebda35eb6b1e35bc3abde971e581962f9f252686c12c9853e5cede4c23"
+    },
+    {
+      "path": "data/landscape.json",
+      "bytes": 394615,
+      "sha256": "ec2061066cddd76c349ce95d60e5c6c25c1df3bb608e4594e11e37102d7979b5"
+    },
+    {
+      "path": "data/north_buildings.json",
+      "bytes": 50863,
+      "sha256": "2c5af8b836dee56db6a94afe75335f8191372dad1499062b60860a81a291ea6a"
+    },
+    {
+      "path": "data/southwest_buildings.json",
+      "bytes": 82316,
+      "sha256": "d700d8aef480098bdab3aac21358cce8c50df3acc238cffd38fdbfa7598761d5"
+    },
+    {
+      "path": "data/trace_east_buildings.py",
+      "bytes": 14409,
+      "sha256": "b43cf074c6481a189e1bd9d57b7749e6da109c102ce7bf4e3c08df06527767d4"
+    },
+    {
+      "path": "data/trace_southwest.py",
+      "bytes": 11218,
+      "sha256": "fab4181a1f343b19596f3c47a4eedcd1b5b0bf27c5abeb9ebf754671a7a6c7eb"
+    },
+    {
+      "path": "data/east_trace_notes.md",
+      "bytes": 2101,
+      "sha256": "33e08f9ef8761c2897cdbcd3e67e0157c60398f699a918ae31014a550d0e0608"
+    },
+    {
+      "path": "scripts/annotate_previews.py",
+      "bytes": 3468,
+      "sha256": "4c8cf96394f4e22a4cb1384ef997a814c94a5e6e263346d095afc19e2094118f"
+    },
+    {
+      "path": "scripts/apply_lanyuan_status.py",
+      "bytes": 899,
+      "sha256": "c03eb645dcd64f7684e9ec3faad9a3a7a526905a778d78f40fd86853454938e7"
+    },
+    {
+      "path": "scripts/build_campus.py",
+      "bytes": 13098,
+      "sha256": "bb9ccdc2ce4e55b4a6f23d5785da275848f04631ad6ec39fc086173f88fd6ed3"
+    },
+    {
+      "path": "scripts/finalize_blend.py",
+      "bytes": 1283,
+      "sha256": "20e4ad8792899344372f9dccdf6ec2aeaefb2c6eecc16db61580f2ba4def071a"
+    },
+    {
+      "path": "scripts/package_deliverable.py",
+      "bytes": 2239,
+      "sha256": "2cb45580619e3c3a7abc1beb67995ca42ad5e69d58404ae34d245b41c84fa3fa"
+    },
+    {
+      "path": "scripts/prepare_landscape.py",
+      "bytes": 4041,
+      "sha256": "a1da4719c7e4a584893007c8497dcf2533ad190e19d478128b5205dfab13a0c5"
+    },
+    {
+      "path": "scripts/qa_footprints.py",
+      "bytes": 2193,
+      "sha256": "02b5f008133c59680fbd53509c9907851741cc8ffd18fb4f38568cc273866bfe"
+    },
+    {
+      "path": "scripts/trace_north.py",
+      "bytes": 10889,
+      "sha256": "b124ddfc5817785bb191f962e14be073365a264138adad42fce8661f4532e626"
+    },
+    {
+      "path": "scripts/verify_scene.py",
+      "bytes": 2712,
+      "sha256": "1b8d2fbaa27a20a1edcd84e4408dbb815d160cdce0dc5db407702a0f4dd2fa74"
+    },
+    {
+      "path": "reference/seu-jiulonghu-official-masterplan-2025.jpg",
+      "bytes": 322352,
+      "sha256": "c0fb900bfe957c73a2b67d26ead4bf372307d37a0c871e0b6bc229afe2d4e604"
+    },
+    {
+      "path": "reference/landcover_schematic.png",
+      "bytes": 1439769,
+      "sha256": "61bda6a8d45eeac764395f88d2509d799fe4d32d88c7a7d9b74861b0e8056b29"
+    },
+    {
+      "path": "output/SEU_Jiulonghu_Campus_v1.blend",
+      "bytes": 15583616,
+      "sha256": "62cfda9a5013e77d11e5e6d6ae4d4a6fa511afa54dc149b3ed645d734dc6d8e0"
+    },
+    {
+      "path": "output/01_全校区鸟瞰.png",
+      "bytes": 4273797,
+      "sha256": "7ef0ef2fc96d452e9327ddcbce65e6917e43e2fdf397619cdcb79f7eff0495e9"
+    },
+    {
+      "path": "output/02_全校区俯视.png",
+      "bytes": 5150433,
+      "sha256": "4f5caa35f09b9df2fac1edf47b9a7aa7bcb7b4c482fef2e488aa03bd76713f5e"
+    },
+    {
+      "path": "output/03_中心教学区.png",
+      "bytes": 5483234,
+      "sha256": "ddb267e182d0adfcb9c9e7870f42eb0f65ff9d61f8dfac651887de75d3c9db75"
+    },
+    {
+      "path": "qa/04_轮廓叠加核对.png",
+      "bytes": 5469357,
+      "sha256": "36ecd5a9136c4e405f92bfd2fc6a63011eb2fc5392580ec7d71b06c116931fc9"
+    },
+    {
+      "path": "qa/footprint_checks.json",
+      "bytes": 194,
+      "sha256": "a7efbba02a54de7be88694321bb0af27ffd54c17284e715eea2e07fcfc8d694e"
+    },
+    {
+      "path": "output/verification.json",
+      "bytes": 553,
+      "sha256": "754d9655e7c5ffab13191a17906e2c356b3676cdb8a5fc52254d350c13647c6e"
+    }
+  ]
+}

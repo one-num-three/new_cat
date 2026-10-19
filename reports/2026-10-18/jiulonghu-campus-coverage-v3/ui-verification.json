@@ -1,0 +1,506 @@
+[
+  {
+    "scenario": "jiulonghu-northwest",
+    "ready": true,
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "label": "西北校界 · 参考点",
+    "coordinate": "模拟 GCJ-02 31.892570, 118.811011",
+    "message": "OSM参考位置，实地精度待核验",
+    "simulated": true,
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": 103.5,
+      "right": 676.0546875,
+      "top": 311.958984375,
+      "bottom": 884.513671875,
+      "width": 572.5546875,
+      "height": 572.5546875
+    },
+    "marker": {
+      "id": "",
+      "dataset": {},
+      "left": 93.03125,
+      "right": 141.03125,
+      "top": 370.583984375,
+      "bottom": 418.583984375,
+      "width": 48,
+      "height": 48
+    },
+    "viewport": {
+      "id": "",
+      "dataset": {},
+      "left": 12,
+      "right": 378,
+      "top": 225.4453125,
+      "bottom": 798,
+      "width": 366,
+      "height": 572.5546875
+    },
+    "points": [
+      {
+        "id": 0,
+        "x": 13.51460210666868,
+        "y": 101.76453077394359,
+        "label": "模拟本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "fit": [
+      572.5546875,
+      572.5546875
+    ],
+    "window": {
+      "pixelRatio": 3,
+      "safeArea": {
+        "top": 47,
+        "left": 0,
+        "right": 390,
+        "bottom": 810,
+        "width": 390,
+        "height": 763
+      },
+      "screenWidth": 390,
+      "screenHeight": 844,
+      "screenTop": 0,
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "statusBarHeight": 47
+    },
+    "tipErrorPx": 0.0026085821933285887,
+    "screenshot": "northwest.png",
+    "manuallyInspected": true,
+    "phoneVerified": false
+  },
+  {
+    "scenario": "jiulonghu-northeast",
+    "ready": true,
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "label": "东北校界 · 参考点",
+    "coordinate": "模拟 GCJ-02 31.894128, 118.829998",
+    "message": "OSM参考位置，实地精度待核验",
+    "simulated": true,
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": -286.0546875,
+      "right": 286.5,
+      "top": 316.9453125,
+      "bottom": 889.5,
+      "width": 572.5546875,
+      "height": 572.5546875
+    },
+    "marker": {
+      "id": "",
+      "dataset": {},
+      "left": 236.4375,
+      "right": 284.4375,
+      "top": 333.6484375,
+      "bottom": 381.6484375,
+      "width": 48,
+      "height": 48
+    },
+    "viewport": {
+      "id": "",
+      "dataset": {},
+      "left": 12,
+      "right": 378,
+      "top": 225.4453125,
+      "bottom": 798,
+      "width": 366,
+      "height": 572.5546875
+    },
+    "points": [
+      {
+        "id": 0,
+        "x": 546.4764916134922,
+        "y": 59.84051715386284,
+        "label": "模拟本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "fit": [
+      572.5546875,
+      572.5546875
+    ],
+    "window": {
+      "pixelRatio": 3,
+      "safeArea": {
+        "top": 47,
+        "left": 0,
+        "right": 390,
+        "bottom": 810,
+        "width": 390,
+        "height": 763
+      },
+      "screenWidth": 390,
+      "screenHeight": 844,
+      "screenTop": 0,
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "statusBarHeight": 47
+    },
+    "tipErrorPx": 0.003703157340672377,
+    "screenshot": "northeast.png",
+    "manuallyInspected": true,
+    "phoneVerified": false
+  },
+  {
+    "scenario": "jiulonghu-southeast",
+    "ready": true,
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "label": "东南校界 · 参考点",
+    "coordinate": "模拟 GCJ-02 31.881437, 118.830230",
+    "message": "OSM参考位置，实地精度待核验",
+    "simulated": true,
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": -286.0546875,
+      "right": 286.5,
+      "top": 133.9453125,
+      "bottom": 706.5,
+      "width": 572.5546875,
+      "height": 572.5546875
+    },
+    "marker": {
+      "id": "",
+      "dataset": {},
+      "left": 240.859375,
+      "right": 288.859375,
+      "top": 565.046875,
+      "bottom": 613.046875,
+      "width": 48,
+      "height": 48
+    },
+    "viewport": {
+      "id": "",
+      "dataset": {},
+      "left": 12,
+      "right": 378,
+      "top": 225.4453125,
+      "bottom": 798,
+      "width": 366,
+      "height": 572.5546875
+    },
+    "points": [
+      {
+        "id": 0,
+        "x": 550.8945654789956,
+        "y": 474.23602465777657,
+        "label": "模拟本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "fit": [
+      572.5546875,
+      572.5546875
+    ],
+    "window": {
+      "pixelRatio": 3,
+      "safeArea": {
+        "top": 47,
+        "left": 0,
+        "right": 390,
+        "bottom": 810,
+        "width": 390,
+        "height": 763
+      },
+      "screenWidth": 390,
+      "screenHeight": 844,
+      "screenTop": 0,
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "statusBarHeight": 47
+    },
+    "tipErrorPx": 0.004308743495372978,
+    "screenshot": "southeast.png",
+    "manuallyInspected": true,
+    "phoneVerified": false
+  },
+  {
+    "scenario": "jiulonghu-southwest",
+    "ready": true,
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "label": "西南校界 · 参考点",
+    "coordinate": "模拟 GCJ-02 31.880030, 118.813546",
+    "message": "OSM参考位置，实地精度待核验",
+    "simulated": true,
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": 103.5,
+      "right": 676.0546875,
+      "top": 133.9453125,
+      "bottom": 706.5,
+      "width": 572.5546875,
+      "height": 572.5546875
+    },
+    "marker": {
+      "id": "",
+      "dataset": {},
+      "left": 160.546875,
+      "right": 208.546875,
+      "top": 607.5390625,
+      "bottom": 655.5390625,
+      "width": 48,
+      "height": 48
+    },
+    "viewport": {
+      "id": "",
+      "dataset": {},
+      "left": 12,
+      "right": 378,
+      "top": 225.4453125,
+      "bottom": 798,
+      "width": 366,
+      "height": 572.5546875
+    },
+    "points": [
+      {
+        "id": 0,
+        "x": 81.02527510222838,
+        "y": 516.7338089856912,
+        "label": "模拟本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "fit": [
+      572.5546875,
+      572.5546875
+    ],
+    "window": {
+      "pixelRatio": 3,
+      "safeArea": {
+        "top": 47,
+        "left": 0,
+        "right": 390,
+        "bottom": 810,
+        "width": 390,
+        "height": 763
+      },
+      "screenWidth": 390,
+      "screenHeight": 844,
+      "screenTop": 0,
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "statusBarHeight": 47
+    },
+    "tipErrorPx": 0.002784787335019065,
+    "screenshot": "southwest.png",
+    "manuallyInspected": true,
+    "phoneVerified": false
+  },
+  {
+    "scenario": "jiulonghu-west",
+    "ready": true,
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "label": "西侧校界 · 参考点",
+    "coordinate": "模拟 GCJ-02 31.885355, 118.811716",
+    "message": "OSM参考位置，实地精度待核验",
+    "simulated": true,
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": 103.5,
+      "right": 676.0546875,
+      "top": 174.174560546875,
+      "bottom": 746.729248046875,
+      "width": 572.5546875,
+      "height": 572.5546875
+    },
+    "marker": {
+      "id": "",
+      "dataset": {},
+      "left": 107.140625,
+      "right": 155.140625,
+      "top": 468.588623046875,
+      "bottom": 516.588623046875,
+      "width": 48,
+      "height": 48
+    },
+    "viewport": {
+      "id": "",
+      "dataset": {},
+      "left": 12,
+      "right": 378,
+      "top": 225.4453125,
+      "bottom": 798,
+      "width": 366,
+      "height": 572.5546875
+    },
+    "points": [
+      {
+        "id": 0,
+        "x": 27.620193896075303,
+        "y": 337.548091845358,
+        "label": "模拟本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "fit": [
+      572.5546875,
+      572.5546875
+    ],
+    "window": {
+      "pixelRatio": 3,
+      "safeArea": {
+        "top": 47,
+        "left": 0,
+        "right": 390,
+        "bottom": 810,
+        "width": 390,
+        "height": 763
+      },
+      "screenWidth": 390,
+      "screenHeight": 844,
+      "screenTop": 0,
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "statusBarHeight": 47
+    },
+    "tipErrorPx": 0.004900127180833048,
+    "screenshot": "west.png",
+    "manuallyInspected": true,
+    "phoneVerified": false
+  },
+  {
+    "scenario": "jiulonghu-meiyuan7b",
+    "ready": true,
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "label": "梅园7B附近 · 反馈坐标",
+    "coordinate": "模拟 GCJ-02 31.882368, 118.828049",
+    "message": "OSM参考位置，实地精度待核验",
+    "simulated": true,
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": -286.0546875,
+      "right": 286.5,
+      "top": 133.9453125,
+      "bottom": 706.5,
+      "width": 572.5546875,
+      "height": 572.5546875
+    },
+    "marker": {
+      "id": "",
+      "dataset": {},
+      "left": 181.28125,
+      "right": 229.28125,
+      "top": 532.46875,
+      "bottom": 580.46875,
+      "width": 48,
+      "height": 48
+    },
+    "viewport": {
+      "id": "",
+      "dataset": {},
+      "left": 12,
+      "right": 378,
+      "top": 225.4453125,
+      "bottom": 798,
+      "width": 366,
+      "height": 572.5546875
+    },
+    "points": [
+      {
+        "id": 0,
+        "x": 491.3133916398797,
+        "y": 441.65629486979594,
+        "label": "模拟本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "fit": [
+      572.5546875,
+      572.5546875
+    ],
+    "window": {
+      "pixelRatio": 3,
+      "safeArea": {
+        "top": 47,
+        "left": 0,
+        "right": 390,
+        "bottom": 810,
+        "width": 390,
+        "height": 763
+      },
+      "screenWidth": 390,
+      "screenHeight": 844,
+      "screenTop": 0,
+      "windowWidth": 390,
+      "windowHeight": 844,
+      "statusBarHeight": 47
+    },
+    "tipErrorPx": 0.00681189922976699,
+    "screenshot": "meiyuan7b.png",
+    "manuallyInspected": true,
+    "phoneVerified": false
+  }
+]

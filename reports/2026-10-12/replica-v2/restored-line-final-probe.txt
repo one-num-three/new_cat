@@ -1,0 +1,3 @@
+ROUTE gallery
+PASS gallery
+REPLICA_UI_PASS=1 FONT_SCALE=1

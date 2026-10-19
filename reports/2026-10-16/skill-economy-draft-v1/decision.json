@@ -1,0 +1,88 @@
+{
+  "status": "design-candidate-not-enabled",
+  "date": "2026-10-16",
+  "scope": "玩法讨论与预算推演；没有启用商店、修改运行规则、上传或部署",
+  "initialTrial": { "total": 8, "cats": 2, "mice": 6, "venueRadiusM": 200, "hidingSeconds": 30, "chasingSeconds": 360, "captureFraction": 0.6 },
+  "currency": {
+    "owner": "个人本局余额，不转让、不跨局带入，不参与团队胜负计算",
+    "startCredits": 20,
+    "income": "仅追逐阶段按服务端对局时间，每30秒给未出局参与者5分；截止时先终局，不再发最后一笔",
+    "pause": "暂停冻结经济、冷却和技能计时；短暂断线不额外奖励或重复领币，整体失联暂停后不产出",
+    "captured": "出局后停止收入与使用；不回收或转移该鼠余额给猫",
+    "maxForFullSurvival": 75,
+    "captureBonus": 0,
+    "excludedSources": ["累计GPS里程或速度", "靠近后远离反复刷分", "答题", "重复扫码", "互相转账"],
+    "laterCandidate": "真实场地标定和现场核验完成后，可另试少量补给点奖励；当前预算不计入"
+  },
+  "tiers": {
+    "labels": ["I", "II", "III"],
+    "incrementalPrices": [10, 15, 20],
+    "totalPrices": [10, 25, 45],
+    "semantics": "本次技能的层级，结束后归零；可预选等级支付总价，也可在生效期补差价升级；到III封顶",
+    "instanceLimit": "同一技能只允许一个活跃实例，主动加购才升级；同commandId重试不扣钱、不叠层、不重采线索",
+    "activationCapPerPlayer": 3,
+    "cooldownAfterEffectSeconds": 45,
+    "cooldown": "升级不计新一次发动；下一次发动需旧效果结束并完成冷却，重新从I计算",
+    "pricingGoal": "高阶购买更长的连续作用或更大的即时覆盖，以递增成本限制连买；不使用无限乘法或无限续期"
+  },
+  "firstControlledTrial": {
+    "eagle": {
+      "role": "cat",
+      "requiresVisibilityChange": "现有猫收到全场区域情报，直接增加距离没有价值。技能试点需把普通猫线索范围改为以本人为中心120米；普通线索仍每30秒刷新，按追逐开始时刻分窗，近距预警不变",
+      "rangeM": [180, 240, 300],
+      "durationSeconds": 15,
+      "grant": "发动/升级时由服务端生成一次对应范围内的新区域快照，期间普通周期使用该等级范围；每个有效升级只采样一次",
+      "upgrade": "扩大半径，不叠乘，不重新延长15秒有效窗口。界面明确剩余时长；临近结束的升级需提示剩余收益",
+      "privacy": "仍是约50米区域，不出现敌方精确点，不把额外坐标交给客户端裁剪；区域可见性也在服务端计算；隐身优先于鹰眼",
+      "geometry": "120米基线与300米上限仅针对200米半径试点场地；小场地需另调，不能照卖无增益的高阶。范围覆盖不穿越真实地形提供导航承诺"
+    },
+    "invisible": {
+      "role": "mouse",
+      "durationSeconds": [15, 25, 35],
+      "upgrade": "II比I增加10秒，III再增加10秒，单次总时长最多35秒；不从加购时刻重置总时长",
+      "effect": "服务端暂不向敌方发送该鼠普通线索和鹰眼线索，并清除当前快照中的旧线索；无法抹除猫已记住的信息。结束后随下一次合法采样再出现，不主动广播实时位置",
+      "capture": "隐身期间仍可被肉眼发现、当面扫码抓捕，无免捕效果",
+      "ui": "显示下一次普通情报刷新倒计时，帮助玩家判断何时隐身；避免购买后整个效果期间根本没有情报采样"
+    }
+  },
+  "golden": {
+    "decision": "保留三级延时设计，抓捕锁定闭环完成前暂不进入首批试点",
+    "role": "mouse",
+    "candidateDurationSeconds": [10, 16, 20],
+    "scope": "拟改为个人短时免捕，不使用3分钟多人保护圈",
+    "candidateActivationLimit": 1,
+    "candidateStartupSeconds": 3,
+    "durationCap": "单次总时长最多20秒，连续购买的增量为10、6、4秒",
+    "gates": [
+      "必须先定义并实现双方停下后的服务端遭遇/抓捕锁定；仅GPS距离不能可靠证明已经追上",
+      "已打开抓捕码或进入确认锁定后禁止发动/加购；已受理抓捕不能被稍晚购买翻案",
+      "启动有公开前摇和剩余时长，不暴露额外敌方位置；不能与隐身同时生效",
+      "候选限制：最后30秒不能发动或续时，防止将确定性免捕窗口保留到终局；需现场评估规则是否易理解",
+      "金身、抓捕、升级、截止冲突必须由同一事务和服务端时钟决定"
+    ],
+    "notSolvedByThisDesign": "现实中已经被追上但尚未开码的争议仍需可信且可现场执行的遭遇规则；不能只加一个购买按钮就宣称闭环"
+  },
+  "notOpened": [
+    { "skill": "轰炸", "reason": "当前胜负不按积分；扣50分不能直接转换为清晰的捕获目标，且引入选点/区域/等待/退款成本" },
+    { "skill": "加速", "reason": "软件不能赋予真实移动速度；不设计鼓励过快奔跑或通过GPS速度裁决的增益" },
+    { "skill": "雷达", "reason": "与鹰眼的信息搜索作用重复，先保留一个清楚的猫方主动技能" }
+  ],
+  "evidence": {
+    "arithmetic": "arithmetic-results.json",
+    "model": "node reports/2026-10-16/skill-economy-draft-v1/economy-model.cjs",
+    "limits": "预算/持续时间/采样上界，不模拟真实玩家、路径、GPS或胜率。模型将等级在发动前付清，未穷举中途升级时机；持续时间和预算上界仍可核对",
+    "legacy": "Git旧地图页鹰眼每层乘1.5；旧商店金身3分钟/次；PROJECT_PLAN历史鼠初始0分且隐身15分",
+    "references": [
+      "https://www.gdcvault.com/play/1020524/Economic-Balancing-and-Improved-Monetization",
+      "https://www.leagueoflegends.com/en-us/news/game-updates/patch-26-1-notes/",
+      "https://arxiv.org/abs/2308.07576"
+    ]
+  },
+  "releaseGates": [
+    "先完成服务端积分账本、幂等领取/购买/升级、余额/次数/截止事务以及持久化重启恢复",
+    "可见性与技能必须覆盖同一HTTP/WebSocket授权路径；隐身不能通过原生地图或事件旁路泄露",
+    "基础视野改变与技能效果分阶段测试，避免同时改变多个变量后无法解释胜负",
+    "首场只用8人2猫6鼠、相同核验场地并轮换猫；记录首次捕获、有效参与时长、各级购买率/剩余积分、隐身屏蔽次数、鹰眼搜索与抓捕争议",
+    "确定购买不能刷层或刷采样、金身不会翻案、没有连续免捕死局后再扩大开放；小样本胜率不宣称已经平衡"
+  ]
+}

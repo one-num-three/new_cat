@@ -1,0 +1,18 @@
+[
+  "cat-mouse-server/v2/jiulonghu-location.test.js",
+  "cat-mouse-server/v2/map-motion-gps.test.js",
+  "cat-mouse-server/v2/venue-ui.test.js",
+  "components/venue-art/venue-art.js",
+  "GEO_MAP_BINDING.md",
+  "pages/dev/dev.js",
+  "pages/dev/dev.wxml",
+  "pages/venue/venue.js",
+  "pages/venue/venue.wxml",
+  "README.md",
+  "scripts/build-campus-runtime.cjs",
+  "scripts/build-jiulonghu-registration.py",
+  "utils/campus-art-models.js",
+  "utils/fusion-font.wxss",
+  "utils/location-scenarios.js",
+  "utils/osm-art-registration.js"
+]

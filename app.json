@@ -1,32 +1,45 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/map/map",
     "pages/room/room",
-    "pages/profile/profile",
+    "pages/map/map",
     "pages/qrcode/qrcode",
-    "pages/history/history",
-    "pages/task/task",
-    "pages/quiz/quiz"
+    "pages/dev/dev",
+    "pages/venue/venue",
+    "pages/calibrate/calibrate"
   ],
   "window": {
+    "backgroundColor": "#fcf8ed",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#2c3e50",
-    "navigationBarTitleText": "猫鼠游戏",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#fcf8ed",
+    "navigationBarTitleText": "猫鼠行动",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "用于在地图上显示你的位置，以便进行游戏"
+      "desc": "用于游戏中确认位置和显示授权线索"
     }
   },
   "requiredPrivateInfos": [
     "getLocation",
     "startLocationUpdate",
-    "startLocationUpdateBackground",
     "onLocationChange"
   ],
-  "requiredBackgroundModes": ["location"],
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "pixel-action": "/components/pixel-action/pixel-action"
+  },
+  "subPackages": [
+    {"name":"campus3d","root":"campus3d","pages":["pages/open/open"]},
+    {
+      "name": "venue-maps",
+      "root": "venue-maps",
+      "pages": [
+        "pages/open/open"
+      ]
+    }
+  ]
 }

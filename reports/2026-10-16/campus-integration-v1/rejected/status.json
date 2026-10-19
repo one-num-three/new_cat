@@ -1,0 +1,6 @@
+{
+  "offlineBeforeFix": "Incorrectly changed campus art to Xuanwu on disconnect. Fixed and covered by map-first regression.",
+  "coldAutomation": "After refresh runtime queries and visible screenshots referred to different instances. Script PASS discarded; all cold-ui-final and cold-recompiled batches excluded. One representative homepage screenshot retained.",
+  "environment": "One cold attempt failed with APPID_ERROR connect ETIMEDOUT. Later direct simulator compile displayed correct campus.",
+  "acceptedFallback": "Official simulator_open_page and simulator_screenshot; visual inspection; no false runtime geometry claims."
+}

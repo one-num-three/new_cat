@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "correction": "Replace track-like framework with continuous roofed pedestrian garden corridor, visible columns and walkway",
+  "source": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\huanzhou-yingzhou-v2\\huanzhou-yingzhou-complete.png",
+  "source_sha256_unchanged": "c87aa0695531239ff72beeba2ffe278a87471181a569f5c88c92135e7e9781fe",
+  "output": "D:\\cat-mouse-miniprogram\\design\\maps\\xuanwu-lake\\huanzhou-yingzhou-v3\\huanzhou-yingzhou-corridor.png",
+  "output_size": [
+    1154,
+    1363
+  ],
+  "output_sha256": "c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6",
+  "visual_check": "Continuous terracotta corridor roof follows the former bent alignment, with visible columns and pedestrian end porch; full two-island composition retained; no red annotation.",
+  "georeferencing": "not newly validated; generative correction, not pixel-identical outside edit",
+  "previous_image_preserved": true
+}

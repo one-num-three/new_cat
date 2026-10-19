@@ -1,0 +1,29 @@
+@import "./display-font.wxss";
+@import "./art-ratios.wxss";
+/* 02-01 native controls; gameplay authority stays on the server. */
+page{background:#F5FAF1;color:#102F36;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.screen{position:relative;min-height:100vh;box-sizing:border-box;background:#F5FAF1;color:#102F36;--font-scale:1;--nav-height:64px}
+.content{padding:0 38rpx calc(28rpx + env(safe-area-inset-bottom));box-sizing:border-box}
+.card{background:#fff;border:2rpx solid #D5E4D7;border-radius:24rpx;padding:26rpx;box-sizing:border-box}
+.label{display:block;font-size:calc(32rpx * var(--font-scale));font-weight:800;line-height:1.4}
+.primary,.secondary,.danger{width:100%;box-sizing:border-box;min-height:108rpx;line-height:1.35;border-radius:22rpx;font-size:calc(42rpx * var(--font-scale));font-weight:800;padding:24rpx 18rpx;margin:18rpx 0;transition:transform .16s ease,opacity .16s ease}
+.primary{background:#F37038;color:#fff;box-shadow:0 5rpx 0 #D85527}
+.secondary{background:#fff;color:#175C35;border:2rpx solid #347F49}.danger{background:#FFF0E8;color:#A33F29;border:2rpx solid #DC9A88}button::after{border:0}
+.primary:active,.secondary:active,.danger:active{transform:translateY(2rpx);opacity:.86}
+.primary[disabled],.secondary[disabled]{background:#E1E9DF;color:#60756C;box-shadow:none;border-color:#CBD9C9}
+.textButton{background:transparent;color:#175C35;font-size:calc(26rpx * var(--font-scale));font-weight:600;margin:0;padding:16rpx;line-height:1.4}
+.error{display:block;color:#9E3F2A;background:#FFF0EA;padding:18rpx;border-radius:16rpx;margin-top:16rpx;font-size:calc(25rpx * var(--font-scale));line-height:1.45}
+.muted{display:block;color:#6B7F86;font-size:calc(27rpx * var(--font-scale));line-height:1.45}
+.row{display:flex;justify-content:space-between;align-items:center;gap:16rpx}
+.pill,.miniTag{display:inline-block;background:#D4EFCE;color:#165E34;border-radius:28rpx;padding:10rpx 18rpx;font-size:24rpx;font-weight:700}
+.sectionTitle{display:block;font-size:34rpx;font-weight:800;line-height:1.3}.sectionHint{display:block;color:#60756C;font-size:25rpx;line-height:1.5;margin-top:8rpx}
+.sceneHeader{position:relative;width:100%;height:330rpx;overflow:hidden;background:#8DDAF4}.sceneHeader image{width:100%;height:100%;display:block}
+.sceneFooter{display:flex;align-items:center;justify-content:center;gap:24rpx;color:#6B7F86;font-size:25rpx;line-height:1.5;margin:30rpx 0 8rpx;text-align:center}
+.sceneFooter::before,.sceneFooter::after{content:"";width:100rpx;height:2rpx;background:#D5E4D7;flex-shrink:1}
+.displayTitle{display:block;font-size:58rpx;font-weight:900;letter-spacing:-1rpx;line-height:1.2}
+.pressable{transition:opacity .16s ease}.pressable:active{opacity:.72}
+
+.screen .primary,.screen .secondary,.screen .danger,.bottomPanel .primary,.bottomPanel .secondary,.drawer .secondary,.drawer .danger{width:100%!important;display:block}
+
+.title,.displayTitle,.stateTitle,.resultTitle,.warningTitle,.notice,.sectionTitle{font-family:CatMouseDisplay,"PingFang SC","Microsoft YaHei",sans-serif;font-weight:900}
+.homeScreen,.devScreen{width:var(--vw,100vw)}

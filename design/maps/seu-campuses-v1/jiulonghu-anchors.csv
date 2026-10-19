@@ -1,0 +1,21 @@
+﻿id,name,osm_id,longitude_wgs84,latitude_wgs84,image_x,image_y,method
+A01,李文正图书馆,way/300030310,118.81407208571429,31.8898403,535,576,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A02,纪忠楼,way/300030325,118.81028069444444,31.889073172222222,304,635,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A03,九龙湖体育馆,way/630686644,118.82159048767124,31.88902329452055,995,636,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A04,行政办公楼,way/300020042,118.81316997916667,31.883930008333333,479,1004,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A05,土木交通教学科研楼,way/1056927514,118.8172645375,31.89263365,730,375,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A06,信息电子教学综合楼,way/1056927536,118.81735820625,31.8941577625,736,264,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A07,教学楼8,way/299961586,118.81891001,31.890786780000003,832,511,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A08,教学楼1,way/299961605,118.81765826842104,31.889439594736842,755,605,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A09,国家电网楼,way/300030315,118.81511838333334,31.895155066666664,598,195,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A10,总务处,way/300030323,118.8175496923077,31.89508939230769,747,199,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A11,九龙湖宾馆,way/300030330,118.8066297125,31.89440590625,78,248,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A12,东南大学九龙湖校区北门,way/300165432,118.818269675,31.895605924999998,792,162,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A13,东南大学九龙湖校区东门,way/300162243,118.82488106000001,31.889413180000002,1198,609,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A14,橘园食堂,way/299961611,118.80824843636364,31.885179763636362,177,917,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A15,橘园4A,way/299961596,118.80847605,31.8827896,191,1089,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A16,桃园6C,way/630136460,118.82280376666667,31.89411481666667,1070,268,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A17,梅园8D,way/630141882,118.82290856,31.8853046,1077,905,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A18,科研中心,way/1301015351,118.81474772857143,31.881529385714284,576,1178,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A19,钟山书院,way/1488713409,118.8079883,31.8922782,161,403,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection
+A20,能环科研综合楼,way/1056927534,118.8094731,31.8867448,253,802,manual visible roof/footprint center matched to OSM vertex-mean; approximate ground projection

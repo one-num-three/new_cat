@@ -1,0 +1,40 @@
+<view class="codeScreen {{fontScale>1.15?'fontLarge':''}}" style="--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;min-height:{{viewportHeight}}px;padding-bottom:{{safeBottom}}px">
+  <nav-bar title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
+  <view class="navSpace" style="height:{{navHeight}}px"></view>
+  <image class="codeRole" src="/assets/pixel-v1/code-role.png" mode="widthFix" aria-label="鼠队行动，躲避猫咪，坚持到最后" />
+
+  <view class="codePaper">
+    <view class="codeHeader">
+      <view class="codeTitle"><text>动态抓捕码</text></view>
+      <text wx:if="{{fontScale>1.15}}" class="heading">停下，<text class="lineBreak">展示动态码</text></text>
+      <text wx:else class="heading">停下，展示动态码</text>
+      <view class="codeHints">
+        <text class="codeHint">和猫当面确认后再展示</text>
+        <text class="codeHint">GPS 只作辅助校验</text>
+      </view>
+    </view>
+
+    <view class="qrCard {{devPreview?'demoCard':''}}">
+      <view wx:if="{{devPreview}}" class="qrDemo">
+        <image class="demoArt" src="/assets/pixel-v1/code-demo-art.png" mode="widthFix" aria-hidden="true" />
+        <text class="demoTitle">演示码</text>
+        <text class="demoCaption">不可扫描</text>
+      </view>
+      <image wx:elif="{{image}}" src="{{image}}" mode="aspectFit" class="qr" aria-label="本局动态抓捕码" />
+      <view wx:elif="{{error}}" class="qrState">
+        <text class="qrStateMark">!</text>
+        <text class="qrLoading">当前无法展示动态码</text>
+      </view>
+      <view wx:else class="qrState">
+        <view class="loadingPixels" aria-hidden="true"><view></view><view></view><view></view></view>
+        <text class="qrLoading">正在生成动态码…</text>
+      </view>
+    </view>
+    <text wx:if="{{devPreview || image}}" class="refreshInfo">{{devPreview?'15 秒有效期 · 示例':seconds+' 秒后自动更新'}}</text>
+    <text wx:if="{{error}}" class="codeError">{{error}}</text>
+
+    <view class="safetyNote"><view class="safetyMark" aria-hidden="true"><text>!</text></view><text class="safetyCopy">请停在安全位置，不要跑动操作</text></view>
+    <view class="backAction"><pixel-action skin="/assets/pixel-v1/button-code-back.png" label="返回地图" tone="blue" font-scale="{{fontScale}}" bindaction="back" /></view>
+    <text class="codeFooter">扫码成功才算抓捕</text>
+  </view>
+</view>

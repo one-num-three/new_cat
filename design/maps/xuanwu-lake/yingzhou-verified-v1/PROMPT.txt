@@ -1,0 +1,18 @@
+Tool: built-in image_gen
+
+Use case: precise-object-edit / geographically constrained style transfer.
+The user insists on REAL Yingzhou (樱洲) in Xuanwu Lake, Nanjing, rather than an invented island or the surrounding Huanzhou ring. Create ONE geographically constrained sunny 16-bit pixel map, portrait aspect 1600:1687, no UI, text, labels, decorative frame or characters.
+
+IMAGE 1 IS THE AUTHORITATIVE GEOMETRIC TARGET. Match its full framing, north-up orthographic projection, all outline vertices, channels, ponds, path topology and building footprints precisely. The lighter-green CENTER island is Yingzhou, complete in this frame. Pale desaturated land at edges is neighboring Huanzhou and must remain only peripheral context; do not recenter the whole ring or copy a full-ring layout.
+IMAGE 2 IS STYLE ONLY: sunny greens, bright blue water, cream paths, crisp small pixel clusters, soft limited pixel shadows, charming but restrained park material treatment. Do not borrow its spatial layout or missing/fabricated features.
+
+Important factual corrections from real vector data:
+- Preserve the FOUR mapped crossing structures in image 1: northwest Ying Bridge, northeast Bai Bridge, east/southeast Yueying Bridge, and southwest zigzag Lian Bridge. Their brown lines are POSITION GUIDES, NOT wooden construction. The source records paved or concrete surfaces. Draw modest pale-grey stone/concrete deck textures, not generic brown timber bridges, no invented arches. Keep endpoints/centerlines and bend positions exactly as supplied.
+- The thin muted brown-purple parallel outline following the northern/eastern inside of Yingzhou is a mapped flower/pergola corridor missing from the previous art. Preserve its exact elongated footprint and bends. Depict a low, slender open pergola framework, not a thick wall, broad road, giant roofed building, mountain or new shoreline. Structural finish is schematic, do not invent landmark architecture.
+- Tan solid polygons are known building footprints. Keep each footprint and shape exact. Use simple low-profile muted warm roofs with small pixel ridges; no towers/pagodas, no enlarged fantasy temples, no added buildings.
+- The interior small elongated pond and its small island/land shape must stay exactly in place.
+- The central pavilion's real building outline is not established in the provided geometry: do not invent a central pavilion or add a new roof. No new attractions or spatial data.
+
+Make the geographic drawing aesthetically coherent using the second image's pixel-art treatment: natural, varied small tree crowns and restrained low-contrast lawn details, smaller soft ripples, clean routes, shoreline edging constrained to water, no monotonous noisy texture. Tree positions are decorative only and must not hide paths/corridor, footprints, intersections or bridges. Use mostly green foliage, not an invented entire island of pink blossoms. Maintain map readability and small pixel scale. Geometry must take precedence over lush decoration. No smoothing/reconstruction of the island into a symmetrical generic park. No isometric distortion, perspective camera, blur, watercolor, photorealism or 3D.
+
+Return only one pixel-art map using IMAGE 1 composition.

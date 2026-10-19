@@ -1,0 +1,80 @@
+✔ immersive cover fills viewport uniformly 390x640 (0.8045ms)
+✔ immersive cover fills viewport uniformly 320x489 (0.1132ms)
+✔ immersive cover fills viewport uniformly 320x280 (0.0667ms)
+✔ immersive cover fills viewport uniformly 1024x1180 (0.0991ms)
+✔ immersive cover fills viewport uniformly 844x240 (0.0698ms)
+✔ immersive cover fills viewport uniformly 390x1600 (0.0635ms)
+✔ immersive cover fills viewport uniformly 1254x1254 (0.0906ms)
+✔ cover rejects invalid sizes and camera never publishes nonfinite values (1.1033ms)
+✔ camera scale is bounded to1–4 and pinch preserves its focal point before edge clamping (0.2807ms)
+✔ single image starts in cover instead of letterboxed contain (1.6941ms)
+✔ automatic tour uses one native animation per leg and exactly one timer (1.4889ms)
+✖ touch immediately freezes interpolated auto position and permanently hands over until explicit resume (1.5236ms)
+✔ manual pan clamps edges without blank strips and throttles move paints (1.1323ms)
+✔ two finger pinch changes uniform scale and ends cleanly (0.7604ms)
+✔ invalid touches and zero-distance pinch do not publish NaN (0.7828ms)
+✔ reset stays full-bleed at1x and unchanged layout retains manual zoom (1.3627ms)
+✔ manual focal position survives viewport change and invalid viewport stops animation (0.7957ms)
+✔ latest query wins; stale image callback and retry do not resurrect old assets (0.8201ms)
+✖ page hide suspends tour, show resumes only untouched auto, detach cancels timer and late writes (0.8713ms)
+✔ viewer is a single image with no footer band, no geographic input and no network sampling (1.2251ms)
+✔ public guide is registered and refreshes real layout without joining a game (1.2767ms)
+✔ map display toggle changes only artMode and never restarts server or location work (1.6556ms)
+✔ developer preview remains illustration-only after repeated map toggles (3.5073ms)
+✔ actual developer map cases enter art mode without timers, storage, network or GPS (11.9829ms)
+✔ home, gallery and preview-map guide buttons navigate without authentication or room mutation (2.3327ms)
+✔ production snapshot renders only server-visible positions and server intel on native map (0.9445ms)
+✔ every presentation state points to the active uncalibrated venue artwork without changing action gates (0.244ms)
+✔ packaged venue PNG and unchanged approved source match independently recorded hashes (5.3946ms)
+✔ venue runtime has explicit no-georeferencing metadata and no invented calibration (0.8438ms)
+✔ generated square map and packaged JPEG are independently locked without inventing calibration (2.4406ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 28
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 149.2632
+
+✖ failing tests:
+
+test at cat-mouse-server\v2\venue-ui.test.js:44:1
+✖ touch immediately freezes interpolated auto position and permanently hands over until explicit resume (1.5236ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\v2\venue-ui.test.js:44:572)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual'
+  }
+
+test at cat-mouse-server\v2\venue-ui.test.js:51:1
+✖ page hide suspends tour, show resumes only untouched auto, detach cancels timer and late writes (0.8713ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\v2\venue-ui.test.js:51:337)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual'
+  }

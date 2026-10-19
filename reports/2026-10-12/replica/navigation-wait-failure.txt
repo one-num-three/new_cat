@@ -1,0 +1,11 @@
+ROUTE /pages/index/index?devPreview=home
+PASS input-handler-binding
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'pages/index/index'
+- 'pages/room/room'
+         ^
+
+    at D:\cat-mouse-miniprogram\scripts\replica-interaction.cjs:22:31
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

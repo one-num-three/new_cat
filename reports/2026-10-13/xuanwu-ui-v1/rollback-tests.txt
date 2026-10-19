@@ -1,0 +1,202 @@
+COMMAND={"command":"C:\\Program Files\\nodejs\\node.exe","args":["--test","v2/client.test.js","v2/dev-preview.test.js","v2/integration.test.js","v2/presentation.test.js","v2/rules.test.js"],"cwd":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\cat-mouse-server","env":{"NODE_PATH":"D:\\cat-mouse-miniprogram\\cat-mouse-server\\node_modules","TEMP":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\test-temp","TMP":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\test-temp","TMPDIR":"D:\\cat-mouse-miniprogram\\reports\\2026-10-13\\xuanwu-ui-v1\\rollback-fixture\\test-temp"}}
+STDOUT:
+TAP version 13
+# Subtest: duplicate and out-of-order snapshots cannot roll client back
+ok 1 - duplicate and out-of-order snapshots cannot roll client back
+  ---
+  duration_ms: 1.1192
+  type: 'test'
+  ...
+# Subtest: map state stops location immediately on terminal snapshot
+ok 2 - map state stops location immediately on terminal snapshot
+  ---
+  duration_ms: 4.4211
+  type: 'test'
+  ...
+# Subtest: map falls back to polling, reconnects socket and clears timers on leave
+ok 3 - map falls back to polling, reconnects socket and clears timers on leave
+  ---
+  duration_ms: 6.433
+  type: 'test'
+  ...
+# Subtest: location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+ok 4 - location stream throttles events, refreshes when quiet and ignores late GPS callbacks
+  ---
+  duration_ms: 1.9888
+  type: 'test'
+  ...
+# Subtest: waiting room retries network entry and keeps one location request in flight
+ok 5 - waiting room retries network entry and keeps one location request in flight
+  ---
+  duration_ms: 2.0638
+  type: 'test'
+  ...
+# Subtest: concurrent session callers share one identity and retry after failure
+ok 6 - concurrent session callers share one identity and retry after failure
+  ---
+  duration_ms: 1.8264
+  type: 'test'
+  ...
+# Subtest: home resume routes waiting room and finished match to the correct page
+ok 7 - home resume routes waiting room and finished match to the correct page
+  ---
+  duration_ms: 1.3661
+  type: 'test'
+  ...
+# Subtest: catch code page ignores late token, detects capture and cleans temporary files
+ok 8 - catch code page ignores late token, detects capture and cleans temporary files
+  ---
+  duration_ms: 2.6231
+  type: 'test'
+  ...
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 9 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 7.7122
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 10 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 17.6218
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 11 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 7.2349
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 12 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.1976
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 13 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 1.7472
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+ok 14 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 2.1088
+  type: 'test'
+  ...
+# Subtest: trusted two identity round trip, permissions, capture, persistence and restart
+ok 15 - trusted two identity round trip, permissions, capture, persistence and restart
+  ---
+  duration_ms: 3953.1596
+  type: 'test'
+  ...
+# Subtest: failed database write rolls back capture and token consumption
+ok 16 - failed database write rolls back capture and token consumption
+  ---
+  duration_ms: 2535.8075
+  type: 'test'
+  ...
+# Subtest: standard six player preset serializes two cats capturing one mouse
+ok 17 - standard six player preset serializes two cats capturing one mouse
+  ---
+  duration_ms: 2717.6823
+  type: 'test'
+  ...
+# Subtest: active match restart pauses and requires fresh positions
+ok 18 - active match restart pauses and requires fresh positions
+  ---
+  duration_ms: 2682.804
+  type: 'test'
+  ...
+# Subtest: native template expressions parse including conditional accessibility classes
+ok 19 - native template expressions parse including conditional accessibility classes
+  ---
+  duration_ms: 3.8044
+  type: 'test'
+  ...
+# Subtest: presentation only exposes role and stage appropriate primary actions
+ok 20 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 1.3373
+  type: 'test'
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 21 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.2138
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 22 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 1.1446
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 23 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 6.4005
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 24 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 3.201
+  type: 'test'
+  ...
+# Subtest: faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+ok 25 - faithful art retains approved source bytes, intrinsic aspect and separate page/state compositions
+  ---
+  duration_ms: 24.0155
+  type: 'test'
+  ...
+# Subtest: map art and event timestamps are display only while authenticated actions remain gated
+ok 26 - map art and event timestamps are display only while authenticated actions remain gated
+  ---
+  duration_ms: 0.7516
+  type: 'test'
+  ...
+# Subtest: static display font is licensed and preserves native fallback and controls
+ok 27 - static display font is licensed and preserves native fallback and controls
+  ---
+  duration_ms: 2.5871
+  type: 'test'
+  ...
+# Subtest: every native page responds to viewport resize without changing match/action state
+ok 28 - every native page responds to viewport resize without changing match/action state
+  ---
+  duration_ms: 5.03
+  type: 'test'
+  ...
+# Subtest: responsive UI never uses nonuniform image scaling and narrow canvas keeps native controls
+ok 29 - responsive UI never uses nonuniform image scaling and narrow canvas keeps native controls
+  ---
+  duration_ms: 2.1234
+  type: 'test'
+  ...
+# Subtest: pilot presets and quota stay fixed
+ok 30 - pilot presets and quota stay fixed
+  ---
+  duration_ms: 0.8192
+  type: 'test'
+  ...
+# Subtest: distance handles zero and same coordinate
+ok 31 - distance handles zero and same coordinate
+  ---
+  duration_ms: 0.1576
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12357.1495
+
+STDERR:
+
+EXIT_STATUS=0

@@ -1,0 +1,94 @@
+{
+  "pages": [
+    {
+      "id": "gallery",
+      "path": "pages/dev/dev",
+      "rects": {}
+    },
+    {
+      "id": "home",
+      "path": "pages/index/index",
+      "devPreview": true,
+      "rects": {}
+    },
+    {
+      "id": "create",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "ready",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "cat",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "mouse",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "alert",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "hiding",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "code",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "captured",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "paused",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "offline",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "catWin",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "mouseWin",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    },
+    {
+      "id": "cancelled",
+      "path": "pages/index/index",
+      "devPreview": false,
+      "rects": {}
+    }
+  ],
+  "exceptions": []
+}

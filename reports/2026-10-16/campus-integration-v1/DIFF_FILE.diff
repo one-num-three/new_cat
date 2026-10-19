@@ -1,0 +1,739 @@
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\app.json" "b/D:\\cat-mouse-miniprogram\\app.json"
+index 04efaf6..86c9bcc 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\app.json"
++++ "b/D:\\cat-mouse-miniprogram\\app.json"
+@@ -31,5 +31,14 @@
+   "usingComponents": {
+     "nav-bar": "/components/nav-bar/nav-bar",
+     "pixel-action": "/components/pixel-action/pixel-action"
+-  }
++  },
++  "subPackages": [
++    {
++      "name": "venue-maps",
++      "root": "venue-maps",
++      "pages": [
++        "pages/open/open"
++      ]
++    }
++  ]
+ }
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\cat-mouse-server\\shared\\geo-registration.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\shared\\geo-registration.js"
+index c22d0f3..a5286c9 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\cat-mouse-server\\shared\\geo-registration.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\shared\\geo-registration.js"
+@@ -1,5 +1,7 @@
+ // Canonical geographic registration math. Server distribution is byte-identical.
+-const IMAGE={id:'xuanwu-v4',sha256:'d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540',width:1254,height:1254};
++const images=require('./venue-images.js');
++const IMAGE=images.find(x=>x.id==='xuanwu-v4');
++const imageFor=id=>images.find(x=>x.id===id)||null;
+ const DEG=Math.PI/180,R=6371000;
+ function fail(code){throw Error(code);}
+ function valid(p){return p&&Number.isFinite(p.lat)&&Number.isFinite(p.lng)&&Math.abs(p.lat)<85&&Math.abs(p.lng)<=180;}
+@@ -12,7 +14,8 @@ function solve(matrix,rhs){const m=matrix.map((row,i)=>[...row,rhs[i]]);for(let
+ function rawProject(p,model){const w=world(p,model.origin),[a,b,c]=model.east,[d,e,f]=model.north,det=a*e-b*d;if(Math.abs(det)<1e-6)return null;return {u:(e*(w.x-c)-b*(w.y-f))/det,v:(a*(w.y-f)-d*(w.x-c))/det};}
+ function pixelToGeo(p,m){if(!m||!Number.isFinite(p.u)||!Number.isFinite(p.v))return null;return unworld({x:m.east[0]*p.u+m.east[1]*p.v+m.east[2],y:m.north[0]*p.u+m.north[1]*p.v+m.north[2]},m.origin);}
+ function compile(input){
+- if(!input||input.imageId!==IMAGE.id||input.imageSha256!==IMAGE.sha256||input.crs!=='gcj02')fail('CALIBRATION_IMAGE_OR_CRS');
++ const image=imageFor(input?.imageId);
++ if(!image||input.imageSha256!==image.sha256||input.crs!=='gcj02')fail('CALIBRATION_IMAGE_OR_CRS');
+  const ps=input.points;if(!Array.isArray(ps)||ps.length<5||ps.length>16)fail('CALIBRATION_POINTS');
+  if(ps.some(p=>!valid(p)||!Number.isFinite(p.u)||!Number.isFinite(p.v)||p.u<0||p.u>1||p.v<0||p.v>1||!['control','check'].includes(p.kind)))fail('CALIBRATION_POINTS');
+  const controls=ps.filter(p=>p.kind==='control'),checks=ps.filter(p=>p.kind==='check');if(controls.length<3||checks.length<2)fail('CALIBRATION_CHECKS_REQUIRED');
+@@ -21,7 +24,7 @@ function compile(input){
+  if(Math.abs(area)/2<.04)fail('CALIBRATION_DEGENERATE');
+  for(let i=0;i<ps.length;i++){const a=world(ps[i],origin);if(Math.hypot(a.x,a.y)>3000)fail('CALIBRATION_SPREAD');for(let j=0;j<i;j++){const b=world(ps[j],origin);if(Math.hypot(a.x-b.x,a.y-b.y)<10||Math.hypot(ps[i].u-ps[j].u,ps[i].v-ps[j].v)<.015)fail('CALIBRATION_DUPLICATE');}}
+  const mat=Array.from({length:3},()=>[0,0,0]),bx=[0,0,0],by=[0,0,0];for(const p of controls){const q=[p.u,p.v,1],w=world(p,origin);for(let i=0;i<3;i++){bx[i]+=q[i]*w.x;by[i]+=q[i]*w.y;for(let j=0;j<3;j++)mat[i][j]+=q[i]*q[j];}}
+- const model={schema:'affine-gcj02-v1',imageId:IMAGE.id,imageSha256:IMAGE.sha256,crs:'gcj02',origin,east:solve(mat,bx),north:solve(mat,by),hull:h,status:'registered',fieldVerified:false};
++ const model={schema:'affine-gcj02-v1',imageId:image.id,imageSha256:image.sha256,crs:'gcj02',origin,east:solve(mat,bx),north:solve(mat,by),hull:h,status:'registered',fieldVerified:false};
+  const error=p=>{const q=pixelToGeo(p,model),a=world(p,origin),b=world(q,origin);return Math.hypot(a.x-b.x,a.y-b.y);};
+  const training=controls.map(error),independent=checks.map(error);if(checks.some(p=>!inside(p,h)))fail('CALIBRATION_CHECK_OUTSIDE');
+  if(Math.max(...training)>5||Math.max(...independent)>10)fail('CALIBRATION_ERROR');
+@@ -30,7 +33,7 @@ function compile(input){
+  model.quality={controlCount:controls.length,checkCount:checks.length,maxErrorM:Math.max(...independent),rmsM:Math.sqrt(independent.reduce((s,x)=>s+x*x,0)/independent.length),trainingMaxM:Math.max(...training)};
+  model.points=ps.map(p=>({u:p.u,v:p.v,lat:p.lat,lng:p.lng,kind:p.kind}));return model;
+ }
+-function project(p,m){if(!valid(p)||!m||m.schema!=='affine-gcj02-v1'||!valid(m.origin)||!Array.isArray(m.east)||!Array.isArray(m.north)||m.east.length!==3||m.north.length!==3||![...m.east,...m.north].every(Number.isFinite)||!Array.isArray(m.hull)||m.hull.length<3||m.hull.some(p=>!p||!Number.isFinite(p.u)||!Number.isFinite(p.v))||m.status!=='registered'||m.imageSha256!==IMAGE.sha256||m.crs!=='gcj02')return null;const q=rawProject(p,m);if(!q||!Number.isFinite(q.u)||!Number.isFinite(q.v)||q.u<0||q.u>1||q.v<0||q.v>1||!inside(q,m.hull))return null;return q;}
+-function ellipse(p,radius,m,width,height){const q=project(p,m);if(!q||!Number.isFinite(radius)||radius<=0||radius>500)return null;const [a,b]=m.east,[d,e]=m.north,det=a*e-b*d;const x=[width*e/det,-width*b/det],y=[-height*d/det,height*a/det],aa=x[0]**2+x[1]**2,bb=x[0]*y[0]+x[1]*y[1],cc=y[0]**2+y[1]**2,disc=Math.hypot(aa-cc,2*bb);return {x:q.u*width,y:q.v*height,rx:radius*Math.sqrt(Math.max(0,(aa+cc+disc)/2)),ry:radius*Math.sqrt(Math.max(0,(aa+cc-disc)/2)),angle:Math.atan2(2*bb,aa-cc)*90/Math.PI};}
+-function frame(data,m,width,height){if(!m||!Number.isFinite(width)||!Number.isFinite(height)||width<=0||height<=0)return {points:[],regions:[]};const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,m);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);const regions=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61).map((p,i)=>{const q=ellipse(p,p?.radiusM,m,width,height);return q?{id:i,...q}:null;}).filter(Boolean);return {points,regions};}
++function project(p,m,imageId=IMAGE.id){const image=imageFor(imageId);if(!image||m?.imageId!==image.id||!valid(p)||!m||m.schema!=='affine-gcj02-v1'||!valid(m.origin)||!Array.isArray(m.east)||!Array.isArray(m.north)||m.east.length!==3||m.north.length!==3||![...m.east,...m.north].every(Number.isFinite)||!Array.isArray(m.hull)||m.hull.length<3||m.hull.some(p=>!p||!Number.isFinite(p.u)||!Number.isFinite(p.v))||m.status!=='registered'||m.imageSha256!==image.sha256||m.crs!=='gcj02')return null;const q=rawProject(p,m);if(!q||!Number.isFinite(q.u)||!Number.isFinite(q.v)||q.u<0||q.u>1||q.v<0||q.v>1||!inside(q,m.hull))return null;return q;}
++function ellipse(p,radius,m,width,height,imageId=IMAGE.id){const q=project(p,m,imageId);if(!q||!Number.isFinite(radius)||radius<=0||radius>500)return null;const [a,b]=m.east,[d,e]=m.north,det=a*e-b*d;const x=[width*e/det,-width*b/det],y=[-height*d/det,height*a/det],aa=x[0]**2+x[1]**2,bb=x[0]*y[0]+x[1]*y[1],cc=y[0]**2+y[1]**2,disc=Math.hypot(aa-cc,2*bb);return {x:q.u*width,y:q.v*height,rx:radius*Math.sqrt(Math.max(0,(aa+cc+disc)/2)),ry:radius*Math.sqrt(Math.max(0,(aa+cc-disc)/2)),angle:Math.atan2(2*bb,aa-cc)*90/Math.PI};}
++function frame(data,m,width,height,imageId=IMAGE.id){if(!m||!Number.isFinite(width)||!Number.isFinite(height)||width<=0||height<=0)return {points:[],regions:[]};const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,m,imageId);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);const regions=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61).map((p,i)=>{const q=ellipse(p,p?.radiusM,m,width,height,imageId);return q?{id:i,...q}:null;}).filter(Boolean);return {points,regions};}
+ module.exports={IMAGE,compile,project,pixelToGeo,ellipse,frame,world};
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\cat-mouse-server\\v2\\service.js" "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\service.js"
+index abef2b4..df6c382 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\cat-mouse-server\\v2\\service.js"
++++ "b/D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\service.js"
+@@ -1,8 +1,10 @@
+ const crypto = require('node:crypto');
+ const registration=require('../shared/geo-registration');
++const venueImages=require('../shared/venue-images.js');
+ const { preset, targetFor, distance } = require('./rules');
+ const { hash } = require('./store');
+ const fail = code => { const e = new Error(code); e.code = code; throw e; };
++const positionKey=(roomId,actor)=>roomId+':'+actor;
+ const terminal = m => m && ['FINISHED', 'CANCELLED'].includes(m.phase);
+ class Service {
+   constructor(store, options = {}) { this.store = store; this.positions = new Map(); this.outside = new Map(); this.lastSeen = new Map(); this.localTest = !!options.localTest; this.now = options.now || Date.now; }
+@@ -18,12 +20,15 @@ class Service {
+     }
+   }
+   async create(actor, input) {
+-    const keys = Object.keys(input || {}); if (keys.some(k => !['total', 'cats', 'mice', 'venue', 'nickname'].includes(k))) fail('INVALID_CONFIG');
++    const keys = Object.keys(input || {}); if (keys.some(k => !['total', 'cats', 'mice', 'venue', 'nickname', 'mapId'].includes(k))) fail('INVALID_CONFIG');
+     const custom = keys.includes('cats') || keys.includes('mice');
+     const rules = preset(input.total, this.localTest, custom ? {cats:input.cats,mice:input.mice} : undefined);
+     const v = input.venue;
+     if (!v || !v.confirmed || !Number.isFinite(v.lat) || !Number.isFinite(v.lng) || Math.abs(v.lat)>90 || Math.abs(v.lng)>180 || !Number.isInteger(v.radiusM) || v.radiusM < 100 || v.radiusM > 500) fail('INVALID_VENUE');
+-    const state = { version: 1, rules, venue: { lat: v.lat, lng: v.lng, radiusM: v.radiusM, confirmed: true }, members: [{ id: actor, nickname: name(input.nickname), ready: false }], match: null, history: [] };
++    if(input.mapId!==undefined&&v.mapId!==undefined&&input.mapId!==v.mapId)fail('INVALID_VENUE_MAP');
++    const mapId=input.mapId??v.mapId??'xuanwu-v4',image=venueImages.find(x=>x.id===mapId);if(!image)fail('INVALID_VENUE_MAP');
++    const bounds=image.gcjBounds;if(bounds&&(v.lng<bounds[0]||v.lat<bounds[1]||v.lng>bounds[2]||v.lat>bounds[3]))fail('VENUE_MAP_MISMATCH');
++    const state = { version: 1, rules, venue: { lat: v.lat, lng: v.lng, radiusM: v.radiusM, confirmed: true, mapId }, members: [{ id: actor, nickname: name(input.nickname), ready: false }], match: null, history: [] };
+     for(let attempt=0;attempt<3;attempt++) {
+       const id = crypto.randomUUID(), code = crypto.randomBytes(5).toString('hex').toUpperCase();
+       try { await this.store.query('INSERT INTO rooms VALUES ($1,$2,$3,$4)', [id, code, actor, JSON.stringify(state)]); return { roomId: id, code }; }
+@@ -41,25 +46,26 @@ class Service {
+       const out = await fn(room, db, member);
+       await this.store.save(db, room);
+       if (terminal(room.state.match)) {
+-        if (!wasTerminal) completed = room.state.match;
++        if (!wasTerminal) completed = {match:room.state.match,roomId:room.id};
+         const finished = room.state.match;
+         await db.query('INSERT INTO match_results VALUES ($1,$2,$3) ON CONFLICT (match_id) DO NOTHING', [finished.id, room.id, JSON.stringify({ matchId:finished.id, outcome:finished.outcome, reason:finished.reason, endedAt:finished.endedAt, captured:finished.captured, target:finished.target, rulesVersion:room.state.rules.version })]);
+       }
+       return out;
+     });
+-    if (completed) this.clearPositions(completed);
++    if (completed) this.clearPositions(completed.match,completed.roomId);
+     return result;
+   }
+   async calibrate(id,actor,input){return this.mutate(id,actor,async room=>{
+     if(room.owner_id!==actor)fail('FORBIDDEN');
+     if(!input||Object.keys(input).some(k=>!['commandId','expectedVersion','imageId','imageSha256','crs','points'].includes(k))||!validUuid(input.commandId))fail('INVALID_CALIBRATION');
++    if(input.imageId!==(room.state.venue.mapId||'xuanwu-v4'))fail('CALIBRATION_IMAGE_OR_CRS');
+     const digest=hash(JSON.stringify({expectedVersion:input.expectedVersion,imageId:input.imageId,imageSha256:input.imageSha256,crs:input.crs,points:input.points}));
+     const prior=(room.state.calibrationCommands||[]).find(x=>x.id===input.commandId);
+     if(prior){if(prior.digest!==digest)fail('COMMAND_CONFLICT');return prior.result;}
+     if(room.state.match&&!terminal(room.state.match))fail('IN_PROGRESS');
+     if(input.expectedVersion!==room.state.version)fail('VERSION_CONFLICT');
+     const model=registration.compile(input);
+-    if(!registration.project(room.state.venue,model))fail('CALIBRATION_VENUE_MISMATCH');
++    if(!registration.project(room.state.venue,model,input.imageId))fail('CALIBRATION_VENUE_MISMATCH');
+     room.state.mapCalibration={...model,id:crypto.randomUUID(),createdAt:this.now()};room.state.version++;
+     // Geometry changes before the next match must be acknowledged by everyone.
+     room.state.members.forEach(p=>{p.ready=false;});
+@@ -90,46 +96,46 @@ class Service {
+     if (!m) return base;
+     base.events = m.publicEvents.slice(-12);
+     if (terminal(m) || m.phase === 'PAUSED' || !me || me.status !== 'active') return base;
+-    const mine = this.fresh(actor), now = this.now();
++    const mine = this.fresh(actor,room.id), now = this.now();
+     if (mine) base.visiblePositions.push({ id: actor, ...coordinate(mine) });
+     for (const p of m.participants) {
+       if (p.id === actor || p.status !== 'active') continue;
+-      const pos = this.fresh(p.id); if (!pos) continue;
++      const pos = this.fresh(p.id,room.id); if (!pos) continue;
+       if (p.role === me.role) base.visiblePositions.push({ id: p.id, ...coordinate(pos) });
+       else if (me.role === 'mouse' && m.phase === 'CHASING' && mine && distance(mine, pos) <= 120) base.nearbyCat = true;
+     }
+     if (me.role === 'cat' && m.phase === 'CHASING') base.intel = m.intel || [];
+     return base;
+   }
+-  fresh(id) { const p = this.positions.get(id); return p && this.now() - p.receivedAt <= 5000 ? p : null; }
+-  async ready(id, actor, ready) { return this.mutate(id, actor, room => { if (room.state.match && !terminal(room.state.match)) fail('IN_PROGRESS'); if (ready && !this.fresh(actor)) fail('LOCATION_REQUIRED'); room.state.members.find(p => p.id === actor).ready = !!ready; room.state.version++; return this.view(room, actor); }); }
++  fresh(id,roomId) { const p = this.positions.get(positionKey(roomId,id)); return p && this.now() - p.receivedAt <= 5000 ? p : null; }
++  async ready(id, actor, ready) { return this.mutate(id, actor, room => { if (room.state.match && !terminal(room.state.match)) fail('IN_PROGRESS'); if (ready && !this.fresh(actor,room.id)) fail('LOCATION_REQUIRED'); room.state.members.find(p => p.id === actor).ready = !!ready; room.state.version++; return this.view(room, actor); }); }
+   async location(id, actor, input) {
+     return this.mutate(id, actor, async (room, db) => {
+       this.touch(actor);
+       const { lat, lng, accuracy, sampledAt, sampleSeq, coordinateSystem } = input || {};
+       if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='captured') fail('CAPTURED');
+       if (![lat, lng, accuracy, sampledAt, sampleSeq].every(Number.isFinite) || lat < -90 || lat > 90 || lng < -180 || lng > 180 || accuracy < 0 || accuracy > 25 || !Number.isInteger(sampleSeq) || coordinateSystem !== 'gcj02' || Math.abs(this.now() - sampledAt) > 10000) fail('INVALID_LOCATION');
+-      const prev = this.positions.get(actor); if (prev && sampleSeq <= prev.sampleSeq && this.now()-prev.receivedAt<=5000) fail('STALE_LOCATION');
++      const prev = this.positions.get(positionKey(room.id,actor)); if (prev && sampleSeq <= prev.sampleSeq && this.now()-prev.receivedAt<=5000) fail('STALE_LOCATION');
+       if (prev && distance(prev, { lat, lng }) > Math.max(100, (sampledAt - prev.sampledAt) / 1000 * 20 + 50)) fail('LOCATION_JUMP');
+       if (distance(room.state.venue, { lat, lng }) > room.state.venue.radiusM + 50) {
+-        const previous=this.outside.get(actor), o=previous?{firstAt:previous.firstAt,count:previous.count+1}:{firstAt:this.now(),count:1}; this.outside.set(actor,o);
++        const previous=this.outside.get(positionKey(room.id,actor)), o=previous?{firstAt:previous.firstAt,count:previous.count+1}:{firstAt:this.now(),count:1}; this.outside.set(positionKey(room.id,actor),o);
+         const m=room.state.match;
+         if(o.count>=3 && this.now()-o.firstAt>=10000 && m && !terminal(m) && m.phase!=='PAUSED') {
+           m.resumePhase=m.phase; m.remainingMs=Math.max(0,m.endsAt-this.now()); m.phase='PAUSED'; m.pausedAt=this.now(); m.pauseReason='outside_venue'; m.tokens={}; room.state.version++; await this.event(db,m,'PAUSE',{reason:'outside_venue'});
+         }
+         return {accepted:false,warning:'OUTSIDE_VENUE'};
+       }
+-      this.outside.delete(actor);
+-      this.positions.set(actor, { lat, lng, accuracy, sampledAt, sampleSeq, receivedAt: this.now() });
++      this.outside.delete(positionKey(room.id,actor));
++      this.positions.set(positionKey(room.id,actor), { lat, lng, accuracy, sampledAt, sampleSeq, receivedAt: this.now() });
+       const m=room.state.match;
+-      if(m?.phase==='CHASING' && (!m.intel || m.intel.length===0) && m.participants.filter(p=>p.role==='mouse' && p.status==='active').every(p=>this.fresh(p.id))) { m.intelBucket=-1; this.refreshIntel(room); }
++      if(m?.phase==='CHASING' && (!m.intel || m.intel.length===0) && m.participants.filter(p=>p.role==='mouse' && p.status==='active').every(p=>this.fresh(p.id,room.id))) { m.intelBucket=-1; this.refreshIntel(room); }
+       return { accepted: true };
+     });
+   }
+   async start(id, actor) { return this.mutate(id, actor, async (room, db) => {
+     if (room.owner_id !== actor) fail('FORBIDDEN'); const s = room.state;
+     if (s.match && !terminal(s.match)) fail('IN_PROGRESS');
+-    if (s.members.length !== s.rules.total || s.members.some(p => !p.ready || !this.fresh(p.id))) fail('NOT_READY');
++    if (s.members.length !== s.rules.total || s.members.some(p => !p.ready || !this.fresh(p.id,room.id))) fail('NOT_READY');
+     const shuffled = [...s.members];
+     for (let i = shuffled.length - 1; i > 0; i--) { const j = crypto.randomInt(i + 1); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; }
+     const previousCats=new Set(s.match?.participants.filter(p=>p.role==='cat').map(p=>p.id)||[]);
+@@ -143,7 +149,7 @@ class Service {
+     if (m.phase === 'PAUSED') { if (m.pauseReason !== 'server_restart' && m.pauseUsedMs + this.now() - m.pausedAt >= room.state.rules.pauseBudgetMs) await this.cancelInside(room, db, 'pause_budget'); return; }
+     m.lastTickAt=this.now();
+     if (m.phase === 'CHASING' && this.now() >= m.endsAt) { m.phase = 'FINISHED'; m.outcome = 'mouse_win'; m.reason = 'deadline'; m.endedAt = this.now(); m.tokens = {}; room.state.version++; await this.event(db, m, 'RESULT', { outcome: m.outcome, reason: m.reason }); return; }
+-    if (m.participants.some(p => p.status === 'active' && (!this.positions.get(p.id) || this.now() - this.positions.get(p.id).receivedAt > 30000 || this.now()-(this.lastSeen.get(p.id)||0)>30000))) {
++    if (m.participants.some(p => p.status === 'active' && (!this.positions.get(positionKey(room.id,p.id)) || this.now() - this.positions.get(positionKey(room.id,p.id)).receivedAt > 30000 || this.now()-(this.lastSeen.get(p.id)||0)>30000))) {
+       m.resumePhase=m.phase; m.remainingMs=Math.max(0,m.endsAt-this.now()); m.phase='PAUSED'; m.pausedAt=this.now(); m.pauseReason='lost_position'; m.tokens={}; room.state.version++;
+       await this.event(db,m,'PAUSE',{reason:'lost_position'}); return;
+     }
+@@ -156,7 +162,7 @@ class Service {
+     if (m.intelBucket === bucket) return;
+     m.intelBucket = bucket; m.intel = [];
+     for (const p of m.participants.filter(x => x.role === 'mouse' && x.status === 'active')) {
+-      const pos = this.fresh(p.id); if (!pos) continue;
++      const pos = this.fresh(p.id,room.id); if (!pos) continue;
+       const latStep = 50 / 111320, lngStep = 50 / (111320 * Math.cos(pos.lat * Math.PI / 180));
+       m.intel.push({ id: p.id, cellLat: Math.floor(pos.lat / latStep) * latStep, cellLng: Math.floor(pos.lng / lngStep) * lngStep, radiusM: 50, sampledWindow: bucket, expiresAt: (bucket + 1) * room.state.rules.intelMs });
+     }
+@@ -181,7 +187,7 @@ class Service {
+     if (m.usedTokens[tokenHash]) fail('ALREADY_CAPTURED');
+     const proof = m.tokens[tokenHash]; if (!proof || proof.expiresAt <= this.now()) fail('INVALID_TOKEN');
+     const mouse = m.participants.find(p => p.id === proof.target); if (mouse?.status !== 'active') fail('ALREADY_CAPTURED');
+-    const a = this.fresh(actor), b = this.fresh(mouse.id); if (!a || !b || a.accuracy > 25 || b.accuracy > 25 || distance(a, b) > 50) fail('LOCATION_REQUIRED');
++    const a = this.fresh(actor,room.id), b = this.fresh(mouse.id,room.id); if (!a || !b || a.accuracy > 25 || b.accuracy > 25 || distance(a, b) > 50) fail('LOCATION_REQUIRED');
+     delete m.tokens[tokenHash]; m.usedTokens[tokenHash]=mouse.id; mouse.status = 'captured'; m.captured++; room.state.version++;
+     await this.event(db, m, 'CAPTURE', { catId: actor, mouseId: mouse.id, captured: m.captured });
+     if (m.captured >= m.target) { m.phase = 'FINISHED'; m.outcome = 'cat_win'; m.reason = 'capture_target'; m.endedAt = this.now(); m.tokens = {}; await this.event(db, m, 'RESULT', { outcome: m.outcome, reason: m.reason }); }
+@@ -198,13 +204,13 @@ class Service {
+     if (room.owner_id !== actor) fail('FORBIDDEN'); const m = room.state.match; if (m?.phase !== 'PAUSED') fail('NOT_PAUSED');
+     m.pauseUsedMs += this.now() - m.pausedAt;
+     if (m.pauseUsedMs > room.state.rules.pauseBudgetMs) return this.cancelInside(room, db, 'pause_budget');
+-    if (m.participants.some(p => p.status === 'active' && !this.fresh(p.id))) fail('LOCATION_REQUIRED');
++    if (m.participants.some(p => p.status === 'active' && !this.fresh(p.id,room.id))) fail('LOCATION_REQUIRED');
+     m.phase = m.resumePhase; m.endsAt = this.now() + m.remainingMs; m.lastTickAt=this.now(); m.pauseReason = null; room.state.version++; await this.event(db, m, 'RESUME', {}); return this.view(room, actor);
+   }); }
+   async cancelInside(room, db, reason) { const m = room.state.match; m.phase = 'CANCELLED'; m.outcome = 'cancelled'; m.reason = reason; m.endedAt = this.now(); m.tokens = {}; room.state.version++; await this.event(db, m, 'RESULT', { outcome: 'cancelled', reason }); return { matchId: m.id, outcome: 'cancelled' }; }
+   async cancel(id, actor) { return this.mutate(id, actor, async (room, db) => { if (room.owner_id !== actor) fail('FORBIDDEN'); if (!room.state.match || terminal(room.state.match)) fail('NO_ACTIVE_MATCH'); return this.cancelInside(room, db, 'host_cancel'); }); }
+-  async leave(id, actor) { const result=await this.mutate(id, actor, async (room, db) => { const m = room.state.match; if (m && !terminal(m)) { if (m.phase !== 'PAUSED') { m.resumePhase = m.phase; m.remainingMs = Math.max(0, m.endsAt - this.now()); m.phase = 'PAUSED'; m.pausedAt = this.now(); m.pauseReason = 'leave'; m.tokens = {}; room.state.version++; await this.event(db, m, 'PAUSE', { reason: 'leave' }); } } else { room.state.members = room.state.members.filter(p => p.id !== actor); room.state.version++; } return { left: true }; }); this.positions.delete(actor);this.outside.delete(actor);this.lastSeen.delete(actor);return result; }
+-  clearPositions(m) { for (const p of m.participants) { this.positions.delete(p.id); this.outside.delete(p.id); this.lastSeen.delete(p.id); } }
++  async leave(id, actor) { let leavingRoomId;const result=await this.mutate(id, actor, async (room, db) => { leavingRoomId=room.id;const m = room.state.match; if (m && !terminal(m)) { if (m.phase !== 'PAUSED') { m.resumePhase = m.phase; m.remainingMs = Math.max(0, m.endsAt - this.now()); m.phase = 'PAUSED'; m.pausedAt = this.now(); m.pauseReason = 'leave'; m.tokens = {}; room.state.version++; await this.event(db, m, 'PAUSE', { reason: 'leave' }); } } else { room.state.members = room.state.members.filter(p => p.id !== actor); room.state.version++; } return { left: true }; }); this.positions.delete(positionKey(leavingRoomId,actor));this.outside.delete(positionKey(leavingRoomId,actor));return result; }
++  clearPositions(m,roomId) { for (const p of m.participants) { this.positions.delete(positionKey(roomId,p.id)); this.outside.delete(positionKey(roomId,p.id)); } }
+ }
+ function validUuid(x) { return typeof x === 'string' && /^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(x); }
+ function name(x) { const s = String(x || '').trim(); if (!s || s.length > 20) fail('INVALID_NAME'); return s; }
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\components\\venue-art\\venue-art.js" "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.js"
+index ac2523d..8a83a2c 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\components\\venue-art\\venue-art.js"
++++ "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.js"
+@@ -3,15 +3,16 @@ const art=require('../../utils/venue-art-config');
+ const geo=require('../../utils/geo-registration');
+ const osm=require('../../utils/osm-art-registration');
+ const markers=require('../../utils/map-markers');
++const catalog=require('../../utils/venue-catalog'),resources=require('../../utils/venue-resources');
+ const TOUR_ZOOM=1.28, TOUR_LEG_MS=7500;
+ Component({
+- properties:{scrollTop:{type:Number,value:0},registration:{type:Object,value:null},osmReference:{type:Boolean,value:false},geoData:{type:Object,value:null},calibrationMode:{type:Boolean,value:false},pins:{type:Array,value:[]},src:{type:String,value:art.src},sourceWidth:{type:Number,value:art.width},sourceHeight:{type:Number,value:art.height},layoutKey:{type:String,value:''},compact:{type:Boolean,value:false},autoTour:{type:Boolean,value:true}},
++ properties:{imageId:{type:String,value:catalog.DEFAULT_ID},scrollTop:{type:Number,value:0},registration:{type:Object,value:null},osmReference:{type:Boolean,value:false},geoData:{type:Object,value:null},calibrationMode:{type:Boolean,value:false},pins:{type:Array,value:[]},src:{type:String,value:art.src},sourceWidth:{type:Number,value:art.width},sourceHeight:{type:Number,value:art.height},layoutKey:{type:String,value:''},compact:{type:Boolean,value:false},autoTour:{type:Boolean,value:true}},
+  data:{overlayPoints:[],overlayRegions:[],overlayPins:[],showSelf:false,inverseScale:1,fitReady:false,imageState:'loading',imageNodes:[],fitWidth:0,fitHeight:0,x:0,y:0,scaleValue:1,zoomLabel:'1.00×',canZoomOut:false,canZoomIn:true,mode:'auto',showControls:false,imageAnimation:{}},
+- observers:{'registration,geoData,pins,osmReference,calibrationMode'(){if(this._alive)this._overlays();},src(){if(this._alive){this._fit=null;this._userInterrupted=false;this._reloadImage();this._scheduleFit();}},'layoutKey,compact,sourceWidth,sourceHeight'(){if(this._alive)this._scheduleFit(true);},autoTour(value){if(!this._alive)return;if(value&&!this._userInterrupted)this._startTour();else this._stopTour(true);}},
++ observers:{'registration,geoData,pins,osmReference,calibrationMode'(){if(this._alive)this._overlays();},'imageId,src'(){if(this._alive){this._fit=null;this._userInterrupted=false;this._reloadImage();this._scheduleFit();}},'layoutKey,compact,sourceWidth,sourceHeight'(){if(this._alive)this._scheduleFit(true);},autoTour(value){if(!this._alive)return;if(value&&!this._userInterrupted)this._startTour();else this._stopTour(true);}},
+  lifetimes:{attached(){this._alive=true;this._visible=true;this._measureSerial=0;this._imageSerial=0;this._tourSerial=0;this._camera={x:0,y:0,scale:1};this._reloadImage();this._scheduleFit();},detached(){this._alive=false;this._visible=false;this._measureSerial++;this._imageSerial++;this._stopTour(false);this._gesture=null;}},
+  pageLifetimes:{hide(){this._resumeAfterShow=this.data.mode==='auto';this._visible=false;this._stopTour(false);this._gesture=null;this._tapStart=null;},show(){this._visible=true;if(this._resumeAfterShow&&!this._userInterrupted)this._startTour();}},
+  methods:{
+-  _overlays(){if(!this._alive||!this._fit)return;const validArt=this.data.src===art.src&&this.data.sourceWidth===geo.IMAGE.width&&this.data.sourceHeight===geo.IMAGE.height;const f=!validArt?{points:[],regions:[]}:this.data.osmReference&&!this.data.calibrationMode?osm.overlay(this.data.geoData,this.data.registration,this._fit.width,this._fit.height):geo.frame(this.data.geoData,this.data.registration,this._fit.width,this._fit.height);this.setData({showSelf:f.points.some(p=>p.tone==='self'),overlayPoints:f.points.map(markers.overlay).filter(Boolean),overlayRegions:f.regions,overlayPins:(this.data.pins||[]).slice(0,16).filter(p=>p&&Number.isFinite(p.u)&&Number.isFinite(p.v)).map((p,i)=>({id:i,x:p.u*this._fit.width,y:p.v*this._fit.height,label:i+1}))});if(this.data.osmReference&&!this.data.calibrationMode)this.triggerEvent('projection',{omittedRegions:f.omittedRegions||0,source:!validArt?'none':this.data.registration?'room':osm.available()?'osm':'none'});},
++  _overlays(){if(!this._alive||!this._fit)return;const image=catalog.get(this.data.imageId),validArt=!!image&&this.data.src===image.src&&this.data.sourceWidth===image.width&&this.data.sourceHeight===image.height;const f=!validArt?{points:[],regions:[]}:this.data.osmReference&&!this.data.calibrationMode?osm.overlay(this.data.geoData,this.data.registration,this._fit.width,this._fit.height,this.data.imageId):geo.frame(this.data.geoData,this.data.registration,this._fit.width,this._fit.height,this.data.imageId);this.setData({showSelf:f.points.some(p=>p.tone==='self'),overlayPoints:f.points.map(markers.overlay).filter(Boolean),overlayRegions:f.regions,overlayPins:(this.data.pins||[]).slice(0,16).filter(p=>p&&Number.isFinite(p.u)&&Number.isFinite(p.v)).map((p,i)=>({id:i,x:p.u*this._fit.width,y:p.v*this._fit.height,label:i+1}))});if(this.data.osmReference&&!this.data.calibrationMode)this.triggerEvent('projection',{omittedRegions:f.omittedRegions||0,source:!validArt?'none':this.data.registration?'room':osm.available(this.data.imageId)?'osm':'none'});},
+   remeasure(){if(this._alive)this._scheduleFit(true);},
+   _minScale(){return this._fit&&this._vp?Math.min(1,this._vp.width/this._fit.width,this._vp.height/this._fit.height):1;},
+   _bound(c){return geometry.boundCamera(this._vp.width,this._vp.height,this._fit.width,this._fit.height,c,this._minScale());},
+@@ -27,7 +28,7 @@ Component({
+    let c={x:fit.x,y:fit.y,scale:1};if(preserve&&oldFit&&oldVp&&this._userInterrupted){const u=(oldVp.width/2-old.x)/(oldFit.width*old.scale),v=(oldVp.height/2-old.y)/(oldFit.height*old.scale);c={x:rect.width/2-u*fit.width*old.scale,y:rect.height/2-v*fit.height*old.scale,scale:old.scale};}
+    this.setData({fitReady:true,fitWidth:fit.width,fitHeight:fit.height});this._paint(c);this._overlays();if(!this._userInterrupted)this._startTour();
+   }).exec();});},
+-  _reloadImage(){this._stopTour(false);const generation=++this._imageSerial;this.setData({imageState:this.data.src?'loading':'error',imageNodes:[],overlayPoints:[],overlayRegions:[],showSelf:false,showControls:false});wx.nextTick(()=>{if(this._alive&&generation===this._imageSerial&&this.data.src)this.setData({imageNodes:[generation]});});},
++  _reloadImage(){this._stopTour(false);const generation=++this._imageSerial;this.setData({imageState:this.data.src?'loading':'error',imageNodes:[],overlayPoints:[],overlayRegions:[],showSelf:false,showControls:false});const mount=()=>wx.nextTick(()=>{if(this._alive&&generation===this._imageSerial&&this.data.src)this.setData({imageNodes:[generation]});});const image=catalog.get(this.data.imageId);if(image?.subpackage&&this.data.src===image.src)resources.ensure(image.id).then(mount,()=>{if(this._alive&&generation===this._imageSerial)this.setData({imageState:'error'});});else mount();},
+   _currentImage(e){return this._alive&&e.currentTarget&&Number(e.currentTarget.dataset.generation)===this._imageSerial;},
+   onImageLoad(e){if(!this._currentImage(e)||this.data.imageState==='ready')return;this.setData({imageState:'ready',...(!this.data.autoTour?{mode:'manual',showControls:true}:{})});this._startTour();},
+   onImageError(e){if(!this._currentImage(e))return;this._stopTour(false);this.setData({imageState:'error'});},
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\components\\venue-art\\venue-art.wxml" "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.wxml"
+index f961661..0491de2 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\components\\venue-art\\venue-art.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\components\\venue-art\\venue-art.wxml"
+@@ -1,7 +1,7 @@
+ <view class="venueArt">
+  <view class="venueViewport" catchtouchstart="onTouchStart" catchtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchCancel">
+   <view class="venueScene" style="width:{{fitWidth}}px;height:{{fitHeight}}px" animation="{{imageAnimation}}">
+-  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的玄武湖艺术导览，拖动或双指缩放，{{registration?'房间标定，实地待验':osmReference?'OSM参考位置，未经实地核验':'尚未配准，不显示实时位置'}}" />
++  <image wx:for="{{imageNodes}}" wx:for-item="imageId" wx:key="*this" class="venueImage" style="width:{{fitWidth}}px;height:{{fitHeight}}px" src="{{src}}" mode="aspectFit" data-generation="{{imageId}}" bindload="onImageLoad" binderror="onImageError" aria-label="放大的场地艺术导览，拖动或双指缩放，{{registration?'房间标定，实地待验':osmReference?'OSM参考位置，未经实地核验':'尚未配准，不显示实时位置'}}" />
+    <view wx:for="{{overlayRegions}}" wx:key="id" class="geoRegion" style="left:{{item.x-item.rx}}px;top:{{item.y-item.ry}}px;width:{{2*item.rx}}px;height:{{2*item.ry}}px;transform:rotate({{item.angle}}deg)" aria-label="大致位置区域，不是敌方精确坐标" />
+    <view wx:for="{{overlayPoints}}" wx:key="id" class="geoAnchor" style="left:{{item.x}}px;top:{{item.y}}px"><view class="geoBadge geo-{{item.tone}}" style="transform:scale({{inverseScale}})"><image class="geoMarker" src="{{item.sprite}}" mode="aspectFit" style="width:{{item.width}}px;height:{{item.height}}px;left:{{item.left}}px;top:{{item.top}}px" aria-label="{{item.label}}位置标记"/><text class="geoLabel">{{item.label}}</text></view></view>
+    <view wx:for="{{overlayPins}}" wx:key="id" class="geoAnchor" style="left:{{item.x}}px;top:{{item.y}}px"><text class="geoPin" style="transform:translate(-50%,-50%) scale({{inverseScale}})">{{item.label}}</text></view>
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\calibrate\\calibrate.js" "b/D:\\cat-mouse-miniprogram\\pages\\calibrate\\calibrate.js"
+index ea338a8..228d21e 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\calibrate\\calibrate.js"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\calibrate\\calibrate.js"
+@@ -1,27 +1,29 @@
+ const presentation=require('../../utils/presentation'),geo=require('../../utils/geo-registration'),api=require('../../utils/v2'),preview=require('../../utils/dev-preview');
+-const hints={CALIBRATION_POINTS:'请补齐至少3控制点和2核验点',CALIBRATION_CHECKS_REQUIRED:'请补充2个不参与拟合的核验点',CALIBRATION_DUPLICATE:'两点太近或重复，请改选分散地标',CALIBRATION_DEGENERATE:'控制点共线或覆盖太小，请向四周分散选点',CALIBRATION_ERROR:'配准误差超标，请复查图片与真实地标是否相同',CALIBRATION_CHECK_OUTSIDE:'核验点应位于控制点围成的区域内',CALIBRATION_SPREAD:'地标跨度过大，请检查是否选错场地'};
++const catalog=require('../../utils/venue-catalog');
++const hints={CALIBRATION_IMAGE_OR_CRS:'图片或坐标系不匹配，请从当前房间重新进入标定',CALIBRATION_POINTS:'请补齐至少3控制点和2核验点',CALIBRATION_CHECKS_REQUIRED:'请补充2个不参与拟合的核验点',CALIBRATION_DUPLICATE:'两点太近或重复，请改选分散地标',CALIBRATION_DEGENERATE:'控制点共线或覆盖太小，请向四周分散选点',CALIBRATION_ERROR:'配准误差超标，请复查图片与真实地标是否相同',CALIBRATION_CHECK_OUTSIDE:'核验点应位于控制点围成的区域内',CALIBRATION_SPREAD:'地标跨度过大，请检查是否选错场地'};
+ const uuid=()=> 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.floor(Math.random()*16);return(c==='x'?r:(r&3|8)).toString(16);});
+ Page({
+- data:{scrollTop:0,points:[],pins:[],pending:null,pendingLabel:'',kind:'control',error:'',summary:'至少3个控制点 + 2个独立核验点',ready:false,busy:false,canSave:false,owner:false,roomId:'',version:0,devPreview:false,centerLat:32.073,centerLng:118.789},
++ data:{mapId:catalog.DEFAULT_ID,venueSource:catalog.get().src,venueName:catalog.get().label,scrollTop:0,points:[],pins:[],pending:null,pendingLabel:'',kind:'control',error:'',summary:'至少3个控制点 + 2个独立核验点',ready:false,busy:false,canSave:false,owner:false,roomId:'',version:0,devPreview:false,centerLat:32.073,centerLng:118.789},
+  async onLoad(options){this.active=true;this.serial=0;this.setData({...presentation.metrics(),roomId:options.roomId||''});
+   const dev=options.devPreview==='calibrate'&&preview.enabled();if(options.devPreview&&!dev){wx.reLaunch({url:'/pages/index/index'});return;}this.setData({devPreview:dev});
+-  if(dev){this.setData({owner:true,error:'演示仅验证交互，不读取真实GPS、不提交服务器'});return;}
+-  const run=++this.serial;try{await api.session();const room=await api.room(this.data.roomId);if(!this.active||run!==this.serial)return;this.baseCalibrationId=room.mapCalibration?.id||null;const saved=room.mapCalibration?.points||[];this.originalPoints=JSON.stringify(saved);let points=saved;try{const draft=wx.getStorageSync(this.draftKey());if(room.owner&&draft?.baseCalibrationId===this.baseCalibrationId&&Array.isArray(draft.points)&&draft.points.length<=16&&draft.points.every(p=>p&&['u','v','lat','lng'].every(k=>Number.isFinite(p[k]))&&['control','check'].includes(p.kind)))points=draft.points;}catch{}this.setData({owner:room.owner,version:room.version,centerLat:room.venue.lat,centerLng:room.venue.lng,error:room.owner?'':'只有房主可以标定并保存',points});this.assess();}catch(e){if(this.active&&run===this.serial)this.setData({error:'读取房间失败：'+e.message});}
++  if(dev){this.setVenue(options.mapId||catalog.DEFAULT_ID);this.setData({owner:true,error:'演示仅验证交互，不读取真实GPS、不提交服务器'});return;}
++  const run=++this.serial;try{await api.session();const room=await api.room(this.data.roomId);if(!this.active||run!==this.serial)return;this.setVenue(room.venue.mapId||catalog.DEFAULT_ID);this.baseCalibrationId=room.mapCalibration?.id||null;const saved=room.mapCalibration?.points||[];this.originalPoints=JSON.stringify(saved);let points=saved;try{const draft=wx.getStorageSync(this.draftKey());if(room.owner&&draft?.baseCalibrationId===this.baseCalibrationId&&Array.isArray(draft.points)&&draft.points.length<=16&&draft.points.every(p=>p&&['u','v','lat','lng'].every(k=>Number.isFinite(p[k]))&&['control','check'].includes(p.kind)))points=draft.points;}catch{}this.setData({owner:room.owner,version:room.version,centerLat:room.venue.lat,centerLng:room.venue.lng,error:room.owner?'':'只有房主可以标定并保存',points});this.assess();}catch(e){if(this.active&&run===this.serial)this.setData({error:'读取房间失败：'+e.message});}
+  },
+- draftKey(){return 'geoDraft:'+this.data.roomId+':'+geo.IMAGE.sha256;},
++ setVenue(id){const image=catalog.get(id);if(!image)throw Error('未知场地地图');this.image=image;this.setData({mapId:image.id,venueName:image.label,venueSource:image.src,...(image.demoPoints?{centerLat:image.demoPoints[0].lat,centerLng:image.demoPoints[0].lng}:{})});},
++ draftKey(){return 'geoDraft:'+this.data.roomId+':'+(this.image||geo.IMAGE).sha256;},
+  persistDraft(){if(this.data.devPreview||!this.data.owner)return;try{wx.setStorageSync(this.draftKey(),{baseCalibrationId:this.baseCalibrationId,points:this.data.points});}catch{this.setData({error:'本机草稿保存失败，请勿关闭标定页，先完成服务器保存'});}},
+  onPageScroll(e){if(this.active)this.setData({scrollTop:e.scrollTop});},
+  onResize(e){this.setData(presentation.resize(e));wx.nextTick(()=>{if(this.active)this.selectComponent('.venueArt')?.remeasure();});},
+  onUnload(){this.active=false;this.serial++;},onHide(){this.active=false;this.serial++;},onShow(){this.active=true;this.setData({busy:false});},
+- picked(e){if(this.data.busy)return;this.setData({pending:e.detail,pendingLabel:Math.round(e.detail.u*geo.IMAGE.width)+', '+Math.round(e.detail.v*geo.IMAGE.height),pins:[...this.data.points,e.detail],error:''});},
++ picked(e){if(this.data.busy)return;this.setData({pending:e.detail,pendingLabel:Math.round(e.detail.u*(this.image||geo.IMAGE).width)+', '+Math.round(e.detail.v*(this.image||geo.IMAGE).height),pins:[...this.data.points,e.detail],error:''});},
+  chooseKind(e){if(this.data.busy)return;this.setData({kind:e.currentTarget.dataset.kind});},
+  append(p){if(!this.active||!this.data.pending)return;const points=[...this.data.points,{...this.data.pending,lat:p.latitude,lng:p.longitude,kind:this.data.kind}];this.commandId=null;this.saveBody=null;this.setData({points,pending:null});this.assess();},
+- assess(){let model=null,error='';try{model=geo.compile({imageId:geo.IMAGE.id,imageSha256:geo.IMAGE.sha256,crs:'gcj02',points:this.data.points});}catch(e){error=e.message;}const controls=this.data.points.filter(p=>p.kind==='control').length,checks=this.data.points.length-controls;this.setData({ready:!!model,canSave:!!model&&this.data.owner&&JSON.stringify(this.data.points)!==this.originalPoints,summary:model?'核验最大误差 '+model.quality.maxErrorM.toFixed(1)+' 米 · 实地仍需走点验证':controls+'控制点 / '+checks+'核验点',validationError:hints[error]||error,pins:[...this.data.points,...(this.data.pending?[this.data.pending]:[])]});this.model=model;this.persistDraft();},
++ assess(){let model=null,error='';try{model=geo.compile({imageId:(this.image||geo.IMAGE).id,imageSha256:(this.image||geo.IMAGE).sha256,crs:'gcj02',points:this.data.points});}catch(e){error=e.message;}const controls=this.data.points.filter(p=>p.kind==='control').length,checks=this.data.points.length-controls;this.setData({ready:!!model,canSave:!!model&&this.data.owner&&JSON.stringify(this.data.points)!==this.originalPoints,summary:model?'核验最大误差 '+model.quality.maxErrorM.toFixed(1)+' 米 · 实地仍需走点验证':controls+'控制点 / '+checks+'核验点',validationError:hints[error]||error,pins:[...this.data.points,...(this.data.pending?[this.data.pending]:[])]});this.model=model;this.persistDraft();},
+  async addGps(){if(!this.data.pending||this.data.busy||this.data.devPreview||!this.data.owner)return;this.setData({busy:true,error:''});const run=++this.serial;
+   try{const p=await new Promise((resolve,reject)=>wx.getLocation({type:'gcj02',isHighAccuracy:true,success:resolve,fail:reject}));if(!this.active||run!==this.serial)return;if(!Number.isFinite(p.accuracy)||p.accuracy>15)throw Error('GPS精度需优于15米，请在地标旁停下等待稳定');this.append(p);}catch(e){if(this.active&&run===this.serial)this.setData({error:e.message||'定位未完成'});}finally{if(this.active&&run===this.serial)this.setData({busy:false});}
+  },
+  async addMap(){if(!this.data.pending||this.data.busy||this.data.devPreview||!this.data.owner)return;this.setData({busy:true,error:''});const run=++this.serial;try{const p=await new Promise((resolve,reject)=>wx.createMapContext('controlMap',this).getCenterLocation({success:resolve,fail:reject}));if(this.active&&run===this.serial)this.append(p);}catch(e){if(this.active&&run===this.serial)this.setData({error:'地图选点未完成'});}finally{if(this.active&&run===this.serial)this.setData({busy:false});}},
+  remove(e){if(this.data.busy)return;this.commandId=null;this.saveBody=null;this.setData({points:this.data.points.filter((_,i)=>i!==Number(e.currentTarget.dataset.index))});this.assess();},
+- async save(){if(!this.data.canSave||this.data.busy)return;if(this.data.devPreview){this.setData({error:'演示标定不保存到真实房间'});return;}this.setData({busy:true,error:''});const run=++this.serial;const body=this.saveBody||(this.saveBody={commandId:this.commandId||(this.commandId=uuid()),expectedVersion:this.data.version,imageId:geo.IMAGE.id,imageSha256:geo.IMAGE.sha256,crs:'gcj02',points:this.data.points});try{const result=await api.calibration(this.data.roomId,body);if(!this.active||run!==this.serial)return;this.baseCalibrationId=result.mapCalibration.id;this.originalPoints=JSON.stringify(this.data.points);try{wx.removeStorageSync(this.draftKey());}catch{}this.setData({version:result.version,error:'配准已同步到房间；请在实地走点核验，各玩家重新准备',canSave:false});}catch(e){if(this.active&&run===this.serial)this.setData({error:'保存未完成：'+e.message+'；版本冲突请返回房间重新进入'});}finally{if(this.active&&run===this.serial)this.setData({busy:false});}},
++ async save(){if(!this.data.canSave||this.data.busy)return;if(this.data.devPreview){this.setData({error:'演示标定不保存到真实房间'});return;}this.setData({busy:true,error:''});const run=++this.serial;const body=this.saveBody||(this.saveBody={commandId:this.commandId||(this.commandId=uuid()),expectedVersion:this.data.version,imageId:(this.image||geo.IMAGE).id,imageSha256:(this.image||geo.IMAGE).sha256,crs:'gcj02',points:this.data.points});try{const result=await api.calibration(this.data.roomId,body);if(!this.active||run!==this.serial)return;this.baseCalibrationId=result.mapCalibration.id;this.originalPoints=JSON.stringify(this.data.points);try{wx.removeStorageSync(this.draftKey());}catch{}this.setData({version:result.version,error:'配准已同步到房间；请在实地走点核验，各玩家重新准备',canSave:false});}catch(e){if(this.active&&run===this.serial)this.setData({error:'保存未完成：'+e.message+'；版本冲突请返回房间重新进入'});}finally{if(this.active&&run===this.serial)this.setData({busy:false});}},
+  back(){wx.navigateBack();}
+ });
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\calibrate\\calibrate.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\calibrate\\calibrate.wxml"
+index d75d215..756081c 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\calibrate\\calibrate.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\calibrate\\calibrate.wxml"
+@@ -1,7 +1,7 @@
+ <view class="screen calibrateScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px">
+  <nav-bar title="地图位置标定" back="{{true}}" preview="{{devPreview}}" />
+- <text class="calTitle">让图片对应真实场地</text><text class="calCopy">先轻点图片上的固定地标，再在真实地图中将同一地标移动到十字中心，或站在地标旁采集GPS。请分散选点，核验点不参与拟合。</text>
+- <view class="calArt"><venue-art class="venueArt" scroll-top="{{scrollTop}}" auto-tour="{{false}}" calibration-mode="{{true}}" pins="{{pins}}" bindpoint="picked" /></view>
++ <text class="calTitle">{{venueName}} · 位置标定</text><text class="calCopy">先轻点图片上的固定地标，再在真实地图中将同一地标移动到十字中心，或站在地标旁采集GPS。请分散选点，核验点不参与拟合。</text>
++ <view class="calArt"><venue-art class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" scroll-top="{{scrollTop}}" auto-tour="{{false}}" calibration-mode="{{true}}" pins="{{pins}}" bindpoint="picked" /></view>
+  <text class="calStatus">{{pending?'已选图片像素：'+pendingLabel:'拖动、双指缩放图片，然后轻点地标'}}</text>
+  <view class="calKinds"><button disabled="{{busy}}" data-kind="control" bindtap="chooseKind" class="{{kind==='control'?'selected':''}}">控制点</button><button disabled="{{busy}}" data-kind="check" bindtap="chooseKind" class="{{kind==='check'?'selected':''}}">独立核验点</button></view>
+  <view class="controlMapFrame"><map id="controlMap" class="controlMap" latitude="{{centerLat}}" longitude="{{centerLng}}" scale="17" enable-rotate="{{false}}" show-location="{{false}}"/><text class="mapCross" aria-hidden="true">+</text></view>
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\map\\map.js" "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.js"
+index f708946..c61a63d 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\map\\map.js"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.js"
+@@ -1,5 +1,6 @@
+ const presentation=require('../../utils/presentation');
+ const mapMarkers=require('../../utils/map-markers');
++const venueCatalog=require('../../utils/venue-catalog');
+ const api = require('../../utils/v2'); const loc = require('../../utils/location-v2'); const {shouldApply}=require('../../utils/snapshot-v2'); const preview=require('../../utils/dev-preview');
+ const proof=require('../../utils/capture-proof').create(api,wx);
+ const done = m => m && (m.phase==='FINISHED' || m.phase==='CANCELLED');
+@@ -11,8 +12,8 @@ Page({
+   zoomMap(direction){if(this.data.artMode){const c=this.selectComponent('.venueArt');if(direction>0)c?.zoomIn();else c?.zoomOut();}else this.setData({mapScale:Math.max(3,Math.min(20,(this.data.mapScale||17)+direction))});},
+   onResize(e) { this.setData(presentation.resize(e)); },
+   data:{ roomId:'', match:null, roster:[], events:[], markers:[], circles:[], nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,trayExpanded:true,trayDragging:false,trayDragY:0, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true },
+-  onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:true}); },
+-  onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me'));if(this.previewCase==='offline')this.setOffline('', '重连中');else this.setData({connection:'界面预览'});return;}this.reconnectAttempt=0; this.poll(); this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
++  onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.previewMapId=this.devPreview&&venueCatalog.get(o.mapId)?o.mapId:venueCatalog.DEFAULT_ID;this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:true}); },
++  onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me',this.previewMapId));if(this.previewCase==='offline')this.setOffline('', '重连中');else this.setData({connection:'界面预览'});return;}this.reconnectAttempt=0; this.poll(); this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
+   onHide() { this.cleanup(); }, onUnload() { this.cleanup(); },
+   cleanup() { this.closeCode();if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this._trayGesture=null;if(this.data.trayDragging)this.setData({trayDragging:false,trayDragY:0});this.active=false;this.pollSerial=(this.pollSerial||0)+1;this.fetching=false;this.setOffline('', '正在连接'); clearInterval(this.pollTimer); clearInterval(this.clockTimer); clearInterval(this.heartbeatTimer); clearTimeout(this.reconnectTimer); this.pollTimer=null; this.clockTimer=null; this.heartbeatTimer=null; this.reconnectTimer=null; const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false; },
+   startLocation() { if(!this.data.match || done(this.data.match) || this.data.match.myStatus==='captured' || this.locationRunning)return; this.locationRunning=true; loc.start(this.data.roomId,()=>this.setData({error:'定位中断：请保持页面在前台并检查权限'})); },
+@@ -51,7 +52,7 @@ Page({
+     this.reconnectTimer=setTimeout(()=>{this.reconnectTimer=null;this.startSocket();},delay);
+   },
+   async poll() { if(!this.active || this.fetching) return;const run=this.pollSerial=(this.pollSerial||0)+1; this.fetching=true; try { const s=await api.room(this.data.roomId);if(this.active&&run===this.pollSerial)this.apply(s); } catch(e) {if(run!==this.pollSerial)return; if(this.active && (e.code==='UNAUTHENTICATED' || e.code==='NOT_MEMBER')){this.cleanup();this.setOffline(e.message,'身份失效');}else if(this.active && !this.socketOpen){if(this.locationRunning){loc.stop();this.locationRunning=false;}if(!this.data.offline)this.setOffline('状态暂不可用：'+e.message,'重连中');} } finally {if(run===this.pollSerial)this.fetching=false; } },
+-  setOffline(error,connection='重连中'){this.closeCode();this.setData({...presentation.project({match:this.data.match,roster:this.data.roster,owner:this.data.owner},true),offline:true,connection,error,clock:'--:--',markers:[],circles:[],geoData:{points:[],regions:[]},nearbyCat:false,hasSelf:false,locationText:'等待重连 · 位置已隐藏'});},
++  setOffline(error,connection='重连中'){this.closeCode();this.setData({...presentation.project({match:this.data.match,roster:this.data.roster,owner:this.data.owner,venue:{mapId:this.data.venueMapId||venueCatalog.DEFAULT_ID}},true),offline:true,connection,error,clock:'--:--',markers:[],circles:[],geoData:{points:[],regions:[]},nearbyCat:false,hasSelf:false,locationText:'等待重连 · 位置已隐藏'});},
+   apply(s) {
+     if(!this.active || !shouldApply(this.lastSnapshot,s)) return;
+     if(!s.match){this.closeCode();this.setData({mapCalibration:null,geoData:{points:[],regions:[]},match:null,error:'本局尚未开始，请返回准备房间',canScan:false,canShowCode:false,canResume:false,canReplay:false});return;}
+@@ -86,7 +87,7 @@ Page({
+   trayTouchEnd(){const g=this._trayGesture;this._trayGesture=null;if(!g)return;const moved=Math.abs(g.dy)>8;if(moved)this._traySuppressUntil=Date.now()+350;this.setData({trayExpanded:g.expanded?g.dy<36:g.dy< -28,trayDragging:false,trayDragY:0});},
+   trayTouchCancel(){this._traySuppressUntil=Date.now()+350;this._trayGesture=null;this.setData({trayDragging:false,trayDragY:0});},
+   toggleMapMode() { this.setData({artMode:!this.data.artMode,error:''}); },
+-  openVenue() { if(this.data.devPreview)wx.navigateTo({url:'/pages/venue/venue'}); },
++  openVenue() { if(this.data.devPreview)wx.navigateTo({url:'/pages/venue/venue?mapId='+encodeURIComponent(this.data.venueMapId||venueCatalog.DEFAULT_ID)}); },
+   locateSelf(){if(!this.data.hasSelf){this.setData({error:this.data.offline?'连接恢复后可重新定位':'尚无可用的本人位置，请检查定位权限并等待同步'});return;}if(this.data.artMode){if(!this.selectComponent('.venueArt')?.focusSelf())this.setData({error:'本人位置超出图片覆盖或地图尚未就绪，请点叠层图标切换实时地图。'});else this.setData({error:''});return;}const p=this.data.geoData.points.find(p=>p.tone==='self');if(p)this.setData({latitude:p.lat,longitude:p.lng,mapScale:17,followSelf:true});},
+   onMapRegion(e){if((e.causedBy||e.detail?.causedBy)==='gesture')this.setData({followSelf:false});if(e.type==='end' && Number.isFinite(e.detail?.scale))this.setData({mapScale:e.detail.scale});},
+   ignoreTouch() {},
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\map\\map.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.wxml"
+index 83d8a4b..50d194e 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\map\\map.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\map\\map.wxml"
+@@ -4,12 +4,12 @@
+ <scroll-view wx:elif="{{terminal}}" scroll-y class="terminalScroll">
+  <image class="resultHero" src="{{stateArt}}" mode="widthFix" aria-label="{{uiState==='catWin'?'猫队获胜':uiState==='mouseWin'?'鼠队获胜':'本局取消，不计胜负'}}" />
+  <view class="terminalContent"><view class="pixelPaper resultStats"><text class="resultReason">{{uiState==='catWin'?'捕获目标已完成':uiState==='mouseWin'?'猫队未达到捕获目标':'公开记录'}}</text><view class="resultStatRow"><view><text wx:if="{{uiState!=='catWin'}}" class="statLabel">已抓捕</text><view class="statValue"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view></view><view wx:if="{{uiState!=='cancelled'}}" class="resultStatus"><text class="statLabel">对局状态</text><text class="statusBadge">已结束</text></view></view></view>
+- <view wx:if="{{uiState==='mouseWin'}}" class="resultMap"><venue-art class="venueArt" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" /></view>
++ <view wx:if="{{uiState==='mouseWin'}}" class="resultMap"><venue-art class="venueArt" image-id="{{venueMapId}}" src="{{parkArt}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" /></view>
+  <view class="resultActions"><pixel-action class="pixelControl" wx:if="{{canReplay}}" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-replay.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-replay.png':'/assets/pixel-v1/button-cancelled-replay.png'}}" label="再来一局" tone="{{uiState==='cancelled'?'green':'orange'}}" font-scale="{{fontScale}}" bindaction="replay" /><text wx:else class="waitingHost">{{offline?'等待连接恢复后开始下一局':'等待房主开始下一局'}}</text><pixel-action class="pixelControl" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-details.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-details.png':'/assets/pixel-v1/button-cancelled-details.png'}}" label="查看对局详情" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><pixel-action class="pixelControl" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-home.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-home.png':'/assets/pixel-v1/button-cancelled-home.png'}}" label="返回首页" tone="plain" font-scale="{{fontScale}}" bindaction="goHome" /></view><text wx:if="{{uiState==='cancelled'}}" class="recordNote">这局记录保留，下一轮使用新的对局</text></view>
+ </scroll-view>
+ <block wx:else>
+  <view class="mapCanvas" aria-label="对局定位地图">
+-  <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
++  <venue-art class="venueArt" style="--venue-dock-display:none" wx:if="{{artMode}}" src="{{parkArt}}" image-id="{{venueMapId}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
+   <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
+  </view>
+  <view class="playHud compactHud role-{{match.myRole}}" aria-label="本局状态">
+@@ -20,7 +20,7 @@
+  </view>
+  <view class="mapTools">
+   <button class="edgeButton locateButton" bindtap="locateSelf" aria-label="回到本人位置"><pixel-glyph kind="locate" size="27"/></button>
+-  <button class="edgeButton layerButton" bindtap="toggleMapMode" aria-label="{{artMode?'切换实时地图':'切换樱洲地图'}}"><pixel-glyph kind="layers" size="25"/></button>
++  <button class="edgeButton layerButton" bindtap="toggleMapMode" aria-label="{{artMode?'切换实时地图':'切换场地艺术地图'}}"><pixel-glyph kind="layers" size="25"/></button>
+   <view class="zoomControls"><button class="edgeButton zoomInButton" bindtap="zoomMapIn" disabled="{{artMode?artCanZoomIn===false:mapScale>=20}}" aria-label="放大地图"><pixel-glyph kind="plus" size="23"/></button><button class="edgeButton zoomOutButton" bindtap="zoomMapOut" disabled="{{artMode?artCanZoomOut===false:mapScale<=3}}" aria-label="缩小地图"><pixel-glyph kind="minus" size="23"/></button></view>
+   <button wx:if="{{!offline && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="edgeButton pauseButton" bindtap="emergency" aria-label="紧急暂停"><pixel-glyph kind="pause" size="25"/></button>
+  </view>
+@@ -53,9 +53,9 @@
+ <view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd"><view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭详情"><pixel-glyph kind="close" size="18"/></button></view></view><view class="drawerTabs"><button data-tab="team" class="{{drawerTab==='team'?'selected':''}}" bindtap="selectDrawerTab">队伍</button><button data-tab="events" class="{{drawerTab==='events'?'selected':''}}" bindtap="selectDrawerTab">事件</button><button data-tab="rules" class="{{drawerTab==='rules'?'selected':''}}" bindtap="selectDrawerTab">规则</button></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
+  <view wx:if="{{drawerTab==='team'}}" class="squadColumns"><view class="squad catsGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view><view class="teamGrid catGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState">{{item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view><view class="squad miceGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view><view class="teamGrid mouseGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='captured'?'已被捕获':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view></view>
+  <view wx:if="{{drawerTab==='events'}}" class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
+- <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text></view>
++ <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">{{venueName}}</text><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text></view>
+  <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="emergency" /><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'返回首页':'退出本局'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+- <view class="advancedRules"><text class="bodyCopy">蓝点是本人，旗帜是集合点；橘色区域是大致线索。OSM参考位置尚未实地核验，图片覆盖外请切换实时地图。房主保存的标定优先使用。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
++ <view class="advancedRules"><text class="bodyCopy">蓝色爪印是本人，绿色双人是队友，旗帜是集合点；橘色区域是大致线索。OSM参考位置尚未实地核验，图片覆盖外请切换实时地图。房主保存的标定优先使用。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
+ </view></scroll-view></view>
+ <view wx:if="{{codeOpen}}" class="codeMask" bindtap="closeCode" catchtouchmove="ignoreTouch"></view>
+ <view wx:if="{{codeOpen}}" class="codeSheet" role="dialog" aria-label="动态抓捕码">
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\room\\room.js" "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.js"
+index 190c189..2efd173 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\room\\room.js"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.js"
+@@ -1,28 +1,31 @@
+ const presentation=require('../../utils/presentation');
+ const teams=require('../../utils/team-config');
++const catalog=require('../../utils/venue-catalog'),resources=require('../../utils/venue-resources');
+ const api = require('../../utils/v2'); const location = require('../../utils/location-v2'); const preview = require('../../utils/dev-preview');
+ Page({
+   onResize(e) { this.setData(presentation.resize(e)); },
+-  data:{ roomId:'', code:'', roster:[], rules:null, owner:false, total:8, totals:[6,7,8,9,10,11,12], venue:null, catsCount:2, miceCount:6, teamError:'', editingField:'', targetCount:4, ready:false, readyCount:0, canStart:false, startHint:'等待伙伴加入', error:'', loading:false, match:null, devPreview:false },
++  data:{ mapId:catalog.DEFAULT_ID,venueOptions:catalog.options,venueMapIndex:0,venueName:catalog.get().label,venueSource:catalog.get().src,venueResource:'ready',roomId:'', code:'', roster:[], rules:null, owner:false, total:8, totals:[6,7,8,9,10,11,12], venue:null, catsCount:2, miceCount:6, teamError:'', editingField:'', targetCount:4, ready:false, readyCount:0, canStart:false, startHint:'等待伙伴加入', error:'', loading:false, match:null, devPreview:false },
+   onLoad(options) { this.setData({...presentation.metrics(),catsCount:2,targetCount:4}); this.devPreview=preview.accepts(options.devPreview);if(options.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.creating=options.mode==='create' || options.devPreview==='create' && this.devPreview;this.setData({roomId:options.roomId || '',devPreview:this.devPreview}); if (this.creating && api.config.localTestIdentities && !this.devPreview) this.setData({totals:[2,6,7,8,9,10,11,12]}); },
+-  async onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.applyRoom(this.previewRoom || preview.roomData(this.creating?'create':'ready'));return;}this.updateTitle();const run=this.lifecycle;if(this.data.roomId) { try { await api.session();if(!this.active || run!==this.lifecycle)return; if(/^[0-9A-F]{10}$/.test(this.data.roomId)) { const r=await api.join(this.data.roomId,wx.getStorageSync('nickname') || '玩家');if(!this.active || run!==this.lifecycle)return;this.setData({roomId:r.roomId}); wx.setStorageSync('v2RoomId',r.roomId); } this.retryAttempt=0;this.begin(); } catch(e) { if(this.active && run===this.lifecycle){this.setData({error:'连接房间失败：'+e.message});this.scheduleRetry(e);} } } },
++  async onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;this.loadVenueArt();if(this.devPreview){this.applyRoom(this.previewRoom || preview.roomData(this.creating?'create':'ready'));return;}this.updateTitle();const run=this.lifecycle;if(this.data.roomId) { try { await api.session();if(!this.active || run!==this.lifecycle)return; if(/^[0-9A-F]{10}$/.test(this.data.roomId)) { const r=await api.join(this.data.roomId,wx.getStorageSync('nickname') || '玩家');if(!this.active || run!==this.lifecycle)return;this.setData({roomId:r.roomId}); wx.setStorageSync('v2RoomId',r.roomId); } this.retryAttempt=0;this.begin(); } catch(e) { if(this.active && run===this.lifecycle){this.setData({error:'连接房间失败：'+e.message});this.scheduleRetry(e);} } } },
+   updateTitle(){wx.setNavigationBarTitle?.({title:this.data.roomId?'房间准备':'创建活动'});},
+-  applyRoom(changes){if(this.devPreview)this.previewRoom={...this.previewRoom,...changes};const roster=changes.roster || this.data.roster,total=changes.rules?.total || this.data.rules?.total || this.data.total,readyCount=roster.filter(p=>p.ready).length;const catsCount=changes.rules?.cats ?? this.data.catsCount;this.setData({...changes,total,catsCount,miceCount:changes.rules?.mice ?? this.data.miceCount,targetCount:Math.ceil((total-catsCount)*.6),readyCount,canStart:roster.length===total && readyCount===total,startHint:roster.length<total?'还差 '+(total-roster.length)+' 位伙伴':readyCount<total?'还有 '+(total-readyCount)+' 人未准备':'人数到齐，已全部准备'});this.updateTitle();},
++  applyRoom(changes){const image=catalog.get(changes.venue?.mapId||this.data.mapId);if(image){changes={...changes,mapId:image.id,venueName:image.label,venueSource:image.src,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id)};}if(this.devPreview)this.previewRoom={...this.previewRoom,...changes};const roster=changes.roster || this.data.roster,total=changes.rules?.total || this.data.rules?.total || this.data.total,readyCount=roster.filter(p=>p.ready).length;const catsCount=changes.rules?.cats ?? this.data.catsCount;this.setData({...changes,total,catsCount,miceCount:changes.rules?.mice ?? this.data.miceCount,targetCount:Math.ceil((total-catsCount)*.6),readyCount,canStart:roster.length===total && readyCount===total,startHint:roster.length<total?'还差 '+(total-roster.length)+' 位伙伴':readyCount<total?'还有 '+(total-readyCount)+' 人未准备':'人数到齐，已全部准备'});this.updateTitle();},
+   onHide() { this.stop(); }, onUnload() { this.stop(); },
+-  stop() { this.active=false;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.pollTimer);clearInterval(this.locTimer);clearTimeout(this.retryTimer);this.pollTimer=null;this.locTimer=null;this.retryTimer=null;this.locationPromise=null; },
++  stop() { this.active=false;this.venueResourceSerial=(this.venueResourceSerial||0)+1;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.pollTimer);clearInterval(this.locTimer);clearTimeout(this.retryTimer);this.pollTimer=null;this.locTimer=null;this.retryTimer=null;this.locationPromise=null; },
+   scheduleRetry(error) { if(!this.active || this.retryTimer || error.code && !/^HTTP_5/.test(error.code))return;const delay=Math.min(15000,3000*2**Math.min(this.retryAttempt||0,3));this.retryAttempt=(this.retryAttempt||0)+1;this.retryTimer=setTimeout(()=>{this.retryTimer=null;if(this.active)this.onShow();},delay); },
+   selectTotal(e) { const total=this.data.totals[Number(e.detail.value)],catsCount=total===2?1:total<=8?2:3;this.setData({total,catsCount,targetCount:Math.ceil((total-catsCount)*.6)}); },
+   teamFocus(e){this.setData({editingField:e.currentTarget.dataset.field});},
+   teamBlur(){this.setData({editingField:''});},
+   teamInput(e){const field=e.currentTarget.dataset.field;if(!['total','catsCount','miceCount'].includes(field))return;const value=e.detail.value===''?'':Number(e.detail.value);const next={...this.data,[field]:value};this.setData({[field]:value,error:'',teamError:teams.validate(next.total,next.catsCount,next.miceCount),targetCount:Number.isInteger(next.miceCount)&&next.miceCount>0?Math.ceil(next.miceCount*.6):0});},
+-  chooseVenue() { if(this.devPreview){this.setData({venue:{lat:32.0584,lng:118.7968,radiusM:200,confirmed:true}});return;}wx.getLocation({type:'gcj02',isHighAccuracy:true,success:p=>this.setData({venue:{lat:p.latitude,lng:p.longitude,radiusM:200,confirmed:true}}),fail:()=>this.setData({error:'无法获取位置，请先授权定位'})}); },
+-  async create() { const teamError=teams.validate(this.data.total,this.data.catsCount,this.data.miceCount);if(teamError){this.setData({teamError,error:teamError});return;}if(this.devPreview){if(!this.data.venue){this.setData({error:'请先确认演示场地'});return;}const sample=preview.roomData('ready');sample.rules={...sample.rules,total:this.data.total,cats:this.data.catsCount,mice:this.data.miceCount,version:'pilot-0.3'};sample.roster=Array.from({length:this.data.total},(_,i)=>({id:i?'dev-player-'+i:'dev-me',nickname:i?'伙伴'+i:'我 · 演示',ready:true}));this.applyRoom(sample);this.creating=false;wx.pageScrollTo?.({scrollTop:0,duration:0});return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const r=await api.create({ total:this.data.total, cats:this.data.catsCount, mice:this.data.miceCount, venue:this.data.venue, nickname:wx.getStorageSync('nickname') }); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code});wx.pageScrollTo?.({scrollTop:0,duration:0});this.updateTitle(); this.begin(); } catch(e) { this.setData({error:e.message}); } finally { this.setData({loading:false}); } },
++  selectVenueMap(e){if(this.data.roomId||this.data.loading)return;const item=catalog.options[Number(e.detail.value)];if(!item)return;const image=catalog.get(item.id);if(this.devPreview&&this.previewRoom)this.previewRoom.venue=null;this.setData({mapId:image.id,venueMapIndex:Number(e.detail.value),venueName:image.label,venueSource:image.src,venueResource:'loading',venue:null,error:''});this.loadVenueArt();},
++  loadVenueArt(){const image=catalog.get(this.data.mapId),run=this.venueResourceSerial=(this.venueResourceSerial||0)+1;if(!image)return;if(resources.ready(image.id)){if(this.data.venueResource!=='ready')this.setData({venueResource:'ready'});return;}if(this.data.venueResource!=='loading')this.setData({venueResource:'loading'});resources.ensure(image.id).then(()=>{if(this.active&&run===this.venueResourceSerial)this.setData({venueResource:'ready'});},e=>{if(this.active&&run===this.venueResourceSerial)this.setData({venueResource:'error',error:e.message});});},
++  chooseVenue(){const id=this.data.mapId;if(this.devPreview){const image=catalog.get(id),p=image.demoPoints?.[0]||{lat:32.0584,lng:118.7968};this.setData({venue:{...p,mapId:id,radiusM:200,confirmed:true},error:''});return;}const run=this.lifecycle;wx.getLocation({type:'gcj02',isHighAccuracy:true,success:p=>{if(!this.active||run!==this.lifecycle||id!==this.data.mapId)return;const point={lat:p.latitude,lng:p.longitude};if(!catalog.contains(id,point)){this.setData({venue:null,error:'当前位置不在所选校区范围，请切换场地或到场后确认'});return;}this.setData({venue:{...point,mapId:id,radiusM:200,confirmed:true},error:''});},fail:()=>{if(this.active&&run===this.lifecycle&&id===this.data.mapId)this.setData({error:'无法获取位置，请先授权定位'});}});},
++  async create() { const teamError=teams.validate(this.data.total,this.data.catsCount,this.data.miceCount);if(teamError){this.setData({teamError,error:teamError});return;}if(this.devPreview){if(!this.data.venue){this.setData({error:'请先确认演示场地'});return;}const sample=preview.roomData('ready');sample.venue={...this.data.venue,mapId:this.data.mapId};sample.rules={...sample.rules,total:this.data.total,cats:this.data.catsCount,mice:this.data.miceCount,version:'pilot-0.3'};sample.roster=Array.from({length:this.data.total},(_,i)=>({id:i?'dev-player-'+i:'dev-me',nickname:i?'伙伴'+i:'我 · 演示',ready:true}));this.applyRoom(sample);this.creating=false;wx.pageScrollTo?.({scrollTop:0,duration:0});return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const r=await api.create({ ...(this.data.mapId!==catalog.DEFAULT_ID?{mapId:this.data.mapId}:{}),total:this.data.total, cats:this.data.catsCount, mice:this.data.miceCount, venue:this.data.venue, nickname:wx.getStorageSync('nickname') }); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code});wx.pageScrollTo?.({scrollTop:0,duration:0});this.updateTitle(); this.begin(); } catch(e) { this.setData({error:e.code==='INVALID_CONFIG'&&this.data.mapId!==catalog.DEFAULT_ID?'服务端尚未支持校区地图，请更新服务后重试':e.message}); } finally { this.setData({loading:false}); } },
+   requestLocation() { if(this.locationPromise)return this.locationPromise;const run=this.lifecycle,task=location.once(this.data.roomId,()=>this.active && run===this.lifecycle);this.locationPromise=task;task.then(()=>{if(this.locationPromise===task)this.locationPromise=null;},()=>{if(this.locationPromise===task)this.locationPromise=null;});return task; },
+   begin() { if(!this.active || this.pollTimer) return; this.refresh(); this.pollTimer=setInterval(()=>this.refresh(),2000); this.locTimer=setInterval(()=>this.requestLocation().catch(()=>{}),4000); this.requestLocation().catch(()=>{if(this.active)this.setData({error:'定位不可用，暂时不能准备'});}); },
+-  async refresh() { if(this.fetching || !this.active) return; this.fetching=true; try { const s=await api.room(this.data.roomId); if(!this.active) return; if(this.data.match && s.version<this.data.matchVersion) return; const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId')); this.applyRoom({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,error:''}); if(s.match && !['FINISHED','CANCELLED'].includes(s.match.phase)) { this.stop(); wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)}); } } catch(e) { if(this.active)this.setData({error:'连接中断，正在自动重试：'+e.message}); } finally { this.fetching=false; } },
++  async refresh() { if(this.fetching || !this.active) return; this.fetching=true; try { const s=await api.room(this.data.roomId); if(!this.active) return; if(this.data.match && s.version<this.data.matchVersion) return; const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId')); this.applyRoom({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,venue:s.venue,error:''}); if(s.match && !['FINISHED','CANCELLED'].includes(s.match.phase)) { this.stop(); wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)}); } } catch(e) { if(this.active)this.setData({error:'连接中断，正在自动重试：'+e.message}); } finally { this.fetching=false; } },
+   async toggleReady() { if(this.devPreview){const ready=!this.data.ready;this.applyRoom({ready,roster:this.data.roster.map(p=>p.id==='dev-me'?{...p,ready}:p),error:''});return;}try { await this.requestLocation();if(!this.active)return;await api.ready(this.data.roomId,!this.data.ready); await this.refresh(); } catch(e) { if(this.active)this.setData({error:'准备失败：'+e.message}); } },
+-  async start() { if(!this.data.owner || !this.data.canStart || this.data.loading)return;if(this.devPreview){wx.navigateTo({url:'/pages/map/map?devPreview=hiding'});return;}this.setData({loading:true,error:''}); try { await api.start(this.data.roomId); this.refresh(); } catch(e) { this.setData({error:'无法开始：'+e.message}); } finally { this.setData({loading:false}); } },
+-  openCalibration(){if(!this.data.owner)return;wx.navigateTo({url:this.devPreview?'/pages/calibrate/calibrate?devPreview=calibrate':'/pages/calibrate/calibrate?roomId='+encodeURIComponent(this.data.roomId)});},
++  async start() { if(!this.data.owner || !this.data.canStart || this.data.loading)return;if(this.devPreview){wx.navigateTo({url:'/pages/map/map?devPreview=hiding&mapId='+encodeURIComponent(this.data.mapId)});return;}this.setData({loading:true,error:''}); try { await api.start(this.data.roomId); this.refresh(); } catch(e) { this.setData({error:'无法开始：'+e.message}); } finally { this.setData({loading:false}); } },
++  openCalibration(){if(!this.data.owner)return;wx.navigateTo({url:this.devPreview?'/pages/calibrate/calibrate?devPreview=calibrate&mapId='+encodeURIComponent(this.data.mapId):'/pages/calibrate/calibrate?roomId='+encodeURIComponent(this.data.roomId)});},
+   copy() { if(this.devPreview)return;wx.setClipboardData({data:this.data.code}); },
+   backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});},
+   onShareAppMessage() { if(this.devPreview)return {title:'猫鼠行动 · 界面预览',path:'/pages/index/index'};return {title:'加入猫鼠行动',path:'/pages/room/room?roomId='+encodeURIComponent(this.data.code)}; }
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\room\\room.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml"
+index 85c0032..41a76ad 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\room\\room.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxml"
+@@ -7,16 +7,17 @@
+       <view class="teamInputs"><view class="teamField"><text>总人数</text><input type="number" value="{{total}}" maxlength="2" data-field="total" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='total'?'editing':''}}" aria-label="总人数" /><text wx:if="{{editingField!=='total'}}" class="teamValue" aria-hidden="true">{{total}}</text></view><view class="teamField"><text>猫人数</text><input type="number" value="{{catsCount}}" maxlength="2" data-field="catsCount" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='catsCount'?'editing':''}}" aria-label="猫人数" /><text wx:if="{{editingField!=='catsCount'}}" class="teamValue" aria-hidden="true">{{catsCount}}</text></view><view class="teamField"><text>鼠人数</text><input type="number" value="{{miceCount}}" maxlength="2" data-field="miceCount" bindinput="teamInput" bindfocus="teamFocus" bindblur="teamBlur" class="{{editingField==='miceCount'?'editing':''}}" aria-label="鼠人数" /><text wx:if="{{editingField!=='miceCount'}}" class="teamValue" aria-hidden="true">{{miceCount}}</text></view></view>
+       <text class="teamHint">猫 + 鼠 = 总人数 · 各至少1人 · 总计2–60人</text><text wx:if="{{teamError}}" class="roomError" role="alert">{{teamError}}</text>
+     </view>
++    <view class="paperFrame venueSelectCard"><text class="sectionLabel">场地地图</text><picker class="venuePicker" range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap"><view class="venuePickerValue"><text>{{venueName}}</text><text aria-hidden="true">›</text></view></picker><text class="venueSelectionNote">切换场地后，请重新到场确认集合点</text></view>
+     <view class="paperFrame venueCard">
+       <view class="venueCopy"><text class="sectionLabel venueHeading">集合点与活动范围</text><view class="venueState"><view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view><view class="venueStateCopy"><text class="venueTitle">{{venue?'集合点已确认':'还未确认集合点'}}</text><text class="venueHint">{{venue?'活动范围：半径 200 米':'请到场后确认当前位置'}}</text></view></view><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-location.png" label="{{venue?'重选位置':'确认位置'}}" tone="plain" dynamic="{{!venue}}" font-scale="{{fontScale}}" bindaction="chooseVenue" /></view>
+-      <view class="venueGuide"><image class="venueGuideImage" src="/assets/maps/xuanwu-lake-v4.jpg" mode="aspectFit" aria-label="玄武湖环洲与樱洲场地导览" /><text class="guideCaption">玄武湖 · 场地导览</text><text class="guideFootnote">示意图不代表定位结果</text></view>
++      <view class="venueGuide"><image wx:if="{{venueResource==='ready'}}" class="venueGuideImage" src="{{venueSource}}" mode="aspectFit" aria-label="{{venueName}}场地导览" /><view wx:else class="venueGuideLoading"><text>{{venueResource==='error'?'地图加载失败':'正在加载地图…'}}</text><button wx:if="{{venueResource==='error'}}" class="textButton" bindtap="loadVenueArt">重试</button></view><text class="guideCaption">{{venueName}}</text><text class="guideFootnote">示意图不代表定位结果</text></view>
+     </view>
+     <view class="paperFrame rulesCard"><text class="sectionLabel">规则摘要</text><view class="rulesGrid"><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">30秒</text><text class="ruleLabel">躲藏时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">6分钟</text><text class="ruleLabel">追逐时间</text></view><view class="ruleItem"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text class="ruleValue">抓满{{targetCount}}人</text><text class="ruleLabel">猫获胜</text></view></view><view class="rulesNote"><text class="noteMark" aria-hidden="true">!</text><text>倒计时结束未达标时，鼠获胜</text></view></view>
+-    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError}}" font-scale="{{fontScale}}" bindaction="create" /></view>
++    <view class="createAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建并邀请" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError || venueResource!=='ready'}}" font-scale="{{fontScale}}" bindaction="create" /></view>
+   </view>
+   <view wx:else class="readyContent">
+     <view class="paperFrame inviteCard"><text class="sectionLabel inviteLabel">房间码</text><view class="codeRow"><text class="roomCode" selectable>{{code || '同步中'}}</text><view class="copyAction"><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-copy.png" label="复制" tone="plain" disabled="{{!code}}" font-scale="{{fontScale}}" bindaction="copy" /></view></view><text class="inviteHint">分享房间码，邀请好友加入</text></view>
+-    <view class="paperFrame roomRules"><view class="roomRuleNumbers"><view class="readyTeam"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text><text class="orangeNumber">{{catsCount}}</text>猫 <text class="orangeNumber">{{(rules?rules.total:total)-catsCount}}</text>鼠</text></view><view class="targetNumber"><text>捕获目标</text><text class="orangeNumber">{{targetCount}}人</text></view></view><text class="roomRuleText">30秒躲藏，6分钟追逐；捕获{{targetCount}}人猫胜，
++    <view class="paperFrame roomRules"><view class="roomRuleNumbers"><view class="readyTeam"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text><text class="orangeNumber">{{catsCount}}</text>猫 <text class="orangeNumber">{{(rules?rules.total:total)-catsCount}}</text>鼠</text></view><view class="targetNumber"><text>捕获目标</text><text class="orangeNumber">{{targetCount}}人</text></view></view><text class="venueSelectionNote">{{venueName}}</text><text class="roomRuleText">30秒躲藏，6分钟追逐；捕获{{targetCount}}人猫胜，
+ 倒计时结束未达标鼠胜。</text></view>
+     <button wx:if="{{owner && (!match || match.phase==='FINISHED' || match.phase==='CANCELLED')}}" class="textButton" bindtap="openCalibration">图片与真实位置标定</button>
+     <view class="rosterHeader"><view class="rosterHeading"><text class="sectionLabel">玩家列表（{{roster.length}}/{{rules?rules.total:total}}）</text><text class="readyCount {{canStart?'allReady':''}}">{{canStart?'所有玩家已准备':readyCount+'人已准备'}}</text></view><text class="rosterHint">阵营将在开始后分配</text></view>
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\room\\room.wxss" "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxss"
+index 3a8048d..ec1964d 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\room\\room.wxss"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\room\\room.wxss"
+@@ -25,3 +25,5 @@
+ 
+ /* Native input editing retains its real caret; idle values use the UI font. */
+ .teamField{position:relative}.teamField input{color:transparent}.teamField input.editing{color:#050b14}.teamField .teamValue{position:absolute;left:2px;right:2px;bottom:2px;height:44px;line-height:44px;margin:0;text-align:center;font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;font-size:24px;pointer-events:none}
++
++.venueSelectCard{margin-top:15rpx;padding:16rpx 18rpx}.venuePicker{margin-top:12rpx}.venuePickerValue{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:7px 10px;box-sizing:border-box;border:2px solid #436346;background:#fcf8ed;font-size:calc(14px*var(--font-scale))}.venueSelectionNote{display:block;margin-top:6px;font-size:calc(12px*var(--font-scale));line-height:1.45;color:#61705a}.venueGuideLoading{display:flex;flex-direction:column;align-items:center;justify-content:center;height:226rpx;font-size:12px;color:#61705a}
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\venue\\venue.js" "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.js"
+index 6bd07f2..26cf925 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\venue\\venue.js"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.js"
+@@ -1,4 +1,5 @@
+ const presentation = require('../../utils/presentation');
++const catalog=require('../../utils/venue-catalog');
+ 
+ function layoutKey(metrics) {
+   return [metrics.viewportWidth, metrics.viewportHeight, metrics.fontScale, metrics.navHeight, metrics.safeBottom].join(':');
+@@ -7,9 +8,11 @@ function layoutKey(metrics) {
+ Page({
+   data: {
+     navHeight:64, viewportWidth:390, viewportHeight:844, fontScale:1, safeBottom:0,
+-    layoutKey:'', venueSource:'/assets/maps/xuanwu-lake-v4.jpg'
++    mapId:catalog.DEFAULT_ID,venueOptions:catalog.options,venueMapIndex:0,venueName:catalog.get().label,layoutKey:'', venueSource:'/assets/maps/xuanwu-lake-v4.jpg'
+   },
+-  onLoad() { this.refreshLayout(); },
++  onLoad(options={}) { this.selectMap(options.mapId||catalog.DEFAULT_ID);this.refreshLayout(); },
++  selectMap(id){const image=catalog.get(id);if(!image){this.setData({venueError:'未知场地地图'});return;}this.setData({mapId:image.id,venueSource:image.src,venueName:image.label,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id),venueError:''});},
++  selectVenueMap(e){const item=catalog.options[Number(e.detail.value)];if(item)this.selectMap(item.id);},
+   onShow() { this.refreshLayout(); },
+   onResize(event) { this.refreshLayout(event); },
+   refreshLayout(event) {
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\venue\\venue.wxml" "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxml"
+index 56e5f91..546e114 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\venue\\venue.wxml"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxml"
+@@ -1,10 +1,10 @@
+ <view class="screen venueScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+-  <nav-bar title="玄武湖·环洲樱洲" />
++  <nav-bar title="场地地图" />
+   <view class="venueHeading">
+-    <text class="venueSubtitle">场地导览 · 非实时定位</text>
++    <view class="venueSubtitle"><picker range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap"><view class="venuePickerValue"><text>{{venueName}}</text><text aria-hidden="true">›</text></view></picker><text class="venueReference">场地导览 · 非实时定位</text></view>
+     <button class="venueBack" bindtap="goBack" aria-label="返回上一页">‹ 返回</button>
+   </view>
+   <view class="venueFrame">
+-    <venue-art class="venueArt" src="{{venueSource}}"  layout-key="{{layoutKey}}" />
++    <venue-art class="venueArt" image-id="{{mapId}}" src="{{venueSource}}"  layout-key="{{layoutKey}}" />
+   </view>
+ </view>
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\venue\\venue.wxss" "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxss"
+index 8ed4db8..9326e45 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\pages\\venue\\venue.wxss"
++++ "b/D:\\cat-mouse-miniprogram\\pages\\venue\\venue.wxss"
+@@ -10,3 +10,5 @@
+ .narrowCanvas .venueFrame{margin-left:8px;margin-right:8px}
+ .fontLarge .venueSubtitle{font-size:calc(13px * var(--font-scale))}
+ .venueBack{width:auto!important}
++
++.venuePickerValue{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:4px 8px;border:1px solid #829575;background:#fcf8ed;box-sizing:border-box;color:#24342d}.venueReference{display:block;margin-top:5px;font-size:11px;line-height:1.45;color:#61705a}
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\scripts\\build-global-font.py" "b/D:\\cat-mouse-miniprogram\\scripts\\build-global-font.py"
+index 6e8f5c5..334825b 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\scripts\\build-global-font.py"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\build-global-font.py"
+@@ -17,9 +17,10 @@ if '--verify' in sys.argv:
+     print('FUSION_FONT_VERIFY_PASS scope=registered-pages-and-components version=2026.09.25')
+     sys.exit(0)
+ 
+-pages = json.loads((root / 'app.json').read_text(encoding='utf8'))['pages']
++app = json.loads((root / 'app.json').read_text(encoding='utf8'))
++pages = app['pages'] + [group['root'] + '/' + page for group in app.get('subPackages', []) for page in group['pages']]
+ inputs = [root / (p + ext) for p in pages for ext in ['.wxml','.js']]
+-inputs += list((root / 'components').rglob('*.wxml')) + list((root / 'components').rglob('*.js')) + list((root / 'utils').glob('*.js'))
++inputs += list((root / 'components').rglob('*.wxml')) + list((root / 'components').rglob('*.js')) + list((root / 'utils').glob('*.js')) + list((root / 'utils').glob('*.json'))
+ words = ''.join(p.read_text(encoding='utf8') for p in inputs)
+ font = TTFont(source)
+ raw_words = words
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\scripts\\package-release.ps1" "b/D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1"
+index f79106a..378aaa9 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\scripts\\package-release.ps1"
++++ "b/D:\\cat-mouse-miniprogram\\scripts\\package-release.ps1"
+@@ -27,7 +27,7 @@ New-Item -ItemType Directory -Path $miniStage,$serverStage -Force | Out-Null
+ 
+ try {
+   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
+-  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','utils\map-markers.js','assets\map-markers-v2','assets\markers-v1','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
++  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','utils\map-markers.js','utils\venue-catalog.js','utils\venue-images.js','utils\campus-art-models.js','utils\venue-resources.js','venue-maps','assets\map-markers-v2','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
+   foreach ($item in $miniFiles) {
+     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
+       throw "Required miniprogram source is missing: $item"
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\dev-preview.js" "b/D:\\cat-mouse-miniprogram\\utils\\dev-preview.js"
+index e3b8098..7a828f2 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\dev-preview.js"
++++ "b/D:\\cat-mouse-miniprogram\\utils\\dev-preview.js"
+@@ -1,3 +1,4 @@
++const catalog=require('./venue-catalog');
+ function enabled() {
+   try {
+     return wx.getAccountInfoSync().miniProgram.envVersion === 'develop';
+@@ -23,7 +24,8 @@ const cases = [
+ 
+ function accepts(id) { return enabled() && cases.some(item => item.id === id); }
+ 
+-function mapSnapshot(id, me) {
++function mapSnapshot(id, me, mapId=catalog.DEFAULT_ID) {
++  const image=catalog.get(mapId)||catalog.get();
+   const now = Date.now(), isMouse = ['mouse','alert','captured','mouseWin'].includes(id);
+   const phase = id === 'hiding' ? 'HIDING' : id === 'paused' ? 'PAUSED' : id === 'catWin' || id === 'mouseWin' ? 'FINISHED' : id === 'cancelled' ? 'CANCELLED' : 'CHASING';
+   const role = isMouse ? 'mouse' : 'cat';
+@@ -36,15 +38,18 @@ function mapSnapshot(id, me) {
+   const live = !['captured','paused','offline','catWin','mouseWin','cancelled'].includes(id);
+   const ally=roster.find(p=>p.id!==me && p.role===role && p.status==='active');
+   // Synthetic demo positions converted from v5 art pixels; NOT collected GPS.
+-  const visiblePositions = live ? [{id:me,lat:32.07189947570167,lng:118.79328555598251,accuracy:6,receivedAt:now},{id:ally.id,lat:32.071253703521435,lng:118.79377318547276,accuracy:8,receivedAt:now}] : [];
++  let visiblePositions = live ? [{id:me,lat:32.07189947570167,lng:118.79328555598251,accuracy:6,receivedAt:now},{id:ally.id,lat:32.071253703521435,lng:118.79377318547276,accuracy:8,receivedAt:now}] : [];
++  if(image.demoPoints)visiblePositions=visiblePositions.map((p,i)=>({...p,...image.demoPoints[(i+1)%image.demoPoints.length]}));
++  const venue={...(image.demoPoints?.[0]||{lat:32.07224684915245,lng:118.79229703521882}),radiusM:200,mapId:image.id};
++  const clue=image.demoPoints?.[2]||{lat:32.07109902484551,lng:118.79329199312038};
+   const eventAt=new Date(2026,9,12,9,0).getTime();
+   const events=[{seq:1,kind:'START',at:eventAt}];
+   if(phase!=='HIDING')events.push({seq:2,kind:'CHASING',at:eventAt+30000});
+   for(let i=0;i<captured;i++)events.push({seq:events.length+1,kind:'CAPTURE',at:eventAt+120000+i*20000});
+   if(phase==='PAUSED')events.push({seq:events.length+1,kind:'PAUSE',at:eventAt+150000});
+   if(phase==='FINISHED'||phase==='CANCELLED')events.push({seq:events.length+1,kind:'RESULT',at:eventAt+390000});
+-  return {version:1,serverTime:now,venue:{lat:32.07224684915245,lng:118.79229703521882,radiusM:200},owner:true,roster,visiblePositions,
+-    intel:id==='cat'?[{cellLat:32.07109902484551,cellLng:118.79329199312038,radiusM:50}]:[],nearbyCat:id==='alert',
++  return {version:1,serverTime:now,venue,owner:true,roster,visiblePositions,
++    intel:id==='cat'?[{cellLat:clue.lat,cellLng:clue.lng,radiusM:50}]:[],nearbyCat:id==='alert',
+     events,
+     match:{id:'dev-preview-match',phase,myRole:role,myStatus:id==='captured'?'captured':'active',remainingMs:phase==='HIDING'?18000:phase==='CHASING'||phase==='PAUSED'?285000:0,captured,target:4,pauseReason:id==='paused'?'host':null,outcome:id==='catWin'?'cat_win':id==='mouseWin'?'mouse_win':null,reason:id==='catWin'?'capture_target':id==='mouseWin'?'deadline':id==='cancelled'?'cancelled':null}};
+ }
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\geo-registration.js" "b/D:\\cat-mouse-miniprogram\\utils\\geo-registration.js"
+index c22d0f3..a5286c9 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\geo-registration.js"
++++ "b/D:\\cat-mouse-miniprogram\\utils\\geo-registration.js"
+@@ -1,5 +1,7 @@
+ // Canonical geographic registration math. Server distribution is byte-identical.
+-const IMAGE={id:'xuanwu-v4',sha256:'d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540',width:1254,height:1254};
++const images=require('./venue-images.js');
++const IMAGE=images.find(x=>x.id==='xuanwu-v4');
++const imageFor=id=>images.find(x=>x.id===id)||null;
+ const DEG=Math.PI/180,R=6371000;
+ function fail(code){throw Error(code);}
+ function valid(p){return p&&Number.isFinite(p.lat)&&Number.isFinite(p.lng)&&Math.abs(p.lat)<85&&Math.abs(p.lng)<=180;}
+@@ -12,7 +14,8 @@ function solve(matrix,rhs){const m=matrix.map((row,i)=>[...row,rhs[i]]);for(let
+ function rawProject(p,model){const w=world(p,model.origin),[a,b,c]=model.east,[d,e,f]=model.north,det=a*e-b*d;if(Math.abs(det)<1e-6)return null;return {u:(e*(w.x-c)-b*(w.y-f))/det,v:(a*(w.y-f)-d*(w.x-c))/det};}
+ function pixelToGeo(p,m){if(!m||!Number.isFinite(p.u)||!Number.isFinite(p.v))return null;return unworld({x:m.east[0]*p.u+m.east[1]*p.v+m.east[2],y:m.north[0]*p.u+m.north[1]*p.v+m.north[2]},m.origin);}
+ function compile(input){
+- if(!input||input.imageId!==IMAGE.id||input.imageSha256!==IMAGE.sha256||input.crs!=='gcj02')fail('CALIBRATION_IMAGE_OR_CRS');
++ const image=imageFor(input?.imageId);
++ if(!image||input.imageSha256!==image.sha256||input.crs!=='gcj02')fail('CALIBRATION_IMAGE_OR_CRS');
+  const ps=input.points;if(!Array.isArray(ps)||ps.length<5||ps.length>16)fail('CALIBRATION_POINTS');
+  if(ps.some(p=>!valid(p)||!Number.isFinite(p.u)||!Number.isFinite(p.v)||p.u<0||p.u>1||p.v<0||p.v>1||!['control','check'].includes(p.kind)))fail('CALIBRATION_POINTS');
+  const controls=ps.filter(p=>p.kind==='control'),checks=ps.filter(p=>p.kind==='check');if(controls.length<3||checks.length<2)fail('CALIBRATION_CHECKS_REQUIRED');
+@@ -21,7 +24,7 @@ function compile(input){
+  if(Math.abs(area)/2<.04)fail('CALIBRATION_DEGENERATE');
+  for(let i=0;i<ps.length;i++){const a=world(ps[i],origin);if(Math.hypot(a.x,a.y)>3000)fail('CALIBRATION_SPREAD');for(let j=0;j<i;j++){const b=world(ps[j],origin);if(Math.hypot(a.x-b.x,a.y-b.y)<10||Math.hypot(ps[i].u-ps[j].u,ps[i].v-ps[j].v)<.015)fail('CALIBRATION_DUPLICATE');}}
+  const mat=Array.from({length:3},()=>[0,0,0]),bx=[0,0,0],by=[0,0,0];for(const p of controls){const q=[p.u,p.v,1],w=world(p,origin);for(let i=0;i<3;i++){bx[i]+=q[i]*w.x;by[i]+=q[i]*w.y;for(let j=0;j<3;j++)mat[i][j]+=q[i]*q[j];}}
+- const model={schema:'affine-gcj02-v1',imageId:IMAGE.id,imageSha256:IMAGE.sha256,crs:'gcj02',origin,east:solve(mat,bx),north:solve(mat,by),hull:h,status:'registered',fieldVerified:false};
++ const model={schema:'affine-gcj02-v1',imageId:image.id,imageSha256:image.sha256,crs:'gcj02',origin,east:solve(mat,bx),north:solve(mat,by),hull:h,status:'registered',fieldVerified:false};
+  const error=p=>{const q=pixelToGeo(p,model),a=world(p,origin),b=world(q,origin);return Math.hypot(a.x-b.x,a.y-b.y);};
+  const training=controls.map(error),independent=checks.map(error);if(checks.some(p=>!inside(p,h)))fail('CALIBRATION_CHECK_OUTSIDE');
+  if(Math.max(...training)>5||Math.max(...independent)>10)fail('CALIBRATION_ERROR');
+@@ -30,7 +33,7 @@ function compile(input){
+  model.quality={controlCount:controls.length,checkCount:checks.length,maxErrorM:Math.max(...independent),rmsM:Math.sqrt(independent.reduce((s,x)=>s+x*x,0)/independent.length),trainingMaxM:Math.max(...training)};
+  model.points=ps.map(p=>({u:p.u,v:p.v,lat:p.lat,lng:p.lng,kind:p.kind}));return model;
+ }
+-function project(p,m){if(!valid(p)||!m||m.schema!=='affine-gcj02-v1'||!valid(m.origin)||!Array.isArray(m.east)||!Array.isArray(m.north)||m.east.length!==3||m.north.length!==3||![...m.east,...m.north].every(Number.isFinite)||!Array.isArray(m.hull)||m.hull.length<3||m.hull.some(p=>!p||!Number.isFinite(p.u)||!Number.isFinite(p.v))||m.status!=='registered'||m.imageSha256!==IMAGE.sha256||m.crs!=='gcj02')return null;const q=rawProject(p,m);if(!q||!Number.isFinite(q.u)||!Number.isFinite(q.v)||q.u<0||q.u>1||q.v<0||q.v>1||!inside(q,m.hull))return null;return q;}
+-function ellipse(p,radius,m,width,height){const q=project(p,m);if(!q||!Number.isFinite(radius)||radius<=0||radius>500)return null;const [a,b]=m.east,[d,e]=m.north,det=a*e-b*d;const x=[width*e/det,-width*b/det],y=[-height*d/det,height*a/det],aa=x[0]**2+x[1]**2,bb=x[0]*y[0]+x[1]*y[1],cc=y[0]**2+y[1]**2,disc=Math.hypot(aa-cc,2*bb);return {x:q.u*width,y:q.v*height,rx:radius*Math.sqrt(Math.max(0,(aa+cc+disc)/2)),ry:radius*Math.sqrt(Math.max(0,(aa+cc-disc)/2)),angle:Math.atan2(2*bb,aa-cc)*90/Math.PI};}
+-function frame(data,m,width,height){if(!m||!Number.isFinite(width)||!Number.isFinite(height)||width<=0||height<=0)return {points:[],regions:[]};const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,m);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);const regions=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61).map((p,i)=>{const q=ellipse(p,p?.radiusM,m,width,height);return q?{id:i,...q}:null;}).filter(Boolean);return {points,regions};}
++function project(p,m,imageId=IMAGE.id){const image=imageFor(imageId);if(!image||m?.imageId!==image.id||!valid(p)||!m||m.schema!=='affine-gcj02-v1'||!valid(m.origin)||!Array.isArray(m.east)||!Array.isArray(m.north)||m.east.length!==3||m.north.length!==3||![...m.east,...m.north].every(Number.isFinite)||!Array.isArray(m.hull)||m.hull.length<3||m.hull.some(p=>!p||!Number.isFinite(p.u)||!Number.isFinite(p.v))||m.status!=='registered'||m.imageSha256!==image.sha256||m.crs!=='gcj02')return null;const q=rawProject(p,m);if(!q||!Number.isFinite(q.u)||!Number.isFinite(q.v)||q.u<0||q.u>1||q.v<0||q.v>1||!inside(q,m.hull))return null;return q;}
++function ellipse(p,radius,m,width,height,imageId=IMAGE.id){const q=project(p,m,imageId);if(!q||!Number.isFinite(radius)||radius<=0||radius>500)return null;const [a,b]=m.east,[d,e]=m.north,det=a*e-b*d;const x=[width*e/det,-width*b/det],y=[-height*d/det,height*a/det],aa=x[0]**2+x[1]**2,bb=x[0]*y[0]+x[1]*y[1],cc=y[0]**2+y[1]**2,disc=Math.hypot(aa-cc,2*bb);return {x:q.u*width,y:q.v*height,rx:radius*Math.sqrt(Math.max(0,(aa+cc+disc)/2)),ry:radius*Math.sqrt(Math.max(0,(aa+cc-disc)/2)),angle:Math.atan2(2*bb,aa-cc)*90/Math.PI};}
++function frame(data,m,width,height,imageId=IMAGE.id){if(!m||!Number.isFinite(width)||!Number.isFinite(height)||width<=0||height<=0)return {points:[],regions:[]};const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,m,imageId);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);const regions=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61).map((p,i)=>{const q=ellipse(p,p?.radiusM,m,width,height,imageId);return q?{id:i,...q}:null;}).filter(Boolean);return {points,regions};}
+ module.exports={IMAGE,compile,project,pixelToGeo,ellipse,frame,world};
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\osm-art-registration.js" "b/D:\\cat-mouse-miniprogram\\utils\\osm-art-registration.js"
+index e1163fe..501ba0e 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\osm-art-registration.js"
++++ "b/D:\\cat-mouse-miniprogram\\utils\\osm-art-registration.js"
+@@ -1,6 +1,8 @@
+ 'use strict';
+ const model=require('./osm-art-model'),affine=require('./geo-registration');
+ const config=require('./venue-art-config');
++const catalog=require('./venue-catalog'),campus=require('./campus-art-models');
++const models={'xuanwu-v4':model,...campus};
+ const {wgs84togcj02}=require('./vendor/coordtransform');
+ const R=6378137,RAD=Math.PI/180;
+ const valid=p=>p&&Number.isFinite(p.lat)&&Number.isFinite(p.lng)&&Math.abs(p.lat)<85&&Math.abs(p.lng)<=180;
+@@ -12,33 +14,33 @@ function gcjToWgs(p,crs){
+  for(let i=0;i<8;i++){const q=wgs84togcj02(lng,lat),dx=q[0]-p.lng,dy=q[1]-p.lat;lng-=dx;lat-=dy;if(Math.max(Math.abs(dx),Math.abs(dy))<1e-10)return {lng,lat};}
+  return null;
+ }
+-const local=p=>[R*p.lng*RAD-model.origin[0],R*Math.log(Math.tan(Math.PI/4+p.lat*RAD/2))-model.origin[1]];
++const local=(p,m)=>[R*p.lng*RAD-m.origin[0],R*Math.log(Math.tan(Math.PI/4+p.lat*RAD/2))-m.origin[1]];
+ function bary(p,t){const a=t[0],b=t[1],c=t[2],det=(a[0]-c[0])*(b[1]-c[1])-(a[1]-c[1])*(b[0]-c[0]);if(Math.abs(det)<1e-10)return null;const x=p[0]-c[0],y=p[1]-c[1],u=(x*(b[1]-c[1])-y*(b[0]-c[0]))/det,v=((a[0]-c[0])*y-(a[1]-c[1])*x)/det;return [u,v,1-u-v];}
+-function transfer(p,ids){const b=bary(p,ids.map(i=>model.world[i]));return b?[0,1].map(k=>ids.reduce((sum,i,n)=>sum+b[n]*model.pixels[i][k],0)):null;}
+-function raw(p){for(const t of model.triangles){const b=bary(p,t.map(i=>model.world[i]));if(b&&b.every(x=>x>=-1e-8&&x<=1+1e-8))return transfer(p,t);}return null;}
+-function available(){return config.osmReferenceEnabled===true&&config.src==='/'+model.image.runtimePath&&model.enabled===true&&model.schema==='piecewise-affine-wgs84-art-v1'&&model.source.crs==='EPSG:4326'&&model.projection==='EPSG:3857'&&model.image.sha256===affine.IMAGE.sha256&&model.image.width===affine.IMAGE.width&&model.image.height===affine.IMAGE.height;}
+-function project(p,crs){if(!available())return null;const q=gcjToWgs(p,crs);if(!q)return null;const r=raw(local(q));return r?{u:r[0]/model.image.width,v:r[1]/model.image.height,fieldVerified:false}:null;}
++function transfer(p,ids,m){const b=bary(p,ids.map(i=>m.world[i]));return b?[0,1].map(k=>ids.reduce((sum,i,n)=>sum+b[n]*m.pixels[i][k],0)):null;}
++function raw(p,m){for(const t of m.triangles){const b=bary(p,t.map(i=>m.world[i]));if(b&&b.every(x=>x>=-1e-8&&x<=1+1e-8))return transfer(p,t,m);}return null;}
++function available(imageId=catalog.DEFAULT_ID){const m=models[imageId],image=catalog.get(imageId);return !!m&&!!image&&config.osmReferenceEnabled===true&&(imageId!==catalog.DEFAULT_ID||config.src===image.src)&&image.src==='/'+m.image.runtimePath&&m.enabled===true&&m.schema==='piecewise-affine-wgs84-art-v1'&&m.source.crs==='EPSG:4326'&&m.projection==='EPSG:3857'&&m.image.sha256===image.sha256&&m.image.width===image.width&&m.image.height===image.height;}
++function project(p,crs,imageId=catalog.DEFAULT_ID){if(!available(imageId))return null;const m=models[imageId],q=gcjToWgs(p,crs);if(!q)return null;const r=raw(local(q,m),m);return r?{u:r[0]/m.image.width,v:r[1]/m.image.height,fieldVerified:false}:null;}
+ // Clip each triangle to a conservative Mercator box around the authorized
+ // region. Its mapped bounds enclose the whole uncertainty region even across
+ // triangle boundaries; never turn coarse enemy intelligence into a point pin.
+ function clip(poly,axis,bound,sign){const out=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],ia=sign*(a[axis]-bound)>=0,ib=sign*(b[axis]-bound)>=0;if(ia)out.push(a);if(ia!==ib){const t=(bound-a[axis])/(b[axis]-a[axis]);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}}return out;}
+-function region(p,width,height){
+- if(!available()||!Number.isFinite(p?.radiusM)||p.radiusM<=0||p.radiusM>500)return null;
+- const q=gcjToWgs(p,'gcj02');if(!q)return null;const c=local(q),r=p.radiusM/Math.cos(q.lat*RAD)*1.02+1;
++function region(p,width,height,imageId=catalog.DEFAULT_ID){
++ if(!available(imageId)||!Number.isFinite(p?.radiusM)||p.radiusM<=0||p.radiusM>500)return null;
++ const m=models[imageId],q=gcjToWgs(p,'gcj02');if(!q)return null;const c=local(q,m),r=p.radiusM/Math.cos(q.lat*RAD)*1.02+1;
+  const corners=[[-1,-1],[-1,1],[1,-1],[1,1]].map(([x,y])=>[c[0]+x*r,c[1]+y*r]);
+- if(corners.some(p=>!raw(p)))return null; // Never truncate a clue at the hull.
++ if(corners.some(p=>!raw(p,m)))return null; // Never truncate a clue at the hull.
+  const pixels=[];
+- for(const t of model.triangles){let poly=t.map(i=>model.world[i]);for(const [axis,bound,sign] of [[0,c[0]-r,1],[0,c[0]+r,-1],[1,c[1]-r,1],[1,c[1]+r,-1]])poly=clip(poly,axis,bound,sign);for(const p of poly)pixels.push(transfer(p,t));}
++ for(const t of m.triangles){let poly=t.map(i=>m.world[i]);for(const [axis,bound,sign] of [[0,c[0]-r,1],[0,c[0]+r,-1],[1,c[1]-r,1],[1,c[1]+r,-1]])poly=clip(poly,axis,bound,sign);for(const p of poly)pixels.push(transfer(p,t,m));}
+  if(!pixels.length)return null;
+- const xs=pixels.map(p=>p[0]*width/model.image.width),ys=pixels.map(p=>p[1]*height/model.image.height),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);
++ const xs=pixels.map(p=>p[0]*width/m.image.width),ys=pixels.map(p=>p[1]*height/m.image.height),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);
+  return {x:(left+right)/2,y:(top+bottom)/2,rx:(right-left)/Math.SQRT2,ry:(bottom-top)/Math.SQRT2,angle:0};
+ }
+-function frame(data,width,height){
+- const empty={points:[],regions:[],omittedRegions:0};if(!available()||!(width>0&&height>0)||!Number.isFinite(width)||!Number.isFinite(height))return empty;
+- const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,'gcj02');return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);
+- const source=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61),regions=source.map((p,i)=>{const q=region(p,width,height);return q?{id:i,...q}:null;}).filter(Boolean);
++function frame(data,width,height,imageId=catalog.DEFAULT_ID){
++ const empty={points:[],regions:[],omittedRegions:0};if(!available(imageId)||!(width>0&&height>0)||!Number.isFinite(width)||!Number.isFinite(height))return empty;
++ const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,'gcj02',imageId);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);
++ const source=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61),regions=source.map((p,i)=>{const q=region(p,width,height,imageId);return q?{id:i,...q}:null;}).filter(Boolean);
+  return {points,regions,omittedRegions:source.length-regions.length};
+ }
+ // A present but invalid room model must fail closed, never silently fall back.
+-function overlay(data,registration,width,height){return registration?affine.frame(data,registration,width,height):frame(data,width,height);}
++function overlay(data,registration,width,height,imageId=catalog.DEFAULT_ID){return registration?affine.frame(data,registration,width,height,imageId):frame(data,width,height,imageId);}
+ module.exports={project,frame,overlay,gcjToWgs,available,region};
+diff --git "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\presentation.js" "b/D:\\cat-mouse-miniprogram\\utils\\presentation.js"
+index cbfbd30..b21c0b2 100644
+--- "a/D:\\cat-mouse-miniprogram\\reports\\2026-10-16\\campus-integration-v1\\before\\utils\\presentation.js"
++++ "b/D:\\cat-mouse-miniprogram\\utils\\presentation.js"
+@@ -1,3 +1,4 @@
++const venueCatalog=require('./venue-catalog');
+ // Display-only projection: authority stays in authenticated server snapshots.
+ function metrics() {
+   let w={}, capsule={}, base={};
+@@ -13,9 +14,10 @@ function project(s,offline=false) {
+   const mice=s.rules?.mice ?? roster.filter(p=>p.role==='mouse').length;
+   const state=terminal?(m.outcome==='cat_win'?'catWin':m.outcome==='mouse_win'?'mouseWin':'cancelled'):offline?'offline':m.phase==='PAUSED'?'paused':m.myStatus==='captured'?'captured':m.phase==='HIDING'?'hiding':m.myRole==='cat'?'cat':'mouse';
+   const scenes={hiding:'hiding-scene',paused:'paused-scene',offline:'offline-hero',catWin:'catwin-hero',mouseWin:'mousewin-hero',cancelled:'cancelled-hero'};
++  const venueMapId=s.venue?.mapId||venueCatalog.DEFAULT_ID,image=venueCatalog.get(venueMapId);
+   const art=scenes[state]?'/assets/pixel-v1/'+scenes[state]+'.png':'';
+   // The uncalibrated v3 artwork is a public guide, never a geographic overlay.
+-  return {uiState:state,parkArt:'/assets/maps/xuanwu-lake-v4.jpg',stateArt:art,roleArt:'/assets/pixel-v1/role-'+(m.myRole==='cat'?'cat':'mouse')+'.png',terminal,canScan:live&&m.myRole==='cat',canShowCode:live&&m.myRole==='mouse',canResume:!offline&&m.phase==='PAUSED'&&!!s.owner,canReplay:!offline&&terminal&&!!s.owner,initialMice:mice,resultSummary:terminal&&m.phase!=='CANCELLED'?'捕获 '+m.captured+' / '+mice+' 人'+(m.outcome==='mouse_win'?'，未达目标':''):'这局记录保留，下一轮使用新的对局',cats:roster.filter(p=>p.role==='cat'),mice:roster.filter(p=>p.role==='mouse')};
++  return {uiState:state,venueMapId,venueName:image?.label||'场地地图',parkArt:image?.src||'',stateArt:art,roleArt:'/assets/pixel-v1/role-'+(m.myRole==='cat'?'cat':'mouse')+'.png',terminal,canScan:live&&m.myRole==='cat',canShowCode:live&&m.myRole==='mouse',canResume:!offline&&m.phase==='PAUSED'&&!!s.owner,canReplay:!offline&&terminal&&!!s.owner,initialMice:mice,resultSummary:terminal&&m.phase!=='CANCELLED'?'捕获 '+m.captured+' / '+mice+' 人'+(m.outcome==='mouse_win'?'，未达目标':''):'这局记录保留，下一轮使用新的对局',cats:roster.filter(p=>p.role==='cat'),mice:roster.filter(p=>p.role==='mouse')};
+ }
+ function eventTime(at) {
+   if(!Number.isFinite(at))return '—';

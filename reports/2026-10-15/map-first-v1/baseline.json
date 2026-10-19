@@ -1,0 +1,82 @@
+[
+  {
+    "path": "cat-mouse-server/v2/client.test.js",
+    "sha256": "52e829ec167ba227925e41034e94571168e8b4cf139ede106e9ba68ba1dd0524"
+  },
+  {
+    "path": "cat-mouse-server/v2/dev-preview.test.js",
+    "sha256": "d4c1a7ed22b5c3ddcb63eaf43eeb92859fa94b1c59032b313fd1841cfbcc1877"
+  },
+  {
+    "path": "cat-mouse-server/v2/pixel-ui.test.js",
+    "sha256": "e5678017855a15f14078bbe43e8ae2d2b9a9d892305e723c0f0263166201f85b"
+  },
+  {
+    "path": "cat-mouse-server/v2/presentation.test.js",
+    "sha256": "3c8930a96334c2e81378477b5248803ac3c3475413e00f47e99268904da671a9"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "sha256": "3e54ca9c428a9ee9fd228bfc814234444f445644e067c388948e13d3b9ef7c75"
+  },
+  {
+    "path": "components/venue-art/venue-art.wxss",
+    "sha256": "11dcb0b7e86636504474c510360fab36023dbd4720a788b4156edd9ff195ece7"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/manifest.json",
+    "sha256": "a556165e2c054fc8a59b59cfc217ddf199a30ccb88550d4d9d27cb691c2ac329"
+  },
+  {
+    "path": "design/2026-10-13/global-font-v1/ui-subset.woff",
+    "sha256": "6fcf454fbe6a96fa2544e37fc2f7ff65ee825e9eb313f15cd1d930cc9dd20f99"
+  },
+  {
+    "path": "GEO_MAP_BINDING.md",
+    "sha256": "445e678ecf5b1b8a69bb26d3da4a52592beb032d252837d70ef4ebc7050f0cb7"
+  },
+  {
+    "path": "pages/map/map.js",
+    "sha256": "2573cdc2d144073f1d5c70eaf16d65fb330ea59b71f9df2aaa478716be0ee608"
+  },
+  {
+    "path": "pages/map/map.json",
+    "sha256": "ddf340361a2f3d1357c1b7cabb6f7cc0288a675c9538fb2bde779bace0691fa0"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "sha256": "9a8fa7023b96db7cdff0ce66e8d8a8142590235098c05fada80523f734d77fde"
+  },
+  {
+    "path": "pages/map/map.wxss",
+    "sha256": "98df3558e5cd875486d514ee7421e4cd134ce836fcbbc0a7828b4ba33a16a91f"
+  },
+  {
+    "path": "pages/qrcode/qrcode.js",
+    "sha256": "0fb5efac502ff2166bacef9fad8826263a686985d41673cc3123bb55ca846192"
+  },
+  {
+    "path": "README.md",
+    "sha256": "b1b5254432be8ca66cf5d8dffd0ea70e239272d660844068b1723b763a208a4f"
+  },
+  {
+    "path": "RELEASE.md",
+    "sha256": "8dd7cfe653ea40270a482f06a2707f7b4bb8536be19b71bf74e775ba2be5da77"
+  },
+  {
+    "path": "scripts/package-release.ps1",
+    "sha256": "44e118aae4807edfaaef806f0a864a548989a2c1d051effb8978475dad12f5bc"
+  },
+  {
+    "path": "scripts/pixel-ui-review.cjs",
+    "sha256": "dabf5b5f51dc2ce6f89ddbdff673757bd90b7b0dfea1f42db3b919012eacefac"
+  },
+  {
+    "path": "utils/fusion-font.wxss",
+    "sha256": "799c97fd72f906254e1e602ba7f7b96e24d5178b621edcb5335244725ba431c8"
+  },
+  {
+    "path": "WORK_LOG.md",
+    "sha256": "e5aeaceb3af68c3e2d0bcb59591ecf432e95730716faf29420e70e840d333a3a"
+  }
+]

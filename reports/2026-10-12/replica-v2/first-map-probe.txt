@@ -1,0 +1,18 @@
+ROUTE cat
+PASS cat
+ROUTE mouse
+ROUTE_RETRY mouse {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouse
+ROUTE offline
+ROUTE_RETRY offline {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS offline
+ROUTE mouseWin
+ROUTE_RETRY mouseWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouseWin
+ROUTE cancelled
+ROUTE_RETRY cancelled {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cancelled
+ROUTE drawer
+ROUTE_RETRY drawer {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS drawer
+REPLICA_UI_PASS=6 FONT_SCALE=1

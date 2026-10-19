@@ -1,0 +1,58 @@
+GEOGRAPHIC REGISTRATION VERIFICATION / 2026-10-15
+CWD: D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5
+Changed field: enabled=false -> enabled=true; status=unregistered -> osm-image-registered-field-unverified
+New fields: local Mercator origin/world points, original pixels, 72 shared triangles, 41 anchors; fieldVerified=false; extrapolation=false
+Artifact paths:
+D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\MODIFIED_FILE.json
+D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\DIFF_FILE.diff
+D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\VERIFICATION.txt
+D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\ROLLBACK.sh
+Original image: D:\cat-mouse-miniprogram\assets\maps\xuanwu-lake-v4.jpg
+Original and copied SHA256: d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540
+Original OSM SHA256: 2ba67de27a5880686c6e6d52a7e61808f7c9ce3ff7f7335916ec67ee47ce524a
+
+BASELINE
+COMMAND: node verify.cjs baseline.json baseline
+INPUT: D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\baseline.json
+LITERAL STDOUT:
+PASS enabled=false mapping=null image=unchanged
+LITERAL STDERR:
+(empty)
+EXIT STATUS: 0
+
+MODIFIED
+COMMAND: node verify.cjs MODIFIED_FILE.json registered --report
+INPUT: D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\MODIFIED_FILE.json
+LITERAL STDOUT:
+PASS anchors=41 triangles=72 folds=0 crossings=0 roundtrips=288 outside=null crs_guard=PASS image=unchanged fieldVerified=false
+LITERAL STDERR:
+(empty)
+EXIT STATUS: 0
+
+ROLLBACK
+COMMAND: "D:\Program Files\Git\bin\bash.exe" -c "test -x ./ROLLBACK.sh && ./ROLLBACK.sh rollback-test.json"
+INPUT: copy of MODIFIED_FILE.json -> D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\rollback-test.json
+LITERAL STDOUT:
+ROLLBACK_PASS enabled=false status=unregistered image=unchanged
+LITERAL STDERR:
+(empty)
+EXIT STATUS: 0
+
+RESTORED
+COMMAND: node verify.cjs rollback-test.json baseline
+INPUT: D:\cat-mouse-miniprogram\design\maps\xuanwu-lake\georegistration-v5\rollback-test.json
+LITERAL STDOUT:
+PASS enabled=false mapping=null image=unchanged
+LITERAL STDERR:
+(empty)
+EXIT STATUS: 0
+
+BROWSER: node browser-check.cjs (same CWD)
+LITERAL STDOUT: BROWSER_PASS anchor_select layers click_mapping outside_guard mobile_layout raster_export baseline_rollback_disabled errors=0
+EXIT STATUS: 0; browser-results.json reopened and pass=true.
+Restored behavior: rollback-test.json is byte-identical to baseline.json; mapping=null, original art displayed; export disabled after page reload.
+Final behavior: MODIFIED_FILE.json remains enabled=true; original image unchanged; no production app or server state modified.
+Important: interpolation control residual is not field accuracy. Same-source feature-group holdout RMS=5.18/17.41/14.07/9.34/10.76 px. Diagnosed shoreline holdout=33.83 px.
+Early QA failures resolved: one ambiguous shoreline control removed and documented; outer control indexing corrected; Edge run through localhost for clean Canvas export; final topology has no folds/crossings.
+Generated north-up PNG is only the triangulation hull, with transparency outside. PGW computed anew. Original full artwork remains available.
+Rollback affects model only; prior exported PNG and report files remain historical artifacts. Reload viewer to see disabled mapping.

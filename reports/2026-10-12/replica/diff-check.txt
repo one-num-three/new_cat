@@ -1,0 +1,13 @@
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'cat-mouse-server/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'cat-mouse-server/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'cat-mouse-server/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/index/index.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/qrcode/qrcode.wxml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/qrcode/qrcode.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/quiz/quiz.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/room/room.wxml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/room/room.wxss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pages/task/task.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'utils/api.js', LF will be replaced by CRLF the next time Git touches it

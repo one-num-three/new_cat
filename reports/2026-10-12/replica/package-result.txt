@@ -1,0 +1,3 @@
+Created: D:\cat-mouse-miniprogram\dist\replica-02-01\cat-mouse-miniprogram-mvp.zip
+Created: D:\cat-mouse-miniprogram\dist\replica-02-01\cat-mouse-server.zip
+PACKAGE_VERIFY=PASS files=55 uncompressed=1181931 zip=1136443 testIdentities=false

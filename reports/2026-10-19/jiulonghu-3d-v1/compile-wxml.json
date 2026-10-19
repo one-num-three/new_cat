@@ -1,0 +1,22 @@
+{
+  "status": 0,
+  "files": [
+    "pages/index/index.wxml",
+    "pages/room/room.wxml",
+    "pages/map/map.wxml",
+    "pages/qrcode/qrcode.wxml",
+    "pages/dev/dev.wxml",
+    "pages/venue/venue.wxml",
+    "pages/calibrate/calibrate.wxml",
+    "components/nav-bar/nav-bar.wxml",
+    "components/pixel-action/pixel-action.wxml",
+    "components/venue-art/venue-art.wxml",
+    "components/map-icon/map-icon.wxml",
+    "venue-maps/pages/open/open.wxml",
+    "components/campus-model/campus-model.wxml",
+    "campus3d/pages/open/open.wxml"
+  ],
+  "compiler": "D:/Program Files (x86)/微信web开发者工具/resources/app.asar.unpacked/node_modules/wcc-exec/wcc.exe",
+  "outputBytes": 137340,
+  "stderr": ""
+}

@@ -1,0 +1,125 @@
+02-01 原生页面复刻验证 · 2026-10-12T02:09:35.012490
+BRANCH: master（沿用；没有创建分叉、reset、推送、上传或部署）
+CHANGED_FIELDS: app.window.navigationStyle=custom; display-only uiState/canScan/canShowCode/canResume/canReplay; owner + phase + active + online gates.
+RULE_VERSION: pilot-0.2 unchanged. Runtime art supplement: 02-01-replica-1. Original visual-1.0 unchanged.
+MODIFIED_FILE: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\MODIFIED_FILE.zip
+DIFF_FILE: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\DIFF_FILE.diff
+VERIFICATION: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\VERIFICATION.txt
+ROLLBACK: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\ROLLBACK.sh
+
+BASELINE
+CWD: D:\cat-mouse-miniprogram\cat-mouse-server
+COMMAND: npm test
+INPUT: v2/*.test.js before this UI iteration; 20 healthy regression tests (not audit-baseline.cjs defect assertions).
+LITERAL OUTPUT EXCERPT:
+1..20
+# tests 20
+# pass 20
+# fail 0
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\baseline-tests.txt
+
+MODIFIED
+CWD: D:\cat-mouse-miniprogram\cat-mouse-server
+COMMAND: npm test
+INPUT: v2/*.test.js including 6 new presentation/template/native-control/art tests; 26 tests.
+LITERAL OUTPUT EXCERPT:
+1..26
+# tests 26
+# pass 26
+# fail 0
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\modified-tests.txt
+
+ROLLBACK
+CWD: D:\cat-mouse-miniprogram
+COMMAND (PowerShell invokes Git Bash): & 'D:/Program Files/Git/bin/bash.exe' reports/2026-10-12/replica/ROLLBACK.sh reports/2026-10-12/replica/rollback-fixture
+INPUT: marked isolated rollback-fixture; 30 byte-preserved original files and baseline-hashes.json.
+LITERAL OUTPUT:
+ROLLBACK_PASS=30 SHA256_MATCH=30 restored=native-navigation-and-previous-UI live-worktree=unchanged
+EXIT STATUS: 0
+RESTORED BEHAVIOR: previous non-custom navigation and old home/UI source restored; 30/30 SHA-256 equal. Live app remains navigationStyle=custom and uses replica artwork.
+ROLLBACK HEALTH COMMAND: node --test v2/client.test.js v2/dev-preview.test.js v2/integration.test.js v2/rules.test.js
+CWD: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\rollback-fixture\cat-mouse-server
+INPUT: original 20-test health suite; 6 replica-specific assertions are not applicable to old UI.
+LITERAL OUTPUT EXCERPT:
+1..20
+# tests 20
+# pass 20
+# fail 0
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\rollback-tests.txt
+ROLLBACK SCOPE: 30 original UI/platform/helper files only, not a full repository revert. Two mock require adapters in client/dev-preview tests were not in the initial byte backup. New inert assets/tests are retained in the fixture. No Git/user files or databases were deleted.
+
+WECHAT IDE NORMAL
+COMMAND: node scripts/replica-review.cjs all reports/2026-10-12/replica/verified
+INPUT: develop build; 390x844 viewport; gallery+14 preview cases+drawer.
+LITERAL OUTPUT:
+REPLICA_UI_PASS=16 FONT_SCALE=1
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\verified-probe.txt
+
+WECHAT IDE APP FONT MULTIPLIER
+COMMAND: node scripts/replica-review.cjs all reports/2026-10-12/replica/large large
+INPUT: same 16 cases; fontScale setData=1.3. This is NOT a phone system font or 320px device test.
+LITERAL OUTPUT:
+REPLICA_UI_PASS=16 FONT_SCALE=1.3
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\large-probe.txt
+
+WECHAT HANDLER/RENDER INTEGRATION
+COMMAND: node scripts/replica-interaction.cjs
+INPUT: explicit developer fixture only. Name/code, join, readiness gate/start, drawer, mouse code/back, offline, large gallery scrolling. Uses page handlers and official selectors, not physical taps.
+LITERAL OUTPUT:
+REPLICA_INTERACTION_PASS=8
+EXIT STATUS: 0
+FULL OUTPUT: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\interaction-results.txt
+
+ART
+COMMAND: python scripts/freeze-art.py --verify
+LITERAL OUTPUT: Verified 78 frozen art files
+EXIT STATUS: 0
+COMMAND: node scripts/verify-replica-art.cjs
+LITERAL OUTPUT: REPLICA_ART_VERIFY source=10 runtime=9 alpha=6
+EXIT STATUS: 0
+Runtime art bytes: 758167. Original + new locks reopened; six state PNGs have transparent and opaque pixels.
+
+PACKAGE
+COMMAND: & scripts/package-release.ps1 -OutputDirectory dist/replica-02-01
+COMMAND: python scripts/verify-replica-package.py
+LITERAL OUTPUT:
+Created: D:\cat-mouse-miniprogram\dist\replica-02-01\cat-mouse-miniprogram-mvp.zip
+Created: D:\cat-mouse-miniprogram\dist\replica-02-01\cat-mouse-server.zip
+PACKAGE_VERIFY=PASS files=55 uncompressed=1181931 zip=1136443 testIdentities=false
+EXIT STATUS: 0
+COMMAND: python scripts/replica-evidence.py
+LITERAL OUTPUT: DIFF_VERIFY changed=44 baselineSHA256=30 newAssets=9
+EXIT STATUS: 0
+INPUT: saved working-tree originals (not Git HEAD). Text EOL normalized in diff; exact byte hashes in changes.json. Design files/logs and two harness adapters separately documented, not included in the 44 UI implementation paths.
+COMMAND: python scripts/build-replica-comparison.py
+LITERAL OUTPUT: COMPARISON_VERIFY=16 groups / 48 PNG references PASS
+EXIT STATUS: 0
+COMMAND: git diff --check
+LITERAL RESULT: no whitespace errors; existing LF/CRLF warnings in diff-check.txt.
+EXIT STATUS: 0
+
+SELF REVIEW / REMAINING
+Actual geographic map and server QR retained; no enemy coordinates added; no new realtime frequency/production dependency; no winner/client-authority change.
+First presentation test failed FINISHED offline canReplay, then fixed. A large-font WXML conditional quote error was fixed and syntax regression added. Old SDK element failures, 14-case incomplete batch and stale-route timeouts are retained but excluded from PASS claims.
+Native SDK events did not complete; replacement handler/selector integration is explicitly labelled. Bound navigation waits and no repeated command on response timeout.
+Not pixel-identical: system text glyphs, layer-derived scenery and semantic preview values differ. No numerical similarity claim.
+Not executed: actual 320px device, OS font, Android/iPhone touch, real login/GPS/scanning, native map overlays, outdoor light, motion FPS, background location, new public-server load or venue acceptance.
+IDE window shrink root cause unconfirmed; no desktop move/resize or IDE-fix claim.
+Local start/config/next venue steps: D:\cat-mouse-miniprogram\reports\2026-10-12\replica\README.md
+All four deliverables reopened below; live MODIFIED behavior retained.
+REOPEN MODIFIED_FILE: bytes=1136443 SHA256=beaef9b4cd6dfecc7715aa536d3305f50b24c7c085028640aada071c18d90af9
+REOPEN DIFF_FILE: bytes=113177 SHA256=05c62f21f1e43815d01ada3b71f6b71984445fbe696d47aba752798b196697e7
+REOPEN ROLLBACK: bytes=1502 SHA256=4e8ed7e611e8d649d8941917e647912e16808d402b41ae2b3b430005696698b6
+
+SYNTAX
+COMMAND: node --check <each of pages/index/index.js, pages/room/room.js, pages/map/map.js, pages/qrcode/qrcode.js, pages/dev/dev.js, components/nav-bar/nav-bar.js, utils/presentation.js, scripts/replica-review.cjs, scripts/replica-interaction.cjs>
+LITERAL OUTPUT: SYNTAX_VERIFY=9 PASS
+EXIT STATUS: 0
+ROLLBACK EXECUTABILITY COMMAND: test -x /d/cat-mouse-miniprogram/reports/2026-10-12/replica/ROLLBACK.sh && echo ROLLBACK_EXECUTABLE=YES
+LITERAL OUTPUT: ROLLBACK_EXECUTABLE=YES
+EXIT STATUS: 0

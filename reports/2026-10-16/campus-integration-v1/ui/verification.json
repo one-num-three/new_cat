@@ -1,0 +1,771 @@
+[
+  {
+    "name": "guide-xuanwu",
+    "route": "pages/venue/venue",
+    "mapId": "xuanwu-v4",
+    "venueName": "玄武湖 · 环洲樱洲",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "imageId": "xuanwu-v4",
+    "source": "/assets/maps/xuanwu-lake-v4.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": -372.66912841796875,
+      "right": 427.14276123046875,
+      "top": 169.9453125,
+      "bottom": 969.7572021484375,
+      "width": 799.8118896484375,
+      "height": 799.8118896484375
+    },
+    "sprites": [],
+    "points": [],
+    "fitWidth": 628.0546875,
+    "fitHeight": 628.0546875,
+    "scale": 1.28,
+    "paper": null,
+    "buttons": []
+  },
+  {
+    "name": "guide-jiulonghu",
+    "route": "pages/venue/venue",
+    "mapId": "seu-jiulonghu-v1",
+    "venueName": "东南大学 · 九龙湖",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "imageId": "seu-jiulonghu-v1",
+    "source": "/venue-maps/assets/jiulonghu-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 3
+      },
+      "left": -219.0636444091797,
+      "right": 573.2287139892578,
+      "top": 169.9453125,
+      "bottom": 962.2376708984375,
+      "width": 792.2923583984375,
+      "height": 792.2923583984375
+    },
+    "sprites": [],
+    "points": [],
+    "fitWidth": 628.0546875,
+    "fitHeight": 628.0546875,
+    "scale": 1.28,
+    "paper": null,
+    "buttons": []
+  },
+  {
+    "name": "guide-sipailou",
+    "route": "pages/venue/venue",
+    "mapId": "seu-sipailou-v1",
+    "venueName": "东南大学 · 四牌楼",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "imageId": "seu-sipailou-v1",
+    "source": "/venue-maps/assets/sipailou-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 4
+      },
+      "left": -410.5558166503906,
+      "right": 392.1340637207031,
+      "top": 169.9453125,
+      "bottom": 972.6351928710938,
+      "width": 802.6898803710938,
+      "height": 802.6898803710938
+    },
+    "sprites": [],
+    "points": [],
+    "fitWidth": 628.0546875,
+    "fitHeight": 628.0546875,
+    "scale": 1.28,
+    "paper": null,
+    "buttons": []
+  },
+  {
+    "name": "play-jiulonghu-mouse",
+    "route": "pages/map/map",
+    "mapId": "seu-jiulonghu-v1",
+    "venueName": "东南大学 · 九龙湖",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "art": true,
+    "imageId": "seu-jiulonghu-v1",
+    "source": "/venue-maps/assets/jiulonghu-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -183.5,
+      "right": 573.5,
+      "top": 87,
+      "bottom": 844,
+      "width": 757,
+      "height": 757
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": -23.96875,
+        "right": 24.03125,
+        "top": 427.1953125,
+        "bottom": 475.1953125,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 393.171875,
+        "right": 441.171875,
+        "top": 426.796875,
+        "bottom": 474.796875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 123.6015625,
+        "right": 171.6015625,
+        "top": 394.4453125,
+        "bottom": 442.4453125,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 183.51515151696242,
+        "y": 383.32934608919476,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 600.6499202582891,
+        "y": 383.93301434959454,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 322.9625199399071,
+        "y": 347.71291865689096,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "scale": 1,
+    "paper": {
+      "id": "",
+      "dataset": {},
+      "left": 150,
+      "right": 390,
+      "top": 714,
+      "bottom": 844,
+      "width": 240,
+      "height": 130
+    },
+    "buttons": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 179,
+        "right": 227,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "team"
+        },
+        "left": 247,
+        "right": 295,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "rules"
+        },
+        "left": 315,
+        "right": 363,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      }
+    ],
+    "offline": false
+  },
+  {
+    "name": "zoom-jiulonghu",
+    "route": "pages/map/map",
+    "mapId": "seu-jiulonghu-v1",
+    "venueName": "东南大学 · 九龙湖",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "art": true,
+    "imageId": "seu-jiulonghu-v1",
+    "source": "/venue-maps/assets/jiulonghu-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -278.125,
+      "right": 668.125,
+      "top": -7.625,
+      "bottom": 938.625,
+      "width": 946.25,
+      "height": 946.25
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": -72.716796875,
+        "right": -24.716796875,
+        "top": 428.40234375,
+        "bottom": 476.40234375,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 448.708984375,
+        "right": 496.708984375,
+        "top": 428.154296875,
+        "bottom": 476.154296875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 109.716796875,
+        "right": 157.716796875,
+        "top": 386.748046875,
+        "bottom": 434.748046875,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 183.51515151696242,
+        "y": 383.32934608919476,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 600.6499202582891,
+        "y": 383.93301434959454,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 322.9625199399071,
+        "y": 347.71291865689096,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "scale": 1.25,
+    "paper": {
+      "id": "",
+      "dataset": {},
+      "left": 150,
+      "right": 390,
+      "top": 714,
+      "bottom": 844,
+      "width": 240,
+      "height": 130
+    },
+    "buttons": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 179,
+        "right": 227,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "team"
+        },
+        "left": 247,
+        "right": 295,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "rules"
+        },
+        "left": 315,
+        "right": 363,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      }
+    ],
+    "offline": false
+  },
+  {
+    "name": "play-sipailou-cat",
+    "route": "pages/map/map",
+    "mapId": "seu-sipailou-v1",
+    "venueName": "东南大学 · 四牌楼",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "art": true,
+    "imageId": "seu-sipailou-v1",
+    "source": "/venue-maps/assets/sipailou-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -183.5,
+      "right": 573.5,
+      "top": 87,
+      "bottom": 844,
+      "width": 757,
+      "height": 757
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 250.1015625,
+        "right": 298.1015625,
+        "top": 412.1015625,
+        "bottom": 460.1015625,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 140.234375,
+        "right": 188.234375,
+        "top": 411.703125,
+        "bottom": 459.703125,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 187.5859375,
+        "right": 235.5859375,
+        "top": 347.359375,
+        "bottom": 395.359375,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 457.5805422656904,
+        "y": 368.2376395515412,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 347.7129186621626,
+        "y": 368.84130781145325,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 386.9513556628177,
+        "y": 300.6267942565454,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "scale": 1,
+    "paper": {
+      "id": "",
+      "dataset": {},
+      "left": 150,
+      "right": 390,
+      "top": 714,
+      "bottom": 844,
+      "width": 240,
+      "height": 130
+    },
+    "buttons": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 179,
+        "right": 227,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "team"
+        },
+        "left": 247,
+        "right": 295,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "rules"
+        },
+        "left": 315,
+        "right": 363,
+        "top": 760,
+        "bottom": 804,
+        "width": 48,
+        "height": 44
+      }
+    ],
+    "offline": false
+  },
+  {
+    "name": "narrow-sipailou",
+    "route": "pages/map/map",
+    "mapId": "seu-sipailou-v1",
+    "venueName": "东南大学 · 四牌楼",
+    "width": 320,
+    "height": 600,
+    "safe": 34,
+    "art": true,
+    "imageId": "seu-sipailou-v1",
+    "source": "/venue-maps/assets/sipailou-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -96.5,
+      "right": 416.5,
+      "top": 87,
+      "bottom": 600,
+      "width": 513,
+      "height": 513
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 189.609375,
+        "right": 237.609375,
+        "top": 293.40625,
+        "bottom": 341.40625,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 115.15625,
+        "right": 163.15625,
+        "top": 292.8203125,
+        "bottom": 340.8203125,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 149.8671875,
+        "right": 197.8671875,
+        "top": 250.4609375,
+        "bottom": 298.4609375,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 310.0909090915445,
+        "y": 249.54545454417524,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 235.63636363763467,
+        "y": 249.95454545214736,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 262.2272727279069,
+        "y": 203.7272727260341,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 513,
+    "fitHeight": 513,
+    "scale": 1,
+    "paper": {
+      "id": "",
+      "dataset": {},
+      "left": 80,
+      "right": 320,
+      "top": 470,
+      "bottom": 600,
+      "width": 240,
+      "height": 130
+    },
+    "buttons": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 109,
+        "right": 157,
+        "top": 516,
+        "bottom": 560,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "team"
+        },
+        "left": 177,
+        "right": 225,
+        "top": 516,
+        "bottom": 560,
+        "width": 48,
+        "height": 44
+      },
+      {
+        "id": "",
+        "dataset": {
+          "tab": "rules"
+        },
+        "left": 245,
+        "right": 293,
+        "top": 516,
+        "bottom": 560,
+        "width": 48,
+        "height": 44
+      }
+    ],
+    "offline": false
+  },
+  {
+    "name": "calibrate-sipailou",
+    "route": "pages/calibrate/calibrate",
+    "mapId": "seu-sipailou-v1",
+    "venueName": "东南大学 · 四牌楼",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "imageId": "seu-sipailou-v1",
+    "source": "/venue-maps/assets/sipailou-v1.jpg",
+    "imageState": "ready",
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": 16,
+      "right": 374,
+      "top": 217.390625,
+      "bottom": 575.390625,
+      "width": 358,
+      "height": 358
+    },
+    "sprites": [],
+    "points": [],
+    "fitWidth": 358,
+    "fitHeight": 358,
+    "scale": 1,
+    "paper": null,
+    "buttons": []
+  },
+  {
+    "name": "create-jiulonghu",
+    "route": "pages/room/room",
+    "mapId": "seu-jiulonghu-v1",
+    "venueName": "东南大学 · 九龙湖",
+    "venue": null,
+    "resource": "ready",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "guideImage": {
+      "id": "",
+      "dataset": {},
+      "left": 194.4609375,
+      "right": 369,
+      "top": 488.6796875,
+      "bottom": 605.6796875,
+      "width": 174.5390625,
+      "height": 117
+    },
+    "rosterCount": 0
+  },
+  {
+    "name": "ready-jiulonghu",
+    "route": "pages/room/room",
+    "mapId": "seu-jiulonghu-v1",
+    "venueName": "东南大学 · 九龙湖",
+    "venue": {
+      "lng": 118.81920737398848,
+      "lat": 31.88777433108612,
+      "mapId": "seu-jiulonghu-v1",
+      "radiusM": 200,
+      "confirmed": true
+    },
+    "resource": "ready",
+    "width": 390,
+    "height": 844,
+    "safe": 34,
+    "guideImage": null,
+    "rosterCount": 8
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "id": "03-pixel-day/03-ready",
+  "status": "revised",
+  "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a12dee-5ebe-77e0-a71e-48dee3c92e34\\exec-66a5cd33-3112-40cd-adf5-334ed52707ba.png",
+  "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/03-ready-v2.png",
+  "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n准备页阵营尚未分配。只改玩家列表里的8个头像，全部换成穿便服的中性像素人类头像，不是猫鼠头像，不用橙蓝阵营区分；8个昵称和已准备状态完全保留。在“玩家列表（8/8）”下添加清晰小字“阵营将在开始后分配”。顶部猫鼠品牌插画、人数配置2猫6鼠、10位房间码A1B2C3D4E5、规则、按钮完全不变。"
+}

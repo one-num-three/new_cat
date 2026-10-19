@@ -1,0 +1,72 @@
+{
+  "route": "pages/map/map",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "controller": "function",
+  "phase": "CHASING",
+  "geoData": {
+    "points": [
+      {
+        "lng": 118.81920737398848,
+        "lat": 31.88777433108612,
+        "radiusM": 200,
+        "mapId": "seu-jiulonghu-v1",
+        "label": "集合点",
+        "tone": "venue"
+      }
+    ],
+    "regions": []
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "ready",
+    "error": "",
+    "camera": {
+      "x": 0,
+      "z": 0,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 3458.9076923076923
+    },
+    "width": 390,
+    "height": 757,
+    "pins": [
+      {
+        "x": 166.78142446352902,
+        "y": 365.7529816715983,
+        "z": -74.7424557942168,
+        "fieldVerified": false,
+        "id": 0,
+        "tone": "venue",
+        "label": "集合点",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "drawCount": 1,
+    "lastDrawMs": 16,
+    "omitted": 0
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "version": "georegistration-v5",
+  "date": "2026-10-15",
+  "sourceImage": "assets/maps/xuanwu-lake-v4.jpg",
+  "sourceImageSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+  "fieldVerified": false,
+  "productionIntegrated": false,
+  "archiveCreated": false,
+  "files": [
+    {
+      "file": "anchors.csv",
+      "bytes": 5040,
+      "sha256": "b37fc9ae37e0b99e667ae3226d6a8bb54f859a312cc1ce1efbc1406103e1855d"
+    },
+    {
+      "file": "anchors.json",
+      "bytes": 13173,
+      "sha256": "cec2061a667f866caf5cb486a00754a7c64387498707079bf2306b2f5be89625"
+    },
+    {
+      "file": "art-style-review.png",
+      "bytes": 1688985,
+      "sha256": "1939291eb29e2fae4e986671feb1fe0313643ff85d6cff95189dec63b753ffbb"
+    },
+    {
+      "file": "artwork-original.jpg",
+      "bytes": 804062,
+      "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540"
+    },
+    {
+      "file": "baseline.json",
+      "bytes": 362,
+      "sha256": "e6a404642a2296c6ea1bfc7100c916af8ddc52d39d5c3f6a1d9403f4405cbb2c"
+    },
+    {
+      "file": "browser-check.cjs",
+      "bytes": 3182,
+      "sha256": "6282b7b2bf7d80dedacde001d47e4897d2a1e7eb58821cd280d478b6ea7afd55"
+    },
+    {
+      "file": "browser-results.json",
+      "bytes": 255,
+      "sha256": "e650cb11dff0a9a4c96d57379e642242f13152d998ca385994abdd08d9d3f24d"
+    },
+    {
+      "file": "build.py",
+      "bytes": 9300,
+      "sha256": "ad317550be52e3652fdcb095268eee4f89ae5a688f34522e1ea97a4d7ff7c523"
+    },
+    {
+      "file": "bundle.js",
+      "bytes": 1014,
+      "sha256": "f4a8db16eb223a44e284c26765a4be44dd32249e996a1c79ffc237fa0790cf42"
+    },
+    {
+      "file": "command-results.json",
+      "bytes": 1471,
+      "sha256": "29fd1169ebe324dd349e988ebfc33affdca9b7f29294f30c977a062ccb281c19"
+    },
+    {
+      "file": "DIFF_FILE.diff",
+      "bytes": 26806,
+      "sha256": "c2c786346a5ba5f97bcc3b1cbb7e48e9087fdbb478e7f396267bc3a9cfe5316c"
+    },
+    {
+      "file": "FILE_INDEX-before-v5.md",
+      "bytes": 9150,
+      "sha256": "c100f6abcef18fa0f0d92ec83fcaf55286a209c85f82e607d756c43f8431cbf5"
+    },
+    {
+      "file": "index.html",
+      "bytes": 3306,
+      "sha256": "bd62c53324cc2e7380bdbaea763ebc1fb12bedb9924ccb388ce34b500d233b53"
+    },
+    {
+      "file": "mapping.js",
+      "bytes": 1836,
+      "sha256": "f4fb6a99a43cd9cb65c980975942aeb4852d857dea11fd0a9c95cade11614fa6"
+    },
+    {
+      "file": "mobile-review.png",
+      "bytes": 471251,
+      "sha256": "7b1e25de45872bf7a2f755c727088fc0d08ecb91519bb324f06a5abf3f2e44fa"
+    },
+    {
+      "file": "MODIFIED_FILE.json",
+      "bytes": 25280,
+      "sha256": "6cf9b1f5670e92da6d4b8d5b5f339e8775c68d048fdbf728c20c4f3caddb213c"
+    },
+    {
+      "file": "quality.json",
+      "bytes": 1581,
+      "sha256": "a1d62fc6dc9859c449fb0667fc78705af4a0cd57ea6cfe5a00e88f6aba4ba226"
+    },
+    {
+      "file": "raster-georeference.json",
+      "bytes": 510,
+      "sha256": "7702e675d2dfef5941c17f43f86deb5b680a1aa83fc8f62303e886176c8db3a3"
+    },
+    {
+      "file": "README-before-v5.md",
+      "bytes": 12569,
+      "sha256": "e513feb6029662b72915a76b26e56e50c03858b34ec9b391e7978c8eccbcfceb"
+    },
+    {
+      "file": "README.md",
+      "bytes": 7588,
+      "sha256": "851edd58dfb104dbcd2e981d252fd36a259c895929d298ca739391f86ecfbfc6"
+    },
+    {
+      "file": "reference.geojson",
+      "bytes": 19991,
+      "sha256": "4f49d78d6bab89b45c8c6489dc3caf27ec37464e10542aeaf37dd5acb43463cc"
+    },
+    {
+      "file": "registered-north-up.pgw",
+      "bytes": 81,
+      "sha256": "f40db8f6a092cb584913acad198a8d94850e12e284078bbc51cde4bb89268b25"
+    },
+    {
+      "file": "registered-north-up.png",
+      "bytes": 1499169,
+      "sha256": "6597755ac8e443924ec9a10edd1c284f96d6c5ff1ec05ba9ee3b3d253d04b3eb"
+    },
+    {
+      "file": "registered-north-up.prj",
+      "bytes": 487,
+      "sha256": "bd22efe2e817ab941651d98abe0d6ee048c60e79f7ea4b4eff2f5464050a7cdf"
+    },
+    {
+      "file": "registration-review.png",
+      "bytes": 1699782,
+      "sha256": "0adc0ae28b47c517a2e38260329fd6cbe8e5139a904a0670df7b83aa974ce0e9"
+    },
+    {
+      "file": "rollback-test.json",
+      "bytes": 362,
+      "sha256": "e6a404642a2296c6ea1bfc7100c916af8ddc52d39d5c3f6a1d9403f4405cbb2c"
+    },
+    {
+      "file": "ROLLBACK.sh",
+      "bytes": 250,
+      "sha256": "39385cbcbab41465be054bc67fa968725c61c1ca1715704256f3b33b52604217"
+    },
+    {
+      "file": "serve.cjs",
+      "bytes": 1020,
+      "sha256": "56dffe344a13a72ddf4e3f1cb03d46f13acaff3add12d2f3ea7ed7715cc04960"
+    },
+    {
+      "file": "test-results.json",
+      "bytes": 283,
+      "sha256": "853acebd74670ef04286f562884aebf7e1c69530a6ef607f6898e0372ca64aa7"
+    },
+    {
+      "file": "VERIFICATION.txt",
+      "bytes": 3429,
+      "sha256": "596c1edbf4295435d9c109679031b916ea328d531e8a881e1b5b67d7ee102bbb"
+    },
+    {
+      "file": "verify-delivery.py",
+      "bytes": 3897,
+      "sha256": "a52ab43eceaa142436761e90edf87d996679322e3e3c7997baf96227d8d37564"
+    },
+    {
+      "file": "verify.cjs",
+      "bytes": 3101,
+      "sha256": "ddb12147f5c639c0105da1195d846ef9543d0b11da22caf37e1972b80543a15e"
+    },
+    {
+      "file": "viewer.js",
+      "bytes": 6310,
+      "sha256": "76cc1edff8c265b41d3f746d2b0bbdae94b0c7c2d920f3aeb8ffebe350d8599f"
+    }
+  ],
+  "updatedRootDocumentation": [
+    {
+      "file": "README.md",
+      "sha256": "19591e60cb57b14fe73842333f10ebf7493be4644c9fadf10fed0d61ea3cf5ca"
+    },
+    {
+      "file": "FILE_INDEX.md",
+      "sha256": "1a76e319925b6b8e59f57240f8a9b284acaf5990ea4b1431d15d9a10de8c282c"
+    }
+  ]
+}

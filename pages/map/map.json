@@ -1,4 +1,10 @@
 {
   "disableSwipeBack": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "campus-model": "/components/campus-model/campus-model",
+    "venue-art": "/components/venue-art/venue-art",
+    "pixel-glyph": "/components/map-icon/map-icon"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
 }

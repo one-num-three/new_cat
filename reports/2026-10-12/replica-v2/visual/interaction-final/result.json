@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "records": [
+    "input-handler-binding",
+    "join-preview-route",
+    "not-ready-start-guard",
+    "ready-start-hiding",
+    "drawer-open-close-render",
+    "mouse-code-return",
+    "offline-no-tactical-action",
+    "large-gallery-scroll-reachable",
+    "large-create-scroll-reachable",
+    "large-ready-scroll-reachable",
+    "large-code-scroll-reachable",
+    "large-drawer-scroll-reachable"
+  ],
+  "environment": "WeChat IDE develop preview; handler invocation + real selector layout; not physical taps"
+}

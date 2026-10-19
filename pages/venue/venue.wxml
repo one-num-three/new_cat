@@ -1,0 +1,14 @@
+<view class="screen venueScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+  <nav-bar title="场地地图" />
+  <view class="venueHeading">
+    <view class="venueSubtitle"><picker range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap"><view class="venuePickerValue"><text>{{venueName}}</text><text aria-hidden="true">›</text></view></picker><text class="venueReference">{{locationOn?(simulated?'模拟定位 · 非真实GPS':'本人实时定位 · 仅本机显示'):'场地导览 · 定位未开启'}}</text></view>
+    <button class="venueBack" bindtap="goBack" aria-label="返回上一页">‹ 返回</button>
+  </view>
+  <view class="gpsInfo" role="status"><text>{{locationText}}</text><text wx:if="{{coordinateText}}" class="gpsCoordinates">{{coordinateText}}</text><text wx:if="{{locationError}}" class="gpsMessage">{{locationError}}</text></view>
+  <view class="venueFrame">
+    <campus-model wx:if="{{modelMode}}" class="campusModel" image-id="{{mapId}}" geo-data="{{geoData}}" layout-key="{{layoutKey}}" bindfallback="useArtMap" />
+    <venue-art wx:elif="{{artMode}}" class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" geo-data="{{geoData}}" osm-reference="{{locationOn}}" auto-tour="{{!locationOn}}" layout-key="{{layoutKey+'-'+locationOn+'-'+hasPosition+'-'+locationError}}" bind:ready="onArtReady" />
+    <map wx:else class="guideNativeMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" show-location="{{false}}" enable-rotate="{{false}}" bindregionchange="onNativeRegion" />
+    <view class="guideTools"><button class="guideIcon {{locationOn?'active':''}}" bindtap="locate" aria-label="开启定位或回到本人"><map-icon kind="locate" size="26" /></button><button class="guideIcon" bindtap="toggleLayer" disabled="{{layerLoading}}" aria-label="选择地图图层"><map-icon kind="layers" size="26" /></button><button wx:if="{{modelMode}}" class="guideIcon modelZoomIn" bindtap="modelZoomIn" aria-label="放大3D地图"><map-icon kind="plus" size="23" /></button><button wx:if="{{modelMode}}" class="guideIcon modelZoomOut" bindtap="modelZoomOut" aria-label="缩小3D地图"><map-icon kind="minus" size="23" /></button><button wx:if="{{modelMode}}" class="guideIcon" bindtap="tiltModel" aria-label="切换3D俯视与斜视">3D</button><button wx:if="{{modelMode}}" class="guideIcon" bindtap="modelReset" aria-label="查看整个3D校园">全</button><button wx:if="{{locationOn}}" class="guideIcon" bindtap="stopGps" aria-label="停止本人定位"><map-icon kind="close" size="22" /></button></view>
+  </view>
+</view>

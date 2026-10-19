@@ -1,0 +1,423 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": "cat",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cat",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 683.2109375,
+              "bottom": 741.03125,
+              "width": 352.5390625,
+              "height": 57.8203125
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 755.671875,
+              "bottom": 803.4921875,
+              "width": 352.5390625,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 591.6484375,
+              "bottom": 844,
+              "width": 390,
+              "height": 252.3515625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\second-map\\cat.png"
+    },
+    {
+      "id": "mouseWin",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "mouseWin",
+      "clock": "00:00",
+      "navHeight": 87,
+      "fontScale": 1,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 695.5546875,
+              "bottom": 750.734375,
+              "width": 354.125,
+              "height": 55.1796875
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 372.0625,
+              "top": 760.734375,
+              "bottom": 808.5546875,
+              "width": 354.125,
+              "height": 47.8203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 158.21875,
+              "width": 365.8125,
+              "height": 70.21875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 491.1640625,
+              "bottom": 844,
+              "width": 390,
+              "height": 352.8359375
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [],
+          ".drawerHeader": [],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 101.3203125,
+              "bottom": 144.8984375,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 102.359375,
+              "bottom": 143.859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 99.9140625,
+              "bottom": 125.296875,
+              "width": 103.34375,
+              "height": 25.3828125
+            }
+          ],
+          ".resultTitle": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 17.9375,
+              "right": 212.703125,
+              "top": 584.859375,
+              "bottom": 626.2734375,
+              "width": 194.765625,
+              "height": 41.4140625
+            }
+          ]
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\second-map\\mouseWin.png"
+    },
+    {
+      "id": "drawer",
+      "route": "pages/map/map",
+      "preview": true,
+      "available": false,
+      "state": "cat",
+      "clock": "04:45",
+      "navHeight": 87,
+      "fontScale": 1,
+      "layout": {
+        "window": {
+          "pixelRatio": 3,
+          "safeArea": {
+            "top": 47,
+            "left": 0,
+            "right": 390,
+            "bottom": 810,
+            "width": 390,
+            "height": 763
+          },
+          "screenWidth": 390,
+          "screenHeight": 844,
+          "screenTop": 0,
+          "windowWidth": 390,
+          "windowHeight": 844,
+          "statusBarHeight": 47
+        },
+        "boxes": {
+          ".screen": [],
+          ".hero": [],
+          ".homeInput": [],
+          ".primary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 683.2109375,
+              "bottom": 741.03125,
+              "width": 352.5390625,
+              "height": 57.8203125
+            }
+          ],
+          ".secondary": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 18.7265625,
+              "right": 371.265625,
+              "top": 755.671875,
+              "bottom": 803.4921875,
+              "width": 352.5390625,
+              "height": 47.8203125
+            },
+            {
+              "id": "",
+              "dataset": {},
+              "left": 20.6640625,
+              "right": 354.6875,
+              "top": 768.578125,
+              "bottom": 812.8984375,
+              "width": 334.0234375,
+              "height": 44.3203125
+            }
+          ],
+          ".topPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 12.0859375,
+              "right": 377.8984375,
+              "top": 88,
+              "bottom": 161.671875,
+              "width": 365.8125,
+              "height": 73.671875
+            }
+          ],
+          ".bottomPanel": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 591.6484375,
+              "bottom": 844,
+              "width": 390,
+              "height": 252.3515625
+            }
+          ],
+          ".code": [],
+          ".copyButton": [],
+          ".drawer": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 346.046875,
+              "bottom": 844,
+              "width": 390,
+              "height": 497.953125
+            }
+          ],
+          ".drawerHeader": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 0,
+              "right": 390,
+              "top": 361.046875,
+              "bottom": 401.046875,
+              "width": 390,
+              "height": 40
+            }
+          ],
+          ".publicOnly": [],
+          ".roleColumn": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 22.609375,
+              "right": 140.046875,
+              "top": 103.046875,
+              "bottom": 146.625,
+              "width": 117.4375,
+              "height": 43.578125
+            }
+          ],
+          ".goal": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 140.046875,
+              "right": 254.28125,
+              "top": 104.0859375,
+              "bottom": 145.5859375,
+              "width": 114.234375,
+              "height": 41.5
+            }
+          ],
+          ".clock": [
+            {
+              "id": "",
+              "dataset": {},
+              "left": 264.03125,
+              "right": 367.375,
+              "top": 97.75,
+              "bottom": 130.921875,
+              "width": 103.34375,
+              "height": 33.171875
+            }
+          ],
+          ".resultTitle": []
+        }
+      },
+      "screenshot": "D:\\cat-mouse-miniprogram\\reports\\2026-10-12\\replica-v2\\second-map\\drawer.png"
+    }
+  ]
+}

@@ -1,0 +1,1120 @@
+[
+  {
+    "file": "01-guide-self.png",
+    "caption": "反馈点模拟本人（非真实GPS）",
+    "sha256": "7479cd12ce060559ab108e0d15751865673dd7981e631229852c607fd7b2d951",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "3D近似参考，实地精度待核验",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.882368,
+            "lng": 118.828049,
+            "label": "模拟本人",
+            "accuracy": 6,
+            "coordinateSystem": "gcj02",
+            "simulated": true,
+            "tone": "self"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 520.9168201213452,
+          "z": 464.3886129343271,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 1000
+        },
+        "width": 366,
+        "height": 572.5546875,
+        "pins": [
+          {
+            "x": 182.99999798315434,
+            "y": 285.91254426032236,
+            "z": 464.3886129343271,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "模拟本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 1,
+        "lastDrawMs": 17,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "02-guide-zoom.png",
+    "caption": "实际点击放大按钮",
+    "sha256": "01f786246ebeb23416e4a037bcc18040b5065488eb9e951558a8ef85151c7d6a",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "3D近似参考，实地精度待核验",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.882368,
+            "lng": 118.828049,
+            "label": "模拟本人",
+            "accuracy": 6,
+            "coordinateSystem": "gcj02",
+            "simulated": true,
+            "tone": "self"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 520.9168201213452,
+          "z": 464.3886129343271,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 769.2307692307692
+        },
+        "width": 366,
+        "height": 572.5546875,
+        "pins": [
+          {
+            "x": 183.00002118496667,
+            "y": 285.80311155281976,
+            "z": 464.3886129343271,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "模拟本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 2,
+        "lastDrawMs": 20,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "03-campus-overview.png",
+    "caption": "3D全校总览",
+    "sha256": "88ecdb4873cf22c223c9e22d79752974a8bae8dbdd054aaae1094491ef00e549",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "3D近似参考，实地精度待核验",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.882368,
+            "lng": 118.828049,
+            "label": "模拟本人",
+            "accuracy": 6,
+            "coordinateSystem": "gcj02",
+            "simulated": true,
+            "tone": "self"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 2787.684298155738
+        },
+        "width": 366,
+        "height": 572.5546875,
+        "pins": [
+          {
+            "x": 289.98965475654364,
+            "y": 359.6591577415088,
+            "z": 464.3886129343271,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "模拟本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 3,
+        "lastDrawMs": 11,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "04-campus-top.png",
+    "caption": "俯视",
+    "sha256": "de427b221cbafa8eaf4ce8f27a36685cdfd223370f3d7c0a04867396284a979a",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "3D近似参考，实地精度待核验",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.882368,
+            "lng": 118.828049,
+            "label": "模拟本人",
+            "accuracy": 6,
+            "coordinateSystem": "gcj02",
+            "simulated": true,
+            "tone": "self"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "pitch": 1.5697963267948967,
+          "size": 2787.684298155738
+        },
+        "width": 366,
+        "height": 572.5546875,
+        "pins": [
+          {
+            "x": 289.98965475654364,
+            "y": 381.6565742589825,
+            "z": 464.3886129343271,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "模拟本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 4,
+        "lastDrawMs": 13,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "05-runtime-pinch-rotate-pan.png",
+    "caption": "运行时手势处理：缩放/旋转/平移，非手机手势",
+    "sha256": "fbe089d7055306da445e4cc8e6f131bbcd2e89506cd5a03315b88d060e45d0ef",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "3D近似参考，实地精度待核验",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.882368,
+            "lng": 118.828049,
+            "label": "模拟本人",
+            "accuracy": 6,
+            "coordinateSystem": "gcj02",
+            "simulated": true,
+            "tone": "self"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": -243.4426229508197,
+          "z": 0,
+          "yaw": 0.6947382761967033,
+          "pitch": 1.5697963267948967,
+          "size": 1784.6319988689277
+        },
+        "width": 366,
+        "height": 572.5546875,
+        "pins": [
+          {
+            "x": 276.00809025195804,
+            "y": 557.7219182163994,
+            "z": 464.3886129343271,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "模拟本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 5,
+        "lastDrawMs": 19,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "10-authorized-team-clue.png",
+    "caption": "猫：本人/队友/集合点/区域线索总览",
+    "sha256": "14def01caa2b9b68fbc272a15f7179622f76dc71e5c8680d5cda8b586639f175",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/map/map",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "controller": "function",
+      "phase": "CHASING",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.887014134547908,
+            "lng": 118.81542356867979,
+            "label": "本人",
+            "tone": "self"
+          },
+          {
+            "lat": 31.886943659378275,
+            "lng": 118.82671004832497,
+            "label": "队友",
+            "tone": "ally"
+          },
+          {
+            "lng": 118.81920737398848,
+            "lat": 31.88777433108612,
+            "radiusM": 200,
+            "mapId": "seu-jiulonghu-v1",
+            "label": "集合点",
+            "tone": "venue"
+          }
+        ],
+        "regions": [
+          {
+            "lat": 31.886943659378275,
+            "lng": 118.82671004832497,
+            "radiusM": 50
+          }
+        ]
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 3458.9076923076923
+        },
+        "width": 390,
+        "height": 757,
+        "pins": [
+          {
+            "x": 100.87618261168218,
+            "y": 374.52299539748145,
+            "z": -22.750507302279917,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          },
+          {
+            "x": 293.63249600348774,
+            "y": 384.6324049857951,
+            "z": 37.18188494110476,
+            "fieldVerified": false,
+            "id": 1,
+            "tone": "ally",
+            "label": "队友",
+            "sprite": "/assets/map-markers-v2/ally.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -44.13397129186603,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.919457735247209
+          },
+          {
+            "x": 166.78142446352902,
+            "y": 365.7529816715983,
+            "z": -74.7424557942168,
+            "fieldVerified": false,
+            "id": 2,
+            "tone": "venue",
+            "label": "集合点",
+            "sprite": "/assets/map-markers-v2/venue.png",
+            "width": 48,
+            "height": 48,
+            "left": -15.866028708133971,
+            "top": -40.26794258373206,
+            "anchorX": 0.3305422647527911,
+            "anchorY": 0.8389154704944178
+          }
+        ],
+        "drawCount": 3,
+        "lastDrawMs": 12,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "11-captured.png",
+    "caption": "出局：只有公开集合点",
+    "sha256": "19b2fec9b91827229b83cb7f8c1aa3aa891f62b0f88c073b96a614d68f80bb5d",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/map/map",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "controller": "function",
+      "phase": "CHASING",
+      "geoData": {
+        "points": [
+          {
+            "lng": 118.81920737398848,
+            "lat": 31.88777433108612,
+            "radiusM": 200,
+            "mapId": "seu-jiulonghu-v1",
+            "label": "集合点",
+            "tone": "venue"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 3458.9076923076923
+        },
+        "width": 390,
+        "height": 757,
+        "pins": [
+          {
+            "x": 166.78142446352902,
+            "y": 365.7529816715983,
+            "z": -74.7424557942168,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "venue",
+            "label": "集合点",
+            "sprite": "/assets/map-markers-v2/venue.png",
+            "width": 48,
+            "height": 48,
+            "left": -15.866028708133971,
+            "top": -40.26794258373206,
+            "anchorX": 0.3305422647527911,
+            "anchorY": 0.8389154704944178
+          }
+        ],
+        "drawCount": 1,
+        "lastDrawMs": 16,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "11-paused.png",
+    "caption": "暂停：只有公开集合点",
+    "sha256": "24fa682190a70e45050d53e588dc0994194fb852be94c7a628380d1b825b5cff",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/map/map",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "controller": "function",
+      "phase": "PAUSED",
+      "geoData": {
+        "points": [
+          {
+            "lng": 118.81920737398848,
+            "lat": 31.88777433108612,
+            "radiusM": 200,
+            "mapId": "seu-jiulonghu-v1",
+            "label": "集合点",
+            "tone": "venue"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 3458.9076923076923
+        },
+        "width": 390,
+        "height": 757,
+        "pins": [
+          {
+            "x": 166.78142446352902,
+            "y": 365.7529816715983,
+            "z": -74.7424557942168,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "venue",
+            "label": "集合点",
+            "sprite": "/assets/map-markers-v2/venue.png",
+            "width": 48,
+            "height": 48,
+            "left": -15.866028708133971,
+            "top": -40.26794258373206,
+            "anchorX": 0.3305422647527911,
+            "anchorY": 0.8389154704944178
+          }
+        ],
+        "drawCount": 1,
+        "lastDrawMs": 19,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "12-mouse-caption.png",
+    "caption": "鼠：首次聚焦、固定HUD、底部操作",
+    "sha256": "aa76639b0ed082be0a0d48bc713fe2e7b5ffa9e9745dfc5e122bb5270604222b",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/map/map",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "controller": "function",
+      "phase": "CHASING",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.887014134547908,
+            "lng": 118.81542356867979,
+            "label": "本人",
+            "tone": "self"
+          },
+          {
+            "lat": 31.886943659378275,
+            "lng": 118.82671004832497,
+            "label": "队友",
+            "tone": "ally"
+          },
+          {
+            "lng": 118.81920737398848,
+            "lat": 31.88777433108612,
+            "radiusM": 200,
+            "mapId": "seu-jiulonghu-v1",
+            "label": "集合点",
+            "tone": "venue"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": -430.0734231021111,
+          "z": -22.750507302279917,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 1000
+        },
+        "width": 390,
+        "height": 757,
+        "pins": [
+          {
+            "x": 195.00001061678722,
+            "y": 378.0176762101797,
+            "z": -22.750507302279917,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 1,
+        "lastDrawMs": 41,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "13-offline-caption.png",
+    "caption": "断线：位置清空",
+    "sha256": "97444688ba47f65aa1a2fdd062c1020f61996a3de24056ba3059fce999a8cb76",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/map/map",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "controller": "function",
+      "phase": "CHASING",
+      "geoData": {
+        "points": [],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": -430.0734231021111,
+          "z": -22.750507302279917,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 1000
+        },
+        "width": 390,
+        "height": 757,
+        "pins": [],
+        "drawCount": 2,
+        "lastDrawMs": 24,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "14-narrow-caption.png",
+    "caption": "320×600逻辑内容：非物理手机尺寸",
+    "sha256": "c2ab7d19a822ebfee71c8933fdbd4ab7da36af4059b207cce60dd700929f365f",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/map/map",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "controller": "function",
+      "phase": "CHASING",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.887014134547908,
+            "lng": 118.81542356867979,
+            "label": "本人",
+            "tone": "self"
+          },
+          {
+            "lat": 31.886943659378275,
+            "lng": 118.82671004832497,
+            "label": "队友",
+            "tone": "ally"
+          },
+          {
+            "lng": 118.81920737398848,
+            "lat": 31.88777433108612,
+            "radiusM": 200,
+            "mapId": "seu-jiulonghu-v1",
+            "label": "集合点",
+            "tone": "venue"
+          }
+        ],
+        "regions": [
+          {
+            "lat": 31.886943659378275,
+            "lng": 118.82671004832497,
+            "radiusM": 50
+          }
+        ]
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": -430.0734231021111,
+          "z": -22.750507302279917,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 1000
+        },
+        "width": 320,
+        "height": 513,
+        "pins": [
+          {
+            "x": 160.00000251919988,
+            "y": 256.1731412098047,
+            "z": -22.750507302279917,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          },
+          {
+            "x": 314.48289757145733,
+            "y": 235.6160929796447,
+            "z": -74.7424557942168,
+            "fieldVerified": false,
+            "id": 2,
+            "tone": "venue",
+            "label": "集合点",
+            "sprite": "/assets/map-markers-v2/venue.png",
+            "width": 48,
+            "height": 48,
+            "left": -15.866028708133971,
+            "top": -40.26794258373206,
+            "anchorX": 0.3305422647527911,
+            "anchorY": 0.8389154704944178
+          }
+        ],
+        "drawCount": 2,
+        "lastDrawMs": 16,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "15-failure.png",
+    "caption": "模拟画布故障及回退按钮",
+    "sha256": "438e73d9ec8d4e4091b3306ce47e7d5179184ef39d9ee3cc53a9858ce3e87148",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "",
+      "controller": "function",
+      "hasSelf": false,
+      "geoData": {
+        "points": [],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "error",
+        "error": "验证：模拟画布中断",
+        "camera": {
+          "x": 0,
+          "z": 0,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 2948.356429303279
+        },
+        "width": 366,
+        "height": 605.5546875,
+        "pins": [],
+        "drawCount": 1,
+        "lastDrawMs": 13,
+        "omitted": 0
+      }
+    }
+  },
+  {
+    "file": "16-art-fallback.png",
+    "caption": "已切回原像素图",
+    "sha256": "3047ce5c9788d77e97d380b66c35bfb7265e2308b1af050c2df181a2310d8159",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": null
+  },
+  {
+    "file": "17-vertical-pan.png",
+    "caption": "修复竖向拖动：输入60px，画面同向60px（运行时手势处理）",
+    "sha256": "2117c44eb4bec835399385f0ce5758f210e3ed96d0f62551aa184fe873d77d14",
+    "imageWidth": 586,
+    "imageHeight": 1266,
+    "reviewedPixels": true,
+    "claim": "Official WeChat simulator capture; developer data only. No phone GPS, native phone touch or field accuracy claims.",
+    "state": {
+      "route": "pages/venue/venue",
+      "mapId": "seu-jiulonghu-v1",
+      "artMode": false,
+      "modelMode": true,
+      "error": "3D近似参考，实地精度待核验",
+      "controller": "function",
+      "hasSelf": true,
+      "geoData": {
+        "points": [
+          {
+            "lat": 31.882368,
+            "lng": 118.828049,
+            "label": "模拟本人",
+            "accuracy": 6,
+            "coordinateSystem": "gcj02",
+            "simulated": true,
+            "tone": "self"
+          }
+        ],
+        "regions": []
+      },
+      "system": {
+        "pixelRatio": 3,
+        "safeArea": {
+          "top": 47,
+          "left": 0,
+          "right": 390,
+          "bottom": 810,
+          "width": 390,
+          "height": 763
+        },
+        "screenWidth": 390,
+        "screenHeight": 844,
+        "screenTop": 0,
+        "windowWidth": 390,
+        "windowHeight": 844,
+        "statusBarHeight": 47
+      },
+      "model": {
+        "status": "ready",
+        "error": "",
+        "camera": {
+          "x": 520.9168201213452,
+          "z": 328.4236499302966,
+          "yaw": 0,
+          "pitch": 0.88,
+          "size": 1000
+        },
+        "width": 366,
+        "height": 572.5546875,
+        "pins": [
+          {
+            "x": 182.99999798315434,
+            "y": 345.91254759492284,
+            "z": 464.3886129343271,
+            "fieldVerified": false,
+            "id": 0,
+            "tone": "self",
+            "label": "模拟本人",
+            "sprite": "/assets/map-markers-v2/self.png",
+            "width": 48,
+            "height": 48,
+            "left": -23.980861244019138,
+            "top": -43.13875598086125,
+            "anchorX": 0.4996012759170654,
+            "anchorY": 0.8987240829346093
+          }
+        ],
+        "drawCount": 2,
+        "lastDrawMs": 19,
+        "omitted": 0
+      }
+    }
+  }
+]

@@ -1,0 +1,11 @@
+Error: Image load failed {"route":"pages/venue/venue","mapId":"seu-jiulonghu-v1","venueName":"东南大学 · 九龙湖","width":390,"height":844,"safe":34,"imageId":"seu-jiulonghu-v1","source":"/venue-maps/assets/jiulonghu-v1.jpg","imageState":"error","image":null,"sprites":[],"points":[],"fitWidth":628.0546875,"fitHeight":628.0546875,"scale":1,"paper":null,"buttons":[]}
+    at ready (D:\cat-mouse-miniprogram\scripts\campus-runtime-review.cjs:8:246)
+    at record (D:\cat-mouse-miniprogram\scripts\campus-runtime-review.cjs:9:23)
+    at Object.<anonymous> (D:\cat-mouse-miniprogram\scripts\campus-runtime-review.cjs:13:152)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)

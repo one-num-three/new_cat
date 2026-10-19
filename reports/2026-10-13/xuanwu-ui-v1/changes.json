@@ -1,0 +1,653 @@
+{
+  "comparison": "saved working-tree baseline, 33 files",
+  "branch": "master",
+  "changed": [
+    {
+      "path": "app.json",
+      "before": "854ee5e0d5351291c032da1a30161b97e29e6dc5aed2c8b29e3021ccde181b3b",
+      "after": "55c4cd89a765bfc02716b6fd319efd84461f13eb2cb3a00f6abf612aab5d4c92",
+      "bytes": 860
+    },
+    {
+      "path": "project.config.json",
+      "before": "911cb4f9b29b96595a7fe5a0ae7511cbf688683089428315e3b762f2c66e3cf8",
+      "after": "720ee47255cb715b273cbb3134c97e3cd3f31918431ee5376b790f9220435b8c",
+      "bytes": 5780
+    },
+    {
+      "path": "pages/map/map.js",
+      "before": "f1f6b5901e7e8aaaec4e2b2eb3b84c1dd9a1ee086ecfefcd9338173064f1a3e7",
+      "after": "1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068",
+      "bytes": 11730
+    },
+    {
+      "path": "pages/map/map.wxml",
+      "before": "7c7a216239979adbf3d8b7a30eb45f482e4a54ed8d92eb2bfa03dc0817253ec3",
+      "after": "fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe",
+      "bytes": 12628
+    },
+    {
+      "path": "pages/map/map.wxss",
+      "before": "d220eb6840b5b25c5674bcf8d6e4b5d65b04247ca00b332d3e733fabeb371472",
+      "after": "849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2",
+      "bytes": 8396
+    },
+    {
+      "path": "pages/map/map.json",
+      "before": "21eaf45e606422297d6b6f9cdb4b3ccc691b8980228634a5a50d2724dd3460c1",
+      "after": "ddf340361a2f3d1357c1b7cabb6f7cc0288a675c9538fb2bde779bace0691fa0",
+      "bytes": 137
+    },
+    {
+      "path": "pages/dev/dev.js",
+      "before": "9584c1a90e8fac6f2b4a16d626164dc5b627cfa14c223f666bac6b5ddb4fcec2",
+      "after": "6dbbd5c9b2a94ae4c58a9a190be7de8d7f00298c5b45951aa15485edbfef5d25",
+      "bytes": 712
+    },
+    {
+      "path": "pages/dev/dev.wxml",
+      "before": "2ce8d313f4007362aa8439e7c0f82214204a7790bdc86bf91e797aee2e9790fc",
+      "after": "660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554",
+      "bytes": 1066
+    },
+    {
+      "path": "pages/dev/dev.wxss",
+      "before": "784335e2ec38c12f310d2cc00a7ef0af9b23ebe3183f22d041928a500691829b",
+      "after": "f00df2a54dd753b7e09cf9128d3ff21ee6989027d45d904de57a360698885bfd",
+      "bytes": 1458
+    },
+    {
+      "path": "pages/index/index.js",
+      "before": "bc8bfd688eb9f9b6534038c3d59f9b5cf32f0d2289e24b90380ef370ce621e6c",
+      "after": "076ae80cddab8efb1f1d71ed39bbb8ffa7774e4b2b573c0b02dd81d6e3f5f71a",
+      "bytes": 3199
+    },
+    {
+      "path": "pages/index/index.wxml",
+      "before": "e46f588bfaa64ef54f2c2b18740338130cf2749875c576b734d89a39d3983f45",
+      "after": "e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce",
+      "bytes": 2516
+    },
+    {
+      "path": "pages/index/index.wxss",
+      "before": "ef1e16177843179f7cba767a1c492ea736b5abe19f7c8158f572a4662460d9d4",
+      "after": "8389a1ea19e034125bbd7988c397acbdd6054283c52f2244d14b091704d222c8",
+      "bytes": 3698
+    },
+    {
+      "path": "utils/presentation.js",
+      "before": "74da87bceec6aeb370d1e67f3aae044563051d9857e6709aa3c06a0ed1f9a46a",
+      "after": "221622c84ce9e640e7272a92fde2e311989c1f2d4f0ff673aee3d2eb14287556",
+      "bytes": 2710
+    },
+    {
+      "path": "cat-mouse-server/v2/presentation.test.js",
+      "before": "a7c2eeffdc7067787ff8e2288c117a05b884f59ab363e7b3bf80ce7a1e7f81f3",
+      "after": "3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44",
+      "bytes": 9475
+    },
+    {
+      "path": "cat-mouse-server/v2/dev-preview.test.js",
+      "before": "19f2c60937804f1ac106e2caac7df5c41929da9a9e300cec5a990ec69837e086",
+      "after": "a508b067681ce00520937cf621fd93cb56eb5727f70580de07a8ee49c66678be",
+      "bytes": 8276
+    },
+    {
+      "path": "scripts/package-release.ps1",
+      "before": "eced0e93f850122c8b855c8e070c089f1bf840b8ee6506993c84010397e9b8c3",
+      "after": "7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b",
+      "bytes": 5385
+    },
+    {
+      "path": "README.md",
+      "before": "115f947093a6a8a034f00dc3878588044fb9d9573d75c11a871700f66da31346",
+      "after": "9b4740548bce1f4d5d6df0ba324d7f8a681a3333a90547de197ae63a7cae064a",
+      "bytes": 8420
+    },
+    {
+      "path": "RELEASE.md",
+      "before": "94d233d7b7363f02ee9982183017736cd2807ead2e74d83343b617d3f788827c",
+      "after": "1c974c6f1c746ba6636fe43b1e31fdea938dffa3517a2725bbda400795a09484",
+      "bytes": 12082
+    },
+    {
+      "path": "ART_LOCK.md",
+      "before": "7effefc367ce0a259acef2e1ba5a15e5755d0304490f77dd19b4b1b00d6ecef7",
+      "after": "ec4ebf573c191c137f3d4dfb183d13f8a16cc49cdceb39e23eb9487de408fffe",
+      "bytes": 7262
+    },
+    {
+      "path": "DESIGN_BASELINE.md",
+      "before": "b1b572d32668c73d24495ad1c440d1fcaf30008509d80bd683e99b7b9f8d78a5",
+      "after": "4df1cc0ca4ecba92392b30cb68b07545c499b566db71b61cfa96632173a9eb04",
+      "bytes": 11399
+    },
+    {
+      "path": "WORK_LOG.md",
+      "before": "45c49407cdca93cfefffb457a289996ec1e7edb961eb98c46719131bb13b9217",
+      "after": "3891ed492f77ca4b556bf86abd1141d1ffbb5499d8e4a98e21766ab0f79e10e4",
+      "bytes": 50890
+    },
+    {
+      "path": "components/nav-bar/nav-bar.wxml",
+      "before": "69c0affca93596c71a284c0246bf3642d9add9eb54bd8cbe93b4f17a18f4ed8b",
+      "after": "35040f953fb97f08c7c8a80d813b20e3d7417bf0e6e319087cc79f0f409a877d",
+      "bytes": 546
+    },
+    {
+      "path": "components/nav-bar/nav-bar.wxss",
+      "before": "e71c879dca5d17671816b9a6251f17231d043f780bc9865208d65aba57885bcd",
+      "after": "2831d5c6f68c2e197c38b261ffe682f5e0ec59c8854f119a655defe87aed8234",
+      "bytes": 905
+    },
+    {
+      "path": "pages/room/room.js",
+      "before": "4d3b7f3ab937e295b9a00cd48838ec10770b2366027799b24f20730b26f62e3c",
+      "after": "a52b4c3a2005d3cbf2dee4bbb27e6b6ef4286c2748ccb476339480d8c54eb44c",
+      "bytes": 7003
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxml",
+      "before": "00fbd059cd9f63e103faab8a89c9d39d7500f2fb7dd4b8a942e5f1328a3cbcc8",
+      "after": "65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c",
+      "bytes": 2490
+    },
+    {
+      "path": "pages/qrcode/qrcode.wxss",
+      "before": "2c0ed0d640ea97a167a270c6548d10262ba8a797b0761909ac7cf42ea8ecdae3",
+      "after": "5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de",
+      "bytes": 5623
+    },
+    {
+      "path": "pages/room/room.wxml",
+      "before": "8ee8f1ee284d862c2b716e80432c4aee17399185b4f129990699a6d362c5a3c6",
+      "after": "46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28",
+      "bytes": 6449
+    },
+    {
+      "path": "pages/room/room.wxss",
+      "before": "33a974df95fefaa34afd4a4c0a97531f4a9b34c067f922f4af7dd684ba10cd90",
+      "after": "bd53bd7f0de51c3c5549947e9a64b3160e1d573d02d69b66785dc9f56a55baed",
+      "bytes": 9912
+    }
+  ],
+  "unchanged": [
+    "components/nav-bar/nav-bar.js",
+    "components/nav-bar/nav-bar.json",
+    "pages/room/room.json",
+    "pages/qrcode/qrcode.js",
+    "pages/qrcode/qrcode.json"
+  ],
+  "newFiles": [
+    {
+      "path": "components/venue-art/venue-art.js",
+      "after": "c491b53cc56d43377df042de144c1df719679fd96e7b8117a5e3d11ca65cb850",
+      "bytes": 5380
+    },
+    {
+      "path": "components/venue-art/venue-art.json",
+      "after": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3",
+      "bytes": 24
+    },
+    {
+      "path": "components/venue-art/venue-art.wxml",
+      "after": "881f759561ec0c3844935279dd9c53414d48aa8ff37d86297cc748a827610ebf",
+      "bytes": 2377
+    },
+    {
+      "path": "components/venue-art/venue-art.wxss",
+      "after": "28f1f167d68dc6f9e7fa41fdf5786bf105bde22b10d81ca6f11d37ebdcead369",
+      "bytes": 2962
+    },
+    {
+      "path": "components/pixel-action/pixel-action.js",
+      "after": "d3b6320d323b1add304ecc546c606a85b576c986c75e4116ebba83870c1315f1",
+      "bytes": 737
+    },
+    {
+      "path": "components/pixel-action/pixel-action.json",
+      "after": "6bcc2e9e536384851fcfbdd823aee8ae4331243636adc4a656a64a44d9cf9318",
+      "bytes": 19
+    },
+    {
+      "path": "components/pixel-action/pixel-action.wxml",
+      "after": "f03b5aa1155560c110e561c34acbb0bdd889920954f66fe8b35927c8857176d5",
+      "bytes": 614
+    },
+    {
+      "path": "components/pixel-action/pixel-action.wxss",
+      "after": "c5e6714f578a928b8fcc60c695045a46a82d6bdf7f890b95a8a5be9ea1b6a6b8",
+      "bytes": 1228
+    },
+    {
+      "path": "pages/venue/venue.js",
+      "after": "5430e5358f8fa67347f597a0b69ac34057070092b181aafdad227dba0100c548",
+      "bytes": 793
+    },
+    {
+      "path": "pages/venue/venue.json",
+      "after": "ddce7712d95722bbc29594c745d70053225ff8f2b62c37ed304715f80c615055",
+      "bytes": 184
+    },
+    {
+      "path": "pages/venue/venue.wxml",
+      "after": "732cbae64706668fc2e20f3f779a1b96628026d613281792185a64596ce31b46",
+      "bytes": 661
+    },
+    {
+      "path": "pages/venue/venue.wxss",
+      "after": "2b25094c8dc671ca07470569f55a36d872b50f34654dcafa7aa4b44935238413",
+      "bytes": 1226
+    },
+    {
+      "path": "assets/pixel-v1/button-alert-code.png",
+      "after": "15b5e61b32a17a9c29bb1f8015ffbad5be69c00dd3ee6c61825b461ca39c39bb",
+      "bytes": 8635
+    },
+    {
+      "path": "assets/pixel-v1/button-alert-details.png",
+      "after": "4c711aafd5cd81dea5cafb9dd45b98d3c38c175e34064c44417e017782eac918",
+      "bytes": 8671
+    },
+    {
+      "path": "assets/pixel-v1/button-cancelled-details.png",
+      "after": "49c13031fdab7a84a6bdf926a97ac5f1dc5783a9600b411daf3bfb67171274b3",
+      "bytes": 11205
+    },
+    {
+      "path": "assets/pixel-v1/button-cancelled-home.png",
+      "after": "cfac03a53d234d64b8cbf5fe3900173b71411b442d97f2c4e8bb3562bfba2ef7",
+      "bytes": 16843
+    },
+    {
+      "path": "assets/pixel-v1/button-cancelled-replay.png",
+      "after": "71e77c397230d6953100aafdeca3d0cfa92b66d8982d86c496302344d69953e2",
+      "bytes": 10803
+    },
+    {
+      "path": "assets/pixel-v1/button-captured-details.png",
+      "after": "ff4181b054ba832f9a3dfd66af6085eca8b26e92c8c08d8aac9afc9f943e9021",
+      "bytes": 8727
+    },
+    {
+      "path": "assets/pixel-v1/button-cat-details.png",
+      "after": "b4400da9752fa9ea409016b2cdc9aea38281ce6b87a5108cc3c3c53c4136739d",
+      "bytes": 15886
+    },
+    {
+      "path": "assets/pixel-v1/button-cat-scan.png",
+      "after": "8bd7374e6f5550f37b9ba979fd1e4d3475cc45434d3b13d765bfd0bad486e0af",
+      "bytes": 16148
+    },
+    {
+      "path": "assets/pixel-v1/button-catwin-details.png",
+      "after": "54e9ca0c0142bb33a72dff6abbc03574ff6a6f0d742a554149e5e88f2c93c83c",
+      "bytes": 12782
+    },
+    {
+      "path": "assets/pixel-v1/button-catwin-home.png",
+      "after": "41a7f4442a18e4d79f9d7f845e2ac78551aa340be22b1f9eff99515a51606dfc",
+      "bytes": 13134
+    },
+    {
+      "path": "assets/pixel-v1/button-catwin-replay.png",
+      "after": "e58129b138cfde135382eaa734346524854798ad6c7313729a4aad4fac9c0ef7",
+      "bytes": 11481
+    },
+    {
+      "path": "assets/pixel-v1/button-code-back.png",
+      "after": "e87d95d7b5d66fb9bbccd224e837c580a21586f16d20a8580a6de0d59d08188c",
+      "bytes": 9499
+    },
+    {
+      "path": "assets/pixel-v1/button-create-location.png",
+      "after": "725555abcf60bd860ee9b159d6c14f0276a1c07a5457682381cef3f7af4b478b",
+      "bytes": 11099
+    },
+    {
+      "path": "assets/pixel-v1/button-create-minus.png",
+      "after": "dfc8046824191d58ec9cf676a3905fe86bc3376a631bc3aba2ada80400bfc5fb",
+      "bytes": 2916
+    },
+    {
+      "path": "assets/pixel-v1/button-create-plus.png",
+      "after": "3287b3ca22359fc7e6f0a4f41ee4f05d44027c719b8685991583a75eee412d7c",
+      "bytes": 3019
+    },
+    {
+      "path": "assets/pixel-v1/button-create-submit.png",
+      "after": "172ca3d06dc547f31877e822e04160e23cac35c55b56fff969ce8e5d7b941a2c",
+      "bytes": 8213
+    },
+    {
+      "path": "assets/pixel-v1/button-drawer-close.png",
+      "after": "be7844b1587409bb71223d60e7aea6a1ef04012f236fae492793a1ee009a7dba",
+      "bytes": 3793
+    },
+    {
+      "path": "assets/pixel-v1/button-drawer-leave.png",
+      "after": "4768bcbc879411188da5a5de09617b2541915b435dab644071777e0b73b90664",
+      "bytes": 9817
+    },
+    {
+      "path": "assets/pixel-v1/button-drawer-pause.png",
+      "after": "ebb4c9f3a6cb3f21fee6d6937bb0a67906deaf766519ad165d9a0377ce85a82c",
+      "bytes": 7747
+    },
+    {
+      "path": "assets/pixel-v1/button-hiding-details.png",
+      "after": "4d22342c4530f4ef6b577d4b10f807e0f024a95858c07ae178d6cf4f25dcbd5b",
+      "bytes": 9228
+    },
+    {
+      "path": "assets/pixel-v1/button-home-create.png",
+      "after": "86c9630fc1d6919e2f97283ddb022112359d1be17c56775d53627e1426abef61",
+      "bytes": 9665
+    },
+    {
+      "path": "assets/pixel-v1/button-home-join.png",
+      "after": "5590ef3efabed2850829fd396e01f745ef2ee402a64114b5d6d96e3230e3ee5c",
+      "bytes": 9393
+    },
+    {
+      "path": "assets/pixel-v1/button-mouse-code.png",
+      "after": "664075da46dfda736f4d427e91156bec44c6110f773870553590fd8e55ebfbf2",
+      "bytes": 12366
+    },
+    {
+      "path": "assets/pixel-v1/button-mouse-details.png",
+      "after": "e9f71f7962f7685d254c8689139e8a0f5f1d2344886d7b69b5e24aac13ce98ec",
+      "bytes": 12572
+    },
+    {
+      "path": "assets/pixel-v1/button-mousewin-details.png",
+      "after": "572a332bc5080baca48935f1c0220216b53df1c47b938ca7093f15175ed23391",
+      "bytes": 8977
+    },
+    {
+      "path": "assets/pixel-v1/button-mousewin-home.png",
+      "after": "b96c5c7789d30066e7b8a516078a7913f9b0e82e47db69e877a9df1f2432d02f",
+      "bytes": 10794
+    },
+    {
+      "path": "assets/pixel-v1/button-mousewin-replay.png",
+      "after": "5515bbef5d5bf5321aad72dc61f33d2e33c04b3c3fbca0ffee0477a39335ce07",
+      "bytes": 8328
+    },
+    {
+      "path": "assets/pixel-v1/button-offline-rules.png",
+      "after": "9bbc0cb3b018ccdea9144d4ddb8dd93fe9db30101898a156d97ddb475177c626",
+      "bytes": 11530
+    },
+    {
+      "path": "assets/pixel-v1/button-offline-team.png",
+      "after": "d2da7f1b3de9b2632242aa19255b30d3969f7768aecb2e430cd405d06f0c38cd",
+      "bytes": 12356
+    },
+    {
+      "path": "assets/pixel-v1/button-paused-details.png",
+      "after": "ddd4db365d813fa6ae8ccd8465b338f8b1bcc66f449be9ad6f3543882d281a62",
+      "bytes": 10264
+    },
+    {
+      "path": "assets/pixel-v1/button-paused-resume.png",
+      "after": "f845ea265e7256e566b772e923acbf275ebe3c7c1f0c43984c21ba121b8751f8",
+      "bytes": 9196
+    },
+    {
+      "path": "assets/pixel-v1/button-ready-cancel.png",
+      "after": "50a747f3fb05d21f719b95f404d7814a0bdd18ccf425e1ec537af8a04332cfe7",
+      "bytes": 8434
+    },
+    {
+      "path": "assets/pixel-v1/button-ready-copy.png",
+      "after": "367295dc9e6fec7b7f0e3a9d72c1ce5a9f605c97f5c47b3fb6b12ecd996660cb",
+      "bytes": 3111
+    },
+    {
+      "path": "assets/pixel-v1/button-ready-start.png",
+      "after": "36121da6ec95fd810b40d24c0ad22486f99a4028c93ccd2ec01e38ad9c963988",
+      "bytes": 7617
+    },
+    {
+      "path": "assets/pixel-v1/cancelled-hero.png",
+      "after": "f4fc61cefabc7cd824ed6bd7a4384877f06e03225683c078434e9d3ec1fee7e9",
+      "bytes": 64103
+    },
+    {
+      "path": "assets/pixel-v1/catwin-hero.png",
+      "after": "0820ef7745078650d2fd8596148bfdfcc3d24fce6329e9378cd762706ed88b6b",
+      "bytes": 42011
+    },
+    {
+      "path": "assets/pixel-v1/code-demo-art.png",
+      "after": "1b75b52d29949804c8f0e1d473856033d060838ab217a0be899e7d1b59aa558d",
+      "bytes": 7625
+    },
+    {
+      "path": "assets/pixel-v1/code-role.png",
+      "after": "6d5b500308917bd3cfadd79023b6418b39219738bc7c05a5e31f6aeb1e11e856",
+      "bytes": 14144
+    },
+    {
+      "path": "assets/pixel-v1/create-hero.png",
+      "after": "be0f43f9d63e1e8bc7ba405251d8318acdb46f7a80cd29983f1d9e3afc181bf5",
+      "bytes": 19448
+    },
+    {
+      "path": "assets/pixel-v1/drawer-cat-avatar.png",
+      "after": "a190cd07ac7bf7e215069a542d673fd60a88511629ac1f1daf4095f15a20d2ce",
+      "bytes": 2609
+    },
+    {
+      "path": "assets/pixel-v1/drawer-event-icon.png",
+      "after": "bd0f8b54bd567977af48242e2c8c2c110e46e3067d9c86d5cdf794999154a169",
+      "bytes": 1482
+    },
+    {
+      "path": "assets/pixel-v1/drawer-mouse-avatar.png",
+      "after": "d0919e6e8feafcf0f64b48a93c53b3e8e2f402f23040686003fe42ad993e4a11",
+      "bytes": 2950
+    },
+    {
+      "path": "assets/pixel-v1/drawer-rules-icon.png",
+      "after": "288b3dcc90006868978ba20e4b627b00d6c756e45253f3fa4145eaf1d9da7fa6",
+      "bytes": 1213
+    },
+    {
+      "path": "assets/pixel-v1/drawer-title-icon.png",
+      "after": "f0e40d9c83d75ecfc5a902774858fb1654a3627479ef6b76412dcfe8194ac004",
+      "bytes": 2380
+    },
+    {
+      "path": "assets/pixel-v1/FONT-LICENSE.txt",
+      "after": "e9d9b525d384aa7d1e39650ac03047621c5d79e3a88c698aa0c522bd5d87d493",
+      "bytes": 4605
+    },
+    {
+      "path": "assets/pixel-v1/hiding-scene.png",
+      "after": "71fa21d6657615f81f48a4e5a7e06950ce9a6a8914572848ff0a1cf3e5071251",
+      "bytes": 31141
+    },
+    {
+      "path": "assets/pixel-v1/home-footer.png",
+      "after": "c95baa63f24786899c6daf4fd9be5c4aaaece6450bd5e250c644bdcf8b43d3b2",
+      "bytes": 12614
+    },
+    {
+      "path": "assets/pixel-v1/home-hero.png",
+      "after": "98b283c293588ea42e7c304f5c8b75459f07017e2f17ab76fee358b78b1b3ce7",
+      "bytes": 51924
+    },
+    {
+      "path": "assets/pixel-v1/logo.png",
+      "after": "f0806065ba7493c3a6ab43f5f97c089106657f240b6637aeecf33ab74891655f",
+      "bytes": 2373
+    },
+    {
+      "path": "assets/pixel-v1/mousewin-hero.png",
+      "after": "8216747665eb28176ec34f09b63db6dd9f1a255c0e14c07e2945b10cab4f5916",
+      "bytes": 44096
+    },
+    {
+      "path": "assets/pixel-v1/offline-hero.png",
+      "after": "fff7eb52502be677580f313a08986a336d5cd4d98ef80325c9261c36d7bfb064",
+      "bytes": 14947
+    },
+    {
+      "path": "assets/pixel-v1/paused-scene.png",
+      "after": "b8a468fafbca25dff8c50086c64fbf0d05257af8f5575f8669ca3c139362a711",
+      "bytes": 52505
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-0.png",
+      "after": "c87bd6d67cd4a069e5e3a9bf5eeb43e1bc3f6a84353be7b8be9b195e4675cb7d",
+      "bytes": 2167
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-1.png",
+      "after": "7267c32bc91d93b9bfe6dfbc4b825528bc0ad0d232f56b963fd55a5ffc399dde",
+      "bytes": 2187
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-2.png",
+      "after": "38a7a0c36b4d6257e98c42220786af49253b174635d7872ffca6a86e69d3a4d8",
+      "bytes": 2258
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-3.png",
+      "after": "c7c4a0781f757510099698606cdb1eb0b14272c05aa1ef5ebc4cda69fb033d6e",
+      "bytes": 2207
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-4.png",
+      "after": "21abf78692df11a7d6915a73b7f9ca9605ee90c504b0b57e23207b20b5e249ad",
+      "bytes": 2372
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-5.png",
+      "after": "a8a0a6fcc2753a1a4499ed308528a21eb6713349f724b247eb81f3e429ec64bf",
+      "bytes": 2194
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-6.png",
+      "after": "3229a9f5ed1d87f496483b367f2e2985c5642131d9c2c3ae97bead8ded6a6349",
+      "bytes": 2282
+    },
+    {
+      "path": "assets/pixel-v1/ready-avatar-7.png",
+      "after": "352b109a7e6d9f9557a9197a39b3e6ba590aeca3a1f5daf54e036246c613e8b7",
+      "bytes": 2220
+    },
+    {
+      "path": "assets/pixel-v1/ready-hero.png",
+      "after": "abb7f8195e9dcbfced14740afae0d938eaf70731294880d245f0b833159df341",
+      "bytes": 27211
+    },
+    {
+      "path": "assets/pixel-v1/role-cat.png",
+      "after": "46a34f01d23c8b44232778ea0b220d1d240988166d29c98e3cf3cf851bf652da",
+      "bytes": 4220
+    },
+    {
+      "path": "assets/pixel-v1/role-mouse.png",
+      "after": "3df968a9ac82fecf6adaae2e117bda0e13ce29eacb4bdee2f8f40479dc651bdc",
+      "bytes": 4894
+    },
+    {
+      "path": "assets/pixel-v1/rules-icon-capture.png",
+      "after": "402735b8b9464b46c165a15de0a4848958618dc0d6f68e4609e6fe9b93e60b3c",
+      "bytes": 2418
+    },
+    {
+      "path": "assets/pixel-v1/rules-icon-cat.png",
+      "after": "4a56bec321c437339596960af468c8f62c7b1e07ba30ba41f074dabe855e843a",
+      "bytes": 2759
+    },
+    {
+      "path": "assets/pixel-v1/rules-icon-clock.png",
+      "after": "15c1287b49feda3887d2eeeec3dddf90b3efc9f974feb9553f0369d55120b405",
+      "bytes": 2242
+    },
+    {
+      "path": "assets/pixel-v1/ui-variable.woff",
+      "after": "11e128112254d25a1439408158c8a8aac7cda64ca07772705b2d1aa769463819",
+      "bytes": 107816
+    },
+    {
+      "path": "assets/maps/ATTRIBUTION.txt",
+      "after": "9d75356b73f34e4534a902dcb9881ece8877c4cdcc03bff7ea804ba44ac86037",
+      "bytes": 349
+    },
+    {
+      "path": "assets/maps/xuanwu-lake-v3.png",
+      "after": "120bde594be871aba35c2540a9c04e4597ec305418b13b2ca8d798aa341b3d13",
+      "bytes": 1045507
+    },
+    {
+      "path": "utils/venue-camera.js",
+      "after": "50c530e7908d99d2b8d72a8a7752c3ea2fb39b2b4947619ec59dbbee7fb42c46",
+      "bytes": 1333
+    },
+    {
+      "path": "utils/pixel-theme.wxss",
+      "after": "713871725d22017ed2beb76ae8bb21646790d83271d7d32976d2edfc0345f197",
+      "bytes": 869
+    },
+    {
+      "path": "utils/pixel-font.wxss",
+      "after": "c40aab628e6972cf427d9686310fec5d8086a0dfa4523675d2cfefe1f731fa59",
+      "bytes": 144021
+    },
+    {
+      "path": "utils/pixel-art-ratios.wxss",
+      "after": "52eae2875ee2d000d20297cb04849aa870156bb934975d149b90abb05373bbfa",
+      "bytes": 875
+    },
+    {
+      "path": "cat-mouse-server/v2/pixel-ui.test.js",
+      "after": "4875a4409a7b45869b555357d34b5e4af05c4696c3755f7d83fb96c8083ee7b0",
+      "bytes": 20996
+    },
+    {
+      "path": "cat-mouse-server/v2/venue-ui.test.js",
+      "after": "47935ee31efc366d8538eb223ee63b8a516bb93ceb7e8a98559101118c83eb52",
+      "bytes": 22478
+    },
+    {
+      "path": "scripts/build-pixel-runtime.cjs",
+      "after": "d6cce95ad7c06d2861fda0cc28e31ecdd0f97589659037d18600f9b1cb63ad0a",
+      "bytes": 13316
+    },
+    {
+      "path": "scripts/build-xuanwu-runtime.cjs",
+      "after": "3bbf7cb321cca302f458256ed0ab8ad4c81f934024ddf65d20af365d691c3279",
+      "bytes": 2543
+    },
+    {
+      "path": "scripts/pixel-ui-review.cjs",
+      "after": "e7d472f053e92a9be9b417ff70662fcfb1be1e2491b346b199edd8ee25dbb934",
+      "bytes": 8086
+    },
+    {
+      "path": "scripts/pixel-interaction.cjs",
+      "after": "5127f43ae8bbe090ba4e68fddc639e657afdcc806b172565286736f9a6ad6897",
+      "bytes": 8338
+    },
+    {
+      "path": "scripts/xuanwu-ui-review.cjs",
+      "after": "cbe55a84d0b720f4282c4ce18f8baf07db23f08a4af36e26c5d2b4d5da9321b6",
+      "bytes": 4734
+    },
+    {
+      "path": "design/2026-10-13/pixel-runtime-v1/manifest.json",
+      "after": "f1ffb0bcaea7684ef8c922b469fefde74e5573088bd9c8fe6dd8631cbc49bbe9",
+      "bytes": 68738
+    },
+    {
+      "path": "design/maps/xuanwu-lake/runtime-v1/manifest.json",
+      "after": "4d29f4d9d18ac374adbb06f604512f6efd2e32409a4157616df81ec43b46d7f4",
+      "bytes": 823
+    }
+  ]
+}

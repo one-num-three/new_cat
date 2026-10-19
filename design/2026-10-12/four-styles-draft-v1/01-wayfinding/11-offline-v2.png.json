@@ -1,0 +1,7 @@
+{
+  "id": "01-wayfinding/11-offline",
+  "status": "revised",
+  "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a12dee-5ebe-77e0-a71e-48dee3c92e34\\exec-e80c2cc4-84f6-4510-92f6-d08c2e8f904c.png",
+  "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/01-wayfinding/11-offline-v2.png",
+  "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n删除顶部右侧“已连接3/4”以及4个小进度块；同一位置只保留大字“等待同步”和简单断线图标，不要伪造任何在线人数。倒计时仍为--:--。其余不变。"
+}

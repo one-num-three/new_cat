@@ -1,0 +1,25 @@
+{
+  "building_components": 439,
+  "unique_ids": 439,
+  "status_counts": {
+    "existing": 302,
+    "planned": 108,
+    "under_construction": 29
+  },
+  "packed_images": [
+    [
+      "landcover_schematic.png",
+      true
+    ],
+    [
+      "seu-jiulonghu-official-masterplan-2025.jpg",
+      true
+    ]
+  ],
+  "camera_names": [
+    "01 全校区 · 东南鸟瞰",
+    "02 全校区 · 正北俯视",
+    "03 图书馆与教学区"
+  ],
+  "verification": "PASS: re-opened final blend, inspected geometry, roof transforms, units, sources, packed assets."
+}

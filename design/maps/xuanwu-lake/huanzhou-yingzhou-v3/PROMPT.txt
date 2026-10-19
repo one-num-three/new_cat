@@ -1,0 +1,12 @@
+Tool: built-in image_gen
+User correction: The marked long structure is a pedestrian corridor, not a train/railway.
+
+Use case: precise-object-edit. Make ONE LOCAL CORRECTION to the supplied complete Huanzhou-Yingzhou pixel-art map.
+
+The long bent structure along the northern/eastern inside of the CENTRAL island is a PEDESTRIAN GARDEN CORRIDOR (长廊), NOT a train, railway, track or rollercoaster. Its current narrow twin-rail and repeating crossbar appearance reads incorrectly as railway infrastructure. Replace ONLY that structure with an unmistakable traditional garden covered walkway.
+
+Locate the edit: image 1154x1363; corridor begins near (676,445), follows the long diagonal southeast to about (862,573), bends through roughly (887,610), (871,631), (893,643), then runs southwest/down toward its ending platform near (835,733). These coordinates identify the EXISTING corridor only; follow the exact existing path, endpoints, turns and footprint visible in the image. Do not edit any lake-crossing bridges. The existing small orange-roof building beside the upper-left end stays as it is.
+
+Correct appearance: a slim, continuous warm muted terracotta tiled roof, connected coherently across every bend, modest ridge and eaves; small cream or warm stone support columns visible along the sides beneath the roof; a light pedestrian floor strip and restrained eave shadow. This is human-scale architecture for walking, not transport. Use a continuous roof surface instead of multiple separated carriage-like modules. Remove the rail-like twin dark lines, sleeper-like crossbars, station/platform suggestion and rail hardware. The lower termination should be a simple small pedestrian porch/open end, not a railway platform or carriage. Keep roof coverage narrow and within the corridor's prior footprint, no giant hall. No locomotive, wheels, rails, train cars, mechanical parts, transport icons, text or red markup.
+
+Preserve EVERYTHING ELSE: exact original full map extent and 1154:1363 aspect; complete Huanzhou outer land and Yingzhou inner island; shorelines, water patterns, all four bridges, all roads and intersections, existing buildings, trees, gardens, flowers, color palette, lighting, pixel scale and composition. No camera movement, reframing, cropping, global restyling, island changes, new buildings or scene embellishments. Keep the same bright sunny 16-bit pixel art and top-down map view. Minimal localized inpainting only. Output the corrected full map without any red circle or annotations.

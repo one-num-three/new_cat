@@ -1,0 +1,49 @@
+ROUTE gallery
+SDK_RECONNECT gallery timeout waiting for automator response
+PASS gallery
+ROUTE home
+SDK_RECONNECT home timeout waiting for automator response
+PASS home
+ROUTE create
+ROUTE_RETRY create {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS create
+ROUTE ready
+ROUTE_RETRY ready {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS ready
+ROUTE cat
+ROUTE_RETRY cat {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cat
+ROUTE mouse
+ROUTE_RETRY mouse {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouse
+ROUTE alert
+ROUTE_RETRY alert {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS alert
+ROUTE hiding
+ROUTE_RETRY hiding {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS hiding
+ROUTE code
+ROUTE_RETRY code {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS code
+ROUTE captured
+SDK_RECONNECT captured timeout waiting for automator response
+PASS captured
+ROUTE paused
+ROUTE_RETRY paused {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS paused
+ROUTE offline
+ROUTE_RETRY offline {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS offline
+ROUTE catWin
+ROUTE_RETRY catWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS catWin
+ROUTE mouseWin
+SDK_RECONNECT mouseWin timeout waiting for automator response
+PASS mouseWin
+ROUTE cancelled
+ROUTE_RETRY cancelled {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cancelled
+ROUTE drawer
+ROUTE_RETRY drawer {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS drawer
+REPLICA_UI_PASS=16 FONT_SCALE=1.3

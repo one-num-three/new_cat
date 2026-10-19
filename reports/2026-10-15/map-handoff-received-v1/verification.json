@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-15",
+  "historicalSnapshotDate": "2026-10-13",
+  "historicalFiles": 65,
+  "currentFiles": 69,
+  "checkedHashes": 64,
+  "unchanged": 64,
+  "differences": [],
+  "addedSinceSnapshot": [
+    "immersive-v4/manifest.json",
+    "immersive-v4/map-expanded-source.png",
+    "immersive-v4/PROMPT.md",
+    "runtime-v1/manifest.json"
+  ],
+  "referenceMatches": true,
+  "runtimeMatches": true,
+  "runtime": "assets/maps/xuanwu-lake-v4.jpg",
+  "reference": "design/maps/xuanwu-lake/huanzhou-yingzhou-v3/huanzhou-yingzhou-corridor.png",
+  "coordinateStatus": "NOT_COLLECTED: requires real GCJ-02 control and independent check points; historical WGS84 registration is not reusable",
+  "actions": "Read-only map verification. No artwork replacement, compression, historical script execution, deployment or calibration submission."
+}

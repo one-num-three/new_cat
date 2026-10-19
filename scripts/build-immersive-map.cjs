@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),sharp=require('sharp');
+const root=path.resolve(__dirname,'..'),file='design/maps/xuanwu-lake/immersive-v4/manifest.json';
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+(async()=>{const m=JSON.parse(fs.readFileSync(path.join(root,file))),source=fs.readFileSync(path.join(root,m.source));
+ if(hash(source)!==m.sourceSha256)throw Error('Generated source changed');
+ const rendered=await sharp(source).jpeg({quality:86,chromaSubsampling:'4:4:4',mozjpeg:true}).toBuffer();
+ const p=path.join(root,m.path);if(process.argv.includes('--verify')){if(!rendered.equals(fs.readFileSync(p)))throw Error('Runtime encoding differs');}else fs.writeFileSync(p,rendered);
+ const meta=await sharp(rendered).metadata();if(meta.width!==m.width||meta.height!==m.height||hash(rendered)!==m.sha256||rendered.length!==m.bytes)throw Error('Asset lock mismatch');
+ console.log('IMMERSIVE_MAP_VERIFY_PASS size='+m.width+'x'+m.height+' bytes='+m.bytes+' source=unchanged georeferenced=false');
+})().catch(e=>{console.error(e);process.exitCode=1;});

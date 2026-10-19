@@ -1,0 +1,24 @@
+猫鼠行动 四风格初步定稿 · 文件验证
+COMMAND: python build_gallery.py
+INPUT: jobs.json + revision-prompts.json + 60 originals + 17 revisions
+RESULT: PASS 60/60 selected PNG files opened and decoded
+RESULT: PASS 60/60 dimensions = 1024x1536
+RESULT: PASS 60/60 SHA-256 hashes match built-in generation source
+RESULT: PASS 4 styles x 15 unique screen IDs
+RESULT: PASS 4 reference copies equal original attachment SHA-256
+RESULT: 17 revised selections; original variants preserved
+RESULT: PASS embedded gallery item paths all exist
+EXIT STATUS: 0
+
+Visual QA: generated outputs displayed and reviewed; 17 targeted corrections generated and reviewed.
+Maps are visual illustrations, not navigation data. Code area is a labeled demonstration placeholder.
+Exact hashes and selected paths: manifest.json
+Prompts: jobs.json + revision-prompts.json
+
+BROWSER UI CHECKS
+Default cross-style home comparison: PASS: 4 cards / 60 total
+Select 15-details: PASS: all 4 selected v2 files visible; 1024x1536 natural dimensions loaded
+Open and close acrylic detail zoom: PASS: dialog showed correct title and original PNG link
+Acrylic complete flow: PASS: 15 cards / 60 total
+Desktop layout: PASS: document clientWidth=1888, scrollWidth=1888
+Delivery state: PASS: reset to all/01-home and marked deliverable

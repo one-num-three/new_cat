@@ -1,0 +1,7 @@
+{
+  "id": "03-pixel-day/07-hiding",
+  "status": "revised",
+  "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a12dee-5ebe-77e0-a71e-48dee3c92e34\\exec-1a2ff2e5-ebf4-43de-b795-6eceb5c7e9fe.png",
+  "output": "D:/cat-mouse-miniprogram/design/2026-10-12/four-styles-draft-v1/03-pixel-day/07-hiding-v2.png",
+  "prompt": "Use case: precise-object-edit. 请对所附唯一手机UI原图做精确局部校正，输出同尺寸1024x1536完整竖向手机图。保持手机边框、像素尺寸、原有风格、原有排版、背景和所有未指定元素不变，不重新设计，不额外添加新内容。\n只移除主地图上四个小老鼠角色标记，原位置恢复成正常地图树木/草地/步道；猫方躲藏阶段地图不展示敌人的精确位置。地图外下方“鼠先躲藏”卡片里的猫鼠装饰插画必须保留。其他元素、文字、00:18、0/4完全不变。"
+}

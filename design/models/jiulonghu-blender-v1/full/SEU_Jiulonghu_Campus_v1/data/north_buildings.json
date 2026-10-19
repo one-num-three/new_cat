@@ -1,0 +1,3027 @@
+[
+  {
+    "id": "J1_main",
+    "name_cn": "接待中心一期",
+    "group": "J1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        145,
+        181
+      ],
+      [
+        156,
+        181
+      ],
+      [
+        156,
+        188
+      ],
+      [
+        163,
+        188
+      ],
+      [
+        163,
+        203
+      ],
+      [
+        154,
+        209
+      ],
+      [
+        146,
+        209
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "J1"
+  },
+  {
+    "id": "J2_north",
+    "name_cn": "接待中心二期北翼",
+    "group": "J2",
+    "status": "planned",
+    "footprint_px": [
+      [
+        172,
+        182
+      ],
+      [
+        211,
+        182
+      ],
+      [
+        211,
+        192
+      ],
+      [
+        172,
+        192
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "J2"
+  },
+  {
+    "id": "J2_east",
+    "name_cn": "接待中心二期东南翼",
+    "group": "J2",
+    "status": "planned",
+    "footprint_px": [
+      [
+        205,
+        194
+      ],
+      [
+        214,
+        194
+      ],
+      [
+        214,
+        218
+      ],
+      [
+        184,
+        218
+      ],
+      [
+        184,
+        210
+      ],
+      [
+        205,
+        210
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "J2"
+  },
+  {
+    "id": "J2_southwest",
+    "name_cn": "接待中心二期西南翼",
+    "group": "J2",
+    "status": "planned",
+    "footprint_px": [
+      [
+        163,
+        210
+      ],
+      [
+        175,
+        210
+      ],
+      [
+        175,
+        222
+      ],
+      [
+        163,
+        222
+      ]
+    ],
+    "height_m": 9,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "J2"
+  },
+  {
+    "id": "S_north",
+    "name_cn": "钟山书院北楼",
+    "group": "S",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        206,
+        277
+      ],
+      [
+        224,
+        277
+      ],
+      [
+        224,
+        290
+      ],
+      [
+        206,
+        290
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "S"
+  },
+  {
+    "id": "S_west",
+    "name_cn": "钟山书院西楼",
+    "group": "S",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        198,
+        289
+      ],
+      [
+        206,
+        289
+      ],
+      [
+        206,
+        311
+      ],
+      [
+        198,
+        311
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "S"
+  },
+  {
+    "id": "S_east",
+    "name_cn": "钟山书院东楼",
+    "group": "S",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        218,
+        293
+      ],
+      [
+        233,
+        293
+      ],
+      [
+        233,
+        302
+      ],
+      [
+        218,
+        302
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "S"
+  },
+  {
+    "id": "S_south",
+    "name_cn": "钟山书院南楼",
+    "group": "S",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        204,
+        311
+      ],
+      [
+        225,
+        311
+      ],
+      [
+        225,
+        319
+      ],
+      [
+        204,
+        319
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "S"
+  },
+  {
+    "id": "S_link",
+    "name_cn": "钟山书院连廊",
+    "group": "S",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        207,
+        289
+      ],
+      [
+        219,
+        289
+      ],
+      [
+        219,
+        294
+      ],
+      [
+        207,
+        294
+      ]
+    ],
+    "height_m": 9,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "S"
+  },
+  {
+    "id": "X4_n",
+    "name_cn": "给水增压站",
+    "group": "X4",
+    "status": "planned",
+    "footprint_px": [
+      [
+        348,
+        238
+      ],
+      [
+        359,
+        238
+      ],
+      [
+        359,
+        248
+      ],
+      [
+        348,
+        248
+      ]
+    ],
+    "height_m": 6,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "X4"
+  },
+  {
+    "id": "X2_n",
+    "name_cn": "库房",
+    "group": "X2",
+    "status": "planned",
+    "footprint_px": [
+      [
+        360,
+        238
+      ],
+      [
+        370,
+        238
+      ],
+      [
+        370,
+        248
+      ],
+      [
+        360,
+        248
+      ]
+    ],
+    "height_m": 6,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "X2"
+  },
+  {
+    "id": "R_west",
+    "name_cn": "科研中心西翼",
+    "group": "R",
+    "status": "planned",
+    "footprint_px": [
+      [
+        383,
+        202
+      ],
+      [
+        417,
+        202
+      ],
+      [
+        417,
+        224
+      ],
+      [
+        392,
+        224
+      ],
+      [
+        392,
+        233
+      ],
+      [
+        417,
+        233
+      ],
+      [
+        417,
+        257
+      ],
+      [
+        383,
+        257
+      ],
+      [
+        383,
+        248
+      ],
+      [
+        407,
+        248
+      ],
+      [
+        407,
+        242
+      ],
+      [
+        383,
+        242
+      ],
+      [
+        383,
+        216
+      ],
+      [
+        406,
+        216
+      ],
+      [
+        406,
+        211
+      ],
+      [
+        383,
+        211
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "R"
+  },
+  {
+    "id": "R_east",
+    "name_cn": "科研中心东翼",
+    "group": "R",
+    "status": "planned",
+    "footprint_px": [
+      [
+        483,
+        202
+      ],
+      [
+        515,
+        202
+      ],
+      [
+        515,
+        211
+      ],
+      [
+        492,
+        211
+      ],
+      [
+        492,
+        219
+      ],
+      [
+        515,
+        219
+      ],
+      [
+        515,
+        243
+      ],
+      [
+        492,
+        243
+      ],
+      [
+        492,
+        250
+      ],
+      [
+        515,
+        250
+      ],
+      [
+        515,
+        258
+      ],
+      [
+        483,
+        258
+      ],
+      [
+        483,
+        234
+      ],
+      [
+        506,
+        234
+      ],
+      [
+        506,
+        228
+      ],
+      [
+        483,
+        228
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "R"
+  },
+  {
+    "id": "R_nw",
+    "name_cn": "科研中心北西楼",
+    "group": "R",
+    "status": "planned",
+    "footprint_px": [
+      [
+        391,
+        179
+      ],
+      [
+        406,
+        179
+      ],
+      [
+        406,
+        193
+      ],
+      [
+        391,
+        193
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "R"
+  },
+  {
+    "id": "R_center_w",
+    "name_cn": "科研中心中西楼",
+    "group": "R",
+    "status": "planned",
+    "footprint_px": [
+      [
+        427,
+        211
+      ],
+      [
+        444,
+        211
+      ],
+      [
+        444,
+        226
+      ],
+      [
+        427,
+        226
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "R"
+  },
+  {
+    "id": "R_center_e",
+    "name_cn": "科研中心中东楼",
+    "group": "R",
+    "status": "planned",
+    "footprint_px": [
+      [
+        455,
+        211
+      ],
+      [
+        472,
+        211
+      ],
+      [
+        472,
+        226
+      ],
+      [
+        455,
+        226
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "R"
+  },
+  {
+    "id": "R_axis",
+    "name_cn": "科研中心轴线连接",
+    "group": "R",
+    "status": "planned",
+    "footprint_px": [
+      [
+        446,
+        199
+      ],
+      [
+        453,
+        199
+      ],
+      [
+        453,
+        221
+      ],
+      [
+        446,
+        221
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "R"
+  },
+  {
+    "id": "X1_main",
+    "name_cn": "变配电所",
+    "group": "X1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        493,
+        175
+      ],
+      [
+        518,
+        175
+      ],
+      [
+        518,
+        196
+      ],
+      [
+        493,
+        196
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "X1"
+  },
+  {
+    "id": "P15_0",
+    "name_cn": "发展学科楼P15",
+    "group": "P15",
+    "status": "planned",
+    "footprint_px": [
+      [
+        530,
+        174
+      ],
+      [
+        558,
+        174
+      ],
+      [
+        558,
+        182
+      ],
+      [
+        530,
+        182
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P15"
+  },
+  {
+    "id": "P15_1",
+    "name_cn": "发展学科楼P15",
+    "group": "P15",
+    "status": "planned",
+    "footprint_px": [
+      [
+        584,
+        174
+      ],
+      [
+        609,
+        174
+      ],
+      [
+        609,
+        182
+      ],
+      [
+        584,
+        182
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P15"
+  },
+  {
+    "id": "P15_2",
+    "name_cn": "发展学科楼P15",
+    "group": "P15",
+    "status": "planned",
+    "footprint_px": [
+      [
+        551,
+        188
+      ],
+      [
+        580,
+        188
+      ],
+      [
+        580,
+        196
+      ],
+      [
+        551,
+        196
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P15"
+  },
+  {
+    "id": "P15_3",
+    "name_cn": "发展学科楼P15",
+    "group": "P15",
+    "status": "planned",
+    "footprint_px": [
+      [
+        610,
+        189
+      ],
+      [
+        633,
+        189
+      ],
+      [
+        633,
+        198
+      ],
+      [
+        610,
+        198
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P15"
+  },
+  {
+    "id": "C18_north",
+    "name_cn": "生医科研综合楼北裙楼",
+    "group": "C18",
+    "status": "existing",
+    "footprint_px": [
+      [
+        527,
+        225
+      ],
+      [
+        553,
+        225
+      ],
+      [
+        553,
+        237
+      ],
+      [
+        527,
+        237
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "floor_derived",
+    "height_note": "辅楼4层有官方依据，按4.0m/层估算；非实测高度。",
+    "plan_label": "C18"
+  },
+  {
+    "id": "C18_south",
+    "name_cn": "生医科研综合楼南裙楼",
+    "group": "C18",
+    "status": "existing",
+    "footprint_px": [
+      [
+        527,
+        253
+      ],
+      [
+        556,
+        253
+      ],
+      [
+        556,
+        263
+      ],
+      [
+        527,
+        263
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "floor_derived",
+    "height_note": "辅楼4层有官方依据，按4.0m/层估算。",
+    "plan_label": "C18"
+  },
+  {
+    "id": "C18_west_tower",
+    "name_cn": "生医科研综合楼主楼示意",
+    "group": "C18",
+    "status": "existing",
+    "footprint_px": [
+      [
+        527,
+        237
+      ],
+      [
+        539,
+        237
+      ],
+      [
+        539,
+        253
+      ],
+      [
+        527,
+        253
+      ]
+    ],
+    "height_m": 52,
+    "height_confidence": "floor_derived",
+    "height_note": "主楼13层有官方依据；52m按4.0m/层估算；主辅楼分区位置待核实。",
+    "plan_label": "C18",
+    "floors": 13,
+    "source": "https://fzwyh.seu.edu.cn/2021/0330/c12368a366808/page.htm"
+  },
+  {
+    "id": "C19_main",
+    "name_cn": "信息电子教学综合楼主楼示意",
+    "group": "C19",
+    "status": "existing",
+    "footprint_px": [
+      [
+        572,
+        207
+      ],
+      [
+        604,
+        207
+      ],
+      [
+        604,
+        222
+      ],
+      [
+        572,
+        222
+      ]
+    ],
+    "height_m": 55.8,
+    "height_confidence": "source_height",
+    "height_note": "官方建筑高度55.80m；女儿墙59.39m。主楼14层；此主楼与裙楼分区位置为总平图示意，待实测定位。",
+    "plan_label": "C19",
+    "floors": 14,
+    "parapet_m": 59.39,
+    "source": "https://radio.seu.edu.cn/2019/0130/c1589a262700/pagem.htm"
+  },
+  {
+    "id": "C19_east",
+    "name_cn": "信息电子教学综合楼东裙楼",
+    "group": "C19",
+    "status": "existing",
+    "footprint_px": [
+      [
+        604,
+        213
+      ],
+      [
+        620,
+        213
+      ],
+      [
+        620,
+        260
+      ],
+      [
+        604,
+        260
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "floor_derived",
+    "height_note": "裙楼3层有依据；12m按4m/层估算。",
+    "plan_label": "C19"
+  },
+  {
+    "id": "C19_south",
+    "name_cn": "信息电子教学综合楼第二主楼示意",
+    "group": "C19",
+    "status": "existing",
+    "footprint_px": [
+      [
+        574,
+        250
+      ],
+      [
+        604,
+        250
+      ],
+      [
+        604,
+        261
+      ],
+      [
+        574,
+        261
+      ]
+    ],
+    "height_m": 55.8,
+    "height_confidence": "source_height",
+    "height_note": "官方竣工照片有双高层主楼；项目建筑高度55.80m。双塔等高与所在翼段为示意，非逐塔测绘。",
+    "plan_label": "C19",
+    "floors": 14,
+    "source": "https://jbjsc.seu.edu.cn/2023/0412/c18724a441552/page.htm"
+  },
+  {
+    "id": "C19_west",
+    "name_cn": "信息电子教学综合楼西裙楼",
+    "group": "C19",
+    "status": "existing",
+    "footprint_px": [
+      [
+        571,
+        231
+      ],
+      [
+        581,
+        231
+      ],
+      [
+        581,
+        250
+      ],
+      [
+        571,
+        250
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "floor_derived",
+    "height_note": "裙楼3层有依据；12m按4m/层估算。",
+    "plan_label": "C19"
+  },
+  {
+    "id": "C17_north",
+    "name_cn": "人文社科科研楼北翼",
+    "group": "C17",
+    "status": "existing",
+    "footprint_px": [
+      [
+        294,
+        284
+      ],
+      [
+        371,
+        284
+      ],
+      [
+        371,
+        296
+      ],
+      [
+        294,
+        296
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C17"
+  },
+  {
+    "id": "C17_east",
+    "name_cn": "人文社科科研楼东翼",
+    "group": "C17",
+    "status": "existing",
+    "footprint_px": [
+      [
+        355,
+        296
+      ],
+      [
+        371,
+        296
+      ],
+      [
+        371,
+        315
+      ],
+      [
+        355,
+        315
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C17"
+  },
+  {
+    "id": "C17_south",
+    "name_cn": "人文社科科研楼南翼",
+    "group": "C17",
+    "status": "existing",
+    "footprint_px": [
+      [
+        326,
+        296
+      ],
+      [
+        336,
+        296
+      ],
+      [
+        340,
+        306
+      ],
+      [
+        355,
+        306
+      ],
+      [
+        355,
+        315
+      ],
+      [
+        334,
+        315
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C17"
+  },
+  {
+    "id": "C15_0",
+    "name_cn": "文学院楼",
+    "group": "C15",
+    "status": "existing",
+    "footprint_px": [
+      [
+        329,
+        326
+      ],
+      [
+        352,
+        326
+      ],
+      [
+        352,
+        337
+      ],
+      [
+        329,
+        337
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C15"
+  },
+  {
+    "id": "C15_1",
+    "name_cn": "文学院楼",
+    "group": "C15",
+    "status": "existing",
+    "footprint_px": [
+      [
+        329,
+        340
+      ],
+      [
+        352,
+        340
+      ],
+      [
+        352,
+        349
+      ],
+      [
+        329,
+        349
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C15"
+  },
+  {
+    "id": "C15_lower_n",
+    "name_cn": "文学院楼",
+    "group": "C15",
+    "status": "existing",
+    "footprint_px": [
+      [
+        329,
+        350
+      ],
+      [
+        353,
+        350
+      ],
+      [
+        353,
+        359
+      ],
+      [
+        329,
+        359
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C15"
+  },
+  {
+    "id": "C15_lower_s",
+    "name_cn": "文学院楼",
+    "group": "C15",
+    "status": "existing",
+    "footprint_px": [
+      [
+        329,
+        370
+      ],
+      [
+        353,
+        370
+      ],
+      [
+        353,
+        379
+      ],
+      [
+        329,
+        379
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C15"
+  },
+  {
+    "id": "C15_lower_w",
+    "name_cn": "文学院楼",
+    "group": "C15",
+    "status": "existing",
+    "footprint_px": [
+      [
+        329,
+        359
+      ],
+      [
+        337,
+        359
+      ],
+      [
+        337,
+        370
+      ],
+      [
+        329,
+        370
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C15"
+  },
+  {
+    "id": "C15_lower_e",
+    "name_cn": "文学院楼",
+    "group": "C15",
+    "status": "existing",
+    "footprint_px": [
+      [
+        346,
+        359
+      ],
+      [
+        353,
+        359
+      ],
+      [
+        353,
+        370
+      ],
+      [
+        346,
+        370
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C15"
+  },
+  {
+    "id": "C11_n",
+    "name_cn": "材料学院楼",
+    "group": "C11",
+    "status": "existing",
+    "footprint_px": [
+      [
+        480,
+        291
+      ],
+      [
+        511,
+        291
+      ],
+      [
+        511,
+        300
+      ],
+      [
+        480,
+        300
+      ]
+    ],
+    "height_m": 28,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C11"
+  },
+  {
+    "id": "C11_s",
+    "name_cn": "材料学院楼",
+    "group": "C11",
+    "status": "existing",
+    "footprint_px": [
+      [
+        480,
+        311
+      ],
+      [
+        511,
+        311
+      ],
+      [
+        511,
+        320
+      ],
+      [
+        480,
+        320
+      ]
+    ],
+    "height_m": 28,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C11"
+  },
+  {
+    "id": "C11_w",
+    "name_cn": "材料学院楼",
+    "group": "C11",
+    "status": "existing",
+    "footprint_px": [
+      [
+        480,
+        300
+      ],
+      [
+        488,
+        300
+      ],
+      [
+        488,
+        311
+      ],
+      [
+        480,
+        311
+      ]
+    ],
+    "height_m": 28,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C11"
+  },
+  {
+    "id": "C13_n",
+    "name_cn": "化工学院楼",
+    "group": "C13",
+    "status": "existing",
+    "footprint_px": [
+      [
+        480,
+        330
+      ],
+      [
+        511,
+        330
+      ],
+      [
+        511,
+        339
+      ],
+      [
+        480,
+        339
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C13"
+  },
+  {
+    "id": "C13_s",
+    "name_cn": "化工学院楼",
+    "group": "C13",
+    "status": "existing",
+    "footprint_px": [
+      [
+        480,
+        350
+      ],
+      [
+        511,
+        350
+      ],
+      [
+        511,
+        359
+      ],
+      [
+        480,
+        359
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C13"
+  },
+  {
+    "id": "C13_w",
+    "name_cn": "化工学院楼",
+    "group": "C13",
+    "status": "existing",
+    "footprint_px": [
+      [
+        480,
+        339
+      ],
+      [
+        488,
+        339
+      ],
+      [
+        488,
+        350
+      ],
+      [
+        480,
+        350
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C13"
+  },
+  {
+    "id": "C13_e",
+    "name_cn": "化工学院楼",
+    "group": "C13",
+    "status": "existing",
+    "footprint_px": [
+      [
+        504,
+        339
+      ],
+      [
+        511,
+        339
+      ],
+      [
+        511,
+        350
+      ],
+      [
+        504,
+        350
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C13"
+  },
+  {
+    "id": "C14_n",
+    "name_cn": "材料化工综合楼",
+    "group": "C14",
+    "status": "existing",
+    "footprint_px": [
+      [
+        516,
+        330
+      ],
+      [
+        546,
+        330
+      ],
+      [
+        546,
+        339
+      ],
+      [
+        516,
+        339
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C14"
+  },
+  {
+    "id": "C14_s",
+    "name_cn": "材料化工综合楼",
+    "group": "C14",
+    "status": "existing",
+    "footprint_px": [
+      [
+        516,
+        350
+      ],
+      [
+        546,
+        350
+      ],
+      [
+        546,
+        359
+      ],
+      [
+        516,
+        359
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C14"
+  },
+  {
+    "id": "C14_w",
+    "name_cn": "材料化工综合楼",
+    "group": "C14",
+    "status": "existing",
+    "footprint_px": [
+      [
+        516,
+        339
+      ],
+      [
+        524,
+        339
+      ],
+      [
+        524,
+        350
+      ],
+      [
+        516,
+        350
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C14"
+  },
+  {
+    "id": "C14_e",
+    "name_cn": "材料化工综合楼",
+    "group": "C14",
+    "status": "existing",
+    "footprint_px": [
+      [
+        539,
+        339
+      ],
+      [
+        546,
+        339
+      ],
+      [
+        546,
+        350
+      ],
+      [
+        539,
+        350
+      ]
+    ],
+    "height_m": 24,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C14"
+  },
+  {
+    "id": "C16_n",
+    "name_cn": "经管学院楼",
+    "group": "C16",
+    "status": "existing",
+    "footprint_px": [
+      [
+        358,
+        342
+      ],
+      [
+        383,
+        342
+      ],
+      [
+        383,
+        351
+      ],
+      [
+        358,
+        351
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C16"
+  },
+  {
+    "id": "C16_s",
+    "name_cn": "经管学院楼",
+    "group": "C16",
+    "status": "existing",
+    "footprint_px": [
+      [
+        358,
+        370
+      ],
+      [
+        383,
+        370
+      ],
+      [
+        383,
+        379
+      ],
+      [
+        358,
+        379
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C16"
+  },
+  {
+    "id": "C16_w",
+    "name_cn": "经管学院楼",
+    "group": "C16",
+    "status": "existing",
+    "footprint_px": [
+      [
+        358,
+        351
+      ],
+      [
+        366,
+        351
+      ],
+      [
+        366,
+        370
+      ],
+      [
+        358,
+        370
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C16"
+  },
+  {
+    "id": "C16_e",
+    "name_cn": "经管学院楼",
+    "group": "C16",
+    "status": "existing",
+    "footprint_px": [
+      [
+        376,
+        351
+      ],
+      [
+        383,
+        351
+      ],
+      [
+        383,
+        370
+      ],
+      [
+        376,
+        370
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C16"
+  },
+  {
+    "id": "P14_n",
+    "name_cn": "发展学科楼P14北楼",
+    "group": "P14",
+    "status": "planned",
+    "footprint_px": [
+      [
+        394,
+        289
+      ],
+      [
+        419,
+        289
+      ],
+      [
+        419,
+        314
+      ],
+      [
+        394,
+        314
+      ],
+      [
+        394,
+        306
+      ],
+      [
+        411,
+        306
+      ],
+      [
+        411,
+        298
+      ],
+      [
+        394,
+        298
+      ]
+    ],
+    "height_m": 22,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P14"
+  },
+  {
+    "id": "P14_s",
+    "name_cn": "发展学科楼P14南楼",
+    "group": "P14",
+    "status": "planned",
+    "footprint_px": [
+      [
+        394,
+        322
+      ],
+      [
+        419,
+        322
+      ],
+      [
+        419,
+        349
+      ],
+      [
+        394,
+        349
+      ],
+      [
+        394,
+        341
+      ],
+      [
+        411,
+        341
+      ],
+      [
+        411,
+        331
+      ],
+      [
+        401,
+        331
+      ],
+      [
+        401,
+        338
+      ],
+      [
+        394,
+        338
+      ]
+    ],
+    "height_m": 22,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P14"
+  },
+  {
+    "id": "P14_bottom",
+    "name_cn": "发展学科楼P14南附楼",
+    "group": "P14",
+    "status": "planned",
+    "footprint_px": [
+      [
+        394,
+        354
+      ],
+      [
+        419,
+        354
+      ],
+      [
+        419,
+        365
+      ],
+      [
+        394,
+        365
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P14"
+  },
+  {
+    "id": "U5_n",
+    "name_cn": "博物馆艺术中心U5北段",
+    "group": "U5",
+    "status": "planned",
+    "footprint_px": [
+      [
+        440,
+        290
+      ],
+      [
+        458,
+        290
+      ],
+      [
+        458,
+        319
+      ],
+      [
+        440,
+        319
+      ]
+    ],
+    "height_m": 14,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "U5"
+  },
+  {
+    "id": "U5_s",
+    "name_cn": "博物馆艺术中心U5南段",
+    "group": "U5",
+    "status": "planned",
+    "footprint_px": [
+      [
+        440,
+        338
+      ],
+      [
+        458,
+        338
+      ],
+      [
+        458,
+        366
+      ],
+      [
+        440,
+        366
+      ]
+    ],
+    "height_m": 14,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "U5"
+  },
+  {
+    "id": "U5_link",
+    "name_cn": "博物馆艺术中心U5连廊",
+    "group": "U5",
+    "status": "planned",
+    "footprint_px": [
+      [
+        440,
+        319
+      ],
+      [
+        447,
+        319
+      ],
+      [
+        447,
+        338
+      ],
+      [
+        440,
+        338
+      ]
+    ],
+    "height_m": 8,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "U5"
+  },
+  {
+    "id": "C12_north",
+    "name_cn": "土木交通试验平台北实验大厅",
+    "group": "C12",
+    "status": "existing",
+    "footprint_px": [
+      [
+        520,
+        285
+      ],
+      [
+        562,
+        285
+      ],
+      [
+        562,
+        323
+      ],
+      [
+        520,
+        323
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C12"
+  },
+  {
+    "id": "C10_north",
+    "name_cn": "土木交通学科楼北楼示意",
+    "group": "C10",
+    "status": "existing",
+    "footprint_px": [
+      [
+        614,
+        280
+      ],
+      [
+        644,
+        280
+      ],
+      [
+        644,
+        290
+      ],
+      [
+        614,
+        290
+      ]
+    ],
+    "height_m": 64,
+    "height_confidence": "floor_derived",
+    "height_note": "北楼16层；按4.0m/层估算64m；分段定位来自低分辨率总平图。",
+    "plan_label": "C10",
+    "floors": 16,
+    "source": "https://xxgk.seu.edu.cn/2015/0104/c10804a114263/page.htm"
+  },
+  {
+    "id": "C10_south",
+    "name_cn": "土木交通学科楼南楼示意",
+    "group": "C10",
+    "status": "existing",
+    "footprint_px": [
+      [
+        614,
+        321
+      ],
+      [
+        644,
+        321
+      ],
+      [
+        644,
+        331
+      ],
+      [
+        614,
+        331
+      ]
+    ],
+    "height_m": 56,
+    "height_confidence": "floor_derived",
+    "height_note": "南楼14层；按4.0m/层估算56m。",
+    "plan_label": "C10",
+    "floors": 14
+  },
+  {
+    "id": "C10_east",
+    "name_cn": "土木交通学科楼连接裙楼",
+    "group": "C10",
+    "status": "existing",
+    "footprint_px": [
+      [
+        634,
+        290
+      ],
+      [
+        644,
+        290
+      ],
+      [
+        644,
+        321
+      ],
+      [
+        634,
+        321
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "floor_derived",
+    "height_note": "连接楼3层；按4m/层估算。",
+    "plan_label": "C10"
+  },
+  {
+    "id": "C12_east_hall",
+    "name_cn": "土木交通试验平台东大厅",
+    "group": "C12",
+    "status": "existing",
+    "footprint_px": [
+      [
+        580,
+        281
+      ],
+      [
+        607,
+        281
+      ],
+      [
+        607,
+        330
+      ],
+      [
+        580,
+        330
+      ],
+      [
+        580,
+        315
+      ],
+      [
+        586,
+        315
+      ],
+      [
+        586,
+        297
+      ],
+      [
+        580,
+        297
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C12"
+  },
+  {
+    "id": "P13_main",
+    "name_cn": "未来技术楼",
+    "group": "P13",
+    "status": "under_construction",
+    "footprint_px": [
+      [
+        513,
+        364
+      ],
+      [
+        559,
+        364
+      ],
+      [
+        565,
+        371
+      ],
+      [
+        565,
+        387
+      ],
+      [
+        510,
+        387
+      ],
+      [
+        500,
+        380
+      ],
+      [
+        500,
+        374
+      ]
+    ],
+    "height_m": 22,
+    "height_confidence": "floor_derived",
+    "height_note": "规划地上5层，22m为示意换算；2026-08官方报告仍幕墙装修。",
+    "plan_label": "P13",
+    "floors": 5,
+    "source": "https://www.ccgp.gov.cn/cggg/zygg/gkzb/202410/t20241010_23327982.htm"
+  },
+  {
+    "id": "P17_main",
+    "name_cn": "发展学科楼P17",
+    "group": "P17",
+    "status": "planned",
+    "footprint_px": [
+      [
+        589,
+        342
+      ],
+      [
+        615,
+        342
+      ],
+      [
+        615,
+        352
+      ],
+      [
+        598,
+        352
+      ],
+      [
+        598,
+        359
+      ],
+      [
+        621,
+        359
+      ],
+      [
+        621,
+        370
+      ],
+      [
+        589,
+        370
+      ]
+    ],
+    "height_m": 22,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "P17"
+  },
+  {
+    "id": "B_north",
+    "name_cn": "李文正图书馆北翼",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        417,
+        410
+      ],
+      [
+        481,
+        410
+      ],
+      [
+        481,
+        423
+      ],
+      [
+        417,
+        423
+      ]
+    ],
+    "height_m": 25,
+    "height_confidence": "floor_derived",
+    "height_note": "官方导览覆盖1–5层；25m为示意估算，非实测总高。",
+    "plan_label": "B",
+    "source": "https://lib.seu.edu.cn/list.php?fid=797"
+  },
+  {
+    "id": "B_south",
+    "name_cn": "李文正图书馆南翼",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        417,
+        442
+      ],
+      [
+        481,
+        442
+      ],
+      [
+        481,
+        455
+      ],
+      [
+        417,
+        455
+      ]
+    ],
+    "height_m": 25,
+    "height_confidence": "floor_derived",
+    "height_note": "官方导览覆盖1–5层；25m为示意估算。",
+    "plan_label": "B"
+  },
+  {
+    "id": "B_w",
+    "name_cn": "李文正图书馆主体",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        417,
+        423
+      ],
+      [
+        429,
+        423
+      ],
+      [
+        429,
+        442
+      ],
+      [
+        417,
+        442
+      ]
+    ],
+    "height_m": 25,
+    "height_confidence": "floor_derived",
+    "height_note": "5层导览；25m为估算。",
+    "plan_label": "B"
+  },
+  {
+    "id": "B_m",
+    "name_cn": "李文正图书馆主体",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        443,
+        423
+      ],
+      [
+        455,
+        423
+      ],
+      [
+        455,
+        442
+      ],
+      [
+        443,
+        442
+      ]
+    ],
+    "height_m": 25,
+    "height_confidence": "floor_derived",
+    "height_note": "5层导览；25m为估算。",
+    "plan_label": "B"
+  },
+  {
+    "id": "B_e",
+    "name_cn": "李文正图书馆主体",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        469,
+        423
+      ],
+      [
+        481,
+        423
+      ],
+      [
+        481,
+        442
+      ],
+      [
+        469,
+        442
+      ]
+    ],
+    "height_m": 25,
+    "height_confidence": "floor_derived",
+    "height_note": "5层导览；25m为估算。",
+    "plan_label": "B"
+  },
+  {
+    "id": "B_annex_w",
+    "name_cn": "李文正图书馆西附翼",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        405,
+        424
+      ],
+      [
+        417,
+        424
+      ],
+      [
+        417,
+        443
+      ],
+      [
+        405,
+        443
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "B"
+  },
+  {
+    "id": "B_annex_e",
+    "name_cn": "李文正图书馆东附翼",
+    "group": "B",
+    "status": "existing",
+    "footprint_px": [
+      [
+        481,
+        424
+      ],
+      [
+        493,
+        424
+      ],
+      [
+        493,
+        443
+      ],
+      [
+        481,
+        443
+      ]
+    ],
+    "height_m": 18,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "B"
+  },
+  {
+    "id": "A2_north",
+    "name_cn": "纪忠楼/研究生教学楼北翼",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        286,
+        448
+      ],
+      [
+        324,
+        448
+      ],
+      [
+        324,
+        457
+      ],
+      [
+        286,
+        457
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "A2_south",
+    "name_cn": "纪忠楼/研究生教学楼南翼",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        286,
+        469
+      ],
+      [
+        324,
+        469
+      ],
+      [
+        324,
+        478
+      ],
+      [
+        286,
+        478
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "A2_west",
+    "name_cn": "纪忠楼/研究生教学楼西翼",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        286,
+        457
+      ],
+      [
+        295,
+        457
+      ],
+      [
+        295,
+        469
+      ],
+      [
+        286,
+        469
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "A2_east",
+    "name_cn": "纪忠楼/研究生教学楼东翼",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        316,
+        457
+      ],
+      [
+        324,
+        457
+      ],
+      [
+        324,
+        469
+      ],
+      [
+        316,
+        469
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "A2_entry",
+    "name_cn": "纪忠楼/研究生教学楼入口连接",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        268,
+        439
+      ],
+      [
+        281,
+        439
+      ],
+      [
+        281,
+        469
+      ],
+      [
+        268,
+        469
+      ]
+    ],
+    "height_m": 16,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "A2_lowwest",
+    "name_cn": "纪忠楼/研究生教学楼西附楼",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        241,
+        469
+      ],
+      [
+        286,
+        469
+      ],
+      [
+        286,
+        477
+      ],
+      [
+        241,
+        477
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "A2_loweast",
+    "name_cn": "纪忠楼/研究生教学楼东附楼",
+    "group": "A2",
+    "status": "existing",
+    "footprint_px": [
+      [
+        324,
+        459
+      ],
+      [
+        333,
+        459
+      ],
+      [
+        333,
+        470
+      ],
+      [
+        324,
+        470
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A2"
+  },
+  {
+    "id": "C1_nw",
+    "name_cn": "建筑学院楼西北翼",
+    "group": "C1",
+    "status": "planned",
+    "footprint_px": [
+      [
+        149,
+        400
+      ],
+      [
+        176,
+        400
+      ],
+      [
+        176,
+        408
+      ],
+      [
+        158,
+        408
+      ],
+      [
+        158,
+        429
+      ],
+      [
+        174,
+        429
+      ],
+      [
+        174,
+        437
+      ],
+      [
+        149,
+        437
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C1"
+  },
+  {
+    "id": "C1_ne",
+    "name_cn": "建筑学院楼东北翼",
+    "group": "C1",
+    "status": "planned",
+    "footprint_px": [
+      [
+        176,
+        401
+      ],
+      [
+        210,
+        401
+      ],
+      [
+        210,
+        411
+      ],
+      [
+        176,
+        411
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C1"
+  },
+  {
+    "id": "C1_s",
+    "name_cn": "建筑学院楼南院",
+    "group": "C1",
+    "status": "planned",
+    "footprint_px": [
+      [
+        175,
+        437
+      ],
+      [
+        207,
+        437
+      ],
+      [
+        207,
+        447
+      ],
+      [
+        184,
+        447
+      ],
+      [
+        184,
+        464
+      ],
+      [
+        200,
+        464
+      ],
+      [
+        200,
+        474
+      ],
+      [
+        175,
+        474
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "C1"
+  },
+  {
+    "id": "A1_bar_1",
+    "name_cn": "本科生教学楼教学单元1",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        579,
+        399
+      ],
+      [
+        619,
+        399
+      ],
+      [
+        619,
+        410
+      ],
+      [
+        579,
+        410
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_2",
+    "name_cn": "本科生教学楼教学单元2",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        586,
+        425
+      ],
+      [
+        620,
+        425
+      ],
+      [
+        620,
+        435
+      ],
+      [
+        586,
+        435
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_3",
+    "name_cn": "本科生教学楼教学单元3",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        586,
+        445
+      ],
+      [
+        620,
+        445
+      ],
+      [
+        620,
+        455
+      ],
+      [
+        586,
+        455
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_4",
+    "name_cn": "本科生教学楼教学单元4",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        586,
+        468
+      ],
+      [
+        620,
+        468
+      ],
+      [
+        620,
+        480
+      ],
+      [
+        586,
+        480
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_5",
+    "name_cn": "本科生教学楼教学单元5",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        634,
+        394
+      ],
+      [
+        669,
+        394
+      ],
+      [
+        669,
+        405
+      ],
+      [
+        634,
+        405
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_6",
+    "name_cn": "本科生教学楼教学单元6",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        634,
+        415
+      ],
+      [
+        669,
+        415
+      ],
+      [
+        669,
+        425
+      ],
+      [
+        634,
+        425
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_7",
+    "name_cn": "本科生教学楼教学单元7",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        634,
+        436
+      ],
+      [
+        669,
+        436
+      ],
+      [
+        669,
+        447
+      ],
+      [
+        634,
+        447
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_bar_8",
+    "name_cn": "本科生教学楼教学单元8",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        634,
+        458
+      ],
+      [
+        669,
+        458
+      ],
+      [
+        669,
+        470
+      ],
+      [
+        634,
+        470
+      ]
+    ],
+    "height_m": 20,
+    "height_confidence": "estimated",
+    "height_note": "教学楼单元逐栋层数未核实；20m为统一初模估算，不代表测量。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_w_connector",
+    "name_cn": "本科生教学楼西侧连廊",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        586,
+        435
+      ],
+      [
+        592,
+        435
+      ],
+      [
+        592,
+        468
+      ],
+      [
+        586,
+        468
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_e_w_connector",
+    "name_cn": "本科生教学楼东组西连廊",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        634,
+        405
+      ],
+      [
+        640,
+        405
+      ],
+      [
+        640,
+        458
+      ],
+      [
+        634,
+        458
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_e_e_connector",
+    "name_cn": "本科生教学楼东组东连廊",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        663,
+        405
+      ],
+      [
+        669,
+        405
+      ],
+      [
+        669,
+        458
+      ],
+      [
+        663,
+        458
+      ]
+    ],
+    "height_m": 12,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_w_entry1",
+    "name_cn": "本科生教学楼西南入口",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        578,
+        438
+      ],
+      [
+        586,
+        438
+      ],
+      [
+        586,
+        448
+      ],
+      [
+        578,
+        448
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_w_entry2",
+    "name_cn": "本科生教学楼西北入口",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        578,
+        458
+      ],
+      [
+        586,
+        458
+      ],
+      [
+        586,
+        468
+      ],
+      [
+        578,
+        468
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_e_entry1",
+    "name_cn": "本科生教学楼东组入口一",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        669,
+        405
+      ],
+      [
+        678,
+        405
+      ],
+      [
+        678,
+        415
+      ],
+      [
+        669,
+        415
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_e_entry2",
+    "name_cn": "本科生教学楼东组入口二",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        669,
+        425
+      ],
+      [
+        678,
+        425
+      ],
+      [
+        678,
+        436
+      ],
+      [
+        669,
+        436
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  },
+  {
+    "id": "A1_e_entry3",
+    "name_cn": "本科生教学楼东组入口三",
+    "group": "A1",
+    "status": "existing",
+    "footprint_px": [
+      [
+        669,
+        447
+      ],
+      [
+        678,
+        447
+      ],
+      [
+        678,
+        458
+      ],
+      [
+        669,
+        458
+      ]
+    ],
+    "height_m": 15,
+    "height_confidence": "estimated",
+    "height_note": "体量高度估算；未取得逐栋实测或竣工高度。",
+    "plan_label": "A1"
+  }
+]

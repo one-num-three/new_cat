@@ -1,0 +1,216 @@
+{
+  "version": "jiulonghu-model-reference-1",
+  "origin": [
+    118.815,
+    31.889
+  ],
+  "coefficients": [
+    [
+      0.4338220702976478,
+      0.035480893885218356,
+      486.8677302952642
+    ],
+    [
+      0.027249504660407098,
+      -0.43478726345798346,
+      473.7225515341664
+    ]
+  ],
+  "boundary": [
+    [
+      120,
+      154
+    ],
+    [
+      925,
+      154
+    ],
+    [
+      925,
+      780
+    ],
+    [
+      898,
+      793
+    ],
+    [
+      173,
+      793
+    ],
+    [
+      155,
+      773
+    ],
+    [
+      139,
+      670
+    ],
+    [
+      122,
+      463
+    ]
+  ],
+  "scale": 1.9,
+  "center": [
+    520,
+    470
+  ],
+  "fieldVerified": false,
+  "anchors": [
+    {
+      "name": "李文正图书馆",
+      "fit": true,
+      "wgs84": [
+        118.81408365,
+        31.88984205
+      ],
+      "pixel": [
+        449,
+        432.5
+      ],
+      "world": [
+        -86.61192475705712,
+        93.7365772223938
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        452.61942333428493,
+        430.6069495904096
+      ],
+      "errorPx": 4.084588734011857
+    },
+    {
+      "name": "九龙湖体育馆",
+      "fit": true,
+      "wgs84": [
+        118.8215603,
+        31.889041050000003
+      ],
+      "pixel": [
+        756.5,
+        487
+      ],
+      "world": [
+        620.0689801777037,
+        4.569665097470271
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        756.0294748057211,
+        488.6322919166441
+      ],
+      "errorPx": 1.69875567978236
+    },
+    {
+      "name": "行政办公楼",
+      "fit": true,
+      "wgs84": [
+        118.81316865,
+        31.883942400000002
+      ],
+      "pixel": [
+        395.5,
+        717
+      ],
+      "world": [
+        -173.09624969130107,
+        -563.0094566357386
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        391.7986781061583,
+        713.7951054231233
+      ],
+      "errorPx": 4.896032374354274
+    },
+    {
+      "name": "橘园食堂",
+      "fit": true,
+      "wgs84": [
+        118.80816185,
+        31.88512485
+      ],
+      "pixel": [
+        189.5,
+        643
+      ],
+      "world": [
+        -646.3309142562583,
+        -431.379724747436
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        191.16937673724425,
+        643.6687643081711
+      ],
+      "errorPx": 1.798350463823971
+    },
+    {
+      "name": "钟山书院",
+      "fit": true,
+      "wgs84": [
+        118.8079883,
+        31.8922782
+      ],
+      "pixel": [
+        215.5,
+        298
+      ],
+      "world": [
+        -662.7345804772362,
+        364.92755471855986
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        212.30679837954796,
+        296.99750961834286
+      ],
+      "errorPx": 3.3468677228376733
+    },
+    {
+      "name": "能环科研综合楼",
+      "fit": true,
+      "wgs84": [
+        118.80953375,
+        31.88668275
+      ],
+      "pixel": [
+        251.5,
+        568
+      ],
+      "world": [
+        -516.6611378889701,
+        -257.9550900408051
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        253.57624863704297,
+        571.7993791433091
+      ],
+      "errorPx": 4.329675539510455
+    },
+    {
+      "name": "纪忠楼",
+      "fit": false,
+      "wgs84": [
+        118.8102869,
+        31.88913655
+      ],
+      "pixel": [
+        287,
+        458.5
+      ],
+      "world": [
+        -445.4746140383884,
+        15.200676467884755
+      ],
+      "method": "bbox centre of saved OSM footprint and independently traced source-plan massing group; approximate, not surveyed",
+      "predicted": [
+        294.15034455682553,
+        454.97452843865256
+      ],
+      "errorPx": 7.972225348746363
+    }
+  ],
+  "notes": "Approximate affine reference from six saved OSM / original-plan building centres. One held-out image check. Errors are schematic image residuals, not GPS accuracy. Finite source-plan site boundary, no outside extrapolation."
+}

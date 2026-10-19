@@ -1,0 +1,174 @@
+TAP version 13
+# Subtest: developer gallery lists every shipped core state and denies non-developer entry
+ok 1 - developer gallery lists every shipped core state and denies non-developer entry
+  ---
+  duration_ms: 14.2904
+  type: 'test'
+  ...
+# Subtest: preview cases render without API, positioning, socket, camera, storage or timers
+ok 2 - preview cases render without API, positioning, socket, camera, storage or timers
+  ---
+  duration_ms: 18.7953
+  type: 'test'
+  ...
+# Subtest: preview actions stay local and blocked preview URLs redirect
+ok 3 - preview actions stay local and blocked preview URLs redirect
+  ---
+  duration_ms: 9.1409
+  type: 'test'
+  ...
+# Subtest: pilot preview roster, captures, frozen clock and event sequence stay consistent
+ok 4 - pilot preview roster, captures, frozen clock and event sequence stay consistent
+  ---
+  duration_ms: 1.8693
+  type: 'test'
+  ...
+# Subtest: room readiness controls explain waiting and never open a round early
+ok 5 - room readiness controls explain waiting and never open a round early
+  ---
+  duration_ms: 2.0059
+  type: 'test'
+  ...
+# Subtest: map view labels and drawer distinguish frozen, captured and public venue state
+not ok 6 - map view labels and drawer distinguish frozen, captured and public venue state
+  ---
+  duration_ms: 3.1347
+  type: 'test'
+  location: 'D:\\cat-mouse-miniprogram\\cat-mouse-server\\v2\\dev-preview.test.js:90:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /class="drawerMask" bindtap="closeDrawer"/. Input:
+    
+    `<view class="mapPage state-{{uiState}} {{nearbyCat?'nearby':''}} {{drawer?'drawerOpen':''}} {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--vw:{{viewportWidth}}px">\n` +
+      '<nav-bar title="猫鼠行动" preview="{{devPreview}}" />\n' +
+      `<view wx:if="{{devPreview}}" class="previewMap"><image class="parkArt" src="{{drawer?'/assets/faithful-v2/park-stage-drawer.png':parkArt}}" mode="aspectFill" aria-label="开发预览示意公园，非真实地理地图" /></view>\n` +
+      '<map wx:else class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" />\n' +
+      '<view class="mapSky" wx:if="{{devPreview}}"><image class="mapCloud" src="/assets/faithful-v2/home-cloud.png" mode="widthFix" /><image class="mapCanopyLeft" src="/assets/faithful-v2/map-canopy-left.png" mode="widthFix" /><image class="mapCanopyRight" src="/assets/faithful-v2/map-canopy-right.png" mode="widthFix" /></view>\n' +
+      `<view class="topPanel"><view class="roleColumn"><image class="roleArt" src="{{roleArt}}" mode="aspectFit" /><view><text class="teamName">{{roleText}} ·</text><text class="phaseLabel {{match.myRole==='cat'?'orangeText':'greenText'}}">{{offline?'重连中':phaseText}}</text></view></view><view class="goal"><text wx:if="{{match}}">已抓 {{match.captured}} / {{match.target}}</text><text wx:else>正在同步</text></view><view class="clockBlock"><text class="clock {{terminal?'endedClock':''}}">{{terminal?'已结束':clock}}</text><text class="clockCaption">{{offline?'等待同步':match.phase==='HIDING'?'躲藏倒计时':match.phase==='PAUSED'?'计时已冻结':terminal?'结果已确认':'追逐剩余'}}</text></view></view>\n` +
+      `<view wx:if="{{uiState==='captured'}}" class="publicOnly">仅查看公开状态</view>\n` +
+      `<view class="bottomPanel {{terminal?'resultPanel':''}}">\n` +
+      '<view wx:if="{{!match}}" class="notice">正在获取本局状态，请稍候。</view>\n' +
+      `<view wx:elif="{{uiState==='offline' || uiState==='paused' || uiState==='captured' || uiState==='hiding'}}" class="stateLead"><image class="stateArt" src="{{stateArt}}" mode="widthFix" /><view class="stateCopy"><text wx:if="{{uiState==='offline'}}" class="stateTitle">连接中断，正在重连</text><text wx:else class="stateTitle">{{uiState==='paused'?'本局暂停':uiState==='captured'?'本轮已出局':'鼠先躲藏'}}</text><text wx:if="{{uiState==='offline'}}" class="stateHint">{{connection==='身份失效'?'身份已失效，请返回首页':'请停下等待连接恢复'}}</text><text wx:if="{{uiState==='paused'}}" class="stateReason">{{pauseReasonText}}</text><text wx:if="{{uiState!=='offline'}}" class="stateHint">{{uiState==='paused'?'请原地等待':uiState==='captured'?'返回集合点，等待本局结算':'猫留在集合点，倒计时结束后出发'}}</text></view></view>\n` +
+      `<view wx:elif="{{terminal}}" class="result"><image class="resultArt" src="{{stateArt}}" mode="widthFix" /><view class="resultCopy"><text class="resultTag">{{uiState==='cancelled'?'本局记录':'本局结算'}}</text><text class="resultTitle">{{uiState==='catWin'?'猫队获胜':uiState==='mouseWin'?'鼠队获胜':'本局取消'}}</text><text class="resultReason {{uiState==='cancelled'?'orangeText':''}}">{{match.reason==='capture_target'?'已达到捕获目标':match.reason==='deadline'?'追逐时间已到':'不计胜负'}}</text><text class="resultSummary">{{resultSummary}}</text></view><button wx:if="{{canReplay}}" class="primary" bindtap="replay">再来一局</button><text wx:else class="waitingHost">等待组织者开启下一轮</text></view>\n` +
+      '<view wx:elif="{{canScan}}" class="notice intelNotice">橘色区域仅代表大致线索</view>\n' +
+      '<view wx:elif="{{canShowCode && !nearbyCat}}" class="stateLead mouseLead"><image class="stateArt" src="{{stateArt}}" mode="widthFix" /><view class="stateCopy"><text class="stateTitle">留意周围环境，<text class="lineBreak">停下后展示动态码</text></text></view></view>\n' +
+      '<view wx:if="{{canShowCode && nearbyCat}}" class="warning"><image class="warningIcon" src="/assets/faithful-v2/icon-alert.png" mode="aspectFit" /><view><text class="warningTitle">附近有猫，注意观察</text><text class="warningHint">只提示接近，不展示猫的位置</text></view></view>\n' +
+      '<button wx:if="{{canScan}}" class="primary" loading="{{loading}}" disabled="{{loading}}" bindtap="scan">扫码确认抓捕</button>\n' +
+      '<button wx:elif="{{canShowCode}}" class="primary" bindtap="showCode">停下，展示动态码</button>\n' +
+      '<button wx:elif="{{canResume}}" class="primary" loading="{{loading}}" disabled="{{loading}}" bindtap="resume">恢复本局</button>\n' +
+      '<text wx:if="{{error && !offline}}" class="error">{{error}}</text>\n' +
+      `<button wx:if="{{connection==='身份失效'}}" class="secondary" bindtap="goHome">返回首页</button>\n` +
+      `<button class="secondary detailsButton" bindtap="toggleDrawer">{{terminal?'查看对局详情':uiState==='hiding' || uiState==='captured' || offline?'队伍 · 规则':'队伍 · 规则 · 操作'}}</button>\n` +
+      '</view>\n' +
+      `<view wx:if="{{drawer}}" class="drawerMask {{devPreview?'sampleMask':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>\n` +
+      '<view wx:if="{{drawer}}" class="drawer"><view class="drawerHandle"></view><view class="drawerHeader"><text>对局详情</text><button class="textButton" bindtap="closeDrawer">关闭</button></view>\n' +
+      '<scroll-view scroll-y class="drawerBody">\n' +
+      `<view class="drawerContent"><view class="teamGroup catsGroup"><view class="groupLabel"><image class="groupIcon" src="/assets/faithful-v2/avatar-cat.png" mode="aspectFit" /><text class="label">猫队 · {{cats.length}} 人</text></view><view class="teamGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><text class="rosterName">{{item.nickname}}</text><text wx:if="{{item.presence!=='online'}}" class="rosterState"> · 重连</text></view></view></view>\n` +
+      `<view class="teamGroup miceGroup"><view class="groupLabel"><image class="groupIcon" src="/assets/faithful-v2/avatar-mouse-green.png" mode="aspectFit" /><text class="label">鼠队 · {{mice.length}} 人</text></view><view class="teamGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><text class="rosterName">{{item.nickname}}</text><text wx:if="{{item.status==='captured'}}" class="rosterState orangeText"> · 被捕</text><text wx:elif="{{item.presence!=='online'}}" class="rosterState"> · 重连</text></view></view></view>\n` +
+      `<view class="eventGroup"><view class="groupLabel"><view class="eventIcon"><view></view><view></view></view><text class="label">最近事件</text></view><text wx:if="{{!events.length}}" class="help">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text class="eventTime">{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>\n` +
+      '<view class="rulesGroup"><view class="groupLabel"><view class="rulesIcon">＋</view><text class="label">本局规则</text></view><text class="help">• 30 秒躲藏 · 6 分钟追逐</text><text class="help">• 猫抓满 {{match.target}} 人获胜</text><text class="help">• 取消不计胜负</text></view>\n' +
+      `<button wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="secondary" bindtap="emergency">紧急暂停</button>\n` +
+      `<button class="textButton exitButton" bindtap="leave">{{terminal?'返回首页':'退出本局'}}</button>\n` +
+      '<view class="advancedRules"><text class="help">被捕本轮出局；时间到未达标鼠胜。蓝点是本人，旗帜是集合点；橘色区域不是精确位置。猫按周期获得线索，鼠只获得近距预警。双方停下扫码，GPS 仅作辅助校验。</text>\n' +
+      `<button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button>\n` +
+      `<button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="danger" bindtap="cancel">取消本局</button></view>\n` +
+      '</view></scroll-view></view>\n' +
+      '</view>\r\n' +
+      '\r\n'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    <view class="mapPage state-{{uiState}} {{nearbyCat?'nearby':''}} {{drawer?'drawerOpen':''}} {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--vw:{{viewportWidth}}px">
+    <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
+    <view wx:if="{{devPreview}}" class="previewMap"><image class="parkArt" src="{{drawer?'/assets/faithful-v2/park-stage-drawer.png':parkArt}}" mode="aspectFill" aria-label="开发预览示意公园，非真实地理地图" /></view>
+    <map wx:else class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" circles="{{circles}}" show-location="{{false}}" enable-rotate="{{false}}" />
+    <view class="mapSky" wx:if="{{devPreview}}"><image class="mapCloud" src="/assets/faithful-v2/home-cloud.png" mode="widthFix" /><image class="mapCanopyLeft" src="/assets/faithful-v2/map-canopy-left.png" mode="widthFix" /><image class="mapCanopyRight" src="/assets/faithful-v2/map-canopy-right.png" mode="widthFix" /></view>
+    <view class="topPanel"><view class="roleColumn"><image class="roleArt" src="{{roleArt}}" mode="aspectFit" /><view><text class="teamName">{{roleText}} ·</text><text class="phaseLabel {{match.myRole==='cat'?'orangeText':'greenText'}}">{{offline?'重连中':phaseText}}</text></view></view><view class="goal"><text wx:if="{{match}}">已抓 {{match.captured}} / {{match.target}}</text><text wx:else>正在同步</text></view><view class="clockBlock"><text class="clock {{terminal?'endedClock':''}}">{{terminal?'已结束':clock}}</text><text class="clockCaption">{{offline?'等待同步':match.phase==='HIDING'?'躲藏倒计时':match.phase==='PAUSED'?'计时已冻结':terminal?'结果已确认':'追逐剩余'}}</text></view></view>
+    <view wx:if="{{uiState==='captured'}}" class="publicOnly">仅查看公开状态</view>
+    <view class="bottomPanel {{terminal?'resultPanel':''}}">
+    <view wx:if="{{!match}}" class="notice">正在获取本局状态，请稍候。</view>
+    <view wx:elif="{{uiState==='offline' || uiState==='paused' || uiState==='captured' || uiState==='hiding'}}" class="stateLead"><image class="stateArt" src="{{stateArt}}" mode="widthFix" /><view class="stateCopy"><text wx:if="{{uiState==='offline'}}" class="stateTitle">连接中断，正在重连</text><text wx:else class="stateTitle">{{uiState==='paused'?'本局暂停':uiState==='captured'?'本轮已出局':'鼠先躲藏'}}</text><text wx:if="{{uiState==='offline'}}" class="stateHint">{{connection==='身份失效'?'身份已失效，请返回首页':'请停下等待连接恢复'}}</text><text wx:if="{{uiState==='paused'}}" class="stateReason">{{pauseReasonText}}</text><text wx:if="{{uiState!=='offline'}}" class="stateHint">{{uiState==='paused'?'请原地等待':uiState==='captured'?'返回集合点，等待本局结算':'猫留在集合点，倒计时结束后出发'}}</text></view></view>
+    <view wx:elif="{{terminal}}" class="result"><image class="resultArt" src="{{stateArt}}" mode="widthFix" /><view class="resultCopy"><text class="resultTag">{{uiState==='cancelled'?'本局记录':'本局结算'}}</text><text class="resultTitle">{{uiState==='catWin'?'猫队获胜':uiState==='mouseWin'?'鼠队获胜':'本局取消'}}</text><text class="resultReason {{uiState==='cancelled'?'orangeText':''}}">{{match.reason==='capture_target'?'已达到捕获目标':match.reason==='deadline'?'追逐时间已到':'不计胜负'}}</text><text class="resultSummary">{{resultSummary}}</text></view><button wx:if="{{canReplay}}" class="primary" bindtap="replay">再来一局</button><text wx:else class="waitingHost">等待组织者开启下一轮</text></view>
+    <view wx:elif="{{canScan}}" class="notice intelNotice">橘色区域仅代表大致线索</view>
+    <view wx:elif="{{canShowCode && !nearbyCat}}" class="stateLead mouseLead"><image class="stateArt" src="{{stateArt}}" mode="widthFix" /><view class="stateCopy"><text class="stateTitle">留意周围环境，<text class="lineBreak">停下后展示动态码</text></text></view></view>
+    <view wx:if="{{canShowCode && nearbyCat}}" class="warning"><image class="warningIcon" src="/assets/faithful-v2/icon-alert.png" mode="aspectFit" /><view><text class="warningTitle">附近有猫，注意观察</text><text class="warningHint">只提示接近，不展示猫的位置</text></view></view>
+    <button wx:if="{{canScan}}" class="primary" loading="{{loading}}" disabled="{{loading}}" bindtap="scan">扫码确认抓捕</button>
+    <button wx:elif="{{canShowCode}}" class="primary" bindtap="showCode">停下，展示动态码</button>
+    <button wx:elif="{{canResume}}" class="primary" loading="{{loading}}" disabled="{{loading}}" bindtap="resume">恢复本局</button>
+    <text wx:if="{{error && !offline}}" class="error">{{error}}</text>
+    <button wx:if="{{connection==='身份失效'}}" class="secondary" bindtap="goHome">返回首页</button>
+    <button class="secondary detailsButton" bindtap="toggleDrawer">{{terminal?'查看对局详情':uiState==='hiding' || uiState==='captured' || offline?'队伍 · 规则':'队伍 · 规则 · 操作'}}</button>
+    </view>
+    <view wx:if="{{drawer}}" class="drawerMask {{devPreview?'sampleMask':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
+    <view wx:if="{{drawer}}" class="drawer"><view class="drawerHandle"></view><view class="drawerHeader"><text>对局详情</text><button class="textButton" bindtap="closeDrawer">关闭</button></view>
+    <scroll-view scroll-y class="drawerBody">
+    <view class="drawerContent"><view class="teamGroup catsGroup"><view class="groupLabel"><image class="groupIcon" src="/assets/faithful-v2/avatar-cat.png" mode="aspectFit" /><text class="label">猫队 · {{cats.length}} 人</text></view><view class="teamGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><text class="rosterName">{{item.nickname}}</text><text wx:if="{{item.presence!=='online'}}" class="rosterState"> · 重连</text></view></view></view>
+    <view class="teamGroup miceGroup"><view class="groupLabel"><image class="groupIcon" src="/assets/faithful-v2/avatar-mouse-green.png" mode="aspectFit" /><text class="label">鼠队 · {{mice.length}} 人</text></view><view class="teamGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><text class="rosterName">{{item.nickname}}</text><text wx:if="{{item.status==='captured'}}" class="rosterState orangeText"> · 被捕</text><text wx:elif="{{item.presence!=='online'}}" class="rosterState"> · 重连</text></view></view></view>
+    <view class="eventGroup"><view class="groupLabel"><view class="eventIcon"><view></view><view></view></view><text class="label">最近事件</text></view><text wx:if="{{!events.length}}" class="help">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text class="eventTime">{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
+    <view class="rulesGroup"><view class="groupLabel"><view class="rulesIcon">＋</view><text class="label">本局规则</text></view><text class="help">• 30 秒躲藏 · 6 分钟追逐</text><text class="help">• 猫抓满 {{match.target}} 人获胜</text><text class="help">• 取消不计胜负</text></view>
+    <button wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="secondary" bindtap="emergency">紧急暂停</button>
+    <button class="textButton exitButton" bindtap="leave">{{terminal?'返回首页':'退出本局'}}</button>
+    <view class="advancedRules"><text class="help">被捕本轮出局；时间到未达标鼠胜。蓝点是本人，旗帜是集合点；橘色区域不是精确位置。猫按周期获得线索，鼠只获得近距预警。双方停下扫码，GPS 仅作辅助校验。</text>
+    <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button>
+    <button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="danger" bindtap="cancel">取消本局</button></view>
+    </view></scroll-view></view>
+    </view>
+    
+    
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (D:\cat-mouse-miniprogram\cat-mouse-server\v2\dev-preview.test.js:99:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: native template expressions parse including conditional accessibility classes
+ok 7 - native template expressions parse including conditional accessibility classes
+  ---
+  duration_ms: 7.703
+  type: 'test'
+  ...
+# Subtest: presentation only exposes role and stage appropriate primary actions
+ok 8 - presentation only exposes role and stage appropriate primary actions
+  ---
+  duration_ms: 1.7131
+  type: 'test'
+  ...
+# Subtest: result denominator stays at opening rules despite roster departures
+ok 9 - result denominator stays at opening rules despite roster departures
+  ---
+  duration_ms: 0.2281
+  type: 'test'
+  ...
+# Subtest: window metrics use real capsule, safe area and bounded text preference
+ok 10 - window metrics use real capsule, safe area and bounded text preference
+  ---
+  duration_ms: 1.194
+  type: 'test'
+  ...
+# Subtest: native pages keep actionable controls and real map isolated from preview illustration
+ok 11 - native pages keep actionable controls and real map isolated from preview illustration
+  ---
+  duration_ms: 2.2336
+  type: 'test'
+  ...
+# Subtest: mobile art derivatives match fixed lock and state scenes have transparency
+ok 12 - mobile art derivatives match fixed lock and state scenes have transparency
+  ---
+  duration_ms: 3.8752
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 206.7716

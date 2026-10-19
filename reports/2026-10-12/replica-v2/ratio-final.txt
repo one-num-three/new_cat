@@ -1,0 +1,4 @@
+normal routes=16 imageBoxes=66 maxRatioError=0.04225352112676062
+large routes=16 imageBoxes=66 maxRatioError=0.04225352112676062
+narrow routes=16 imageBoxes=66 maxRatioError=0.04225352112676062
+ALL_IMAGE_BOXES=198 MAX_RATIO_ERROR=0.04225352112676062

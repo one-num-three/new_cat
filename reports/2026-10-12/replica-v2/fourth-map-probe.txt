@@ -1,0 +1,10 @@
+ROUTE catWin
+ROUTE_RETRY catWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS catWin
+ROUTE mouseWin
+ROUTE_RETRY mouseWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouseWin
+ROUTE cancelled
+ROUTE_RETRY cancelled {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cancelled
+REPLICA_UI_PASS=3 FONT_SCALE=1

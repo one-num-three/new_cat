@@ -1,0 +1,38 @@
+{
+  "status": "PASS_MERGED",
+  "passedCount": 24,
+  "passed": [
+    "venue-loaded",
+    "native-plus-tap",
+    "native-touch-pan",
+    "native-reset-tap",
+    "native-error-retry",
+    "home-guide-entry",
+    "gallery-guide-entry",
+    "preview-never-fakes-live-map",
+    "capture-code-route-preserved",
+    "pixel-join-binding",
+    "pixel-disabled-start",
+    "pixel-ready-start",
+    "pixel-drawer-close",
+    "pixel-replay-route",
+    "cancelled-bottom",
+    "cancelled-large-bottom",
+    "code-bottom",
+    "code-large-bottom",
+    "create-bottom",
+    "create-large-bottom",
+    "ready-bottom",
+    "ready-large-bottom",
+    "drawer-large-bottom",
+    "native-large-drawer-close"
+  ],
+  "pending": [],
+  "provenance": [
+    "interaction-r3/progress.json:14 assertions before MCP capture timeout",
+    "interaction-bottom/progress.json:9 assertions before harness error",
+    "large-close-native.json and independent MCP getData drawer=false"
+  ],
+  "notSingleSuccessfulBatch": true,
+  "realDevice": false
+}

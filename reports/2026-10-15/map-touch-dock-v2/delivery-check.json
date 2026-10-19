@@ -1,0 +1,58 @@
+{
+  "completed": "2026-10-16",
+  "tests": {
+    "pass": 119,
+    "fail": 0,
+    "exit": 0
+  },
+  "build": {
+    "wxml": 11,
+    "wxss": 15,
+    "exit": 0
+  },
+  "font": {
+    "glyphs": 593,
+    "bytes": 23684
+  },
+  "ui": {
+    "screenshots": 14,
+    "nativeButtons": true,
+    "runtimeGestures": true,
+    "nativeAutoTouch": false,
+    "physicalPhone": false,
+    "browserFileAutomation": "blocked by URL policy; no workaround"
+  },
+  "layout": {
+    "open": {
+      "width": 240,
+      "height": 96
+    },
+    "closed": {
+      "width": 58,
+      "height": 94,
+      "right": 390,
+      "bottom": 804
+    },
+    "screen": {
+      "width": 390,
+      "height": 844,
+      "safeBottom": 34
+    },
+    "headerTopPx": 95,
+    "productionMs": 260,
+    "slowModeMs": 20000
+  },
+  "export": {
+    "files": 140,
+    "rawBytes": 1965965,
+    "localGate": 2097152
+  },
+  "artworkSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+  "rollback": {
+    "fixtureFiles": 13,
+    "exit": 0,
+    "liveExecuted": false,
+    "output": "ROLLBACK_PASS restored=13 root=D:\\cat-mouse-miniprogram\\reports\\2026-10-15\\map-touch-dock-v2\\rollback-fixture; no files deleted"
+  },
+  "fieldVerified": false
+}

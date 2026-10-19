@@ -1,0 +1,32 @@
+Gateway and mini-program configuration verification, 2026-10-11 (Asia/Shanghai)
+
+Scope: Existing seu-link.fit Nginx HTTPS vhost, dedicated /catmouse/ path to the loopback cat-mouse API. Other site routes preserved. Certificate/TLS checked by curl without -k from the external workstation.
+
+Deployment: /etc/nginx/snippets/catmouse.conf is included by /etc/nginx/snippets/seu-link-locations.conf. Prior locations file: /etc/nginx/snippets/seu-link-locations.conf.pre-catmouse-20261011. nginx -t: syntax is ok; configuration test is successful. catmouse-api and nginx: active. /opt/cat-mouse/api.env: mode 600. No secret value printed.
+
+Public HTTPS probes from workstation:
+curl.exe --noproxy "*" -i https://seu-link.fit/catmouse/ready
+  HTTP/1.1 200 OK; {"ready":true}; exit 0
+curl.exe --noproxy "*" -i https://seu-link.fit/catmouse/api/version
+  HTTP/1.1 200 OK; {"version":"0.2.0","rulesVersion":"pilot-0.2"}; exit 0
+curl.exe --noproxy "*" -i -X POST https://seu-link.fit/catmouse/api/v2/session/test -H "Content-Type: application/json" -d "{}"
+  HTTP/1.1 403 Forbidden; {"error":"FORBIDDEN"}; exit 0
+curl.exe --noproxy "*" -i -X POST https://seu-link.fit/catmouse/api/v2/session/wechat -H "Content-Type: application/json" -d '{"code":"invalid-gateway-probe"}'
+  HTTP/1.1 400 Bad Request; {"error":"LOGIN_FAILED"}; exit 0 (intentionally invalid code; not a real wx.login success)
+curl --resolve seu-link.fit:443:127.0.0.1 https://seu-link.fit/catmouse/api/v2/rooms/unknown
+  HTTP 401 application/json; exit 0 (anonymous request)
+curl --resolve seu-link.fit:443:127.0.0.1 https://seu-link.fit/
+  HTTP 302 text/html; exit 0 (existing site route still responds)
+
+Authenticated WSS gateway probe:
+scp scripts/probe-gateway-wss.cjs root@122.51.95.61:/opt/cat-mouse/probe-gateway-wss.cjs
+ssh root@122.51.95.61 'set -a; . /opt/cat-mouse/api.env; set +a; node /opt/cat-mouse/probe-gateway-wss.cjs; result=$?; rm -f /opt/cat-mouse/probe-gateway-wss.cjs; exit $result'
+  literal stdout: {"type":"SNAPSHOT","roomMatches":true,"visiblePositions":0}
+  exit 0. Probe creates one temporary session and room directly via Store/Service, connects through public wss://seu-link.fit/catmouse/api/v2/live, checks authorized SNAPSHOT, and deletes exact temporary room and session in finally. No production test-identity HTTP route enabled.
+
+Client config: utils/config.js mode local (wx.request, not cloud), baseUrl https://seu-link.fit/catmouse, wsUrl wss://seu-link.fit/catmouse, localTestIdentities false. User reports WeChat platform domain setup is complete; developer tool and phone checks have not been performed here.
+
+Local automated test: npm test in cat-mouse-server, 14 tests passed, 0 failed, exit 0. node --check utils/config.js exit 0. git diff --check exit 0 (line-ending warnings only).
+Packaging: powershell -ExecutionPolicy Bypass -File .\scripts\package-release.ps1 -OutputDirectory .\dist\domain-connected; exit 0; wrote both mini-program and server ZIPs. Reopened mini-program ZIP using System.IO.Compression.ZipFile, read utils\config.js: ZIP_CONFIG_HTTPS=True; ZIP_CONFIG_WSS=True; ZIP_TEST_IDENTITIES_OFF=True. Initial read attempt with utils/config.js returned a null ZIP entry because Compress-Archive stores Windows backslashes; corrected entry name and reopened successfully.
+
+Still pending: real wx.login code and actual mini-program request/socket on WeChat simulator and Android/iOS devices, foreground/background positioning, full capture and result across phones, external latency/load.

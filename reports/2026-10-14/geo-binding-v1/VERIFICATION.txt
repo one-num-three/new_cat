@@ -1,0 +1,54 @@
+当前：图片位置映射及标定工具 / 本地实现验证完成 / 实际地标按用户回复稍后采集
+BRANCH=master
+CHANGED_FIELDS=venue-art geographic scene with same native camera; GCJ02 registration; host room mapCalibration/expectedVersion/commandId and readiness reset; calibration page and draft; authoritative geoData only from authorized visiblePositions/intel; same-byte shared algorithm distribution; API version0.3.1.
+FOUR_PATHS:
+MODIFIED_FILE=D:/cat-mouse-miniprogram/reports/2026-10-14/geo-binding-v1/MODIFIED_FILE
+DIFF_FILE=D:/cat-mouse-miniprogram/reports/2026-10-14/geo-binding-v1/DIFF_FILE
+VERIFICATION.txt=D:/cat-mouse-miniprogram/reports/2026-10-14/geo-binding-v1/VERIFICATION.txt
+ROLLBACK.sh=D:/cat-mouse-miniprogram/reports/2026-10-14/geo-binding-v1/ROLLBACK.sh
+
+BASELINE command=npm --prefix cat-mouse-server test
+input=original dirty source,88 regressions; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/geo-binding-v1
+literal output=# tests 88; # pass 88; # fail 0; # duration_ms 16381.0152
+exit=0
+
+MODIFIED command=npm --prefix cat-mouse-server test
+input=geographic binding and calibration,98 regressions; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-14/geo-binding-v1
+literal output=# tests 98; # pass 98; # fail 0; # duration_ms 16536.9539
+exit=0; tests-final-pass.log
+New validation covers shared-source/art SHA, GCJ inverse roundtrip, holdout residual, degeneracy/duplicate/image/CRS rejection, ellipse, no extrapolation, viewport-scroll conversion, cancel/drag vs control tap, draft resume and nonowner/preview behavior. Real HTTP test sessions cover unauthorized401/nonowner403, concurrent same-ID calibration -> one version/one profile, different body same ID conflict, stale version conflict, exact profile shared to members, active match mutation denied, DB restart retains model and clears latest positions. Existing authority/capture/deadline/results/reconnect tests remain unchanged in behavior. First float equality test failed at299.99999999999994 vs300; tolerance corrected.
+
+ROLLBACK command="D:/Program Files/Git/bin/bash.exe" -c 'chmod +x reports/2026-10-14/geo-binding-v1/ROLLBACK.sh && reports/2026-10-14/geo-binding-v1/ROLLBACK.sh D:/cat-mouse-preview-evidence/2026-10-14/geo-binding-v1/rollback-fixture'
+input=marked isolated copy with22 original dirty-file hashes; no live target permitted
+literal output=ROLLBACK_RESTORED=22/22; RESTORED=art-only viewer, original room API, no geographic overlays; LIVE_WRITES=0
+exit=0
+Restored behavior/status=all22 source hashes match original, calibration route/page removed from registration and overlay absent in copied viewer. Live/export stays changed.
+Additional rollback command (PowerShell): $tests=Get-ChildItem 'D:/cat-mouse-preview-evidence/2026-10-14/geo-binding-v1/rollback-fixture/cat-mouse-server/v2' -Filter '*.test.js' | Where-Object {$_.Name -notin @('geo-registration.test.js','calibration-page.test.js')} | ForEach-Object {$_.FullName}; node --test @tests
+input=original9 test files, NODE_PATH=D:/cat-mouse-miniprogram/cat-mouse-server/node_modules, TEMP/TMP same D14 folder
+literal output=# tests 88; # pass 88; # fail 0; # duration_ms 15068.9391; exit=0. First fixture lacked project.config.json/pixel-ui-review.cjs, second had nested scripts/scripts due Copy-Item folder semantics; added exact dependency paths rather than changing assertions. Actual restored regression result recorded separately.
+
+UI command=CAT_MOUSE_USE_MCP=1 node scripts/geo-binding-review.cjs D:/cat-mouse-preview-evidence/2026-10-14/geo-binding-v1/native-delivery
+input=IDE native event handling, synthetic controlled coordinate/model injection, no GPS/no real session submissions
+literal output=GEO_BINDING_UI_PASS=5
+exit=0
+Passed native press/release -> image-coordinate point, point/uncertainty drawing, zoom and pan keep badge center within2 display pixels of its image-relative point, revoked authorized data clears overlays. This proves rendering, not real park accuracy. After draft/scroll work the equivalent5-point run passed. Final small guards (old-engine Array.at removal, malformed draft filtering, busy-kind gating) passed98 unit/integration regressions; no second full UI run claimed after these guards.
+Screenshots native-delivery/calibration-empty.png, synthetic-bound.png, synthetic-panned.png via registeredMCP simulator_screenshot648x1402, individually viewed. Early retries retained: source compile/navigation timeout, SDK end touch supplied(0,0), API callMethod wrong this binding. Press-down coordinates now define a stationary image selection, cancel/pan rejected; real page-object helper call used in harness. One explicit compiler refresh and inspected page state separated stale IDE contexts; no desktop window moves.
+
+BUILD commands=official wcc.exe10 templates / wcsc.exe14 style files
+exact args=compile-args.json
+exit=0 each. Offline compilation not a full upload certificate. New Dockerfile COPY shared added; Docker engine build not executed.
+EXPORT command=./scripts/package-release.ps1 -DirectoryOnly -OutputDirectory D:/cat-mouse-miniprogram/reports/2026-10-14/geo-binding-v1
+literal output=Created directory: D:\cat-mouse-miniprogram\reports\2026-10-14\geo-binding-v1\MODIFIED_FILE
+exit=0
+Mobile raw130files/1936505B below local2MiB envelope; ignored backend runtime sources/lock/Dockerfile/env.example added separately, never real .env. No ZIP/public upload/deploy/online data modification.
+
+SINGLE SOURCE command=node scripts/sync-geo-module.cjs --verify
+literal output=GEO_MODULE_SYNC_PASS; exit=0
+FONT command=python scripts/build-global-font.py --verify
+literal output=FUSION_FONT_VERIFY_PASS scope=registered-pages-and-components version=2026.09.25; exit=0
+New calibration labels included587glyphs/23408B; original license and upstream retained.
+Original active JPEG804062B/1254x1254 SHA unchanged d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540. Mapping transforms points only, not image axes. No WGS84 candidate/old bbox silently converted or applied to this generated image. Binding is version/hash specific.
+
+ACTUAL CALIBRATION=NOT_COLLECTED. User explicitly replied2026-10-14: 没有，稍后用标定页采集. No synthetic points installed as actual runtime defaults, no real park registration or GPS walkthrough declared passed. At least3 control +2 independent check points required; training<=5m, holdout<=10m gates are pilot math thresholds, not whole-map/device accuracy guarantees. NativeGPS reportedaccuracy<=15m collection; physical devices and MapContext point pick untested this turn. Existing image has generative local distortions; recalibrate/add control points or use native map if checks fail. Hull outside positions dropped rather than clamped.
+Host entrance=room preparation -> 图片与真实位置标定. Developer entrance=gallery -> 地图位置标定; GPS/server/storage disabled in demo. Real mobile room synchronization requires deployment of this backend and matching client first; deployed gateway not changed. Room profile JSONB survives restart; player GPS never restored from disk. Same-image local drafts resume; different confirmed profile does not silently overwrite another device's model. Old completed outcomes and pilot rules unaffected. Public guide remains art-only.
+Docs=GEO_MAP_BINDING.md / WORK_LOG.md. Next=user collects real paired landmarks after compatible backend/client update, saves, all re-ready, walks >=5 test spots; fieldVerified stays false until separately documented field trial. No concurrency capacity claim or real-server load test for this addition.

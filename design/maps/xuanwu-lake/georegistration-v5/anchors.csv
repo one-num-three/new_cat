@@ -1,0 +1,42 @@
+﻿id,group,osm_way,longitude_wgs84,latitude_wgs84,pixel_x,pixel_y,manual_uncertainty_px,method
+B1-0,B1,776728676,118.7880209,32.0751575,612,455,5,manually matched visible bridge deck / shore junction
+B1-1,B1,776728676,118.7875138,32.0754181,553,416,5,manually matched visible bridge deck / shore junction
+B2-0,B2,776728674,118.7899972,32.0746671,884,515,5,manually matched visible bridge deck / shore junction
+B2-1,B2,776728674,118.7899193,32.0745196,851,558,5,manually matched visible bridge deck / shore junction
+B3-0,B3,776728672,118.789807,32.0730782,834,765,5,manually matched visible bridge deck / shore junction
+B3-1,B3,776728672,118.7900203,32.0729745,881,795,5,manually matched visible bridge deck / shore junction
+B4-0,B4,1226671818,118.7881679,32.0728095,636,808,5,manually matched visible bridge deck / shore junction
+B4-1,B4,1226671818,118.7881549,32.0727864,633,814,5,manually matched visible bridge deck / shore junction
+B4-2,B4,1226671818,118.7880538,32.0726826,620,831,5,manually matched visible bridge deck / shore junction
+B4-3,B4,1226671818,118.7881111,32.0726493,629,836,5,manually matched visible bridge deck / shore junction
+B4-4,B4,1226671818,118.7879787,32.0724735,613,859,5,manually matched visible bridge deck / shore junction
+B4-5,B4,1226671818,118.7880342,32.0724424,621,864,5,manually matched visible bridge deck / shore junction
+B4-6,B4,1226671818,118.7879537,32.0723364,602,887,5,manually matched visible bridge deck / shore junction
+C0,C,1050092971,118.7883263,32.074908449999995,658,479,8,"manual roof-axis; OSM opposing-edge midpoint indices 5,6; not surveyed centerline"
+C1,C,1050092971,118.78858775,32.075174700000005,687,453,8,"manual roof-axis; OSM opposing-edge midpoint indices 1,11; not surveyed centerline"
+C2,C,1050092971,118.7897148,32.0744749,835,559,8,"manual roof-axis; OSM opposing-edge midpoint indices 0,12; not surveyed centerline"
+C3,C,1050092972,118.78966295000001,32.07439515,830,574,8,"manual roof-axis; OSM opposing-edge midpoint indices 2,18; not surveyed centerline"
+C4,C,1050092972,118.78982685,32.0743186,846,588,8,"manual roof-axis; OSM opposing-edge midpoint indices 3,16; not surveyed centerline"
+C5,C,1050092972,118.7897531,32.0742053,840,601,8,"manual roof-axis; OSM opposing-edge midpoint indices 4,15; not surveyed centerline"
+C6,C,1050092972,118.78992485,32.0741251,856,613,8,"manual roof-axis; OSM opposing-edge midpoint indices 5,14; not surveyed centerline"
+C7,C,1050092972,118.7895372,32.0735361,816,692,8,"manual roof-axis; OSM opposing-edge midpoint indices 9,10; not surveyed centerline"
+H-N,H,776728681,118.7882393,32.0771269,646,166,8,manually matched visible bridge deck / shore junction
+H-W,H,776728680,118.7851393,32.0730994,246,761,8,manually matched visible bridge deck / shore junction
+H-E,H,776728669,118.7909708,32.0720884,984,917,8,manually matched visible bridge deck / shore junction
+H01,H,776728664,118.788414,32.0771177,665,179,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H02,H,776728664,118.7905965,32.0750447,946,470,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H03,H,776728664,118.7902329,32.0745884,911,542,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H05,H,776728664,118.7863636,32.0733682,410,687,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H06,H,776728664,118.7886086,32.0720022,687,925,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H07,H,776728664,118.7890057,32.0718577,752,952,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H08,H,776728664,118.7907918,32.0727766,949,842,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H09,H,776728664,118.7910699,32.0719696,1000,939,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H10,H,776728664,118.7895358,32.0708368,808,1097,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H11,H,776728664,118.7891843,32.0707375,761,1117,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H12,H,776728664,118.7850039,32.07289,225,796,8,manual generalized coastline corner; lower confidence than bridge endpoints
+H13,H,776728664,118.7847577,32.0731623,207,751,8,manual generalized coastline corner; lower confidence than bridge endpoints
+Y01,Y,776728670,118.7882777,32.0754904,651,405,8,manual generalized coastline corner; lower confidence than bridge endpoints
+Y02,Y,776728670,118.7868782,32.073472,475,706,8,manual generalized coastline corner; lower confidence than bridge endpoints
+Y03,Y,776728670,118.7889809,32.0722655,742,893,8,manual generalized coastline corner; lower confidence than bridge endpoints
+Y04,Y,776728670,118.7903066,32.0742508,910,598,8,manual generalized coastline corner; lower confidence than bridge endpoints
+Y05,Y,776728670,118.7902759,32.0739218,895,663,8,manual generalized coastline corner; lower confidence than bridge endpoints

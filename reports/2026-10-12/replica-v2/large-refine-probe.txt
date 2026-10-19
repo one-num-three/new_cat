@@ -1,0 +1,17 @@
+ROUTE home
+PASS home
+ROUTE mouse
+PASS mouse
+ROUTE alert
+PASS alert
+ROUTE hiding
+PASS hiding
+ROUTE code
+PASS code
+ROUTE captured
+PASS captured
+ROUTE paused
+PASS paused
+ROUTE offline
+PASS offline
+REPLICA_UI_PASS=8 FONT_SCALE=1.3

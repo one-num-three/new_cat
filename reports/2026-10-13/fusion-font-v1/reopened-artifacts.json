@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "MODIFIED_FILE/scripts/build-fusion-font.py",
+      "bytes": 3116,
+      "sha256": "df8de7b52e5943f84af2100c034bb6adbafdb9d8683361a6763ef9a3349fe578"
+    },
+    {
+      "path": "MODIFIED_FILE/scripts/fusion-font-review.cjs",
+      "bytes": 2546,
+      "sha256": "4bb38e12d0946f047b7bc5b3f9ee5fe6421813645f5df306bd8c78b0e100e8b2"
+    },
+    {
+      "path": "MODIFIED_FILE/pages/dev/dev.wxml",
+      "bytes": 1135,
+      "sha256": "87ecab6085965cc3c08c447175eede1f9fdc6d333b14a0566bcead37e7271d3b"
+    },
+    {
+      "path": "MODIFIED_FILE/pages/dev/dev.wxss",
+      "bytes": 1847,
+      "sha256": "0b127330c8bf4af117d00a6a12a0ff36e26e873f6c26ca03ae935041715e9400"
+    },
+    {
+      "path": "MODIFIED_FILE/pages/dev/fusion-font.wxss",
+      "bytes": 11461,
+      "sha256": "4d064b1cce2d1b27d7de6ceeadfea6b7ac297cf0e34f5fcc0f4b24999c9aaa0c"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/dev-subset.woff",
+      "bytes": 8352,
+      "sha256": "5a45047b1f4cae7d9f334b85aabd4aec71e1a862918fdcf071a7a9120922c136"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/manifest.json",
+      "bytes": 2884,
+      "sha256": "bdddfa2e22d9288595eea64770a7bf2bdd349f45b26aca4d70344909de047a9d"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/OFL.txt",
+      "bytes": 4418,
+      "sha256": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/upstream-zh-hans.woff",
+      "bytes": 1072316,
+      "sha256": "6c173242d54e94b4b6bf44ddf8f1ac8aab95943cc3c486d8908edcc0d5546c7e"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/LICENSES/ark-pixel/OFL.txt",
+      "bytes": 4412,
+      "sha256": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/LICENSES/cubic-11/OFL.txt",
+      "bytes": 5364,
+      "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188"
+    },
+    {
+      "path": "MODIFIED_FILE/design/2026-10-13/fusion-font-v1/LICENSES/galmuri/LICENSE.txt",
+      "bytes": 4360,
+      "sha256": "86a3ee9495f942f0243f18c103da9faca27adb88142613edb8bb852e56c892c1"
+    },
+    {
+      "path": "MODIFIED_FILE/cat-mouse-server/v2/fusion-font.test.js",
+      "bytes": 2378,
+      "sha256": "28965aace5ef98a6d76838f5207a873680c1ce05b8cdab1c60eb301aa941e60c"
+    },
+    {
+      "path": "DIFF_FILE",
+      "bytes": 47151,
+      "sha256": "be99706bde7ec85d8a101f66a8daeb98d2b2121cf27905c040d155a6bb511e67"
+    },
+    {
+      "path": "VERIFICATION.txt",
+      "bytes": 3748,
+      "sha256": "158e2e58dd9ef0def16349facd90bf7c59f95ea1d54e09b02edb0bde5a2dcc06"
+    },
+    {
+      "path": "ROLLBACK.sh",
+      "bytes": 162,
+      "sha256": "f230525a88910d78d7114d6527414bdf9e031bd663d5e0f4db75705a46f09a98"
+    },
+    {
+      "path": "index.html",
+      "bytes": 939,
+      "sha256": "dfa686965ec8d8bfd2bfedbbdae3d74ec310f02a8c86fa2d4e8565b1e431e0a0"
+    }
+  ]
+}

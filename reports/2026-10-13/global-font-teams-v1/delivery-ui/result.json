@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "total": 10,
+  "cats": 3,
+  "mice": 7,
+  "target": 5,
+  "roster": 10,
+  "scope": "IDE sample UI only, real HTTP database flow separately tested"
+}

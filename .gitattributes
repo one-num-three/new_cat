@@ -1,0 +1,7 @@
+# Preserve byte-locked source artwork, licenses, reference code and manifests.
+# Several regression tests compare original design files by SHA-256.
+design/** -text
+assets/** -text
+campus3d/assets/** -text
+venue-maps/assets/** -text
+utils/*font.wxss -text

@@ -1,0 +1,23 @@
+玄武门—解放门：数据映射与锚定核查（2026-10-12）
+
+已完成：下载OSM原始矢量；提取目标区域道路/建筑/水体/入口；保留玄武湖完整水面和岛屿孔洞；生成WGS84地理核查图与8条候选锚点记录（7个独立位置，A4与A6重合）。
+范围：WGS84经度118.780–118.795、纬度32.063–32.076。此矩形是数据筛选窗口，不是景区官方边界或游戏活动边界。相交对象保留完整几何，故部分数据延伸至窗口之外。
+坐标：[经度,纬度]。当前GeoJSON为WGS84。现有小程序定位声明gcj02，两者尚未叠加。核查图采用墨卡托投影，只校验数学映射，不代表定位误差达标。
+锚点：城门建筑轮廓中心、入口节点、两座桥的OSM线段端点。中心不等于门洞，线段端点不保证是实测桥台；同名玄武门地铁站已排除。解放门存在两处同名建筑，保留来源ID供核对。
+后续锚定：先将WGS84矢量通过高德官方转换接口统一为GCJ02，保留原始坐标与转换记录；同一物理位置逐点匹配高德/现场；至少预留2个独立检查点报告米制残差。不要用一组固定偏移量代替全区域坐标转换，也不要为了像素外观移动道路、岸线或入口。
+若后续使用截图：收集至少6个分散、清晰且同坐标系的对应点；留出检查点；先确认截图倾斜/旋转/裁切状态。仅有POI点不构成完整底图。
+已知缺项：尚未高德转换、实地定位、逐路连通性/通行状态检查；区域内未拼装的其他多面关系列在data-audit.json。原始文件保留所有已下载关系，但OSM map API返回的跨区关系成员可能不齐全。仅确认玄武湖目标关系全部成员和节点齐全。现有要素数量不代表现实覆盖率。
+预览：geographic-check.svg是地理核查图，不是新的UI或最终像素美术。后续保持“晴日公园 / 16-bit像素 / 轻快冒险”。未改任何产品页面、定位代码或设计原稿。
+来源：
+OSM原始请求 https://api.openstreetmap.org/api/0.6/map?bbox=118.77,32.06,118.82,32.105
+OSM玄武湖 https://www.openstreetmap.org/relation/2138994
+OSM坐标 https://wiki.openstreetmap.org/wiki/Projection
+OSM署名 © OpenStreetMap contributors / ODbL 1.0 https://www.openstreetmap.org/copyright
+玄武湖官网 https://www.xuanwuhu.net/index.aspx
+官方导览PDF（已发现链接，尚未完成图面人工核查） https://www.xuanwuhu.net/UploadFile/20250922115602.pdf
+高德坐标转换 https://developer.amap.com/api/webservice/guide/api/convert
+高德POI文档（点数据，不是完整矢量底图） https://lbs.amap.com/api/webservice/guide/api-advanced/search
+高德坐标拾取 https://www.amap.com/ssr/coordinate-picker
+网络记录：Overpass主站406，镜像超时；实际源文件由OSM map API成功返回。
+
+锚点去重：A4与A6是同一个OSM节点，不能作为两个独立控制点。当前分布偏向城门及南侧桥梁，全区域标定前应补充沿岸中段、分散分布的检查点。

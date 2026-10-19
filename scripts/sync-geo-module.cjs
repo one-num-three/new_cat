@@ -1,0 +1,2 @@
+// Single source, two distribution roots (WeChat bundle / standalone server).
+const fs=require('node:fs'),path=require('node:path');const root=path.resolve(__dirname,'..'),source=path.join(root,'utils/geo-registration.js'),target=path.join(root,'cat-mouse-server/shared/geo-registration.js');fs.mkdirSync(path.dirname(target),{recursive:true});if(process.argv.includes('--verify')){if(!fs.readFileSync(source).equals(fs.readFileSync(target)))throw Error('GEO_MODULE_DRIFT');console.log('GEO_MODULE_SYNC_PASS');}else fs.copyFileSync(source,target);

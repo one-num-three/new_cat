@@ -1,0 +1,77 @@
+当前：pixel-native-final-v2 / 实现与代码回归通过 / 24项交互分段通过；剩余清理待执行
+BRANCH=master; no reset/commit/push/upload/deploy.
+CHANGED_FIELDS=native component host class selectors; pixel-action skin dimensions/layout event; venue-art remeasure and unchanged-viewport zoom preservation; map remeasureVenue; package dependency list; QA scripts and docs.
+RULE_VERSION=pilot-0.2 unchanged. Asset bytes and original15 design PNGs unchanged.
+
+ARTIFACTS:
+MODIFIED_FILE=D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2\MODIFIED_FILE
+DIFF_FILE=D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2\DIFF_FILE
+VERIFICATION.txt=D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2\VERIFICATION.txt
+ROLLBACK.sh=D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2\ROLLBACK.sh
+Latest compare=D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2\visual\compare.html
+
+BASELINE
+command=node --test 'D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2/baseline-fixture/cat-mouse-server/v2/*.test.js'
+input=saved pre-change runtime, old75 tests, isolated copied dependency files
+NODE_PATH=D:/cat-mouse-miniprogram/cat-mouse-server/node_modules; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2/test-tmp
+literal output: # tests 75 / # pass 75 / # fail 0 / # duration_ms 11852.8018
+EXIT_STATUS=0; log=baseline-tests-r2.log
+First isolated run74/75 failed only for omitted huanzhou-yingzhou-v3/manifest.json copy; missing dependency copied, no assertion weakened.
+
+MODIFIED
+command=npm --prefix cat-mouse-server test
+input=current runtime; 79 tests; TEMP/TMP=D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2/test-tmp
+literal output: # tests 79 / # pass 79 / # fail 0 / # duration_ms 14691.7004
+EXIT_STATUS=0; log=modified-tests-r2.log
+First modified run77/79 rejected two old static regexes that assumed venue-art's wx:if was its first attribute. Updated to allow class attributes while preserving identical authorization expression; new host, real-control count, dimensions and lifecycle assertions added.
+Native compilation: wcc -d (9 WXML entries) EXIT=0; wcsc (9 page/component +3 import styles) EXIT=0; compile.json records args. git diff --check EXIT=0 (LF/CRLF notices only).
+
+ROLLBACK
+cwd=D:/cat-mouse-miniprogram
+command=D:/Program Files/Git/bin/bash.exe -c 'chmod +x reports/2026-10-13/pixel-native-final-v2/ROLLBACK.sh && reports/2026-10-13/pixel-native-final-v2/ROLLBACK.sh D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2/baseline-fixture'
+input=marked isolated fixture overlaid with current22 managed files; never live checkout
+literal output:
+ROLLBACK_RESTORED=22/22
+LIVE_WRITES=0
+EXIT_STATUS=0
+command=node --test 'D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2/baseline-fixture/cat-mouse-server/v2/*.test.js'
+input=restored original runtime/test byte copies; same NODE_PATH/TEMP as BASELINE
+literal output: # tests 75 / # pass 75 / # fail 0 / # duration_ms 8907.9877
+EXIT_STATUS=0; logs=rollback-restore-final.log / rollback-tests-final.log
+Restored status=22/22 original SHA values; original selectors and size behavior restored in fixture, old75 regressions pass. The known prior visual fit defect belongs to that baseline; not claimed visually healthy. Live and MODIFIED_FILE remain changed. First20-file rollback proof also retained.
+ROLLBACK.sh intentionally depends on the latest isolated helper/fixture at D:/cat-mouse-preview-evidence/2026-10-13/pixel-final-v2; it rejects other target paths. No historical deletion rollback claimed.
+
+IMPLEMENTATION
+Old inspect() could see zero components and silently skip all button/map checks. Hosts now have .pixelControl/.venueArt, expected control/component counts are asserted.
+Actual cat view measured image fit346.234375 while viewport shrank to312.3203125 after PNG button load, clipping33.9px. Shipped32 button dimensions reserve correct aspect before load; layout notifications remeasure viewport. Unchanged viewport does not reset zoom; no polling/timer/network addition. All51 latest rendered checks inspect real controls and assert whole map at1x.
+Source sprite/reference hashes retain prior locks; source PNGs untouched. Only code/metadata changed.
+
+EXPORT
+command=./scripts/package-release.ps1 -DirectoryOnly -OutputDirectory 'D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2'
+literal output=Created directory: D:\cat-mouse-miniprogram\reports\2026-10-13\pixel-native-final-v2\MODIFIED_FILE
+EXIT_STATUS=0
+Reopened:120 files; raw2088251B; 8901B below local2MiB envelope. All export/live SHA equal; new pixel-button-dimensions module present; localTestIdentities=false. Not a certified WeChat upload-package size, no ZIP/upload.
+Saved dirty baseline22 files; changed19; new3 helper/dimension files; DIFF compares those bytes, not Git HEAD.
+
+MCP VISUAL EVIDENCE
+command: CAT_MOUSE_USE_MCP=1 node scripts/pixel-ui-review.cjs <out>/final/normal normal
+literal ending=PIXEL_UI_PASS=17 MODE=normal; EXIT=0
+command: same script <out>/final/large large; captured13 before platform network gate error, EXIT=1. Tail command <out>/final/large-tail large catWin,mouseWin,cancelled,drawer completed4, literal PIXEL_UI_PASS=4 MODE=large; EXIT=0. Merged unique IDs=17; no failed frames included.
+command: same script <out>/final/narrow-r2 narrow
+literal ending=PIXEL_UI_PASS=17 MODE=narrow; EXIT=0
+Total51 real MCP PNGs, exact copied SHA in visual/*-metrics.json. Helper invokes registered simulator_screenshot, checks ok/success and file existence. Bounded single retry only for network/timeout; failures kept.
+Scope: normal390x844; application font1.3, not OS font setting; narrow320x693 CONTENT inside390-wide IDE, not real320 device. Source artwork dimensions maintained; no x/y independent scaling. Root actually viewed full normal sheets, large/narrow sheets, code/cat/offline/drawer detail frames.
+Residual design differences: native dynamic/large labels differ from original button texture/font; some paper panels retain simpler straight/light borders; full v3 guide replaces old concept map. Not pixel-identical claim. GPS calibration and real-device map overlay remain pending.
+
+INTERACTION
+command: CAT_MOUSE_USE_MCP=1 node scripts/pixel-interaction.cjs <out>/final/interaction-r3
+14 assertions completed before MCP capture spawn timeout; EXIT=1. Native plus, real touch pan, reset, error/retry, home/gallery navigation, authorized preview-map guard, code route, input/join, disabled-start, ready/start, normal drawer close and replay all passed individually.
+command: same script <out>/final/interaction-bottom bottom-only
+9 assertions completed: cancelled/code/create/ready normal+large actions reachable above safe area, large drawer bottom reachable. EXIT=1 after a harness selector replacement error; fixed the $$ selector. No whole-batch PASS inferred.
+Large-close-only and first direct MCP attempts hit context/automator timeouts; failures retained. After one refresh, component-host tap returned success but did not close (not counted). A fresh authorized native SDK child .pixelAction tap proved fontScale1.3 and drawer true→false; independent MCP getData returned success/data=false. Native step EXIT=0, literal=NATIVE_LARGE_DRAWER_CLOSE_PASS drawer=false fontScale=1.3. Total unique verified assertions=24, merged from separate runs; see interaction-summary.json. Not real login/GPS/scan.
+MCP failures included APPID_ERROR with ETIMEDOUT198.18.0.12:443/TLS disconnect and readiness timeout; they do not prove the AppID invalid. No secrets read or published, no window repositioning.
+
+CLEANUP
+DUPLICATE_CLEANUP_PASS files=248 bytes=100335333 retainedCopies=verified; EXIT=0. Delete was individual PNG copies under the namedC task folder; each original retained onD with identical SHA.
+User additionally confirmed permanent old-artifact cleanup. Subsequent batch and one-file delete commands were rejected before execution; additional deleted=0. Remaining original plan972 files/165766593B remains. No alternate deletion mechanism attempted. Source/tests/design/latest/deployment evidence preserved; latest cleanup-result.json/RESULT.txt record PARTIAL rather than zero or all-complete.
+NEXT=execute remaining explicitly confirmed cleanup when deletion channel permits; real device/system fonts/GPS calibration/real login+scan separately.

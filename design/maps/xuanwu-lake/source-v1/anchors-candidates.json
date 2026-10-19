@@ -1,0 +1,124 @@
+{
+  "coordinate_order": [
+    "longitude",
+    "latitude"
+  ],
+  "coordinate_system": "WGS84",
+  "anchors": [
+    {
+      "id": "A1",
+      "label": "玄武门建筑轮廓中心",
+      "wgs84": [
+        118.78238494142606,
+        32.07261837240094
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/way/940335843",
+      "point_definition": "Polygon area centroid; not a surveyed gate opening",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    },
+    {
+      "id": "A2",
+      "label": "解放门北侧建筑轮廓中心",
+      "wgs84": [
+        118.79162750675971,
+        32.064304300098925
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/way/1061610836",
+      "point_definition": "Polygon area centroid; not a surveyed gate opening",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    },
+    {
+      "id": "A3",
+      "label": "玄武门附近入口点",
+      "wgs84": [
+        118.7831195,
+        32.0727504
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/node/1111402644",
+      "point_definition": "Original barrier=entrance node; nearby-gate label inferred",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    },
+    {
+      "id": "A4",
+      "label": "解放门附近入口点",
+      "wgs84": [
+        118.7928653,
+        32.0659761
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/node/1111402623",
+      "point_definition": "Original barrier=entrance node; nearby-gate label inferred",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    },
+    {
+      "id": "A5",
+      "label": "七星旱桥 OSM起点",
+      "wgs84": [
+        118.7925971,
+        32.064713
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/node/1111389986",
+      "point_definition": "Original endpoint of way/95918718; not necessarily surveyed bridge abutment",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    },
+    {
+      "id": "A6",
+      "label": "七星旱桥 OSM终点",
+      "wgs84": [
+        118.7928653,
+        32.0659761
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/node/1111402623",
+      "point_definition": "Original endpoint of way/95918718; not necessarily surveyed bridge abutment",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null,
+      "duplicate_of": "A4"
+    },
+    {
+      "id": "A7",
+      "label": "观山桥 OSM起点",
+      "wgs84": [
+        118.7929893,
+        32.0666685
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/node/1111389963",
+      "point_definition": "Original endpoint of way/95918720; not necessarily surveyed bridge abutment",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    },
+    {
+      "id": "A8",
+      "label": "观山桥 OSM终点",
+      "wgs84": [
+        118.7930279,
+        32.0668845
+      ],
+      "gcj02": null,
+      "source_url": "https://www.openstreetmap.org/node/1111390040",
+      "point_definition": "Original endpoint of way/95918720; not necessarily surveyed bridge abutment",
+      "status": "candidate_unverified",
+      "amap_matching_status": "not_performed",
+      "field_accuracy_m": null
+    }
+  ],
+  "unique_position_count": 7,
+  "note": "8 labeled references identify 7 unique positions. A6 equals A4; never count them as independent control/check points. Distribution is concentrated near gates and south-side bridges; add distributed shoreline checkpoints before calibration."
+}

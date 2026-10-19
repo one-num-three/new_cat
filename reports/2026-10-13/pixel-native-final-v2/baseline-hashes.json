@@ -1,0 +1,112 @@
+[
+  {
+    "path": "pages/index/index.wxml",
+    "bytes": 2516,
+    "sha256": "e92ce9f91b19bf270d6c63c93dbf5eafdeef71e8da4437cb0e5c223c922822ce"
+  },
+  {
+    "path": "pages/room/room.wxml",
+    "bytes": 6449,
+    "sha256": "46134f50303e7c638ceb7f06cd10562fdee23be0f277799dd5dac5a2892e5a28"
+  },
+  {
+    "path": "pages/map/map.wxml",
+    "bytes": 12628,
+    "sha256": "fe73706ed1fdae7a2db8b1387f5476bd3d0ccfa5879fe067130e38a9b6decbfe"
+  },
+  {
+    "path": "pages/map/map.wxss",
+    "bytes": 8396,
+    "sha256": "849138c569fada364b2dfc71706cb369aaddf93a1c13a4ab5117731a10f8f4c2"
+  },
+  {
+    "path": "pages/qrcode/qrcode.wxml",
+    "bytes": 2490,
+    "sha256": "65db54d9bc0d5d2488d98205fd40a0a22eeab2a7a18d4b9ce741f9698c824b6c"
+  },
+  {
+    "path": "pages/qrcode/qrcode.wxss",
+    "bytes": 5623,
+    "sha256": "5868942480bda185bed7057e8d94c3d73f9055bc71cab4576b40adbf46db94de"
+  },
+  {
+    "path": "pages/dev/dev.wxml",
+    "bytes": 1066,
+    "sha256": "660281b499ecd36c75ed86fdec3405d07a85dad8773d979714c5d719e40c2554"
+  },
+  {
+    "path": "pages/venue/venue.wxml",
+    "bytes": 661,
+    "sha256": "732cbae64706668fc2e20f3f779a1b96628026d613281792185a64596ce31b46"
+  },
+  {
+    "path": "scripts/pixel-ui-review.cjs",
+    "bytes": 8086,
+    "sha256": "e7d472f053e92a9be9b417ff70662fcfb1be1e2491b346b199edd8ee25dbb934"
+  },
+  {
+    "path": "scripts/pixel-interaction.cjs",
+    "bytes": 8338,
+    "sha256": "5127f43ae8bbe090ba4e68fddc639e657afdcc806b172565286736f9a6ad6897"
+  },
+  {
+    "path": "cat-mouse-server/v2/pixel-ui.test.js",
+    "bytes": 20996,
+    "sha256": "4875a4409a7b45869b555357d34b5e4af05c4696c3755f7d83fb96c8083ee7b0"
+  },
+  {
+    "path": "WORK_LOG.md",
+    "bytes": 50890,
+    "sha256": "3891ed492f77ca4b556bf86abd1141d1ffbb5499d8e4a98e21766ab0f79e10e4"
+  },
+  {
+    "path": "README.md",
+    "bytes": 8420,
+    "sha256": "9b4740548bce1f4d5d6df0ba324d7f8a681a3333a90547de197ae63a7cae064a"
+  },
+  {
+    "path": "RELEASE.md",
+    "bytes": 12082,
+    "sha256": "1c974c6f1c746ba6636fe43b1e31fdea938dffa3517a2725bbda400795a09484"
+  },
+  {
+    "path": "components/pixel-action/pixel-action.js",
+    "bytes": 737,
+    "sha256": "d3b6320d323b1add304ecc546c606a85b576c986c75e4116ebba83870c1315f1"
+  },
+  {
+    "path": "components/venue-art/venue-art.js",
+    "bytes": 5380,
+    "sha256": "c491b53cc56d43377df042de144c1df719679fd96e7b8117a5e3d11ca65cb850"
+  },
+  {
+    "path": "pages/map/map.js",
+    "bytes": 11730,
+    "sha256": "1f7a8fba17f1348606500a9ae22f54318ba55e5eca19131fe2addef545dfd068"
+  },
+  {
+    "path": "cat-mouse-server/v2/venue-ui.test.js",
+    "bytes": 22478,
+    "sha256": "47935ee31efc366d8538eb223ee63b8a516bb93ceb7e8a98559101118c83eb52"
+  },
+  {
+    "path": "scripts/package-release.ps1",
+    "bytes": 5385,
+    "sha256": "7ba087d15b4f96edaeae283abc46bdb658965fada630ba924e93f39cea22e07b"
+  },
+  {
+    "path": "cat-mouse-server/v2/presentation.test.js",
+    "bytes": 9475,
+    "sha256": "3f665844feec7c6ce7cca2ce27942a0e524ca586161034a76ded0fe958b96c44"
+  },
+  {
+    "path": "ART_LOCK.md",
+    "bytes": 7262,
+    "sha256": "ec4ebf573c191c137f3d4dfb183d13f8a16cc49cdceb39e23eb9487de408fffe"
+  },
+  {
+    "path": "DESIGN_BASELINE.md",
+    "bytes": 11399,
+    "sha256": "4df1cc0ca4ecba92392b30cb68b07545c499b566db71b61cfa96632173a9eb04"
+  }
+]

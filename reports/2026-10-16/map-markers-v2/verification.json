@@ -1,0 +1,1079 @@
+[
+  {
+    "name": "mouse",
+    "route": "pages/map/map",
+    "artMode": true,
+    "scale": 1,
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -183.5,
+      "right": 573.5,
+      "top": 87,
+      "bottom": 844,
+      "width": 757,
+      "height": 757
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 171.0234375,
+        "right": 219.0234375,
+        "top": 422.3671875,
+        "bottom": 470.3671875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 208.8671875,
+        "right": 256.8671875,
+        "top": 481.921875,
+        "bottom": 529.921875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 103.4375,
+        "right": 151.4375,
+        "top": 394.953125,
+        "bottom": 442.953125,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "labels": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 184,
+        "right": 206,
+        "top": 468.5,
+        "bottom": 482.5,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 221.84375,
+        "right": 243.84375,
+        "top": 529.0546875,
+        "bottom": 543.0546875,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 102.796875,
+        "right": 135.796875,
+        "top": 438.21875,
+        "bottom": 452.21875,
+        "width": 33,
+        "height": 14
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 378.5000000014863,
+        "y": 378.4999999971903,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 416.35000000227814,
+        "y": 439.05999999842845,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 302.800000001032,
+        "y": 348.2199999976291,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 32.07189947570167,
+        "longitude": 118.79328555598251,
+        "title": "我 · 演示",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 32.071253703521435,
+        "longitude": 118.79377318547276,
+        "title": "可可",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 32.07224684915245,
+        "longitude": 118.79229703521882,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ],
+    "camera": {
+      "x": -183.49999999999994,
+      "y": 5.684341886080802e-14,
+      "scale": 1
+    }
+  },
+  {
+    "name": "zoom-in",
+    "route": "pages/map/map",
+    "artMode": true,
+    "scale": 1.25,
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -278.125,
+      "right": 668.125,
+      "top": -7.625,
+      "bottom": 938.625,
+      "width": 946.25,
+      "height": 946.25
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 171.0234375,
+        "right": 219.0234375,
+        "top": 422.3671875,
+        "bottom": 470.3671875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 218.328125,
+        "right": 266.328125,
+        "top": 497.060546875,
+        "bottom": 545.060546875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 84.51171875,
+        "right": 132.51171875,
+        "top": 387.3828125,
+        "bottom": 435.3828125,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "labels": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 184,
+        "right": 206,
+        "top": 468.5,
+        "bottom": 482.5,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 231.3046875,
+        "right": 253.3046875,
+        "top": 544.193359375,
+        "bottom": 558.193359375,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 83.87109375,
+        "right": 116.87109375,
+        "top": 430.6484375,
+        "bottom": 444.6484375,
+        "width": 33,
+        "height": 14
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 378.5000000014863,
+        "y": 378.4999999971903,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 416.35000000227814,
+        "y": 439.05999999842845,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 302.800000001032,
+        "y": 348.2199999976291,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 32.07189947570167,
+        "longitude": 118.79328555598251,
+        "title": "我 · 演示",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 32.071253703521435,
+        "longitude": 118.79377318547276,
+        "title": "可可",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 32.07224684915245,
+        "longitude": 118.79229703521882,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ],
+    "camera": {
+      "x": -278.12499999999994,
+      "y": -94.62499999999994,
+      "scale": 1.25
+    }
+  },
+  {
+    "name": "runtime-pan",
+    "route": "pages/map/map",
+    "artMode": true,
+    "scale": 1.25,
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -218.125,
+      "right": 728.125,
+      "top": -7.625,
+      "bottom": 938.625,
+      "width": 946.25,
+      "height": 946.25
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 231.0234375,
+        "right": 279.0234375,
+        "top": 422.3671875,
+        "bottom": 470.3671875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 278.328125,
+        "right": 326.328125,
+        "top": 497.060546875,
+        "bottom": 545.060546875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 144.51171875,
+        "right": 192.51171875,
+        "top": 387.3828125,
+        "bottom": 435.3828125,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "labels": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 244,
+        "right": 266,
+        "top": 468.5,
+        "bottom": 482.5,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 291.3046875,
+        "right": 313.3046875,
+        "top": 544.193359375,
+        "bottom": 558.193359375,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 143.87109375,
+        "right": 176.87109375,
+        "top": 430.6484375,
+        "bottom": 444.6484375,
+        "width": 33,
+        "height": 14
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 378.5000000014863,
+        "y": 378.4999999971903,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 416.35000000227814,
+        "y": 439.05999999842845,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 302.800000001032,
+        "y": 348.2199999976291,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 32.07189947570167,
+        "longitude": 118.79328555598251,
+        "title": "我 · 演示",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 32.071253703521435,
+        "longitude": 118.79377318547276,
+        "title": "可可",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 32.07224684915245,
+        "longitude": 118.79229703521882,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ],
+    "camera": {
+      "x": -218.12499999999994,
+      "y": -94.62499999999994,
+      "scale": 1.25
+    }
+  },
+  {
+    "name": "whole-map",
+    "route": "pages/map/map",
+    "artMode": true,
+    "scale": 0.5151915455746368,
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": 2.842170943040401e-14,
+      "right": 390,
+      "top": 270.5,
+      "bottom": 660.5,
+      "width": 390,
+      "height": 390
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 171.0234375,
+        "right": 219.0234375,
+        "top": 422.3671875,
+        "bottom": 470.3671875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 190.5202178955078,
+        "right": 238.5202178955078,
+        "top": 452.564453125,
+        "bottom": 500.564453125,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 140.13902282714844,
+        "right": 188.13902282714844,
+        "top": 409.63372802734375,
+        "bottom": 457.63372802734375,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "labels": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 184,
+        "right": 206,
+        "top": 468.5,
+        "bottom": 482.5,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 203.4967803955078,
+        "right": 225.4967803955078,
+        "top": 499.697265625,
+        "bottom": 513.697265625,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 139.49839782714844,
+        "right": 172.49838256835938,
+        "top": 452.89935302734375,
+        "bottom": 466.89935302734375,
+        "width": 32.99998474121094,
+        "height": 14
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 378.5000000014863,
+        "y": 378.4999999971903,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 416.35000000227814,
+        "y": 439.05999999842845,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 302.800000001032,
+        "y": 348.2199999976291,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 32.07189947570167,
+        "longitude": 118.79328555598251,
+        "title": "我 · 演示",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 32.071253703521435,
+        "longitude": 118.79377318547276,
+        "title": "可可",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 32.07224684915245,
+        "longitude": 118.79229703521882,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ],
+    "camera": {
+      "x": 2.842170943040401e-14,
+      "y": 183.50000000000003,
+      "scale": 0.5151915455746368
+    }
+  },
+  {
+    "name": "cat",
+    "route": "pages/map/map",
+    "artMode": true,
+    "scale": 1,
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 1
+      },
+      "left": -183.5,
+      "right": 573.5,
+      "top": 87,
+      "bottom": 844,
+      "width": 757,
+      "height": 757
+    },
+    "sprites": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 171.0234375,
+        "right": 219.0234375,
+        "top": 422.3671875,
+        "bottom": 470.3671875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 208.8671875,
+        "right": 256.8671875,
+        "top": 481.921875,
+        "bottom": 529.921875,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 103.4375,
+        "right": 151.4375,
+        "top": 394.953125,
+        "bottom": 442.953125,
+        "width": 48,
+        "height": 48
+      }
+    ],
+    "labels": [
+      {
+        "id": "",
+        "dataset": {},
+        "left": 184,
+        "right": 206,
+        "top": 468.5,
+        "bottom": 482.5,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 221.84375,
+        "right": 243.84375,
+        "top": 529.0546875,
+        "bottom": 543.0546875,
+        "width": 22,
+        "height": 14
+      },
+      {
+        "id": "",
+        "dataset": {},
+        "left": 102.796875,
+        "right": 135.796875,
+        "top": 438.21875,
+        "bottom": 452.21875,
+        "width": 33,
+        "height": 14
+      }
+    ],
+    "points": [
+      {
+        "id": 0,
+        "x": 378.5000000014863,
+        "y": 378.4999999971903,
+        "label": "本人",
+        "tone": "self",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      },
+      {
+        "id": 1,
+        "x": 416.35000000227814,
+        "y": 439.05999999842845,
+        "label": "队友",
+        "tone": "ally",
+        "sprite": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -44.13397129186603,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.919457735247209
+      },
+      {
+        "id": 2,
+        "x": 302.800000001032,
+        "y": 348.2199999976291,
+        "label": "集合点",
+        "tone": "venue",
+        "sprite": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "left": -15.866028708133971,
+        "top": -40.26794258373206,
+        "anchorX": 0.3305422647527911,
+        "anchorY": 0.8389154704944178
+      }
+    ],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 32.07189947570167,
+        "longitude": 118.79328555598251,
+        "title": "我 · 演示",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 32.071253703521435,
+        "longitude": 118.79377318547276,
+        "title": "小橘",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 32.07224684915245,
+        "longitude": 118.79229703521882,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ],
+    "camera": {
+      "x": -183.49999999999994,
+      "y": 5.684341886080802e-14,
+      "scale": 1
+    }
+  },
+  {
+    "name": "native-map",
+    "route": "pages/map/map",
+    "artMode": false,
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 32.07189947570167,
+        "longitude": 118.79328555598251,
+        "title": "我 · 演示",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 32.071253703521435,
+        "longitude": 118.79377318547276,
+        "title": "小橘",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 32.07224684915245,
+        "longitude": 118.79229703521882,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ]
+  },
+  {
+    "name": "offline",
+    "route": "pages/map/map",
+    "artMode": true,
+    "scale": 1,
+    "image": {
+      "id": "",
+      "dataset": {
+        "generation": 2
+      },
+      "left": -183.5,
+      "right": 573.5,
+      "top": 87,
+      "bottom": 844,
+      "width": 757,
+      "height": 757
+    },
+    "sprites": [],
+    "labels": [],
+    "points": [],
+    "fitWidth": 756.9999999999999,
+    "fitHeight": 756.9999999999999,
+    "markers": [],
+    "camera": {
+      "x": -183.49999999999994,
+      "y": 5.684341886080802e-14,
+      "scale": 1
+    }
+  }
+]

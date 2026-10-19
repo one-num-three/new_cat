@@ -1,0 +1,85 @@
+{
+  "route": "pages/map/map",
+  "mapId": "seu-jiulonghu-v1",
+  "artMode": false,
+  "modelMode": true,
+  "controller": "function",
+  "phase": "CHASING",
+  "hasSelf": true,
+  "geoData": {
+    "points": [
+      {
+        "lat": 31.887014134547908,
+        "lng": 118.81542356867979,
+        "label": "本人",
+        "tone": "self"
+      },
+      {
+        "lat": 31.886943659378275,
+        "lng": 118.82671004832497,
+        "label": "队友",
+        "tone": "ally"
+      },
+      {
+        "lng": 118.81920737398848,
+        "lat": 31.88777433108612,
+        "radiusM": 200,
+        "mapId": "seu-jiulonghu-v1",
+        "label": "集合点",
+        "tone": "venue"
+      }
+    ],
+    "regions": []
+  },
+  "system": {
+    "pixelRatio": 3,
+    "safeArea": {
+      "top": 47,
+      "left": 0,
+      "right": 390,
+      "bottom": 810,
+      "width": 390,
+      "height": 763
+    },
+    "screenWidth": 390,
+    "screenHeight": 844,
+    "screenTop": 0,
+    "windowWidth": 390,
+    "windowHeight": 844,
+    "statusBarHeight": 47
+  },
+  "model": {
+    "status": "ready",
+    "error": "",
+    "camera": {
+      "x": -430.0734231021111,
+      "z": -22.750507302279917,
+      "yaw": 0,
+      "pitch": 0.88,
+      "size": 1000
+    },
+    "width": 390,
+    "height": 757,
+    "pins": [
+      {
+        "x": 195.00001061678722,
+        "y": 378.0176762101797,
+        "z": -22.750507302279917,
+        "fieldVerified": false,
+        "id": 0,
+        "tone": "self",
+        "label": "本人",
+        "sprite": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "left": -23.980861244019138,
+        "top": -43.13875598086125,
+        "anchorX": 0.4996012759170654,
+        "anchorY": 0.8987240829346093
+      }
+    ],
+    "drawCount": 1,
+    "lastDrawMs": 41,
+    "omitted": 0
+  }
+}

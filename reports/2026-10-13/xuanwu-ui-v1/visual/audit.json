@@ -1,0 +1,949 @@
+{
+  "generatedAt": "2026-10-13T13:26:50.063563+08:00",
+  "status": "PRE_FIX_SCREENSHOT_AUDIT_POST_FIX_CAPTURE_UNVERIFIED",
+  "scope": "2026-10-13 证据状态：此包使用 12:56–13:01 的最后一轮完整 51 张 IDE 截图，处于本轮 6 项小修之前。小修已写入源码并作只读核对，但修后重拍遭 C 盘 ENOSPC，尚未完成全量视觉复验；本包不代表最终源码的渲染结果。",
+  "captureStage": "pre-six-fixes-complete-run",
+  "captureDate": "2026-10-13",
+  "sourceChangesNotVisuallyReverified": [
+    "动态码演示卡：qrcode.wxml 已以 code-demo-art.png 猫鼠原稿裁片替换绿色圆环对勾；修后完整截图待复验。",
+    "动态码返回动作：qrcode.wxml 已显式设置 tone=blue，解决旧大字截图中返回按钮变橙色的源代码原因；修后蓝色显示待复验。",
+    "重连状态：map.wxml 已为 offline 主标题设置“重连中”，旧截图仍显示“猫队 · 追逐中”；修后截图待复验。",
+    "暂停状态：map.wxml 已使用“本局暂停”及“计时已冻结，请原地等待”文案；修后截图待复验。",
+    "大字角色标题：角色/阶段拆成 roleName 与 phaseName，CSS 在大字模式隐藏分隔点、阶段另起一行，以替代旧截图末字单独换行；修后截图待复验。",
+    "详情抽屉：map.wxml 已换用猫鼠角色头像、剪贴板标题图标、事件与规则图标；修后截图待复验。"
+  ],
+  "visualReviewed": {
+    "originalStates": 15,
+    "nativeStates": 17,
+    "modes": 3,
+    "nativeScreenshots": 51
+  },
+  "metrics": [
+    {
+      "mode": "normal",
+      "status": "PASS",
+      "count": 17,
+      "measuredPage": [
+        [
+          390,
+          844,
+          1
+        ]
+      ],
+      "file": "evidence/normal/metrics.json",
+      "sha256": "b13fdb4ad797d23cc425aa185ffd0e7dffbeedb88c8c7efb77d24183391cbe8e"
+    },
+    {
+      "mode": "large",
+      "status": "PASS",
+      "count": 17,
+      "measuredPage": [
+        [
+          390,
+          844,
+          1.3
+        ]
+      ],
+      "file": "evidence/large/metrics.json",
+      "sha256": "40912e0fc2fcb9d565d3629ca0a44acf6f607091f6c86a324c61cfa4de16c1f7"
+    },
+    {
+      "mode": "narrow",
+      "status": "PASS",
+      "count": 17,
+      "measuredPage": [
+        [
+          320,
+          693,
+          1
+        ]
+      ],
+      "file": "evidence/narrow/metrics.json",
+      "sha256": "0d5bd359a6c7f00c3be587c7af0675e9facbfe8f371060477e6d40af2d1a08a5"
+    }
+  ],
+  "resolvedFindings": [
+    "房间准备列表在 normal / large / narrow 三组截图中均呈两列，不再全部挤到左列；大字/窄内容中的自身昵称发生省略显示，但准备状态仍可读。",
+    "动态码页在三组旧截图中，标题、说明、演示卡、提示和返回动作互不叠层；大字标题主动分成两行。",
+    "普通模式的固定按钮保留原稿文字和纸纹，插画在已查看截图中未见非等比拉伸；大字模式改用原生文字以适应字号。",
+    "新场地主图在地图/导览页出现，导览文字明确为未标定实时位置或非实时定位；截图中未叠加示意玩家 GPS 坐标。"
+  ],
+  "remainingDifferences": [
+    "此包旧 code 截图的演示卡仍为绿色对勾，large 返回地图仍为橙色；上述两处已见源码修正，但不以源码代替视觉复验。",
+    "此包旧 offline 顶部仍为“追逐中”，旧 large hiding/captured 顶栏出现单字“段/局”掉到下一行；这些点已修改源码，未有完整修后证据。",
+    "此包旧 drawer 使用人物头像和猫头标题、未复现原稿事件/规则小图标；源码已补角色头像和三图标，截图仍待更新。",
+    "表单、玩家名单及部分数据面板仍表现为较平的细直线框，纸纹、阶梯角和装饰细节与原稿不完全一致。",
+    "大字按钮采用纯色原生框与真实文字，纸纹、图标、角部及原稿字形不同；大字/动态标签不是原稿像素级复刻。",
+    "新地图取代了旧原稿月亮湖示意，不比较旧图的地名、集合点或战术标记；保留新图比例后，alert/mouseWin 缩略区出现较宽青色留白。",
+    "普通 cancelled 底部返回首页与大字 ready/create/mouseWin 等页底内容未在初始截图完整露出。此包未包含成功的滚到底交互证据，不以横向无溢出推断页尾可达。"
+  ],
+  "limits": [
+    "采集记录 normal=390×844/font1.0；large=390×844/font1.3；narrow=320×693/font1.0。narrow 是 390 宽 IDE 外壳内的 320 内容约束，右侧留白可见，不是真正切换到 320 宽设备的截图。",
+    "三组完整旧 metrics 各有 17 条且 status=PASS。本包只复制这些完整组；不混入 final/normal 的局部成功帧，也不把后续 ready 0/8 或 final-r2 失败标成通过。",
+    "修后重拍受 C 盘 ENOSPC 中断。修后全量视觉与滚到底交互仍待重新采集；本包仅记录最后一轮完整截图以及源代码阶段差异。",
+    "原稿只按 replica.js 的 PAGES 边界裁可见 app 区，不缩放或拉伸；原生截图逐字节复制并保留 IDE 系统栏。它们等宽显示、各保留自身宽高比，不强行等高。",
+    "独立 guide 使用 huanzhou-yingzhou-v3 主图。此包不证明真机定位、地理投影标定、公开服务器联机、实际扫码或多人实战结果。",
+    "gallery 与 guide 为附加原生页面；gallery 没有 15 张旧 UI 定稿中的一一对应原稿，guide 的参考列显示独立地图主图而非旧 UI。"
+  ],
+  "states": [
+    {
+      "id": "home",
+      "name": "首页与加入",
+      "reference": {
+        "path": "images/reference/home.png",
+        "crop": [
+          130,
+          108,
+          764,
+          1354
+        ],
+        "size": [
+          764,
+          1354
+        ],
+        "sha256": "2a1d3783a3cbf94894eec0172fae0720a7f95ad6581c9de29e83f2d766abba62",
+        "sourceSHA256": "8745f282ced895f93b66a170253106a47949efe8d33dbe2e53e70d83f2f13abc",
+        "sourceFile": "03-pixel-day/01-home.png",
+        "sourceId": "01-home",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/home.png",
+          "sha256": "059ff196d8c6c94817b1a31f8adf2fc294cd65e7235329d895fe6190490ade20",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/home.png",
+          "sha256": "f2d834ba12077a7b8ebeba826af29b7121ff9305d5f4e5f06d799aed2ca82225",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/home.png",
+          "sha256": "e95c05d17bcedd10eafe0049d17313007556cbcf4d9e10b660af1d4ceeba570d",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "首图、双输入、加入/创建固定按钮与页脚插画可辨；大字输入改为上下排。",
+        "场地入口为新增区；普通首屏底部调试台链接未完整露出。"
+      ]
+    },
+    {
+      "id": "create",
+      "name": "创建活动",
+      "reference": {
+        "path": "images/reference/create.png",
+        "crop": [
+          110,
+          102,
+          802,
+          1368
+        ],
+        "size": [
+          802,
+          1368
+        ],
+        "sha256": "91e5b3d01dfd3bc704e95fbf1183b7985b54450df1c1e6b45b7ba355e9dbade9",
+        "sourceSHA256": "93a5b5097f2155ab676bc527816b33ac0839ff92c751da4ff765a5dda97d7d7c",
+        "sourceFile": "03-pixel-day/02-create.png",
+        "sourceId": "02-create",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/create.png",
+          "sha256": "a33c213388f85a954aefe44b5b0b9d33acf019c1ec8107440e9b45000904a7aa",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/create.png",
+          "sha256": "5e09252f17d9f8aef15dbef3c6fb89a38c1bb26502c3b96dbccbbd39161860da",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/create.png",
+          "sha256": "d81fb005fcfac9f1423a3e22f5f47708151b7cac2d83906ae4571bc6712aac7f",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "人数、集合点、规则与创建动作分区清楚；人数采用选择器而非原稿加减按钮。",
+        "新地图替换旧集合点示意；大字页面向下增长，首屏不包含完整底部动作。"
+      ]
+    },
+    {
+      "id": "ready",
+      "name": "房间准备",
+      "reference": {
+        "path": "images/reference/ready.png",
+        "crop": [
+          145,
+          106,
+          734,
+          1354
+        ],
+        "size": [
+          734,
+          1354
+        ],
+        "sha256": "1f8ca5b70f6f3ee400df7d215560ff8fde71b7ce909d4263264c2762f2a18a9d",
+        "sourceSHA256": "534e4f50b01de9e6f99b80e1fcfa5c32186a4cfce3455746df2ec6352423d89c",
+        "sourceFile": "03-pixel-day/03-ready-v2.png",
+        "sourceId": "03-ready",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/ready.png",
+          "sha256": "ea8ac00c960371b58b1e749f21790e61bef650f9318771b7211fd3dd26077026",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/ready.png",
+          "sha256": "ba625c6b5a03e0c3ab013422085aedb87afcaff11ddeeebd0f256079f1a6a70d",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/ready.png",
+          "sha256": "fcccf3a5c3fedd02af89fb5632415f15e230ff0e3d401aa0932bf152d7e7bdea",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "三组均为双列玩家名单；头像、昵称、准备标签分离。",
+        "大字房间码与复制按钮改为上下排；自身昵称在大字和窄内容出现省略。"
+      ]
+    },
+    {
+      "id": "cat",
+      "name": "猫队追逐地图",
+      "reference": {
+        "path": "images/reference/cat.png",
+        "crop": [
+          128,
+          103,
+          766,
+          1353
+        ],
+        "size": [
+          766,
+          1353
+        ],
+        "sha256": "76f44756f5769cbc8b3606362b8e53e85f5fd655e6d6c9d3d645d1120db3ef60",
+        "sourceSHA256": "e92a934e80cfa39081f690c055c5669e606986c112c5438c62278926596bec60",
+        "sourceFile": "03-pixel-day/04-cat.png",
+        "sourceId": "04-cat",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/cat.png",
+          "sha256": "c1afac8316aec95992ca0ee90b07b6bf3d5b2b42594ed97bb18742ef4f7d5014",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/cat.png",
+          "sha256": "d05a806fe504fe124e1ca7edeb150cfe2341eb812a4078f5e98f50b63400f84a",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/cat.png",
+          "sha256": "66ecd66c7fd9ba78b3f23fd37d636c2adea90030ac21b52209fef72a5b59787b",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "猫队橙色身份、捕获数、时间与橙色抓捕动作明确。",
+        "场地导览未标定实时位置；新主图等比，不复用旧战术位置贴纸。"
+      ]
+    },
+    {
+      "id": "mouse",
+      "name": "鼠队追逐地图",
+      "reference": {
+        "path": "images/reference/mouse.png",
+        "crop": [
+          166,
+          108,
+          690,
+          1348
+        ],
+        "size": [
+          690,
+          1348
+        ],
+        "sha256": "129b78451783559a45b3c686bfb9429414c965f8bb5fdd098b42fdf9d0cd0934",
+        "sourceSHA256": "7e2bb8c75bab0250acda7792fc7050727457caf3ac5a723e44296635776ab125",
+        "sourceFile": "03-pixel-day/05-mouse-v2.png",
+        "sourceId": "05-mouse",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/mouse.png",
+          "sha256": "26c240e35175f479e2963bf0c9ab08c9f88df6828f1879e80cbe93cdadc62da0",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/mouse.png",
+          "sha256": "ba44d425a7769a1b9681e316c0bed1c523a22680e30e5e72130590c6266f18f0",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/mouse.png",
+          "sha256": "9ce5a8211dd3f6ca24c7fd6bb040ad6a5c7913b7a650f7aeb9c2e12f147461f4",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "鼠队蓝色身份、时间和动态码动作明确。",
+        "大字双动作改为上下排，未见行内挤字。"
+      ]
+    },
+    {
+      "id": "alert",
+      "name": "鼠队近距预警",
+      "reference": {
+        "path": "images/reference/alert.png",
+        "crop": [
+          164,
+          96,
+          696,
+          1365
+        ],
+        "size": [
+          696,
+          1365
+        ],
+        "sha256": "96781d3a5270df2a14c09cd20272bb87f74cd29afd5c0e8e3f50609fbf93eb83",
+        "sourceSHA256": "fbb7313a5755161937901bd9fbeef3d1c888b27de168bdb2bfbebc9638012ab9",
+        "sourceFile": "03-pixel-day/06-alert.png",
+        "sourceId": "06-alert",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/alert.png",
+          "sha256": "bbb8984483c34756679a38e213350e3e2fc4653fee581ac0d6884d2f2e136edc",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/alert.png",
+          "sha256": "5913fcb6c400ebac1c83d9c49280e747f9c5f2588aaef03e5d31085b48c14a56",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/alert.png",
+          "sha256": "b14fd629cef32c53911039a19cc14a6bfd86b63dc1f74c168d735ef8c0542f96",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "橙色警示与蓝色动态码动作分开，没有叠层。",
+        "缩小地图以容纳警示，等比留白明显；警示图标/纸框细节与原稿不同。"
+      ]
+    },
+    {
+      "id": "hiding",
+      "name": "躲藏阶段",
+      "reference": {
+        "path": "images/reference/hiding.png",
+        "crop": [
+          146,
+          100,
+          732,
+          1364
+        ],
+        "size": [
+          732,
+          1364
+        ],
+        "sha256": "469d213d44b58e17714b3ad9c6c2b0c00855edf22ca6b974887d5cd3a974e58a",
+        "sourceSHA256": "0b17eacca2ed7963d2279b41ac623eeea1696a72337ea2ac768275ec5efc2ce9",
+        "sourceFile": "03-pixel-day/07-hiding-v2.png",
+        "sourceId": "07-hiding",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/hiding.png",
+          "sha256": "d802b6fc1ebc168c30e10ee7bf23be52cf242f81d2a50fcda0e0d47517ee5eb5",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/hiding.png",
+          "sha256": "49f40642216f2ea4b539e4b3f544ed402571a96b355adcebea6d7a2984194a7a",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/hiding.png",
+          "sha256": "98c222f63278c1d3a7cf570c24802b1956a90e900385a9c99e4e05adcc20ec8b",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "倒计时、捕获数、等待说明与等比插画清楚。",
+        "旧 large 顶栏末字“段”另起一行；源码已做角色/阶段分行，尚未截图复验。"
+      ]
+    },
+    {
+      "id": "code",
+      "name": "动态抓捕码",
+      "reference": {
+        "path": "images/reference/code.png",
+        "crop": [
+          128,
+          108,
+          768,
+          1356
+        ],
+        "size": [
+          768,
+          1356
+        ],
+        "sha256": "ad3122cbe169d9050a3f87e79ef92d3e53b337d5394090d73749cb75b1e0ed0f",
+        "sourceSHA256": "817d1ac985e100ab91af6d7ec1577cecd55529bd06df49805f6d1c4a8fb3ff10",
+        "sourceFile": "03-pixel-day/08-code.png",
+        "sourceId": "08-code",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/code.png",
+          "sha256": "26f242c6efa3940105a7cd1f319548e2e675feed726d4ff4cb2c0b6c57189f2d",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/code.png",
+          "sha256": "da46423b9f4afc73c3129118506528ab62a2a0e7f7736b2d83650aef33dbd4ba",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/code.png",
+          "sha256": "2b25e69deebb0bd78450f3ae3c263cec5412f55c99760e90072b490e7d3ff4f6",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "三组旧图标题/演示卡/说明无叠层。",
+        "旧图绿色对勾替代猫鼠、large 返回动作变橙色；源码已修，旧图保留为证据。"
+      ]
+    },
+    {
+      "id": "captured",
+      "name": "被捕与观战",
+      "reference": {
+        "path": "images/reference/captured.png",
+        "crop": [
+          135,
+          107,
+          752,
+          1353
+        ],
+        "size": [
+          752,
+          1353
+        ],
+        "sha256": "53ce618fc12df4fc1dd07a05b5783f08bf9fb343f01d146f035a0e3dbc602b10",
+        "sourceSHA256": "ac037f002c72c380277316464e2df994851ea2140af9685e463cfaab3d4675f7",
+        "sourceFile": "03-pixel-day/09-captured.png",
+        "sourceId": "09-captured",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/captured.png",
+          "sha256": "597777d3bf25370666bfe00e3266f73d27746470f6d62744cad26a7bf4bf1778",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/captured.png",
+          "sha256": "27bfc759df689f27fc4b27fafc7cadbccd30c6ed799d7bb95189b391f7ed19f7",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/captured.png",
+          "sha256": "31982233f31d4826a4dcf9c2554a4dd1830a582a475afe109c921e883f367e6b",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "出局说明与仅看公开状态可读，新导览不叠加玩家坐标。",
+        "旧 large 顶栏末字“局”另起一行；源码已改已出局和大字分段，待复验。"
+      ]
+    },
+    {
+      "id": "paused",
+      "name": "暂停状态",
+      "reference": {
+        "path": "images/reference/paused.png",
+        "crop": [
+          139,
+          101,
+          746,
+          1363
+        ],
+        "size": [
+          746,
+          1363
+        ],
+        "sha256": "46ad53a94a243f24c163129476159b5bec242ef1f8a96daecca7c7085da14865",
+        "sourceSHA256": "79669a938b2038c79af276e8beb3a0cbc57d07ec4a4fbf13e0722e1736107345",
+        "sourceFile": "03-pixel-day/10-paused.png",
+        "sourceId": "10-paused",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/paused.png",
+          "sha256": "f6f104e5b5b59046392023ca4b805e136cfbfa26905099e12c715588648a2418",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/paused.png",
+          "sha256": "4ca3ff2d3df712f22fb2f2aa8df6390afd91b24529fd7b7b40478ab80a867d8d",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/paused.png",
+          "sha256": "4a70bb43596c15c7fc56a8f014343925123f9835221e09dee12e31f9b31303e6",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "暂停插画、冻结计时、恢复按钮可辨；说明转为原生文字而非原稿木牌。",
+        "旧顶栏为通用猫队已暂停；源码已改本局暂停/冻结提示，待复验。"
+      ]
+    },
+    {
+      "id": "offline",
+      "name": "断线重连",
+      "reference": {
+        "path": "images/reference/offline.png",
+        "crop": [
+          128,
+          110,
+          768,
+          1350
+        ],
+        "size": [
+          768,
+          1350
+        ],
+        "sha256": "c8e904e862ec21523a6f2997a459ace9f4456ab430cd3537082a351950cfe147",
+        "sourceSHA256": "7c7f8a00e2d75f70958018f6e4f72164556a092baf69bd55b3b39d2ccd5d2b26",
+        "sourceFile": "03-pixel-day/11-offline.png",
+        "sourceId": "11-offline",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/offline.png",
+          "sha256": "cf83d2736441130b2a4efe1b726448b38e357b61a35a552ea5a3dc0b214a0f24",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/offline.png",
+          "sha256": "5b7f2dc3ca7588ad3d735b3498d9c546246561b8971ebbece08c544ba845fa3c",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/offline.png",
+          "sha256": "5d45e21ea2a9da345618782bfd258ad87f44ba21159ec41711500e19237512f0",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "旧截图隐藏战术地图和旧倒计时，正文显示连接中断。",
+        "旧顶栏仍写追逐中，与重连正文不一致；源码已改重连中，待复验。"
+      ]
+    },
+    {
+      "id": "catWin",
+      "name": "猫队胜利",
+      "reference": {
+        "path": "images/reference/catWin.png",
+        "crop": [
+          135,
+          105,
+          751,
+          1355
+        ],
+        "size": [
+          751,
+          1355
+        ],
+        "sha256": "ad4746d020acd0d1672aaf655c633c73b73429928daf6a78e767c9d6d556b29d",
+        "sourceSHA256": "b1ecfa931e9bca605dbd677ba22c118a38e50baba70559b6b153c59777f847a6",
+        "sourceFile": "03-pixel-day/12-cat-win.png",
+        "sourceId": "12-cat-win",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/catWin.png",
+          "sha256": "170dec29b5e8cfa8944b14c1bea770a09e804ee3c21c5536895a45c2418d7f56",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/catWin.png",
+          "sha256": "c8d96e5a70081b0622cda0af8d234ef0846a7edfef9a61cd7266b9a0f279e17a",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/catWin.png",
+          "sha256": "af172a81eb51fdded416030bdeef5f9e0a4187ac82ff0f8a482183683ed85ef0",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "原稿胜利插画和固定按钮保留；捕获数据及结束状态为原生文本。",
+        "原稿旗帜、整体纸纹和局部装饰未完全复现；大字按钮去除原稿图标。"
+      ]
+    },
+    {
+      "id": "mouseWin",
+      "name": "鼠队胜利",
+      "reference": {
+        "path": "images/reference/mouseWin.png",
+        "crop": [
+          135,
+          102,
+          751,
+          1366
+        ],
+        "size": [
+          751,
+          1366
+        ],
+        "sha256": "3f2fea0c4694e063ba6da64d78a398dbe42ddeacb1b7515777c843135e917db7",
+        "sourceSHA256": "0ba2ed792c4d95eea1dae4c48832f10c2d027c0fdc5cba3cf2eaac6bd207a5b7",
+        "sourceFile": "03-pixel-day/13-mouse-win.png",
+        "sourceId": "13-mouse-win",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/mouseWin.png",
+          "sha256": "e908ca4bff97bfea73f8c046ca82813535d5eb021488b140e95e32b703e6f655",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/mouseWin.png",
+          "sha256": "6922a6de8cdc364ac3398571f13150c74a8fdcfe7eb88cdd57a83576437c9259",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/mouseWin.png",
+          "sha256": "9f29e183e33ece7168d4fd6f86a27eac4534a61302c3ee3e1f37a84b4da2b78a",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "胜利插画、3/4和结束状态清楚，缩略图替换为新主图。",
+        "地图等比而留白较多；大字返回首页在首屏底部未完整露出。"
+      ]
+    },
+    {
+      "id": "cancelled",
+      "name": "取消结算",
+      "reference": {
+        "path": "images/reference/cancelled.png",
+        "crop": [
+          164,
+          109,
+          696,
+          1352
+        ],
+        "size": [
+          696,
+          1352
+        ],
+        "sha256": "2ddab63d64d7bbdeebabe1440b383ff3d4e11fb0ff0ecdc25d04d78168d55e4d",
+        "sourceSHA256": "2871c97ec71a98f69ddb4bdd13ddbd3f5be9c84487f108b48cb2557904bd6ff5",
+        "sourceFile": "03-pixel-day/14-cancelled.png",
+        "sourceId": "14-cancelled",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/cancelled.png",
+          "sha256": "4a94ffc3633c4bd29b186a9b3e4cd39cdbd317ace28611ec1116d76850172b81",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/cancelled.png",
+          "sha256": "aa446ad0c23c9b9e0534b5781c10ff8631fc8edb491d3f64c862093fdfd09456",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/cancelled.png",
+          "sha256": "6773c5fb8d33a4c89ff99f00c95d16328bec9d04fdf093a46af68b5b8bd2b8ae",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "取消插画和不计胜负信息保留；公开记录改为纵向堆叠，较原稿占高更多。",
+        "普通首屏返回首页受屏幕底部遮挡/未完整露出；本包未证明滚到底可达。"
+      ]
+    },
+    {
+      "id": "drawer",
+      "name": "对局详情抽屉",
+      "reference": {
+        "path": "images/reference/drawer.png",
+        "crop": [
+          143,
+          103,
+          738,
+          1365
+        ],
+        "size": [
+          738,
+          1365
+        ],
+        "sha256": "6c5e4b5767829dffcd29754c6ad74b2eaa00b4561e63a7ad84a73db59c9e94a9",
+        "sourceSHA256": "76b8e6334efef93a840df2bb5ff2310f7b8cb6f3855c712e50b84786d653756e",
+        "sourceFile": "03-pixel-day/15-details-v2.png",
+        "sourceId": "15-details",
+        "type": "original-app-crop"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/drawer.png",
+          "sha256": "93415de2001db6f3c73539990c51455c31c0b722815cb09ba5d36faa8ccc87bb",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/drawer.png",
+          "sha256": "4ddc91ba2641d417acd9c63af1b540587939636def13a6c48013c33f52f3b4c9",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/drawer.png",
+          "sha256": "e84718b5daed037cf906090b85c1cb1455362cb9845ae2ab859922d0f643eed9",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "普通与窄内容保留两队布局，大字鼠队内部改一列；名单未见重叠。",
+        "旧图人物头像和猫头标题与原稿不符；源码已换角色头像及标题/事件/规则图标，待复验。"
+      ]
+    },
+    {
+      "id": "gallery",
+      "name": "界面调试台",
+      "reference": null,
+      "captures": {
+        "normal": {
+          "path": "images/normal/gallery.png",
+          "sha256": "2e9ff891c547ff4ab2922e60464dabeb3964f7d3ee9322b93828d420d11286b8",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/gallery.png",
+          "sha256": "fcdab194948713489fff451eb469f5322f236fd9b1050ba1fff62458e59f03a1",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/gallery.png",
+          "sha256": "9bd432e56e663332761796f31a581de26d4e4f7d150c92ef0152139a855552a5",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "附加调试台，显示样例数据、不连接真实对局。",
+        "普通为双列状态入口，大字为单列；没有对应旧原稿。"
+      ]
+    },
+    {
+      "id": "venue",
+      "name": "玄武湖完整导览",
+      "reference": {
+        "path": "images/reference/venue-map.png",
+        "sha256": "c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6",
+        "size": [
+          1154,
+          1363
+        ],
+        "type": "separate-map-art",
+        "sourceSHA256": "c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6"
+      },
+      "captures": {
+        "normal": {
+          "path": "images/normal/venue.png",
+          "sha256": "c9a841813e323ba025744624c737838ec75b8af357f51df4186f511e7191e02a",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "large": {
+          "path": "images/large/venue.png",
+          "sha256": "df55eed0021c6876259b1996e46ede5e992f26ce11a13e070a31a0b7f7113698",
+          "size": [
+            648,
+            1402
+          ]
+        },
+        "narrow": {
+          "path": "images/narrow/venue.png",
+          "sha256": "555168c2f0c559f3f55fbf225b13aceec9c50d136b4ed236719be9dae73fa533",
+          "size": [
+            648,
+            1402
+          ]
+        }
+      },
+      "notes": [
+        "附加独立导览，全新 v3 主图等比显示，缩放/复位操作区清楚。",
+        "页面标明非实时定位；参考列仅为地图主图，不是 UI 定稿或 GPS 标定证据。"
+      ]
+    }
+  ]
+}

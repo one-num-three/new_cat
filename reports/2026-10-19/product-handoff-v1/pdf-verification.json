@@ -1,0 +1,34 @@
+{
+  "pdf": "D:\\cat-mouse-miniprogram\\output\\pdf\\猫鼠行动-产品页面总览-2026-10-19.pdf",
+  "pages": 36,
+  "screenshots": 33,
+  "bytes": 12793957,
+  "sha256": "eb0bfaaa90cfe27c11d63ae301076bcb616a2505b67bc38f1f6d337a5dbb0a5c",
+  "textChecksPassed": true,
+  "visualReviewPending": false,
+  "renderedPages": 36,
+  "contactSheetReviewedPages": 36,
+  "fullSizeReviewedPages": [
+    1,
+    3,
+    12,
+    32
+  ],
+  "layoutDefectsObserved": 0,
+  "originalPngHashChecksPassed": true,
+  "visibleRoutesCovered": [
+    "pages/index/index",
+    "pages/room/room",
+    "pages/map/map",
+    "pages/qrcode/qrcode",
+    "pages/venue/venue",
+    "pages/calibrate/calibrate",
+    "pages/dev/dev"
+  ],
+  "appUiIssuesRemain": [
+    "长页面滚动顶栏/系统状态栏挤压",
+    "对局首次视角本人标记被裁切"
+  ],
+  "phoneVerified": false,
+  "businessTestsRerun": false
+}

@@ -1,0 +1,22 @@
+ROUTE mouse
+ROUTE_RETRY mouse {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouse
+ROUTE hiding
+ROUTE_RETRY hiding {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS hiding
+ROUTE captured
+ROUTE_RETRY captured {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS captured
+ROUTE paused
+ROUTE_RETRY paused {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS paused
+ROUTE catWin
+ROUTE_RETRY catWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS catWin
+ROUTE mouseWin
+ROUTE_RETRY mouseWin {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS mouseWin
+ROUTE cancelled
+ROUTE_RETRY cancelled {"route":"pages/index/index","preview":false,"available":false,"navHeight":87}
+PASS cancelled
+REPLICA_UI_PASS=7 FONT_SCALE=1

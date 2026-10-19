@@ -1,0 +1,7 @@
+<view class="modelFrame">
+ <canvas type="2d" id="campusCanvas" class="modelCanvas" style="position:absolute;left:{{simulatorImage?-10000:0}}px;top:0;z-index:0" catchtouchstart="touchStart" catchtouchmove="touchMove" bindtouchend="touchEnd" bindtouchcancel="touchEnd" binderror="onCanvasError" aria-label="九龙湖三维校园；单指平移，双指缩放旋转" />
+ <image wx:if="{{simulatorImage}}" class="modelSnapshot" src="{{previewSrc}}" mode="aspectFit" catchtouchstart="touchStart" catchtouchmove="touchMove" bindtouchend="touchEnd" bindtouchcancel="touchEnd" />
+ <view wx:for="{{pins}}" wx:key="id" class="modelPin" style="left:{{item.x+item.left}}px;top:{{item.y+item.top}}px;width:48px;height:48px"><image src="{{item.sprite}}" mode="aspectFit"/><view class="pinLabel">{{item.label}}</view></view>
+ <view class="modelCaption {{compact?'compactCaption':''}}"><view>{{compact?'近似参考 · 待实测':'3D体量示意 · 定位参考待实测'}}</view><view wx:if="{{!compact}}">单指平移 · 双指缩放旋转</view><view wx:if="{{omittedRegions}}">部分区域线索超出模型参考，请切实时图</view><view class="attribution">© OpenStreetMap contributors</view></view>
+ <view wx:if="{{status!=='ready'}}" class="modelStatus"><text>{{status==='error'?'3D暂不可用':status==='hidden'?'模型已暂停':'正在加载校园模型…'}}</text><text wx:if="{{status==='error'}}">{{error}}</text><button wx:if="{{status==='error'}}" class="modelFallback" bindtap="fallback">查看像素地图</button></view>
+</view>

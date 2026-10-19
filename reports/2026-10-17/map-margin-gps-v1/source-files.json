@@ -1,0 +1,58 @@
+[
+  {
+    "file": "utils/venue-camera.js",
+    "sha256": "5e007c7b8141aaf5c33148beb169be582f589d328966dd2a78d4d12b33bc7651"
+  },
+  {
+    "file": "utils/location-v2.js",
+    "sha256": "28dccbc41125226bbb7cf24d0a4bc738a6b50cecfe8185f0fa4917674a1d4ffd"
+  },
+  {
+    "file": "utils/foreground-location.js",
+    "sha256": "7b304ffd64ec5d88576f29087bb74857fd76ae16e56bfad905ce6fcd51101f4f"
+  },
+  {
+    "file": "components/venue-art/venue-art.js",
+    "sha256": "b92664396f5cdbe773e3e6d0a770bbffb5c368a517b2a1cf91bcb78188e938ed"
+  },
+  {
+    "file": "components/venue-art/venue-art.wxss",
+    "sha256": "d355492c99675ce22ba83ce35a594e74bde2c7a5f0307da99e92d5d8e54f1b1f"
+  },
+  {
+    "file": "pages/venue/venue.js",
+    "sha256": "4eaf16d43c85a970450f3fa53b8e11d0f11df2844db067ee442716bde5c9cb13"
+  },
+  {
+    "file": "pages/venue/venue.wxml",
+    "sha256": "a73b124dd9bcd18d43bbc7d2e048d8b9562d27400fbf6f3db9885150f95511a2"
+  },
+  {
+    "file": "pages/venue/venue.wxss",
+    "sha256": "c60db78308d3f4d050b50d0a3e02ee7feb842c34d3c8bae39bff2dc06a3d2047"
+  },
+  {
+    "file": "pages/venue/venue.json",
+    "sha256": "8bcfa348d4c73fd9ea597bd0d4883923fbf130a4aed7d1bf686ed7f0abee18d6"
+  },
+  {
+    "file": "scripts/package-release.ps1",
+    "sha256": "1cc4280c340b7e0b3e76fb507619e226c4e862adcfc45ecb39251ec6f9640a84"
+  },
+  {
+    "file": "cat-mouse-server/v2/venue-ui.test.js",
+    "sha256": "3eba7fa2308e08af561967bb70052e40c6a47b9e187f6cf7aea5d6c9f7e2eeaf"
+  },
+  {
+    "file": "cat-mouse-server/v2/client.test.js",
+    "sha256": "c12387897f1240d13692e992e60fb38dc36d508a94cd75dc1a4e49aa416d43ea"
+  },
+  {
+    "file": "cat-mouse-server/v2/map-motion-gps.test.js",
+    "sha256": "0cd9246909ad5d920cae91f2f3b0e591edd235f3ea4db9a54fac9d72c8adfe32"
+  },
+  {
+    "file": "utils/fusion-font.wxss",
+    "sha256": "ab70bfdf46b42520211b8fbe72e46b7e02b73f7f5bab3134a09e725851d280b7"
+  }
+]

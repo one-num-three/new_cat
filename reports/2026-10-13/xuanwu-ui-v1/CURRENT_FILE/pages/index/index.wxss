@@ -1,0 +1,24 @@
+@import "../../utils/pixel-theme.wxss";
+.homeScreen{--vw:100vw;--vh:100vh;box-sizing:border-box;width:100%;min-height:var(--vh);padding-top:var(--nav-height,64px);background:#fcf8ed;color:#050b14;font-family:ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}
+.homeHero,.homeFooter{display:block;width:100%;height:auto}
+.homeForm{padding:30rpx 31rpx 0;box-sizing:border-box}
+.paperFrame{position:relative;box-sizing:border-box;background:#fcf9f0;border:3rpx solid #e8dfce;clip-path:polygon(14rpx 0,calc(100% - 14rpx) 0,calc(100% - 14rpx) 4rpx,calc(100% - 6rpx) 4rpx,calc(100% - 6rpx) 10rpx,100% 10rpx,100% calc(100% - 10rpx),calc(100% - 6rpx) calc(100% - 10rpx),calc(100% - 6rpx) calc(100% - 4rpx),calc(100% - 14rpx) calc(100% - 4rpx),calc(100% - 14rpx) 100%,14rpx 100%,14rpx calc(100% - 4rpx),6rpx calc(100% - 4rpx),6rpx calc(100% - 10rpx),0 calc(100% - 10rpx),0 10rpx,6rpx 10rpx,6rpx 4rpx,14rpx 4rpx)}
+.homeField{display:flex;align-items:center;gap:18rpx;min-height:116rpx;padding:16rpx 18rpx;margin-bottom:16rpx}
+.fieldLabel{flex:0 0 25%;min-width:0;font-size:calc(35rpx * var(--font-scale));font-weight:750;line-height:1.4;white-space:nowrap;text-align:center}
+.homeInput{display:block;flex:1;min-width:0;box-sizing:border-box;height:calc(78rpx * var(--font-scale));min-height:42px;margin:0;padding:0 22rpx;border:3rpx solid #cdc7be;border-radius:7rpx;background:#fcfbf7;color:#424146;font-family:ParkReplicaUI,"PingFang SC",sans-serif;font-size:calc(36rpx * var(--font-scale));font-weight:550;line-height:1.4}
+.fieldPlaceholder{color:#aaa9aa;font-weight:550}
+.homeActions{display:flex;flex-direction:column;gap:8rpx;margin:18rpx -5rpx 0}
+.formError{display:block;margin:18rpx 0 0;padding:16rpx 18rpx;border:2rpx solid #e8b295;background:#ffedd9;color:#a53b1e;font-size:calc(25rpx * var(--font-scale));line-height:1.55;overflow-wrap:break-word}
+.homeFooter{margin-top:10rpx}
+.homeExtra{padding:0 31rpx calc(24rpx + env(safe-area-inset-bottom));box-sizing:border-box}
+.resumeBand{display:flex;align-items:center;justify-content:space-between;gap:12rpx;width:100%;margin:0 0 20rpx;padding:18rpx 20rpx;box-sizing:border-box;border:2rpx solid #adc393;border-radius:0;background:#e7eed9;color:#2c5834;text-align:left;font-size:calc(26rpx * var(--font-scale));font-weight:550;line-height:1.45}
+.resumeBand text:first-child{flex:1;min-width:0}.resumeBand text:last-child{flex:none}.resumeBand[disabled]{background:#f1ecdf;color:#747368}
+.venueEntry{display:flex;align-items:center;justify-content:space-between;gap:20rpx;width:100%;margin:12rpx 0 0;padding:20rpx 24rpx;color:#285b32;text-align:left;line-height:1.45;border-radius:0}
+.venueEntryCopy{min-width:0;flex:1}.venueEntryTitle{display:block;font-size:calc(29rpx * var(--font-scale));font-weight:750}.venueEntryHint{display:block;margin-top:5rpx;color:#6a7663;font-size:calc(24rpx * var(--font-scale));font-weight:400}.entryArrow{font-size:44rpx;font-weight:750;flex:none}
+.devLink{width:auto;min-height:44px;margin:8rpx auto 0;padding:14rpx;background:transparent;color:#737466;font-size:calc(24rpx * var(--font-scale));font-weight:400;line-height:1.6;text-decoration:underline;border-radius:0}
+.homeScreen button::after{border:0}.homeScreen button:active{opacity:.8}
+.narrowCanvas .homeInput{padding-left:14rpx;padding-right:14rpx;font-size:calc(33rpx * var(--font-scale))}
+.fontLarge .homeField{gap:12rpx;flex-wrap:wrap;padding:18rpx 20rpx}.fontLarge .fieldLabel{flex-basis:100%;text-align:left}.fontLarge .homeInput{flex-basis:100%;width:100%;font-size:calc(34rpx * var(--font-scale))}
+
+.homeScreen{width:var(--vw,100vw)}
+.homeScreen .venueEntry,.homeScreen .resumeBand{width:100%!important}

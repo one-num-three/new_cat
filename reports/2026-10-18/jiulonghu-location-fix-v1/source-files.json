@@ -1,0 +1,66 @@
+[
+  {
+    "file": "pages/dev/dev.js",
+    "sha256": "c4d7e73a5e6a01bcd58e8c3ccde430f185e994121fab9bdc3884be04d75f5c00"
+  },
+  {
+    "file": "pages/dev/dev.wxml",
+    "sha256": "378ea37d2c0c5ee1749e16d4319d274579aa9c9bb69e95669de2a69c2b3eb925"
+  },
+  {
+    "file": "pages/venue/venue.js",
+    "sha256": "ef1b0ebc660b044fc1d62e62b2e084d8fe46c0cd0aa207a6bdedaff2e1e025c9"
+  },
+  {
+    "file": "pages/venue/venue.wxml",
+    "sha256": "5c5231100e4023682f5486e2fb304e9917937740618a3e4dc6dc98a828c8e9c1"
+  },
+  {
+    "file": "scripts/build-campus-runtime.cjs",
+    "sha256": "5045f77578ed3d624c6185a96f0a7d9d8d6126e729f6d770be7aea244e3e1e13"
+  },
+  {
+    "file": "scripts/package-release.ps1",
+    "sha256": "762566e8915e87f30181ba031590292ba7aca2acf38e0a6750f76011bf42c5d9"
+  },
+  {
+    "file": "utils/campus-art-models.js",
+    "sha256": "6d889db30aec899ec6b287ffb83acb6f8c1d0f8feb90ee45fc7a376bee0628f2"
+  },
+  {
+    "file": "utils/osm-art-registration.js",
+    "sha256": "753d9fd450a9239a46b2fabec4757fc133f58cb729e61c3b962d33192538ec68"
+  },
+  {
+    "file": "utils/location-scenarios.js",
+    "sha256": "291797a687ab7ab26b89e3e789a26453130d879e8344b01515e287f33902167b"
+  },
+  {
+    "file": "utils/fusion-font.wxss",
+    "sha256": "017fa9be68188e60298a754711b6220f80c55a9f2e133335d8b850977c26b531"
+  },
+  {
+    "file": "cat-mouse-server/v2/jiulonghu-location.test.js",
+    "sha256": "76befff1a0a3b653109a7be1815b1fc86d829c280558e392e73236837b2e0651"
+  },
+  {
+    "file": "cat-mouse-server/v2/venue-ui.test.js",
+    "sha256": "c0c39fcb7451efc3f59a31f7cd72a73ca5b9e84be0baaf98a27555b32e066530"
+  },
+  {
+    "file": "scripts/build-jiulonghu-registration.py",
+    "sha256": "a06904cd15c2aa634734ad1c840f5d05eb550d9b7d553affc7052797c283f979"
+  },
+  {
+    "file": "design/maps/seu-jiulonghu-registration-v2/controls.json",
+    "sha256": "18ea8c24a660565b60f97822ebe6a25c4d338df4fc19c805455c509baee9c81a"
+  },
+  {
+    "file": "design/maps/seu-jiulonghu-registration-v2/jiulonghu-registration.json",
+    "sha256": "4f3cfe8d8a386d3dc568fa467483741be3bcebe08597dcae21e155473e0f66bc"
+  },
+  {
+    "file": "design/maps/seu-jiulonghu-registration-v2/README.md",
+    "sha256": "970c95c022c7b34b50008839619cc7b484b4dd9f3c0d287e359489da43eadd4e"
+  }
+]

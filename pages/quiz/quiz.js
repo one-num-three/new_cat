@@ -3,7 +3,7 @@ const { gameAPI } = require('../../utils/api');
 
 Page({
   data: {
-    devMode: true,         // 开发模式：显示答案
+    devMode: false,        // 发布版不向玩家显示答案
     gameId: null,
     playerId: null,
     taskPointId: '',       // 任务点ID

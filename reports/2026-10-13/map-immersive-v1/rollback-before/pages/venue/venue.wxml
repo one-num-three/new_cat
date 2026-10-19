@@ -1,0 +1,10 @@
+<view class="screen venueScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+  <nav-bar title="玄武湖·环洲樱洲" />
+  <view class="venueHeading">
+    <text class="venueSubtitle">场地导览 · 非实时定位</text>
+    <button class="venueBack" bindtap="goBack" aria-label="返回上一页">‹ 返回</button>
+  </view>
+  <view class="venueFrame">
+    <venue-art class="venueArt" src="{{venueSource}}"  layout-key="{{layoutKey}}" />
+  </view>
+</view>

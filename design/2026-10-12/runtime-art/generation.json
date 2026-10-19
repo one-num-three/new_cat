@@ -1,0 +1,57 @@
+{
+  "style": "visual-1.0 / 02-01",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "id": "home-landscape",
+      "ref": "01-home.png",
+      "prompt": "Match the attached selected Cat & Mouse mini-program icon as the exact visual style reference. Bright outdoor-friendly flat 2D cartoon illustration. Rounded orange-and-cream cat and small charcoal-gray mouse, warm tangerine, clear sky blue, grassy green and soft cream. Large simple color planes, readable silhouette at small mobile size, friendly expressions, clean edges, generous breathing room. Consistent character proportions and face shapes across the asset set. No 3D, no photorealism, no neon, no glossy gradient, no heavy shadow, no visual noise, no emoji, no lettering or fake UI copy. Use case: precise-object-edit. Input1 is the original home-screen design to derive its hero illustration, input2 is the locked master style. Extract/rebuild ONLY the full-bleed outdoor hero artwork from that screen as one clean rectangular landscape image with 4:3 aspect ratio. Preserve the exact orange-white kitten running right and the exact charcoal mouse ahead, the cream winding path, cloud/tree shapes and green park. Upper LEFT 40% of image is calm sky reserved for real native text placed later, so move no tree/character into that text space. Cat and mouse occupy lower half. Remove ALL words, UI, form, phone hardware, statusbar, icons, location pins and buttons. No frame, no margins. Full bleed art only. Bottom edge ends in the same gentle cream-white curved wave #F5FAF1 as the design, for blending into native form.",
+      "path": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\source\\home-landscape.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-1bb5bcd6-65eb-491b-a487-2efaf64203b3.png",
+      "transparent": false
+    },
+    {
+      "id": "compact-landscape",
+      "ref": "02-create.png",
+      "prompt": "Match the attached selected Cat & Mouse mini-program icon as the exact visual style reference. Bright outdoor-friendly flat 2D cartoon illustration. Rounded orange-and-cream cat and small charcoal-gray mouse, warm tangerine, clear sky blue, grassy green and soft cream. Large simple color planes, readable silhouette at small mobile size, friendly expressions, clean edges, generous breathing room. Consistent character proportions and face shapes across the asset set. No 3D, no photorealism, no neon, no glossy gradient, no heavy shadow, no visual noise, no emoji, no lettering or fake UI copy. Use case: precise-object-edit. Input1 is the original create-screen design, input2 style master. Derive ONLY its full-bleed header illustration as one rectangular 16:9 landscape banner, not a phone or screen. Exact orange-white kitten at left, gray mouse at center-right, orange flag at right, cream path/green shrubs, skyblue and cream clouds. Keep their exact face/proportions and original simple silhouettes, bright flat cartoon. Upper20% is calm clear sky for native navigation overlay. Remove ALL words, UI, phone hardware/statusbar, cards/buttons and layout. Edge-to-edge, no padding or frame. The bottom finishes in a gentle cream-white wave #F5FAF1 matching the original.",
+      "path": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\source\\compact-landscape.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-fcfe70a0-120f-4e8e-bc16-2f7754c474f3.png",
+      "transparent": false
+    },
+    {
+      "id": "preview-park",
+      "ref": "05-cat.png",
+      "prompt": "Match the attached selected Cat & Mouse mini-program icon as the exact visual style reference. Bright outdoor-friendly flat 2D cartoon illustration. Rounded orange-and-cream cat and small charcoal-gray mouse, warm tangerine, clear sky blue, grassy green and soft cream. Large simple color planes, readable silhouette at small mobile size, friendly expressions, clean edges, generous breathing room. Consistent character proportions and face shapes across the asset set. No 3D, no photorealism, no neon, no glossy gradient, no heavy shadow, no visual noise, no emoji, no lettering or fake UI copy. Use case: precise-object-edit. Input1 is cat map screen design, input2 style master. Derive ONLY the clean public PARK BACKGROUND in portrait 2:3. Preserve SAME overhead park geography and view: flowing blue river on left, small curved brown footbridge halfway down left, cream circular walking path round a central open green clearing, pavilion on right, rounded trees around edges, little benches. Extend artwork naturally to edges, no phone frame. REMOVE every UI panel, statusbar, text/letter, blue location dot, orange circle, all flag poles and markers, labels and buttons; central clearing is empty green. No cats or mice in map, no HUD, no grid, no coordinates. Full bleed clean background illustration only; this is a non-geographic developer preview background, not a navigation map.",
+      "path": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\source\\preview-park.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-40eeeda2-b65a-4530-a994-8d3ec976d908.png",
+      "transparent": false
+    },
+    {
+      "id": "hiding",
+      "ref": "04-hiding-v2.png",
+      "subject": "the same calm orange-white kitten lying on a little flat grassy island next to an orange clock with ordinary hands, matching the bottom illustration",
+      "prompt": "Match the attached selected Cat & Mouse mini-program icon as the exact visual style reference. Bright outdoor-friendly flat 2D cartoon illustration. Rounded orange-and-cream cat and small charcoal-gray mouse, warm tangerine, clear sky blue, grassy green and soft cream. Large simple color planes, readable silhouette at small mobile size, friendly expressions, clean edges, generous breathing room. Consistent character proportions and face shapes across the asset set. No 3D, no photorealism, no neon, no glossy gradient, no heavy shadow, no visual noise, no emoji, no lettering or fake UI copy. Use case: precise-object-edit. Input1 is the screen whose bottom illustration is the edit target to extract; input2 is supporting locked character identity. Create ONE isolated genuinely transparent PNG of the same calm orange-white kitten lying on a little flat grassy island next to an orange clock with ordinary hands, matching the bottom illustration. Use same character silhouette, face/proportions, pose and palette as that exact design. Landscape 3:2 composition with 8% transparent margins. REMOVE all phone hardware, map, words, buttons, background rectangles and panel. No text, QR code, numerical gameplay value, enemy clue or broad scenery. Keep only that illustrated state scene, with crisp clean cutout edges; true alpha.",
+      "path": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\source\\hiding.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-53ffc967-55ce-41f2-bbc1-723afa82d69d.png",
+      "transparent": true
+    },
+    {
+      "id": "paused",
+      "ref": "10-paused.png",
+      "subject": "the same orange-white kitten and small gray mouse resting on a little green grassy island, with a simple sky-blue oval and one orange circular pause symbol (two white bars) behind, matching the bottom illustration",
+      "prompt": "Match the attached selected Cat & Mouse mini-program icon as the exact visual style reference. Bright outdoor-friendly flat 2D cartoon illustration. Rounded orange-and-cream cat and small charcoal-gray mouse, warm tangerine, clear sky blue, grassy green and soft cream. Large simple color planes, readable silhouette at small mobile size, friendly expressions, clean edges, generous breathing room. Consistent character proportions and face shapes across the asset set. No 3D, no photorealism, no neon, no glossy gradient, no heavy shadow, no visual noise, no emoji, no lettering or fake UI copy. Use case: precise-object-edit. Input1 is the screen whose bottom illustration is the edit target to extract; input2 is supporting locked character identity. Create ONE isolated genuinely transparent PNG of the same orange-white kitten and small gray mouse resting on a little green grassy island, with a simple sky-blue oval and one orange circular pause symbol (two white bars) behind, matching the bottom illustration. Use same character silhouette, face/proportions, pose and palette as that exact design. Landscape 3:2 composition with 8% transparent margins. REMOVE all phone hardware, map, words, buttons, background rectangles and panel. No text, QR code, numerical gameplay value, enemy clue or broad scenery. Keep only that illustrated state scene, with crisp clean cutout edges; true alpha.",
+      "path": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\source\\paused.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-b0576eef-24c5-4b11-8b16-2a50e06e0ca5.png",
+      "transparent": true
+    },
+    {
+      "id": "cancelled",
+      "ref": "14-cancelled.png",
+      "subject": "the same orange-white kitten and small gray mouse peacefully resting on a little green grassy island with a lowered folded green flag, matching the bottom illustration. No trophy, no winner check, no confetti",
+      "prompt": "Match the attached selected Cat & Mouse mini-program icon as the exact visual style reference. Bright outdoor-friendly flat 2D cartoon illustration. Rounded orange-and-cream cat and small charcoal-gray mouse, warm tangerine, clear sky blue, grassy green and soft cream. Large simple color planes, readable silhouette at small mobile size, friendly expressions, clean edges, generous breathing room. Consistent character proportions and face shapes across the asset set. No 3D, no photorealism, no neon, no glossy gradient, no heavy shadow, no visual noise, no emoji, no lettering or fake UI copy. Use case: precise-object-edit. Input1 is the screen whose bottom illustration is the edit target to extract; input2 is supporting locked character identity. Create ONE isolated genuinely transparent PNG of the same orange-white kitten and small gray mouse peacefully resting on a little green grassy island with a lowered folded green flag, matching the bottom illustration. No trophy, no winner check, no confetti. Use same character silhouette, face/proportions, pose and palette as that exact design. Landscape 3:2 composition with 8% transparent margins. REMOVE all phone hardware, map, words, buttons, background rectangles and panel. No text, QR code, numerical gameplay value, enemy clue or broad scenery. Keep only that illustrated state scene, with crisp clean cutout edges; true alpha.",
+      "path": "D:\\cat-mouse-miniprogram\\design\\2026-10-12\\runtime-art\\source\\cancelled.png",
+      "source": "C:\\Users\\Keke_\\.codex\\generated_images\\01a11c62-1472-7df3-b8a1-a6a4aff1d66b\\exec-fc266e0c-e0ca-46c4-bcbb-af1b870c8cfd.png",
+      "transparent": true
+    }
+  ]
+}
