@@ -16,6 +16,7 @@ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   const dataDir=fs.mkdtempSync(path.join(os.tmpdir(),'catmouse-load-'));
   let ctx;
   const sockets=[];
+  const sharedVision=process.env.LOAD_SHARED_VISION==='true';
   try {
     ctx=await createServer({env:{NODE_ENV:'test',ENABLE_LOCAL_TEST_IDENTITIES:'true',DATA_DIR:dataDir,DATABASE_URL:loadDatabaseUrl}});
     const rooms=[],users=[];
@@ -25,6 +26,7 @@ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
       for(let i=1;i<12;i++)await ctx.service.join(room.roomId,ids[i],`p${i}`);
       const members=[];
       for(const id of ids){const session=await ctx.store.createSession(id);const user={roomId:room.roomId,id,token:session.token,seq:0};members.push(user);users.push(user);}
+      if(sharedVision)await ctx.service.setSettings(room.roomId,ids[0],{commandId:crypto.randomUUID(),expectedVersion:(await ctx.service.read(room.roomId,ids[0])).version,mouseTeamVision:true});
       rooms.push({roomId:room.roomId,owner:ids[0],members});
     }
     for(const room of rooms)for(const u of room.members){
@@ -33,7 +35,7 @@ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
     }
     for(const room of rooms){
       for(const u of room.members)await ctx.service.location(u.roomId,u.id,{lat:32,lng:118,accuracy:5,sampledAt:Date.now(),sampleSeq:++u.seq,coordinateSystem:'gcj02'});
-      await ctx.service.start(room.roomId,room.owner);
+      const started=await ctx.service.start(room.roomId,room.owner);for(const u of room.members)u.matchId=started.match.id;
     }
     ctx.server.listen(0,'127.0.0.1');await new Promise(resolve=>ctx.server.once('listening',resolve));
     const port=ctx.server.address().port,base=`http://127.0.0.1:${port}`;
@@ -46,13 +48,19 @@ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
       ws.on('message',raw=>{try{const message=JSON.parse(raw);if(message.type==='SNAPSHOT'){wsFrames++;wsBytes+=raw.length;const own=message.payload.visiblePositions.find(p=>p.id===u.id);if(u.expectedLat && own && Math.abs(own.lat-u.expectedLat)<1e-8){wsDeliveryMs.push(performance.now()-u.sentAt);u.expectedLat=null;}}}catch{}});
     });
     sockets.push(...await Promise.all(users.map(connect)));
+    if(sharedVision){const warming=Date.now();while((await ctx.service.read(rooms[0].roomId,rooms[0].owner)).match.phase==='HIDING'){
+      if(Date.now()-warming>45000)throw Error('LOAD_CHASE_WARMUP_TIMEOUT');
+      for(const u of users)await ctx.service.location(u.roomId,u.id,{lat:32,lng:118,accuracy:5,sampledAt:Date.now(),sampleSeq:++u.seq,coordinateSystem:'gcj02',matchId:u.matchId});await sleep(2000);
+    }}
+    // 预热期间的WS帧不能除以之后8秒采样窗口，否则会夸大带宽。
+    wsFrames=0;wsBytes=0;
     const started=performance.now();
     for(let cycle=0;cycle<4;cycle++){
       const wave=performance.now();
       await Promise.all(users.map(async u=>{
         const began=performance.now();u.sentAt=began;u.expectedLat=32+(cycle+1)*0.00001;
         try{
-          const res=await fetch(`${base}/api/v2/rooms/${u.roomId}/location`,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${u.token}`},body:JSON.stringify({lat:u.expectedLat,lng:118,accuracy:5,sampledAt:Date.now(),sampleSeq:++u.seq,coordinateSystem:'gcj02'})});
+          const res=await fetch(`${base}/api/v2/rooms/${u.roomId}/location`,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${u.token}`},body:JSON.stringify({lat:u.expectedLat,lng:118,accuracy:5,sampledAt:Date.now(),sampleSeq:++u.seq,coordinateSystem:'gcj02',matchId:u.matchId})});
           if(!res.ok || !(await res.json()).accepted)locationFailures++;
         }catch{locationFailures++;}
         locationMs.push(performance.now()-began);
@@ -71,6 +79,7 @@ const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
     }
     const elapsedSec=(performance.now()-started)/1000;
     const result={scope:loadDatabaseUrl?'Same-host loopback load against an isolated PostgreSQL *_loadtest database; client and API share one Node process; not public network or device validation':'Local loopback Node + embedded PostgreSQL with client and server in one process; not a device, public network, production PostgreSQL or 4-core server result',databaseBackend:loadDatabaseUrl?'PostgreSQL isolated test DB':'PGlite local',rooms:5,online:60,locationIntervalTargetMs:2000,locationRequests:locationMs.length,locationFailures,locationP50Ms:percentile(locationMs,.5),locationP95Ms:percentile(locationMs,.95),snapshotRequests:snapshotMs.length,snapshotFailures,snapshotP50Ms:percentile(snapshotMs,.5),snapshotP95Ms:percentile(snapshotMs,.95),wsReconnects:18,wsErrors,wsFrames,meanWsFrameBytes:Math.round(wsBytes/Math.max(1,wsFrames)),observedWsOutboundMbps:Number((wsBytes*8/elapsedSec/1000000).toFixed(3)),wsDeliveryObserved:wsDeliveryMs.length,wsDeliveryP50Ms:percentile(wsDeliveryMs,.5),wsDeliveryP95Ms:percentile(wsDeliveryMs,.95),httpSnapshotBodyBytes:bodyBytes,elapsedSec:Number(elapsedSec.toFixed(1)),combinedProcessRssMiB:Math.round(process.memoryUsage().rss/1048576),measuredAt:new Date().toISOString()};
+    result.sharedVisionEnabled=sharedVision;result.phase=(await ctx.service.read(rooms[0].roomId,rooms[0].owner)).match.phase;result.persistedTrackPoints=Number((await ctx.store.query('SELECT count(*) AS n FROM match_track_points')).rows[0].n);if(sharedVision&&(result.phase!=='CHASING'||result.persistedTrackPoints===0))throw Error('LOAD_FEATURE_PATH_NOT_EXERCISED');
     console.log(JSON.stringify(result,null,2));
     if(process.argv[2])fs.writeFileSync(process.argv[2],JSON.stringify(result,null,2)+'\n');
     if(locationFailures || snapshotFailures || wsErrors)process.exitCode=1;

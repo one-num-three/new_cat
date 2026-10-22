@@ -1,0 +1,19 @@
+{
+  "route": "room-tools/pages/share/share",
+  "data": {
+    "matchId": "e60c9947-73ad-43e5-bf39-5caa27bce983",
+    "fontScale": 1,
+    "navHeight": 86,
+    "loading": false,
+    "saving": false,
+    "posterPath": "http://tmp/Lvl66C3sluVNa9313651bbe59d2a0d33b5adcbdfa90c.png",
+    "notice": "已使用本局本人记录，断点与暂停处未连线",
+    "error": "",
+    "__webviewId__": 463,
+    "statusHeight": 47,
+    "viewportHeight": 844,
+    "viewportWidth": 390,
+    "safeBottom": 34,
+    "settlementLabel": "本局已结算"
+  }
+}

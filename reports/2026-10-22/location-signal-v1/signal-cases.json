@@ -1,0 +1,115 @@
+{
+  "renderer": "desktop component style preview, NOT WeChat",
+  "cases": [
+    {
+      "name": "精度较好",
+      "signal": {
+        "level": 4,
+        "tone": "good",
+        "text": "±5m",
+        "detail": "4 / 4格，定位精度估计为±5m，0秒前更新。数值越小越好；实际误差可能更大，准备和抓捕仍由服务端校验。",
+        "precision": "±5m",
+        "ageSeconds": 0
+      }
+    },
+    {
+      "name": "精度正常",
+      "signal": {
+        "level": 3,
+        "tone": "good",
+        "text": "±8m",
+        "detail": "3 / 4格，定位精度估计为±8m，0秒前更新。数值越小越好；实际误差可能更大，准备和抓捕仍由服务端校验。",
+        "precision": "±8m",
+        "ageSeconds": 0
+      }
+    },
+    {
+      "name": "精度一般",
+      "signal": {
+        "level": 2,
+        "tone": "fair",
+        "text": "±18m",
+        "detail": "2 / 4格，定位精度估计为±18m，0秒前更新。数值越小越好；实际误差可能更大，准备和抓捕仍由服务端校验。",
+        "precision": "±18m",
+        "ageSeconds": 0
+      }
+    },
+    {
+      "name": "精度偏弱",
+      "signal": {
+        "level": 1,
+        "tone": "weak",
+        "text": "±60m",
+        "detail": "1 / 4格，定位精度估计为±60m，0秒前更新。超过25米，本次不用于准备和抓捕，请到开阔处等待稳定。",
+        "precision": "±60m",
+        "ageSeconds": 0
+      }
+    },
+    {
+      "name": "超过5秒未更新",
+      "signal": {
+        "level": 0,
+        "tone": "muted",
+        "text": "已过期",
+        "detail": "最近一次精度估计为±5m，已超过5秒未更新；不能用旧位置判断当前状态。",
+        "precision": "±5m",
+        "ageSeconds": 6
+      }
+    },
+    {
+      "name": "未授权",
+      "signal": {
+        "level": 0,
+        "tone": "muted",
+        "text": "未授权",
+        "detail": "请在小程序及系统设置中检查定位权限。",
+        "precision": "",
+        "ageSeconds": 0
+      }
+    },
+    {
+      "name": "网络未同步",
+      "signal": {
+        "level": 0,
+        "tone": "muted",
+        "text": "未同步",
+        "detail": "连接中断，地图旧位置已隐藏。恢复连接后重新同步。",
+        "precision": "±8m",
+        "ageSeconds": 0
+      }
+    },
+    {
+      "name": "本轮已停止",
+      "signal": {
+        "level": 0,
+        "tone": "muted",
+        "text": "已停止",
+        "detail": "本轮定位已停止；出局、退出或结算后不会继续采集。",
+        "precision": "±5m",
+        "ageSeconds": 0
+      }
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "utils/presentation.js",
+      "sha256": "b2dfe7fa4c5bbf31d1c793723e53f0d98f1093c687901cd1fe85134ab84919ea"
+    },
+    {
+      "file": "utils/location-v2.js",
+      "sha256": "a1999adeddaaa2f6756ce968e9353619fd0e8d45de5cbefe9f9a36f32e324d87"
+    },
+    {
+      "file": "components/location-signal/location-signal.js",
+      "sha256": "bef8560bd93d10861a45bbea704ee8af08a12e765e75c969cc064a7770d6b09b"
+    },
+    {
+      "file": "components/location-signal/location-signal.wxml",
+      "sha256": "1636d6b272050be17996c1f27cf11c94ea5044d490cff17b30a2d3ba813b53a0"
+    },
+    {
+      "file": "components/location-signal/location-signal.wxss",
+      "sha256": "0236901982a3563cc83e4e242aface14ec8bbcdbde9482809f5d128cb4568781"
+    }
+  ]
+}

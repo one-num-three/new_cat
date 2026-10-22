@@ -1,0 +1,129 @@
+{
+  "route": "room-tools/pages/tracks/tracks",
+  "data": {
+    "matchId": "e60c9947-73ad-43e5-bf39-5caa27bce983",
+    "scope": "self",
+    "fontScale": 1,
+    "navHeight": 86,
+    "loading": false,
+    "exporting": false,
+    "loaded": true,
+    "error": "",
+    "notice": "绿色为鼠，橙色为猫；断线和暂停处不连线",
+    "pointCount": 18,
+    "fileName": "",
+    "players": [
+      {
+        "id": "913b64a1-3dd1-42b7-93c9-5e59145f10e5",
+        "nickname": "试点1·房主",
+        "role": "mouse",
+        "points": 18
+      }
+    ],
+    "polylines": [
+      {
+        "points": [
+          {
+            "latitude": 31.88782215505889,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887811389182517,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887796543724562,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.88777925296371,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887761420372513,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.88774500907152,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887731825716976,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.88772332161306,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887720432943475,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887723477710608,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887732120727897,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887745410519216,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887761884063163,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.88777972785142,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887796977530794,
+            "longitude": 118.81920737398848
+          }
+        ],
+        "color": "#477f60",
+        "width": 4
+      },
+      {
+        "points": [
+          {
+            "latitude": 31.887811734151224,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887822373213815,
+            "longitude": 118.81920737398848
+          },
+          {
+            "latitude": 31.887822373213815,
+            "longitude": 118.81920737398848
+          }
+        ],
+        "color": "#477f60",
+        "width": 4
+      }
+    ],
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 31.88782215505889,
+        "longitude": 118.81920737398848,
+        "title": "试点1·房主 · 起点",
+        "iconPath": "/assets/pixel-v1/role-mouse.png",
+        "width": 30,
+        "height": 30
+      }
+    ],
+    "latitude": 31.88782215505889,
+    "longitude": 118.81920737398848,
+    "__webviewId__": 460,
+    "statusHeight": 47,
+    "viewportHeight": 844,
+    "viewportWidth": 390,
+    "safeBottom": 34,
+    "settlementLabel": "本局已结算"
+  }
+}

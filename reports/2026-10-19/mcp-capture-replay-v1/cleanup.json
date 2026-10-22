@@ -1,0 +1,37 @@
+{
+  "temporaryDatabases": [
+    {
+      "run": "mcp-capture-replay-v1",
+      "databaseRemoved": true
+    },
+    {
+      "run": "mcp-capture-replay-v2",
+      "databaseRemoved": true
+    },
+    {
+      "run": "mcp-capture-replay-v3",
+      "databaseRemoved": true
+    },
+    {
+      "run": "mcp-capture-replay-v4",
+      "databaseRemoved": true
+    },
+    {
+      "run": "mcp-capture-replay-v5",
+      "databaseRemoved": true
+    },
+    {
+      "run": "mcp-capture-replay-v6",
+      "databaseRemoved": true
+    }
+  ],
+  "localFixtureStopped": true,
+  "temporaryMocksRestored": true,
+  "nativeLocationAndScannerAvailable": true,
+  "originalSessionAndRoomRestored": true,
+  "backupRemoved": true,
+  "productionConfigSourceUnchanged": true,
+  "productionApiVersion": "0.5.0",
+  "localCandidateVersion": "0.5.1",
+  "productionDeployment": false
+}

@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-19",
+  "tests": {
+    "total": 184,
+    "passed": 184,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 16,
+      "status": 0
+    },
+    "wxss": {
+      "files": 20,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "status": 0
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "status": 0
+    },
+    {
+      "file": "utils/room-live.js",
+      "status": 0
+    },
+    {
+      "file": "utils/snapshot-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/store.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/map-catalog.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/acceptance.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 693,
+    "bytes": 27760,
+    "sha256": "dc4c7dcefc0e7a7d0ca7c668c25884a4c144992b0890e8369c42773152e1c302"
+  },
+  "packageFiles": 147,
+  "rawLocalBytes": {
+    "main": 1783246,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 4413,
+    "venue-maps": 1981419
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "not-recorded-in-this-artifact"
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "see deployment.json",
+  "publicLoadTest": "not-run",
+  "sharedQrProtocolIdentical": true,
+  "status": "backend-deployed-frontend-awaiting-wechat-confirmation",
+  "backendVersion": "0.5.2",
+  "productionWss": "passed-original-account-and-actual-page",
+  "productionDataPreserved": true,
+  "backupRestoreVerified": true,
+  "frontendLocalVersion": "0.5.2",
+  "frontendPlatform": {
+    "frontendVersion": "0.5.2",
+    "localFrontend": "ready",
+    "upload": {
+      "status": "pending",
+      "taskId": "confirmation_upload_d49332f7-7629-4e61-ba4d-68d4a3c432d1",
+      "tool": "upload",
+      "project": "D:/cat-mouse-miniprogram",
+      "uploadVersion": "0.5.2",
+      "description": "动态捕获目标与全员同步；重新准备及身份快照修复",
+      "confirmation": "User must confirm in WeChat DevTools; do not resubmit or poll until user continuation"
+    },
+    "formalRelease": "not-published",
+    "phonePreview": "not-requested-while-upload-confirmation-pending",
+    "frontendRuleCopyCorrectedAfterUploadRequest": true,
+    "finalFrontendManifestSha256": "2989873950cbedeef0bae1ed0742686ba8d131ef36b981c2a71c01e8b2b26ae7"
+  },
+  "roomRuleCopyVerified": true
+}

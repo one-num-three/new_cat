@@ -1,0 +1,121 @@
+{
+  "method": "Viewed full-size capture/result/new-round contact sheets and both original preparation screenshots; checked all 21 images",
+  "accepted": [
+    {
+      "name": "mouse-dynamic-code",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "cat-first-capture",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "mouse-captured",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-01",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-02",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-03",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-04",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-05",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-06",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-07",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "result-player-08",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "ready-first-player",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "ready-all-eight",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-01",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-02",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-03",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-04",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-05",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-06",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-07",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "next-player-08",
+      "accepted": true,
+      "aspectRatioPreserved": true
+    }
+  ],
+  "nativePngDimensions": {
+    "width": 648,
+    "height": 1402
+  },
+  "notes": [
+    "8 result views show cat win 4/4, including surviving mice",
+    "New round has 2 cats and 6 mice, all active and 0/4; first frames HIDING then CHASING using real clock",
+    "Preparation changes from 1/8 to 8/8; old match data retained until new start",
+    "Every view was gated by server viewerId and expected owner status; no role or outcome injected"
+  ],
+  "at": "2026-10-19T13:42:04.285Z"
+}

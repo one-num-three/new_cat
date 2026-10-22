@@ -2,8 +2,22 @@
   "description": "猫鼠游戏小程序 - 线下实景追逐游戏",
   "packOptions": {
     "ignore": [
-      {"type":"folder","value":".local-tools"},
-      {"type":"folder","value":"output"},
+      {
+        "type": "file",
+        "value": "TRACKS_AND_TEAM_VISION.md"
+      },
+      {
+        "type": "folder",
+        "value": ".local-test-tmp"
+      },
+      {
+        "type": "folder",
+        "value": ".local-tools"
+      },
+      {
+        "type": "folder",
+        "value": "output"
+      },
       {
         "type": "folder",
         "value": "cat-mouse-server"
@@ -99,9 +113,194 @@
       {
         "type": "folder",
         "value": "assets/markers-v1"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-alert-code.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-alert-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-cancelled-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-cancelled-home.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-cancelled-replay.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-captured-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-cat-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-cat-scan.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-catwin-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-catwin-home.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-catwin-replay.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-code-back.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-create-location.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-create-submit.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-drawer-close.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-drawer-leave.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-drawer-pause.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-hiding-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-home-create.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-home-join.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-mouse-code.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-mouse-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-mousewin-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-mousewin-home.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-mousewin-replay.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-offline-rules.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-offline-team.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-paused-details.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-paused-resume.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-ready-cancel.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-ready-copy.png"
+      },
+      {
+        "type": "file",
+        "value": "assets/pixel-v1/button-ready-start.png"
+      },
+      {
+        "type": "folder",
+        "value": "assets/maps"
+      },
+      {
+        "type": "file",
+        "value": ".gitattributes"
+      },
+      {
+        "type": "file",
+        "value": ".gitignore"
+      },
+      {
+        "type": "file",
+        "value": "ART_LOCK.md"
+      },
+      {
+        "type": "file",
+        "value": "compose.yaml"
+      },
+      {
+        "type": "file",
+        "value": "DESIGN_BASELINE.md"
+      },
+      {
+        "type": "file",
+        "value": "GEO_MAP_BINDING.md"
+      },
+      {
+        "type": "file",
+        "value": "PROJECT_PLAN.md"
+      },
+      {
+        "type": "file",
+        "value": "README.md"
+      },
+      {
+        "type": "file",
+        "value": "RELEASE.md"
+      },
+      {
+        "type": "file",
+        "value": "RULES_PILOT_0_3.md"
+      },
+      {
+        "type": "file",
+        "value": "WORK_LOG.md"
+      },
+      {
+        "type": "file",
+        "value": "utils/api.js"
       }
     ],
-    "include": [{"type":"file","value":"campus3d/assets/campus-meta.bin"}]
+    "include": [
+      {
+        "type": "file",
+        "value": "campus3d/assets/campus-meta.bin"
+      }
+    ]
   },
   "setting": {
     "bundle": false,
@@ -247,6 +446,20 @@
           "name": "玄武湖新版地图",
           "pathName": "pages/venue/venue",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": 16,
+          "name": "中途补入 · 定位入场",
+          "pathName": "pages/map/map",
+          "query": "devPreview=joining",
+          "scene": null
+        },
+        {
+          "id": 17,
+          "name": "本轮退出",
+          "pathName": "pages/map/map",
+          "query": "devPreview=left",
           "scene": null
         }
       ]

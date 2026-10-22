@@ -1,0 +1,25 @@
+{
+  "mapIds": [
+    "xuanwu-v4",
+    "seu-jiulonghu-v1",
+    "seu-sipailou-v1"
+  ],
+  "version": {
+    "version": "0.4.0",
+    "rulesVersion": "pilot-0.3",
+    "supportedRuleVersions": [
+      "pilot-0.2",
+      "pilot-0.3"
+    ],
+    "capabilities": {
+      "mapCalibration": true,
+      "customTeams": true,
+      "multiVenueMaps": true,
+      "polygonVenues": true,
+      "mapCatalog": true,
+      "roomInvites": true,
+      "createCommands": true,
+      "captureProtocol": "capture-v1"
+    }
+  }
+}

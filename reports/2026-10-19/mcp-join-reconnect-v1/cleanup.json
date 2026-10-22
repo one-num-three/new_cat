@@ -1,0 +1,12 @@
+{
+  "originalSessionRestored": true,
+  "backupRemoved": true,
+  "locationMocksRestored": true,
+  "isolatedServiceStopped": true,
+  "temporaryDatabaseRemoved": true,
+  "failedFixtureDatabaseRemoved": true,
+  "productionConfigSourceUnchanged": true,
+  "productionLocalTestIdentities": false,
+  "at": "2026-10-19T12:32:47.940Z",
+  "realRoomAccessConfirmedAfterRestore": true
+}

@@ -9,13 +9,13 @@ function create(api, wx) {
       try {
         const r=await api.token(this.data.roomId);
         if(!this.active || lifecycle!==this.lifecycle)return;
-        if(!r.qrPngBase64 || !Number.isFinite(r.expiresAt) || r.expiresAt<=Date.now())throw Error('抓捕码已过期，请重试');
+        const localExpiry=Number.isFinite(r.serverTime)?Date.now()+r.expiresAt-r.serverTime:r.expiresAt;if(!r.qrPngBase64 || !Number.isFinite(localExpiry) || localExpiry<=Date.now())throw Error('抓捕码已过期，请重试');
         this.fileSeq=(this.fileSeq||0)+1;
         const path=wx.env.USER_DATA_PATH+'/capture-'+r.expiresAt+'-'+this.fileSeq+'.png',previous=this.imagePath;
         wx.getFileSystemManager().writeFileSync(path,r.qrPngBase64,'base64');
         if(!this.active || lifecycle!==this.lifecycle){this.removeImage(path);return;}
-        this.imagePath=path;this.expiresAt=r.expiresAt;this.nextRetryAt=0;
-        this.setData({image:path,seconds:Math.ceil((r.expiresAt-Date.now())/1000),codeError:'',error:''});
+        this.imagePath=path;this.expiresAt=localExpiry;this.nextRetryAt=0;
+        this.setData({image:path,seconds:Math.ceil((localExpiry-Date.now())/1000),codeError:'',error:''});
         this.removeImage(previous);
       } catch(e) {
         if(!this.active || lifecycle!==this.lifecycle)return;

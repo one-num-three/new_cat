@@ -11,7 +11,7 @@ function layoutKey(metrics) {
 Page({
   data: {
     navHeight:64, viewportWidth:390, viewportHeight:844, fontScale:1, safeBottom:0,
-    mapId:catalog.DEFAULT_ID,venueOptions:catalog.options,venueMapIndex:0,venueName:catalog.get().label,layoutKey:'', venueSource:'/assets/maps/xuanwu-lake-v4.jpg',locationOn:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},artMode:true,modelMode:false,layerLoading:false,markers:[],latitude:32.0584,longitude:118.7968,hasPosition:false,followSelf:true
+    mapId:catalog.DEFAULT_ID,venueOptions:catalog.options,venueMapIndex:0,venueName:catalog.get().label,layoutKey:'', venueSource:catalog.get().src,locationOn:false,locationText:'点定位图标，查看真实本人位置',locationError:'',coordinateText:'',geoData:{points:[],regions:[]},artMode:true,modelMode:false,layerLoading:false,markers:[],latitude:32.0584,longitude:118.7968,hasPosition:false,followSelf:true
   },
   onLoad(options={}) { this.selectMap(options.mapId||catalog.DEFAULT_ID);this.refreshLayout();this.simulation=scenarios.get(options.simPosition,this.data.mapId);if(options.simPosition&&!this.simulation)this.setData({locationError:'模拟定位仅限电脑开发工具；真机请点准星获取实际位置'}); },
   selectMap(id){const image=catalog.get(id);if(!image){this.setData({venueError:'未知场地地图'});return;}if(this.simulation&&id!=='seu-jiulonghu-v1'){this.simulation=null;this.simulationStopped=true;this.stopGps();}this.setData({...(id!=='seu-jiulonghu-v1'&&this.data.modelMode?{modelMode:false,artMode:true}:{}),mapId:image.id,venueSource:image.src,venueName:image.label,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id),venueError:''});if(this.position)this.displayPosition(this.position);},

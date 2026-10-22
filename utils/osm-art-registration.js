@@ -37,7 +37,7 @@ function region(p,width,height,imageId=catalog.DEFAULT_ID){
 }
 function frame(data,width,height,imageId=catalog.DEFAULT_ID){
  const empty={points:[],regions:[],omittedRegions:0};if(!available(imageId)||!(width>0&&height>0)||!Number.isFinite(width)||!Number.isFinite(height))return empty;
- const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,'gcj02',imageId);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);
+ const points=(Array.isArray(data?.points)?data.points:[]).slice(0,61).map((p,i)=>{const q=project(p,'gcj02',imageId);return q?{id:i,x:q.u*width,y:q.v*height,label:String(p.label||'').slice(0,20),tone:['self','ally','venue','enemy'].includes(p.tone)?p.tone:'ally'}:null;}).filter(Boolean);
  const source=(Array.isArray(data?.regions)?data.regions:[]).slice(0,61),regions=source.map((p,i)=>{const q=region(p,width,height,imageId);return q?{id:i,...q}:null;}).filter(Boolean);
  return {points,regions,omittedRegions:source.length-regions.length};
 }

@@ -1,0 +1,87 @@
+{
+  "method": "Viewed original-size contact sheets containing all 10 identity screenshots and all 4 reconnect screenshots; inspected the initial navigation frame separately",
+  "accepted": [
+    {
+      "name": "player-01",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-02",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-03",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-04",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-05",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-06",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-07",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-08",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-09",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "player-10",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "11-network-lost",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "12-same-page-recovered",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "13-host-resumed",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    },
+    {
+      "name": "14-returned-player-active",
+      "roleAndStateMatch": true,
+      "aspectRatioPreserved": true
+    }
+  ],
+  "excluded": [
+    {
+      "name": "00-original-eight",
+      "reason": "Map-loading screen captured before rendered roster; logic-layer state alone is not visual evidence"
+    }
+  ],
+  "notes": [
+    "10 distinct authenticated UI views during CHASING, 3 cats and 7 mice",
+    "P01 stays captured; P09 same identity through connection failure and recovery",
+    "Offline map shows no player markers and reconnect message; recovery stays PAUSED until host resumes"
+  ],
+  "at": "2026-10-19T12:35:48.491Z"
+}

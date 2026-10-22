@@ -1,0 +1,30 @@
+// Accelerated-clock engineering acceptance. Only runs against a named isolated PostgreSQL database.
+const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs');
+const {createServer}=require('./server'),images=require('../shared/venue-images');
+const equal=require('node:util').isDeepStrictEqual;
+(async()=>{
+ const url=new URL(process.env.DATABASE_URL||'http://invalid');assert.match(url.pathname,/^\/catmouse_verify_[0-9_]+$/);assert.equal(process.env.NODE_ENV,'test');assert.equal(process.env.ENABLE_LOCAL_TEST_IDENTITIES,'true');
+ let ctx,now=Date.now();const checks=[];const boot=async()=>{ctx=await createServer({env:{...process.env,HOST:'127.0.0.1'},now:()=>now});ctx.server.listen(0,'127.0.0.1');await new Promise(r=>ctx.server.once('listening',r));};
+ const call=async(method,path,body,token)=>{const r=await fetch('http://127.0.0.1:'+ctx.server.address().port+path,{method,headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},body:body===undefined?undefined:JSON.stringify(body)});return {status:r.status,data:await r.json()};};
+ const check=(name,condition)=>{assert.ok(condition,name);checks.push(name);};
+ try{await boot();const identities=[];for(let i=0;i<6;i++)identities.push((await call('POST','/api/v2/session/test',{})).data);const host=identities[0],image=images.find(i=>i.id==='seu-jiulonghu-v1'),p=image.demoPoints[0];
+  const input={total:6,cats:2,mice:4,nickname:'isolated-host',commandId:crypto.randomUUID(),mapRevision:image.sha256,venue:{...p,mapId:image.id,radiusM:200,confirmed:true}};
+  const created=await Promise.all([call('POST','/api/v2/rooms',input,host.token),call('POST','/api/v2/rooms',input,host.token)]);check('concurrent create idempotency',created[0].status===200&&created[1].status===200&&equal(created[0].data,created[1].data));const id=created[0].data.roomId,base='/api/v2/rooms/'+id;
+  for(let i=1;i<6;i++)assert.equal((await call('POST',base+'/join',{nickname:'isolated-'+i},identities[i].token)).status,200);
+  check('full-room reconnect', (await call('POST',base+'/join',{nickname:'returning'},identities[1].token)).status===200);
+  check('anonymous denied',(await call('GET',base)).status===401);check('non-host start denied',(await call('POST',base+'/start',{},identities[1].token)).status===403);
+  const invite=(await call('GET',base+'/invite',undefined,host.token)).data;check('real invite PNG and path',!!invite.qrPngBase64&&invite.path.includes(created[0].data.code));
+  const s=(await call('GET',base,undefined,host.token)).data,delta=.0007,boundary=[{lat:p.lat-delta,lng:p.lng-delta},{lat:p.lat-delta,lng:p.lng+delta},{lat:p.lat+delta,lng:p.lng+delta},{lat:p.lat+delta,lng:p.lng-delta}];
+  check('polygon persisted',(await call('PUT',base+'/venue',{commandId:crypto.randomUUID(),expectedVersion:s.version,mapRevision:image.sha256,venue:{...p,mapId:image.id,confirmed:true,boundary}},host.token)).status===200);
+  let seq=0;const positions=async()=>{for(const a of identities)assert.equal((await call('POST',base+'/location',{...p,accuracy:5,sampledAt:now,sampleSeq:++seq,coordinateSystem:'gcj02'},a.token)).data.accepted,true);};await positions();for(const a of identities)assert.equal((await call('POST',base+'/ready',{ready:true},a.token)).status,200);
+  const started=(await call('POST',base+'/start',{},host.token)).data;check('standard six-player hiding',started.match.phase==='HIDING'&&started.match.target===3);now+=30000;await positions();const roster=(await call('GET',base,undefined,host.token)).data.roster,cats=roster.filter(p=>p.role==='cat').map(p=>identities.find(i=>i.id===p.id)),mice=roster.filter(p=>p.role==='mouse').map(p=>identities.find(i=>i.id===p.id));
+  const catView=(await call('GET',base,undefined,cats[0].token)).data;check('role-filtered positions',catView.visiblePositions.length===2&&catView.intel.length===4);
+  const expired=(await call('POST',base+'/token',{},mice[0].token)).data;now+=15001;await positions();check('expired proof denied',(await call('POST',base+'/capture',{commandId:crypto.randomUUID(),matchId:expired.matchId,token:expired.token},cats[0].token)).data.error==='INVALID_TOKEN');
+  const proof=(await call('POST',base+'/token',{},mice[0].token)).data,commands=cats.map(()=>({commandId:crypto.randomUUID(),matchId:proof.matchId,token:proof.token}));
+  const concurrent=await Promise.all(cats.map((a,i)=>call('POST',base+'/capture',commands[i],a.token)));check('atomic two-cat capture',concurrent.filter(r=>r.status===200).length===1&&concurrent.filter(r=>r.data.error==='ALREADY_CAPTURED').length===1);const winner=concurrent.findIndex(r=>r.status===200);check('capture replay idempotency',equal((await call('POST',base+'/capture',commands[winner],cats[winner].token)).data,concurrent[winner].data));
+  for(const mouse of mice.slice(1,3)){const code=(await call('POST',base+'/token',{},mouse.token)).data;assert.equal((await call('POST',base+'/capture',{commandId:crypto.randomUUID(),matchId:code.matchId,token:code.token},cats[0].token)).status,200);}
+  check('same durable result for all members',(await Promise.all(identities.map(a=>call('GET',base,undefined,a.token)))).every(r=>r.data.match.outcome==='cat_win'&&r.data.match.captured===3&&r.data.visiblePositions.length===0));
+  await ctx.close();ctx=null;await boot();check('server restart preserves result',(await call('GET',base,undefined,host.token)).data.match.outcome==='cat_win');check('create receipt survives restart',(await call('POST','/api/v2/rooms',input,host.token)).data.roomId===id);
+  const result={status:'PASS',database:'isolated real PostgreSQL',participants:6,checks,acceleratedClock:true,phoneCamera:false,fieldGps:false,productionDataWritten:false};if(process.argv[2])fs.writeFileSync(process.argv[2],JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+ }finally{if(ctx)await ctx.close();}
+})().catch(e=>{console.error('ACCEPTANCE_FAILED',e.code||'',e.message);console.error(String(e.stack).split('\n').slice(0,4).join('\n'));process.exitCode=1;});

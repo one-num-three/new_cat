@@ -1,0 +1,101 @@
+{
+  "schema": "trajectory-share-irregular-v4",
+  "date": "2026-10-21",
+  "width": 941,
+  "height": 1672,
+  "source": "overlay-source.png",
+  "sourceSha256": "cd802fd71a6193b9e24c74ddac78505f49f5b21a03e900967a1a37386c0a7a07",
+  "transparentPixels": 738377,
+  "mapRect": {
+    "x": 0,
+    "y": 328,
+    "width": 941,
+    "height": 941
+  },
+  "metrics": {
+    "distance": {
+      "x": 193,
+      "y": 1373
+    },
+    "duration": {
+      "x": 480,
+      "y": 1373
+    },
+    "calories": {
+      "x": 766,
+      "y": 1373
+    },
+    "fontSize": 52,
+    "color": "#f47716",
+    "note": {
+      "x": 470,
+      "y": 1481,
+      "fontSize": 17
+    }
+  },
+  "items": [
+    {
+      "imageId": "xuanwu-v4",
+      "key": "xuanwu",
+      "label": "玄武湖·环洲樱洲",
+      "source": "/venue-xuanwu/assets/xuanwu-lake-v4.jpg",
+      "sourceSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "overlay": "xuanwu-overlay.png",
+      "preview": "xuanwu-preview.png",
+      "mapRect": {
+        "x": 0,
+        "y": 328,
+        "width": 941,
+        "height": 941
+      },
+      "overlaySha256": "ecd5c4580e39c933f045b29bd232d87dd1374262e745b8b3e51e03b01abc2360",
+      "previewSha256": "28fe42c847b729b6b940e8d7a34a196d8597fb0699a28051d8fca4bad9953dae"
+    },
+    {
+      "imageId": "seu-jiulonghu-v1",
+      "key": "jiulonghu",
+      "label": "东大九龙湖校区",
+      "source": "/venue-maps/assets/jiulonghu-v1.jpg",
+      "sourceSha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "overlay": "jiulonghu-overlay.png",
+      "preview": "jiulonghu-preview.png",
+      "mapRect": {
+        "x": 0,
+        "y": 328,
+        "width": 941,
+        "height": 941
+      },
+      "overlaySha256": "81382dc64e5c9f51f69f93651304b93e9da99cbad216af4a7b89bed48812101f",
+      "previewSha256": "11ea987157c186b7cead1b6642779fbb4076035decf870c1f8f9e853e371de76"
+    },
+    {
+      "imageId": "seu-sipailou-v1",
+      "key": "sipailou",
+      "label": "东大四牌楼校区",
+      "source": "/venue-maps/assets/sipailou-v1.jpg",
+      "sourceSha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "overlay": "sipailou-overlay.png",
+      "preview": "sipailou-preview.png",
+      "mapRect": {
+        "x": 0,
+        "y": 328,
+        "width": 941,
+        "height": 941
+      },
+      "overlaySha256": "32c8d7d4a2ead457cfe5c7371f9f490dc343d91dc56515006cff0848557534a9",
+      "previewSha256": "670ad0a80dbd67a6c9d86bd82fda3757e53394370969e3be29e4913462084703"
+    }
+  ]
+}

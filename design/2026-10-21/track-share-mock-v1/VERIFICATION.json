@@ -1,0 +1,35 @@
+{
+  "pass": true,
+  "revision": "layer-fix",
+  "posters": 3,
+  "flagsOnTop": true,
+  "allSixFlagsPixelVerified": true,
+  "bubbleAvoidance": true,
+  "mapAndPointCoordinatesUnchanged": true,
+  "records": [
+    {
+      "key": "xuanwu",
+      "flagCount": 2,
+      "uncoveredStrongAlphaFlagPixels": 7885,
+      "bubbleFlagCollisions": 0,
+      "pngSha256": "457e8bb38414342d48b09e0be4e34b277a4eca84de620a9ef48f99ca4216919e",
+      "jpgSha256": "cdbf74759213103ae035ba15fd791e556055a28fa11f63606ee2d17f708cad68"
+    },
+    {
+      "key": "jiulonghu",
+      "flagCount": 2,
+      "uncoveredStrongAlphaFlagPixels": 7885,
+      "bubbleFlagCollisions": 0,
+      "pngSha256": "038c06bf223ecaa7d318f9bc21b8681eebd33dd123228346d16364ae84fd2706",
+      "jpgSha256": "0ec16245499e0adeab00dc851ae753e32c89ccaa235d6329e3b15f4d7bc07c0c"
+    },
+    {
+      "key": "sipailou",
+      "flagCount": 2,
+      "uncoveredStrongAlphaFlagPixels": 7885,
+      "bubbleFlagCollisions": 0,
+      "pngSha256": "bb29a31d5e9526dc5c911c6ae633ba747bd8ada6c884fb7027f258b2be8b11d2",
+      "jpgSha256": "7041829676489e8ce406a023c009293c620177172dafe54d5068226b444bc2a1"
+    }
+  ]
+}

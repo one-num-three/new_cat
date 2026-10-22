@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>真实房间与地图服务 · 微信MCP验收</title>
+<style>
+body{margin:0;padding:32px;background:#f7f3e8;color:#253e33;font:16px/1.6 system-ui,sans-serif}main{max-width:1250px;margin:auto}h1{margin:0 0 12px}a{color:#256448}.note{padding:16px;border:1px solid #b8c7b3;background:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:24px;margin-top:24px}figure{margin:0;min-width:0}img{display:block;width:100%;height:auto;border:1px solid #c4ccbd;box-sizing:border-box}figcaption{padding-top:12px}small{display:block}
+</style>
+<main><h1>真实房间、邀请与范围编辑</h1>
+<p>2026-10-19 · 后端API 0.4.0 · 当前本地微信前端</p>
+<div class="note">微信官方MCP实际截图，未调整桌面分屏。真实房间 <strong>9D61CEDC51</strong> 当前1/8人、尚未开局。范围点为手动地图选择，非GPS实测。邀请码仅供小程序内“扫码加入”，不是外部微信启动码。相机扫码、现场GPS及手机体验尚待验证。
+<p><a href="README.md">交付与真机步骤</a> · <a href="verification.json">编译与回归</a> · <a href="mcp/result.json">MCP记录</a> · <a href="deployment.json">部署</a> · <a href="load60-postgres.json">60人短测</a></p></div>
+<div class="grid">
+<figure><img src="01-home.png" alt="首页扫码加入"><figcaption>01 · 首页<small>真实加入和扫码入口。</small></figcaption></figure>
+<figure><img src="02-polygon-editor.png" alt="范围编辑最终布局"><figcaption>02 · 集合点与多边形<small>修复面板裁切后；原生保存操作已验证。</small></figcaption></figure>
+<figure><img src="03-real-room.png" alt="真实房间准备页"><figcaption>03 · 真实房间<small>正式8人预设，2猫6鼠、目标4；1人在线。</small></figcaption></figure>
+<figure><img src="04-real-invite.png" alt="真实房间邀请二维码"><figcaption>04 · 邀请二维码<small>服务端生成，实际PNG解码成功；未发送分享。</small></figcaption></figure>
+<figure><img src="05-editor-large.png" alt="应用1.3倍字体范围编辑"><figcaption>05 · 应用字号1.3<small>控件和保存按钮可见；不代替系统大字或真机。</small></figcaption></figure>
+</div></main></html>

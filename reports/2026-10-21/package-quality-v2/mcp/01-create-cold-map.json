@@ -1,0 +1,16 @@
+{
+  "route": "pages/room/room",
+  "active": true,
+  "mapId": "xuanwu-v4",
+  "source": "/venue-xuanwu/assets/xuanwu-lake-v4.jpg",
+  "venueResource": "ready",
+  "locationOn": false,
+  "error": "",
+  "stack": [
+    "pages/index/index",
+    "pages/room/room"
+  ],
+  "xuanwu": true,
+  "campus": false,
+  "art": null
+}

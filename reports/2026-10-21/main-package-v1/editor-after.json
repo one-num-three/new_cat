@@ -1,0 +1,767 @@
+{
+  "rawLocalBytes": {
+    "main": 989574,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 4413,
+    "venue-maps": 1981470,
+    "venue-xuanwu": 804649
+  },
+  "mainLimitBytes": 1500000,
+  "subPackageLimitBytes": 2097152,
+  "mainHeadroomBytes": 510426,
+  "uploadVerified": false,
+  "measurement": "Uncompressed source files after project.config.json packOptions.ignore; not WeChat upload bytes",
+  "files": [
+    {
+      "file": "app.js",
+      "bytes": 339,
+      "package": "main"
+    },
+    {
+      "file": "app.json",
+      "bytes": 1678,
+      "package": "main"
+    },
+    {
+      "file": "assets/map-markers-v2/ally.png",
+      "bytes": 24091,
+      "package": "main"
+    },
+    {
+      "file": "assets/map-markers-v2/self.png",
+      "bytes": 26413,
+      "package": "main"
+    },
+    {
+      "file": "assets/map-markers-v2/venue.png",
+      "bytes": 18378,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/cancelled-hero.png",
+      "bytes": 64103,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/catwin-hero.png",
+      "bytes": 42011,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/code-demo-art.png",
+      "bytes": 7625,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/code-role.png",
+      "bytes": 14144,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/create-hero.png",
+      "bytes": 19448,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/drawer-cat-avatar.png",
+      "bytes": 2609,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/drawer-event-icon.png",
+      "bytes": 1482,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/drawer-mouse-avatar.png",
+      "bytes": 2950,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/drawer-rules-icon.png",
+      "bytes": 1213,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/drawer-title-icon.png",
+      "bytes": 2380,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/FONT-LICENSE.txt",
+      "bytes": 4605,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/FUSION-FONT-LICENSE.txt",
+      "bytes": 19176,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/hiding-scene.png",
+      "bytes": 31141,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/home-footer.png",
+      "bytes": 12614,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/home-hero.png",
+      "bytes": 51924,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/logo.png",
+      "bytes": 2373,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/mousewin-hero.png",
+      "bytes": 44096,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/offline-hero.png",
+      "bytes": 14947,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/paused-scene.png",
+      "bytes": 52505,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-0.png",
+      "bytes": 2167,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-1.png",
+      "bytes": 2187,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-2.png",
+      "bytes": 2258,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-3.png",
+      "bytes": 2207,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-4.png",
+      "bytes": 2372,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-5.png",
+      "bytes": 2194,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-6.png",
+      "bytes": 2282,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-avatar-7.png",
+      "bytes": 2220,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/ready-hero.png",
+      "bytes": 27211,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/role-cat.png",
+      "bytes": 4220,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/role-mouse.png",
+      "bytes": 4894,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/rules-icon-cat.png",
+      "bytes": 2759,
+      "package": "main"
+    },
+    {
+      "file": "assets/pixel-v1/rules-icon-clock.png",
+      "bytes": 2242,
+      "package": "main"
+    },
+    {
+      "file": "campus3d/assets/campus-meta.bin",
+      "bytes": 913,
+      "package": "campus3d"
+    },
+    {
+      "file": "campus3d/assets/campus.bin",
+      "bytes": 1216432,
+      "package": "campus3d"
+    },
+    {
+      "file": "campus3d/assets/ground.jpg",
+      "bytes": 77437,
+      "package": "campus3d"
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "bytes": 241,
+      "package": "campus3d"
+    },
+    {
+      "file": "campus3d/pages/open/open.json",
+      "bytes": 29,
+      "package": "campus3d"
+    },
+    {
+      "file": "campus3d/pages/open/open.wxml",
+      "bytes": 41,
+      "package": "campus3d"
+    },
+    {
+      "file": "campus3d/pages/open/open.wxss",
+      "bytes": 57,
+      "package": "campus3d"
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "bytes": 11406,
+      "package": "main"
+    },
+    {
+      "file": "components/campus-model/campus-model.json",
+      "bytes": 19,
+      "package": "main"
+    },
+    {
+      "file": "components/campus-model/campus-model.wxml",
+      "bytes": 1629,
+      "package": "main"
+    },
+    {
+      "file": "components/campus-model/campus-model.wxss",
+      "bytes": 1385,
+      "package": "main"
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "bytes": 2625,
+      "package": "main"
+    },
+    {
+      "file": "components/map-icon/map-icon.json",
+      "bytes": 19,
+      "package": "main"
+    },
+    {
+      "file": "components/map-icon/map-icon.wxml",
+      "bytes": 223,
+      "package": "main"
+    },
+    {
+      "file": "components/map-icon/map-icon.wxss",
+      "bytes": 216,
+      "package": "main"
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "bytes": 576,
+      "package": "main"
+    },
+    {
+      "file": "components/nav-bar/nav-bar.json",
+      "bytes": 20,
+      "package": "main"
+    },
+    {
+      "file": "components/nav-bar/nav-bar.wxml",
+      "bytes": 572,
+      "package": "main"
+    },
+    {
+      "file": "components/nav-bar/nav-bar.wxss",
+      "bytes": 969,
+      "package": "main"
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "bytes": 1085,
+      "package": "main"
+    },
+    {
+      "file": "components/pixel-action/pixel-action.json",
+      "bytes": 19,
+      "package": "main"
+    },
+    {
+      "file": "components/pixel-action/pixel-action.wxml",
+      "bytes": 272,
+      "package": "main"
+    },
+    {
+      "file": "components/pixel-action/pixel-action.wxss",
+      "bytes": 1246,
+      "package": "main"
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "bytes": 13806,
+      "package": "main"
+    },
+    {
+      "file": "components/venue-art/venue-art.json",
+      "bytes": 24,
+      "package": "main"
+    },
+    {
+      "file": "components/venue-art/venue-art.wxml",
+      "bytes": 3051,
+      "package": "main"
+    },
+    {
+      "file": "components/venue-art/venue-art.wxss",
+      "bytes": 2427,
+      "package": "main"
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "bytes": 10724,
+      "package": "field-editor"
+    },
+    {
+      "file": "field-editor/pages/edit/edit.json",
+      "bytes": 110,
+      "package": "field-editor"
+    },
+    {
+      "file": "field-editor/pages/edit/edit.wxml",
+      "bytes": 2801,
+      "package": "field-editor"
+    },
+    {
+      "file": "field-editor/pages/edit/edit.wxss",
+      "bytes": 2382,
+      "package": "field-editor"
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "bytes": 7544,
+      "package": "main"
+    },
+    {
+      "file": "pages/calibrate/calibrate.json",
+      "bytes": 68,
+      "package": "main"
+    },
+    {
+      "file": "pages/calibrate/calibrate.wxml",
+      "bytes": 2488,
+      "package": "main"
+    },
+    {
+      "file": "pages/calibrate/calibrate.wxss",
+      "bytes": 1270,
+      "package": "main"
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "bytes": 1416,
+      "package": "main"
+    },
+    {
+      "file": "pages/dev/dev.json",
+      "bytes": 85,
+      "package": "main"
+    },
+    {
+      "file": "pages/dev/dev.wxml",
+      "bytes": 1732,
+      "package": "main"
+    },
+    {
+      "file": "pages/dev/dev.wxss",
+      "bytes": 1819,
+      "package": "main"
+    },
+    {
+      "file": "pages/dev/fusion-font.wxss",
+      "bytes": 11461,
+      "package": "main"
+    },
+    {
+      "file": "pages/index/index.js",
+      "bytes": 4089,
+      "package": "main"
+    },
+    {
+      "file": "pages/index/index.json",
+      "bytes": 37,
+      "package": "main"
+    },
+    {
+      "file": "pages/index/index.wxml",
+      "bytes": 2731,
+      "package": "main"
+    },
+    {
+      "file": "pages/index/index.wxss",
+      "bytes": 4038,
+      "package": "main"
+    },
+    {
+      "file": "pages/map/map.js",
+      "bytes": 20572,
+      "package": "main"
+    },
+    {
+      "file": "pages/map/map.json",
+      "bytes": 289,
+      "package": "main"
+    },
+    {
+      "file": "pages/map/map.wxml",
+      "bytes": 17589,
+      "package": "main"
+    },
+    {
+      "file": "pages/map/map.wxss",
+      "bytes": 14447,
+      "package": "main"
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "bytes": 3302,
+      "package": "main"
+    },
+    {
+      "file": "pages/qrcode/qrcode.json",
+      "bytes": 169,
+      "package": "main"
+    },
+    {
+      "file": "pages/qrcode/qrcode.wxml",
+      "bytes": 2511,
+      "package": "main"
+    },
+    {
+      "file": "pages/qrcode/qrcode.wxss",
+      "bytes": 5640,
+      "package": "main"
+    },
+    {
+      "file": "pages/room/room.js",
+      "bytes": 14609,
+      "package": "main"
+    },
+    {
+      "file": "pages/room/room.json",
+      "bytes": 117,
+      "package": "main"
+    },
+    {
+      "file": "pages/room/room.wxml",
+      "bytes": 8702,
+      "package": "main"
+    },
+    {
+      "file": "pages/room/room.wxss",
+      "bytes": 11769,
+      "package": "main"
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "bytes": 7361,
+      "package": "main"
+    },
+    {
+      "file": "pages/venue/venue.json",
+      "bytes": 294,
+      "package": "main"
+    },
+    {
+      "file": "pages/venue/venue.wxml",
+      "bytes": 2804,
+      "package": "main"
+    },
+    {
+      "file": "pages/venue/venue.wxss",
+      "bytes": 2253,
+      "package": "main"
+    },
+    {
+      "file": "project.config.json",
+      "bytes": 11291,
+      "package": "main"
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "bytes": 1841,
+      "package": "room-tools"
+    },
+    {
+      "file": "room-tools/pages/invite/invite.json",
+      "bytes": 89,
+      "package": "room-tools"
+    },
+    {
+      "file": "room-tools/pages/invite/invite.wxml",
+      "bytes": 1111,
+      "package": "room-tools"
+    },
+    {
+      "file": "room-tools/pages/invite/invite.wxss",
+      "bytes": 1372,
+      "package": "room-tools"
+    },
+    {
+      "file": "sitemap.json",
+      "bytes": 203,
+      "package": "main"
+    },
+    {
+      "file": "utils/campus-art-models.js",
+      "bytes": 4956,
+      "package": "main"
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "bytes": 2697,
+      "package": "main"
+    },
+    {
+      "file": "utils/capture-proof.js",
+      "bytes": 1766,
+      "package": "main"
+    },
+    {
+      "file": "utils/config.js",
+      "bytes": 352,
+      "package": "main"
+    },
+    {
+      "file": "utils/dev-preview.js",
+      "bytes": 6842,
+      "package": "main"
+    },
+    {
+      "file": "utils/foreground-location.js",
+      "bytes": 1585,
+      "package": "main"
+    },
+    {
+      "file": "utils/fusion-font.wxss",
+      "bytes": 37490,
+      "package": "main"
+    },
+    {
+      "file": "utils/geo-registration.js",
+      "bytes": 6209,
+      "package": "main"
+    },
+    {
+      "file": "utils/location-scenarios.js",
+      "bytes": 1310,
+      "package": "main"
+    },
+    {
+      "file": "utils/location-v2.js",
+      "bytes": 7820,
+      "package": "main"
+    },
+    {
+      "file": "utils/map-markers.js",
+      "bytes": 898,
+      "package": "main"
+    },
+    {
+      "file": "utils/model-camera.js",
+      "bytes": 2339,
+      "package": "main"
+    },
+    {
+      "file": "utils/model-map.js",
+      "bytes": 1907,
+      "package": "main"
+    },
+    {
+      "file": "utils/model-reference.js",
+      "bytes": 3124,
+      "package": "main"
+    },
+    {
+      "file": "utils/model-resources.js",
+      "bytes": 614,
+      "package": "main"
+    },
+    {
+      "file": "utils/osm-art-model.js",
+      "bytes": 3655,
+      "package": "main"
+    },
+    {
+      "file": "utils/osm-art-registration.js",
+      "bytes": 4895,
+      "package": "main"
+    },
+    {
+      "file": "utils/pixel-art-ratios.wxss",
+      "bytes": 875,
+      "package": "main"
+    },
+    {
+      "file": "utils/pixel-button-dimensions.js",
+      "bytes": 1781,
+      "package": "main"
+    },
+    {
+      "file": "utils/pixel-font.wxss",
+      "bytes": 144021,
+      "package": "main"
+    },
+    {
+      "file": "utils/pixel-theme.wxss",
+      "bytes": 965,
+      "package": "main"
+    },
+    {
+      "file": "utils/presentation.js",
+      "bytes": 2930,
+      "package": "main"
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "bytes": 1575,
+      "package": "main"
+    },
+    {
+      "file": "utils/room-live.js",
+      "bytes": 3045,
+      "package": "main"
+    },
+    {
+      "file": "utils/snapshot-v2.js",
+      "bytes": 550,
+      "package": "main"
+    },
+    {
+      "file": "utils/team-config.js",
+      "bytes": 434,
+      "package": "main"
+    },
+    {
+      "file": "utils/v2.js",
+      "bytes": 4860,
+      "package": "main"
+    },
+    {
+      "file": "utils/vendor/coordtransform.js",
+      "bytes": 1109,
+      "package": "main"
+    },
+    {
+      "file": "utils/vendor/coordtransform.LICENSE",
+      "bytes": 1080,
+      "package": "main"
+    },
+    {
+      "file": "utils/vendor/coordtransform.source.json",
+      "bytes": 366,
+      "package": "main"
+    },
+    {
+      "file": "utils/venue-art-config.js",
+      "bytes": 259,
+      "package": "main"
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "bytes": 3838,
+      "package": "main"
+    },
+    {
+      "file": "utils/venue-camera.js",
+      "bytes": 3976,
+      "package": "main"
+    },
+    {
+      "file": "utils/venue-catalog.js",
+      "bytes": 457,
+      "package": "main"
+    },
+    {
+      "file": "utils/venue-images.js",
+      "bytes": 1517,
+      "package": "main"
+    },
+    {
+      "file": "utils/venue-resources.js",
+      "bytes": 1730,
+      "package": "main"
+    },
+    {
+      "file": "venue-maps/assets/jiulonghu-v1.jpg",
+      "bytes": 981028,
+      "package": "venue-maps"
+    },
+    {
+      "file": "venue-maps/assets/sipailou-v1.jpg",
+      "bytes": 999793,
+      "package": "venue-maps"
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "bytes": 392,
+      "package": "venue-maps"
+    },
+    {
+      "file": "venue-maps/pages/open/open.json",
+      "bytes": 42,
+      "package": "venue-maps"
+    },
+    {
+      "file": "venue-maps/pages/open/open.wxml",
+      "bytes": 57,
+      "package": "venue-maps"
+    },
+    {
+      "file": "venue-maps/pages/open/open.wxss",
+      "bytes": 158,
+      "package": "venue-maps"
+    },
+    {
+      "file": "venue-xuanwu/assets/xuanwu-lake-v4.jpg",
+      "bytes": 804062,
+      "package": "venue-xuanwu"
+    },
+    {
+      "file": "venue-xuanwu/pages/open/open.js",
+      "bytes": 330,
+      "package": "venue-xuanwu"
+    },
+    {
+      "file": "venue-xuanwu/pages/open/open.json",
+      "bytes": 42,
+      "package": "venue-xuanwu"
+    },
+    {
+      "file": "venue-xuanwu/pages/open/open.wxml",
+      "bytes": 57,
+      "package": "venue-xuanwu"
+    },
+    {
+      "file": "venue-xuanwu/pages/open/open.wxss",
+      "bytes": 158,
+      "package": "venue-xuanwu"
+    }
+  ]
+}

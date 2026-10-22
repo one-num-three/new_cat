@@ -14,7 +14,7 @@ test('presentation only exposes role and stage appropriate primary actions',()=>
   assert.equal(p.canScan,phase==='CHASING'&&role==='cat'&&status==='active');
   assert.equal(p.canShowCode,phase==='CHASING'&&role==='mouse'&&status==='active');
   assert.equal(p.canResume,phase==='PAUSED'&&owner);
-  assert.equal(p.canReplay,['FINISHED','CANCELLED'].includes(phase)&&owner);
+  assert.equal(p.canReplay,['FINISHED','CANCELLED'].includes(phase));
   for(const key of ['canScan','canShowCode','canResume','canReplay'])assert.equal(project(s,true)[key],false,phase+' offline '+key);
  }
 });
@@ -55,7 +55,7 @@ test('faithful art retains approved source bytes, intrinsic aspect and separate 
 test('map art and event timestamps are display only while authenticated actions remain gated',()=>{
  const mouse=project(snapshot('CHASING','mouse'));
  assert.equal(mouse.stateArt,'');assert.match(mouse.roleArt,/pixel-v1\/role-mouse.png$/);
- const offline=project(snapshot('CHASING','mouse'),true);assert.equal(offline.parkArt,'/assets/maps/xuanwu-lake-v4.jpg');assert.equal(offline.canShowCode,false);
+ const offline=project(snapshot('CHASING','mouse'),true);assert.equal(offline.parkArt,'/venue-xuanwu/assets/xuanwu-lake-v4.jpg');assert.equal(offline.canShowCode,false);
  const {eventTime}=require('../../utils/presentation');assert.equal(eventTime(undefined),'—');assert.match(eventTime(1791766800000),/^\d{2}:\d{2}$/);
  const map=fs.readFileSync(path.join(root,'pages/map/map.wxml'),'utf8');assert.match(map,/event.timeText/);assert.match(map,/取消不计胜负/);
  assert.match(map,/<venue-art[^>]*wx:elif="{{artMode}}"/);assert.doesNotMatch(map,/<venue-art[^>]*(?:markers=|circles=|latitude=|longitude=)/);assert.match(map,/class="mapStatus/);assert.match(map,/class="resultHero"[^>]*mode="widthFix"/);
@@ -72,7 +72,7 @@ test('every native page responds to viewport resize without changing match/actio
  const helper={exports:{}};
  vm.runInNewContext(fs.readFileSync(path.join(root,'utils/presentation.js'),'utf8'),{module:helper,require:p=>require('../../utils/venue-catalog'),Date,wx:{getWindowInfo:()=>({windowWidth:390,windowHeight:844,statusBarHeight:47}),getAppBaseInfo:()=>({fontSizeSetting:16})}});
  for(const name of ['index','room','map','qrcode','dev','venue']){
-  let page;vm.runInNewContext(fs.readFileSync(path.join(root,'pages/'+name+'/'+name+'.js'),'utf8'),{Page:p=>page=p,require:p=>p.includes('venue-catalog')?require('../../utils/venue-catalog'):p.includes('venue-resources')?require('../../utils/venue-resources'):p.includes('capture-proof')?require('../../utils/capture-proof'):p.includes('presentation')?helper.exports:{},wx:{},Date,Math});
+  let page;vm.runInNewContext(fs.readFileSync(path.join(root,'pages/'+name+'/'+name+'.js'),'utf8'),{Page:p=>page=p,require:p=>p.includes('room-live')?require('../../utils/room-live'):p.includes('snapshot-v2')?require('../../utils/snapshot-v2'):p.includes('venue-boundary')?require('../../utils/venue-boundary'):p.includes('venue-catalog')?require('../../utils/venue-catalog'):p.includes('venue-resources')?require('../../utils/venue-resources'):p.includes('capture-flow')?require('../../utils/capture-flow'):p.includes('qr-protocol')?require('../../utils/qr-protocol'):p.includes('capture-proof')?require('../../utils/capture-proof'):p.includes('presentation')?helper.exports:{},wx:{},Date,Math});
   const original={match:{id:'m-existing',myRole:'mouse'},canShowCode:true,clock:'04:45'};
   page.data=original;page.setData=updates=>Object.assign(page.data,updates);
   page.onResize({size:{windowWidth:320,windowHeight:693}});

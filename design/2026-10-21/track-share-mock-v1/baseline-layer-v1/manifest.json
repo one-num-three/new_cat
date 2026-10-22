@@ -1,0 +1,231 @@
+{
+  "version": "share-mock-v1",
+  "date": "2026-10-21",
+  "synthetic": true,
+  "width": 941,
+  "height": 1672,
+  "records": [
+    {
+      "key": "xuanwu",
+      "title": "玄武湖 · 环洲／樱洲",
+      "controlPoints": 43,
+      "samples": 378,
+      "sourceSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+      "pngSha256": "457e8bb38414342d48b09e0be4e34b277a4eca84de620a9ef48f99ca4216919e",
+      "placements": [
+        {
+          "kind": "start",
+          "point": {
+            "x": 412.719298245614,
+            "y": 536.6108452950558
+          },
+          "left": 374,
+          "top": 420,
+          "width": 132,
+          "height": 132
+        },
+        {
+          "kind": "finish",
+          "point": {
+            "x": 345.93381180223287,
+            "y": 650.6714513556619
+          },
+          "left": 307,
+          "top": 534,
+          "width": 132,
+          "height": 132
+        },
+        {
+          "kind": "fastest",
+          "key": "fastest-edge-left",
+          "edge": "left",
+          "file": "fastest-edge-left-320.png",
+          "x": 151.56602870813396,
+          "y": 698.3138308860921,
+          "width": 380,
+          "height": 165.0625,
+          "tip": {
+            "x": 218.36602870813397,
+            "y": 848.0263157894738
+          },
+          "geographicPoint": {
+            "x": 218.36602870813397,
+            "y": 848.0263157894738
+          },
+          "leader": null,
+          "overflow": 0,
+          "preferred": true
+        },
+        {
+          "kind": "closest",
+          "key": "closest-edge-right",
+          "edge": "right",
+          "file": "closest-edge-right-320.png",
+          "x": 395.86194068396617,
+          "y": 870.1245564916903,
+          "width": 380,
+          "height": 166.25,
+          "tip": {
+            "x": 713.6291866028708,
+            "y": 1022.1188197767144
+          },
+          "geographicPoint": {
+            "x": 713.6291866028708,
+            "y": 1022.1188197767145
+          },
+          "leader": null,
+          "overflow": 0,
+          "preferred": true
+        }
+      ]
+    },
+    {
+      "key": "jiulonghu",
+      "title": "东南大学 · 九龙湖校区",
+      "controlPoints": 45,
+      "samples": 432,
+      "sourceSha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5",
+      "pngSha256": "7712647bb19dd576bc38da3bad344a5b4bee769496940940c649c4aea1d6d749",
+      "placements": [
+        {
+          "kind": "start",
+          "point": {
+            "x": 419.4728867623605,
+            "y": 1108.4146730462521
+          },
+          "left": 381,
+          "top": 992,
+          "width": 132,
+          "height": 132
+        },
+        {
+          "kind": "finish",
+          "point": {
+            "x": 828.4401913875598,
+            "y": 784.9928229665072
+          },
+          "left": 790,
+          "top": 668,
+          "width": 132,
+          "height": 132
+        },
+        {
+          "kind": "fastest",
+          "key": "fastest-edge-left",
+          "edge": "left",
+          "file": "fastest-edge-left-320.png",
+          "x": 89.2829346092504,
+          "y": 726.0785836771606,
+          "width": 380,
+          "height": 165.0625,
+          "tip": {
+            "x": 156.0829346092504,
+            "y": 875.7910685805423
+          },
+          "geographicPoint": {
+            "x": 156.0829346092504,
+            "y": 875.7910685805423
+          },
+          "leader": null,
+          "overflow": 0,
+          "preferred": true
+        },
+        {
+          "kind": "closest",
+          "key": "closest-edge-right",
+          "edge": "right",
+          "file": "closest-edge-right-320.png",
+          "x": 332.07804913691666,
+          "y": 976.6811753114671,
+          "width": 380,
+          "height": 166.25,
+          "tip": {
+            "x": 649.8452950558213,
+            "y": 1128.6754385964912
+          },
+          "geographicPoint": {
+            "x": 649.8452950558213,
+            "y": 1128.6754385964912
+          },
+          "leader": null,
+          "overflow": 0,
+          "preferred": true
+        }
+      ]
+    },
+    {
+      "key": "sipailou",
+      "title": "东南大学 · 四牌楼校区",
+      "controlPoints": 79,
+      "samples": 571,
+      "sourceSha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9",
+      "pngSha256": "bb29a31d5e9526dc5c911c6ae633ba747bd8ada6c884fb7027f258b2be8b11d2",
+      "placements": [
+        {
+          "kind": "start",
+          "point": {
+            "x": 467.4984051036683,
+            "y": 911.0598086124402
+          },
+          "left": 429,
+          "top": 794,
+          "width": 132,
+          "height": 132
+        },
+        {
+          "kind": "finish",
+          "point": {
+            "x": 499.0151515151515,
+            "y": 545.615629984051
+          },
+          "left": 460,
+          "top": 429,
+          "width": 132,
+          "height": 132
+        },
+        {
+          "kind": "fastest",
+          "key": "fastest-edge-left",
+          "edge": "left",
+          "file": "fastest-edge-left-320.png",
+          "x": -3.0161084529505544,
+          "y": 589.5060158940664,
+          "width": 380,
+          "height": 165.0625,
+          "tip": {
+            "x": 63.78389154704944,
+            "y": 739.2185007974481
+          },
+          "geographicPoint": {
+            "x": 63.78389154704944,
+            "y": 739.2185007974481
+          },
+          "leader": null,
+          "overflow": 0,
+          "preferred": true
+        },
+        {
+          "kind": "closest",
+          "key": "closest-edge-right",
+          "edge": "right",
+          "file": "closest-edge-right-320.png",
+          "x": 403.3659279247955,
+          "y": 615.7393890275755,
+          "width": 380,
+          "height": 166.25,
+          "tip": {
+            "x": 721.1331738437002,
+            "y": 767.7336523125996
+          },
+          "geographicPoint": {
+            "x": 721.1331738437002,
+            "y": 767.7336523125997
+          },
+          "leader": null,
+          "overflow": 0,
+          "preferred": true
+        }
+      ]
+    }
+  ]
+}

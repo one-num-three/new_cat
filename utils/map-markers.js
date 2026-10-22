@@ -4,6 +4,7 @@ const sourceSize=1254;
 const sprites={
  self:{iconPath:'/assets/map-markers-v2/self.png',width:48,height:48,anchor:{x:626.5/sourceSize,y:1127/sourceSize}},
  ally:{iconPath:'/assets/map-markers-v2/ally.png',width:48,height:48,anchor:{x:626.5/sourceSize,y:1153/sourceSize}},
+ enemy:{iconPath:'/assets/pixel-v1/role-cat.png',width:40,height:40,anchor:{x:.5,y:1}},
  venue:{iconPath:'/assets/map-markers-v2/venue.png',width:48,height:48,anchor:{x:414.5/sourceSize,y:1052/sourceSize}}
 };
 function sprite(tone){const s=sprites[tone];return s?{...s,anchor:{...s.anchor}}:null;}

@@ -1,0 +1,27 @@
+{
+  "status": 0,
+  "files": [
+    "pages/index/index.wxss",
+    "pages/room/room.wxss",
+    "pages/map/map.wxss",
+    "pages/qrcode/qrcode.wxss",
+    "pages/dev/dev.wxss",
+    "pages/venue/venue.wxss",
+    "pages/calibrate/calibrate.wxss",
+    "room-tools/pages/invite/invite.wxss",
+    "field-editor/pages/edit/edit.wxss",
+    "campus3d/pages/open/open.wxss",
+    "venue-maps/pages/open/open.wxss",
+    "components/campus-model/campus-model.wxss",
+    "components/map-icon/map-icon.wxss",
+    "components/nav-bar/nav-bar.wxss",
+    "components/pixel-action/pixel-action.wxss",
+    "components/venue-art/venue-art.wxss",
+    "utils/pixel-theme.wxss",
+    "utils/fusion-font.wxss",
+    "utils/pixel-font.wxss",
+    "utils/pixel-art-ratios.wxss"
+  ],
+  "outputBytes": 188343,
+  "stderr": ""
+}

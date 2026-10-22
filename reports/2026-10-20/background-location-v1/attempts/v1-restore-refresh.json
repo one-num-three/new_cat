@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "tool": "simulator_refresh",
+  "code": "APPID_ERROR",
+  "error": "connect ETIMEDOUT 198.18.0.37:443",
+  "nativeApisAndProductionSessionRestored": "see restore-check.log",
+  "retried": false
+}

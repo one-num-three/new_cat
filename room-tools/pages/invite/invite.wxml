@@ -1,0 +1,4 @@
+<view class="inviteScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}}"><nav-bar title="邀请伙伴" back="{{true}}" />
+ <view class="invitation pixelPaper"><text class="inviteTitle">一起出发</text><text class="inviteNote">{{joinHint || '正在读取真实房间…'}}</text><image wx:if="{{image}}" class="roomQr" src="{{image}}" mode="aspectFit" aria-label="房间邀请二维码"/><view wx:else class="roomQr emptyQr"><text>{{loading?'生成邀请中…':'邀请尚未就绪'}}</text></view><text class="codeLabel">房间码</text><text class="inviteCode" selectable>{{code || '—'}}</text><text class="scanNote">伙伴先打开猫鼠行动，再点首页「扫码加入」。这是房间邀请，不是抓捕码。</text></view>
+ <view class="inviteActions"><button class="shareButton" open-type="share" disabled="{{!code || loading}}">微信邀请好友</button><button bindtap="copy" disabled="{{!code}}">复制房间码</button><button wx:if="{{error}}" bindtap="load">重新加载</button></view><text wx:if="{{error}}" class="inviteError" role="alert">{{error}}</text>
+</view>

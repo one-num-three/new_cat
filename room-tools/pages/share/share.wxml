@@ -1,0 +1,12 @@
+<view class="shareScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}}"><nav-bar pinned="{{true}}" title="我的追逐足迹" back="{{true}}" />
+ <text class="shareTitle">把快乐，跑成轨迹。</text>
+ <text class="shareNote">{{settlementLabel || '正在读取结算'}} · 海报只展示本人轨迹</text>
+ <image wx:if="{{posterPath}}" class="posterImage" src="{{posterPath}}" mode="widthFix" show-menu-by-longpress="{{true}}" bindtap="previewImage" />
+ <view wx:else class="pixelPaper shareEmpty"><text>{{loading?'正在合成本局海报…':'海报尚未生成'}}</text><text wx:if="{{error}}" class="shareError">{{error}}</text><button wx:if="{{!loading}}" bindtap="load">重新生成</button></view>
+ <text class="shareNote">{{posterPath?'点海报看大图，也可长按保存或转发。':''}}</text>
+ <text class="shareNote">{{notice}}</text><text class="shareNote">旗子标记记录起终点；最快为8–12秒窗口平均位移，最近猫距离为赛后时间对齐的GPS估计，只标注本人位置。数据不足时不显示相应亮点。</text><text class="shareNote">距离是有效GPS片段的估计值；断线、暂停与配准范围外不连线。追逐时长只累计有效追逐记录，可能短于本局时间。</text>
+ <text class="shareNote">热量仅作粗估：按60kg、假设4MET及有效移动时长计算，非实测。没有有效移动记录时留空。</text>
+ <text class="shareNote">含本人行动位置，请自行选择分享对象。地图数据 © OpenStreetMap contributors；艺术图配准尚未实地核验。</text>
+ <view class="shareDock"><text wx:if="{{feedback}}" class="shareFeedback" role="status">{{feedback}}</text><text wx:if="{{error && posterPath}}" class="shareError" role="alert">{{error}}</text><view class="shareActions"><button bindtap="saveImage" disabled="{{!posterPath || loading || saving}}" loading="{{saving && action==='save'}}">保存到相册</button><button bindtap="shareImage" disabled="{{!posterPath || loading || saving}}" loading="{{saving && action==='share'}}">转发海报</button></view></view>
+ <canvas id="posterCanvas" type="2d" class="posterCanvas" style="width:941px;height:1672px" />
+</view>

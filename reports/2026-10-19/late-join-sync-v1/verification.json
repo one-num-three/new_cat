@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-19",
+  "tests": {
+    "total": 175,
+    "passed": 175,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 16,
+      "status": 0
+    },
+    "wxss": {
+      "files": 20,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "status": 0
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "status": 0
+    },
+    {
+      "file": "utils/room-live.js",
+      "status": 0
+    },
+    {
+      "file": "utils/snapshot-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/store.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/map-catalog.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/acceptance.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 692,
+    "bytes": 27724,
+    "sha256": "3125815a5f9be9cb1b00ec6d9cb6ed0c61a47ba351b8f4d6ed5c7e216efa4dce"
+  },
+  "packageFiles": 147,
+  "rawLocalBytes": {
+    "main": 1781822,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 4413,
+    "venue-maps": 1981419
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "PASS_FOR_RECORDED_SCOPE",
+    "tool": "official WeChat MCP CLI, client Codex",
+    "date": "2026-10-19",
+    "desktopWindowAdjusted": false,
+    "previewStates": {
+      "joining": {
+        "role": "mouse",
+        "status": "joining",
+        "canScan": false,
+        "canShowCode": false,
+        "markerCount": 1,
+        "onlyPublicVenue": true
+      },
+      "left": {
+        "status": "left",
+        "onlyPublicVenue": true
+      }
+    },
+    "realLobby": {
+      "roomCode": "9D61CEDC51",
+      "devPreview": false,
+      "roster": 1,
+      "total": 8,
+      "connection": "实时连接",
+      "socketOpen": true,
+      "pollTimerRunning": false,
+      "gameStarted": false
+    },
+    "layout": {
+      "roomPinnedNavAfterScroll": "manually verified",
+      "readyActionReachableAtBottom": true,
+      "imageAspectPreserved": true
+    },
+    "excludedFailures": [
+      "one screenshot returned home after a compile; recaptured after route check",
+      "initial room scroll screenshot had title under system status area; pinned nav fixed and recaptured"
+    ],
+    "simulatedLocationMayBeRequestedByLobby": true,
+    "phoneGps": false,
+    "physicalLateJoin": false,
+    "productionSyntheticPlayersCreated": false,
+    "screenshots": [
+      {
+        "file": "01-joining.png",
+        "bytes": 1235176,
+        "sha256": "f5970064413958513e1c31e797891e3e567b2842e7482f4264257dc4e1dfdfcf",
+        "size": [
+          648,
+          1402
+        ],
+        "manuallyInspected": true
+      },
+      {
+        "file": "02-left.png",
+        "bytes": 1232574,
+        "sha256": "6d8a3f4d0da402b5ea8de2de8ee34a51f9c0309871f1d6102a73bba595be51a8",
+        "size": [
+          648,
+          1402
+        ],
+        "manuallyInspected": true
+      },
+      {
+        "file": "03-live-room.png",
+        "bytes": 294961,
+        "sha256": "e1095372b97b6185bec1952f4a24d2928542f6238f4117ef9f9b47bb9f26ed9a",
+        "size": [
+          648,
+          1402
+        ],
+        "manuallyInspected": true
+      },
+      {
+        "file": "04-live-room-bottom.png",
+        "bytes": 279497,
+        "sha256": "fc7edaeb3c481eb846d64ab33b5d28b8b10d8b8d9d2c4a082e60a94ff8917611",
+        "size": [
+          648,
+          1402
+        ],
+        "manuallyInspected": true
+      }
+    ]
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "see deployment.json",
+  "publicLoadTest": "not-run",
+  "sharedQrProtocolIdentical": true
+}

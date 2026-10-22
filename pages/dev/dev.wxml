@@ -6,5 +6,6 @@
  <button class="venuePreviewEntry" bindtap="simulateJiulonghu">九龙湖 · 电脑模拟本人定位</button>
  <button class="venuePreviewEntry" bindtap="simulateJiulonghuBoundary">九龙湖 · 东北校界模拟</button>
  <button class="venuePreviewEntry" bindtap="openCalibration">地图位置标定 · 开发预览</button>
+ <button class="venuePreviewEntry" bindtap="openVenueEditor">集合点与多边形 · 开发预览</button>
  <button class="homeButton" bindtap="home">返回首页</button>
 </view>

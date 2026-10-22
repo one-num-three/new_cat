@@ -1,0 +1,11 @@
+{
+  "deploymentRuntimeHashesPreviouslyReadViaSsh": {
+    "cat-mouse-server/v2/server.js": "efef7e861c039075c9d07345348862515c9397f6abc33eed7ada279995802a65",
+    "cat-mouse-server/v2/service.js": "5160f2a771868955b972b91bfa149999aeb19ae7ffe96082e2c92b7bb61619a8",
+    "cat-mouse-server/v2/store.js": "e65c1f0b8f370a9dd2321bce6e2b99108045563bb5c983ab86b1b86002c95f30",
+    "cat-mouse-server/shared/qr-protocol.js": "b6b4fc48cf476547b7df2028d97dc435423232d1d3bb180517ab6a9e185022a9"
+  },
+  "localCurrentHashesMatch": true,
+  "deployScriptsPythonSyntax": "PASS",
+  "galleryLocalLinks": "PASS"
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "file": "layout-cases/xuanwu-layout.png",
+    "width": 941,
+    "height": 1672,
+    "sha256": "af5355eefeb02a1c5c2d19ac31d1c773ba91f51301fcee6b8ed35b529a24838f",
+    "manualReview": true,
+    "renderer": "desktop Canvas, not WeChat",
+    "syntheticGpsOrImageSpace": true
+  },
+  {
+    "file": "layout-cases/jiulonghu-layout.png",
+    "width": 941,
+    "height": 1672,
+    "sha256": "babf1fe366b7f279730cddb71e4e03b925091f91c1cc4169340c153363dfe28d",
+    "manualReview": true,
+    "renderer": "desktop Canvas, not WeChat",
+    "syntheticGpsOrImageSpace": true
+  },
+  {
+    "file": "layout-cases/sipailou-layout.png",
+    "width": 941,
+    "height": 1672,
+    "sha256": "8bb9558c4711d0c6798dfb9da4a444303e2b1cb23c59248d1e37a2b5d8e271e4",
+    "manualReview": true,
+    "renderer": "desktop Canvas, not WeChat",
+    "syntheticGpsOrImageSpace": true
+  },
+  {
+    "file": "layout-cases/jiulonghu-old-layer-negative-control.png",
+    "width": 941,
+    "height": 1672,
+    "sha256": "60321d817a42109076e30e47995c2a55d4dce36fd0a0973aedcae8e986fdfc5b",
+    "manualReview": true,
+    "renderer": "desktop Canvas, not WeChat",
+    "syntheticGpsOrImageSpace": true
+  },
+  {
+    "file": "real-record-replay/poster-desktop-canvas.png",
+    "width": 941,
+    "height": 1672,
+    "sha256": "8b566f113ad2f70dedce631c1c7ef049304bbeb1b8d62a38981190ea4fa03d28",
+    "manualReview": true,
+    "renderer": "desktop Canvas, not WeChat",
+    "syntheticGpsOrImageSpace": true
+  }
+]

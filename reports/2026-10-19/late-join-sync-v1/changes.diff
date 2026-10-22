@@ -1,0 +1,315 @@
+--- before/utils/presentation.js
++++ utils/presentation.js
+@@ -12,7 +12,7 @@
+   const live=!offline && !terminal && m.myStatus==='active' && m.phase==='CHASING';
+   const roster=s.roster || [];
+   const mice=s.rules?.mice ?? roster.filter(p=>p.role==='mouse').length;
+-  const state=terminal?(m.outcome==='cat_win'?'catWin':m.outcome==='mouse_win'?'mouseWin':'cancelled'):offline?'offline':m.phase==='PAUSED'?'paused':m.myStatus==='captured'?'captured':m.phase==='HIDING'?'hiding':m.myRole==='cat'?'cat':'mouse';
++  const state=terminal?(m.outcome==='cat_win'?'catWin':m.outcome==='mouse_win'?'mouseWin':'cancelled'):offline?'offline':m.myStatus==='joining'?'joining':m.myStatus==='left'?'left':m.phase==='PAUSED'?'paused':m.myStatus==='captured'?'captured':m.phase==='HIDING'?'hiding':m.myRole==='cat'?'cat':'mouse';
+   const scenes={hiding:'hiding-scene',paused:'paused-scene',offline:'offline-hero',catWin:'catwin-hero',mouseWin:'mousewin-hero',cancelled:'cancelled-hero'};
+   const venueMapId=s.venue?.mapId||venueCatalog.DEFAULT_ID,image=venueCatalog.get(venueMapId);
+   const art=scenes[state]?'/assets/pixel-v1/'+scenes[state]+'.png':'';
+--- before/utils/snapshot-v2.js
++++ utils/snapshot-v2.js
+@@ -1,8 +1,13 @@
+ function shouldApply(current, next) {
+   if (!next || !next.match) return false;
++  return shouldApplyRoom(current,next);
++}
++function shouldApplyRoom(current,next) {
++  if(!next||!Number.isFinite(next.version))return false;
+   if (!current) return true;
++  if(current.roomId&&next.roomId&&current.roomId!==next.roomId)return false;
+   if (next.version < current.version) return false;
+-  if (next.version === current.version && next.serverTime <= current.serverTime) return false;
++  if (next.version === current.version && (next.serverTime||0) <= (current.serverTime||0)) return false;
+   return true;
+ }
+-module.exports = { shouldApply };
++module.exports = { shouldApply,shouldApplyRoom };
+--- before/room-tools/pages/invite/invite.js
++++ room-tools/pages/invite/invite.js
+@@ -6,7 +6,7 @@
+  onResize(e){this.setData(presentation.resize(e));},
+  removeImage(){if(this.imagePath)try{wx.getFileSystemManager().unlinkSync(this.imagePath);}catch{}this.imagePath=null;},
+  stop(){this.active=false;this.serial++;this.removeImage();this.setData({image:'',loading:false});},
+- async load(){if(this.data.loading||!this.active)return;this.setData({loading:true,error:''});const run=this.serial;try{await api.session();const r=await api.invite(this.data.roomId);if(!this.active||run!==this.serial)return;if(!r.qrPngBase64||!/^[0-9A-F]{10}$/.test(r.code))throw Error('邀请数据无效，请重试');const file=wx.env.USER_DATA_PATH+'/room-invite-'+Date.now()+'-'+run+'.png';wx.getFileSystemManager().writeFileSync(file,r.qrPngBase64,'base64');this.removeImage();this.imagePath=file;this.setData({image:file,code:r.code,path:r.path,joinHint:!r.canNewPlayerJoin?'本局已开始，原成员可重连，新玩家请等下一轮':r.availableSlots===0?'房间已满，原成员仍可重连':'让伙伴扫码加入，一起准备'});}catch(e){if(this.active&&run===this.serial){this.removeImage();this.setData({image:'',code:'',error:'邀请暂不可用：'+e.message});}}finally{if(this.active&&run===this.serial)this.setData({loading:false});}},
++ async load(){if(this.data.loading||!this.active)return;this.setData({loading:true,error:''});const run=this.serial;try{await api.session();const r=await api.invite(this.data.roomId);if(!this.active||run!==this.serial)return;if(!r.qrPngBase64||!/^[0-9A-F]{10}$/.test(r.code))throw Error('邀请数据无效，请重试');const file=wx.env.USER_DATA_PATH+'/room-invite-'+Date.now()+'-'+run+'.png';wx.getFileSystemManager().writeFileSync(file,r.qrPngBase64,'base64');this.removeImage();this.imagePath=file;this.setData({image:file,code:r.code,path:r.path,joinHint:!r.canNewPlayerJoin?'房间已满，原成员仍可重连':r.lateJoin?'本局进行中；加入后自动补入阵营，先定位再行动':'让伙伴扫码加入，一起准备'});}catch(e){if(this.active&&run===this.serial){this.removeImage();this.setData({image:'',code:'',error:'邀请暂不可用：'+e.message});}}finally{if(this.active&&run===this.serial)this.setData({loading:false});}},
+  copy(){if(this.data.code)wx.setClipboardData({data:this.data.code});},
+  onShareAppMessage(){return {title:'来加入猫鼠行动',path:this.data.code?this.data.path:'/pages/index/index'};}
+ });
+--- before/pages/map/map.js
++++ pages/map/map.js
+@@ -1,4 +1,5 @@
+ const presentation=require('../../utils/presentation');
++const liveRoom=require('../../utils/room-live').create(require('../../utils/v2'),wx,{setInterval:(f,t)=>setInterval(f,t),clearInterval:id=>clearInterval(id),setTimeout:(f,t)=>setTimeout(f,t),clearTimeout:id=>clearTimeout(id)});
+ const mapMarkers=require('../../utils/map-markers');
+ const venueCatalog=require('../../utils/venue-catalog');
+ const venueGeometry=require('../../utils/venue-boundary');
+@@ -22,41 +23,10 @@
+   onShow() { if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me',this.previewMapId));if(this.previewCase==='offline')this.setOffline('', '重连中');else this.setData({connection:'界面预览'});return;}this.reconnectAttempt=0; this.poll(); this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
+   onHide() { this.cleanup(); }, onUnload() { this.unloaded=true;this.cleanup(); },
+   cleanup() { this.closeCode();if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this._trayGesture=null;if(this.data.trayDragging)this.setData({trayDragging:false,trayDragY:0});this.active=false;this.pollSerial=(this.pollSerial||0)+1;this.fetching=false;this.setOffline('', '正在连接'); clearInterval(this.pollTimer); clearInterval(this.clockTimer); clearInterval(this.heartbeatTimer); clearTimeout(this.reconnectTimer); this.pollTimer=null; this.clockTimer=null; this.heartbeatTimer=null; this.reconnectTimer=null; const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false; },
+-  startLocation() { if(!this.data.match || done(this.data.match) || this.data.match.myStatus==='captured' || this.locationRunning)return; this.locationRunning=true; loc.start(this.data.roomId,()=>this.setData({error:'定位中断：请保持页面在前台并检查权限'})); },
++  startLocation() { if(!this.data.match || done(this.data.match) || !['active','joining'].includes(this.data.match.myStatus) || this.locationRunning)return; this.locationRunning=true; loc.start(this.data.roomId,()=>this.setData({error:'定位中断：请保持页面在前台并检查权限'})); },
+   startPolling() { if(this.pollTimer) return; this.pollTimer=setInterval(()=>this.poll(),2000); },
+-  startSocket() {
+-    if(!this.active || this.socket)return;
+-    const base=api.config.wsUrl || (api.config.mode==='local'?api.config.baseUrl.replace(/^http/,'ws'):'');
+-    if(!base) return;
+-    const url=base+'/api/v2/live?room='+encodeURIComponent(this.data.roomId);
+-    try {
+-      const task=wx.connectSocket({url,header:{Authorization:'Bearer '+wx.getStorageSync('v2Token')}});
+-      this.socket=task;this.socketOpen=false;
+-      task.onOpen(()=>{
+-        if(!this.active || this.socket!==task)return;
+-        this.socketOpen=true;this.reconnectAttempt=0;clearTimeout(this.reconnectTimer);this.reconnectTimer=null;
+-        clearInterval(this.pollTimer);this.pollTimer=null;clearInterval(this.heartbeatTimer);
+-        this.lastFrameAt=Date.now();
+-        this.heartbeatTimer=setInterval(()=>{if(!this.active || this.socket!==task)return;if(Date.now()-this.lastFrameAt>7000){try{task.close();}catch{}this.socketDropped(task);return;}try{task.send({data:'PING',fail:()=>{try{task.close();}catch{}this.socketDropped(task);}});}catch{this.socketDropped(task);}},5000);
+-        this.setData({connection:'实时连接'});
+-      });
+-      task.onMessage(e=>{if(!this.active || this.socket!==task)return;try{const msg=JSON.parse(e.data);if(msg.type==='SNAPSHOT'){this.lastFrameAt=Date.now();this.apply(msg.payload);}}catch{}});
+-      task.onClose(()=>this.socketDropped(task));
+-      task.onError(()=>{if(this.socket===task){try{task.close();}catch{}this.socketDropped(task);}});
+-    } catch { this.startPolling();this.scheduleReconnect(); }
+-  },
+-  socketDropped(task) {
+-    if(this.socket!==task)return;
+-    this.socket=null;this.socketOpen=false;clearInterval(this.heartbeatTimer);this.heartbeatTimer=null;
+-    if(!this.active)return;
+-    this.setData({connection:'轮询恢复中'});this.startPolling();this.poll();this.scheduleReconnect();
+-  },
+-  scheduleReconnect() {
+-    if(!this.active || this.socket || this.reconnectTimer)return;
+-    const delay=Math.min(30000,1000*2**Math.min(this.reconnectAttempt||0,5))+Math.floor(Math.random()*300);
+-    this.reconnectAttempt=(this.reconnectAttempt||0)+1;
+-    this.reconnectTimer=setTimeout(()=>{this.reconnectTimer=null;this.startSocket();},delay);
+-  },
++  startSocket:liveRoom.startSocket,socketDropped:liveRoom.socketDropped,scheduleReconnect:liveRoom.scheduleReconnect,
++  receiveSnapshot(s){this.apply(s);},
+   async poll() { if(!this.active || this.fetching) return;const run=this.pollSerial=(this.pollSerial||0)+1; this.fetching=true; try { const s=await api.room(this.data.roomId);if(this.active&&run===this.pollSerial)this.apply(s); } catch(e) {if(run!==this.pollSerial)return; if(this.active && (e.code==='UNAUTHENTICATED' || e.code==='NOT_MEMBER')){this.cleanup();this.setOffline(e.message,'身份失效');}else if(this.active && !this.socketOpen){if(this.locationRunning){loc.stop();this.locationRunning=false;}if(!this.data.offline)this.setOffline('状态暂不可用：'+e.message,'重连中');} } finally {if(run===this.pollSerial)this.fetching=false; } },
+   setOffline(error,connection='重连中'){this.closeCode();this.setData({...presentation.project({match:this.data.match,roster:this.data.roster,owner:this.data.owner,venue:{mapId:this.data.venueMapId||venueCatalog.DEFAULT_ID}},true),offline:true,connection,error,clock:'--:--',markers:[],circles:[],venuePolygons:[],geoData:{points:[],regions:[]},nearbyCat:false,hasSelf:false,locationText:'等待重连 · 位置已隐藏'});},
+   apply(s) {
+@@ -71,15 +41,15 @@
+     if(!s.venue.boundary&&Number.isFinite(s.venue.radiusM))circles.unshift({latitude:s.venue.lat,longitude:s.venue.lng,radius:s.venue.radiusM,color:'#477F60AA',fillColor:'#91CE6B0A',strokeWidth:2});
+     const venuePolygons=s.venue.boundary?[{points:s.venue.boundary.map(p=>({latitude:p.lat,longitude:p.lng})),strokeWidth:3,strokeColor:'#477F60',fillColor:'#91CE6B22'}]:[];
+     const hasSelf=!!mine && m.myStatus==='active' && !done(m);
+-    const locationText=hasSelf?'本人 · '+(Number.isFinite(mine.accuracy)?'精度约'+Math.round(mine.accuracy)+'米':'已定位'):m.myStatus==='captured'?'已出局 · 仅公开位置':m.phase==='PAUSED'?'已暂停 · 等待重新定位':'等待本人定位';
++    const locationText=hasSelf?'本人 · '+(Number.isFinite(mine.accuracy)?'精度约'+Math.round(mine.accuracy)+'米':'已定位'):m.myStatus==='joining'?'补入'+(m.myRole==='cat'?'猫队':'鼠队')+' · 正在定位':m.myStatus==='left'?'本轮退出 · 仅公开状态':m.myStatus==='captured'?'已出局 · 仅公开位置':m.phase==='PAUSED'?'已暂停 · 等待重新定位':'等待本人定位';
+     const follow=!this.hasCenter||this.data.followSelf;const latitude=follow&&Number.isFinite(mine?.lat)?mine.lat:(this.hasCenter?this.data.latitude:s.venue.lat),longitude=follow&&Number.isFinite(mine?.lng)?mine.lng:(this.hasCenter?this.data.longitude:s.venue.lng);this.hasCenter=true;
+     const pauseReasonText={host:'组织者暂停',emergency:'玩家紧急暂停',lost_position:'定位或连接失联',outside_venue:'超出活动范围',server_restart:'服务重启，等待重新定位',leave:'有玩家退出'}[m.pauseReason] || '等待组织者确认';
+     const image=venueCatalog.get(s.venue.mapId||venueCatalog.DEFAULT_ID),mapCompatible=!!image&&(!s.mapRevision||s.mapRevision===image.sha256);if(!mapCompatible)this.setData({artMode:false,modelMode:false});
+     const projected=presentation.project(s);if(!projected.canShowCode)this.closeCode();
+-    this.setData({...projected,mapCompatible,hasSelf,locationText,match:m,roster:s.roster,events:(s.events||[]).map(e=>({...e,timeText:presentation.eventTime(e.at)})),owner:s.owner,version:s.version,mapCalibration:s.mapCalibration||null,geoData:{boundary:venueGeometry.outline(s.venue),points:s.visiblePositions.map(p=>({lat:p.lat,lng:p.lng,label:p.id===myId?'本人':'队友',tone:p.id===myId?'self':'ally'})).concat([{...s.venue,label:'集合点',tone:'venue'}]),regions:(s.intel||[]).map(p=>({lat:p.cellLat,lng:p.cellLng,radiusM:p.radiusM}))},markers,circles,venuePolygons,nearbyCat:!!s.nearbyCat,offline:false,latitude,longitude,roleText:m.myRole==='cat'?'猫队':'鼠队',phaseText:m.myStatus==='captured' && !done(m)?'本轮出局':{HIDING:'躲藏阶段',CHASING:'追逐中',PAUSED:'已暂停',FINISHED:'本局结束',CANCELLED:'本局取消'}[m.phase],pauseReasonText,connection:this.socketOpen?'实时连接':'轮询同步',error:''},()=>this.onMapReady());
++    this.setData({...projected,mapCompatible,hasSelf,locationText,match:m,roster:s.roster,events:(s.events||[]).map(e=>({...e,timeText:presentation.eventTime(e.at)})),owner:s.owner,version:s.version,mapCalibration:s.mapCalibration||null,geoData:{boundary:venueGeometry.outline(s.venue),points:s.visiblePositions.map(p=>({lat:p.lat,lng:p.lng,label:p.id===myId?'本人':'队友',tone:p.id===myId?'self':'ally'})).concat([{...s.venue,label:'集合点',tone:'venue'}]),regions:(s.intel||[]).map(p=>({lat:p.cellLat,lng:p.cellLng,radiusM:p.radiusM}))},markers,circles,venuePolygons,nearbyCat:!!s.nearbyCat,offline:false,latitude,longitude,roleText:m.myRole==='cat'?'猫队':'鼠队',phaseText:m.myStatus==='joining'?'正在入场':m.myStatus==='left'?'本轮退出':m.myStatus==='captured' && !done(m)?'本轮出局':{HIDING:'躲藏阶段',CHASING:'追逐中',PAUSED:'已暂停',FINISHED:'本局结束',CANCELLED:'本局取消'}[m.phase],pauseReasonText,connection:this.socketOpen?'实时连接':'轮询同步',error:''},()=>this.onMapReady());
+     this.serverRemaining=m.remainingMs; this.syncedAt=Date.now(); this.updateClock();
+     if(this.devPreview)return;
+-    if(done(m) || m.myStatus==='captured') { loc.stop(); this.locationRunning=false; } else this.startLocation();
++    if(done(m) || ['captured','left'].includes(m.myStatus)) { loc.stop(); this.locationRunning=false; } else this.startLocation();
+   },
+   updateClock() { if(!this.data.match || this.data.offline) return; const ms=this.data.match.phase==='PAUSED'?this.serverRemaining:Math.max(0,this.serverRemaining-(Date.now()-this.syncedAt)); const sec=Math.ceil(ms/1000); this.setData({clock:String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}); },
+   toggleDrawer(e) { if(this.data.drawer){this.closeDrawer();return;}this.openDrawer(e); },
+--- before/pages/map/map.wxml
++++ pages/map/map.wxml
+@@ -29,6 +29,8 @@
+  <view class="mapStatusRegion {{trayExpanded?'aboveDrawer':'aboveTab'}}">
+   <view wx:if="{{offline}}" class="mapStatus statusReconnect"><text class="statusTitle">{{connection==='身份失效'?'身份已失效':'断线重连中，请停下'}}</text><text>{{connection==='身份失效'?'请返回首页重新进入':'旧位置已隐藏，连接恢复后自动同步'}}</text><button wx:if="{{connection==='身份失效'}}" class="compactButton" bindtap="goHome">返回首页</button></view>
+   <view wx:elif="{{uiState==='paused'}}" class="mapStatus"><text class="statusTitle">本局暂停 · 请原地等待</text><text>{{pauseReasonText}}</text><button wx:if="{{canResume}}" class="compactButton" bindtap="resume">恢复本局</button><text wx:else>等待组织者恢复本局</text></view>
++  <view wx:elif="{{uiState==='joining'}}" class="mapStatus"><text class="statusTitle">已补入{{roleText}} · 正在定位入场</text><text>请在场内停下，30秒内完成定位；暂停时等待房主恢复</text></view>
++  <view wx:elif="{{uiState==='left'}}" class="mapStatus"><text class="statusTitle">本轮已退出</text><text>主动退出或入场定位超时；可查看公开状态，下一轮再参与</text></view>
+   <view wx:elif="{{uiState==='captured'}}" class="mapStatus"><text class="statusTitle">本轮出局</text><text>仅查看公开位置，请返回集合点等待结算</text></view>
+   <view wx:elif="{{uiState==='hiding'}}" class="mapStatus"><text class="statusTitle">{{match.myRole==='cat'?'猫留在集合点等待':'鼠先躲藏'}}</text><text>{{match.myRole==='cat'?'躲藏倒计时结束后出发':'在活动范围内寻找躲藏位置'}}</text></view>
+   <view wx:elif="{{nearbyCat}}" class="mapStatus proximityWarning"><text class="statusTitle">附近有猫，注意观察</text><text>接近预警，不展示猫的精确位置</text></view>
+@@ -54,9 +56,9 @@
+ <text wx:if="{{error && !offline}}" class="error mapError">{{error}}</text>
+ <view wx:if="{{drawer}}" class="drawerMask {{drawerClosing?'sheetLeaving':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
+ <view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd"><view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭详情"><pixel-glyph kind="close" size="18"/></button></view></view><view class="drawerTabs"><button data-tab="team" class="{{drawerTab==='team'?'selected':''}}" bindtap="selectDrawerTab">队伍</button><button data-tab="events" class="{{drawerTab==='events'?'selected':''}}" bindtap="selectDrawerTab">事件</button><button data-tab="rules" class="{{drawerTab==='rules'?'selected':''}}" bindtap="selectDrawerTab">规则</button></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
+- <view wx:if="{{drawerTab==='team'}}" class="squadColumns"><view class="squad catsGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view><view class="teamGrid catGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState">{{item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view><view class="squad miceGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view><view class="teamGrid mouseGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='captured'?'已被捕获':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view></view>
+- <view wx:if="{{drawerTab==='events'}}" class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
+- <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">{{venueName}}</text><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text></view>
++ <view wx:if="{{drawerTab==='team'}}" class="squadColumns"><view class="squad catsGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view><view class="teamGrid catGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState">{{item.status==='joining'?'正在定位入场':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view><view class="squad miceGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view><view class="teamGrid mouseGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='joining'?'正在定位入场':item.status==='captured'?'已被捕获':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view></view>
++ <view wx:if="{{drawerTab==='events'}}" class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='JOIN'?'新玩家补入阵营':event.kind==='JOIN_READY'?'新玩家已入场':event.kind==='JOIN_EXPIRED'?'入场定位超时':event.kind==='LEAVE'?'有玩家退出':event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
++ <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">{{venueName}}</text><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text><text class="bodyCopy">• 新玩家按开局比例补入；本局目标与截止时间不变</text></view>
+  <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="emergency" /><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'返回首页':'退出本局'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+  <view class="advancedRules"><text class="bodyCopy">蓝色爪印是本人，绿色双人是队友，旗帜是集合点；橘色区域是大致线索。OSM参考位置尚未实地核验，图片覆盖外请切换实时地图。房主保存的标定优先使用。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
+ </view></scroll-view></view>
+--- before/pages/room/room.js
++++ pages/room/room.js
+@@ -1,4 +1,6 @@
+ const presentation=require('../../utils/presentation');
++const {shouldApplyRoom}=require('../../utils/snapshot-v2');
++const liveRoom=require('../../utils/room-live').create(require('../../utils/v2'),wx,{setInterval:(f,t)=>setInterval(f,t),clearInterval:id=>clearInterval(id),setTimeout:(f,t)=>setTimeout(f,t),clearTimeout:id=>clearTimeout(id)});
+ const teams=require('../../utils/team-config');
+ const venueGeometry=require('../../utils/venue-boundary');
+ const catalog=require('../../utils/venue-catalog'),resources=require('../../utils/venue-resources');
+@@ -11,7 +13,7 @@
+   updateTitle(){wx.setNavigationBarTitle?.({title:this.data.roomId?'房间准备':'创建活动'});},
+   applyRoom(changes){const image=catalog.get(changes.venue?.mapId||this.data.mapId);if(image){changes={...changes,mapId:image.id,venueName:image.label,venueSource:image.src,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id)};}if(this.devPreview)this.previewRoom={...this.previewRoom,...changes};const roster=changes.roster || this.data.roster,total=changes.rules?.total || this.data.rules?.total || this.data.total,readyCount=roster.filter(p=>p.ready).length;const catsCount=changes.rules?.cats ?? this.data.catsCount;this.setData({...changes,...(Object.prototype.hasOwnProperty.call(changes,'venue')?{venueSummaryText:this.venueSummary(changes.venue)}:{}),total,catsCount,miceCount:changes.rules?.mice ?? this.data.miceCount,targetCount:Math.ceil((total-catsCount)*.6),readyCount,canStart:roster.length===total && readyCount===total,startHint:roster.length<total?'还差 '+(total-roster.length)+' 位伙伴':readyCount<total?'还有 '+(total-readyCount)+' 人未准备':'人数到齐，已全部准备'});this.updateTitle();},
+   onHide() { this.stop(); }, onUnload() { this.unloaded=true;this.stop(); },
+-  stop() { this.active=false;this.fetchSerial=(this.fetchSerial||0)+1;this.fetching=false;this.venueResourceSerial=(this.venueResourceSerial||0)+1;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.pollTimer);clearInterval(this.locTimer);clearTimeout(this.retryTimer);this.pollTimer=null;this.locTimer=null;this.retryTimer=null;this.locationPromise=null; },
++  stop() { this.active=false;const socket=this.socket;this.socket=null;this.socketOpen=false;clearInterval(this.heartbeatTimer);clearTimeout(this.reconnectTimer);this.heartbeatTimer=null;this.reconnectTimer=null;if(socket)socket.close();this.fetchSerial=(this.fetchSerial||0)+1;this.fetching=false;this.venueResourceSerial=(this.venueResourceSerial||0)+1;this.lifecycle=(this.lifecycle||0)+1;clearInterval(this.pollTimer);clearInterval(this.locTimer);clearTimeout(this.retryTimer);this.pollTimer=null;this.locTimer=null;this.retryTimer=null;this.locationPromise=null; },
+   scheduleRetry(error) { if(!this.active || this.retryTimer || error.code && !/^HTTP_5/.test(error.code))return;const delay=Math.min(15000,3000*2**Math.min(this.retryAttempt||0,3));this.retryAttempt=(this.retryAttempt||0)+1;this.retryTimer=setTimeout(()=>{this.retryTimer=null;if(this.active)this.onShow();},delay); },
+   selectTotal(e) { const total=this.data.totals[Number(e.detail.value)],catsCount=total===2?1:total<=8?2:3;this.setData({total,catsCount,targetCount:Math.ceil((total-catsCount)*.6)}); },
+   teamFocus(e){this.setData({editingField:e.currentTarget.dataset.field});},
+@@ -22,8 +24,19 @@
+   chooseVenue(){if(this.data.venue?.boundary){this.openVenueEditor();return;}const id=this.data.mapId;if(this.devPreview){const image=catalog.get(id),p=image.demoPoints?.[0]||{lat:32.0584,lng:118.7968};this.setData({venue:{...p,mapId:id,radiusM:200,confirmed:true},venueSummaryText:'活动范围：半径 200 米',error:''});return;}const run=this.lifecycle;wx.getLocation({type:'gcj02',isHighAccuracy:true,success:p=>{if(!this.active||run!==this.lifecycle||id!==this.data.mapId)return;const point={lat:p.latitude,lng:p.longitude};if(!catalog.contains(id,point)){this.setData({venue:null,error:'当前位置不在所选校区范围，请切换场地或到场后确认'});return;}this.setData({venue:{...point,mapId:id,radiusM:200,confirmed:true},venueSummaryText:'活动范围：半径 200 米',error:''});},fail:()=>{if(this.active&&run===this.lifecycle&&id===this.data.mapId)this.setData({error:'无法获取位置，请先授权定位'});}});},
+   async create() { const teamError=teams.validate(this.data.total,this.data.catsCount,this.data.miceCount);if(teamError){this.setData({teamError,error:teamError});return;}if(this.devPreview){if(!this.data.venue){this.setData({error:'请先确认演示场地'});return;}const sample=preview.roomData('ready');sample.venue={...this.data.venue,mapId:this.data.mapId};sample.rules={...sample.rules,total:this.data.total,cats:this.data.catsCount,mice:this.data.miceCount,version:'pilot-0.3'};sample.roster=Array.from({length:this.data.total},(_,i)=>({id:i?'dev-player-'+i:'dev-me',nickname:i?'伙伴'+i:'我 · 演示',ready:true}));this.applyRoom(sample);this.creating=false;wx.pageScrollTo?.({scrollTop:0,duration:0});return;}if (this.data.loading) return; this.setData({loading:true,error:''}); try { if(!this.data.venue) throw Error('请先到场确认集合点'); const createInput={ ...(this.data.mapId!==catalog.DEFAULT_ID?{mapId:this.data.mapId}:{}),total:this.data.total, cats:this.data.catsCount, mice:this.data.miceCount, venue:this.data.venue,mapRevision:catalog.get(this.data.mapId).sha256,...(this.data.venue.boundary?{venueFormat:'polygon-v1'}:{}), nickname:wx.getStorageSync('nickname') };const fingerprint=JSON.stringify(createInput);if(!this.createCommand||this.createCommand.fingerprint!==fingerprint)this.createCommand={fingerprint,commandId:'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.floor(Math.random()*16);return(c==='x'?r:(r&3|8)).toString(16);})};const r=await api.create({...createInput,commandId:this.createCommand.commandId}); wx.setStorageSync('v2RoomId',r.roomId); this.setData({roomId:r.roomId,code:r.code});wx.pageScrollTo?.({scrollTop:0,duration:0});this.updateTitle(); this.begin(); } catch(e) { this.setData({error:e.code==='INVALID_CONFIG'&&this.data.venue?.boundary?'服务端尚未支持多边形范围，请更新服务后重试':e.code==='INVALID_CONFIG'&&this.data.mapId!==catalog.DEFAULT_ID?'服务端尚未支持校区地图，请更新服务后重试':e.message}); } finally { this.setData({loading:false}); } },
+   requestLocation() { if(this.locationPromise)return this.locationPromise;const run=this.lifecycle,task=location.once(this.data.roomId,()=>this.active && run===this.lifecycle);this.locationPromise=task;task.then(()=>{if(this.locationPromise===task)this.locationPromise=null;},()=>{if(this.locationPromise===task)this.locationPromise=null;});return task; },
+-  begin() { if(!this.active || this.pollTimer) return; this.refresh(); this.pollTimer=setInterval(()=>this.refresh(),2000); this.locTimer=setInterval(()=>this.requestLocation().catch(()=>{}),4000); this.requestLocation().catch(()=>{if(this.active)this.setData({error:'定位不可用，暂时不能准备'});}); },
+-  async refresh() { if(this.fetching || !this.active) return; this.fetching=true;const run=this.lifecycle,serial=this.fetchSerial=(this.fetchSerial||0)+1; try { const s=await api.room(this.data.roomId); if(!this.active||run!==this.lifecycle||serial!==this.fetchSerial) return; if(Number.isFinite(this.data.matchVersion) && s.version<this.data.matchVersion) return; const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId')); this.applyRoom({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,venue:s.venue,error:''}); if(s.match && !['FINISHED','CANCELLED'].includes(s.match.phase)) { this.stop(); wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)}); } } catch(e) { if(this.active&&run===this.lifecycle&&serial===this.fetchSerial)this.setData({error:'连接中断，正在自动重试：'+e.message}); } finally { if(serial===this.fetchSerial)this.fetching=false; } },
++  begin() { if(!this.active||this.pollTimer||this.socket)return;this.refresh();this.startPolling();this.startSocket();if(!this.locTimer)this.locTimer=setInterval(()=>this.requestLocation().catch(()=>{}),4000);this.requestLocation().catch(()=>{if(this.active)this.setData({error:'定位不可用，暂时不能准备'});}); },
++  startPolling(){if(this.active&&!this.pollTimer)this.pollTimer=setInterval(()=>this.refresh(),2000);},
++  poll(){return this.refresh();},
++  startSocket:liveRoom.startSocket,socketDropped:liveRoom.socketDropped,scheduleReconnect:liveRoom.scheduleReconnect,
++  receiveSnapshot(s){this.acceptRoom(s);},
++  acceptRoom(s){
++    if(!this.active||!shouldApplyRoom(this.lastSnapshot,s))return;
++    this.lastSnapshot={roomId:s.roomId,version:s.version,serverTime:s.serverTime};
++    const own=s.roster.find(x=>x.id===wx.getStorageSync('v2UserId'));
++    this.applyRoom({code:s.code,roster:s.roster,rules:s.rules,owner:s.owner,ready:!!own?.ready,match:s.match,matchVersion:s.version,venue:s.venue,error:'',connection:this.socketOpen?'实时连接':'轮询同步'});
++    if(s.match&&!['FINISHED','CANCELLED'].includes(s.match.phase)){this.stop();wx.redirectTo({url:'/pages/map/map?roomId='+encodeURIComponent(this.data.roomId)});}
++  },
++  async refresh() { if(this.fetching||!this.active)return;this.fetching=true;const run=this.lifecycle,serial=this.fetchSerial=(this.fetchSerial||0)+1;try{const s=await api.room(this.data.roomId);if(!this.active||run!==this.lifecycle||serial!==this.fetchSerial)return;this.acceptRoom(s);}catch(e){if(this.active&&run===this.lifecycle&&serial===this.fetchSerial){this.setData({error:'连接中断，正在自动重试：'+e.message});if(e.code==='UNAUTHENTICATED'||e.code==='NOT_MEMBER'){this.stop();this.setData({connection:'身份失效',error:e.message});}}}finally{if(serial===this.fetchSerial)this.fetching=false;} },
+   async toggleReady() { if(this.devPreview){const ready=!this.data.ready;this.applyRoom({ready,roster:this.data.roster.map(p=>p.id==='dev-me'?{...p,ready}:p),error:''});return;}try { await this.requestLocation();if(!this.active)return;await api.ready(this.data.roomId,!this.data.ready); await this.refresh(); } catch(e) { if(this.active)this.setData({error:'准备失败：'+e.message}); } },
+   async start() { if(!this.data.owner || !this.data.canStart || this.data.loading)return;if(this.devPreview){wx.navigateTo({url:'/pages/map/map?devPreview=hiding&mapId='+encodeURIComponent(this.data.mapId)});return;}this.setData({loading:true,error:''}); try { await api.start(this.data.roomId); this.refresh(); } catch(e) { this.setData({error:'无法开始：'+e.message}); } finally { this.setData({loading:false}); } },
+   openVenueEditor(){if(this.data.loading||this.data.roomId&&(!this.data.owner||this.data.match&&!['FINISHED','CANCELLED'].includes(this.data.match.phase)))return;const roomId=this.data.roomId,mapId=this.data.mapId;wx.navigateTo({url:'/field-editor/pages/edit/edit?mapId='+encodeURIComponent(mapId)+(roomId&&!this.devPreview?'&roomId='+encodeURIComponent(roomId):'')+(this.devPreview?'&devPreview=venueEditor':''),events:{venueSaved:r=>{if(this.unloaded||roomId!==this.data.roomId||mapId!==this.data.mapId)return;this.applyRoom({venue:r.venue,error:roomId?'场地已更新，请全员重新定位准备':''});if(roomId){if(this.devPreview)this.applyRoom({ready:false,roster:this.data.roster.map(p=>({...p,ready:false}))});else this.refresh();}}},success:r=>r.eventChannel?.emit('init',{mapId,venue:this.data.venue})});},
+--- before/pages/room/room.wxml
++++ pages/room/room.wxml
+@@ -1,5 +1,5 @@
+ <view class="screen roomScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--vw:{{viewportWidth}}px">
+-  <nav-bar title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
++  <nav-bar pinned="{{true}}" title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
+   <image class="roomHero {{roomId?'readyHero':'createHero'}}" src="{{roomId?'/assets/pixel-v1/ready-hero.png':'/assets/pixel-v1/create-hero.png'}}" mode="widthFix" aria-label="{{roomId?'房间准备，猫鼠伙伴在公园集合':'组织一场追逐'}}" />
+   <view wx:if="{{!roomId}}" class="createContent">
+     <view class="paperFrame totalCard">
+@@ -20,10 +20,11 @@
+     <view class="paperFrame roomRules"><view class="roomRuleNumbers"><view class="readyTeam"><image src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" /><text><text class="orangeNumber">{{catsCount}}</text>猫 <text class="orangeNumber">{{(rules?rules.total:total)-catsCount}}</text>鼠</text></view><view class="targetNumber"><text>捕获目标</text><text class="orangeNumber">{{targetCount}}人</text></view></view><text class="venueSelectionNote">{{venueName}} · {{venueSummaryText}}</text><text class="roomRuleText">30秒躲藏，6分钟追逐；捕获{{targetCount}}人猫胜，
+ 倒计时结束未达标鼠胜。</text></view>
+     <button wx:if="{{owner && (!match || match.phase==='FINISHED' || match.phase==='CANCELLED')}}" class="textButton" bindtap="openVenueEditor">修改集合点与范围</button><button wx:if="{{owner && (!match || match.phase==='FINISHED' || match.phase==='CANCELLED')}}" class="textButton" bindtap="openCalibration">图片与真实位置标定</button>
+-    <view class="rosterHeader"><view class="rosterHeading"><text class="sectionLabel">玩家列表（{{roster.length}}/{{rules?rules.total:total}}）</text><text class="readyCount {{canStart?'allReady':''}}">{{canStart?'所有玩家已准备':readyCount+'人已准备'}}</text></view><text class="rosterHint">阵营将在开始后分配</text></view>
++    <view class="rosterHeader"><view class="rosterHeading"><text class="sectionLabel">玩家列表（{{roster.length}}/{{rules?rules.total:total}}）</text><text class="readyCount {{canStart?'allReady':''}}">{{canStart?'所有玩家已准备':readyCount+'人已准备'}}</text></view><text class="rosterHint">阵营将在开始后分配 · {{devPreview?'界面预览':connection || '正在同步'}}</text></view>
+     <view class="rosterGrid"><view wx:for="{{roster}}" wx:key="id" class="paperFrame playerCard"><image class="playerAvatar" src="/assets/pixel-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" /><text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text><text class="readyBadge {{item.ready?'isReady':'notReady'}}">{{item.ready?'已准备':'未准备'}}</text></view></view>
+     <view wx:if="{{!roster.length}}" class="paperFrame emptyRoster">伙伴还未加入，把房间码发给他们吧。</view>
+     <text wx:if="{{!canStart}}" class="readySummary">{{startHint}}</text>
++    <text class="rosterHint">开局后新玩家按比例补入猫鼠；捕获目标与倒计时不变。断线回来保留原身份。</text>
+     <view class="roomActions"><pixel-action class="pixelControl" wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始30秒躲藏':'等待所有人准备'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" /><text wx:else class="ownerHint">{{canStart?'已全部准备，等待房主开始':'准备后，等待房主开始本局'}}</text><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位并准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" /></view>
+   </view>
+   <text wx:if="{{error}}" class="roomError" role="alert">{{error}}</text>
+--- before/cat-mouse-server/v2/server.js
++++ cat-mouse-server/v2/server.js
+@@ -16,7 +16,7 @@
+   app.use((req,res,next)=>{req.requestId=crypto.randomUUID();res.set('X-Request-Id',req.requestId);const started=Date.now();res.on('finish',()=>{if(env.NODE_ENV==='test' || res.statusCode<400 && (req.method==='GET' || req.path.endsWith('/location')))return;console.log(JSON.stringify({requestId:req.requestId,method:req.method,path:req.path,status:res.statusCode,elapsedMs:Date.now()-started}));});next();});
+   app.get('/health', (_, res) => res.json({ ok: true }));
+   app.get('/ready', async (_, res) => { try { await store.query('SELECT 1'); res.json({ ready: true }); } catch { res.status(503).json({ ready: false }); } });
+-  app.get('/api/version', (_, res) => res.json({ version:'0.4.0',rulesVersion:'pilot-0.3',supportedRuleVersions:['pilot-0.2','pilot-0.3'],capabilities:{mapCalibration:true,customTeams:true,multiVenueMaps:true,polygonVenues:true,mapCatalog:true,roomInvites:true,createCommands:true,captureProtocol:'capture-v1'} }));
++  app.get('/api/version', (_, res) => res.json({ version:'0.5.0',rulesVersion:'pilot-0.3',supportedRuleVersions:['pilot-0.2','pilot-0.3'],capabilities:{mapCalibration:true,customTeams:true,multiVenueMaps:true,polygonVenues:true,mapCatalog:true,roomInvites:true,createCommands:true,captureProtocol:'capture-v1',lateJoin:'reinforce-v1'} }));
+   app.get('/api/v2/maps',(_,res)=>res.json(maps.list()));
+   const route = fn => async (req, res) => { try { res.json(await fn(req)); } catch (e) { const raw = e.code || e.message || 'INTERNAL',code=/^[A-Z_]+$/.test(raw)?raw:'INTERNAL'; res.status(code === 'UNAUTHENTICATED' ? 401 : code === 'FORBIDDEN' || code === 'NOT_MEMBER' ? 403 : code === 'INTERNAL' ? 500 : 400).json({ error: code }); } };
+   const auth = async req => { const token = /^Bearer (.+)$/.exec(req.headers.authorization || '')?.[1]; const id = await store.session(token); if (!id) { const e = new Error('UNAUTHENTICATED'); e.code = 'UNAUTHENTICATED'; throw e; } service.touch(id); return id; };
+@@ -36,7 +36,8 @@
+   app.get('/api/v2/rooms/:id/invite',route(async req=>{
+     const s=await service.read(req.params.id,await auth(req)),payload=qr.invite(s.code);
+     const png=await require('qrcode').toBuffer(JSON.stringify(payload),{type:'png',margin:3,width:360});
+-    return {roomId:s.roomId,code:s.code,path:'/pages/index/index?roomCode='+s.code,qrPngBase64:png.toString('base64'),scanInsideApp:true,availableSlots:Math.max(0,s.rules.total-s.roster.length),canNewPlayerJoin:!s.match||['FINISHED','CANCELLED'].includes(s.match.phase)};
++    const live=s.match&&!['FINISHED','CANCELLED'].includes(s.match.phase),availableSlots=Math.max(0,(live?60:s.rules.total)-s.roster.length);
++    return {roomId:s.roomId,code:s.code,path:'/pages/index/index?roomCode='+s.code,qrPngBase64:png.toString('base64'),scanInsideApp:true,availableSlots,canNewPlayerJoin:availableSlots>0,lateJoin:!!live,joinPolicy:'reinforce-v1'};
+   }));
+   app.put('/api/v2/rooms/:id/calibration',route(async req=>service.calibrate(req.params.id,await auth(req),req.body)));
+   app.put('/api/v2/rooms/:id/venue',route(async req=>service.setVenue(req.params.id,await auth(req),req.body)));
+--- before/cat-mouse-server/v2/service.js
++++ cat-mouse-server/v2/service.js
+@@ -59,7 +59,7 @@
+       if (terminal(room.state.match)) {
+         if (!wasTerminal) completed = {match:room.state.match,roomId:room.id};
+         const finished = room.state.match;
+-        await db.query('INSERT INTO match_results VALUES ($1,$2,$3) ON CONFLICT (match_id) DO NOTHING', [finished.id, room.id, JSON.stringify({ matchId:finished.id, outcome:finished.outcome, reason:finished.reason, endedAt:finished.endedAt, captured:finished.captured, target:finished.target, rulesVersion:room.state.rules.version,venue:finished.venue||room.state.venue })]);
++        await db.query('INSERT INTO match_results VALUES ($1,$2,$3) ON CONFLICT (match_id) DO NOTHING', [finished.id, room.id, JSON.stringify({ matchId:finished.id, outcome:finished.outcome, reason:finished.reason, endedAt:finished.endedAt, captured:finished.captured, target:finished.target, rulesVersion:room.state.rules.version,joinPolicy:finished.joinPolicy||null,initialTeams:finished.initialTeams||null,venue:finished.venue||room.state.venue })]);
+       }
+       return out;
+     });
+@@ -107,12 +107,23 @@
+       const room = await this.store.room(id, db, true); if (!room) fail('ROOM_NOT_FOUND');
+       let member = room.state.members.find(p => p.id === actor);
+       if (!member) {
+-        if (room.state.match && !terminal(room.state.match)) fail('IN_PROGRESS');
+-        if (room.state.members.length >= room.state.rules.total) fail('ROOM_FULL');
++        await this.tick(room,db);
++        const s=room.state,m=s.match,live=m&&!terminal(m);
++        if (s.members.length >= (live?60:s.rules.total)) fail('ROOM_FULL');
+         member = { id: actor, nickname: name(nickname), ready: false }; room.state.members.push(member); room.state.version++;
++        if(live){
++          const initial=m.initialTeams||(m.initialTeams={cats:m.participants.filter(p=>p.role==='cat').length,mice:m.participants.filter(p=>p.role==='mouse').length});
++          const cats=m.participants.filter(p=>p.role==='cat').length;
++          const role=cats<Math.round((m.participants.length+1)*initial.cats/(initial.cats+initial.mice))?'cat':'mouse';
++          m.joinPolicy='reinforce-v1';
++          m.participants.push({id:actor,role,status:'joining',joinedAt:this.now(),joinDeadline:this.now()+30000});
++          s.rules={...s.rules,total:s.members.length,cats:cats+(role==='cat'?1:0),mice:m.participants.filter(p=>p.role==='mouse').length};
++          await this.event(db,m,'JOIN',{playerId:actor,role});
++        }
+         await this.store.save(db, room);
+       }
+-      return { roomId: room.id, memberId: member.id };
++      const me=room.state.match?.participants.find(p=>p.id===actor);
++      return { roomId: room.id, memberId: member.id,role:me?.role||null,status:me?.status||null };
+     });
+   }
+   async read(id, actor) {
+@@ -121,7 +132,7 @@
+   view(room, actor) {
+     const s = room.state, m = s.match, me = m?.participants.find(p => p.id === actor);
+     const roster = s.members.map(p => ({ id: p.id, nickname: p.nickname, ready: p.ready, role: m?.participants.find(x => x.id === p.id)?.role || null, status: m?.participants.find(x => x.id === p.id)?.status || null, presence: this.now()-(this.lastSeen.get(p.id)||0)<=15000?'online':'reconnecting' }));
+-    const base = { protocolVersion: 2, serverTime: this.now(), roomId: room.id, code: room.code, owner: room.owner_id === actor, version: s.version, venue: s.venue,mapRevision:s.mapRevision||venueImages.find(i=>i.id===(s.venue.mapId||'xuanwu-v4'))?.sha256, rules: s.rules, mapCalibration:s.mapCalibration||null, roster, match: m ? { id: m.id, phase: m.phase, endsAt: m.endsAt, remainingMs: m.phase === 'PAUSED' ? m.remainingMs : Math.max(0, m.endsAt - this.now()), pauseReason: m.pauseReason || null, target: m.target, captured: m.captured, outcome: m.outcome || null, reason: m.reason || null, eventSeq: m.eventSeq, myRole: me?.role, myStatus: me?.status } : null, visiblePositions: [], intel: [], nearbyCat: false, events: [] };
++    const base = { protocolVersion: 2, serverTime: this.now(), roomId: room.id, code: room.code, owner: room.owner_id === actor, version: s.version, venue: s.venue,mapRevision:s.mapRevision||venueImages.find(i=>i.id===(s.venue.mapId||'xuanwu-v4'))?.sha256, rules: s.rules, mapCalibration:s.mapCalibration||null, roster, match: m ? { id: m.id, phase: m.phase, endsAt: m.endsAt, remainingMs: m.phase === 'PAUSED' ? m.remainingMs : Math.max(0, m.endsAt - this.now()), pauseReason: m.pauseReason || null, target: m.target, captured: m.captured, outcome: m.outcome || null, reason: m.reason || null, eventSeq: m.eventSeq, myRole: me?.role, myStatus: me?.status,joinPolicy:m.joinPolicy||'reinforce-v1',initialTeams:m.initialTeams||null,joinDeadline:me?.status==='joining'?me.joinDeadline:null } : null, visiblePositions: [], intel: [], nearbyCat: false, events: [] };
+     if (!m) return base;
+     base.events = m.publicEvents.slice(-12);
+     if (terminal(m) || m.phase === 'PAUSED' || !me || me.status !== 'active') return base;
+@@ -143,6 +154,7 @@
+       this.touch(actor);
+       const { lat, lng, accuracy, sampledAt, sampleSeq, coordinateSystem } = input || {};
+       if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='captured') fail('CAPTURED');
++      if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='left') fail('LEFT_MATCH');
+       if (![lat, lng, accuracy, sampledAt, sampleSeq].every(Number.isFinite) || lat < -90 || lat > 90 || lng < -180 || lng > 180 || accuracy < 0 || accuracy > 25 || !Number.isInteger(sampleSeq) || coordinateSystem !== 'gcj02' || Math.abs(this.now() - sampledAt) > 10000) fail('INVALID_LOCATION');
+       const key=positionKey(room.id,actor),revision=room.state.venueRevision||0,rawPrev=this.positions.get(key),prev=(rawPrev?.venueRevision||0)===revision?rawPrev:null,rawOutside=this.outside.get(key),lastOutside=(rawOutside?.venueRevision||0)===revision?rawOutside:null;if(lastOutside&&sampledAt<=lastOutside.sampledAt)fail('STALE_LOCATION'); if (prev && sampleSeq <= prev.sampleSeq && this.now()-prev.receivedAt<=5000) fail('STALE_LOCATION');
+       if (prev && distance(prev, { lat, lng }) > Math.max(100, (sampledAt - prev.sampledAt) / 1000 * 20 + 50)) fail('LOCATION_JUMP');
+@@ -157,6 +169,8 @@
+       this.outside.delete(positionKey(room.id,actor));
+       this.positions.set(positionKey(room.id,actor), { lat, lng, accuracy, sampledAt, sampleSeq, receivedAt: this.now(),venueRevision:revision });
+       const m=room.state.match;
++      const joining=m?.participants.find(p=>p.id===actor&&p.status==='joining');
++      if(joining){joining.status='active';room.state.version++;await this.event(db,m,'JOIN_READY',{playerId:actor,role:joining.role});}
+       if(m?.phase==='CHASING' && (!m.intel || m.intel.length===0) && m.participants.filter(p=>p.role==='mouse' && p.status==='active').every(p=>this.fresh(p.id,room.id,room.state.venueRevision||0))) { m.intelBucket=-1; this.refreshIntel(room); }
+       return { accepted: true };
+     });
+@@ -170,11 +184,12 @@
+     const previousCats=new Set(s.match?.participants.filter(p=>p.role==='cat').map(p=>p.id)||[]);
+     const rotated=[...shuffled.filter(p=>!previousCats.has(p.id)),...shuffled.filter(p=>previousCats.has(p.id))];
+     const now = this.now(), m = { id: crypto.randomUUID(), phase: 'HIDING', endsAt: now + s.rules.hidingMs, lastTickAt:now, participants: rotated.map((p, i) => ({ id: p.id, role: i < s.rules.cats ? 'cat' : 'mouse', status: 'active' })), target: targetFor(s.rules.mice), captured: 0, eventSeq: 0, publicEvents: [], tokens: {}, usedTokens: {}, pauseUsedMs: 0 };
+-    m.venue=structuredClone(s.venue);s.match = m; s.history.push(m.id); s.version++; await this.event(db, m, 'START', { phase: m.phase }); return this.view(room, actor);
++    m.venue=structuredClone(s.venue);m.initialTeams={cats:s.rules.cats,mice:s.rules.mice};m.joinPolicy='reinforce-v1';s.match = m; s.history.push(m.id); s.version++; await this.event(db, m, 'START', { phase: m.phase }); return this.view(room, actor);
+   }); }
+   async event(db, m, kind, payload) { m.eventSeq++; const e = { seq: m.eventSeq, kind, payload, at: this.now() }; m.publicEvents.push(e); await db.query('INSERT INTO events VALUES ($1,$2,$3,$4,$5)', [m.id, e.seq, kind, JSON.stringify(payload), e.at]); }
+   async tick(room, db) {
+     const m = room.state.match; if (!m || terminal(m)) return;
++    for(const p of m.participants)if(p.status==='joining'&&this.now()>=p.joinDeadline){p.status='left';room.state.version++;await this.event(db,m,'JOIN_EXPIRED',{playerId:p.id});}
+     if (m.phase === 'PAUSED') { if (m.pauseReason !== 'server_restart' && m.pauseUsedMs + this.now() - m.pausedAt >= room.state.rules.pauseBudgetMs) await this.cancelInside(room, db, 'pause_budget'); return; }
+     m.lastTickAt=this.now();
+     if (m.phase === 'CHASING' && this.now() >= m.endsAt) { m.phase = 'FINISHED'; m.outcome = 'mouse_win'; m.reason = 'deadline'; m.endedAt = this.now(); m.tokens = {}; room.state.version++; await this.event(db, m, 'RESULT', { outcome: m.outcome, reason: m.reason }); return; }
+@@ -227,7 +242,7 @@
+   }); }
+   async pause(id, actor, reason) { return this.mutate(id, actor, async (room, db) => {
+     const m = room.state.match; if (!m || terminal(m) || m.phase!=='PAUSED' && this.now()>=m.endsAt) fail('NO_ACTIVE_MATCH');
+-    if (room.owner_id !== actor && reason !== 'emergency' && reason !== 'leave') fail('FORBIDDEN');
++    if (room.owner_id !== actor && (reason!=='emergency'||!m.participants.some(p=>p.id===actor&&['active','joining'].includes(p.status)))) fail('FORBIDDEN');
+     if (m.phase === 'PAUSED') return this.view(room, actor);
+     m.resumePhase = m.phase; m.remainingMs = Math.max(0, m.endsAt - this.now()); m.phase = 'PAUSED'; m.pausedAt = this.now(); m.pauseReason = reason || 'host'; m.tokens = {}; room.state.version++; await this.event(db, m, 'PAUSE', { reason: m.pauseReason }); return this.view(room, actor);
+   }); }
+@@ -240,7 +255,7 @@
+   }); }
+   async cancelInside(room, db, reason) { const m = room.state.match; m.phase = 'CANCELLED'; m.outcome = 'cancelled'; m.reason = reason; m.endedAt = this.now(); m.tokens = {}; room.state.version++; await this.event(db, m, 'RESULT', { outcome: 'cancelled', reason }); return { matchId: m.id, outcome: 'cancelled' }; }
+   async cancel(id, actor) { return this.mutate(id, actor, async (room, db) => { if (room.owner_id !== actor) fail('FORBIDDEN'); if (!room.state.match || terminal(room.state.match)) fail('NO_ACTIVE_MATCH'); return this.cancelInside(room, db, 'host_cancel'); }); }
+-  async leave(id, actor) { let leavingRoomId;const result=await this.mutate(id, actor, async (room, db) => { leavingRoomId=room.id;const m = room.state.match; if (m && !terminal(m)) { if (m.phase !== 'PAUSED') { m.resumePhase = m.phase; m.remainingMs = Math.max(0, m.endsAt - this.now()); m.phase = 'PAUSED'; m.pausedAt = this.now(); m.pauseReason = 'leave'; m.tokens = {}; room.state.version++; await this.event(db, m, 'PAUSE', { reason: 'leave' }); } } else { room.state.members = room.state.members.filter(p => p.id !== actor); room.state.version++; } return { left: true }; }); this.positions.delete(positionKey(leavingRoomId,actor));this.outside.delete(positionKey(leavingRoomId,actor));return result; }
++  async leave(id, actor) { let leavingRoomId;const result=await this.mutate(id, actor, async (room, db) => { leavingRoomId=room.id;const m = room.state.match; if (m && !terminal(m)) { const p=m.participants.find(p=>p.id===actor),wasActive=p?.status==='active';if(p&&['active','joining'].includes(p.status)){p.status='left';room.state.members.find(p=>p.id===actor).ready=false;room.state.version++;await this.event(db,m,'LEAVE',{playerId:actor});}if(wasActive&&m.phase!=='PAUSED'){m.resumePhase=m.phase;m.remainingMs=Math.max(0,m.endsAt-this.now());m.phase='PAUSED';m.pausedAt=this.now();m.pauseReason='leave';m.tokens={};await this.event(db,m,'PAUSE',{reason:'leave'});} } else { if(room.owner_id===actor)room.state.members.find(p=>p.id===actor).ready=false;else room.state.members=room.state.members.filter(p=>p.id!==actor);room.state.version++; } return { left: true }; }); this.positions.delete(positionKey(leavingRoomId,actor));this.outside.delete(positionKey(leavingRoomId,actor));return result; }
+   clearPositions(m,roomId) { for (const p of m.participants) { this.positions.delete(positionKey(roomId,p.id)); this.outside.delete(positionKey(roomId,p.id)); } }
+ }
+ function validUuid(x) { return typeof x === 'string' && /^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(x); }

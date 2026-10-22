@@ -1,0 +1,5 @@
+{
+  "route": "pages/index/index",
+  "base": "https://seu-link.fit/catmouse",
+  "backup": false
+}

@@ -1,0 +1,193 @@
+{
+  "schema": "tracks-v1",
+  "matchId": "05de492a-3bb2-4f97-9b8b-c91eb29321e5",
+  "scope": "self",
+  "coordinateSystem": "gcj02",
+  "startedAt": 1792574945640,
+  "endedAt": 1792574979872,
+  "expiresAt": 1793179779872,
+  "sampleIntervalMs": 2000,
+  "venue": {
+    "lat": 31.88777433108612,
+    "lng": 118.81920737398848,
+    "mapId": "seu-jiulonghu-v1",
+    "radiusM": 500,
+    "confirmed": true
+  },
+  "mapCalibration": null,
+  "outcome": "cat_win",
+  "players": [
+    {
+      "id": "ea6bbc2c-95ef-4461-87c1-a413388a4e4d",
+      "nickname": "试点1·房主",
+      "role": "mouse",
+      "status": "captured",
+      "points": [
+        {
+          "lat": 31.887980893527327,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574946131,
+          "recordedAt": 1792574946135,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888023867335086,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574948138,
+          "recordedAt": 1792574948141,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888056892920055,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574950146,
+          "recordedAt": 1792574950148,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.88807865365638,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574952155,
+          "recordedAt": 1792574952157,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888088282012173,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574954166,
+          "recordedAt": 1792574954170,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888085394135274,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574956170,
+          "recordedAt": 1792574956171,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888070105156224,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574958176,
+          "recordedAt": 1792574958179,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888043024598364,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574960181,
+          "recordedAt": 1792574960183,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.888005232078086,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574962187,
+          "recordedAt": 1792574962188,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.88795823426391,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574964202,
+          "recordedAt": 1792574964203,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.88790390481037,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574966210,
+          "recordedAt": 1792574966212,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.88784440966134,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574968213,
+          "recordedAt": 1792574968215,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.887782120700663,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574970218,
+          "recordedAt": 1792574970220,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.887719521192636,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574972234,
+          "recordedAt": 1792574972235,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.8876591067821,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574974249,
+          "recordedAt": 1792574974251,
+          "segment": 0,
+          "phase": "HIDING"
+        },
+        {
+          "lat": 31.88760328600095,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574976253,
+          "recordedAt": 1792574976255,
+          "segment": 0,
+          "phase": "CHASING"
+        },
+        {
+          "lat": 31.887554284247585,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574978262,
+          "recordedAt": 1792574978264,
+          "segment": 0,
+          "phase": "CHASING"
+        }
+      ],
+      "highlights": {
+        "schema": "track-highlights-v1",
+        "closestCat": {
+          "sampledAt": 1792574976253,
+          "recordedAt": 1792574976255,
+          "segment": 0,
+          "distanceM": 29.96634921834018,
+          "alignmentMs": 45,
+          "uncertaintyM": 10
+        }
+      }
+    }
+  ]
+}

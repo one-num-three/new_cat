@@ -1,0 +1,34 @@
+{
+  "status": "passed-with-explicit-scope",
+  "manualVisualReview": true,
+  "validImages": 7,
+  "simulators": 1,
+  "realLocalHttpSqlWebSocket": true,
+  "realLocalMatch": true,
+  "realServerClock": true,
+  "simulatedGps": true,
+  "switchChangeTriggered": true,
+  "physicalCamera": false,
+  "phone": false,
+  "backgroundPermissionMockedInEarlierFlow": true,
+  "fileGeneratedByNativeButton": true,
+  "fileActuallySent": false,
+  "nativeCanvas": true,
+  "albumOrImageSharingTested": false,
+  "selfExportPlayers": 1,
+  "hostExportPlayers": 8,
+  "productionDataWritten": false,
+  "restore": {
+    "restored": true,
+    "backupRemoved": true
+  },
+  "notes": [
+    "One simulator viewed identities sequentially; not eight simultaneous physical devices.",
+    "Full flow v3: cat win/capture proof, self CSV and host GeoJSON, but screenshot08 was white and excluded.",
+    "v4 AppID timeout caused local pause-budget cancellation. Permission-masked screenshots are excluded.",
+    "v6: fresh test match finished by four actual dynamic-code commands; exported canvas and all-player file.",
+    "v7 explicit navigation component declaration fixed missing headers; next AppID timeout restored original session.",
+    "v8 only poster, final fixed header/footer and native PNG reviewed; no GPS API invoked.",
+    "Same-location test actor pins overlap; real-world marker collision handling is unchanged."
+  ]
+}

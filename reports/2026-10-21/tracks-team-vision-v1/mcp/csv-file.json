@@ -1,0 +1,8 @@
+{
+  "name": "catmouse-2ced34e6-1860-4af8-81ec-3a655533be6e-self.csv",
+  "characters": 5053,
+  "rows": 25,
+  "header": "﻿\"match_id\",\"player_id\",\"nickname\",\"role\",\"phase\",\"segment\",\"sampled_at_utc\",\"recorded_at_utc\",\"latitude_gcj02\",\"longitude_gcj02\",\"accuracy_m\"",
+  "scope": "self",
+  "players": 1
+}

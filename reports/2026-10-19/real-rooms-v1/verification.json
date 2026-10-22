@@ -1,0 +1,272 @@
+{
+  "date": "2026-10-19",
+  "tests": {
+    "total": 173,
+    "passed": 173,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 16,
+      "status": 0
+    },
+    "wxss": {
+      "files": 20,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "status": 0
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/store.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/map-catalog.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/acceptance.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 689,
+    "bytes": 27628,
+    "sha256": "7c972ee67025ece5762b0d1ed3e9538e3985d72c3ac01e277b4663efbfe1bac2"
+  },
+  "packageFiles": 146,
+  "rawLocalBytes": {
+    "main": 1777501,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 4420,
+    "venue-maps": 1981419
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "PASS_FOR_RECORDED_SCOPE",
+    "date": "2026-10-19",
+    "tool": "official WeChat MCP CLI, client Codex",
+    "method": "Observed sequential MCP calls and manual inspection; not the failed batch runner",
+    "project": "D:/cat-mouse-miniprogram",
+    "realWeChatLogin": {
+      "httpStatus": 200,
+      "credentialsRecorded": false
+    },
+    "room": {
+      "id": "e6d804dd-06f1-48fe-8759-31736daa4834",
+      "code": "9D61CEDC51",
+      "backend": "production API 0.4.0",
+      "devPreview": false,
+      "owner": true,
+      "rosterCount": 1,
+      "total": 8,
+      "cats": 2,
+      "mice": 6,
+      "target": 4,
+      "ready": 0,
+      "started": false
+    },
+    "venue": {
+      "mapId": "seu-jiulonghu-v1",
+      "vertices": 4,
+      "areaM2Approx": 20623,
+      "points": "manual map selection, not sampled GPS",
+      "nativeModeTabTap": true,
+      "nativeSaveButtonTap": true,
+      "savedToRoom": true
+    },
+    "invitation": {
+      "pngWidth": 359,
+      "pngHeight": 359,
+      "decodedKind": "catmouse.room.v1",
+      "decodedRoomCode": "9D61CEDC51",
+      "path": "/pages/index/index?roomCode=9D61CEDC51",
+      "scanInsideApp": true,
+      "externalWeChatLaunchCode": false,
+      "shareSent": false
+    },
+    "wss": {
+      "authenticatedSnapshotReceived": true,
+      "firstProbeFailed": true,
+      "scope": "single successful production snapshot, not a stability test"
+    },
+    "layout": {
+      "screenshotsManuallyInspected": 5,
+      "normalFont": true,
+      "appFontScale1_3": true,
+      "actualOsFontOrSmallPhone": false,
+      "fixes": [
+        "scroll-view pixel height based on viewport",
+        "padding moved to inner content to avoid horizontal clipping",
+        "full-width save button"
+      ]
+    },
+    "phoneCameraScan": false,
+    "fieldGps": false,
+    "frontendUploadedOrPublished": false,
+    "desktopWindowAdjusted": false,
+    "failuresExcluded": [
+      "initial batch runner stale context and timeouts",
+      "intermittent APPID network error",
+      "initial clipped editor layouts",
+      "one quoted evaluation failed before simplified call succeeded",
+      "final back navigation returned home; explicit invitation navigation subsequently succeeded"
+    ],
+    "screenshots": [
+      {
+        "file": "01-home.png",
+        "bytes": 487247,
+        "sha256": "f79a45151f9855f01e8ebf6c0eaf5ee9b04792e9e2a763a25517b1d7537a4b06",
+        "manualVisualInspection": true,
+        "rawQrDecoded": false
+      },
+      {
+        "file": "02-polygon-editor.png",
+        "bytes": 235967,
+        "sha256": "4cc37471dced17996cd22f65288b78027725251bccaefdc4d18b1522007f5f3e",
+        "manualVisualInspection": true,
+        "rawQrDecoded": false
+      },
+      {
+        "file": "03-real-room.png",
+        "bytes": 286616,
+        "sha256": "829ade9445c689387c6a3bb26640ebd7267487225e2a57fbc4b2dc0414fcc050",
+        "manualVisualInspection": true,
+        "rawQrDecoded": false
+      },
+      {
+        "file": "04-real-invite.png",
+        "bytes": 55095,
+        "sha256": "2527b2282e25d8cef765400356a71836aff53f4fee28d15aad9d14f178522552",
+        "manualVisualInspection": true,
+        "rawQrDecoded": false
+      },
+      {
+        "file": "05-editor-large.png",
+        "bytes": 208440,
+        "sha256": "7b558df273773e03a8a05ba90159813a19fb87c0d04080edf73077e78dc011e3",
+        "manualVisualInspection": true,
+        "rawQrDecoded": false
+      },
+      {
+        "file": "live-room-invite.png",
+        "bytes": 2673,
+        "sha256": "dddfe1bfe740e20bb537a91c45adcda27ae312c4a14423bf1420e5e80bd8b368",
+        "manualVisualInspection": false,
+        "rawQrDecoded": true
+      }
+    ]
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "see deployment.json",
+  "publicLoadTest": "not-run",
+  "sharedQrProtocolIdentical": true
+}

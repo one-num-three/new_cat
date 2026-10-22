@@ -4,6 +4,7 @@ Page({
   onResize(e) { this.setData(presentation.resize(e)); },
   data:{cases:[],available:false},
   onLoad(){this.setData(presentation.metrics());const available=preview.enabled();this.setData({available,cases:available?preview.cases:[],groups:available?preview.groups:[]});if(!available)wx.reLaunch({url:'/pages/index/index'});},
+  openVenueEditor(){if(!preview.enabled())return;wx.navigateTo({url:'/field-editor/pages/edit/edit?devPreview=venueEditor&mapId=seu-jiulonghu-v1'});},
   openCalibration(){wx.navigateTo({url:'/pages/calibrate/calibrate?devPreview=calibrate'});},
   home(){wx.reLaunch({url:'/pages/index/index'});},
   openCampus(e){if(!preview.enabled())return;wx.navigateTo({url:'/pages/map/map?devPreview=mouse&mapId='+encodeURIComponent(e.currentTarget.dataset.map)});},

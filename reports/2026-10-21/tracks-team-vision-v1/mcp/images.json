@@ -1,0 +1,65 @@
+[
+  {
+    "file": "01-settings.png",
+    "sourceRun": "v4",
+    "label": "房主保存共享视野；change事件触发，原生保存按钮",
+    "width": 648,
+    "height": 1402,
+    "sha256": "bab07790a6da0c16422b8eac13725fd776717628e75535ddf18be203b71ce4fd",
+    "manualReview": true
+  },
+  {
+    "file": "02-team-vision.png",
+    "sourceRun": "v4",
+    "label": "本人离猫约230米，队友发现后显示两只猫；同点标记有重叠",
+    "width": 648,
+    "height": 1402,
+    "sha256": "3dfe4fa321c8b19496c53fd8422e5eeb98e19d92f564347f3fbd7aca678e9ea3",
+    "manualReview": true
+  },
+  {
+    "file": "03-rules.png",
+    "sourceRun": "v3",
+    "label": "规则抽屉：本局开启的联合视野与导出告知",
+    "width": 648,
+    "height": 1402,
+    "sha256": "f14e154759f68caedcc69d51692cc3c3001124024f26a68137afc0dbb8c3b61b",
+    "manualReview": true
+  },
+  {
+    "file": "04-self-track.png",
+    "sourceRun": "v7",
+    "label": "本人轨迹；显式导航声明修复后",
+    "width": 488,
+    "height": 1052,
+    "sha256": "ee8381849cd2665a169d14eb22744410dcaee1519d0fd6e2addecd0bb15cf369",
+    "manualReview": true
+  },
+  {
+    "file": "05-poster-top.png",
+    "sourceRun": "v8",
+    "label": "最终海报页面顶部；固定导航正常",
+    "width": 488,
+    "height": 1052,
+    "sha256": "a416821963fa82d71b67dc8534d95288a9fbe8a67d39958522e50c3e461c440a",
+    "manualReview": true
+  },
+  {
+    "file": "06-poster-actions.png",
+    "sourceRun": "v8",
+    "label": "最终海报页面底部；不点击相册或分享",
+    "width": 488,
+    "height": 1052,
+    "sha256": "c791f8bb4de91a97cca4904e83ca4ff9764a96c1874f41d28d8e3768a2acd043",
+    "manualReview": true
+  },
+  {
+    "file": "07-poster-native.png",
+    "sourceRun": "v8",
+    "label": "实际Canvas导出941×1672 PNG；隔离局模拟GPS，并非真实跑步",
+    "width": 941,
+    "height": 1672,
+    "sha256": "d76b6bdc5190b9231aa1df2a63930a62aa8d602f04e39ddca49d73fbef698110",
+    "manualReview": true
+  }
+]

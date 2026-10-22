@@ -1,0 +1,144 @@
+{
+  "version": "track-bubbles-v1",
+  "date": "2026-10-21",
+  "tool": "built-in image_gen",
+  "textMirrored": false,
+  "sprites": {
+    "fastest-edge-left": {
+      "kind": "fastest",
+      "edge": "left",
+      "text": "你在这里跑得最快",
+      "source": "fastest-edge-left-original.png",
+      "sourceSha256": "f5809e9813c221fa91e747705545e78dd4058cc09e9f88263543c3b03cdc9f8a",
+      "anchor": {
+        "u": 0.17578947368421052,
+        "v": 0.9070048309178744
+      },
+      "visibleBounds": {
+        "left": 0.14789473684210527,
+        "top": 0.11231884057971014,
+        "right": 0.8363157894736842,
+        "bottom": 0.9094202898550725
+      },
+      "transparentPixels": 930501,
+      "files": [
+        {
+          "file": "fastest-edge-left-320.png",
+          "width": 320,
+          "height": 139,
+          "bytes": 33034,
+          "sha256": "a0ad54248523cee39228b2a5bb53dc28001195997c94041eeec33265e676c1c3"
+        },
+        {
+          "file": "fastest-edge-left-640.png",
+          "width": 640,
+          "height": 279,
+          "bytes": 119550,
+          "sha256": "1747256145551041f72266774394ac6fc49561c10013c29bd8acfb0347265843"
+        }
+      ]
+    },
+    "fastest-edge-right": {
+      "kind": "fastest",
+      "edge": "right",
+      "text": "你在这里跑得最快",
+      "source": "fastest-edge-right-original.png",
+      "sourceSha256": "7ad7b2695c4d4f374b5e39d3bd907a1fd7545730264e99518082772565fcec68",
+      "anchor": {
+        "u": 0.8299104791995787,
+        "v": 0.9094202898550725
+      },
+      "visibleBounds": {
+        "left": 0.1627172195892575,
+        "top": 0.10990338164251208,
+        "right": 0.85202738283307,
+        "bottom": 0.9118357487922706
+      },
+      "transparentPixels": 921399,
+      "files": [
+        {
+          "file": "fastest-edge-right-320.png",
+          "width": 320,
+          "height": 140,
+          "bytes": 34382,
+          "sha256": "c07bbe1a79877757737858953b7be0766ea9b141f706d8181248656e393d65c3"
+        },
+        {
+          "file": "fastest-edge-right-640.png",
+          "width": 640,
+          "height": 279,
+          "bytes": 125498,
+          "sha256": "dd8e9ab546465de3d3c0f10f43a3296a32c9f7e5b427570007c0a5e14bced096"
+        }
+      ]
+    },
+    "closest-edge-left": {
+      "kind": "closest",
+      "edge": "left",
+      "text": "你在这里离猫最近",
+      "source": "closest-edge-left-original.png",
+      "sourceSha256": "f9993cbf5a42b5abcc06ad49c85b2d26c649687944f74e3b49a279cd30742b98",
+      "anchor": {
+        "u": 0.17482885729331227,
+        "v": 0.9118357487922706
+      },
+      "visibleBounds": {
+        "left": 0.14691943127962084,
+        "top": 0.12077294685990338,
+        "right": 0.8372827804107424,
+        "bottom": 0.9142512077294686
+      },
+      "transparentPixels": 929982,
+      "files": [
+        {
+          "file": "closest-edge-left-320.png",
+          "width": 320,
+          "height": 140,
+          "bytes": 33594,
+          "sha256": "03ba6f0b4d9da3f28b71924cb25710ad71b71ff2e7e3bcd98bfd70844c554b85"
+        },
+        {
+          "file": "closest-edge-left-640.png",
+          "width": 640,
+          "height": 279,
+          "bytes": 121167,
+          "sha256": "acffe5ae428b9e2a1dbd50babf7be1179063097354009ba8be056743b4943838"
+        }
+      ]
+    },
+    "closest-edge-right": {
+      "kind": "closest",
+      "edge": "right",
+      "text": "你在这里离猫最近",
+      "source": "closest-edge-right-original.png",
+      "sourceSha256": "c045822570793815a9428e55051409ef386262a7599ae33fb2477b76a69365e9",
+      "anchor": {
+        "u": 0.8362295945234334,
+        "v": 0.9142512077294686
+      },
+      "visibleBounds": {
+        "left": 0.1616640337019484,
+        "top": 0.11956521739130435,
+        "right": 0.8551869404949973,
+        "bottom": 0.9178743961352657
+      },
+      "transparentPixels": 930028,
+      "files": [
+        {
+          "file": "closest-edge-right-320.png",
+          "width": 320,
+          "height": 140,
+          "bytes": 33021,
+          "sha256": "51173ccde3c45385b30015bb22053d6b056a8e594681b0c0cf46d5bb3e0029c4"
+        },
+        {
+          "file": "closest-edge-right-640.png",
+          "width": 640,
+          "height": 279,
+          "bytes": 121223,
+          "sha256": "bd36b02407234332cd361424a7c39173b807f3c9cfb6fc06dd4fa6633b1cc5a7"
+        }
+      ]
+    }
+  }
+}

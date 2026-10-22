@@ -7,7 +7,7 @@ const folder='design/2026-10-13/global-font-v1/';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 
 test('Fusion UI is shared on all six registered pages and native button labels',()=>{
- const theme=read('utils/pixel-theme.wxss');assert.match(theme,/@import "\.\/fusion-font\.wxss"/);assert.match(theme,/font-family:CatMouseFusionUI,ParkReplicaUI/);
+ const theme=read('utils/pixel-theme.wxss');assert.match(read('app.wxss'),/@import "\.\/utils\/fusion-font\.wxss"/);assert.doesNotMatch(theme,/@import .*font\.wxss/);assert.match(theme,/font-family:CatMouseFusionUI,ParkReplicaUI/);
  for(const p of JSON.parse(read('app.json')).pages)assert.match(read(p+'.wxss'),/pixel-theme/);
  for(const p of ['pages/index/index.wxss','pages/room/room.wxss','components/nav-bar/nav-bar.wxss','components/pixel-action/pixel-action.wxss'])assert.match(read(p),/CatMouseFusionUI/);
  assert.doesNotMatch(read('components/pixel-action/pixel-action.wxml'),/<image/);assert.match(read('components/pixel-action/pixel-action.wxml'),/{{label}}/);

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "nativeCanvas": true,
+  "selfPosterOnly": true,
+  "hostExportPlayers": "see previous focused run",
+  "physicalCamera": false,
+  "phone": false,
+  "simulatedGps": true,
+  "fileActuallySent": false,
+  "imageActuallyShared": false,
+  "productionDataWritten": false,
+  "manualVisualReview": false
+}

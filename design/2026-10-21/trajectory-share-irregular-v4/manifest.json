@@ -1,0 +1,76 @@
+{
+  "version": "irregular-v4",
+  "tool": "built-in image_gen + deterministic map compositing",
+  "files": [
+    {
+      "file": "build.cjs",
+      "bytes": 2709,
+      "sha256": "0b9223eae4ca83463ee6e3b5187182513ed333ef5970bf38240eba8034600c95"
+    },
+    {
+      "file": "jiulonghu-overlay.png",
+      "bytes": 1499889,
+      "sha256": "81382dc64e5c9f51f69f93651304b93e9da99cbad216af4a7b89bed48812101f"
+    },
+    {
+      "file": "jiulonghu-preview.png",
+      "bytes": 3801148,
+      "sha256": "11ea987157c186b7cead1b6642779fbb4076035decf870c1f8f9e853e371de76"
+    },
+    {
+      "file": "layout.json",
+      "bytes": 2720,
+      "sha256": "e6aae3814f78009425bf127a534e535691833d5016e5d38b6a489209a3ca6f8b"
+    },
+    {
+      "file": "overlay-source.png",
+      "bytes": 1143862,
+      "sha256": "cd802fd71a6193b9e24c74ddac78505f49f5b21a03e900967a1a37386c0a7a07"
+    },
+    {
+      "file": "PROMPT.txt",
+      "bytes": 2180,
+      "sha256": "041db50e9690b3ba1d8d1b7d46baac57865f9efa99f35370531d572075032e20"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4212,
+      "sha256": "ae5fde9b030fd3651147dca594c9441ce7f639f5176293bb4e6d965aeb80a02f"
+    },
+    {
+      "file": "runtime-layer.cjs",
+      "bytes": 1760,
+      "sha256": "de700003e13748e481c4eaafeabb8fe7207d7577aea1b9a2c4a096b8a68337f2"
+    },
+    {
+      "file": "sipailou-overlay.png",
+      "bytes": 1499791,
+      "sha256": "32c8d7d4a2ead457cfe5c7371f9f490dc343d91dc56515006cff0848557534a9"
+    },
+    {
+      "file": "sipailou-preview.png",
+      "bytes": 3829605,
+      "sha256": "670ad0a80dbd67a6c9d86bd82fda3757e53394370969e3be29e4913462084703"
+    },
+    {
+      "file": "VERIFICATION.json",
+      "bytes": 662,
+      "sha256": "bbbeaa435f8bf7b6dbe22da5ae53f164d79f3119da62ffb817dd57564e8ba69d"
+    },
+    {
+      "file": "verify.cjs",
+      "bytes": 2315,
+      "sha256": "8a987502d7a3fee3f1fc6b7bb3b9a7a9f6804a7b8ce420e83d70e5248cff92ed"
+    },
+    {
+      "file": "xuanwu-overlay.png",
+      "bytes": 1500343,
+      "sha256": "ecd5c4580e39c933f045b29bd232d87dd1374262e745b8b3e51e03b01abc2360"
+    },
+    {
+      "file": "xuanwu-preview.png",
+      "bytes": 3369045,
+      "sha256": "28fe42c847b729b6b940e8d7a34a196d8597fb0699a28051d8fca4bad9953dae"
+    }
+  ]
+}

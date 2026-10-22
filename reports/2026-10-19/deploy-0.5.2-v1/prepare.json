@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "storage": "isolated real PostgreSQL",
+  "lateJoinWebSockets": 10,
+  "dynamicTargetCases": 3,
+  "captureAcceptance": {
+    "status": "PASS",
+    "database": "isolated real PostgreSQL",
+    "participants": 6,
+    "checks": [
+      "concurrent create idempotency",
+      "full-room reconnect",
+      "anonymous denied",
+      "non-host start denied",
+      "real invite PNG and path",
+      "polygon persisted",
+      "standard six-player hiding",
+      "role-filtered positions",
+      "expired proof denied",
+      "atomic two-cat capture",
+      "capture replay idempotency",
+      "same durable result for all members",
+      "server restart preserves result",
+      "create receipt survives restart"
+    ],
+    "acceleratedClock": true,
+    "phoneCamera": false,
+    "fieldGps": false,
+    "productionDataWritten": false
+  },
+  "sourceFiles": 39,
+  "productionDataWritten": false
+}

@@ -1,0 +1,8 @@
+{
+  "api/version": 200,
+  "testIdentity": 403,
+  "ready": 200,
+  "anonymousRoom": 401,
+  "health": 200,
+  "api/v2/maps": 200
+}

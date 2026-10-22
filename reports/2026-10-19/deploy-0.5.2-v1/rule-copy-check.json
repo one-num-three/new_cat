@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "serverRule": "ceil(joinedMice * 0.6)",
+  "roomBriefing": "cumulative mice 60%, rounded up; deadline unchanged",
+  "oldFixedTargetPromiseRemoved": true
+}

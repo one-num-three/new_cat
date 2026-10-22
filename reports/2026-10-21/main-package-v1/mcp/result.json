@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "screenshots": 3,
+  "simulators": 1,
+  "coldCreateMap": true,
+  "coldCampusSwitch": true,
+  "returnKeepsPageStack": true,
+  "imageDimensions": {
+    "width": 1254,
+    "height": 1254,
+    "type": "jpeg"
+  },
+  "simulatedGps": false,
+  "mockedApis": false,
+  "productionDataWritten": false,
+  "phone": false,
+  "uploadVerified": false
+}

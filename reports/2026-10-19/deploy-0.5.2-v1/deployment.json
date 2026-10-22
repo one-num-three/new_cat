@@ -1,0 +1,44 @@
+{
+  "status": "DEPLOYED",
+  "version": {
+    "version": "0.5.2",
+    "rulesVersion": "pilot-0.3",
+    "supportedRuleVersions": [
+      "pilot-0.2",
+      "pilot-0.3"
+    ],
+    "capabilities": {
+      "mapCalibration": true,
+      "customTeams": true,
+      "multiVenueMaps": true,
+      "polygonVenues": true,
+      "mapCatalog": true,
+      "roomInvites": true,
+      "createCommands": true,
+      "captureProtocol": "capture-v1",
+      "lateJoin": "reinforce-v2",
+      "dynamicCaptureTarget": "joined-mice-60-v1",
+      "roundReadiness": "fresh-v1",
+      "snapshotViewer": true
+    }
+  },
+  "release": "/opt/cat-mouse/release-20261019-dynamic-target-v1",
+  "previousRelease": "/opt/cat-mouse/release-20261019-join-sync-v1",
+  "backup": "/opt/cat-mouse/backup-before-dynamic-target-1792420464.dump",
+  "unitBackup": "/opt/cat-mouse/unit-before-dynamic-target-1792420464.service",
+  "backupRestoreVerified": true,
+  "activeMatchesBeforeSwitch": 0,
+  "credentialsChanged": false,
+  "dataBefore": {
+    "rooms": 1,
+    "sessions": 6,
+    "results": 0,
+    "roomStateDigest": "c440458cbc0634592f07e442515b2251a1694455b38b0bc29d5d066b92cb1b84"
+  },
+  "dataAfter": {
+    "rooms": 1,
+    "sessions": 6,
+    "results": 0,
+    "roomStateDigest": "c440458cbc0634592f07e442515b2251a1694455b38b0bc29d5d066b92cb1b84"
+  }
+}

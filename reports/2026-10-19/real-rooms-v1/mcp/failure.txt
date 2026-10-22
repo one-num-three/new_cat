@@ -1,0 +1,11 @@
+AssertionError [ERR_ASSERTION]: {"ok":false,"errorType":"MCP_TOOL_ERROR","message":"timeout waiting for automator response","source":"mcp_business","detail":{"rawResult":{"success":false,"error":"timeout waiting for automator response"}},"reason":"mcp_business_fail","tool":"automation_evaluate","clientName":"Codex","suggestions":"查看该工具完整参数, wechatide -c Codex automation_evaluate -h"}
+    at call (D:\cat-mouse-miniprogram\.local-test-tmp\real-room-mcp.cjs:4:395)
+    at evaluate (D:\cat-mouse-miniprogram\.local-test-tmp\real-room-mcp.cjs:5:136)
+    at Object.<anonymous> (D:\cat-mouse-miniprogram\.local-test-tmp\real-room-mcp.cjs:12:3)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)

@@ -1,0 +1,1 @@
+{"tool":"automation_evaluate","project":"D:\\cat-mouse-miniprogram","args":{"fn-source":"function(){return new Promise((resolve,reject)=>wx.reLaunch({url:'/pages/index/index',success:resolve,fail:reject}));}","args-file":"D:\\cat-mouse-miniprogram\\reports\\2026-10-19\\real-rooms-v1\\mcp\\arguments-0.json"}}

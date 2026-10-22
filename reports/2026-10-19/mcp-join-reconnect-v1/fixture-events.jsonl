@@ -1,0 +1,5 @@
+{"at":"2026-10-19T12:27:32.994Z","kind":"start","matchId":"6fa1d649-5577-42c2-8ec9-fed94e843482","roles":{"e6f62979-1dfd-4c5c-9f4c-ef572025045b":"mouse","82c5e0f2-334f-4ccd-a4c6-4123da153ae2":"mouse","0b374cd8-0318-4cde-8267-866e39b2030e":"mouse","b7a3fca7-179e-4eba-b036-6fd4ca81301f":"mouse","9f62689e-ba4b-4f91-bbb0-1d69926e5c1b":"mouse","1cb5f4b7-52ad-49f7-b424-861199a4588a":"cat","328665d8-02d3-47ef-a2dc-ce81a4f374ad":"mouse","76ca8c7b-e6ed-4e52-a54f-66625aa79bf3":"cat"},"target":4}
+{"at":"2026-10-19T12:28:36.659Z","kind":"capture","catIndex":5,"mouseIndex":0,"captured":1}
+{"at":"2026-10-19T12:30:45.741Z","kind":"network_partition","index":8}
+{"at":"2026-10-19T12:31:12.910Z","kind":"network_restored","index":8}
+{"at":"2026-10-19T12:32:47.940Z","kind":"shutdown","databaseRemoved":true}

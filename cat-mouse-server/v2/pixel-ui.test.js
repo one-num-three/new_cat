@@ -33,7 +33,7 @@ function pageFixture(name,options={}){
   const loc=guarded(options.loc||{},'loc.');
   vm.runInNewContext(read('pages/'+name+'/'+name+'.js'),{
     Page:value=>page=value,wx,Date,Math,Number,Error,Promise,JSON,encodeURIComponent,
-    require:name=>name.includes('venue-catalog')?require('../../utils/venue-catalog'):name.includes('venue-resources')?require('../../utils/venue-resources'):name.includes('map-markers')?require('../../utils/map-markers'):name.includes('capture-proof')?require('../../utils/capture-proof'):name.includes('team-config')?require('../../utils/team-config'):name.includes('presentation')?require('../../utils/presentation'):name.includes('snapshot-v2')?{shouldApply:()=>true}:name.includes('location-v2')?loc:name.includes('dev-preview')?(options.preview||{}):api,
+    require:name=>name.includes('room-live')?require('../../utils/room-live'):name.includes('venue-boundary')?require('../../utils/venue-boundary'):name.includes('venue-catalog')?require('../../utils/venue-catalog'):name.includes('venue-resources')?require('../../utils/venue-resources'):name.includes('map-markers')?require('../../utils/map-markers'):name.includes('capture-flow')?require('../../utils/capture-flow'):name.includes('qr-protocol')?require('../../utils/qr-protocol'):name.includes('capture-proof')?require('../../utils/capture-proof'):name.includes('team-config')?require('../../utils/team-config'):name.includes('presentation')?require('../../utils/presentation'):name.includes('snapshot-v2')?{...require('../../utils/snapshot-v2'),shouldApply:()=>true}:name.includes('location-v2')?loc:name.includes('dev-preview')?(options.preview||{}):api,
     setTimeout:reject('setTimeout'),setInterval:reject('setInterval'),clearTimeout:reject('clearTimeout'),clearInterval:reject('clearInterval')
   });
   page.setData=patch=>Object.assign(page.data,patch);return {page,effects};
@@ -138,7 +138,7 @@ test('pixel map primary buttons retain the exact server-projected action gates',
   for(const phase of ['HIDING','CHASING','PAUSED','FINISHED','CANCELLED'])for(const myRole of ['cat','mouse'])for(const myStatus of ['active','captured'])for(const owner of [false,true])for(const offline of [false,true]){
     const data=project({owner,match:{phase,myRole,myStatus},roster:[]},offline),live=!offline&&phase==='CHASING'&&myStatus==='active';
     assert.equal(data.canScan,live&&myRole==='cat');assert.equal(data.canShowCode,live&&myRole==='mouse');
-    assert.equal(data.canResume,!offline&&phase==='PAUSED'&&owner);assert.equal(data.canReplay,!offline&&['FINISHED','CANCELLED'].includes(phase)&&owner);
+    assert.equal(data.canResume,!offline&&phase==='PAUSED'&&owner);assert.equal(data.canReplay,!offline&&['FINISHED','CANCELLED'].includes(phase));
   }
 });
 
@@ -151,7 +151,7 @@ test('map action methods independently reject false permissions and preserve ena
   p.data.canScan=true;p.data.loading=true;p.scan();p.data.loading=false;p.data.offline=true;p.scan();assert.deepEqual(events,[]);
   p.data.offline=false;p.scan();assert.deepEqual(events.splice(0),[['scan']]);
   p.data.canShowCode=true;p.devPreview=true;p.showCode();assert.equal(p.data.codeOpen,true);assert.deepEqual(events.splice(0),[]);p.closeCode();p.devPreview=false;
-  p.data.canResume=true;p.data.loading=true;await p.resume();assert.deepEqual(events,[]);p.data.loading=false;await p.resume();assert.deepEqual(events.splice(0),[['position','real-room'],['resume','real-room'],['poll']]);
+  p.data.match={phase:'PAUSED',myStatus:'active'};p.data.canResume=true;p.data.loading=true;await p.resume();assert.deepEqual(events,[]);p.data.loading=false;await p.resume();assert.deepEqual(events.splice(0),[['position','real-room'],['resume','real-room'],['poll']]);
   p.data.canReplay=true;p.replay();assert.deepEqual(events.splice(0),[['redirect','/pages/room/room?roomId=real-room']]);assert.deepEqual(f.effects,[]);
 });
 
@@ -169,7 +169,7 @@ test('cancelled result counts and drawer names remain server data rather than pa
 
 test('native page application retains non-sample server targets and variable roster sizes',()=>{
   const roster=Array.from({length:11},(_,i)=>({id:'server-'+i,nickname:'服务器成员-'+i,role:i<3?'cat':'mouse',status:i===4?'captured':'active',ready:i<10}));
-  const map=pageFixture('map',{wx:{getStorageSync:()=>roster[0].id},loc:{stop:()=>{}}});map.page.active=true;
+  const map=pageFixture('map',{wx:{getStorageSync:()=>roster[0].id},loc:{stop:()=>{},syncMatch:()=>{},status:()=>({running:false})}});map.page.active=true;
   const snapshot={version:4,serverTime:1000,owner:false,roster,rules:{total:11,cats:3,mice:8},match:{id:'server-cancel',phase:'CANCELLED',myRole:'cat',myStatus:'active',captured:2,target:7,remainingMs:0},venue:{lat:32.07,lng:118.79,radiusM:200},visiblePositions:[],intel:[],events:[]};
   map.page.apply(snapshot);
   assert.equal(map.page.data.match,snapshot.match);assert.equal(map.page.data.match.target,7);assert.equal(map.page.data.match.captured,2);
@@ -221,8 +221,8 @@ test('pixel asset extraction excludes map slices and retains historical v3 lock 
   const venue=JSON.parse(read('design/maps/xuanwu-lake/runtime-v1/manifest.json'));
   assert.equal(venue.width,1154);assert.equal(venue.height,1363);assert.equal(venue.georeferenced,false);assert.equal(venue.geographicOverlay,false);
   assert.equal(sha(bytes(venue.source)),'c3abcab8c59bdd55d3529d8457fb03c53a8f852f2529f1dd6515f5447f34b4a6');assert.equal(sha(bytes(venue.path)),venue.sha256);
-  assert.equal(require('../../utils/presentation').project({}).parkArt,'/assets/maps/xuanwu-lake-v4.jpg');
-  assert.match(read('pages/room/room.wxml'),/src="{{venueSource}}" mode="aspectFit"/);assert.equal(require('../../utils/venue-catalog').get().src,'/assets/maps/xuanwu-lake-v4.jpg');
+  assert.equal(require('../../utils/presentation').project({}).parkArt,'/venue-xuanwu/assets/xuanwu-lake-v4.jpg');
+  assert.match(read('pages/room/room.wxml'),/src="{{venueSource}}" mode="aspectFit"/);assert.equal(require('../../utils/venue-catalog').get().src,'/venue-xuanwu/assets/xuanwu-lake-v4.jpg');
   assert.match(read('components/venue-art/venue-art.wxml'),/mode="aspectFit"/);
 });
 
@@ -233,7 +233,7 @@ test('pixel font embeds exactly the retained 107816-byte variable WOFF with its 
   const css=read('utils/pixel-font.wxss'),encoded=css.match(/base64,([A-Za-z0-9+/=]+)/);assert.ok(encoded);assert.deepEqual(Buffer.from(encoded[1],'base64'),buffer);
   assert.match(css,/font-family\s*:\s*['"]?ParkReplicaUI/);assert.match(css,/font-weight\s*:\s*100\s+900/);
   assert.equal(sha(bytes(license.path)),license.sha256);assert.deepEqual(bytes(license.path),bytes(license.source));assert.match(read(license.path),/SIL OPEN FONT LICENSE Version 1\.1/);
-  assert.match(read('utils/pixel-theme.wxss'),/@import "\.\/pixel-font\.wxss"/);assert.match(read('utils/pixel-theme.wxss'),/ParkReplicaUI,"PingFang SC"/);
+  assert.match(read('app.wxss'),/@import "\.\/utils\/pixel-font\.wxss"/);assert.match(read('utils/pixel-theme.wxss'),/ParkReplicaUI,"PingFang SC"/);
 });
 
 

@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-21",
+  "tests": {
+    "total": 209,
+    "passed": 209,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 20,
+      "status": 0
+    },
+    "wxss": {
+      "files": 25,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/settings/settings.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/tracks/tracks.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/share/share.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-xuanwu/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "app.js",
+      "status": 0
+    },
+    {
+      "file": "utils/location-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "status": 0
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "status": 0
+    },
+    {
+      "file": "utils/room-live.js",
+      "status": 0
+    },
+    {
+      "file": "utils/snapshot-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/store.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/map-catalog.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/acceptance.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    },
+    {
+      "file": "utils/track-export.js",
+      "status": 0
+    },
+    {
+      "file": "utils/track-poster.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/visibility.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/tracks.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/tracks-vision.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/mcp-tracks-fixture.cjs",
+      "status": 0
+    },
+    {
+      "file": "scripts/mcp-tracks-vision.cjs",
+      "status": 0
+    },
+    {
+      "file": "scripts/mcp-track-poster.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 743,
+    "bytes": 29704,
+    "sha256": "9045c8f6b3e17c1e6a0e358ec9db2fb2e0cf37ab27de8d367fbce45141bdc55a"
+  },
+  "packageFiles": 166,
+  "rawLocalBytes": {
+    "main": 1001915,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 1167770,
+    "venue-maps": 1981470,
+    "venue-xuanwu": 804649
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "passed-with-explicit-scope",
+    "manualVisualReview": true,
+    "validImages": 7,
+    "simulators": 1,
+    "realLocalHttpSqlWebSocket": true,
+    "realLocalMatch": true,
+    "realServerClock": true,
+    "simulatedGps": true,
+    "switchChangeTriggered": true,
+    "physicalCamera": false,
+    "phone": false,
+    "backgroundPermissionMockedInEarlierFlow": true,
+    "fileGeneratedByNativeButton": true,
+    "fileActuallySent": false,
+    "nativeCanvas": true,
+    "albumOrImageSharingTested": false,
+    "selfExportPlayers": 1,
+    "hostExportPlayers": 8,
+    "productionDataWritten": false,
+    "restore": {
+      "restored": true,
+      "backupRemoved": true
+    },
+    "notes": [
+      "One simulator viewed identities sequentially; not eight simultaneous physical devices.",
+      "Full flow v3: cat win/capture proof, self CSV and host GeoJSON, but screenshot08 was white and excluded.",
+      "v4 AppID timeout caused local pause-budget cancellation. Permission-masked screenshots are excluded.",
+      "v6: fresh test match finished by four actual dynamic-code commands; exported canvas and all-player file.",
+      "v7 explicit navigation component declaration fixed missing headers; next AppID timeout restored original session.",
+      "v8 only poster, final fixed header/footer and native PNG reviewed; no GPS API invoked.",
+      "Same-location test actor pins overlap; real-world marker collision handling is unchanged."
+    ]
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "not-run",
+  "publicLoadTest": "not-run",
+  "sharedQrProtocolIdentical": true
+}

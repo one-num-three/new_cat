@@ -1,0 +1,23 @@
+'use strict';
+// Official MCP; checks real local resource loading without account, GPS or network mocks.
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),out=path.resolve(process.argv[2]);fs.mkdirSync(out,{recursive:true});
+const shell='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe';let seq=Date.now();
+const save=(n,v)=>fs.writeFileSync(path.join(out,n+'.json'),JSON.stringify(v,null,2));
+function command(tool,args){const id=++seq,file=path.join(out,'command-'+id+'.json');save('command-'+id,{tool,project:root,args});const r=cp.spawnSync(shell,['-NoProfile','-File',path.join(root,'scripts/wechat-mcp-command.ps1'),'-InputFile',file],{encoding:'utf8',timeout:50000});fs.writeFileSync(path.join(out,'call-'+id+'.log'),(r.stdout||'')+(r.stderr||''));assert.equal(r.status,0,'MCP '+tool);const j=JSON.parse(r.stdout.slice(r.stdout.indexOf('{')));assert.ok(j.ok&&j.result.success,JSON.stringify(j));return j.result;}
+function evaluate(fn,data={}){const file=path.join(out,'args-'+(++seq)+'.json');fs.writeFileSync(file,JSON.stringify([data]));return command('automation_evaluate',{'fn-source':fn.toString().replace(/\r?\n/g,' '),'args-file':file}).result.result;}
+function read(){return evaluate(function(){const p=getCurrentPages().slice(-1)[0],c=p?.selectComponent?.('.venueArt'),r=require('utils/venue-resources');return {route:p?.route,active:p?.active,mapId:p?.data.mapId,source:p?.data.venueSource,venueResource:p?.data.venueResource,locationOn:!!p?.data.locationOn,error:p?.data.error,stack:getCurrentPages().map(p=>p.route),xuanwu:r.ready('xuanwu-v4'),campus:r.ready('seu-jiulonghu-v1'),art:c?{state:c.data.imageState,nodes:c.data.imageNodes.length,scale:c.data.scaleValue,width:c.data.fitWidth,height:c.data.fitHeight,src:c.data.src}:null};});}
+function wait(predicate,label){let v;for(let i=0;i<12;i++){v=read();if(predicate(v))return v;}throw Error(label+': '+JSON.stringify(v));}
+function shot(name){save(name,read());command('simulator_screenshot',{path:path.join(out,name+'.png'),optimize:'false',wait:1});console.log('SHOT '+name);}
+function navigate(url){evaluate(function(url){wx.navigateTo({url});return true;},url);}
+(async()=>{try{
+ const before=evaluate(function(){const r=require('utils/venue-resources');return {xuanwu:r.ready('xuanwu-v4'),campus:r.ready('seu-jiulonghu-v1'),base:require('utils/v2').config.baseUrl,location:require('utils/location-v2').status(),develop:wx.getAccountInfoSync().miniProgram.envVersion};});save('before',before);assert.equal(before.develop,'develop');assert.equal(before.xuanwu,false,'start after a simulator refresh');assert.equal(before.campus,false);assert.equal(before.location.running,false);
+ navigate('/pages/room/room?mode=create');wait(v=>v.route==='pages/room/room'&&v.active&&v.venueResource==='ready'&&v.xuanwu,'cold create illustration');shot('01-create-cold-map');
+ evaluate(function(){wx.navigateBack();return true;});wait(v=>v.route==='pages/index/index','home');
+ navigate('/pages/venue/venue?mapId=xuanwu-v4');wait(v=>v.route==='pages/venue/venue'&&v.art?.state==='ready'&&v.art.nodes===1&&v.xuanwu,'xuanwu map');shot('02-xuanwu-guide');
+ const info=evaluate(async function(){return await new Promise((resolve,reject)=>wx.getImageInfo({src:require('utils/venue-catalog').get().src,success:r=>resolve({width:r.width,height:r.height,type:r.type}),fail:reject}));});assert.equal(info.width,1254);assert.equal(info.height,1254);save('image-info',info);
+ evaluate(function(){getCurrentPages().slice(-1)[0].selectVenueMap({detail:{value:1}});return true;});wait(v=>v.route==='pages/venue/venue'&&v.mapId==='seu-jiulonghu-v1'&&v.art?.state==='ready'&&v.campus,'cold campus switch');shot('03-campus-guide');
+ evaluate(function(){getCurrentPages().slice(-1)[0].selectVenueMap({detail:{value:0}});return true;});const back=wait(v=>v.route==='pages/venue/venue'&&v.mapId==='xuanwu-v4'&&v.art?.state==='ready','return xuanwu');assert.equal(back.stack.length,2);assert.equal(back.locationOn,false);assert.ok(Math.abs(back.art.width/back.art.height-1)<1e-6);save('return-xuanwu',back);
+ save('result',{status:'passed',screenshots:3,simulators:1,coldCreateMap:true,coldCampusSwitch:true,returnKeepsPageStack:true,imageDimensions:info,simulatedGps:false,mockedApis:false,productionDataWritten:false,phone:false,uploadVerified:false});console.log('PACKAGE_RESOURCE_FLOW_PASSED');
+ }catch(e){save('failure',{message:e.message,stack:e.stack});throw e;}finally{evaluate(function(){wx.reLaunch({url:'/pages/index/index'});return {homeRequested:true};});}}
+)().catch(e=>{console.error(e.stack);process.exitCode=1;});

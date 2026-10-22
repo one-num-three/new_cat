@@ -20,7 +20,7 @@ test('trusted two identity round trip, permissions, capture, persistence and res
   try {
     await boot();
     const version=(await req('GET','/api/version')).data;
-    assert.equal(version.version,'0.3.2');assert.equal(version.capabilities.multiVenueMaps,true);
+    assert.equal(version.version,'0.6.1');assert.equal(version.capabilities.trackExport,'tracks-v1');assert.equal(version.capabilities.mouseTeamVision,'vision-share-v1');assert.equal(version.capabilities.roundReadiness,'fresh-v1');assert.equal(version.capabilities.multiVenueMaps,true);assert.equal(version.capabilities.polygonVenues,true);
     const a = (await req('POST','/api/v2/session/test',{})).data, b = (await req('POST','/api/v2/session/test',{})).data, c=(await req('POST','/api/v2/session/test',{})).data;
     assert.equal((await req('GET','/api/v2/rooms/NOPE')).status,401);
     assert.equal((await req('POST','/api/v2/rooms',{ total: 1, venue: { lat:32,lng:118,radiusM:200,confirmed:true }, nickname:'a' },a.token)).data.error,'INVALID_PRESET');
@@ -31,7 +31,7 @@ test('trusted two identity round trip, permissions, capture, persistence and res
     assert.equal((await req('POST',`/api/v2/rooms/${id}/join`,{ nickname:'b' },b.token)).status,200);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/join`,{ nickname:'c' },c.token)).data.error,'ROOM_FULL');
     assert.equal((await req('GET',`/api/v2/rooms/${id}`,undefined,c.token)).status,403);
-    assert.equal((await req('PUT',`/api/v2/rooms/${id}/settings`,{winner:'cat_win'},c.token)).status,404);
+    assert.equal((await req('PUT',`/api/v2/rooms/${id}/settings`,{winner:'cat_win'},c.token)).status,403);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/start`,{},b.token)).status,403);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/cancel`,{ winner:'cat_win' },b.token)).status,403);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/start`,{},a.token)).data.error,'NOT_READY');
@@ -76,6 +76,7 @@ test('trusted two identity round trip, permissions, capture, persistence and res
     assert.equal(restored.match.outcome,'cat_win'); assert.equal(restored.match.id,matchId);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/start`,{},a.token)).data.error,'NOT_READY');
     await loc(a.token); await loc(b.token);
+    await req('POST',`/api/v2/rooms/${id}/ready`,{ready:true},a.token);await req('POST',`/api/v2/rooms/${id}/ready`,{ready:true},b.token);
     const secondResponse = await req('POST',`/api/v2/rooms/${id}/start`,{},a.token); assert.equal(secondResponse.status,200,JSON.stringify(secondResponse.data)); const second=secondResponse.data;
     assert.notEqual(second.match.id,matchId);
     assert.notEqual(second.roster.find(p=>p.role==='cat').id,started.roster.find(p=>p.role==='cat').id);

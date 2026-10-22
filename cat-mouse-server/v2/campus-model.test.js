@@ -20,10 +20,11 @@ test('model reference is independent of pixel art and explicitly approximate; he
 });
 test('3D uses only explicitly supplied authorized pins; enemy intelligence stays an uncertainty ring, outside regions are never clipped to a point',()=>{
  const hidden={lat:31.89,lng:118.825,tone:'enemy',label:'秘密'};
- const data={points:[self,hidden,{...self,tone:'ally'},{...self,tone:'venue'}],regions:[{...self,radiusM:45}],roster:[hidden]};
+ const data={points:[self,{...self,tone:'ally'},{...self,tone:'venue'}],regions:[{...self,radiusM:45}],roster:[hidden]};
  const before=plain(data),out=model.overlay(data,id);assert.deepEqual(data,before);assert.equal(out.points.length,3);assert.ok(!JSON.stringify(out).includes('秘密'));assert.equal(out.regions.length,1);assert.equal(out.regions[0].length,65);assert.ok(out.regions[0].every(p=>Math.hypot(p.x-out.points[0].x,p.z-out.points[0].z)>30));assert.equal(out.omittedRegions,0);
  assert.equal(model.overlay({regions:[{lat:0,lng:0,radiusM:45},{...self,radiusM:-1}]},id).omittedRegions,2);assert.deepEqual(model.overlay({},id).points,[]);
  assert.deepEqual(model.overlay(data,'seu-sipailou-v1').points,[]);
+ assert.equal(model.overlay({points:[{...self,tone:'enemy',label:'猫 · 队伍视野'}]},id).points[0].tone,'enemy');
 });
 test('camera keeps source proportions through portrait/landscape, pan, pinch, rotation, tilt and bounded margins',()=>{
  for(const [w,h] of [[390,700],[320,400],[800,400]]){let c=camera.initial(w,h),m=camera.matrix(c,w,h);const center=camera.project({x:c.x,y:0,z:c.z},m,w,h);assert.ok(Math.abs(center.x-w/2)<.001&&Math.abs(center.y-h/2)<.001);

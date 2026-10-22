@@ -1,0 +1,274 @@
+{
+  "pass": true,
+  "renderer": "desktop @napi-rs/canvas using actual product painter",
+  "nativeWechat": false,
+  "synthetic": true,
+  "maps": 3,
+  "flags": 6,
+  "layerOrder": [
+    "map",
+    "route",
+    "frame",
+    "highlightDots",
+    "highlightBubbles",
+    "startFinishFlags",
+    "stats"
+  ],
+  "allFlagPixelsPreserved": true,
+  "bubbleFlagCollisions": 0,
+  "geographicPointsUnchanged": true,
+  "negativeControlDetected": true,
+  "records": [
+    {
+      "key": "xuanwu",
+      "synthetic": true,
+      "coordinateSystem": "image-space layout regression; NOT GPS",
+      "mapSha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+      "flags": [
+        {
+          "kind": "start",
+          "point": {
+            "x": 412.719298245614,
+            "y": 536.6108452950558
+          },
+          "size": 140,
+          "angle": 0,
+          "box": {
+            "x": 371.7464114832536,
+            "y": 412.79904306220095,
+            "w": 140,
+            "h": 139.99999999999994
+          }
+        },
+        {
+          "kind": "finish",
+          "point": {
+            "x": 345.93381180223287,
+            "y": 650.6714513556619
+          },
+          "size": 140,
+          "angle": 0,
+          "box": {
+            "x": 304.96092503987245,
+            "y": 526.6363636363637,
+            "w": 140,
+            "h": 140
+          }
+        }
+      ],
+      "callouts": [
+        {
+          "kind": "fastest",
+          "point": {
+            "x": 218.36602870813397,
+            "y": 848.0263157894738
+          },
+          "edge": "left",
+          "box": {
+            "x": 457.96092503987245,
+            "y": 676.6051201372999,
+            "w": 289.13684210526316,
+            "h": 171.4211956521739
+          },
+          "tip": {
+            "x": 469.67671451355665,
+            "y": 847.5856454996187
+          },
+          "avoidance": null
+        },
+        {
+          "kind": "nearest",
+          "point": {
+            "x": 713.6291866028708,
+            "y": 1022.1188197767145
+          },
+          "edge": "right",
+          "box": {
+            "x": 153.68130418679186,
+            "y": 849.4295081825117,
+            "w": 291.2796208530806,
+            "h": 172.6893115942029
+          },
+          "tip": {
+            "x": 436.99883973181556,
+            "y": 1021.4530589071494
+          },
+          "avoidance": null
+        }
+      ],
+      "bubbleFlagCollisions": 0,
+      "checkedOpaqueFlagPixels": 8859,
+      "coveredFlagPixels": 0
+    },
+    {
+      "key": "jiulonghu",
+      "synthetic": true,
+      "coordinateSystem": "image-space layout regression; NOT GPS",
+      "mapSha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5",
+      "flags": [
+        {
+          "kind": "start",
+          "point": {
+            "x": 419.4728867623605,
+            "y": 1108.4146730462521
+          },
+          "size": 140,
+          "angle": 0,
+          "box": {
+            "x": 378.5,
+            "y": 984.6028708133972,
+            "w": 140,
+            "h": 140
+          }
+        },
+        {
+          "kind": "finish",
+          "point": {
+            "x": 828.4401913875598,
+            "y": 784.9928229665072
+          },
+          "size": 140,
+          "angle": 0,
+          "box": {
+            "x": 787.4673046251994,
+            "y": 660.957735247209,
+            "w": 140,
+            "h": 140
+          }
+        }
+      ],
+      "callouts": [
+        {
+          "kind": "fastest",
+          "point": {
+            "x": 156.0829346092504,
+            "y": 875.7910685805423
+          },
+          "edge": "left",
+          "box": {
+            "x": 144.3671451355662,
+            "y": 704.8105432182234,
+            "w": 289.13684210526316,
+            "h": 171.4211956521739
+          },
+          "tip": {
+            "x": 156.0829346092504,
+            "y": 875.7910685805423
+          },
+          "avoidance": null
+        },
+        {
+          "kind": "nearest",
+          "point": {
+            "x": 649.8452950558213,
+            "y": 1128.6754385964912
+          },
+          "edge": "left",
+          "box": {
+            "x": 631.0473933649289,
+            "y": 957.3176487414187,
+            "w": 289.9526066350711,
+            "h": 171.8016304347826
+          },
+          "tip": {
+            "x": 642.7693522906793,
+            "y": 1128.6754385964912
+          },
+          "avoidance": "switched direction to avoid flags/bubbles"
+        }
+      ],
+      "bubbleFlagCollisions": 0,
+      "checkedOpaqueFlagPixels": 8886,
+      "coveredFlagPixels": 0,
+      "negativeControl": {
+        "checkedOpaqueFlagPixels": 8886,
+        "coveredFlagPixels": 4117
+      },
+      "fixedLayerControl": {
+        "checkedOpaqueFlagPixels": 8886,
+        "coveredFlagPixels": 0
+      }
+    },
+    {
+      "key": "sipailou",
+      "synthetic": true,
+      "coordinateSystem": "image-space layout regression; NOT GPS",
+      "mapSha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9",
+      "flags": [
+        {
+          "kind": "start",
+          "point": {
+            "x": 467.4984051036683,
+            "y": 911.0598086124402
+          },
+          "size": 140,
+          "angle": 0,
+          "box": {
+            "x": 426.5255183413078,
+            "y": 787.2480063795853,
+            "w": 140,
+            "h": 140
+          }
+        },
+        {
+          "kind": "finish",
+          "point": {
+            "x": 499.0151515151515,
+            "y": 545.615629984051
+          },
+          "size": 140,
+          "angle": 0,
+          "box": {
+            "x": 458.0422647527911,
+            "y": 421.58054226475275,
+            "w": 140,
+            "h": 140.00000000000006
+          }
+        }
+      ],
+      "callouts": [
+        {
+          "kind": "fastest",
+          "point": {
+            "x": 63.78389154704944,
+            "y": 739.2185007974481
+          },
+          "edge": "left",
+          "box": {
+            "x": 52.068102073365246,
+            "y": 568.2379754351292,
+            "w": 289.13684210526316,
+            "h": 171.4211956521739
+          },
+          "tip": {
+            "x": 63.78389154704944,
+            "y": 739.2185007974481
+          },
+          "avoidance": null
+        },
+        {
+          "kind": "nearest",
+          "point": {
+            "x": 721.1331738437002,
+            "y": 767.7336523125997
+          },
+          "edge": "right",
+          "box": {
+            "x": 437.8156382986765,
+            "y": 595.710101587962,
+            "w": 291.2796208530806,
+            "h": 172.6893115942029
+          },
+          "tip": {
+            "x": 721.1331738437002,
+            "y": 767.7336523125997
+          },
+          "avoidance": null
+        }
+      ],
+      "bubbleFlagCollisions": 0,
+      "checkedOpaqueFlagPixels": 8839,
+      "coveredFlagPixels": 0
+    }
+  ]
+}

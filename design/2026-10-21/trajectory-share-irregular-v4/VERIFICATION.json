@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "date": "2026-10-21",
+  "variants": 3,
+  "trueAlpha": true,
+  "routeAndStatsEmpty": true,
+  "sourceMapsUnchanged": true,
+  "gapAndInvalidPointsSplit": true,
+  "coordinatePlacementVerified": true,
+  "files": [
+    {
+      "file": "xuanwu-overlay.png",
+      "transparentPixels": 738377,
+      "centerAlpha": 0,
+      "mapSourceUnchanged": true
+    },
+    {
+      "file": "jiulonghu-overlay.png",
+      "transparentPixels": 738377,
+      "centerAlpha": 0,
+      "mapSourceUnchanged": true
+    },
+    {
+      "file": "sipailou-overlay.png",
+      "transparentPixels": 738377,
+      "centerAlpha": 0,
+      "mapSourceUnchanged": true
+    }
+  ]
+}

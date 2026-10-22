@@ -1,0 +1,14 @@
+{
+  "xuanwu": false,
+  "campus": false,
+  "base": "https://seu-link.fit/catmouse",
+  "location": {
+    "running": false,
+    "mode": "off",
+    "backgroundReady": false,
+    "notice": "",
+    "roomId": null,
+    "matchId": null
+  },
+  "develop": "develop"
+}

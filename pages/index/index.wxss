@@ -22,3 +22,5 @@
 
 .homeScreen{width:var(--vw,100vw)}
 .homeScreen .venueEntry,.homeScreen .resumeBand{width:100%!important}
+
+.scanInviteButton{margin:14rpx 0;width:100%;border:2px solid #477f60;border-radius:2px;color:#384b38;background:#fcf8ed;font-size:calc(29rpx * var(--font-scale));min-height:44px;line-height:1.4;padding:16rpx}.inviteLandingHint{display:block;font-size:26rpx;line-height:1.4;color:#477f60;margin:12rpx 0}

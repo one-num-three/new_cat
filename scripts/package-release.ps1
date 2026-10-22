@@ -27,8 +27,10 @@ New-Item -ItemType Directory -Path $miniStage,$serverStage -Force | Out-Null
 
 try {
   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
-  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','utils\map-markers.js','utils\venue-catalog.js','utils\venue-images.js','utils\campus-art-models.js','utils\venue-resources.js','venue-maps','assets\map-markers-v2','assets\pixel-v1','assets\maps','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
+  $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','utils\map-markers.js','utils\venue-catalog.js','utils\venue-images.js','utils\campus-art-models.js','utils\venue-resources.js','venue-maps','assets\map-markers-v2','assets\pixel-v1','venue-xuanwu','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
+  $miniFiles += @('app.wxss','utils\venue-boundary.js','utils\qr-protocol.js','utils\capture-flow.js','utils\room-live.js','field-editor','room-tools')
   $miniFiles += 'utils\foreground-location.js'
+  $miniFiles += @('utils\track-export.js','utils\track-poster.js','utils\track-highlights.js','utils\track-bubble-placement.js','utils\track-bubble-assets.js')
   $miniFiles += 'utils\location-scenarios.js'
   $miniFiles += @('utils\model-map.js','utils\model-reference.js','utils\model-camera.js','utils\model-resources.js','campus3d')
   foreach ($item in $miniFiles) {
@@ -51,8 +53,23 @@ try {
     if (Test-Path -LiteralPath $unusedSlice) { Remove-Item -LiteralPath $unusedSlice -Force }
   }
 
+  if ((Get-Content -LiteralPath (Join-Path $root 'components\pixel-action\pixel-action.wxml') -Raw) -match '<image') { throw 'Button artwork is used again; revisit package exclusions' }
+  foreach ($button in (Get-ChildItem -LiteralPath (Join-Path $miniStage 'assets\pixel-v1') -Filter 'button-*.png' -File)) { Remove-Item -LiteralPath $button.FullName -Force }
+
   # Historical faithful-v2 assets and styles stay in the repository but are not
   # part of the current pixel-v1 runtime file list.
+  $appManifest=Get-Content -LiteralPath (Join-Path $miniStage 'app.json') -Raw | ConvertFrom-Json
+  $packageBytes=@{main=0L}
+  foreach($file in @(Get-ChildItem -LiteralPath $miniStage -File -Recurse)) {
+    $relative=[IO.Path]::GetRelativePath($miniStage,$file.FullName).Replace('\','/')
+    $group='main'
+    foreach($part in $appManifest.subPackages){if($relative.StartsWith($part.root+'/')){$group=$part.root;break}}
+    if(!$packageBytes.ContainsKey($group)){$packageBytes[$group]=0L}
+    $packageBytes[$group]+=$file.Length
+  }
+  if($packageBytes.main -ge 1500000){throw "Main package exceeds 1,500,000-byte project budget: $($packageBytes.main)"}
+  foreach($group in $packageBytes.Keys){if($packageBytes[$group] -ge 2097152){throw "Package exceeds 2 MiB: $group"}}
+  @{rawLocalBytes=$packageBytes;mainLimitBytes=1500000;uploadVerified=$false} | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $out.Path 'package-budget.json') -Encoding utf8
   foreach ($item in $miniFiles) {
     if (-not (Test-Path -LiteralPath (Join-Path $miniStage $item))) {
       throw "Required miniprogram staged entry is missing: $item"

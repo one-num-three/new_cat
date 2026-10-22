@@ -1,0 +1,1 @@
+Component({properties:{signal:{type:Object,value:null},fontScale:{type:Number,value:1}},data:{bars:[1,2,3,4]},methods:{explain(){const s=this.properties.signal;if(!s)return;wx.showModal({title:'定位信号',showCancel:false,content:s.detail+'\n\n4格：≤5米；3格：≤10米；2格：≤25米；1格：>25米。灰色表示当前不可用。\n这是微信提供的精度估计，不是卫星信号强度或真实误差保证。'});}}});

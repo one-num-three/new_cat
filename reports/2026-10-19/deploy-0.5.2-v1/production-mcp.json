@@ -1,0 +1,16 @@
+{
+  "route": "pages/room/room",
+  "active": true,
+  "owner": true,
+  "ready": false,
+  "members": 1,
+  "match": null,
+  "socketOpen": true,
+  "connection": "实时连接",
+  "polling": false,
+  "viewerMatches": true,
+  "devPreview": false,
+  "error": "",
+  "base": "https://seu-link.fit/catmouse",
+  "localTestIdentities": false
+}

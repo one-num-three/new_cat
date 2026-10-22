@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "screenshots": 8,
+  "simulators": 1,
+  "realLocalHttpSqlWebSocket": true,
+  "realServerClock": true,
+  "simulatedGps": true,
+  "backgroundPermissionMocked": true,
+  "physicalCamera": false,
+  "phone": false,
+  "productionDataWritten": false,
+  "switchChangeTriggered": true,
+  "fileGeneratedByNativeButton": true,
+  "fileActuallySent": false,
+  "sharedCatsForDistantMouse": true,
+  "selfExportPlayers": 1,
+  "hostExportPlayers": 8
+}

@@ -5,7 +5,7 @@ const {wgs84togcj02}=require('../utils/vendor/coordtransform');
 const root=path.resolve(__dirname,'..'),source=path.join(root,'design/maps/seu-campuses-v1'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const entries=[{key:'jiulonghu',id:'seu-jiulonghu-v1',label:'东南大学 · 九龙湖',modelPath:'design/maps/seu-jiulonghu-registration-v3/jiulonghu-registration.json',bounds:[118.803,31.880,118.828,31.898]},{key:'sipailou',id:'seu-sipailou-v1',label:'东南大学 · 四牌楼',bounds:[118.780,32.052,118.797,32.062]}];
 (async()=>{
- const images=[{id:'xuanwu-v4',label:'玄武湖 · 环洲樱洲',src:'/assets/maps/xuanwu-lake-v4.jpg',width:1254,height:1254,sha256:'d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540',fieldVerified:false}],models={},records=[];
+ const images=[{id:'xuanwu-v4',label:'玄武湖 · 环洲樱洲',src:'/venue-xuanwu/assets/xuanwu-lake-v4.jpg',subpackage:'venue-xuanwu',width:1254,height:1254,sha256:'d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540',fieldVerified:false}],models={},records=[];
  fs.mkdirSync(path.join(root,'venue-maps/assets'),{recursive:true});
  for(const entry of entries){
   const original=fs.readFileSync(path.join(source,entry.key+'-art.png')),modelPath=entry.modelPath||'design/maps/seu-campuses-v1/'+entry.key+'-registration.json',modelBytes=fs.readFileSync(path.join(root,modelPath)),m=JSON.parse(modelBytes);

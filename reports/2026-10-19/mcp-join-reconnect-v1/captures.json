@@ -1,0 +1,1398 @@
+[
+  {
+    "name": "00-original-eight",
+    "index": 0,
+    "label": "P01·房主",
+    "role": "mouse",
+    "status": "active",
+    "phase": "HIDING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 0,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "00-original-eight.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:27:53.384Z"
+  },
+  {
+    "name": "player-01",
+    "index": 0,
+    "label": "P01·房主",
+    "role": "mouse",
+    "status": "captured",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 1,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-01.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:28:45.421Z"
+  },
+  {
+    "name": "player-02",
+    "index": 1,
+    "label": "P02·玩家",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-02.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:28:58.828Z"
+  },
+  {
+    "name": "player-03",
+    "index": 2,
+    "label": "P03·玩家",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-03.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:29:12.281Z"
+  },
+  {
+    "name": "player-04",
+    "index": 3,
+    "label": "P04·玩家",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-04.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:29:25.709Z"
+  },
+  {
+    "name": "player-05",
+    "index": 4,
+    "label": "P05·玩家",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-05.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:29:39.084Z"
+  },
+  {
+    "name": "player-06",
+    "index": 5,
+    "label": "P06·玩家",
+    "role": "cat",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 4,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-06.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:29:51.458Z"
+  },
+  {
+    "name": "player-07",
+    "index": 6,
+    "label": "P07·玩家",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-07.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:30:03.854Z"
+  },
+  {
+    "name": "player-08",
+    "index": 7,
+    "label": "P08·玩家",
+    "role": "cat",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 4,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-08.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:30:12.252Z"
+  },
+  {
+    "name": "player-09",
+    "index": 8,
+    "label": "P09·补入",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-09.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:30:25.653Z"
+  },
+  {
+    "name": "player-10",
+    "index": 9,
+    "label": "P10·补入",
+    "role": "cat",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 4,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "player-10.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:30:39.046Z"
+  },
+  {
+    "name": "11-network-lost",
+    "index": 8,
+    "label": "P09·补入",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "重连中",
+    "offline": true,
+    "markers": 0,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "11-network-lost.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:30:58.434Z"
+  },
+  {
+    "name": "12-same-page-recovered",
+    "index": 8,
+    "label": "P09·补入",
+    "role": "mouse",
+    "status": "active",
+    "phase": "PAUSED",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 1,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "12-same-page-recovered.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:31:26.017Z"
+  },
+  {
+    "name": "13-host-resumed",
+    "index": 0,
+    "label": "P01·房主",
+    "role": "mouse",
+    "status": "captured",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "实时连接",
+    "offline": false,
+    "markers": 1,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "13-host-resumed.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:31:41.408Z"
+  },
+  {
+    "name": "14-returned-player-active",
+    "index": 8,
+    "label": "P09·补入",
+    "role": "mouse",
+    "status": "active",
+    "phase": "CHASING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "target": 4,
+    "captured": 1,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "captured",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+        "nickname": "P09·补入",
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+        "nickname": "P10·补入",
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "connection": "轮询同步",
+    "offline": false,
+    "markers": 7,
+    "cameraUsed": false,
+    "simulatedGps": true,
+    "devPreview": false,
+    "screenshot": "14-returned-player-active.png",
+    "width": 648,
+    "height": 1402,
+    "manualReview": false,
+    "at": "2026-10-19T12:31:50.860Z"
+  }
+]

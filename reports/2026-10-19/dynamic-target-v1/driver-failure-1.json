@@ -1,0 +1,4 @@
+{
+  "message": "fetch failed",
+  "stack": "TypeError: fetch failed\n    at node:internal/deps/undici/undici:13510:13\n    at async state (D:\\cat-mouse-miniprogram\\scripts\\mcp-dynamic-target.cjs:10:29)\n    at async shot (D:\\cat-mouse-miniprogram\\scripts\\mcp-dynamic-target.cjs:19:10)\n    at async D:\\cat-mouse-miniprogram\\scripts\\mcp-dynamic-target.cjs:33:15"
+}

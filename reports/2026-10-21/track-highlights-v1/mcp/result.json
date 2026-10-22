@@ -1,0 +1,11 @@
+{
+  "status": "blocked",
+  "reason": "Empty Page/module not registered; later automator/AppID timeout; native preview not passed",
+  "identitySwitched": false,
+  "authSessionOrStorageCacheCleared": false,
+  "compilerCacheCleared": true,
+  "desktopCanvas": "passed; see render-proof.json",
+  "phone": false,
+  "actuallyShared": false,
+  "productionDataWritten": false
+}

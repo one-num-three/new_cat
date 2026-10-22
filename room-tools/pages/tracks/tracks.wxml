@@ -1,0 +1,8 @@
+<view class="tracksScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}}"><nav-bar pinned="{{true}}" title="赛后行动轨迹" back="{{true}}" />
+ <text class="tracksTitle">{{scope==='all'?'全员行动轨迹':'我的行动轨迹'}}</text><text class="tracksNote">{{settlementLabel || '正在读取结算'}} · 仅记录有效GPS · 保存7天</text>
+ <map wx:if="{{loaded && pointCount}}" class="trackMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="16" polyline="{{polylines}}" markers="{{markers}}" enable-zoom="{{true}}" enable-scroll="{{true}}" show-location="{{false}}" />
+ <view wx:else class="pixelPaper trackEmpty"><text>{{loading?'正在读取本局轨迹…':error?'暂时无法读取轨迹':'本局没有有效定位轨迹'}}</text></view>
+ <view class="pixelPaper trackSummary"><text>{{pointCount}} 个记录点</text><view wx:for="{{players}}" wx:key="id" class="trackPlayer"><text>{{item.nickname}} · {{item.role==='cat'?'猫':'鼠'}}</text><text>{{item.points}} 点</text></view></view>
+ <text class="tracksNote">{{notice}}</text><view class="trackActions"><button bindtap="exportFile" data-format="csv" disabled="{{!loaded || !pointCount || exporting}}">导出 CSV</button><button bindtap="exportFile" data-format="geojson" disabled="{{!loaded || !pointCount || exporting}}">导出 GeoJSON</button></view>
+ <button wx:if="{{loaded}}" class="sendTrackFile posterEntry" bindtap="openPoster">生成我的轨迹海报</button><button wx:if="{{fileName}}" class="sendTrackFile" bindtap="sendFile" disabled="{{exporting}}">发送导出文件</button><text wx:if="{{fileName}}" class="tracksNote">{{fileName}}</text><text class="tracksNote">CSV保留GCJ-02原始坐标与时间、精度；GeoJSON转换为近似WGS84。导出文件含行动位置，请自行选择接收方。海报始终只含本人轨迹。</text><button wx:if="{{error}}" class="textButton" bindtap="load">重新读取</button><text wx:if="{{error}}" class="trackError" role="alert">{{error}}</text>
+</view>

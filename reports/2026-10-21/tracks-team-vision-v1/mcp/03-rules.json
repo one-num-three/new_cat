@@ -1,0 +1,762 @@
+{
+  "route": "pages/map/map",
+  "viewerId": "7ceb31ed-204a-452d-8504-2c7698a2a058",
+  "active": true,
+  "art": {
+    "state": "ready",
+    "pins": [
+      {
+        "tone": "self",
+        "label": "本人",
+        "x": 424.98286987879914,
+        "y": 345.6697352991735
+      },
+      {
+        "tone": "ally",
+        "label": "队友",
+        "x": 460.3493182919215,
+        "y": 346.44274555172416
+      },
+      {
+        "tone": "ally",
+        "label": "队友",
+        "x": 322.9620719822674,
+        "y": 348.0248383234547
+      },
+      {
+        "tone": "ally",
+        "label": "队友",
+        "x": 322.963139580648,
+        "y": 345.4698412062855
+      },
+      {
+        "tone": "ally",
+        "label": "队友",
+        "x": 322.96027380708216,
+        "y": 349.27693595582525
+      },
+      {
+        "tone": "ally",
+        "label": "队友",
+        "x": 322.95917585225726,
+        "y": 350.0414591933174
+      },
+      {
+        "tone": "enemy",
+        "label": "猫 · 队伍视野",
+        "x": 334.7323520066095,
+        "y": 347.0610398622019
+      },
+      {
+        "tone": "enemy",
+        "label": "猫 · 队伍视野",
+        "x": 334.7279654468695,
+        "y": 345.9089761175902
+      },
+      {
+        "tone": "venue",
+        "label": "集合点",
+        "x": 322.9625199398466,
+        "y": 347.71291865700556
+      }
+    ]
+  },
+  "data": {
+    "trackingText": "后台定位已开启",
+    "trackingNotice": "",
+    "backgroundReady": true,
+    "captureRetry": false,
+    "mapCompatible": true,
+    "fontScale": 1,
+    "roomId": "12c2114e-6de0-4771-a42f-2b6e79a277f4",
+    "match": {
+      "id": "2ced34e6-1860-4af8-81ec-3a655533be6e",
+      "phase": "CHASING",
+      "endsAt": 1792565006627,
+      "remainingMs": 336073,
+      "pauseReason": null,
+      "target": 4,
+      "captured": 0,
+      "outcome": null,
+      "reason": null,
+      "eventSeq": 2,
+      "myRole": "mouse",
+      "myStatus": "active",
+      "joinPolicy": "reinforce-v2",
+      "targetMouseCount": 6,
+      "initialTeams": {
+        "cats": 2,
+        "mice": 6
+      },
+      "joinDeadline": null,
+      "settings": {
+        "mouseTeamVision": true
+      },
+      "trackVersion": "tracks-v1"
+    },
+    "roster": [
+      {
+        "id": "024f5a0f-6ae8-4ed8-a482-b3e6ad3c3a6c",
+        "nickname": "试点1·房主",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "fb9d6a63-4d2b-40fa-8f8d-ff4057a87bd4",
+        "nickname": "试点2",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0eba1fbf-859a-4dcc-94d5-30ac523f5c9a",
+        "nickname": "试点3",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "5fc24c79-3485-400a-92e7-dfdcbd19e0d4",
+        "nickname": "试点4",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ad940a-5b38-4a4a-b0cf-b2fe522f5063",
+        "nickname": "试点5",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "3e6cc6f1-2485-4857-a8d5-be3716711660",
+        "nickname": "试点6",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "7ceb31ed-204a-452d-8504-2c7698a2a058",
+        "nickname": "试点7",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "afc54d19-0378-4e91-b302-e235bdb2dcc8",
+        "nickname": "试点8",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "events": [
+      {
+        "at": 1792564616628,
+        "seq": 1,
+        "kind": "START",
+        "payload": {
+          "phase": "HIDING"
+        },
+        "timeText": "14:36"
+      },
+      {
+        "at": 1792564646640,
+        "seq": 2,
+        "kind": "CHASING",
+        "payload": {},
+        "timeText": "14:37"
+      }
+    ],
+    "markers": [
+      {
+        "id": 1,
+        "latitude": 31.88781788917853,
+        "longitude": 118.8219581122953,
+        "title": "试点7",
+        "iconPath": "/assets/map-markers-v2/self.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.8987240829346093
+        },
+        "callout": {
+          "content": "本人",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 2,
+        "latitude": 31.887804052251116,
+        "longitude": 118.82291029093997,
+        "title": "试点8",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 3,
+        "latitude": 31.88776719750275,
+        "longitude": 118.81920737398848,
+        "title": "试点1·房主",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 4,
+        "latitude": 31.88782587847716,
+        "longitude": 118.81920737398848,
+        "title": "试点3",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 5,
+        "latitude": 31.88773856210206,
+        "longitude": 118.81920737398848,
+        "title": "试点5",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 6,
+        "latitude": 31.887721077495172,
+        "longitude": 118.81920737398848,
+        "title": "试点6",
+        "iconPath": "/assets/map-markers-v2/ally.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.4996012759170654,
+          "y": 0.919457735247209
+        },
+        "callout": {
+          "content": "队友",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 7,
+        "latitude": 31.88778893254794,
+        "longitude": 118.81952476687003,
+        "title": "试点4",
+        "iconPath": "/assets/pixel-v1/role-cat.png",
+        "width": 40,
+        "height": 40,
+        "anchor": {
+          "x": 0.5,
+          "y": 1
+        },
+        "callout": {
+          "content": "猫 · 队伍视野",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 8,
+        "latitude": 31.88781543197278,
+        "longitude": 118.81952476687003,
+        "title": "试点2",
+        "iconPath": "/assets/pixel-v1/role-cat.png",
+        "width": 40,
+        "height": 40,
+        "anchor": {
+          "x": 0.5,
+          "y": 1
+        },
+        "callout": {
+          "content": "猫 · 队伍视野",
+          "display": "BYCLICK",
+          "padding": 4,
+          "borderRadius": 2,
+          "bgColor": "#FCF8ED",
+          "color": "#213638"
+        }
+      },
+      {
+        "id": 1000,
+        "latitude": 31.88777433108612,
+        "longitude": 118.81920737398848,
+        "iconPath": "/assets/map-markers-v2/venue.png",
+        "width": 48,
+        "height": 48,
+        "anchor": {
+          "x": 0.3305422647527911,
+          "y": 0.8389154704944178
+        },
+        "callout": {
+          "content": "集合点",
+          "display": "BYCLICK",
+          "padding": 4,
+          "bgColor": "#FCF8ED",
+          "color": "#526863"
+        }
+      }
+    ],
+    "circles": [
+      {
+        "latitude": 31.88777433108612,
+        "longitude": 118.81920737398848,
+        "radius": 500,
+        "color": "#477F60AA",
+        "fillColor": "#91CE6B0A",
+        "strokeWidth": 2
+      }
+    ],
+    "venuePolygons": [],
+    "omittedArtBoundary": false,
+    "nearbyCat": false,
+    "offline": false,
+    "latitude": 31.88781788917853,
+    "longitude": 118.8219581122953,
+    "clock": "05:37",
+    "roleText": "鼠队",
+    "phaseText": "追逐中",
+    "pauseReasonText": "等待组织者确认",
+    "connection": "实时连接",
+    "error": "",
+    "drawer": true,
+    "owner": false,
+    "loading": false,
+    "devPreview": false,
+    "artMode": true,
+    "modelMode": false,
+    "layerLoading": false,
+    "trayExpanded": true,
+    "trayDragging": false,
+    "trayDragY": 0,
+    "drawerTab": "rules",
+    "drawerClosing": false,
+    "codeOpen": false,
+    "seconds": 0,
+    "codeError": "",
+    "hasSelf": true,
+    "locationText": "本人 · 精度约5米",
+    "mapScale": 17,
+    "followSelf": true,
+    "__webviewId__": 362,
+    "navHeight": 87,
+    "statusHeight": 47,
+    "viewportHeight": 844,
+    "viewportWidth": 390,
+    "safeBottom": 34,
+    "uiState": "mouse",
+    "venueMapId": "seu-jiulonghu-v1",
+    "venueName": "东南大学 · 九龙湖",
+    "stateArt": "",
+    "roleArt": "/assets/pixel-v1/role-mouse.png",
+    "terminal": false,
+    "canScan": false,
+    "canShowCode": true,
+    "canResume": false,
+    "canReplay": false,
+    "initialMice": 6,
+    "resultSummary": "这局记录保留，下一轮使用新的对局",
+    "cats": [
+      {
+        "id": "fb9d6a63-4d2b-40fa-8f8d-ff4057a87bd4",
+        "nickname": "试点2",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "5fc24c79-3485-400a-92e7-dfdcbd19e0d4",
+        "nickname": "试点4",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "mice": [
+      {
+        "id": "024f5a0f-6ae8-4ed8-a482-b3e6ad3c3a6c",
+        "nickname": "试点1·房主",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0eba1fbf-859a-4dcc-94d5-30ac523f5c9a",
+        "nickname": "试点3",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ad940a-5b38-4a4a-b0cf-b2fe522f5063",
+        "nickname": "试点5",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "3e6cc6f1-2485-4857-a8d5-be3716711660",
+        "nickname": "试点6",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "7ceb31ed-204a-452d-8504-2c7698a2a058",
+        "nickname": "试点7",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "afc54d19-0378-4e91-b302-e235bdb2dcc8",
+        "nickname": "试点8",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "mouseTeamVision": true,
+    "sharedCatCount": 2,
+    "version": 21,
+    "mapCalibration": null,
+    "geoData": {
+      "boundary": [
+        {
+          "lat": 31.88777433108612,
+          "lng": 118.82449725534775
+        },
+        {
+          "lat": 31.888360596771623,
+          "lng": 118.82445199967941
+        },
+        {
+          "lat": 31.8889368312887,
+          "lng": 118.8243170070114
+        },
+        {
+          "lat": 31.88949317510501,
+          "lng": 118.82409458710573
+        },
+        {
+          "lat": 31.8900201090236,
+          "lng": 118.82378854562862
+        },
+        {
+          "lat": 31.89050861705903,
+          "lng": 118.8234041190346
+        },
+        {
+          "lat": 31.89095034070338,
+          "lng": 118.8229478849693
+        },
+        {
+          "lat": 31.89133772194262,
+          "lng": 118.82242764972403
+        },
+        {
+          "lat": 31.89166413257635,
+          "lng": 118.82185231466812
+        },
+        {
+          "lat": 31.89192398762812,
+          "lng": 118.82123172394385
+        },
+        {
+          "lat": 31.89211284090596,
+          "lng": 118.8205764960306
+        },
+        {
+          "lat": 31.89222746107792,
+          "lng": 118.8198978420596
+        },
+        {
+          "lat": 31.892265886961077,
+          "lng": 118.81920737398848
+        },
+        {
+          "lat": 31.89222746107792,
+          "lng": 118.81851690591735
+        },
+        {
+          "lat": 31.89211284090596,
+          "lng": 118.81783825194636
+        },
+        {
+          "lat": 31.89192398762812,
+          "lng": 118.8171830240331
+        },
+        {
+          "lat": 31.89166413257635,
+          "lng": 118.81656243330883
+        },
+        {
+          "lat": 31.89133772194262,
+          "lng": 118.81598709825292
+        },
+        {
+          "lat": 31.89095034070338,
+          "lng": 118.81546686300766
+        },
+        {
+          "lat": 31.89050861705903,
+          "lng": 118.81501062894235
+        },
+        {
+          "lat": 31.8900201090236,
+          "lng": 118.81462620234834
+        },
+        {
+          "lat": 31.88949317510501,
+          "lng": 118.81432016087122
+        },
+        {
+          "lat": 31.8889368312887,
+          "lng": 118.81409774096555
+        },
+        {
+          "lat": 31.888360596771623,
+          "lng": 118.81396274829754
+        },
+        {
+          "lat": 31.88777433108612,
+          "lng": 118.8139174926292
+        },
+        {
+          "lat": 31.88718806540062,
+          "lng": 118.81396274829754
+        },
+        {
+          "lat": 31.886611830883542,
+          "lng": 118.81409774096555
+        },
+        {
+          "lat": 31.88605548706723,
+          "lng": 118.81432016087122
+        },
+        {
+          "lat": 31.885528553148642,
+          "lng": 118.81462620234834
+        },
+        {
+          "lat": 31.88504004511321,
+          "lng": 118.81501062894235
+        },
+        {
+          "lat": 31.88459832146886,
+          "lng": 118.81546686300766
+        },
+        {
+          "lat": 31.88421094022962,
+          "lng": 118.81598709825292
+        },
+        {
+          "lat": 31.883884529595893,
+          "lng": 118.81656243330883
+        },
+        {
+          "lat": 31.88362467454412,
+          "lng": 118.8171830240331
+        },
+        {
+          "lat": 31.883435821266282,
+          "lng": 118.81783825194636
+        },
+        {
+          "lat": 31.883321201094322,
+          "lng": 118.81851690591735
+        },
+        {
+          "lat": 31.883282775211164,
+          "lng": 118.81920737398848
+        },
+        {
+          "lat": 31.883321201094322,
+          "lng": 118.8198978420596
+        },
+        {
+          "lat": 31.883435821266282,
+          "lng": 118.8205764960306
+        },
+        {
+          "lat": 31.88362467454412,
+          "lng": 118.82123172394385
+        },
+        {
+          "lat": 31.883884529595893,
+          "lng": 118.82185231466812
+        },
+        {
+          "lat": 31.88421094022962,
+          "lng": 118.82242764972403
+        },
+        {
+          "lat": 31.88459832146886,
+          "lng": 118.8229478849693
+        },
+        {
+          "lat": 31.88504004511321,
+          "lng": 118.8234041190346
+        },
+        {
+          "lat": 31.885528553148642,
+          "lng": 118.82378854562862
+        },
+        {
+          "lat": 31.88605548706723,
+          "lng": 118.82409458710573
+        },
+        {
+          "lat": 31.886611830883542,
+          "lng": 118.8243170070114
+        },
+        {
+          "lat": 31.88718806540062,
+          "lng": 118.82445199967941
+        }
+      ],
+      "points": [
+        {
+          "lat": 31.88781788917853,
+          "lng": 118.8219581122953,
+          "tone": "self",
+          "label": "本人"
+        },
+        {
+          "lat": 31.887804052251116,
+          "lng": 118.82291029093997,
+          "tone": "ally",
+          "label": "队友"
+        },
+        {
+          "lat": 31.88776719750275,
+          "lng": 118.81920737398848,
+          "tone": "ally",
+          "label": "队友"
+        },
+        {
+          "lat": 31.88782587847716,
+          "lng": 118.81920737398848,
+          "tone": "ally",
+          "label": "队友"
+        },
+        {
+          "lat": 31.88773856210206,
+          "lng": 118.81920737398848,
+          "tone": "ally",
+          "label": "队友"
+        },
+        {
+          "lat": 31.887721077495172,
+          "lng": 118.81920737398848,
+          "tone": "ally",
+          "label": "队友"
+        },
+        {
+          "lat": 31.88778893254794,
+          "lng": 118.81952476687003,
+          "tone": "enemy",
+          "label": "猫 · 队伍视野"
+        },
+        {
+          "lat": 31.88781543197278,
+          "lng": 118.81952476687003,
+          "tone": "enemy",
+          "label": "猫 · 队伍视野"
+        },
+        {
+          "lat": 31.88777433108612,
+          "lng": 118.81920737398848,
+          "mapId": "seu-jiulonghu-v1",
+          "radiusM": 500,
+          "confirmed": true,
+          "label": "集合点",
+          "tone": "venue"
+        }
+      ],
+      "regions": []
+    },
+    "artCanZoomIn": true,
+    "artCanZoomOut": true,
+    "omittedArtRegions": 0,
+    "artReferenceState": "osm"
+  }
+}

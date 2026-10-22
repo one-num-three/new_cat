@@ -1,0 +1,1758 @@
+{
+  "view": {
+    "route": "pages/map/map",
+    "active": true,
+    "userId": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+    "viewerId": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+    "owner": false,
+    "version": 31,
+    "match": {
+      "id": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+      "phase": "CHASING",
+      "endsAt": 1792419811392,
+      "remainingMs": 234999,
+      "pauseReason": null,
+      "target": 6,
+      "captured": 0,
+      "outcome": null,
+      "reason": null,
+      "eventSeq": 10,
+      "myRole": "mouse",
+      "myStatus": "active",
+      "joinPolicy": "reinforce-v2",
+      "targetMouseCount": 9,
+      "initialTeams": {
+        "cats": 2,
+        "mice": 6
+      },
+      "joinDeadline": null
+    },
+    "roster": [
+      {
+        "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+        "nickname": "P01·房主",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+        "nickname": "P02·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+        "nickname": "P03·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+        "nickname": "P04·玩家",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+        "nickname": "P05·玩家",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+        "nickname": "P06·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+        "nickname": "P07·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+        "nickname": "P08·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+        "nickname": "P09·补入",
+        "ready": false,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+        "nickname": "P10·补入",
+        "ready": false,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+        "nickname": "P11·补入",
+        "ready": false,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+        "nickname": "P12·补入",
+        "ready": false,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "offline": false,
+    "loading": false,
+    "clock": "03:55",
+    "drawer": true,
+    "connection": "实时连接",
+    "socketOpen": true,
+    "locationRunning": true,
+    "devPreview": false
+  },
+  "server": {
+    "roomId": "ef03118b-d9d4-44dc-a940-fee6b843e982",
+    "code": "60D72A4B87",
+    "selected": 2,
+    "roster": [
+      {
+        "index": 0,
+        "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+        "nickname": "P01·房主",
+        "ready": true,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 1,
+        "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+        "nickname": "P02·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 2,
+        "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+        "nickname": "P03·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 3,
+        "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+        "nickname": "P04·玩家",
+        "ready": true,
+        "role": "cat",
+        "status": "active"
+      },
+      {
+        "index": 4,
+        "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+        "nickname": "P05·玩家",
+        "ready": true,
+        "role": "cat",
+        "status": "active"
+      },
+      {
+        "index": 5,
+        "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+        "nickname": "P06·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 6,
+        "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+        "nickname": "P07·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 7,
+        "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+        "nickname": "P08·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 8,
+        "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+        "nickname": "P09·补入",
+        "ready": false,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 9,
+        "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+        "nickname": "P10·补入",
+        "ready": false,
+        "role": "cat",
+        "status": "active"
+      },
+      {
+        "index": 10,
+        "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+        "nickname": "P11·补入",
+        "ready": false,
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 11,
+        "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+        "nickname": "P12·补入",
+        "ready": false,
+        "role": "mouse",
+        "status": "active"
+      }
+    ],
+    "version": 31,
+    "rules": {
+      "cats": 3,
+      "mice": 9,
+      "total": 12,
+      "intelMs": 30000,
+      "tokenMs": 15000,
+      "version": "pilot-0.3",
+      "hidingMs": 30000,
+      "chasingMs": 360000,
+      "pauseBudgetMs": 60000
+    },
+    "history": [
+      "893cddc6-90af-4e17-aa43-9aac9516d5c4"
+    ],
+    "positionCount": 12,
+    "preparingPeers": [],
+    "match": {
+      "id": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+      "phase": "CHASING",
+      "joinPolicy": "reinforce-v2",
+      "targetMouseCount": 9,
+      "target": 6,
+      "captured": 0,
+      "outcome": null,
+      "reason": null,
+      "endsAt": 1792419811392,
+      "remainingMs": 234533,
+      "eventSeq": 10
+    },
+    "originalRoles": {
+      "a3c15130-5ef2-41c9-99e3-602e67ab1c75": "mouse",
+      "345ed6c5-1fc3-43b2-9733-d32ee29cf9de": "mouse",
+      "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac": "mouse",
+      "cab5867f-aac2-4dfd-808c-996b28d38da6": "cat",
+      "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0": "cat",
+      "f5d5c90a-dc0b-4f35-920f-141719402e3f": "mouse",
+      "14ff3196-5eea-4347-ac91-0f805759a43e": "mouse",
+      "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa": "mouse"
+    },
+    "originalMatchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+    "initialTarget": 4,
+    "blocked": [],
+    "allOnlinePeersAligned": true,
+    "peerFrames": {
+      "0": 194,
+      "1": 194,
+      "2": 194,
+      "3": 194,
+      "4": 194,
+      "5": 194,
+      "6": 194,
+      "7": 194,
+      "8": 105,
+      "9": 74,
+      "10": 55,
+      "11": 55
+    },
+    "peerViews": [
+      {
+        "index": 0,
+        "connected": true,
+        "version": 31,
+        "viewerId": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+        "owner": true,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 1,
+        "connected": true,
+        "version": 31,
+        "viewerId": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 2,
+        "connected": true,
+        "version": 31,
+        "viewerId": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 3,
+        "connected": true,
+        "version": 31,
+        "viewerId": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+        "owner": false,
+        "role": "cat",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "cab5867f-aac2-4dfd-808c-996b28d38da6",
+          "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+          "90290c9a-4fc1-4ad7-8a96-0e91e48c1837"
+        ]
+      },
+      {
+        "index": 4,
+        "connected": true,
+        "version": 31,
+        "viewerId": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+        "owner": false,
+        "role": "cat",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+          "cab5867f-aac2-4dfd-808c-996b28d38da6",
+          "90290c9a-4fc1-4ad7-8a96-0e91e48c1837"
+        ]
+      },
+      {
+        "index": 5,
+        "connected": true,
+        "version": 31,
+        "viewerId": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 6,
+        "connected": true,
+        "version": 31,
+        "viewerId": "14ff3196-5eea-4347-ac91-0f805759a43e",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 7,
+        "connected": true,
+        "version": 31,
+        "viewerId": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 8,
+        "connected": true,
+        "version": 31,
+        "viewerId": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 9,
+        "connected": true,
+        "version": 31,
+        "viewerId": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+        "owner": false,
+        "role": "cat",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+          "cab5867f-aac2-4dfd-808c-996b28d38da6",
+          "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0"
+        ]
+      },
+      {
+        "index": 10,
+        "connected": true,
+        "version": 31,
+        "viewerId": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "d8b8ee42-4633-4b21-af16-55655d423fb8",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7"
+        ]
+      },
+      {
+        "index": 11,
+        "connected": true,
+        "version": 31,
+        "viewerId": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+        "owner": false,
+        "role": "mouse",
+        "status": "active",
+        "phase": "CHASING",
+        "matchId": "893cddc6-90af-4e17-aa43-9aac9516d5c4",
+        "outcome": null,
+        "target": 6,
+        "captured": 0,
+        "roster": [
+          {
+            "id": "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+            "nickname": "P01·房主",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+            "nickname": "P02·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+            "nickname": "P03·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "cab5867f-aac2-4dfd-808c-996b28d38da6",
+            "nickname": "P04·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "02a7b86a-f838-4ea3-a2cb-7d99beb0cbb0",
+            "nickname": "P05·玩家",
+            "ready": true,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+            "nickname": "P06·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "14ff3196-5eea-4347-ac91-0f805759a43e",
+            "nickname": "P07·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+            "nickname": "P08·玩家",
+            "ready": true,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+            "nickname": "P09·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "90290c9a-4fc1-4ad7-8a96-0e91e48c1837",
+            "nickname": "P10·补入",
+            "ready": false,
+            "role": "cat",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "d8b8ee42-4633-4b21-af16-55655d423fb8",
+            "nickname": "P11·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          },
+          {
+            "id": "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+            "nickname": "P12·补入",
+            "ready": false,
+            "role": "mouse",
+            "status": "active",
+            "presence": "online"
+          }
+        ],
+        "visibleIds": [
+          "b5c5657a-2fd4-466e-910d-fb831d639ae7",
+          "345ed6c5-1fc3-43b2-9733-d32ee29cf9de",
+          "a3c15130-5ef2-41c9-99e3-602e67ab1c75",
+          "bb9c19bc-e9e7-4682-b8c2-82c9e198e3aa",
+          "f3ed4f8f-4f16-4a00-bf54-a4a5db959bac",
+          "f5d5c90a-dc0b-4f35-920f-141719402e3f",
+          "14ff3196-5eea-4347-ac91-0f805759a43e",
+          "ec75dcd5-e10c-45fd-b3a0-25b3aa3bd212",
+          "d8b8ee42-4633-4b21-af16-55655d423fb8"
+        ]
+      }
+    ]
+  }
+}

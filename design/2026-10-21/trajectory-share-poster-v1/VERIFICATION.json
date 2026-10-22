@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-21",
+  "tool": "built-in image_gen",
+  "illustrativeRoute": true,
+  "statistics": "example only: 3.2km,42minutes,8points",
+  "files": [
+    {
+      "file": "trajectory-share-poster.png",
+      "width": 941,
+      "height": 1672,
+      "format": "png",
+      "bytes": 2353674,
+      "sha256": "9251ad7fda037a16ca34e9021bef8da3392182c873dd534f44b273d650db98a5"
+    },
+    {
+      "file": "trajectory-share-poster.jpg",
+      "width": 941,
+      "height": 1672,
+      "format": "jpeg",
+      "bytes": 666018,
+      "sha256": "13232c0925e204b31c3512a41771624252d593102bd76c46dd8f270a0a9778ff"
+    }
+  ]
+}

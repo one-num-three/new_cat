@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "backup": "backup-before-real-rooms-1792404476.dump",
+  "restoredDatabase": "isolated restore database (removed after verification)",
+  "restoredRoomsAtBackupTime": 0,
+  "productionDatabaseRestoredOrOverwritten": false
+}

@@ -51,7 +51,7 @@ font.flavor = 'woff'
 runtime = folder / 'ui-subset.woff'
 font.save(runtime)
 data = base64.b64encode(runtime.read_bytes()).decode('ascii')
-output.write_text('/* Fusion Pixel 12px proportional zh-Hans, v2026.09.25. SIL OFL1.1; original and licenses: design/2026-10-13/fusion-font-v1. Global static-label subset; dynamic user text falls back to ParkReplicaUI. */\n@font-face{font-family:CatMouseFusionUI;font-style:normal;font-weight:400;src:url("data:font/woff;base64,' + data + '") format("woff");font-display:swap;}\n', encoding='utf8')
+output.write_text('/* Fusion Pixel 12px proportional zh-Hans, v2026.09.25. SIL OFL1.1; original and licenses: design/2026-10-13/fusion-font-v1. Global static-label subset; dynamic user text falls back to ParkReplicaUI. */\n@font-face{font-family:CatMouseFusionUI;font-style:normal;font-weight:400;src:url("data:font/woff;base64,' + data + '") format("woff");font-display:swap;}\n', encoding='utf8', newline='\n')
 manifest = dict(family='CatMouseFusionUI', upstreamFamily='Fusion Pixel', version='2026.09.25',
     variant='12px-proportional-zh_hans', scope='registered-pages-and-components', license='OFL-1.1',
     sourceUrl='https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.09.25',
@@ -59,5 +59,5 @@ manifest = dict(family='CatMouseFusionUI', upstreamFamily='Fusion Pixel', versio
     wxssSha256=sha(output.read_bytes()), bytes=runtime.stat().st_size,
     glyphCount=len(font.getBestCmap()), coverage=sorted(set(words)),
     fallback='ParkReplicaUI', fallbackCharacters=['›'], globalRollout=True)
-(folder / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf8')
+(folder / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf8', newline='\n')
 print(f'FUSION_FONT_BUILT bytes={manifest["bytes"]} glyphs={manifest["glyphCount"]} scope=registered-pages-and-components')

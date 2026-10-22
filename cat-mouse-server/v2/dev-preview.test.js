@@ -6,7 +6,7 @@ function source(name){return fs.readFileSync(path.join(root,name),'utf8');}
 function fixture(version='develop'){
   const wx={getAccountInfoSync:()=>({miniProgram:{envVersion:version}})};
   const module={exports:{}};
-  vm.runInNewContext(source('utils/dev-preview.js'),{module,require:p=>p.includes('venue-catalog')?require('../../utils/venue-catalog'):({mode:'local'}),wx,Date});
+  vm.runInNewContext(source('utils/dev-preview.js'),{module,require:p=>p.includes('room-live')?require('../../utils/room-live'):p.includes('venue-boundary')?require('../../utils/venue-boundary'):p.includes('venue-catalog')?require('../../utils/venue-catalog'):({mode:'local'}),wx,Date});
   return module.exports;
 }
 function page(name,preview,events){
@@ -15,7 +15,7 @@ function page(name,preview,events){
   const wx={getStorageSync:()=>undefined,setStorageSync:fail('storage'),getLocation:fail('gps'),connectSocket:fail('socket'),scanCode:fail('camera'),request:fail('request'),navigateTo:x=>events.push(x.url),navigateBack:()=>events.push('back'),redirectTo:x=>events.push(x.url),reLaunch:x=>events.push(x.url)};
   const api={config:{mode:'local',localTestIdentities:false},session:fail('session'),room:fail('room'),create:fail('create'),join:fail('join'),ready:fail('ready'),start:fail('start'),pause:fail('pause'),resume:fail('resume'),cancel:fail('cancel'),leave:fail('leave'),token:fail('token')};
   const loc={start:fail('location-start'),once:fail('location-once'),stop:fail('location-stop')};
-  const requireMock=p=>p.includes('venue-catalog')?require('../../utils/venue-catalog'):p.includes('venue-resources')?require('../../utils/venue-resources'):p.includes('map-markers')?require('../../utils/map-markers'):p.includes('capture-proof')?require('../../utils/capture-proof'):p.includes('team-config')?require('../../utils/team-config'):p.includes('presentation')?require('../../utils/presentation'):p.includes('dev-preview')?preview:p.includes('location-v2')?loc:p.includes('snapshot-v2')?{shouldApply:()=>true}:api;
+  const requireMock=p=>p.includes('room-live')?require('../../utils/room-live'):p.includes('venue-boundary')?require('../../utils/venue-boundary'):p.includes('venue-catalog')?require('../../utils/venue-catalog'):p.includes('venue-resources')?require('../../utils/venue-resources'):p.includes('map-markers')?require('../../utils/map-markers'):p.includes('capture-flow')?require('../../utils/capture-flow'):p.includes('qr-protocol')?require('../../utils/qr-protocol'):p.includes('capture-proof')?require('../../utils/capture-proof'):p.includes('team-config')?require('../../utils/team-config'):p.includes('presentation')?require('../../utils/presentation'):p.includes('dev-preview')?preview:p.includes('location-v2')?loc:p.includes('snapshot-v2')?{...require('../../utils/snapshot-v2'),shouldApply:()=>true}:api;
   vm.runInNewContext(source('pages/'+name+'/'+name+'.js'),{Page:x=>result=x,require:requireMock,wx,Date,Math,Number,Error,Promise,JSON,encodeURIComponent,setInterval:fail('interval'),clearInterval:()=>{},setTimeout:(fn,ms)=>{if(ms===220 && result.data.drawerClosing)return 1;return fail('timeout')();},clearTimeout:()=>{},console});
   result.setData=function(changes){Object.assign(this.data,changes);};
   return result;
@@ -23,13 +23,13 @@ function page(name,preview,events){
 test('developer gallery lists every shipped core state and denies non-developer entry',()=>{
   const dev=fixture(),release=fixture('release');
   assert.equal(dev.enabled(),true);assert.equal(release.enabled(),false);
-  assert.equal(dev.cases.length,14);
+  assert.equal(dev.cases.length,16);
   for(const item of dev.cases){assert.equal(dev.accepts(item.id),true);assert.equal(release.accepts(item.id),false);assert.match(item.path,/^\/pages\/(index|room|map|qrcode)\//);}
   const compile=JSON.parse(source('project.config.json')).condition.miniprogram;
   assert.equal(compile.list.length,dev.cases.length+2);assert.ok(compile.list.some(mode=>mode.pathName==='pages/venue/venue'));
   assert.equal(compile.list[compile.current].pathName,'pages/dev/dev');
   for(const item of dev.cases){const [pathName,query]=item.path.slice(1).split('?');assert.ok(compile.list.some(mode=>mode.pathName===pathName&&mode.query===query),item.id);}
-  const events=[];let gallery=page('dev',dev,events);gallery.onLoad();assert.equal(gallery.data.cases.length,14);
+  const events=[];let gallery=page('dev',dev,events);gallery.onLoad();assert.equal(gallery.data.cases.length,16);
   for(const item of dev.cases)gallery.open({currentTarget:{dataset:{id:item.id}}});
   assert.deepEqual(events,Array.from(dev.cases,item=>item.path));
   gallery=page('dev',release,events);gallery.onLoad();assert.equal(gallery.data.available,false);assert.equal(events.pop(),'/pages/index/index');

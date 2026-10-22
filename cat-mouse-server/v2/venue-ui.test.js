@@ -11,7 +11,7 @@ const asset=config.src;
 function componentFixture(overrides={}){
  let definition,now=0,id=0;const ticks=[],queries=[],writes=[],timers=new Map(),animations=[];
  const wx={nextTick:fn=>ticks.push(fn),createAnimation:options=>{const a={ops:[],translate3d(x,y,z){this.ops.push(['translate',x,y,z]);return this;},scale(s){this.ops.push(['scale',s]);return this;},step(){return this;},export(){const data={options,ops:this.ops};animations.push(plain(data));return data;}};return a;}};
- vm.runInNewContext(read('components/venue-art/venue-art.js'),{Component:d=>definition=d,wx,Date:{now:()=>now},require:n=>n.includes('venue-catalog')?require('../../utils/venue-catalog'):n.includes('venue-resources')?require('../../utils/venue-resources'):n.includes('map-markers')?require('../../utils/map-markers'):n.includes('osm-art-registration')?require('../../utils/osm-art-registration'):n.includes('geo-registration')?require('../../utils/geo-registration'):n.includes('venue-camera')?camera:config,setTimeout:(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;},clearTimeout:key=>timers.delete(key)});
+ vm.runInNewContext(read('components/venue-art/venue-art.js'),{Component:d=>definition=d,wx,Date:{now:()=>now},require:n=>n.includes('room-live')?require('../../utils/room-live'):n.includes('snapshot-v2')?require('../../utils/snapshot-v2'):n.includes('venue-boundary')?require('../../utils/venue-boundary'):n.includes('venue-catalog')?require('../../utils/venue-catalog'):n.includes('venue-resources')?{ready:()=>true,ensure:()=>Promise.resolve()}:n.includes('map-markers')?require('../../utils/map-markers'):n.includes('osm-art-registration')?require('../../utils/osm-art-registration'):n.includes('geo-registration')?require('../../utils/geo-registration'):n.includes('venue-camera')?camera:config,setTimeout:(fn,ms)=>{const key=++id;timers.set(key,{fn,at:now+ms});return key;},clearTimeout:key=>timers.delete(key)});
  const defaults=Object.fromEntries(Object.entries(definition.properties).map(([k,v])=>[k,v.value]));const instance={...definition.methods,data:{...defaults,...plain(definition.data),autoTour:false,...overrides}};
  instance.triggerEvent=()=>{};instance.setData=p=>{writes.push(plain(p));Object.assign(instance.data,p);};instance.createSelectorQuery=()=>({select:s=>{assert.equal(s,'.venueViewport');return {boundingClientRect:cb=>{queries.push(cb);return {exec(){}};}};}});
  const flush=()=>{while(ticks.length)ticks.shift()();};const measure=(width=390,height=600)=>{flush();assert.ok(queries.length);queries.shift()({width,height,left:0,top:0});};const attach=()=>definition.lifetimes.attached.call(instance),detach=()=>definition.lifetimes.detached.call(instance);const imageEvent=(generation=instance._imageSerial)=>({currentTarget:{dataset:{generation}}});const ready=()=>{attach();measure();instance.onImageLoad(imageEvent());flush();};const setNow=n=>now=n;const advance=ms=>{now+=ms;const due=[...timers].filter(([,t])=>t.at<=now);for(const [key,t]of due){timers.delete(key);t.fn();}};
@@ -26,7 +26,7 @@ function pageFixture(name,overrides={}) {
   const api=new Proxy({config:{mode:'local'}},{get:(target,key)=>key in target?target[key]:forbidden('api.'+String(key))});
   vm.runInNewContext(read('pages/'+name+'/'+name+'.js'),{
     Page:value=>page=value,wx,Date,Math,Number,Error,Promise,JSON,encodeURIComponent,
-    require:p=>p.includes('location-scenarios')?require('../../utils/location-scenarios'):p.includes('venue-catalog')?require('../../utils/venue-catalog'):p.includes('venue-resources')?require('../../utils/venue-resources'):p.includes('map-markers')?require('../../utils/map-markers'):p.includes('capture-proof')?require('../../utils/capture-proof'):p.includes('presentation')?presentation:p.includes('location-v2')?(overrides.loc||new Proxy({},{get:(_,key)=>forbidden('location.'+String(key))})):p.includes('snapshot-v2')?{shouldApply:()=>true}:p.includes('dev-preview')?(overrides.preview||{}):api,
+    require:p=>p.includes('location-scenarios')?require('../../utils/location-scenarios'):p.includes('room-live')?require('../../utils/room-live'):p.includes('venue-boundary')?require('../../utils/venue-boundary'):p.includes('venue-catalog')?require('../../utils/venue-catalog'):p.includes('venue-resources')?{ready:()=>true,ensure:()=>Promise.resolve()}:p.includes('map-markers')?require('../../utils/map-markers'):p.includes('capture-flow')?require('../../utils/capture-flow'):p.includes('qr-protocol')?require('../../utils/qr-protocol'):p.includes('capture-proof')?require('../../utils/capture-proof'):p.includes('presentation')?presentation:p.includes('location-v2')?(overrides.loc||new Proxy({},{get:(_,key)=>forbidden('location.'+String(key))})):p.includes('snapshot-v2')?{...require('../../utils/snapshot-v2'),shouldApply:()=>true}:p.includes('dev-preview')?(overrides.preview||{}):api,
     setTimeout:forbidden('setTimeout'),setInterval:forbidden('setInterval'),
     clearTimeout:forbidden('clearTimeout'),clearInterval:forbidden('clearInterval')
   });
@@ -109,7 +109,7 @@ test('map defaults to the approved image without inventing uncalibrated position
 
 test('actual developer map cases use the approved illustration without timers, storage, network or GPS',()=>{
   const module={exports:{}};
-  vm.runInNewContext(read('utils/dev-preview.js'),{module,require:p=>p.includes('venue-catalog')?require('../../utils/venue-catalog'):({mode:'local'}),wx:{getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}})},Date});
+  vm.runInNewContext(read('utils/dev-preview.js'),{module,require:p=>p.includes('room-live')?require('../../utils/room-live'):p.includes('venue-boundary')?require('../../utils/venue-boundary'):p.includes('venue-catalog')?require('../../utils/venue-catalog'):({mode:'local'}),wx:{getAccountInfoSync:()=>({miniProgram:{envVersion:'develop'}})},Date});
   const preview=module.exports;
   const cases=preview.cases.filter(item=>item.path.startsWith('/pages/map/map'));
   assert.ok(cases.length>0);
@@ -122,6 +122,12 @@ test('actual developer map cases use the approved illustration without timers, s
     f.page.toggleMapMode();assert.equal(f.page.data.artMode,false);assert.deepEqual({...plain(f.page.data),artMode:true},before,item.id);
     assert.equal(f.page.locationRunning,undefined,item.id);assert.deepEqual(f.effects,[],item.id);
   }
+});
+
+test('art boundary follows the same image projection and is omitted entirely for a foreign registration',()=>{
+ const image=require('../../utils/venue-catalog').get('seu-jiulonghu-v1'),base=image.demoPoints[0],boundary=[{lat:base.lat-.0005,lng:base.lng-.0005},{lat:base.lat-.0005,lng:base.lng+.0005},{lat:base.lat+.0005,lng:base.lng+.0005},{lat:base.lat+.0005,lng:base.lng-.0005}];
+ const f=componentFixture({imageId:image.id,src:image.src,osmReference:true,geoData:{boundary}});f.instance._alive=true;f.instance._fit={width:600,height:600};f.instance._overlays();assert.ok(f.instance.data.boundaryLines.length>=4);assert.equal(f.instance.data.overlayPoints.length,0);assert.equal(f.instance.data.overlayRegions.length,0);const line=f.instance.data.boundaryLines[0],p=require('../../utils/osm-art-registration').project(boundary[0],'gcj02',image.id);assert.ok(Math.abs(line.x-p.u*600)<.001&&Math.abs(line.y-p.v*600)<.001);
+ f.instance.data.registration={imageId:'xuanwu-v4'};f.instance._overlays();assert.equal(f.instance.data.boundaryLines.length,0);f.instance._reloadImage();assert.equal(f.instance.data.boundaryLines.length,0);
 });
 
 test('home, gallery and preview-map guide buttons navigate without authentication or room mutation',()=>{
@@ -198,7 +204,7 @@ test('venue runtime has explicit no-georeferencing metadata and no invented cali
 
 
 
-test('generated square map and packaged JPEG are independently locked without inventing calibration',()=>{const m=JSON.parse(read('design/maps/xuanwu-lake/immersive-v4/manifest.json')),hash=b=>crypto.createHash('sha256').update(b).digest('hex');assert.equal(m.width,1254);assert.equal(m.height,1254);assert.equal(m.georeferenced,false);assert.equal(m.geographicOverlay,false);assert.equal(hash(fs.readFileSync(path.join(root,m.source))),'8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6');assert.equal(hash(fs.readFileSync(path.join(root,m.path))),m.sha256);assert.equal(config.src,'/'+m.path);assert.equal(config.width,m.width);assert.equal(config.height,m.height);assert.ok(m.bytes<950000);});
+test('generated square map and packaged JPEG are independently locked without inventing calibration',()=>{const m=JSON.parse(read('design/maps/xuanwu-lake/immersive-v4/manifest.json')),hash=b=>crypto.createHash('sha256').update(b).digest('hex');assert.equal(m.width,1254);assert.equal(m.height,1254);assert.equal(m.georeferenced,false);assert.equal(m.geographicOverlay,false);assert.equal(hash(fs.readFileSync(path.join(root,m.source))),'8efcec9c8b99a73c544bee57b52b276e0cabe0a40bbf0841fd2c840999d02de6');assert.equal(hash(fs.readFileSync(path.join(root,m.path))),m.sha256);assert.equal(config.src,'/venue-xuanwu/assets/xuanwu-lake-v4.jpg');assert.equal(hash(fs.readFileSync(path.join(root,config.src))),m.sha256);assert.equal(config.width,m.width);assert.equal(config.height,m.height);assert.ok(m.bytes<950000);});
 
 
 test('touch before the deferred first tour leg prevents that stale leg from starting',()=>{const f=componentFixture({autoTour:true});f.attach();f.measure();f.instance.onImageLoad(f.imageEvent());f.instance.onTouchStart({touches:[{clientX:10,clientY:10}]});f.flush();assert.equal(f.timers.size,0);assert.equal(f.instance.data.mode,'manual');});

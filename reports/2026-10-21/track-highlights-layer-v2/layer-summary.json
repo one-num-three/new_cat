@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "maps": 3,
+  "flags": 6,
+  "checkedOpaqueFlagPixels": 26584,
+  "coveredFlagPixels": 0,
+  "bubbleFlagCollisions": 0,
+  "negativeControlCoveredPixels": 4117,
+  "actualRecordCoordinatesAndStatisticsUnchanged": true,
+  "authorizedSnapshotSha256": "9d10e4fcbf04adc01f52bc2c97c5e449709d7a8f68c5559eec06f97c7352cdac",
+  "nativeWechat": false,
+  "manualReview": true
+}

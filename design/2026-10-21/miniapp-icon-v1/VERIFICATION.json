@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-21",
+  "sourceSha256": "ceb37904d76b3e6eda3a60e18f00894733c0578850d6bbf5536c8da1642fb3ae",
+  "sourceUnchanged": true,
+  "export": "nearest-neighbor size conversion, opaque PNG",
+  "files": [
+    {
+      "file": "cat-mouse-icon-144.png",
+      "width": 144,
+      "height": 144,
+      "format": "png",
+      "bytes": 30025,
+      "sha256": "370f11fd1055543b99bc165bb0ae20aaa9d1756a2a1d74e4a70be68a19ebc586"
+    },
+    {
+      "file": "cat-mouse-icon-512.png",
+      "width": 512,
+      "height": 512,
+      "format": "png",
+      "bytes": 307317,
+      "sha256": "629ecbfc38567cad55dcfbdebec106e75f273581d511346340e7edf9a43724e7"
+    }
+  ]
+}

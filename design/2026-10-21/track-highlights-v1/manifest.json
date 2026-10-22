@@ -1,0 +1,71 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-21",
+  "posterPositions": "illustrative, not actual user records",
+  "sprites": {
+    "start": {
+      "source": "start-original.png",
+      "anchor": {
+        "u": 0.2926634768740032,
+        "v": 0.8843700159489634
+      },
+      "anchorMeaning": "bottom-center of pole foot, normalized to entire sprite canvas",
+      "sourceSha256": "6e85947f31eec0a25d70c497fad76bfa92693a4149ca85872030950058d262e5",
+      "transparentPixels": 1191333
+    },
+    "finish": {
+      "source": "finish-original.png",
+      "anchor": {
+        "u": 0.2926634768740032,
+        "v": 0.8859649122807017
+      },
+      "anchorMeaning": "bottom-center of pole foot, normalized to entire sprite canvas",
+      "sourceSha256": "eabf21292685d687f3cb97ead7aeca69ef8249037d1e14d9a3c91fae10793d81",
+      "transparentPixels": 1194428
+    }
+  },
+  "files": [
+    {
+      "file": "start-flag-96.png",
+      "width": 96,
+      "height": 96,
+      "bytes": 6342,
+      "sha256": "56fb12597df95f7026990a143f1ec5a54a24ed5accbb30eaf593a1d40ffc9eeb"
+    },
+    {
+      "file": "start-flag-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 22535,
+      "sha256": "46760e9302a0d80e4ce4542649750b296056e8dff208176bc4b29be8d460ca8e"
+    },
+    {
+      "file": "finish-flag-96.png",
+      "width": 96,
+      "height": 96,
+      "bytes": 6193,
+      "sha256": "02f0438efae7f36b9783903c46b7759ccbc260fc2cf4ecf3bd06e2cb09631847"
+    },
+    {
+      "file": "finish-flag-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 22358,
+      "sha256": "97dcde1b4d0c7b4b93abc429bf49d775d3e3c0c0d0e7264801dbe057a81ad09f"
+    },
+    {
+      "file": "highlights-poster.png",
+      "width": 941,
+      "height": 1672,
+      "bytes": 2310088,
+      "sha256": "293552d935584cb304a852e0d6dc881602f8b86ce4e32c0adcd75827e5fca0a8"
+    },
+    {
+      "file": "highlights-poster.jpg",
+      "width": 941,
+      "height": 1672,
+      "bytes": 586145,
+      "sha256": "f1f581945572b1722fd71ce84dbedd53d12c3c261133af4b2bd4eaad6442c6ec"
+    }
+  ]
+}

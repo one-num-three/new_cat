@@ -1,0 +1,10 @@
+{"at":"2026-10-19T13:26:39.836Z","kind":"start","matchId":"5bce8206-ba4c-42f4-a5c9-8c086e5b2972","roles":{"3a9eceec-a5b8-42af-bca6-e23bac65fbc2":"mouse","24d1dd87-e286-4356-a188-574fae5e125b":"cat","7969ffd9-1a23-40d3-b614-948fcbf1be3a":"mouse","4d906e3b-2aac-4d31-a75d-99e66a4bdac2":"mouse","8a969847-594e-4813-a92c-b425c12ab6e4":"mouse","47dc0ce4-54d7-448a-9be5-ea8dfe9b9ec8":"mouse","41e4c748-12c6-4a5d-9958-314d688099e6":"mouse","3268de68-dedb-4bff-9748-15ff4b25644e":"cat"},"target":4}
+{"at":"2026-10-19T13:31:29.821Z","kind":"companion_waiting_in_ready_room","index":0}
+{"at":"2026-10-19T13:31:55.942Z","kind":"companion_waiting_in_ready_room","index":1}
+{"at":"2026-10-19T13:32:09.320Z","kind":"companion_waiting_in_ready_room","index":2}
+{"at":"2026-10-19T13:32:22.975Z","kind":"companion_waiting_in_ready_room","index":3}
+{"at":"2026-10-19T13:32:36.409Z","kind":"companion_waiting_in_ready_room","index":4}
+{"at":"2026-10-19T13:32:51.378Z","kind":"companion_waiting_in_ready_room","index":5}
+{"at":"2026-10-19T13:33:06.422Z","kind":"companion_waiting_in_ready_room","index":6}
+{"at":"2026-10-19T13:33:20.270Z","kind":"companion_waiting_in_ready_room","index":7}
+{"at":"2026-10-19T13:37:12.962Z","kind":"shutdown","databaseRemoved":true}

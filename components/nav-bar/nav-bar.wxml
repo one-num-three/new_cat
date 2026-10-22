@@ -1,4 +1,4 @@
-<view class="nativeNav" style="padding-top:{{statusHeight}}px">
+<view class="nativeNav {{pinned?'pinnedNav':''}}" style="padding-top:{{statusHeight}}px">
   <view class="navLine" style="height:{{barHeight}}px">
     <button wx:if="{{back || preview}}" class="navBack" bindtap="goBack" aria-label="{{preview?'返回调试台':'返回'}}">‹</button>
     <image wx:if="{{!back && !preview}}" class="navLogo" src="/assets/pixel-v1/logo.png" mode="aspectFit" aria-hidden="true" />

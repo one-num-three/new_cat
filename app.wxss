@@ -1,0 +1,3 @@
+/* 全局字体只声明一次，各页面和组件继续使用原有字体族。 */
+@import "./utils/fusion-font.wxss";
+@import "./utils/pixel-font.wxss";

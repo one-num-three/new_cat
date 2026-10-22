@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-19",
+  "status": "passed",
+  "method": "official WeChat DevTools MCP; real HTTP and native WebSocket rules service",
+  "simulators": 1,
+  "concurrentAuthorizedWebSockets": 10,
+  "storage": "isolated local PGlite",
+  "realWallClock": true,
+  "hidingSeconds": 30,
+  "chasingSeconds": 360,
+  "simulatedGps": true,
+  "phoneTest": false,
+  "publicNetworkTest": false,
+  "productionDataWritten": false,
+  "originalSessionRestored": true,
+  "devPreview": false,
+  "screenshots": 15,
+  "acceptedScreenshots": 14,
+  "excludedVisualEvidence": [
+    {
+      "name": "00-original-eight",
+      "reason": "Loading frame; logic-layer baseline only, not a rendered UI pass"
+    }
+  ],
+  "individualUiScreenshots": 10,
+  "allUiDuringChase": true,
+  "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+  "lateJoin": {
+    "from": 8,
+    "to": 10,
+    "cats": 3,
+    "mice": 7,
+    "oldRolesUnchanged": true,
+    "target": 4,
+    "captured": 1
+  },
+  "offline": {
+    "player": "P09",
+    "locationsHidden": true,
+    "captureDisabled": true,
+    "automaticGlobalPause": true,
+    "samePageAutomaticReconnect": true,
+    "identityUnchanged": true,
+    "capturedHostResumedWithoutRevival": true
+  },
+  "players": [
+    {
+      "player": "P01·房主",
+      "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+      "role": "mouse",
+      "status": "captured",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 0,
+      "uiPhase": "CHASING",
+      "screenshot": "player-01.png",
+      "consistent": true
+    },
+    {
+      "player": "P02·玩家",
+      "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+      "role": "mouse",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 6,
+      "uiPhase": "CHASING",
+      "screenshot": "player-02.png",
+      "consistent": true
+    },
+    {
+      "player": "P03·玩家",
+      "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+      "role": "mouse",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 6,
+      "uiPhase": "CHASING",
+      "screenshot": "player-03.png",
+      "consistent": true
+    },
+    {
+      "player": "P04·玩家",
+      "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+      "role": "mouse",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 6,
+      "uiPhase": "CHASING",
+      "screenshot": "player-04.png",
+      "consistent": true
+    },
+    {
+      "player": "P05·玩家",
+      "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+      "role": "mouse",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 6,
+      "uiPhase": "CHASING",
+      "screenshot": "player-05.png",
+      "consistent": true
+    },
+    {
+      "player": "P06·玩家",
+      "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+      "role": "cat",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 3,
+      "uiPhase": "CHASING",
+      "screenshot": "player-06.png",
+      "consistent": true
+    },
+    {
+      "player": "P07·玩家",
+      "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+      "role": "mouse",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 6,
+      "uiPhase": "CHASING",
+      "screenshot": "player-07.png",
+      "consistent": true
+    },
+    {
+      "player": "P08·玩家",
+      "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+      "role": "cat",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 3,
+      "uiPhase": "CHASING",
+      "screenshot": "player-08.png",
+      "consistent": true
+    },
+    {
+      "player": "P09·补入",
+      "id": "e16a7a5a-5f24-4e6e-9c8e-3d2eeee79059",
+      "role": "mouse",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 6,
+      "uiPhase": "CHASING",
+      "screenshot": "player-09.png",
+      "consistent": true
+    },
+    {
+      "player": "P10·补入",
+      "id": "20fb5e30-c01e-45b0-91cf-7e0ca9b175a8",
+      "role": "cat",
+      "status": "active",
+      "livePhase": "CHASING",
+      "liveVersion": 33,
+      "visiblePlayers": 3,
+      "uiPhase": "CHASING",
+      "screenshot": "player-10.png",
+      "consistent": true
+    }
+  ]
+}

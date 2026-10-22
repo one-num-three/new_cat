@@ -1,0 +1,160 @@
+{
+  "status": 0,
+  "files": [
+    "app.wxss",
+    "pages/index/index.wxss",
+    "pages/room/room.wxss",
+    "pages/map/map.wxss",
+    "pages/qrcode/qrcode.wxss",
+    "pages/dev/dev.wxss",
+    "pages/venue/venue.wxss",
+    "pages/calibrate/calibrate.wxss",
+    "room-tools/pages/invite/invite.wxss",
+    "room-tools/pages/settings/settings.wxss",
+    "room-tools/pages/tracks/tracks.wxss",
+    "room-tools/pages/share/share.wxss",
+    "field-editor/pages/edit/edit.wxss",
+    "campus3d/pages/open/open.wxss",
+    "venue-maps/pages/open/open.wxss",
+    "venue-xuanwu/pages/open/open.wxss",
+    "components/campus-model/campus-model.wxss",
+    "components/map-icon/map-icon.wxss",
+    "components/nav-bar/nav-bar.wxss",
+    "components/pixel-action/pixel-action.wxss",
+    "components/venue-art/venue-art.wxss",
+    "utils/fusion-font.wxss",
+    "utils/pixel-font.wxss",
+    "utils/pixel-theme.wxss",
+    "utils/pixel-art-ratios.wxss"
+  ],
+  "entries": 21,
+  "results": [
+    {
+      "entry": "app.wxss",
+      "status": 0,
+      "outputBytes": 183652,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/index/index.wxss",
+      "status": 0,
+      "outputBytes": 7155,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/room/room.wxss",
+      "status": 0,
+      "outputBytes": 17552,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/map/map.wxss",
+      "status": 0,
+      "outputBytes": 19873,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/qrcode/qrcode.wxss",
+      "status": 0,
+      "outputBytes": 9337,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/dev/dev.wxss",
+      "status": 0,
+      "outputBytes": 4106,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/venue/venue.wxss",
+      "status": 0,
+      "outputBytes": 4657,
+      "stderr": ""
+    },
+    {
+      "entry": "pages/calibrate/calibrate.wxss",
+      "status": 0,
+      "outputBytes": 3579,
+      "stderr": ""
+    },
+    {
+      "entry": "room-tools/pages/invite/invite.wxss",
+      "status": 0,
+      "outputBytes": 3825,
+      "stderr": ""
+    },
+    {
+      "entry": "room-tools/pages/settings/settings.wxss",
+      "status": 0,
+      "outputBytes": 2915,
+      "stderr": ""
+    },
+    {
+      "entry": "room-tools/pages/tracks/tracks.wxss",
+      "status": 0,
+      "outputBytes": 3414,
+      "stderr": ""
+    },
+    {
+      "entry": "room-tools/pages/share/share.wxss",
+      "status": 0,
+      "outputBytes": 3071,
+      "stderr": ""
+    },
+    {
+      "entry": "field-editor/pages/edit/edit.wxss",
+      "status": 0,
+      "outputBytes": 5128,
+      "stderr": ""
+    },
+    {
+      "entry": "campus3d/pages/open/open.wxss",
+      "status": 0,
+      "outputBytes": 61,
+      "stderr": ""
+    },
+    {
+      "entry": "venue-maps/pages/open/open.wxss",
+      "status": 0,
+      "outputBytes": 2186,
+      "stderr": ""
+    },
+    {
+      "entry": "venue-xuanwu/pages/open/open.wxss",
+      "status": 0,
+      "outputBytes": 2186,
+      "stderr": ""
+    },
+    {
+      "entry": "components/campus-model/campus-model.wxss",
+      "status": 0,
+      "outputBytes": 1582,
+      "stderr": ""
+    },
+    {
+      "entry": "components/map-icon/map-icon.wxss",
+      "status": 0,
+      "outputBytes": 149,
+      "stderr": ""
+    },
+    {
+      "entry": "components/nav-bar/nav-bar.wxss",
+      "status": 0,
+      "outputBytes": 1167,
+      "stderr": ""
+    },
+    {
+      "entry": "components/pixel-action/pixel-action.wxss",
+      "status": 0,
+      "outputBytes": 1477,
+      "stderr": ""
+    },
+    {
+      "entry": "components/venue-art/venue-art.wxss",
+      "status": 0,
+      "outputBytes": 2709,
+      "stderr": ""
+    }
+  ],
+  "outputBytes": 279781
+}

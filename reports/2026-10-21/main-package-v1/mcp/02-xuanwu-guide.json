@@ -1,0 +1,21 @@
+{
+  "route": "pages/venue/venue",
+  "active": true,
+  "mapId": "xuanwu-v4",
+  "source": "/venue-xuanwu/assets/xuanwu-lake-v4.jpg",
+  "locationOn": false,
+  "stack": [
+    "pages/index/index",
+    "pages/venue/venue"
+  ],
+  "xuanwu": true,
+  "campus": false,
+  "art": {
+    "state": "ready",
+    "nodes": 1,
+    "scale": 1.28,
+    "width": 605.5546875,
+    "height": 605.5546875,
+    "src": "/venue-xuanwu/assets/xuanwu-lake-v4.jpg"
+  }
+}

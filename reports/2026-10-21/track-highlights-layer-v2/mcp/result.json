@@ -1,0 +1,9 @@
+{
+  "status": "not-run",
+  "previousRunStatus": "blocked",
+  "note": "Native WeChat not rerun in this frontend-only layer patch; see previous track-highlights-v1 attempts",
+  "phone": false,
+  "desktopPixelVerification": "passed",
+  "actuallyShared": false,
+  "productionDataWritten": false
+}

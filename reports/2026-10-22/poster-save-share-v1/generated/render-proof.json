@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "renderer": "desktop @napi-rs/canvas; same utils/track-poster painter, NOT WeChat",
+  "cachedAuthorizedSnapshot": true,
+  "simulatedGps": true,
+  "realLocalApiSqlMatch": true,
+  "matchOutcome": "cat_win",
+  "scope": "self",
+  "exportedPlayers": 1,
+  "pointCount": 17,
+  "flags": [
+    {
+      "kind": "start",
+      "x": 401.4664039769478,
+      "y": 749.0563238943981
+    },
+    {
+      "kind": "finish",
+      "x": 401.4461407888773,
+      "y": 772.1900009162903
+    }
+  ],
+  "highlights": [
+    {
+      "kind": "fastest",
+      "x": 401.4543231093179,
+      "y": 766.4925234420796,
+      "box": {
+        "x": 550.8196669515037,
+        "y": 595.0713277899057,
+        "w": 289.13684210526316,
+        "h": 171.4211956521739
+      },
+      "detail": "约3.4米/秒 · 8秒窗口",
+      "sprite": "fastest-edge-left-320.png",
+      "tip": {
+        "x": 562.5354564251878,
+        "y": 766.0518531522246
+      },
+      "leader": {
+        "from": {
+          "lat": 31.8876591067821,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574974249,
+          "recordedAt": 1792574974251,
+          "segment": 0,
+          "phase": "HIDING",
+          "x": 401.4543231093179,
+          "y": 766.4925234420796
+        },
+        "to": {
+          "x": 562.5354564251878,
+          "y": 766.0518531522246
+        }
+      }
+    },
+    {
+      "kind": "nearest",
+      "x": 401.44996580590174,
+      "y": 769.5265822173153,
+      "box": {
+        "x": 256.4736624883662,
+        "y": 835.016211999331,
+        "w": 289.9526066350711,
+        "h": 171.8016304347826
+      },
+      "detail": "约30米 · GPS估计",
+      "sprite": "closest-edge-left-320.png",
+      "tip": {
+        "x": 268.1956214141166,
+        "y": 1006.3740018544034
+      },
+      "leader": {
+        "from": {
+          "lat": 31.88760328600095,
+          "lng": 118.81920737398848,
+          "accuracy": 5,
+          "sampledAt": 1792574976253,
+          "recordedAt": 1792574976255,
+          "segment": 0,
+          "phase": "CHASING",
+          "x": 401.44996580590174,
+          "y": 769.5265822173153
+        },
+        "to": {
+          "x": 268.1956214141166,
+          "y": 1006.3740018544034
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "distance": "58 米",
+    "duration": "0分2秒",
+    "calories": "约2 千卡",
+    "note": "GPS有效片段 · 断点不补线 · 热量按60kg/4MET粗估"
+  },
+  "nativeWechat": false,
+  "phone": false,
+  "physicalCamera": false,
+  "actuallyShared": false
+}

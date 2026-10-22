@@ -1,0 +1,48 @@
+{
+  "view": {
+    "route": "pages/map/map",
+    "active": true,
+    "userId": "9a7103b3-97df-44de-92b8-8c4223e3fc8e",
+    "viewerId": "9a7103b3-97df-44de-92b8-8c4223e3fc8e",
+    "match": {
+      "id": "b9c17539-da72-4393-96f7-ed9788e89e66",
+      "phase": "CHASING",
+      "endsAt": 1792499507189,
+      "remainingMs": 320134,
+      "pauseReason": null,
+      "target": 4,
+      "captured": 1,
+      "outcome": null,
+      "reason": null,
+      "eventSeq": 3,
+      "myRole": "mouse",
+      "myStatus": "captured",
+      "joinPolicy": "reinforce-v2",
+      "targetMouseCount": 6,
+      "initialTeams": {
+        "cats": 2,
+        "mice": 6
+      },
+      "joinDeadline": null
+    },
+    "offline": false,
+    "backgroundTracking": false,
+    "socketOpen": true,
+    "polling": false,
+    "locationRunning": false,
+    "trackingText": "定位已停止",
+    "backgroundReady": false,
+    "location": {
+      "running": false,
+      "mode": "off",
+      "backgroundReady": false,
+      "notice": "",
+      "roomId": null,
+      "matchId": null
+    },
+    "devPreview": false
+  },
+  "simulatedNativePermission": true,
+  "simulatedLifecycle": true,
+  "phoneLockScreen": false
+}

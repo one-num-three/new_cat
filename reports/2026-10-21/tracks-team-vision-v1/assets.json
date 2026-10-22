@@ -1,0 +1,32 @@
+[
+  {
+    "file": "room-tools/assets/track-share-frame.png",
+    "bytes": 1143862,
+    "sha256": "cd802fd71a6193b9e24c74ddac78505f49f5b21a03e900967a1a37386c0a7a07"
+  },
+  {
+    "file": "design/2026-10-21/track-share-reference/template-original.png",
+    "bytes": 1483655,
+    "sha256": "d60a724ca36dceeba150f4007acbff8a45cb54f2e5b20b97c5f246358a3ca658"
+  },
+  {
+    "file": "design/2026-10-21/track-share-reference/example-original.png",
+    "bytes": 2835377,
+    "sha256": "64c0ce5572f996092cd18f01621067f2f90e5ddc82627b1ddff9eb8920fe82df"
+  },
+  {
+    "file": "venue-xuanwu/assets/xuanwu-lake-v4.jpg",
+    "bytes": 804062,
+    "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540"
+  },
+  {
+    "file": "venue-maps/assets/jiulonghu-v1.jpg",
+    "bytes": 981028,
+    "sha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5"
+  },
+  {
+    "file": "venue-maps/assets/sipailou-v1.jpg",
+    "bytes": 999793,
+    "sha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "firstMatchId": "5bce8206-ba4c-42f4-a5c9-8c086e5b2972",
+  "secondMatchId": "669be190-e9cc-4792-ad13-b3b6b9ecd7f8",
+  "players": 8,
+  "simulators": 1,
+  "concurrentWebSockets": 8,
+  "realWallClock": true,
+  "simulatedGps": true,
+  "simulatedCamera": true,
+  "actualDisplayedPngDecoded": true,
+  "devPreview": false,
+  "productionDataWritten": false,
+  "captureCount": 4,
+  "target": 4,
+  "outcome": "cat_win",
+  "oldResultPreserved": true,
+  "newReadinessRequired": true,
+  "allNewParticipantsActive": true,
+  "allPeersAligned": true,
+  "screenshots": 21
+}

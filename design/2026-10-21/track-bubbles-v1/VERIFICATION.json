@@ -1,0 +1,11 @@
+{
+  "pass": true,
+  "variants": 4,
+  "trueAlpha": true,
+  "sourceTextVisuallyChecked": true,
+  "textMirrored": false,
+  "placementCases": 120,
+  "edgeSwitch": true,
+  "geographicPointUnchanged": true,
+  "offscreenRejected": true
+}

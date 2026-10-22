@@ -1,0 +1,21 @@
+{
+  "route": "pages/venue/venue",
+  "active": true,
+  "mapId": "seu-jiulonghu-v1",
+  "source": "/venue-maps/assets/jiulonghu-v1.jpg",
+  "locationOn": false,
+  "stack": [
+    "pages/index/index",
+    "pages/venue/venue"
+  ],
+  "xuanwu": true,
+  "campus": true,
+  "art": {
+    "state": "ready",
+    "nodes": 1,
+    "scale": 1.28,
+    "width": 605.5546875,
+    "height": 605.5546875,
+    "src": "/venue-maps/assets/jiulonghu-v1.jpg"
+  }
+}

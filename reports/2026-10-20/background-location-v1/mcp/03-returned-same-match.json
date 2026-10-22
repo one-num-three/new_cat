@@ -1,0 +1,43 @@
+{
+  "route": "pages/map/map",
+  "active": true,
+  "userId": "9a7103b3-97df-44de-92b8-8c4223e3fc8e",
+  "viewerId": "9a7103b3-97df-44de-92b8-8c4223e3fc8e",
+  "match": {
+    "id": "b9c17539-da72-4393-96f7-ed9788e89e66",
+    "phase": "CHASING",
+    "endsAt": 1792499507189,
+    "remainingMs": 326175,
+    "pauseReason": null,
+    "target": 4,
+    "captured": 0,
+    "outcome": null,
+    "reason": null,
+    "eventSeq": 2,
+    "myRole": "mouse",
+    "myStatus": "active",
+    "joinPolicy": "reinforce-v2",
+    "targetMouseCount": 6,
+    "initialTeams": {
+      "cats": 2,
+      "mice": 6
+    },
+    "joinDeadline": null
+  },
+  "offline": false,
+  "backgroundTracking": false,
+  "socketOpen": true,
+  "polling": false,
+  "locationRunning": true,
+  "trackingText": "后台定位已开启",
+  "backgroundReady": true,
+  "location": {
+    "running": true,
+    "mode": "background",
+    "backgroundReady": true,
+    "notice": "",
+    "roomId": "e8b420b1-9261-4a44-bcb4-101922918ace",
+    "matchId": "b9c17539-da72-4393-96f7-ed9788e89e66"
+  },
+  "devPreview": false
+}

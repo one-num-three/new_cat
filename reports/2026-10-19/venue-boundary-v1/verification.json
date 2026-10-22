@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-19",
+  "tests": {
+    "total": 168,
+    "passed": 168,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 15,
+      "status": 0
+    },
+    "wxss": {
+      "files": 19,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 678,
+    "bytes": 27292,
+    "sha256": "e37aec666d6da2e6a3e88c09382209ebd0d8cd56a42d4cd26d55a9d561fa2c41"
+  },
+  "packageFiles": 172,
+  "rawLocalBytes": {
+    "main": 2094789,
+    "campus3d": 1295150,
+    "field-editor": 14257,
+    "venue-maps": 1981419
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "not-run",
+    "reason": "MCP project_list empty; runtime not found. Automatic approval rejected open_project_window because it could activate a window and affect the fixed split-screen layout. No workaround used."
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "not-run",
+  "publicLoadTest": "not-run"
+}

@@ -1,0 +1,124 @@
+[
+  {
+    "method": "GET",
+    "path": "/health",
+    "status": 200,
+    "data": {
+      "ok": true
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/ready",
+    "status": 200,
+    "data": {
+      "ready": true
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/version",
+    "status": 200,
+    "data": {
+      "version": "0.5.2",
+      "rulesVersion": "pilot-0.3",
+      "supportedRuleVersions": [
+        "pilot-0.2",
+        "pilot-0.3"
+      ],
+      "capabilities": {
+        "mapCalibration": true,
+        "customTeams": true,
+        "multiVenueMaps": true,
+        "polygonVenues": true,
+        "mapCatalog": true,
+        "roomInvites": true,
+        "createCommands": true,
+        "captureProtocol": "capture-v1",
+        "lateJoin": "reinforce-v2",
+        "dynamicCaptureTarget": "joined-mice-60-v1",
+        "roundReadiness": "fresh-v1",
+        "snapshotViewer": true
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v2/maps",
+    "status": 200,
+    "data": {
+      "schema": "venue-catalog-v1",
+      "coordinateSystem": "gcj02",
+      "limits": {
+        "minVertices": 3,
+        "maxVertices": 16,
+        "minAreaM2": 400,
+        "maxAreaM2": 4000000,
+        "maxDistanceM": 3000,
+        "outsideToleranceM": 50
+      },
+      "maps": [
+        {
+          "id": "xuanwu-v4",
+          "label": "玄武湖 · 环洲樱洲",
+          "revision": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540",
+          "bounds": null,
+          "layers": [
+            "native",
+            "art"
+          ],
+          "fieldVerified": false
+        },
+        {
+          "id": "seu-jiulonghu-v1",
+          "label": "东南大学 · 九龙湖",
+          "revision": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5",
+          "bounds": [
+            118.80785608695919,
+            31.877655294234305,
+            118.8334067719731,
+            31.89620640060128
+          ],
+          "layers": [
+            "native",
+            "art",
+            "model"
+          ],
+          "fieldVerified": false
+        },
+        {
+          "id": "seu-sipailou-v1",
+          "label": "东南大学 · 四牌楼",
+          "revision": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9",
+          "bounds": [
+            118.7849075689596,
+            32.049648105248494,
+            118.80248354227048,
+            32.06022377245525
+          ],
+          "layers": [
+            "native",
+            "art"
+          ],
+          "fieldVerified": false
+        }
+      ]
+    }
+  },
+  {
+    "method": "POST",
+    "path": "/api/v2/session/test",
+    "status": 403,
+    "data": {
+      "error": "FORBIDDEN"
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/v2/rooms/00000000-0000-4000-8000-000000000000",
+    "status": 401,
+    "data": {
+      "error": "UNAUTHENTICATED"
+    }
+  }
+]

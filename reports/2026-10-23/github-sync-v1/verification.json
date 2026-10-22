@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-23",
+  "target": {
+    "remote": "github",
+    "repository": "https://github.com/one-num-three/new_cat",
+    "branch": "main",
+    "base": "9ecf5dbd99fe8f51dcf4583e9bccacecd9f8bb32",
+    "forcePush": false
+  },
+  "candidateApiVersion": "0.6.1",
+  "tests": {
+    "total": 227,
+    "passed": 227,
+    "failed": 0,
+    "durationMs": 17949.2584,
+    "logSha256": "1c2dd1c82d203561e1228cd036aa746531ad06f811ce367574720553a9f4dd79",
+    "environment": "Local automated suite; not phone, outdoor GPS, live PostgreSQL or production testing"
+  },
+  "packaging": {
+    "rawLocalBytes": {
+      "main": 1022265,
+      "campus3d": 1295150,
+      "field-editor": 16017,
+      "room-tools": 1349671,
+      "venue-maps": 1981470,
+      "venue-xuanwu": 804649
+    },
+    "mainLimitBytes": 1500000,
+    "subPackageLimitBytes": 2097152,
+    "mainHeadroomBytes": 477735,
+    "uploadVerified": false,
+    "measurement": "Uncompressed source files after project.config.json packOptions.ignore; not WeChat upload bytes",
+    "files": 179
+  },
+  "review": {
+    "diffCheck": "passed",
+    "credentialPatternScan": "No matches in newly added or modified files before this documentation update; existing commented database example and variable-based connection strings reviewed",
+    "excludedByExistingGitignore": [
+      "local env files and private WeChat config",
+      "private key and database backup files",
+      "node_modules and test caches",
+      "report screenshots and repeated release directories"
+    ],
+    "designOriginals": "preserved"
+  },
+  "notPerformed": [
+    "productionDeployment",
+    "wechatUpload",
+    "realDeviceTests",
+    "outdoorGpsTests"
+  ],
+  "pushEvidence": "Push result and remote commit confirmation are retained locally in git-push.log and push-result.log; final chat provides the commit link."
+}

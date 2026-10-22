@@ -1,0 +1,17 @@
+<view class="fieldScreen {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}}">
+ <nav-bar title="集合点与活动范围" back="{{true}}" preview="{{devPreview}}" />
+ <view class="editorHeading"><picker range="{{mapOptions}}" range-key="label" value="{{mapIndex}}" bindchange="selectMap" disabled="{{!editable || busy}}"><text class="fieldName">{{venueName}} ▾</text></picker><text class="fieldSubtitle">真实地图 · GCJ-02</text></view>
+ <view class="fieldMap"><map id="fieldMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" markers="{{markers}}" polygons="{{polygons}}" polyline="{{polyline}}" enable-scroll="{{true}}" enable-zoom="{{true}}" show-location="{{false}}" bindtap="tapMap" bindmarkertap="tapMarker" bindcallouttap="tapMarker" /><view wx:if="{{loading}}" class="mapLoading"><text>正在读取场地…</text></view></view>
+ <scroll-view scroll-y class="fieldPanel" style="height:{{fontScale>1.15?viewportHeight*0.48:viewportHeight*0.40}}px">
+  <view class="fieldPanelContent">
+  <view wx:if="{{devPreview}}" class="demoNote">交互演示 · 不读取GPS或提交服务器</view>
+  <text wx:if="{{mapHint}}" class="fieldFootnote">{{mapHint}}</text><view class="modeTabs"><button id="boundaryMode" class="{{mode==='boundary'?'chosen':''}}" data-mode="boundary" bindtap="setMode" disabled="{{!editable || busy}}">框选范围</button><button id="meetingMode" class="{{mode==='meeting'?'chosen':''}}" data-mode="meeting" bindtap="setMode" disabled="{{!editable || busy}}">选择集合点</button></view>
+  <text class="instruction">{{instruction}}</text><view class="fieldStats"><text>{{points.length}} / 16 顶点 · {{areaText}}</text><text>{{meeting?'集合点已选':'集合点待选'}}</text></view>
+  <view class="editorTools"><button bindtap="undo" disabled="{{!canUndo || busy || !editable}}">撤销</button><button bindtap="remove" disabled="{{selected<0 || busy || !editable}}">删顶点</button><button bindtap="clear" disabled="{{!points.length || busy || !editable}}">重画</button><button bindtap="locate" disabled="{{busy || !editable}}">用我位置</button></view>
+  <text wx:if="{{error || validation}}" class="fieldError" role="alert">{{error || validation}}</text><text wx:else class="fieldValid">边界有效 · 集合点在范围内</text>
+  <button class="fieldSave" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">{{roomId?'保存并通知全员重新准备':'使用这个范围'}}</button>
+  <text class="fieldFootnote">点顶点编号后可移动。双指缩放、单指移动地图。范围请避开道路、水面与禁入区。</text>
+  <button wx:if="{{!editable && !loading}}" class="retry" bindtap="loadRoom">重新读取房间</button>
+  </view>
+ </scroll-view>
+</view>

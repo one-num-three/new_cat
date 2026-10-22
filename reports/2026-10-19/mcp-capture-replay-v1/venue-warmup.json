@@ -1,0 +1,9 @@
+{
+  "ready": true,
+  "route": "pages/index/index",
+  "stack": [
+    "pages/index/index"
+  ],
+  "base": "http://127.0.0.1:58592",
+  "backup": true
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "run": 1,
+    "databaseRemoved": true,
+    "shutdownRecorded": true
+  },
+  {
+    "run": 2,
+    "databaseRemoved": true,
+    "shutdownRecorded": true
+  },
+  {
+    "run": 3,
+    "databaseRemoved": true,
+    "shutdownRecorded": true
+  },
+  {
+    "run": 4,
+    "databaseRemoved": true,
+    "shutdownRecorded": true
+  }
+]

@@ -4,18 +4,21 @@ const crypto = require('node:crypto');
 const { WebSocketServer } = require('ws');
 const { Store } = require('./store');
 const { Service } = require('./service');
+const maps=require('./map-catalog'),qr=require('../shared/qr-protocol');
+const tracks=require('./tracks');
 async function createServer(options = {}) {
   const env = options.env || process.env;
   if (env.NODE_ENV === 'production' && !env.DATABASE_URL) throw new Error('DATABASE_URL_REQUIRED');
   const localTest = env.NODE_ENV === 'test' && env.ENABLE_LOCAL_TEST_IDENTITIES === 'true';
   if (localTest && env.HOST && !['127.0.0.1','localhost','::1'].includes(env.HOST)) throw new Error('LOCAL_TEST_MUST_BIND_LOOPBACK');
   const store = new Store({ url: env.DATABASE_URL, dataDir: env.DATA_DIR || './data' }); await store.init();
-  const service = new Service(store, { localTest, now: options.now }); await service.recover();
+  const service = new Service(store, { localTest, now: options.now }); await service.recover();await tracks.purge(store,service.now());
   const app = express(); app.disable('x-powered-by'); app.use(express.json({ limit: '16kb' }));
   app.use((req,res,next)=>{req.requestId=crypto.randomUUID();res.set('X-Request-Id',req.requestId);const started=Date.now();res.on('finish',()=>{if(env.NODE_ENV==='test' || res.statusCode<400 && (req.method==='GET' || req.path.endsWith('/location')))return;console.log(JSON.stringify({requestId:req.requestId,method:req.method,path:req.path,status:res.statusCode,elapsedMs:Date.now()-started}));});next();});
   app.get('/health', (_, res) => res.json({ ok: true }));
   app.get('/ready', async (_, res) => { try { await store.query('SELECT 1'); res.json({ ready: true }); } catch { res.status(503).json({ ready: false }); } });
-  app.get('/api/version', (_, res) => res.json({ version:'0.3.2',rulesVersion:'pilot-0.3',supportedRuleVersions:['pilot-0.2','pilot-0.3'],capabilities:{mapCalibration:true,customTeams:true,multiVenueMaps:true} }));
+  app.get('/api/version', (_, res) => res.json({ version:'0.6.1',rulesVersion:'pilot-0.3',supportedRuleVersions:['pilot-0.2','pilot-0.3'],capabilities:{mapCalibration:true,customTeams:true,multiVenueMaps:true,polygonVenues:true,mapCatalog:true,roomInvites:true,createCommands:true,captureProtocol:'capture-v1',lateJoin:'reinforce-v2',dynamicCaptureTarget:'joined-mice-60-v1',roundReadiness:'fresh-v1',snapshotViewer:true,matchBoundLocation:true,mouseTeamVision:'vision-share-v1',trackExport:'tracks-v1',trackHighlights:'track-highlights-v1'} }));
+  app.get('/api/v2/maps',(_,res)=>res.json(maps.list()));
   const route = fn => async (req, res) => { try { res.json(await fn(req)); } catch (e) { const raw = e.code || e.message || 'INTERNAL',code=/^[A-Z_]+$/.test(raw)?raw:'INTERNAL'; res.status(code === 'UNAUTHENTICATED' ? 401 : code === 'FORBIDDEN' || code === 'NOT_MEMBER' ? 403 : code === 'INTERNAL' ? 500 : 400).json({ error: code }); } };
   const auth = async req => { const token = /^Bearer (.+)$/.exec(req.headers.authorization || '')?.[1]; const id = await store.session(token); if (!id) { const e = new Error('UNAUTHENTICATED'); e.code = 'UNAUTHENTICATED'; throw e; } service.touch(id); return id; };
   app.post('/api/v2/session/test', route(async req => { if (!localTest) throw new Error('FORBIDDEN'); return store.createSession(); }));
@@ -31,14 +34,23 @@ async function createServer(options = {}) {
   app.post('/api/v2/rooms', route(async req => service.create(await auth(req), req.body)));
   app.post('/api/v2/rooms/:id/join', route(async req => service.join(req.params.id, await auth(req), req.body?.nickname)));
   app.get('/api/v2/rooms/:id', route(async req => service.read(req.params.id, await auth(req))));
+  app.get('/api/v2/rooms/:id/invite',route(async req=>{
+    const s=await service.read(req.params.id,await auth(req)),payload=qr.invite(s.code);
+    const png=await require('qrcode').toBuffer(JSON.stringify(payload),{type:'png',margin:3,width:360});
+    const live=s.match&&!['FINISHED','CANCELLED'].includes(s.match.phase),availableSlots=Math.max(0,(live?60:s.rules.total)-s.roster.length);
+    return {roomId:s.roomId,code:s.code,path:'/pages/index/index?roomCode='+s.code,qrPngBase64:png.toString('base64'),scanInsideApp:true,availableSlots,canNewPlayerJoin:availableSlots>0,lateJoin:!!live,joinPolicy:s.match?.joinPolicy||'reinforce-v2'};
+  }));
   app.put('/api/v2/rooms/:id/calibration',route(async req=>service.calibrate(req.params.id,await auth(req),req.body)));
+  app.put('/api/v2/rooms/:id/venue',route(async req=>service.setVenue(req.params.id,await auth(req),req.body)));
+  app.put('/api/v2/rooms/:id/settings',route(async req=>service.setSettings(req.params.id,await auth(req),req.body)));
+  app.get('/api/v2/matches/:id/tracks',route(async req=>service.exportTracks(req.params.id,await auth(req),req.query.scope||'self')));
   app.post('/api/v2/rooms/:id/location', route(async req => service.location(req.params.id, await auth(req), req.body)));
   app.post('/api/v2/rooms/:id/ready', route(async req => service.ready(req.params.id, await auth(req), req.body?.ready)));
   app.post('/api/v2/rooms/:id/start', route(async req => service.start(req.params.id, await auth(req))));
   app.post('/api/v2/rooms/:id/token', route(async req => {
     const data = await service.token(req.params.id, await auth(req));
-    const png = await require('qrcode').toBuffer(JSON.stringify({ matchId: data.matchId, token: data.token }), { type: 'png', margin: 2, width: 280 });
-    return { ...data, qrPngBase64: png.toString('base64') };
+    const png = await require('qrcode').toBuffer(JSON.stringify(qr.capture(data)), { type: 'png', margin: 3, width: 360 });
+    return { ...data,serverTime:service.now(),qrPngBase64: png.toString('base64') };
   }));
   app.post('/api/v2/rooms/:id/capture', route(async req => service.capture(req.params.id, await auth(req), req.body)));
   app.post('/api/v2/rooms/:id/pause', route(async req => service.pause(req.params.id, await auth(req), req.body?.reason)));
@@ -74,10 +86,10 @@ async function createServer(options = {}) {
     }
     } finally { pushing=false; }
   }, 1000); timer.unref();
-  let ticking = false;
+  let ticking = false,lastTrackPurge=service.now();
   const clock = setInterval(async () => {
     if (ticking) return; ticking = true;
-    try { const rows = await store.query("SELECT id,owner_id FROM rooms WHERE state->'match' IS NOT NULL AND state->'match'->>'phase' NOT IN ('FINISHED','CANCELLED')"); for (const room of rows.rows) await service.read(room.id, room.owner_id); }
+    try { const rows = await store.query("SELECT id,owner_id FROM rooms WHERE state->'match' IS NOT NULL AND state->'match'->>'phase' NOT IN ('FINISHED','CANCELLED')"); for (const room of rows.rows) await service.read(room.id, room.owner_id);if(service.now()-lastTrackPurge>=3600000){await tracks.purge(store,service.now());lastTrackPurge=service.now();} }
     catch (e) { console.error('clock error', e.code || e.message); }
     finally { ticking = false; }
   }, 1000); clock.unref();

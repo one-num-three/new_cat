@@ -1,0 +1,22 @@
+{
+  "route": "room-tools/pages/settings/settings",
+  "active": true,
+  "art": null,
+  "data": {
+    "roomId": "eb1ba7f4-f47b-4ab7-83ef-02d8889d61d1",
+    "fontScale": 1,
+    "navHeight": 87,
+    "mouseTeamVision": true,
+    "editable": true,
+    "loading": false,
+    "saving": false,
+    "loaded": true,
+    "error": "",
+    "notice": "已保存，请返回房间全员重新准备",
+    "__webviewId__": 420,
+    "statusHeight": 47,
+    "viewportHeight": 844,
+    "viewportWidth": 390,
+    "safeBottom": 34
+  }
+}

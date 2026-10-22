@@ -1,0 +1,197 @@
+[
+  {
+    "path": "package-lock.json",
+    "sha256": "a8c51ecabe2b168d444ae68c0a849984b6cc14d4a4b0133ad702609202b98724",
+    "bytes": 85441
+  },
+  {
+    "path": "package.json",
+    "sha256": "2d3824dd1bc6cf6382439baff92e871fdb3f7a97de7983e64034f5e6e01ac30c",
+    "bytes": 605
+  },
+  {
+    "path": "shared/geo-registration.js",
+    "sha256": "eeed2d09ecb93408010ebdb77f880dfb70b1cf51b100be349e186bf1a2b29360",
+    "bytes": 6209
+  },
+  {
+    "path": "shared/qr-protocol.js",
+    "sha256": "b6b4fc48cf476547b7df2028d97dc435423232d1d3bb180517ab6a9e185022a9",
+    "bytes": 1575
+  },
+  {
+    "path": "shared/venue-boundary.js",
+    "sha256": "efb32e793a9b1b8f9b895a429719dfdb74d44c37855c18eed04d782d6288ed4e",
+    "bytes": 3838
+  },
+  {
+    "path": "shared/venue-images.js",
+    "sha256": "cf5a7d71d51d6946bea4545a70e90b78c4173baef4d100910699345e5a54dd6a",
+    "bytes": 1479
+  },
+  {
+    "path": "v2/acceptance.cjs",
+    "sha256": "147d193a7262c67eb9ff6562dc12a7297ca080e667a98ce43fbf42cee49bf586",
+    "bytes": 6024
+  },
+  {
+    "path": "v2/calibration-page.test.js",
+    "sha256": "f6fdb5eb58587af0a3dda565157bef439c29ea6b6111cdc34f251bf60ddf1556",
+    "bytes": 2498
+  },
+  {
+    "path": "v2/campus-maps.test.js",
+    "sha256": "3a6704830833b381cc7fa3babc2f379eecfbd18a1959e6114c0c68bf927bf41e",
+    "bytes": 9896
+  },
+  {
+    "path": "v2/campus-model.test.js",
+    "sha256": "0ceeca2b5413c649aa2352effe0706d74c52c744b8e321bfbc091d9f19037479",
+    "bytes": 11853
+  },
+  {
+    "path": "v2/client.test.js",
+    "sha256": "76ebd3eb42e973813d100a68ecd0d328edc9a5c1dabd1a37bdbb3d6af99f8d90",
+    "bytes": 14813
+  },
+  {
+    "path": "v2/custom-teams.test.js",
+    "sha256": "ec7317aa9153ac39087d93e611713a2098b119ce0c5b4b8782ef0b378c357651",
+    "bytes": 5355
+  },
+  {
+    "path": "v2/dev-preview.test.js",
+    "sha256": "b0dfe87130f51527093cf9c3fdbf9f3ca0407566a2e7862ff1bd20c5a166db9d",
+    "bytes": 9086
+  },
+  {
+    "path": "v2/dynamic-target.test.js",
+    "sha256": "d56ad9fdc29337a508c14b354eba69d55d25cbaf7b83b261b9a8d40137e4e42e",
+    "bytes": 6998
+  },
+  {
+    "path": "v2/fusion-font.test.js",
+    "sha256": "96d47b766d16978a42cee1b2f1968611d2dc4ffed5f7abaea4389409527db409",
+    "bytes": 2401
+  },
+  {
+    "path": "v2/geo-fixture.cjs",
+    "sha256": "aa097db3fa050e246733152417cbcefc00f29c08925549dc5c604be0660a6198",
+    "bytes": 620
+  },
+  {
+    "path": "v2/geo-registration.test.js",
+    "sha256": "f6cd793a6c39922536721df97ba2e46e9d31d4f9673fe4d31ef40a4cc49b466d",
+    "bytes": 5632
+  },
+  {
+    "path": "v2/integration.test.js",
+    "sha256": "bc4f274783a8370363284706a7206d4475402093900f0261c80206b6d531e3cf",
+    "bytes": 15574
+  },
+  {
+    "path": "v2/jiulonghu-coverage.test.js",
+    "sha256": "3799050e042236bfd217694c2c6e1eddcaf4c0c836059ef3e763d7ed83560103",
+    "bytes": 2772
+  },
+  {
+    "path": "v2/jiulonghu-location.test.js",
+    "sha256": "701fee2178db38ca097be07a0a091bf7f0f574ba96272823663c02bb2f47827c",
+    "bytes": 5400
+  },
+  {
+    "path": "v2/late-join.test.js",
+    "sha256": "ee84ccff341e66c13e70133c96eaebfe53bd44d428df2a84be2843058648e0ab",
+    "bytes": 11444
+  },
+  {
+    "path": "v2/load60.cjs",
+    "sha256": "e7999ecc80b1c060c93f07546b4f2ef2aecf4dff33d49636fba7f467e42b16ed",
+    "bytes": 6711
+  },
+  {
+    "path": "v2/map-catalog.js",
+    "sha256": "5d7b4efa8c697c277b62d2fcad166bff03d29eb5266e372e29b0fe7a6258bbcf",
+    "bytes": 442
+  },
+  {
+    "path": "v2/map-first.test.js",
+    "sha256": "3b745e11d22ba5872d8816eb90f53d0997bbe523249988a9b9ba3e732479d30f",
+    "bytes": 11259
+  },
+  {
+    "path": "v2/map-markers.test.js",
+    "sha256": "49d25516be2b82e8196ba96a3f18bdda88ac120102514ca4041b69b8f7786aa9",
+    "bytes": 3674
+  },
+  {
+    "path": "v2/map-motion-gps.test.js",
+    "sha256": "ec818b9a7362a4fd6189cd2025de6802d825b4c84dc27d2c4de8f433887c7dab",
+    "bytes": 6321
+  },
+  {
+    "path": "v2/osm-art-registration.test.js",
+    "sha256": "06ee5b11aaff9294e9a38b1ea9d13aa0330a7c671c2035e89dade8f796fed7f4",
+    "bytes": 4172
+  },
+  {
+    "path": "v2/pixel-ui.test.js",
+    "sha256": "5c53095207d7ac19f243911c3219c833ae8abd4d3214d5321ceaa2ad8250fecb",
+    "bytes": 22963
+  },
+  {
+    "path": "v2/presentation.test.js",
+    "sha256": "a7349d79e5b1b0d89d9a643cf68105253f9bf937753ecef692dcedbfee63cc4f",
+    "bytes": 9969
+  },
+  {
+    "path": "v2/real-rooms.test.js",
+    "sha256": "6c1e807edbe4bbe728ef032679833d9f198bf9a9a88b9fecb232fd4699f7bb56",
+    "bytes": 9583
+  },
+  {
+    "path": "v2/reconnect-controls.test.js",
+    "sha256": "7e9c48f1422e736516f6542be03e4812951580ab9245defae2734bd5daae9272",
+    "bytes": 2361
+  },
+  {
+    "path": "v2/replay-flow.test.js",
+    "sha256": "891b230252ac4be4db3dc3a3b1218d1d20216b4130d40604ed79eeed0034911f",
+    "bytes": 6247
+  },
+  {
+    "path": "v2/rules.js",
+    "sha256": "b049c658903e7a33b169a13ba5eb95bd7c1f4fd17ec8d16bb68c40dae02cc2d3",
+    "bytes": 1202
+  },
+  {
+    "path": "v2/rules.test.js",
+    "sha256": "faeb87638d0f5eee998c7151df3fce716cf0d3899ef95140d1a55258cf7fc048",
+    "bytes": 678
+  },
+  {
+    "path": "v2/server.js",
+    "sha256": "9a15e71fed2cd42860bae44f0a084306a6ae76136a2b0e53582de0ac3b255ca8",
+    "bytes": 9251
+  },
+  {
+    "path": "v2/service.js",
+    "sha256": "63f01b160d7eb596afb2dea2db14451cabd56066414f47c261a8e84a669aaeba",
+    "bytes": 27226
+  },
+  {
+    "path": "v2/store.js",
+    "sha256": "e65c1f0b8f370a9dd2321bce6e2b99108045563bb5c983ab86b1b86002c95f30",
+    "bytes": 3235
+  },
+  {
+    "path": "v2/venue-boundary.test.js",
+    "sha256": "437dee1625269d4d8cb174fdba615458fb010bacea9de729dd347bb3a90f7d8d",
+    "bytes": 15072
+  },
+  {
+    "path": "v2/venue-ui.test.js",
+    "sha256": "a998e1e9717705278cf7406ee262e49d07f39b76ad429cc8f45e3a0cd55193da",
+    "bytes": 30942
+  }
+]

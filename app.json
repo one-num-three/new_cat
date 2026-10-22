@@ -18,25 +18,61 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "用于游戏中确认位置和显示授权线索"
+      "desc": "用于对局中前后台位置同步，出局、退出或结束后停止"
     }
   },
   "requiredPrivateInfos": [
     "getLocation",
     "startLocationUpdate",
+    "startLocationUpdateBackground",
     "onLocationChange"
   ],
+  "requiredBackgroundModes": [
+    "location"
+  ],
   "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
+    "location-signal": "/components/location-signal/location-signal",
     "nav-bar": "/components/nav-bar/nav-bar",
     "pixel-action": "/components/pixel-action/pixel-action"
   },
   "subPackages": [
-    {"name":"campus3d","root":"campus3d","pages":["pages/open/open"]},
+    {
+      "name": "room-tools",
+      "root": "room-tools",
+      "pages": [
+        "pages/invite/invite",
+        "pages/settings/settings",
+        "pages/tracks/tracks",
+        "pages/share/share"
+      ]
+    },
+    {
+      "name": "field-editor",
+      "root": "field-editor",
+      "pages": [
+        "pages/edit/edit"
+      ]
+    },
+    {
+      "name": "campus3d",
+      "root": "campus3d",
+      "pages": [
+        "pages/open/open"
+      ]
+    },
     {
       "name": "venue-maps",
       "root": "venue-maps",
+      "pages": [
+        "pages/open/open"
+      ]
+    },
+    {
+      "name": "venue-xuanwu",
+      "root": "venue-xuanwu",
       "pages": [
         "pages/open/open"
       ]

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "screenshots": 2,
+  "simulators": 1,
+  "simulatedNativePermission": true,
+  "simulatedLifecycle": true,
+  "backgroundNativeGpsEvents": false,
+  "realLocalHttpAndWebSocket": true,
+  "hiddenAuthorizedSocketRetained": true,
+  "hiddenCaptureStopsCollection": true,
+  "sameIdentityAndMatchRestored": true,
+  "noParallelPollingAfterReturn": true,
+  "phoneLockScreen": false,
+  "publicNetwork": false,
+  "productionDataWritten": false
+}

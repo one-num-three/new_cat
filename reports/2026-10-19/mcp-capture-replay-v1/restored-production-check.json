@@ -1,0 +1,12 @@
+{
+  "productionBase": "https://seu-link.fit/catmouse",
+  "productionWs": "wss://seu-link.fit/catmouse",
+  "localTestIdentities": false,
+  "backupPresent": false,
+  "realRoomOwner": true,
+  "realRoomMembers": 1,
+  "productionApiVersion": "0.5.0",
+  "locationApi": "function",
+  "scanApi": "function",
+  "currentRoute": "pages/index/index"
+}

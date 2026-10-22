@@ -1,0 +1,317 @@
+{
+  "view": {
+    "ready": true,
+    "route": "pages/map/map",
+    "userId": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+    "nickname": "P01·房主",
+    "role": "mouse",
+    "status": "active",
+    "phase": "HIDING",
+    "matchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "version": 17,
+    "clock": "00:22",
+    "target": 4,
+    "captured": 0,
+    "roster": [
+      {
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "ready": true,
+        "role": "mouse",
+        "status": "active",
+        "presence": "online"
+      },
+      {
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "ready": true,
+        "role": "cat",
+        "status": "active",
+        "presence": "online"
+      }
+    ],
+    "offline": false,
+    "markers": 7,
+    "canScan": false,
+    "canShowCode": false,
+    "connection": "实时连接",
+    "socketOpen": true,
+    "error": ""
+  },
+  "after": {
+    "screenshotCapturedAfterSameView": true
+  },
+  "server": {
+    "roomId": "5a8bba97-a76f-4656-9424-6c7645d831ec",
+    "code": "CB654AD39D",
+    "selected": 0,
+    "roster": [
+      {
+        "index": 0,
+        "id": "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+        "nickname": "P01·房主",
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 1,
+        "id": "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+        "nickname": "P02·玩家",
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 2,
+        "id": "0b374cd8-0318-4cde-8267-866e39b2030e",
+        "nickname": "P03·玩家",
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 3,
+        "id": "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+        "nickname": "P04·玩家",
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 4,
+        "id": "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+        "nickname": "P05·玩家",
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 5,
+        "id": "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+        "nickname": "P06·玩家",
+        "role": "cat",
+        "status": "active"
+      },
+      {
+        "index": 6,
+        "id": "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+        "nickname": "P07·玩家",
+        "role": "mouse",
+        "status": "active"
+      },
+      {
+        "index": 7,
+        "id": "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+        "nickname": "P08·玩家",
+        "role": "cat",
+        "status": "active"
+      }
+    ],
+    "version": 17,
+    "rules": {
+      "cats": 2,
+      "mice": 6,
+      "total": 8,
+      "intelMs": 30000,
+      "tokenMs": 15000,
+      "version": "pilot-0.3",
+      "hidingMs": 30000,
+      "chasingMs": 360000,
+      "pauseBudgetMs": 60000
+    },
+    "match": {
+      "id": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+      "phase": "HIDING",
+      "target": 4,
+      "captured": 0,
+      "endsAt": 1792412882990,
+      "remainingMs": 21546,
+      "eventSeq": 1
+    },
+    "originalRoles": {
+      "e6f62979-1dfd-4c5c-9f4c-ef572025045b": "mouse",
+      "82c5e0f2-334f-4ccd-a4c6-4123da153ae2": "mouse",
+      "0b374cd8-0318-4cde-8267-866e39b2030e": "mouse",
+      "b7a3fca7-179e-4eba-b036-6fd4ca81301f": "mouse",
+      "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b": "mouse",
+      "1cb5f4b7-52ad-49f7-b424-861199a4588a": "cat",
+      "328665d8-02d3-47ef-a2dc-ce81a4f374ad": "mouse",
+      "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3": "cat"
+    },
+    "originalMatchId": "6fa1d649-5577-42c2-8ec9-fed94e843482",
+    "initialTarget": 4,
+    "blocked": [],
+    "allOnlinePeersAligned": true,
+    "peerFrames": {
+      "0": 33,
+      "1": 33,
+      "2": 33,
+      "3": 33,
+      "4": 33,
+      "5": 33,
+      "6": 33,
+      "7": 33
+    },
+    "peerViews": [
+      {
+        "index": 0,
+        "connected": true,
+        "version": 17,
+        "role": "mouse",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "e6f62979-1dfd-4c5c-9f4c-ef572025045b",
+          "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+          "0b374cd8-0318-4cde-8267-866e39b2030e",
+          "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+          "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+          "82c5e0f2-334f-4ccd-a4c6-4123da153ae2"
+        ]
+      },
+      {
+        "index": 1,
+        "connected": true,
+        "version": 17,
+        "role": "mouse",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "82c5e0f2-334f-4ccd-a4c6-4123da153ae2",
+          "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+          "0b374cd8-0318-4cde-8267-866e39b2030e",
+          "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+          "b7a3fca7-179e-4eba-b036-6fd4ca81301f"
+        ]
+      },
+      {
+        "index": 2,
+        "connected": true,
+        "version": 17,
+        "role": "mouse",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "0b374cd8-0318-4cde-8267-866e39b2030e",
+          "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+          "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+          "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+          "82c5e0f2-334f-4ccd-a4c6-4123da153ae2"
+        ]
+      },
+      {
+        "index": 3,
+        "connected": true,
+        "version": 17,
+        "role": "mouse",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+          "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+          "0b374cd8-0318-4cde-8267-866e39b2030e",
+          "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+          "82c5e0f2-334f-4ccd-a4c6-4123da153ae2"
+        ]
+      },
+      {
+        "index": 4,
+        "connected": true,
+        "version": 17,
+        "role": "mouse",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+          "0b374cd8-0318-4cde-8267-866e39b2030e",
+          "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+          "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+          "82c5e0f2-334f-4ccd-a4c6-4123da153ae2"
+        ]
+      },
+      {
+        "index": 5,
+        "connected": true,
+        "version": 17,
+        "role": "cat",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "1cb5f4b7-52ad-49f7-b424-861199a4588a",
+          "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3"
+        ]
+      },
+      {
+        "index": 6,
+        "connected": true,
+        "version": 17,
+        "role": "mouse",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "328665d8-02d3-47ef-a2dc-ce81a4f374ad",
+          "9f62689e-ba4b-4f91-bbb0-1d69926e5c1b",
+          "0b374cd8-0318-4cde-8267-866e39b2030e",
+          "b7a3fca7-179e-4eba-b036-6fd4ca81301f",
+          "82c5e0f2-334f-4ccd-a4c6-4123da153ae2"
+        ]
+      },
+      {
+        "index": 7,
+        "connected": true,
+        "version": 17,
+        "role": "cat",
+        "status": "active",
+        "phase": "HIDING",
+        "visibleIds": [
+          "76ca8c7b-e6ed-4e52-a54f-66625aa79bf3",
+          "1cb5f4b7-52ad-49f7-b424-861199a4588a"
+        ]
+      }
+    ]
+  }
+}

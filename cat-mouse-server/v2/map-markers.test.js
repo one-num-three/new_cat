@@ -32,15 +32,15 @@ test('generated runtime sprites retain true alpha, visible tips and locked sourc
  assert.ok(total<75*1024,'small shared local assets, no image downloads');
 });
 test('shared sprite geometry keeps the visible tip on its map coordinate at every uniform zoom',()=>{
- for(const role of ['self','ally','venue']){const p=markers.overlay({tone:role,x:210,y:320,label:'测试'}),s=markers.sprite(role);
+ for(const role of ['self','ally','venue','enemy']){const p=markers.overlay({tone:role,x:210,y:320,label:'测试'}),s=markers.sprite(role);
   assert.equal(s.width,s.height);assert.equal(p.sprite,s.iconPath);
   for(const scale of [.52,1,1.25,4]){const screen={x:-35+p.x*scale,y:20+p.y*scale},inv=1/scale;
    assert.ok(Math.abs(screen.x+(p.left+s.width*s.anchor.x)*inv*scale-screen.x)<1e-9);
    assert.ok(Math.abs(screen.y+(p.top+s.height*s.anchor.y)*inv*scale-screen.y)<1e-9);
-   assert.equal(s.width*scale*inv,48);
+   assert.equal(s.width*scale*inv,role==='enemy'?40:48);
   }
  }
- assert.equal(markers.overlay({tone:'enemy',x:1,y:1}),null);assert.equal(markers.sprite('unknown'),null);
+ assert.match(markers.overlay({tone:'enemy',x:1,y:1}).sprite,/role-cat/);assert.equal(markers.sprite('unknown'),null);
  const a=markers.sprite('self');a.anchor.x=0;assert.notEqual(markers.sprite('self').anchor.x,0);
  assert.ok(markers.sprite('venue').anchor.x<.4,'flag pole, not flag canvas centre');
 });

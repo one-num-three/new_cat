@@ -1,0 +1,11 @@
+{
+  "status": "blocked-no-project-runtime",
+  "message": "cant find runtimeid by projectpath D:\\cat-mouse-miniprogram",
+  "toolOk": false,
+  "nativeScreenshot": false,
+  "phone": false,
+  "fieldGps": false,
+  "browserPreview": "file protocol rejected by browser URL security policy; no workaround attempted",
+  "desktopScreenshot": false,
+  "newProjectWindowOpened": false
+}

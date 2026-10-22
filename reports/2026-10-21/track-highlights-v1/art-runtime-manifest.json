@@ -1,0 +1,50 @@
+[
+  {
+    "file": "start-flag.png",
+    "width": 192,
+    "height": 192,
+    "bytes": 22535,
+    "sha256": "46760e9302a0d80e4ce4542649750b296056e8dff208176bc4b29be8d460ca8e",
+    "manualReview": true
+  },
+  {
+    "file": "finish-flag.png",
+    "width": 192,
+    "height": 192,
+    "bytes": 22358,
+    "sha256": "97dcde1b4d0c7b4b93abc429bf49d775d3e3c0c0d0e7264801dbe057a81ad09f",
+    "manualReview": true
+  },
+  {
+    "file": "fastest-edge-left-320.png",
+    "width": 320,
+    "height": 139,
+    "bytes": 33034,
+    "sha256": "a0ad54248523cee39228b2a5bb53dc28001195997c94041eeec33265e676c1c3",
+    "manualReview": true
+  },
+  {
+    "file": "fastest-edge-right-320.png",
+    "width": 320,
+    "height": 140,
+    "bytes": 34382,
+    "sha256": "c07bbe1a79877757737858953b7be0766ea9b141f706d8181248656e393d65c3",
+    "manualReview": true
+  },
+  {
+    "file": "closest-edge-left-320.png",
+    "width": 320,
+    "height": 140,
+    "bytes": 33594,
+    "sha256": "03ba6f0b4d9da3f28b71924cb25710ad71b71ff2e7e3bcd98bfd70844c554b85",
+    "manualReview": true
+  },
+  {
+    "file": "closest-edge-right-320.png",
+    "width": 320,
+    "height": 140,
+    "bytes": 33021,
+    "sha256": "51173ccde3c45385b30015bb22053d6b056a8e594681b0c0cf46d5bb3e0029c4",
+    "manualReview": true
+  }
+]

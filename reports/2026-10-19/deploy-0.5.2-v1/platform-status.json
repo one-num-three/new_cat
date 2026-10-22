@@ -1,0 +1,20 @@
+{
+  "frontendVersion": "0.5.2",
+  "localFrontend": "ready",
+  "upload": {
+    "status": "unknown",
+    "lastKnownStatus": "pending",
+    "lastQueryDate": "2026-10-20",
+    "lastQueryError": "Task not found",
+    "taskId": "confirmation_upload_d49332f7-7629-4e61-ba4d-68d4a3c432d1",
+    "tool": "upload",
+    "project": "D:/cat-mouse-miniprogram",
+    "uploadVersion": "0.5.2",
+    "description": "动态捕获目标与全员同步；重新准备及身份快照修复",
+    "confirmation": "User must confirm in WeChat DevTools; do not resubmit or poll until user continuation"
+  },
+  "formalRelease": "not-published",
+  "phonePreview": "not-requested-while-upload-confirmation-pending",
+  "frontendRuleCopyCorrectedAfterUploadRequest": true,
+  "finalFrontendManifestSha256": "2989873950cbedeef0bae1ed0742686ba8d131ef36b981c2a71c01e8b2b26ae7"
+}

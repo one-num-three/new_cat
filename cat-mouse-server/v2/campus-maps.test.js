@@ -5,7 +5,7 @@ const {wgs84togcj02}=require('../../utils/vendor/coordtransform');
 const root=path.resolve(__dirname,'../..'),ids=['seu-jiulonghu-v1','seu-sipailou-v1'];
 const read=f=>fs.readFileSync(path.join(root,f),'utf8'),plain=x=>JSON.parse(JSON.stringify(x));
 test('all miniprogram require dependencies are JavaScript modules available in their package graph',()=>{
- const app=JSON.parse(read('app.json')),starts=[...app.pages.map(p=>p+'.js'),'app.js',...Object.values(app.usingComponents).map(p=>p.slice(1)+'.js'),'components/venue-art/venue-art.js','components/map-icon/map-icon.js'],seen=new Set();
+ const app=JSON.parse(read('app.json')),starts=[...app.pages.map(p=>p+'.js'),...app.subPackages.flatMap(g=>g.pages.map(p=>g.root+'/'+p+'.js')),'app.js',...Object.values(app.usingComponents).map(p=>p.slice(1)+'.js'),'components/venue-art/venue-art.js','components/map-icon/map-icon.js'],seen=new Set();
  function visit(file){if(seen.has(file))return;seen.add(file);const source=read(file);for(const [,name]of source.matchAll(/require\(['"]([^'"]+)['"]\)/g)){assert.ok(name.startsWith('.'),'no Node/npm dependency '+file+' '+name);assert.doesNotMatch(name,/\.json$/,'WeChat logic layer does not load JSON with require');const target=path.resolve(root,path.dirname(file),name)+(name.endsWith('.js')?'':'.js');assert.ok(fs.existsSync(target),target);const relative=path.relative(root,target);assert.ok(!relative.startsWith('venue-maps'),'main package never imports subpackage JS');visit(relative);}}
  starts.forEach(visit);assert.ok(seen.size>20);
 });
@@ -40,7 +40,7 @@ test('late package completion cannot restore an older campus image or detached c
  instance._reloadImage();instance._alive=false;const count=writes.length;jobs[2]();await Promise.resolve();assert.equal(writes.length,count);
 });
 test('changing campus invalidates venue confirmation and ignores an older GPS response',async()=>{
- let p;const callbacks=[];vm.runInNewContext(read('pages/room/room.js'),{Page:d=>p=d,require:n=>n.includes('venue-resources')?{ready:()=>true}:n.includes('venue-catalog')?catalog:n.includes('team-config')?require('../../utils/team-config'):{},wx:{getLocation:x=>callbacks.push(x)},Math,Number});p.setData=x=>Object.assign(p.data,x);p.active=true;p.lifecycle=1;
+ let p;const callbacks=[];vm.runInNewContext(read('pages/room/room.js'),{Page:d=>p=d,require:n=>n.includes('venue-resources')?{ready:()=>true}:n.includes('room-live')?require('../../utils/room-live'):n.includes('snapshot-v2')?require('../../utils/snapshot-v2'):n.includes('venue-boundary')?require('../../utils/venue-boundary'):n.includes('venue-catalog')?catalog:n.includes('team-config')?require('../../utils/team-config'):{},wx:{getLocation:x=>callbacks.push(x)},Math,Number});p.setData=x=>Object.assign(p.data,x);p.active=true;p.lifecycle=1;
  p.data.venue={lat:32,lng:118,confirmed:true};p.selectVenueMap({detail:{value:1}});assert.equal(p.data.venue,null);p.chooseVenue();p.selectVenueMap({detail:{value:2}});callbacks[0].success({latitude:catalog.get(ids[0]).demoPoints[0].lat,longitude:catalog.get(ids[0]).demoPoints[0].lng});assert.equal(p.data.venue,null);
  p.chooseVenue();callbacks[1].success({latitude:32,longitude:118});assert.equal(p.data.venue,null);assert.match(p.data.error,/不在所选校区/);
  p.chooseVenue();const q=catalog.get(ids[1]).demoPoints[0];callbacks[2].success({latitude:q.lat,longitude:q.lng});assert.equal(p.data.venue.mapId,ids[1]);assert.equal(p.data.venue.confirmed,true);

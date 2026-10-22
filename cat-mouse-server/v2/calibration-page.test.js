@@ -3,7 +3,7 @@ const geo=require('../../utils/geo-registration'),{fixture}=require('./geo-fixtu
 function page(owner=true){let p;const memory=new Map(),effects=[];const room={owner,version:7,venue:{lat:32.073,lng:118.789},mapCalibration:null};
  const wx={getStorageSync:k=>memory.get(k),setStorageSync:(k,v)=>memory.set(k,v),removeStorageSync:k=>memory.delete(k),nextTick:fn=>fn()};
  const api={session:async()=>{},room:async()=>room,calibration:async()=>{effects.push('save');return {version:8,mapCalibration:{id:'confirmed-profile'}};}};
- vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../../pages/calibrate/calibrate.js'),'utf8'),{Page:x=>p=x,Math,Number,JSON,Error,wx,require:name=>name.includes('venue-catalog')?require('../../utils/venue-catalog'):name.includes('venue-resources')?require('../../utils/venue-resources'):name.includes('presentation')?{metrics:()=>({})}:name.includes('geo-registration')?geo:name.includes('dev-preview')?{enabled:()=>true}:api});
+ vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../../pages/calibrate/calibrate.js'),'utf8'),{Page:x=>p=x,Math,Number,JSON,Error,wx,require:name=>name.includes('room-live')?require('../../utils/room-live'):name.includes('snapshot-v2')?require('../../utils/snapshot-v2'):name.includes('venue-boundary')?require('../../utils/venue-boundary'):name.includes('venue-catalog')?require('../../utils/venue-catalog'):name.includes('venue-resources')?require('../../utils/venue-resources'):name.includes('presentation')?{metrics:()=>({})}:name.includes('geo-registration')?geo:name.includes('dev-preview')?{enabled:()=>true}:api});
  p.setData=value=>Object.assign(p.data,value);return {p,memory,effects};
 }
 test('host calibration draft survives page recreation, confirmed save clears draft',async()=>{

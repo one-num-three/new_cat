@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "jsqr": "^1.4.0",
     "miniprogram-automator": "^0.12.1"
   }
 }

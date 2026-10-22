@@ -1,0 +1,257 @@
+{
+  "date": "2026-10-21",
+  "tests": {
+    "total": 214,
+    "passed": 214,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 20,
+      "status": 0
+    },
+    "wxss": {
+      "files": 25,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/settings/settings.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/tracks/tracks.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/share/share.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-xuanwu/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "app.js",
+      "status": 0
+    },
+    {
+      "file": "utils/location-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "status": 0
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "status": 0
+    },
+    {
+      "file": "utils/room-live.js",
+      "status": 0
+    },
+    {
+      "file": "utils/snapshot-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/store.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/map-catalog.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/acceptance.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    },
+    {
+      "file": "utils/track-export.js",
+      "status": 0
+    },
+    {
+      "file": "utils/track-poster.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/visibility.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/tracks.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/tracks-vision.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/mcp-tracks-fixture.cjs",
+      "status": 0
+    },
+    {
+      "file": "scripts/mcp-tracks-vision.cjs",
+      "status": 0
+    },
+    {
+      "file": "scripts/mcp-track-poster.cjs",
+      "status": 0
+    },
+    {
+      "file": "utils/track-highlights.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/track-highlights.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/render-track-highlights.cjs",
+      "status": 0
+    },
+    {
+      "file": "utils/track-bubble-placement.js",
+      "status": 0
+    },
+    {
+      "file": "utils/track-bubble-assets.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/build-track-highlights-evidence.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 751,
+    "bytes": 30036,
+    "sha256": "9ffac0e501ccc28f4b0c9fa4046a1dd9bd2f42393878a43bdd481afaef2fdf34"
+  },
+  "packageFiles": 175,
+  "rawLocalBytes": {
+    "main": 1011647,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 1346992,
+    "venue-maps": 1981470,
+    "venue-xuanwu": 804649
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "blocked",
+    "reason": "Empty Page/module not registered; later automator/AppID timeout; native preview not passed",
+    "identitySwitched": false,
+    "authSessionOrStorageCacheCleared": false,
+    "compilerCacheCleared": true,
+    "desktopCanvas": "passed; see render-proof.json",
+    "phone": false,
+    "actuallyShared": false,
+    "productionDataWritten": false
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "not-run",
+  "publicLoadTest": "not-run",
+  "sharedQrProtocolIdentical": true
+}

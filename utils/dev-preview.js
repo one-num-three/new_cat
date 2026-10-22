@@ -15,6 +15,8 @@ const cases = [
   { id:'hiding', title:'躲藏阶段', path:'/pages/map/map?devPreview=hiding' },
   { id:'code', title:'动态码', path:'/pages/qrcode/qrcode?devPreview=code' },
   { id:'captured', title:'被捕状态', path:'/pages/map/map?devPreview=captured' },
+  { id:'joining', title:'中途补入 · 定位入场', path:'/pages/map/map?devPreview=joining' },
+  { id:'left', title:'本轮退出', path:'/pages/map/map?devPreview=left' },
   { id:'paused', title:'暂停状态', path:'/pages/map/map?devPreview=paused' },
   { id:'offline', title:'断线重连', path:'/pages/map/map?devPreview=offline' },
   { id:'catWin', title:'猫队胜利', path:'/pages/map/map?devPreview=catWin' },
@@ -26,16 +28,17 @@ function accepts(id) { return enabled() && cases.some(item => item.id === id); }
 
 function mapSnapshot(id, me, mapId=catalog.DEFAULT_ID) {
   const image=catalog.get(mapId)||catalog.get();
-  const now = Date.now(), isMouse = ['mouse','alert','captured','mouseWin'].includes(id);
+  const now = Date.now(), isMouse = ['mouse','alert','captured','mouseWin','joining','left'].includes(id);
   const phase = id === 'hiding' ? 'HIDING' : id === 'paused' ? 'PAUSED' : id === 'catWin' || id === 'mouseWin' ? 'FINISHED' : id === 'cancelled' ? 'CANCELLED' : 'CHASING';
   const role = isMouse ? 'mouse' : 'cat';
-  const roster = [{id:me,nickname:'我 · 演示',role,status:id==='captured'?'captured':'active',presence:id==='offline'?'reconnecting':'online'}];
+  const myStatus=id==='joining'?'joining':id==='left'?'left':id==='captured'?'captured':'active';
+  const roster = [{id:me,nickname:'我 · 演示',role,status:myStatus,presence:id==='offline'?'reconnecting':'online'}];
   const names=['小橘','小米','阿青','可可','小林','圆圆','阿川'];
   for(let i=0;i<7;i++)roster.push({id:'dev-player-'+i,nickname:names[i],role:i<(isMouse?2:1)?'cat':'mouse',status:'active',presence:'online'});
   const captured=phase==='HIDING'?0:id==='catWin'?4:id==='mouseWin'?3:1;
   let left=captured-(id==='captured'?1:0);
   for(const player of roster)if(player.id!==me && player.role==='mouse' && left>0){player.status='captured';left--;}
-  const live = !['captured','paused','offline','catWin','mouseWin','cancelled'].includes(id);
+  const live = !['joining','left','captured','paused','offline','catWin','mouseWin','cancelled'].includes(id);
   const ally=roster.find(p=>p.id!==me && p.role===role && p.status==='active');
   // Synthetic demo positions converted from v5 art pixels; NOT collected GPS.
   let visiblePositions = live ? [{id:me,lat:32.07189947570167,lng:118.79328555598251,accuracy:6,receivedAt:now},{id:ally.id,lat:32.071253703521435,lng:118.79377318547276,accuracy:8,receivedAt:now}] : [];
@@ -51,7 +54,7 @@ function mapSnapshot(id, me, mapId=catalog.DEFAULT_ID) {
   return {version:1,serverTime:now,venue,owner:true,roster,visiblePositions,
     intel:id==='cat'?[{cellLat:clue.lat,cellLng:clue.lng,radiusM:50}]:[],nearbyCat:id==='alert',
     events,
-    match:{id:'dev-preview-match',phase,myRole:role,myStatus:id==='captured'?'captured':'active',remainingMs:phase==='HIDING'?18000:phase==='CHASING'||phase==='PAUSED'?285000:0,captured,target:4,pauseReason:id==='paused'?'host':null,outcome:id==='catWin'?'cat_win':id==='mouseWin'?'mouse_win':null,reason:id==='catWin'?'capture_target':id==='mouseWin'?'deadline':id==='cancelled'?'cancelled':null}};
+    match:{id:'dev-preview-match',phase,myRole:role,myStatus,joinPolicy:'reinforce-v2',targetMouseCount:6,initialTeams:{cats:2,mice:6},remainingMs:phase==='HIDING'?18000:phase==='CHASING'||phase==='PAUSED'?285000:0,captured,target:4,pauseReason:id==='paused'?'host':null,outcome:id==='catWin'?'cat_win':id==='mouseWin'?'mouse_win':null,reason:id==='catWin'?'capture_target':id==='mouseWin'?'deadline':id==='cancelled'?'cancelled':null}};
 }
 
 function roomData(id) {
@@ -61,4 +64,6 @@ function roomData(id) {
 }
 
 const groups=[{"title": "活动准备", "items": [{"id": "home", "label": "首页与加入", "icon": "home", "tone": "green", "symbol": "⌂"}, {"id": "create", "label": "创建活动", "icon": "round", "tone": "green", "symbol": "+"}, {"id": "ready", "label": "房间准备", "icon": "friends", "tone": "orange", "symbol": "●"}]}, {"title": "游戏进行", "items": [{"id": "cat", "label": "猫队地图", "icon": "roleCat", "tone": "orange", "symbol": ""}, {"id": "mouse", "label": "鼠队地图", "icon": "roleMouse", "tone": "green", "symbol": ""}, {"id": "alert", "label": "近距预警", "icon": "round", "tone": "orange", "symbol": "!"}, {"id": "hiding", "label": "躲藏阶段", "icon": "bush", "tone": "green", "symbol": "●"}, {"id": "code", "label": "动态码", "icon": "code", "tone": "blue", "symbol": "▦"}]}, {"title": "异常状态", "items": [{"id": "captured", "label": "本轮出局", "icon": "roleMouse", "tone": "gray", "symbol": ""}, {"id": "paused", "label": "暂停", "icon": "round", "tone": "orange", "symbol": "Ⅱ"}, {"id": "offline", "label": "断线重连", "icon": "network", "tone": "green", "symbol": "⌁"}]}, {"title": "本局结果", "items": [{"id": "catWin", "label": "猫队胜利", "icon": "roleCat", "tone": "orange", "symbol": ""}, {"id": "mouseWin", "label": "鼠队胜利", "icon": "roleMouse", "tone": "green", "symbol": ""}, {"id": "cancelled", "label": "取消结算", "icon": "cancel", "tone": "gray", "symbol": "⊘"}]}];
+groups[1].items.push({id:'joining',label:'补入阵营',icon:'network',tone:'green',symbol:'+'});
+groups[2].items.push({id:'left',label:'本轮退出',icon:'roleMouse',tone:'gray',symbol:''});
 module.exports = {enabled,accepts,cases,groups,mapSnapshot,roomData};

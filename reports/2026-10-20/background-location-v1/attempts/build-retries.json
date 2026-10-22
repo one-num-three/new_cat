@@ -1,0 +1,6 @@
+{
+  "approvalReview": "initial elevated packaging call timed out in automatic review; retry explicitly permitted",
+  "retry": "workspace sandbox command ran; packager rejected existing nonempty release-final/MODIFIED_FILE",
+  "resolution": "created separate release-verified/MODIFIED_FILE; source SHA and compilation verified",
+  "existingDeliveryDeleted": false
+}

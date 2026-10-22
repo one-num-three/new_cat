@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "storage": "isolated real PostgreSQL",
+  "initialPlayers": 8,
+  "simultaneousLatePlayers": 2,
+  "authorizedWebSockets": 10,
+  "acceleratedClock": true,
+  "productionDataWritten": false,
+  "phoneCamera": false,
+  "fieldGps": false
+}

@@ -1,0 +1,897 @@
+[
+  {
+    "file": "app.js",
+    "bytes": 339,
+    "sha256": "5c1d93fb2a267dec04fbfcca5186c01e30970e17c8b6e937c690b5b06d781f3c"
+  },
+  {
+    "file": "app.json",
+    "bytes": 1891,
+    "sha256": "d4762270ab1f30e90309b8064d4c120162740726be014822250b11acc3e69682"
+  },
+  {
+    "file": "app.wxss",
+    "bytes": 156,
+    "sha256": "b550473d7761e0c003ee4bd6a9e67a7d70f866ce2c818b63392a599b308a6957"
+  },
+  {
+    "file": "assets\\map-markers-v2\\ally.png",
+    "bytes": 24091,
+    "sha256": "8fe7602e32f1de9812fbd86ccf5ab9a75352b1db7c60c89a14033b3db4662ed8"
+  },
+  {
+    "file": "assets\\map-markers-v2\\self.png",
+    "bytes": 26413,
+    "sha256": "3bf765f5346245522f01b92adafb41cbc8e33fcc1edf66c2a0517289f0a3ea8d"
+  },
+  {
+    "file": "assets\\map-markers-v2\\venue.png",
+    "bytes": 18378,
+    "sha256": "c09a496a080b31991973ec7091499837a5b60c2e5be8dbcfdcd33e4b9e8ac818"
+  },
+  {
+    "file": "assets\\pixel-v1\\cancelled-hero.png",
+    "bytes": 64103,
+    "sha256": "f4fc61cefabc7cd824ed6bd7a4384877f06e03225683c078434e9d3ec1fee7e9"
+  },
+  {
+    "file": "assets\\pixel-v1\\catwin-hero.png",
+    "bytes": 42011,
+    "sha256": "0820ef7745078650d2fd8596148bfdfcc3d24fce6329e9378cd762706ed88b6b"
+  },
+  {
+    "file": "assets\\pixel-v1\\code-demo-art.png",
+    "bytes": 7625,
+    "sha256": "1b75b52d29949804c8f0e1d473856033d060838ab217a0be899e7d1b59aa558d"
+  },
+  {
+    "file": "assets\\pixel-v1\\code-role.png",
+    "bytes": 14144,
+    "sha256": "6d5b500308917bd3cfadd79023b6418b39219738bc7c05a5e31f6aeb1e11e856"
+  },
+  {
+    "file": "assets\\pixel-v1\\create-hero.png",
+    "bytes": 19448,
+    "sha256": "be0f43f9d63e1e8bc7ba405251d8318acdb46f7a80cd29983f1d9e3afc181bf5"
+  },
+  {
+    "file": "assets\\pixel-v1\\drawer-cat-avatar.png",
+    "bytes": 2609,
+    "sha256": "a190cd07ac7bf7e215069a542d673fd60a88511629ac1f1daf4095f15a20d2ce"
+  },
+  {
+    "file": "assets\\pixel-v1\\drawer-event-icon.png",
+    "bytes": 1482,
+    "sha256": "bd0f8b54bd567977af48242e2c8c2c110e46e3067d9c86d5cdf794999154a169"
+  },
+  {
+    "file": "assets\\pixel-v1\\drawer-mouse-avatar.png",
+    "bytes": 2950,
+    "sha256": "d0919e6e8feafcf0f64b48a93c53b3e8e2f402f23040686003fe42ad993e4a11"
+  },
+  {
+    "file": "assets\\pixel-v1\\drawer-rules-icon.png",
+    "bytes": 1213,
+    "sha256": "288b3dcc90006868978ba20e4b627b00d6c756e45253f3fa4145eaf1d9da7fa6"
+  },
+  {
+    "file": "assets\\pixel-v1\\drawer-title-icon.png",
+    "bytes": 2380,
+    "sha256": "f0e40d9c83d75ecfc5a902774858fb1654a3627479ef6b76412dcfe8194ac004"
+  },
+  {
+    "file": "assets\\pixel-v1\\FONT-LICENSE.txt",
+    "bytes": 4605,
+    "sha256": "e9d9b525d384aa7d1e39650ac03047621c5d79e3a88c698aa0c522bd5d87d493"
+  },
+  {
+    "file": "assets\\pixel-v1\\FUSION-FONT-LICENSE.txt",
+    "bytes": 19176,
+    "sha256": "a935ca3214526d7536273ad9f1b57550aae9403d35f9a534c100c9b7123d7c1e"
+  },
+  {
+    "file": "assets\\pixel-v1\\hiding-scene.png",
+    "bytes": 31141,
+    "sha256": "71fa21d6657615f81f48a4e5a7e06950ce9a6a8914572848ff0a1cf3e5071251"
+  },
+  {
+    "file": "assets\\pixel-v1\\home-footer.png",
+    "bytes": 12614,
+    "sha256": "c95baa63f24786899c6daf4fd9be5c4aaaece6450bd5e250c644bdcf8b43d3b2"
+  },
+  {
+    "file": "assets\\pixel-v1\\home-hero.png",
+    "bytes": 51924,
+    "sha256": "98b283c293588ea42e7c304f5c8b75459f07017e2f17ab76fee358b78b1b3ce7"
+  },
+  {
+    "file": "assets\\pixel-v1\\logo.png",
+    "bytes": 2373,
+    "sha256": "f0806065ba7493c3a6ab43f5f97c089106657f240b6637aeecf33ab74891655f"
+  },
+  {
+    "file": "assets\\pixel-v1\\mousewin-hero.png",
+    "bytes": 44096,
+    "sha256": "8216747665eb28176ec34f09b63db6dd9f1a255c0e14c07e2945b10cab4f5916"
+  },
+  {
+    "file": "assets\\pixel-v1\\offline-hero.png",
+    "bytes": 14947,
+    "sha256": "fff7eb52502be677580f313a08986a336d5cd4d98ef80325c9261c36d7bfb064"
+  },
+  {
+    "file": "assets\\pixel-v1\\paused-scene.png",
+    "bytes": 52505,
+    "sha256": "b8a468fafbca25dff8c50086c64fbf0d05257af8f5575f8669ca3c139362a711"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-0.png",
+    "bytes": 2167,
+    "sha256": "c87bd6d67cd4a069e5e3a9bf5eeb43e1bc3f6a84353be7b8be9b195e4675cb7d"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-1.png",
+    "bytes": 2187,
+    "sha256": "7267c32bc91d93b9bfe6dfbc4b825528bc0ad0d232f56b963fd55a5ffc399dde"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-2.png",
+    "bytes": 2258,
+    "sha256": "38a7a0c36b4d6257e98c42220786af49253b174635d7872ffca6a86e69d3a4d8"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-3.png",
+    "bytes": 2207,
+    "sha256": "c7c4a0781f757510099698606cdb1eb0b14272c05aa1ef5ebc4cda69fb033d6e"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-4.png",
+    "bytes": 2372,
+    "sha256": "21abf78692df11a7d6915a73b7f9ca9605ee90c504b0b57e23207b20b5e249ad"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-5.png",
+    "bytes": 2194,
+    "sha256": "a8a0a6fcc2753a1a4499ed308528a21eb6713349f724b247eb81f3e429ec64bf"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-6.png",
+    "bytes": 2282,
+    "sha256": "3229a9f5ed1d87f496483b367f2e2985c5642131d9c2c3ae97bead8ded6a6349"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-avatar-7.png",
+    "bytes": 2220,
+    "sha256": "352b109a7e6d9f9557a9197a39b3e6ba590aeca3a1f5daf54e036246c613e8b7"
+  },
+  {
+    "file": "assets\\pixel-v1\\ready-hero.png",
+    "bytes": 27211,
+    "sha256": "abb7f8195e9dcbfced14740afae0d938eaf70731294880d245f0b833159df341"
+  },
+  {
+    "file": "assets\\pixel-v1\\role-cat.png",
+    "bytes": 4220,
+    "sha256": "46a34f01d23c8b44232778ea0b220d1d240988166d29c98e3cf3cf851bf652da"
+  },
+  {
+    "file": "assets\\pixel-v1\\role-mouse.png",
+    "bytes": 4894,
+    "sha256": "3df968a9ac82fecf6adaae2e117bda0e13ce29eacb4bdee2f8f40479dc651bdc"
+  },
+  {
+    "file": "assets\\pixel-v1\\rules-icon-cat.png",
+    "bytes": 2759,
+    "sha256": "4a56bec321c437339596960af468c8f62c7b1e07ba30ba41f074dabe855e843a"
+  },
+  {
+    "file": "assets\\pixel-v1\\rules-icon-clock.png",
+    "bytes": 2242,
+    "sha256": "15c1287b49feda3887d2eeeec3dddf90b3efc9f974feb9553f0369d55120b405"
+  },
+  {
+    "file": "campus3d\\assets\\campus-meta.bin",
+    "bytes": 913,
+    "sha256": "56ce0028148902d896ef2292c9c276a68dce276b71f9ea4d6c4438f9adf66e37"
+  },
+  {
+    "file": "campus3d\\assets\\campus.bin",
+    "bytes": 1216432,
+    "sha256": "68e38f332cc9548a8b140f15f0ebc27c32a01a1bd63eeca4e16d452490971127"
+  },
+  {
+    "file": "campus3d\\assets\\ground.jpg",
+    "bytes": 77437,
+    "sha256": "9ddc3e9ec6af0de64976e34a77ed2ab3130ab726f618fe76c1269e1db5c66788"
+  },
+  {
+    "file": "campus3d\\pages\\open\\open.js",
+    "bytes": 241,
+    "sha256": "d7e15f0c61518dde18056bb1b5f2dd9c822626ca8875180111c6bd3fcad2f965"
+  },
+  {
+    "file": "campus3d\\pages\\open\\open.json",
+    "bytes": 29,
+    "sha256": "699e50eab7902255d5a8998acf957b9de2132bac1b36018244ad6eb0edd0b82e"
+  },
+  {
+    "file": "campus3d\\pages\\open\\open.wxml",
+    "bytes": 41,
+    "sha256": "302d45dd5d5e0e61ce64f43169dfed08eb514341eb1b9dcd680997d925bfda72"
+  },
+  {
+    "file": "campus3d\\pages\\open\\open.wxss",
+    "bytes": 57,
+    "sha256": "38330af07f528e98a2cd7f04f1bb567a7ccacb05c4715bd4374c5f028343948d"
+  },
+  {
+    "file": "components\\campus-model\\campus-model.js",
+    "bytes": 11406,
+    "sha256": "aa17af2947e3ebabacceceb0ee984b00ae7059b0ee47a4d6c430398767a79e3b"
+  },
+  {
+    "file": "components\\campus-model\\campus-model.json",
+    "bytes": 19,
+    "sha256": "6bcc2e9e536384851fcfbdd823aee8ae4331243636adc4a656a64a44d9cf9318"
+  },
+  {
+    "file": "components\\campus-model\\campus-model.wxml",
+    "bytes": 1629,
+    "sha256": "7ce382718970c724ef9b41488df9272b6ec9c3b1364812d0292e2c752110d473"
+  },
+  {
+    "file": "components\\campus-model\\campus-model.wxss",
+    "bytes": 1385,
+    "sha256": "ee6bf13b60eb48efcea282229ab10aed60fae5042230a58923b6256878821bd2"
+  },
+  {
+    "file": "components\\location-signal\\location-signal.js",
+    "bytes": 442,
+    "sha256": "bef8560bd93d10861a45bbea704ee8af08a12e765e75c969cc064a7770d6b09b"
+  },
+  {
+    "file": "components\\location-signal\\location-signal.json",
+    "bytes": 19,
+    "sha256": "6bcc2e9e536384851fcfbdd823aee8ae4331243636adc4a656a64a44d9cf9318"
+  },
+  {
+    "file": "components\\location-signal\\location-signal.wxml",
+    "bytes": 425,
+    "sha256": "1636d6b272050be17996c1f27cf11c94ea5044d490cff17b30a2d3ba813b53a0"
+  },
+  {
+    "file": "components\\location-signal\\location-signal.wxss",
+    "bytes": 670,
+    "sha256": "0236901982a3563cc83e4e242aface14ec8bbcdbde9482809f5d128cb4568781"
+  },
+  {
+    "file": "components\\map-icon\\map-icon.js",
+    "bytes": 2625,
+    "sha256": "9e581a7a6b5f9a9901be3b8dbf3070498d398ca9c6b9a51b5b2b547d7736a20f"
+  },
+  {
+    "file": "components\\map-icon\\map-icon.json",
+    "bytes": 19,
+    "sha256": "6bcc2e9e536384851fcfbdd823aee8ae4331243636adc4a656a64a44d9cf9318"
+  },
+  {
+    "file": "components\\map-icon\\map-icon.wxml",
+    "bytes": 223,
+    "sha256": "10c9eb07e621161d8ccfc1025ea9d7f951777b8350776fb14c1f3d705ef056f4"
+  },
+  {
+    "file": "components\\map-icon\\map-icon.wxss",
+    "bytes": 216,
+    "sha256": "34b5e3a12ac2469c85ee5d08390222184581676251dd2d6c6b878e481e33c6ce"
+  },
+  {
+    "file": "components\\nav-bar\\nav-bar.js",
+    "bytes": 576,
+    "sha256": "e2067c2abb08e0961c44dc969bfe0e7b39dc54076fd4f3be5b975cfe55b330a2"
+  },
+  {
+    "file": "components\\nav-bar\\nav-bar.json",
+    "bytes": 20,
+    "sha256": "db25c9a0f952fd84f782ccdcae92170c169452ee785d5a022529838e9f62623b"
+  },
+  {
+    "file": "components\\nav-bar\\nav-bar.wxml",
+    "bytes": 572,
+    "sha256": "9743e4400342b9150b5932500cdd5c035d49e7d2f19269c75abaf847d7c3eb25"
+  },
+  {
+    "file": "components\\nav-bar\\nav-bar.wxss",
+    "bytes": 969,
+    "sha256": "5272e29f1a9d850494bc9bdfc56a9cba2eb6fcf689a530f8a70394e59ccb09e9"
+  },
+  {
+    "file": "components\\pixel-action\\pixel-action.js",
+    "bytes": 1085,
+    "sha256": "e57f27eeb0314c29d3161656d72315221efa4e4034faa0d39a14e24503b39f64"
+  },
+  {
+    "file": "components\\pixel-action\\pixel-action.json",
+    "bytes": 19,
+    "sha256": "6bcc2e9e536384851fcfbdd823aee8ae4331243636adc4a656a64a44d9cf9318"
+  },
+  {
+    "file": "components\\pixel-action\\pixel-action.wxml",
+    "bytes": 272,
+    "sha256": "e87fae8b1a84f8b68704c1ff0eea20a7d7b436e57f9020c25093dadb024f214e"
+  },
+  {
+    "file": "components\\pixel-action\\pixel-action.wxss",
+    "bytes": 1246,
+    "sha256": "f9d8777d8418652efcdcb58dce64434129de9aa480df837b3aa6879cb4ba2021"
+  },
+  {
+    "file": "components\\venue-art\\venue-art.js",
+    "bytes": 13806,
+    "sha256": "98ffdb94c121a446d5814a31c70c77279f9a78cdaba9db31dfa88e8112627d2a"
+  },
+  {
+    "file": "components\\venue-art\\venue-art.json",
+    "bytes": 24,
+    "sha256": "3cac147888c7f1804ca5c8fd5aeca071cc29e1a776c6c7c6d52d823c4f568ef3"
+  },
+  {
+    "file": "components\\venue-art\\venue-art.wxml",
+    "bytes": 3051,
+    "sha256": "486c56d0672c5d21e290bd79fbe729827340e5e1ba5cff5d90a97dd89816aee4"
+  },
+  {
+    "file": "components\\venue-art\\venue-art.wxss",
+    "bytes": 2427,
+    "sha256": "be44974039ee0dfdf6a1eacadf4addcccc9fc5e00900955bf4cec06042769eab"
+  },
+  {
+    "file": "field-editor\\pages\\edit\\edit.js",
+    "bytes": 10724,
+    "sha256": "45c9ed906b43d778a801d6849847cc85676222355136ad26c706bffcf04d22da"
+  },
+  {
+    "file": "field-editor\\pages\\edit\\edit.json",
+    "bytes": 110,
+    "sha256": "ba43bb9b02d6816aa4a1b43e9a17e23b1f52393b85bd73841f00d47568f93472"
+  },
+  {
+    "file": "field-editor\\pages\\edit\\edit.wxml",
+    "bytes": 2801,
+    "sha256": "9d2f8c78fffad5761fbb80deff986485ab0ac571cc4df1c6f26b33da71e4c91e"
+  },
+  {
+    "file": "field-editor\\pages\\edit\\edit.wxss",
+    "bytes": 2382,
+    "sha256": "616b26555e9e577c9afa7858e14910c34f5f9f976782f12b4205872c6def85da"
+  },
+  {
+    "file": "pages\\calibrate\\calibrate.js",
+    "bytes": 7544,
+    "sha256": "cf0e7af5d44696689944ba5c75c41aa077a5c2f2fe5b75960d62a021062e5baf"
+  },
+  {
+    "file": "pages\\calibrate\\calibrate.json",
+    "bytes": 68,
+    "sha256": "b9914cc1da7d8f036f13ba75fee5bbd16d3f2f893364cc7774e06a4de555d7f8"
+  },
+  {
+    "file": "pages\\calibrate\\calibrate.wxml",
+    "bytes": 2488,
+    "sha256": "ad8dcd3a0c6e7d898dc49b3082b2093940233e19aab5457af1e84b8481a260c3"
+  },
+  {
+    "file": "pages\\calibrate\\calibrate.wxss",
+    "bytes": 1270,
+    "sha256": "59fad7253db3459f5fce9f2de890d5ffa7cacc7a4826e2020cdb61f2f7ba0fbf"
+  },
+  {
+    "file": "pages\\dev\\dev.js",
+    "bytes": 1416,
+    "sha256": "40b6a98906077c565a07cc1ecf7afab9fab4af7c6932d5140176680401c9bc6d"
+  },
+  {
+    "file": "pages\\dev\\dev.json",
+    "bytes": 85,
+    "sha256": "794147255d400e7877524116193e70c459f2d012380ff3dd6ead37275d493417"
+  },
+  {
+    "file": "pages\\dev\\dev.wxml",
+    "bytes": 1732,
+    "sha256": "2f840b4b8605881a949ba89e35204d81cc3cc7b84a3949d0639167db970a522a"
+  },
+  {
+    "file": "pages\\dev\\dev.wxss",
+    "bytes": 1819,
+    "sha256": "bc13c9ebde88c725c20b638e57e98439e9ca8e13ec8abb6c0fae64ea66355b1c"
+  },
+  {
+    "file": "pages\\dev\\fusion-font.wxss",
+    "bytes": 11461,
+    "sha256": "4d064b1cce2d1b27d7de6ceeadfea6b7ac297cf0e34f5fcc0f4b24999c9aaa0c"
+  },
+  {
+    "file": "pages\\index\\index.js",
+    "bytes": 4089,
+    "sha256": "a7f09ed1b35b7443cd9a8b11cefe14833b1ab42601bb0011a0cb5ee8bd4e1dae"
+  },
+  {
+    "file": "pages\\index\\index.json",
+    "bytes": 37,
+    "sha256": "e21084645f3cc7feafbb71c3ef046d9fc69669726c398ca780be0ae6450d39fd"
+  },
+  {
+    "file": "pages\\index\\index.wxml",
+    "bytes": 2731,
+    "sha256": "48801e420c5d1965d5e937fde279cc3de0bb5d51593ae9ef9e77106300ce1439"
+  },
+  {
+    "file": "pages\\index\\index.wxss",
+    "bytes": 4038,
+    "sha256": "aaf50b356294f05def69bf4c629a7dfbcdf20281cc243d33e611ae824a7f7368"
+  },
+  {
+    "file": "pages\\map\\map.js",
+    "bytes": 22211,
+    "sha256": "e60143612719d73eac29c4798ad9a959d8694e4608462c64c4af7eef4feb5fc0"
+  },
+  {
+    "file": "pages\\map\\map.json",
+    "bytes": 289,
+    "sha256": "4cf3dac7de69ad76444daba4378a354caf8e1b97ecc3a7bbd37c5b3e3b6c7fab"
+  },
+  {
+    "file": "pages\\map\\map.wxml",
+    "bytes": 18652,
+    "sha256": "08d8a1c6a6b23ecbb37245bf9e6f8cf5edc194522538c348e2bf18fc1cad91cf"
+  },
+  {
+    "file": "pages\\map\\map.wxss",
+    "bytes": 14596,
+    "sha256": "b8d8d074cf887248911001261fa7e7cf1f68907251927ef0a8bb28f29f56fc2d"
+  },
+  {
+    "file": "pages\\qrcode\\qrcode.js",
+    "bytes": 3302,
+    "sha256": "3357a4f0e68eaed83804822f78d1b8ef799de17f6ca168f85e1527c99865c229"
+  },
+  {
+    "file": "pages\\qrcode\\qrcode.json",
+    "bytes": 169,
+    "sha256": "9b53af70b88edff11910face5ea9f012280fcb056de1a9dabc88a892216ec197"
+  },
+  {
+    "file": "pages\\qrcode\\qrcode.wxml",
+    "bytes": 2511,
+    "sha256": "4ea824a2e4742c63f21e1e459e5cb20387d80796113c9200a742e30a5f1810c0"
+  },
+  {
+    "file": "pages\\qrcode\\qrcode.wxss",
+    "bytes": 5640,
+    "sha256": "c75d6bb43af413f15c6e016135cdc2e25aba837a5aca62fefc974a68efad18ce"
+  },
+  {
+    "file": "pages\\room\\room.js",
+    "bytes": 15394,
+    "sha256": "4625e7bb1b8d70ac109dcc96b09db2b002247f9d49c02963b651dfc5f96ef606"
+  },
+  {
+    "file": "pages\\room\\room.json",
+    "bytes": 117,
+    "sha256": "50229b5daf8e0c7bb89b136aa04015487df83129d549f375c9e36aadac716619"
+  },
+  {
+    "file": "pages\\room\\room.wxml",
+    "bytes": 9174,
+    "sha256": "645afff961477f17e71729b485259818921895ebb6815c55c4477001dba428c6"
+  },
+  {
+    "file": "pages\\room\\room.wxss",
+    "bytes": 11769,
+    "sha256": "3c501f1eeffa94fd3a5ff86459efd6c1a66886bd6eb9178946ddb42b2d2c7b53"
+  },
+  {
+    "file": "pages\\venue\\venue.js",
+    "bytes": 7361,
+    "sha256": "125e199dfecbefde40d01e00222fc816b72b1b832f45c6c8c010f9e5b124ce3c"
+  },
+  {
+    "file": "pages\\venue\\venue.json",
+    "bytes": 294,
+    "sha256": "42499f18886c37584f7676951af4c5a2d80a84fe29c2597a426ba0952e8d677e"
+  },
+  {
+    "file": "pages\\venue\\venue.wxml",
+    "bytes": 2804,
+    "sha256": "f1baf651391c7baed983e07689d69638cb27fd0fb2eee4efa7e81b5560c5c228"
+  },
+  {
+    "file": "pages\\venue\\venue.wxss",
+    "bytes": 2253,
+    "sha256": "adb6ad6b69e219a84b5c2989e1d7a85c8c12b7da1dfc80caaf23783b8546e8f7"
+  },
+  {
+    "file": "project.config.json",
+    "bytes": 11381,
+    "sha256": "32c6a3bf0f6151808591b4323ae3896183caa79d1dfa8a3f8d8ec6a407522f2b"
+  },
+  {
+    "file": "room-tools\\assets\\closest-edge-left-320.png",
+    "bytes": 33594,
+    "sha256": "03ba6f0b4d9da3f28b71924cb25710ad71b71ff2e7e3bcd98bfd70844c554b85"
+  },
+  {
+    "file": "room-tools\\assets\\closest-edge-right-320.png",
+    "bytes": 33021,
+    "sha256": "51173ccde3c45385b30015bb22053d6b056a8e594681b0c0cf46d5bb3e0029c4"
+  },
+  {
+    "file": "room-tools\\assets\\fastest-edge-left-320.png",
+    "bytes": 33034,
+    "sha256": "a0ad54248523cee39228b2a5bb53dc28001195997c94041eeec33265e676c1c3"
+  },
+  {
+    "file": "room-tools\\assets\\fastest-edge-right-320.png",
+    "bytes": 34382,
+    "sha256": "c07bbe1a79877757737858953b7be0766ea9b141f706d8181248656e393d65c3"
+  },
+  {
+    "file": "room-tools\\assets\\finish-flag.png",
+    "bytes": 22358,
+    "sha256": "97dcde1b4d0c7b4b93abc429bf49d775d3e3c0c0d0e7264801dbe057a81ad09f"
+  },
+  {
+    "file": "room-tools\\assets\\start-flag.png",
+    "bytes": 22535,
+    "sha256": "46760e9302a0d80e4ce4542649750b296056e8dff208176bc4b29be8d460ca8e"
+  },
+  {
+    "file": "room-tools\\assets\\track-share-frame.png",
+    "bytes": 1143862,
+    "sha256": "cd802fd71a6193b9e24c74ddac78505f49f5b21a03e900967a1a37386c0a7a07"
+  },
+  {
+    "file": "room-tools\\pages\\invite\\invite.js",
+    "bytes": 1841,
+    "sha256": "c05fbb106aba93c64c603d782b338134363d31e0b46b4fa646a2ba40f02b854f"
+  },
+  {
+    "file": "room-tools\\pages\\invite\\invite.json",
+    "bytes": 89,
+    "sha256": "0e4a6a6d98b32be9061953c83fd946876e60f160b78f32c74bc0d81538bd7fba"
+  },
+  {
+    "file": "room-tools\\pages\\invite\\invite.wxml",
+    "bytes": 1111,
+    "sha256": "27b25e9540f94dd228beede3af3e1b098993e531b8144dc0461137ec71dc0924"
+  },
+  {
+    "file": "room-tools\\pages\\invite\\invite.wxss",
+    "bytes": 1372,
+    "sha256": "66b4408431e306a740a8055fe7c3dbc68d042bda6f02cdcb202f9d36c03f87fe"
+  },
+  {
+    "file": "room-tools\\pages\\settings\\settings.js",
+    "bytes": 2602,
+    "sha256": "f3aebfbc4d240b99185cd59e84c914f9e3ddc6847ddb8caa8cc1c90d9457464b"
+  },
+  {
+    "file": "room-tools\\pages\\settings\\settings.json",
+    "bytes": 89,
+    "sha256": "0e4a6a6d98b32be9061953c83fd946876e60f160b78f32c74bc0d81538bd7fba"
+  },
+  {
+    "file": "room-tools\\pages\\settings\\settings.wxml",
+    "bytes": 1911,
+    "sha256": "c656cced4cd7d48a5e1acfca2005ac42d2667f40576110eabff6096555752a92"
+  },
+  {
+    "file": "room-tools\\pages\\settings\\settings.wxss",
+    "bytes": 747,
+    "sha256": "c31813f3231cbc601848a0c12e592e5232929cc45b65162b28b09f137a67dc89"
+  },
+  {
+    "file": "room-tools\\pages\\share\\share.js",
+    "bytes": 5907,
+    "sha256": "bccbad159eeb6ff3648940eb9198dcecf18a6f5c93426225a5eff6b3015051f1"
+  },
+  {
+    "file": "room-tools\\pages\\share\\share.json",
+    "bytes": 89,
+    "sha256": "0e4a6a6d98b32be9061953c83fd946876e60f160b78f32c74bc0d81538bd7fba"
+  },
+  {
+    "file": "room-tools\\pages\\share\\share.wxml",
+    "bytes": 2213,
+    "sha256": "208d9181d07664a545def7cd771257206cce3b8e157ecda02a08e995630b92f7"
+  },
+  {
+    "file": "room-tools\\pages\\share\\share.wxss",
+    "bytes": 1306,
+    "sha256": "b8888b49283ce81b949203d1b53c29787607058363c04d13fe51828cc3e86639"
+  },
+  {
+    "file": "room-tools\\pages\\tracks\\tracks.js",
+    "bytes": 4308,
+    "sha256": "5c7016dd61427f2311a2e0c9f28f18d414f352d42ed7bfe6d1f56cc2224a9587"
+  },
+  {
+    "file": "room-tools\\pages\\tracks\\tracks.json",
+    "bytes": 89,
+    "sha256": "0e4a6a6d98b32be9061953c83fd946876e60f160b78f32c74bc0d81538bd7fba"
+  },
+  {
+    "file": "room-tools\\pages\\tracks\\tracks.wxml",
+    "bytes": 2020,
+    "sha256": "0df82e0ee79f90692d26b97e0847fd30692d02a9ee76aa76cee61357d0a0121a"
+  },
+  {
+    "file": "room-tools\\pages\\tracks\\tracks.wxss",
+    "bytes": 1191,
+    "sha256": "51b498edca6a4976f9ee46ee2ae08346d477c623b246577fe8f1c62e6291fb9d"
+  },
+  {
+    "file": "sitemap.json",
+    "bytes": 203,
+    "sha256": "15c336e3bcf53a7856d95d360b7bde17403dc57d46ceb988ae2bb9a04896daee"
+  },
+  {
+    "file": "utils\\campus-art-models.js",
+    "bytes": 4956,
+    "sha256": "eb89b8647747c3fad01e2753db7657d52b46f3bb6763616e53781053da5418be"
+  },
+  {
+    "file": "utils\\capture-flow.js",
+    "bytes": 2697,
+    "sha256": "6c6c2b98f27a8654808dd8abe624fcf6e34aab8238796a535f9756d1ae4cb3c7"
+  },
+  {
+    "file": "utils\\capture-proof.js",
+    "bytes": 1766,
+    "sha256": "3ca2cc1840d5db50f461c3922075e392d29e966c8da4797b72f1ee3e6fedf83b"
+  },
+  {
+    "file": "utils\\config.js",
+    "bytes": 352,
+    "sha256": "9d5303084117a3e41273afe7033107cd6bffbeedff7c5588a9b98b15c262eaef"
+  },
+  {
+    "file": "utils\\dev-preview.js",
+    "bytes": 6842,
+    "sha256": "8c6ee649045789cfd58fc565f11ac50cbe950c1482cb899cc323734343b28ae4"
+  },
+  {
+    "file": "utils\\foreground-location.js",
+    "bytes": 1585,
+    "sha256": "7b304ffd64ec5d88576f29087bb74857fd76ae16e56bfad905ce6fcd51101f4f"
+  },
+  {
+    "file": "utils\\fusion-font.wxss",
+    "bytes": 40950,
+    "sha256": "8e14dc6e8b26d8a51eca24929875b6c6f3dfe497d7291471c5e758ed53ce2409"
+  },
+  {
+    "file": "utils\\geo-registration.js",
+    "bytes": 6217,
+    "sha256": "ba80f04343005d8fb4fda213cbc410eb5a2978b74db2996a6029ee3a0edebd9d"
+  },
+  {
+    "file": "utils\\location-scenarios.js",
+    "bytes": 1310,
+    "sha256": "339533cd8e9d02837cb09d508ca0f9688979a40f8511e9fc3b778e8fdf8f7ca0"
+  },
+  {
+    "file": "utils\\location-v2.js",
+    "bytes": 9030,
+    "sha256": "a1999adeddaaa2f6756ce968e9353619fd0e8d45de5cbefe9f9a36f32e324d87"
+  },
+  {
+    "file": "utils\\map-markers.js",
+    "bytes": 986,
+    "sha256": "c8c8d9295b514ef5e59be12df5e6ca3a6ffc5f6117dd8aeadfd82eb7a918280e"
+  },
+  {
+    "file": "utils\\model-camera.js",
+    "bytes": 2339,
+    "sha256": "e87b4b178e853b29cca0edbb2b413a2367aca4eec47fd2266796da1084b30f32"
+  },
+  {
+    "file": "utils\\model-map.js",
+    "bytes": 1915,
+    "sha256": "afbfe9315aa5930c9d6114e4625b5c76b99dc1a3e40b52f81dc78403254c0078"
+  },
+  {
+    "file": "utils\\model-reference.js",
+    "bytes": 3124,
+    "sha256": "6ca5c9b876d957ebef61d7900b51a2415f147da0f0d8befa3e6bd19c46d0dea3"
+  },
+  {
+    "file": "utils\\model-resources.js",
+    "bytes": 614,
+    "sha256": "50ebb1b130c39d31e01bee8e93d5f39c55b41186ac71d6015056f7613cb003b3"
+  },
+  {
+    "file": "utils\\osm-art-model.js",
+    "bytes": 3655,
+    "sha256": "8c76eadcf03b0ad9afae48ea92c50b84e02ad6936cb45af3ac6cd2b834a72e36"
+  },
+  {
+    "file": "utils\\osm-art-registration.js",
+    "bytes": 4903,
+    "sha256": "384c634655e7ab411957bdc11c5772d659b9979301b277c6a707d9156cae8f7d"
+  },
+  {
+    "file": "utils\\pixel-art-ratios.wxss",
+    "bytes": 875,
+    "sha256": "52eae2875ee2d000d20297cb04849aa870156bb934975d149b90abb05373bbfa"
+  },
+  {
+    "file": "utils\\pixel-button-dimensions.js",
+    "bytes": 1781,
+    "sha256": "c475040c4ce423c38ad805f094486366f49c6cde591ff30d16b9d31c84b4b7e5"
+  },
+  {
+    "file": "utils\\pixel-font.wxss",
+    "bytes": 144021,
+    "sha256": "c40aab628e6972cf427d9686310fec5d8086a0dfa4523675d2cfefe1f731fa59"
+  },
+  {
+    "file": "utils\\pixel-theme.wxss",
+    "bytes": 904,
+    "sha256": "8e9e7d9b2d0dbbab8c79f5b3209690b2d25b23e90a918c1f1b0f55313b957383"
+  },
+  {
+    "file": "utils\\presentation.js",
+    "bytes": 5662,
+    "sha256": "b2dfe7fa4c5bbf31d1c793723e53f0d98f1093c687901cd1fe85134ab84919ea"
+  },
+  {
+    "file": "utils\\qr-protocol.js",
+    "bytes": 1575,
+    "sha256": "b6b4fc48cf476547b7df2028d97dc435423232d1d3bb180517ab6a9e185022a9"
+  },
+  {
+    "file": "utils\\room-live.js",
+    "bytes": 3045,
+    "sha256": "a2c379a53417e8821493456910e9a30bc374148aa997b22307f3d91c3d48bdfb"
+  },
+  {
+    "file": "utils\\snapshot-v2.js",
+    "bytes": 550,
+    "sha256": "72cf8f9e76f31b2f3442cb5142125a13d7e745653205b49728d6b405fea78ef7"
+  },
+  {
+    "file": "utils\\team-config.js",
+    "bytes": 434,
+    "sha256": "69dcd50cc00adcab060b31f11bdc82bdd922a29d62047c5919dadf165410bc2a"
+  },
+  {
+    "file": "utils\\track-bubble-assets.js",
+    "bytes": 1576,
+    "sha256": "705959a9f516c5702fa20f9f45d678281abf6dd7bf1a744354df39853c2646f1"
+  },
+  {
+    "file": "utils\\track-bubble-placement.js",
+    "bytes": 1785,
+    "sha256": "3dc60ee042fb578beb20de1ca0806f3d4bce72be5a6e943887dcd66eaf793c8e"
+  },
+  {
+    "file": "utils\\track-export.js",
+    "bytes": 2207,
+    "sha256": "f3b2862951e7a70d5bd61e05e55c6b67d017bb92c41de4b31cbfd73e218f65b2"
+  },
+  {
+    "file": "utils\\track-highlights.js",
+    "bytes": 5058,
+    "sha256": "08ada6b317c2af6ce296d7f1f001246e06b2a98ce1e95fc5b8fed37c2196a4cb"
+  },
+  {
+    "file": "utils\\track-poster.js",
+    "bytes": 8045,
+    "sha256": "a49c9f4d723a5d22aa89c53d50ff742b385a67dbf9271a6627abd8d755a66077"
+  },
+  {
+    "file": "utils\\v2.js",
+    "bytes": 5304,
+    "sha256": "651351be1475628ded5d887e920349c44cdaa0dfbc8ef193946fc22ff70a1ec3"
+  },
+  {
+    "file": "utils\\vendor\\coordtransform.js",
+    "bytes": 1109,
+    "sha256": "4d149551ba6a3fd12d720f811c6501636fb1ba73e3ba92193222b4f8ad9ca58c"
+  },
+  {
+    "file": "utils\\vendor\\coordtransform.LICENSE",
+    "bytes": 1080,
+    "sha256": "87a2968e40ff2a29bbfde301a57c8de804f70c0d28fe91a36b9cf6d1f428e633"
+  },
+  {
+    "file": "utils\\vendor\\coordtransform.source.json",
+    "bytes": 366,
+    "sha256": "bf106791f30555ba63b129cfe065f7f3487ff3381d41932a99777acdc644db9a"
+  },
+  {
+    "file": "utils\\venue-art-config.js",
+    "bytes": 259,
+    "sha256": "917e1e1e10ba80af3924eaaf4bb4bd9bc4258b6c6b943c28adaeb745a4c907a4"
+  },
+  {
+    "file": "utils\\venue-boundary.js",
+    "bytes": 3838,
+    "sha256": "efb32e793a9b1b8f9b895a429719dfdb74d44c37855c18eed04d782d6288ed4e"
+  },
+  {
+    "file": "utils\\venue-camera.js",
+    "bytes": 3976,
+    "sha256": "5e007c7b8141aaf5c33148beb169be582f589d328966dd2a78d4d12b33bc7651"
+  },
+  {
+    "file": "utils\\venue-catalog.js",
+    "bytes": 457,
+    "sha256": "8d7395deb5a3283134756e732e4de8843fe0198682ba90f35956db99bd67df6f"
+  },
+  {
+    "file": "utils\\venue-images.js",
+    "bytes": 1517,
+    "sha256": "bdb43663771c66b7d07d831f5880bfaefbbac005e0dabaa1e30811e491250bc5"
+  },
+  {
+    "file": "utils\\venue-resources.js",
+    "bytes": 1730,
+    "sha256": "bd833b213310a603163cb6c3a637b552b1c48b1cc11132bc0bd761674980746c"
+  },
+  {
+    "file": "venue-maps\\assets\\jiulonghu-v1.jpg",
+    "bytes": 981028,
+    "sha256": "3f48e265f4944c336495b3cbc60a88a887835a73ec72788b9906bbef626806a5"
+  },
+  {
+    "file": "venue-maps\\assets\\sipailou-v1.jpg",
+    "bytes": 999793,
+    "sha256": "e657d47df8db9e7470b4c8c9e6f258ac756e3565659db6469d13ab20edbb2ec9"
+  },
+  {
+    "file": "venue-maps\\pages\\open\\open.js",
+    "bytes": 392,
+    "sha256": "84a4f989c3f977dad1aeea57b7d59a2997f5eff5884d6dac7fef265ceb3a5804"
+  },
+  {
+    "file": "venue-maps\\pages\\open\\open.json",
+    "bytes": 42,
+    "sha256": "c5ae759ad746e7a8e4ec54236942d888fb63be44feb58329625558f7a2d8e27a"
+  },
+  {
+    "file": "venue-maps\\pages\\open\\open.wxml",
+    "bytes": 57,
+    "sha256": "2a6e77f6b1f0f1ed6a99aa8c455434c26b6224e288deece35d0f95dc9c5a0eb6"
+  },
+  {
+    "file": "venue-maps\\pages\\open\\open.wxss",
+    "bytes": 158,
+    "sha256": "3156251b8650fcbffe7223326974c4edcbd20faa12b0ca51d99ca10ff7dd94cc"
+  },
+  {
+    "file": "venue-xuanwu\\assets\\xuanwu-lake-v4.jpg",
+    "bytes": 804062,
+    "sha256": "d3f1ecd12f2e888eccd6fada874ebce09d8f5c7af14e2a5c942d4bd0c8cb9540"
+  },
+  {
+    "file": "venue-xuanwu\\pages\\open\\open.js",
+    "bytes": 330,
+    "sha256": "826a0a69ef2288bc1fd14f922124b734309ce1cfd35c262ad26b26308689f884"
+  },
+  {
+    "file": "venue-xuanwu\\pages\\open\\open.json",
+    "bytes": 42,
+    "sha256": "c5ae759ad746e7a8e4ec54236942d888fb63be44feb58329625558f7a2d8e27a"
+  },
+  {
+    "file": "venue-xuanwu\\pages\\open\\open.wxml",
+    "bytes": 57,
+    "sha256": "2a6e77f6b1f0f1ed6a99aa8c455434c26b6224e288deece35d0f95dc9c5a0eb6"
+  },
+  {
+    "file": "venue-xuanwu\\pages\\open\\open.wxss",
+    "bytes": 158,
+    "sha256": "3156251b8650fcbffe7223326974c4edcbd20faa12b0ca51d99ca10ff7dd94cc"
+  }
+]

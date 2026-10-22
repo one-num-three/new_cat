@@ -1,0 +1,276 @@
+{
+  "date": "2026-10-19",
+  "tests": {
+    "total": 181,
+    "passed": 181,
+    "failed": 0,
+    "storage": "local PGlite; not a live PostgreSQL server"
+  },
+  "compilation": {
+    "wxml": {
+      "files": 16,
+      "status": 0
+    },
+    "wxss": {
+      "files": 20,
+      "status": 0
+    }
+  },
+  "syntax": [
+    {
+      "file": "pages/index/index.js",
+      "status": 0
+    },
+    {
+      "file": "pages/room/room.js",
+      "status": 0
+    },
+    {
+      "file": "pages/map/map.js",
+      "status": 0
+    },
+    {
+      "file": "pages/qrcode/qrcode.js",
+      "status": 0
+    },
+    {
+      "file": "pages/dev/dev.js",
+      "status": 0
+    },
+    {
+      "file": "pages/venue/venue.js",
+      "status": 0
+    },
+    {
+      "file": "pages/calibrate/calibrate.js",
+      "status": 0
+    },
+    {
+      "file": "room-tools/pages/invite/invite.js",
+      "status": 0
+    },
+    {
+      "file": "field-editor/pages/edit/edit.js",
+      "status": 0
+    },
+    {
+      "file": "campus3d/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "venue-maps/pages/open/open.js",
+      "status": 0
+    },
+    {
+      "file": "components/campus-model/campus-model.js",
+      "status": 0
+    },
+    {
+      "file": "components/map-icon/map-icon.js",
+      "status": 0
+    },
+    {
+      "file": "components/nav-bar/nav-bar.js",
+      "status": 0
+    },
+    {
+      "file": "components/pixel-action/pixel-action.js",
+      "status": 0
+    },
+    {
+      "file": "components/venue-art/venue-art.js",
+      "status": 0
+    },
+    {
+      "file": "utils/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "utils/qr-protocol.js",
+      "status": 0
+    },
+    {
+      "file": "utils/capture-flow.js",
+      "status": 0
+    },
+    {
+      "file": "utils/room-live.js",
+      "status": 0
+    },
+    {
+      "file": "utils/snapshot-v2.js",
+      "status": 0
+    },
+    {
+      "file": "utils/model-map.js",
+      "status": 0
+    },
+    {
+      "file": "utils/v2.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/shared/venue-boundary.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/service.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/server.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/store.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/map-catalog.js",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/acceptance.cjs",
+      "status": 0
+    },
+    {
+      "file": "cat-mouse-server/v2/venue-boundary.test.js",
+      "status": 0
+    },
+    {
+      "file": "scripts/verify-venue-boundary.cjs",
+      "status": 0
+    }
+  ],
+  "sharedGeometryIdentical": true,
+  "font": {
+    "glyphs": 692,
+    "bytes": 27724,
+    "sha256": "3125815a5f9be9cb1b00ec6d9cb6ed0c61a47ba351b8f4d6ed5c7e216efa4dce"
+  },
+  "packageFiles": 147,
+  "rawLocalBytes": {
+    "main": 1783055,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 4413,
+    "venue-maps": 1981419
+  },
+  "uploadVerified": false,
+  "simulator": {
+    "status": "passed",
+    "firstMatchId": "5bce8206-ba4c-42f4-a5c9-8c086e5b2972",
+    "secondMatchId": "669be190-e9cc-4792-ad13-b3b6b9ecd7f8",
+    "players": 8,
+    "simulators": 1,
+    "concurrentWebSockets": 8,
+    "realWallClock": true,
+    "simulatedGps": true,
+    "simulatedCamera": true,
+    "actualDisplayedPngDecoded": true,
+    "devPreview": false,
+    "productionDataWritten": false,
+    "captureCount": 4,
+    "target": 4,
+    "outcome": "cat_win",
+    "oldResultPreserved": true,
+    "newReadinessRequired": true,
+    "allNewParticipantsActive": true,
+    "allPeersAligned": true,
+    "screenshots": 21,
+    "uiInteraction": "official MCP evaluates existing Page event handlers; native pointer hit-testing not verified",
+    "playersVerified": [
+      {
+        "player": "P01·房主",
+        "id": "3a9eceec-a5b8-42af-bca6-e23bac65fbc2",
+        "oldRole": "mouse",
+        "oldStatus": "captured",
+        "outcome": "cat_win",
+        "newRole": "mouse",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P02·玩家",
+        "id": "24d1dd87-e286-4356-a188-574fae5e125b",
+        "oldRole": "cat",
+        "oldStatus": "active",
+        "outcome": "cat_win",
+        "newRole": "mouse",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P03·玩家",
+        "id": "7969ffd9-1a23-40d3-b614-948fcbf1be3a",
+        "oldRole": "mouse",
+        "oldStatus": "captured",
+        "outcome": "cat_win",
+        "newRole": "cat",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P04·玩家",
+        "id": "4d906e3b-2aac-4d31-a75d-99e66a4bdac2",
+        "oldRole": "mouse",
+        "oldStatus": "captured",
+        "outcome": "cat_win",
+        "newRole": "mouse",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P05·玩家",
+        "id": "8a969847-594e-4813-a92c-b425c12ab6e4",
+        "oldRole": "mouse",
+        "oldStatus": "captured",
+        "outcome": "cat_win",
+        "newRole": "cat",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P06·玩家",
+        "id": "47dc0ce4-54d7-448a-9be5-ea8dfe9b9ec8",
+        "oldRole": "mouse",
+        "oldStatus": "active",
+        "outcome": "cat_win",
+        "newRole": "mouse",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P07·玩家",
+        "id": "41e4c748-12c6-4a5d-9958-314d688099e6",
+        "oldRole": "mouse",
+        "oldStatus": "active",
+        "outcome": "cat_win",
+        "newRole": "mouse",
+        "newStatus": "active",
+        "consistent": true
+      },
+      {
+        "player": "P08·玩家",
+        "id": "3268de68-dedb-4bff-9748-15ff4b25644e",
+        "oldRole": "cat",
+        "oldStatus": "active",
+        "outcome": "cat_win",
+        "newRole": "mouse",
+        "newStatus": "active",
+        "consistent": true
+      }
+    ],
+    "viewerIdentityAndOwnerVerified": true,
+    "cameraHardwareVerified": false,
+    "phoneVerified": false,
+    "publicNetworkVerified": false,
+    "storage": "isolated local PGlite",
+    "originalSessionRestored": true
+  },
+  "phone": "not-run",
+  "fieldGps": "not-run",
+  "productionDeployment": "not-run",
+  "publicLoadTest": "not-run",
+  "sharedQrProtocolIdentical": true
+}

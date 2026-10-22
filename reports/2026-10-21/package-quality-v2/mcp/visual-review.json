@@ -1,0 +1,12 @@
+{
+  "manuallyReviewed": true,
+  "screenshotsCaptured": 3,
+  "intendedScreenshotsAccepted": 2,
+  "accepted": ["02-xuanwu-guide.png", "03-campus-guide.png"],
+  "rejectedForIntendedPage": [{"file":"01-create-cold-map.png","reason":"JSON identifies room create page, screenshot still shows homepage; excluded from create-page visual acceptance."}],
+  "homepageFontsRestored": true,
+  "mapAspectRatioPreserved": true,
+  "wechatQualityPanel": {"mainPackage":"still-failed; discrepancy unresolved; user requested stop", "requiredComponents":"passed", "image200K":"retained at user request"},
+  "phoneTested": false,
+  "newUploadInitiated": false
+}

@@ -1,0 +1,12 @@
+{
+  "status": "blocked-no-project-runtime",
+  "tool": "automation_runtime_info",
+  "commandExitCode": 0,
+  "toolOk": false,
+  "message": "cant find runtimeid by projectpath D:\\cat-mouse-miniprogram",
+  "newProjectWindowOpened": false,
+  "nativeScreenshot": false,
+  "phone": false,
+  "albumSaved": false,
+  "imageActuallySent": false
+}

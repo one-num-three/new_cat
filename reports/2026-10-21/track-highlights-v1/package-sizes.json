@@ -1,0 +1,13 @@
+{
+  "rawLocalBytes": {
+    "main": 1011647,
+    "campus3d": 1295150,
+    "field-editor": 16017,
+    "room-tools": 1346992,
+    "venue-maps": 1981470,
+    "venue-xuanwu": 804649
+  },
+  "mainLimitBytes": 1500000,
+  "subPackageLimitBytes": 2097152,
+  "uploadVerified": false
+}

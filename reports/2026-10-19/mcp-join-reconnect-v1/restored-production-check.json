@@ -1,0 +1,11 @@
+{
+  "method": "official WeChat MCP automation_evaluate after restoration",
+  "productionBase": "https://seu-link.fit/catmouse",
+  "productionWs": "wss://seu-link.fit/catmouse",
+  "localTestIdentities": false,
+  "backupPresent": false,
+  "realRoomOwner": true,
+  "realRoomMembers": 1,
+  "currentRoute": "pages/index/index",
+  "at": "2026-10-19T12:37:13.032Z"
+}

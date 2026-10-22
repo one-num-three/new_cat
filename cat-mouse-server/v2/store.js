@@ -10,6 +10,9 @@ class Store {
     await this.query('CREATE TABLE IF NOT EXISTS events (match_id UUID NOT NULL, seq INTEGER NOT NULL, kind TEXT NOT NULL, payload JSONB NOT NULL, created_at BIGINT NOT NULL, PRIMARY KEY(match_id, seq))');
     await this.query('CREATE TABLE IF NOT EXISTS commands (match_id UUID NOT NULL, actor_id UUID NOT NULL, command_id UUID NOT NULL, result JSONB NOT NULL, PRIMARY KEY(match_id, actor_id, command_id))');
     await this.query('CREATE TABLE IF NOT EXISTS match_results (match_id UUID PRIMARY KEY, room_id UUID NOT NULL, result JSONB NOT NULL)');
+    await this.query('CREATE TABLE IF NOT EXISTS operation_commands (scope TEXT NOT NULL, actor_id UUID NOT NULL, command_id UUID NOT NULL, digest TEXT NOT NULL, result JSONB NOT NULL, PRIMARY KEY(scope, actor_id, command_id))');
+    await this.query('CREATE TABLE IF NOT EXISTS match_track_points (match_id UUID NOT NULL, player_id UUID NOT NULL, bucket BIGINT NOT NULL, sampled_at BIGINT NOT NULL, recorded_at BIGINT NOT NULL, lat DOUBLE PRECISION NOT NULL, lng DOUBLE PRECISION NOT NULL, accuracy DOUBLE PRECISION NOT NULL, segment INTEGER NOT NULL, phase TEXT NOT NULL, PRIMARY KEY(match_id,player_id,bucket))');
+    await this.query('CREATE INDEX IF NOT EXISTS match_track_expiry ON match_track_points (recorded_at)');
   }
   query(sql, params = []) { return this.db.query(sql, params); }
   async tx(fn) {
@@ -37,6 +40,7 @@ class Store {
     return r.rows[0] || null;
   }
   save(db, room) { return db.query('UPDATE rooms SET state=$2 WHERE id=$1', [room.id, JSON.stringify(room.state)]); }
+  async commandLock(db,scope,actor,commandId){if(!this.embedded)await db.query('SELECT pg_advisory_xact_lock(hashtext($1),hashtext($2))',[scope+':'+actor,commandId]);}
   async close() { await this.db.close?.(); await this.db.end?.(); }
 }
 function hash(s) { return crypto.createHash('sha256').update(s).digest('hex'); }

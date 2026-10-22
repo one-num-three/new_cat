@@ -1,0 +1,15 @@
+{
+  "base": "http://127.0.0.1:54300",
+  "ws": "ws://127.0.0.1:54300",
+  "roomId": "54759366-d9cf-4f33-ad52-8d7b33ab3c6d",
+  "code": "D00B929E4E",
+  "point": {
+    "lng": 118.81920737398848,
+    "lat": 31.88777433108612
+  },
+  "scenario": "tracks-vision",
+  "dataDir": "D:\\cat-mouse-miniprogram\\.local-test-tmp\\mcp-tracks-eNOc27",
+  "realServerClock": true,
+  "simulatedGps": true,
+  "productionDataWritten": false
+}

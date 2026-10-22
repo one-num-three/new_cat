@@ -1,0 +1,11 @@
+{
+  "hudAndRosterScreenshots": 19,
+  "reviewed": true,
+  "aspectRatioPreserved": true,
+  "mapLoadingFrames": [
+    "01-eight-original-mouse",
+    "player-10"
+  ],
+  "fullMapRenderingPassed": false,
+  "scope": "HUD target, identity and roster; full map visual completion not claimed"
+}
