@@ -1,6 +1,6 @@
 const crypto = require('node:crypto');
 const registration=require('../shared/geo-registration');
-const venueImages=require('../shared/venue-images.js');
+const venueImages=require('../shared/venue-images.js').concat([require('../shared/native-venue')]);
 const venueGeometry=require('../shared/venue-boundary');
 const visibility=require('./visibility'),tracks=require('./tracks');
 const { preset, targetFor, distance } = require('./rules');
@@ -89,6 +89,7 @@ class Service {
   });if(changed)for(const member of changed.members){const key=positionKey(changed.id,member);if(this.positions.get(key)?.venueRevision!==changed.revision)this.positions.delete(key);if(this.outside.get(key)?.venueRevision!==changed.revision)this.outside.delete(key);}return result;}
   async calibrate(id,actor,input){return this.mutate(id,actor,async room=>{
     if(room.owner_id!==actor)fail('FORBIDDEN');
+    if(room.state.venue.mapId==='native-gcj02-v1')fail('CALIBRATION_IMAGE_OR_CRS');
     if(!input||Object.keys(input).some(k=>!['commandId','expectedVersion','imageId','imageSha256','crs','points'].includes(k))||!validUuid(input.commandId))fail('INVALID_CALIBRATION');
     if(input.imageId!==(room.state.venue.mapId||'xuanwu-v4'))fail('CALIBRATION_IMAGE_OR_CRS');
     const digest=hash(JSON.stringify({expectedVersion:input.expectedVersion,imageId:input.imageId,imageSha256:input.imageSha256,crs:input.crs,points:input.points}));

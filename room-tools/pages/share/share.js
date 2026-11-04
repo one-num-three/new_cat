@@ -12,7 +12,7 @@ Page({
  canvas(){return new Promise((resolve,reject)=>wx.createSelectorQuery().in(this).select('#posterCanvas').fields({node:true}).exec(r=>r?.[0]?.node?resolve(r[0].node):reject(Error('当前环境不支持海报画布，请升级微信'))));},
  async load(){if(!live(this)||this.data.loading||this.pendingAction)return;const run=++this.serial,viewer=this.viewer;this.setData({loading:true,error:'',feedback:'',posterPath:''});let path;
   try{await api.session();const raw=await api.tracks(this.data.matchId,'self');if(!live(this)||run!==this.serial)return;if(raw.matchId!==this.data.matchId||raw.scope!=='self'||raw.schema!=='tracks-v1'||raw.players.length!==1||raw.players[0].id!==viewer)throw Error('本人轨迹响应不匹配');
-   const image=catalog.get(raw.venue?.mapId||catalog.DEFAULT_ID);if(!image)throw Error('本局场地地图暂不支持海报');
+   const image=catalog.get(raw.venue?.mapId||catalog.DEFAULT_ID);if(!image||image.nativeOnly)throw Error('本局场地地图暂不支持海报，可返回导出行动轨迹');
    // The existing package bootstrap temporarily hides this page. Resume only
    // after it returns; an actual back/unload invalidates the generation below.
    this.resourceLoading=true;try{await resources.ensure(image.id);if(!this.active&&run===this.serial)await new Promise(resolve=>this.resume=resolve);}finally{this.resourceLoading=false;}if(!live(this)||run!==this.serial)return;
