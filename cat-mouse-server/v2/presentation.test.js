@@ -29,6 +29,15 @@ test('window metrics use real capsule, safe area and bounded text preference',()
  vm.runInNewContext(fs.readFileSync(path.join(root,'utils/presentation.js'),'utf8'),{module,require:p=>require('../../utils/venue-catalog'),wx:{getWindowInfo:()=>({statusBarHeight:47,screenHeight:844,safeArea:{bottom:810}}),getMenuButtonBoundingClientRect:()=>({top:51,bottom:83}),getAppBaseInfo:()=>({fontSizeSetting:32})}});
  const m=module.exports.metrics();assert.equal(m.navHeight,87);assert.equal(m.safeBottom,34);assert.equal(m.fontScale,1.3);
 });
+test('navigation refreshes safe-area geometry after returning and resizing',()=>{
+ let component,current={navHeight:87,statusHeight:47,viewportWidth:390,safeBottom:34};
+ vm.runInNewContext(fs.readFileSync(path.join(root,'components/nav-bar/nav-bar.js'),'utf8'),{Component:c=>component=c,require:()=>({metrics:()=>({...current}),resize:e=>({...current,viewportWidth:e.size.windowWidth})})});
+ const instance={data:{},...component.methods,setData(update){Object.assign(this.data,update);}};
+ component.lifetimes.attached.call(instance);assert.equal(instance.data.barHeight,40);
+ current={navHeight:68,statusHeight:24,viewportWidth:320,safeBottom:0};
+ component.pageLifetimes.show.call(instance);assert.equal(instance.data.statusHeight,24);assert.equal(instance.data.safeBottom,0);assert.equal(instance.data.barHeight,44);
+ component.pageLifetimes.resize.call(instance,{size:{windowWidth:414}});assert.equal(instance.data.viewportWidth,414);
+});
 test('native pages keep actionable controls and real map isolated from preview illustration',()=>{
  const read=f=>fs.readFileSync(path.join(root,f),'utf8'),app=JSON.parse(read('app.json'));
  assert.equal(app.window.navigationStyle,'custom');assert.equal(app.usingComponents['nav-bar'],'/components/nav-bar/nav-bar');

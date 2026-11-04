@@ -1,6 +1,6 @@
-<view class="screen calibrateScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px">
- <nav-bar title="地图位置标定" back="{{true}}" preview="{{devPreview}}" />
- <text class="calTitle">{{venueName}} · 位置标定</text><text class="calCopy">先轻点图片上的固定地标，再在真实地图中将同一地标移动到十字中心，或站在地标旁采集GPS。请分散选点，核验点不参与拟合。</text>
+<view class="screen calibrateScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+ <nav-bar pinned="{{true}}" title="地图位置标定" back="{{true}}" preview="{{devPreview}}" />
+ <text class="calTitle">{{venueName}}</text><text class="calCopy">先轻点图片上的固定地标，再在真实地图中将同一地标移动到十字中心，或站在地标旁采集GPS。请分散选点，核验点不参与拟合。</text>
  <view class="calArt"><venue-art class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" scroll-top="{{scrollTop}}" auto-tour="{{false}}" calibration-mode="{{true}}" pins="{{pins}}" bindpoint="picked" /></view>
  <text class="calStatus">{{pending?'已选图片像素：'+pendingLabel:'拖动、双指缩放图片，然后轻点地标'}}</text>
  <view class="calKinds"><button disabled="{{busy}}" data-kind="control" bindtap="chooseKind" class="{{kind==='control'?'selected':''}}">控制点</button><button disabled="{{busy}}" data-kind="check" bindtap="chooseKind" class="{{kind==='check'?'selected':''}}">独立核验点</button></view>

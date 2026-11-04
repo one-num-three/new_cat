@@ -36,7 +36,8 @@ test('trusted two identity round trip, permissions, capture, persistence and res
     assert.equal((await req('POST',`/api/v2/rooms/${id}/cancel`,{ winner:'cat_win' },b.token)).status,403);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/start`,{},a.token)).data.error,'NOT_READY');
     let seq = 1;
-    const loc = (token, lat=32, lng=118) => req('POST',`/api/v2/rooms/${id}/location`,{ lat,lng,accuracy:5,sampledAt:now,sampleSeq:seq++,coordinateSystem:'gcj02' },token);
+    const loc = (token, lat=32, lng=118, accuracy=50) => req('POST',`/api/v2/rooms/${id}/location`,{ lat,lng,accuracy,sampledAt:now,sampleSeq:seq++,coordinateSystem:'gcj02' },token);
+    assert.equal((await loc(a.token,32,118,50.01)).data.error,'INVALID_LOCATION');
     assert.equal((await loc(a.token)).status,200); assert.equal((await loc(b.token)).status,200);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/ready`,{ ready:true },a.token)).status,200);
     assert.equal((await req('POST',`/api/v2/rooms/${id}/ready`,{ ready:true },b.token)).status,200);

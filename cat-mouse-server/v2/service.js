@@ -178,7 +178,7 @@ class Service {
       if(input?.matchId!==undefined){const m=room.state.match,p=m?.participants.find(p=>p.id===actor);if(!m||m.id!==input.matchId||terminal(m)||!['active','joining'].includes(p?.status))return {accepted:false,warning:'TRACKING_STOPPED',tracking:tracking()};}
       if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='captured') fail('CAPTURED');
       if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='left') fail('LEFT_MATCH');
-      if (![lat, lng, accuracy, sampledAt, sampleSeq].every(Number.isFinite) || lat < -90 || lat > 90 || lng < -180 || lng > 180 || accuracy < 0 || accuracy > 25 || !Number.isInteger(sampleSeq) || coordinateSystem !== 'gcj02' || Math.abs(this.now() - sampledAt) > 10000) fail('INVALID_LOCATION');
+      if (![lat, lng, accuracy, sampledAt, sampleSeq].every(Number.isFinite) || lat < -90 || lat > 90 || lng < -180 || lng > 180 || accuracy < 0 || accuracy > 50 || !Number.isInteger(sampleSeq) || coordinateSystem !== 'gcj02' || Math.abs(this.now() - sampledAt) > 10000) fail('INVALID_LOCATION');
       const key=positionKey(room.id,actor),revision=room.state.venueRevision||0,rawPrev=this.positions.get(key),prev=(rawPrev?.venueRevision||0)===revision?rawPrev:null,rawOutside=this.outside.get(key),lastOutside=(rawOutside?.venueRevision||0)===revision?rawOutside:null;if(lastOutside&&sampledAt<=lastOutside.sampledAt)fail('STALE_LOCATION'); if (prev && sampleSeq <= prev.sampleSeq && this.now()-prev.receivedAt<=5000) fail('STALE_LOCATION');
       if (prev && distance(prev, { lat, lng }) > Math.max(100, (sampledAt - prev.sampledAt) / 1000 * 20 + 50)) fail('LOCATION_JUMP');
       if (venueGeometry.outsideDistance(room.state.venue, { lat, lng }) > 50) {
@@ -257,7 +257,7 @@ class Service {
     if (m.usedTokens[tokenHash]) fail('ALREADY_CAPTURED');
     const proof = m.tokens[tokenHash]; if (!proof || proof.expiresAt <= this.now()) fail('INVALID_TOKEN');
     const mouse = m.participants.find(p => p.id === proof.target); if (mouse?.status !== 'active') fail('ALREADY_CAPTURED');
-    const a = this.fresh(actor,room.id,room.state.venueRevision||0), b = this.fresh(mouse.id,room.id,room.state.venueRevision||0); if (!a || !b || a.accuracy > 25 || b.accuracy > 25 || distance(a, b) > 50) fail('LOCATION_REQUIRED');
+    const a = this.fresh(actor,room.id,room.state.venueRevision||0), b = this.fresh(mouse.id,room.id,room.state.venueRevision||0); if (!a || !b || a.accuracy > 50 || b.accuracy > 50 || distance(a, b) > 50) fail('LOCATION_REQUIRED');
     delete m.tokens[tokenHash]; m.usedTokens[tokenHash]=mouse.id; mouse.status = 'captured'; m.captured++; room.state.version++;
     await this.event(db, m, 'CAPTURE', { catId: actor, mouseId: mouse.id, captured: m.captured });
     if (m.captured >= m.target) { m.phase = 'FINISHED'; m.outcome = 'cat_win'; m.reason = 'capture_target'; m.endedAt = this.now(); m.tokens = {}; await this.event(db, m, 'RESULT', { outcome: m.outcome, reason: m.reason }); }

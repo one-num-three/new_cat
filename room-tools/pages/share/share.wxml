@@ -1,4 +1,4 @@
-<view class="shareScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}}"><nav-bar pinned="{{true}}" title="我的追逐足迹" back="{{true}}" />
+<view class="screen shareScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px"><nav-bar pinned="{{true}}" title="我的追逐足迹" back="{{true}}" />
  <text class="shareTitle">把快乐，跑成轨迹。</text>
  <text class="shareNote">{{settlementLabel || '正在读取结算'}} · 海报只展示本人轨迹</text>
  <image wx:if="{{posterPath}}" class="posterImage" src="{{posterPath}}" mode="widthFix" show-menu-by-longpress="{{true}}" bindtap="previewImage" />
