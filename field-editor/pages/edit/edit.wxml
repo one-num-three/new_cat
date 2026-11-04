@@ -9,7 +9,7 @@
   <text class="instruction">{{instruction}}</text><view class="fieldStats"><text>{{points.length}} / 16 顶点 · {{areaText}}</text><text>{{meeting?'集合点已选':'集合点待选'}}</text></view>
   <view class="editorTools"><button bindtap="undo" disabled="{{!canUndo || busy || !editable}}">撤销</button><button bindtap="remove" disabled="{{selected<0 || busy || !editable}}">删顶点</button><button bindtap="clear" disabled="{{!points.length || busy || !editable}}">重画</button><button bindtap="locate" disabled="{{busy || !editable}}">用我位置</button></view>
   <text wx:if="{{error || validation}}" class="fieldError" role="alert">{{error || validation}}</text><text wx:else class="fieldValid">边界有效 · 集合点在范围内</text>
-  <button class="fieldSave" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">{{roomId?'保存并通知全员重新准备':'使用这个范围'}}</button>
+  <button wx:if="{{points.length>=3 && !meeting}}" class="retry" data-mode="meeting" bindtap="setMode">下一步：选择范围内的集合点</button><text class="fieldFootnote" role="status">{{saveHint}}</text><button class="fieldSave" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">{{roomId?'保存并通知全员重新准备':'使用这个范围'}}</button>
   <text class="fieldFootnote">点顶点编号后可移动。双指缩放、单指移动地图。范围请避开道路、水面与禁入区。</text>
   <button wx:if="{{!editable && !loading}}" class="retry" bindtap="loadRoom">重新读取房间</button>
   </view>

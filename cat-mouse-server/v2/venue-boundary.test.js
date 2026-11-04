@@ -79,3 +79,13 @@ test('returning from editor cannot restore the venue from an older room request'
 test('late opener draft preserves edits while keeping the return channel available',async()=>{
  let init,returned,back=0;const page=editor({}, {navigateBack:()=>back++});page.getOpenerEventChannel=()=>({on:(name,fn)=>{init=fn;},emit:(name,data)=>{returned=data;}});page.onLoad({mapId:image.id});for(const q of venue().boundary)page.tapMap({detail:{latitude:q.lat,longitude:q.lng}});init({mapId:image.id,venue:{...origin,confirmed:true,radiusM:200,mapId:image.id}});assert.equal(page.data.points.length,4);assert.equal(page.data.meeting,null);page.setMode({currentTarget:{dataset:{mode:'meeting'}}});page.tapMap({detail:{latitude:origin.lat,longitude:origin.lng}});await page.save();assert.equal(back,1);assert.deepEqual(plain(returned.venue),venue());
 });
+
+ test('native draft can be returned with an old server catalog, but existing rooms require compatibility',async()=>{
+ const native=require('../../utils/venue-catalog').get('native-gcj02-v1');let returned,back=0;
+ const page=editor({maps:async()=>({schema:'venue-catalog-v1',maps:[]})},{navigateBack:()=>back++});
+ page.hasDraftReceiver=true;page.channel={emit:(event,payload)=>returned=payload};page.init({mapId:native.id,venue:{...venue(),mapId:native.id}});
+ await page.syncMaps();assert.equal(page.data.mapCompatible,false);assert.equal(page.data.canSave,true);assert.ok(page.data.mapOptions.some(m=>m.id===native.id));await page.save();assert.equal(back,1);assert.equal(returned.venue.mapId,native.id);
+ page.data.roomId='existing-room';page.assess();assert.equal(page.data.canSave,false);assert.match(page.data.saveHint,/服务器地图版本/);
+ page.data.roomId='';page.setData({meeting:null});page.assess();assert.equal(page.data.canSave,false);assert.match(page.data.saveHint,/集合点/);
+ page.setData({meeting:origin,mapCompatible:true});page.assess();assert.equal(page.data.canSave,true);
+ });

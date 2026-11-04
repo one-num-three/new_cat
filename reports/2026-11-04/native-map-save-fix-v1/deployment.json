@@ -1,0 +1,59 @@
+{
+  "status": "DEPLOYED",
+  "version": {
+    "version": "0.6.1",
+    "rulesVersion": "pilot-0.3",
+    "supportedRuleVersions": [
+      "pilot-0.2",
+      "pilot-0.3"
+    ],
+    "capabilities": {
+      "nativeMapVenues": true,
+      "mapCalibration": true,
+      "customTeams": true,
+      "multiVenueMaps": true,
+      "polygonVenues": true,
+      "mapCatalog": true,
+      "roomInvites": true,
+      "createCommands": true,
+      "captureProtocol": "capture-v1",
+      "lateJoin": "reinforce-v2",
+      "dynamicCaptureTarget": "joined-mice-60-v1",
+      "roundReadiness": "fresh-v1",
+      "snapshotViewer": true,
+      "matchBoundLocation": true,
+      "mouseTeamVision": "vision-share-v1",
+      "trackExport": "tracks-v1",
+      "trackHighlights": "track-highlights-v1"
+    }
+  },
+  "release": "/opt/cat-mouse/release-20261104-native-v1",
+  "previousRelease": "/opt/cat-mouse/release-20261023-gps50-v1",
+  "backup": "/opt/cat-mouse/backup-before-native-1793775432.dump",
+  "unitBackup": "/opt/cat-mouse/unit-before-native-1793775432.service",
+  "backupRestoreVerified": true,
+  "migrationVerifiedOnRestoredDatabase": true,
+  "trackRows": 0,
+  "activeMatchesBeforeSwitch": 0,
+  "credentialsChanged": false,
+  "dataBefore": {
+    "rooms": 1,
+    "sessions": 7,
+    "match_results": 0,
+    "events": 0,
+    "commands": 0,
+    "operation_commands": 1,
+    "roomStateDigest": "c002afd43df16d615734c444aa0de1da14d27dddd8da2b5a2e03976f0a47ef35",
+    "resultDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "dataAfter": {
+    "rooms": 1,
+    "sessions": 7,
+    "match_results": 0,
+    "events": 0,
+    "commands": 0,
+    "operation_commands": 1,
+    "roomStateDigest": "c002afd43df16d615734c444aa0de1da14d27dddd8da2b5a2e03976f0a47ef35",
+    "resultDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
