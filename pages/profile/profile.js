@@ -66,7 +66,7 @@ Page({
     });
   },
 
-  // 查看游戏历史
+  // 查看猫鼠行动历史
   onViewHistory() {
     if (!this.data.isLoggedIn) {
       wx.showToast({ title: '请先登录', icon: 'none' });

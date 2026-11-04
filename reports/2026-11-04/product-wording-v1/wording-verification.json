@@ -1,0 +1,14 @@
+{
+  "changedFiles": 24,
+  "replacedOccurrences": 97,
+  "remainingCurrentSourceMatches": 0,
+  "preserved": [
+    "reports historical evidence",
+    "design source assets",
+    "PROJECT_PLAN.md frozen baseline",
+    "WORK_LOG.md history"
+  ],
+  "changedJsSyntax": "passed",
+  "changedJsonSyntax": "passed",
+  "mobileVisualCheck": "not-run; active change is wrapping group title, legacy pages are not routed"
+}

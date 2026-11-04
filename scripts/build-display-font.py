@@ -8,7 +8,7 @@ source=Path('C:/Windows/Fonts/NotoSansSC-VF.ttf')
 f=TTFont(source); names=[(n.nameID,n.toUnicode()) for n in f['name'].names if n.nameID in [0,13,14]]
 assert any('SIL Open Font License' in t for _,t in names)
 f=instantiateVariableFont(f,{'wght':900},inplace=True)
-words='猫鼠行动和熟人到户外玩一场分钟的追逐创建活动邀请伙伴先取个名字加入房间我来组织开始游戏准备本局结算记录队获胜取消不计胜负已达到捕获目标时间停下展示动态码附近有注意观察鼠先躲藏本轮出局暂停连接中断正在重连队伍规则操作扫码确认抓捕橘色区域仅代表大致线索留意周围环境动态码界面调试台活动准备游戏进行异常状态结果我的昵称复制房间码人数配置场地确认位置信息试点版紧急返回首页分享朋友全员你来打开成员名单抓获玩家退出信息恢复失效等待同步授权服务已结束追逐剩余集合点已准备未准备查看详情再一局结束结果已确认重连中躲藏阶段00:4518262/46309·，。! ' + 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+words='猫鼠行动和熟人到户外玩一场分钟的追逐创建活动邀请伙伴先取个名字加入房间我来组织开始猫鼠行动准备本局结算记录队获胜取消不计胜负已达到捕获目标时间停下展示动态码附近有注意观察鼠先躲藏本轮出局暂停连接中断正在重连队伍规则操作扫码确认抓捕橘色区域仅代表大致线索留意周围环境动态码界面调试台活动准备猫鼠行动进行中异常状态结果我的昵称复制房间码人数配置场地确认位置信息试点版紧急返回首页分享朋友全员你来打开成员名单抓获玩家退出信息恢复失效等待同步授权服务已结束追逐剩余集合点已准备未准备查看详情再一局结束结果已确认重连中躲藏阶段00:4518262/46309·，。! ' + 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 options=subset.Options(); options.flavor='woff'; options.name_IDs=[0,1,2,3,4,6,13,14]; options.name_legacy=True; options.name_languages=['*']; options.recalc_timestamp=False
 words += '每个状态，都能预览开发预览组织一场追逐伙伴到齐，就出发房间码玩家准备本局人数集合点与活动范围'
 s=subset.Subsetter(options=options);s.populate(text=words);s.subset(f)

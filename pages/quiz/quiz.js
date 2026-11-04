@@ -176,7 +176,7 @@ Page({
     }
   },
 
-  // 游戏结束
+  // 猫鼠行动结束
   async endGame() {
     this.stopCountdown();
     
@@ -224,7 +224,7 @@ Page({
     this.loadQuestions();
   },
 
-  // 返回游戏
+  // 返回猫鼠行动
   onBack() {
     wx.navigateBack();
   }

@@ -228,7 +228,7 @@
   color: #fff;
 }
 
-/* 游戏结束弹窗 */
+/* 猫鼠行动结束弹窗 */
 .game-end-modal {
   position: fixed;
   top: 0;

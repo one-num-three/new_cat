@@ -1,7 +1,7 @@
 {
   "name": "cat-mouse-server",
   "version": "0.2.0",
-  "description": "猫鼠游戏小程序后端服务器",
+  "description": "猫鼠行动小程序后端服务器",
   "main": "v2/server.js",
   "scripts": {
     "start": "node v2/server.js",

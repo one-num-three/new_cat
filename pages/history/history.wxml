@@ -26,16 +26,16 @@
   <!-- 历史列表 -->
   <view class="history-section">
     <view class="section-title">
-      <text>游戏记录</text>
+      <text>猫鼠行动记录</text>
       <text class="subtitle" wx:if="{{totalGames > 0}}">共 {{totalGames}} 场</text>
     </view>
 
     <!-- 空状态 -->
     <view class="empty-state" wx:if="{{!isLoading && historyList.length === 0}}">
       <text class="empty-icon"></text>
-      <text class="empty-text">还没有游戏记录</text>
-      <text class="empty-subtext">快去创建或加入一场游戏吧！</text>
-      <button class="btn-primary" bindtap="onBackToHome">去玩游戏</button>
+      <text class="empty-text">还没有猫鼠行动记录</text>
+      <text class="empty-subtext">快去创建或加入一场猫鼠行动吧！</text>
+      <button class="btn-primary" bindtap="onBackToHome">参与猫鼠行动</button>
     </view>
 
     <!-- 历史列表 -->
@@ -52,7 +52,7 @@
           <text>{{item.roleText}}</text>
         </view>
 
-        <!-- 游戏信息 -->
+        <!-- 猫鼠行动信息 -->
         <view class="game-info">
           <view class="game-header">
             <text class="game-id">房间 {{item.roomId}}</text>

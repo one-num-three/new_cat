@@ -84,7 +84,7 @@
     </view>
   </view>
 
-  <!-- 游戏结束弹窗 -->
+  <!-- 猫鼠行动结束弹窗 -->
   <view class="game-end-modal" wx:if="{{showResult}}">
     <view class="modal-mask"></view>
     <view class="modal-content">
@@ -109,7 +109,7 @@
         </view>
       </view>
       <view class="modal-footer">
-        <button class="modal-btn back" bindtap="onBack">返回游戏</button>
+        <button class="modal-btn back" bindtap="onBack">返回猫鼠行动</button>
       </view>
     </view>
   </view>

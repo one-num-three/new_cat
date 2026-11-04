@@ -38,7 +38,7 @@ if (ENABLE_TASKS) {
 
 // 缓存存储（生产环境建议用 Redis）
 const roomCache = new NodeCache({ stdTTL: 3600 }); // 房间数据 1 小时过期
-const gameCache = new NodeCache({ stdTTL: 3600 });  // 游戏数据 1 小时过期
+const gameCache = new NodeCache({ stdTTL: 3600 });  // 猫鼠行动数据 1 小时过期
 const userCache = new NodeCache({ stdTTL: 86400 }); // 用户数据 24 小时过期
 
 // ========== 用户相关 ==========
@@ -118,7 +118,7 @@ app.post('/api/game/room', (req, res) => {
     res.json({
       success: true,
       roomId,
-      gameId: roomId, // 房间 ID 即游戏 ID
+      gameId: roomId, // 房间 ID 即猫鼠行动 ID
       message: '房间创建成功'
     });
   } catch (error) {
@@ -139,7 +139,7 @@ app.post('/api/game/room/:roomId', (req, res) => {
     }
     
     if (room.status !== 'waiting') {
-      return res.status(400).json({ success: false, message: '游戏已开始' });
+      return res.status(400).json({ success: false, message: '猫鼠行动已开始' });
     }
 
     const maxPlayers = (room.settings.catCount || 1) + (room.settings.mouseCount || 5);
@@ -168,7 +168,7 @@ app.post('/api/game/room/:roomId', (req, res) => {
     const player = {
       id: playerId,
       nickname: nickname || `玩家${Math.floor(Math.random() * 10000)}`,
-      role: null, // 游戏开始时分配
+      role: null, // 猫鼠行动开始时分配
       latitude: null,
       longitude: null,
       joinedAt: new Date().toISOString(),
@@ -234,7 +234,7 @@ app.put('/api/game/room/:roomId/settings', (req, res) => {
     }
     
     if (room.status !== 'waiting') {
-      return res.status(400).json({ success: false, message: '游戏已开始，无法修改设置' });
+      return res.status(400).json({ success: false, message: '猫鼠行动已开始，无法修改设置' });
     }
     
     // 更新设置
@@ -264,7 +264,7 @@ app.put('/api/game/room/:roomId/settings', (req, res) => {
   }
 });
 
-// 开始游戏
+// 开始猫鼠行动
 app.post('/api/game/room/:roomId/start', (req, res) => {
   try {
     const { roomId } = req.params;
@@ -277,7 +277,7 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
     
     // 验证房主权限
     if (room.ownerId && playerId && room.ownerId !== playerId) {
-      return res.status(403).json({ success: false, message: '只有房主可以开始游戏' });
+      return res.status(403).json({ success: false, message: '只有房主可以开始猫鼠行动' });
     }
     
     if (room.players.length < 1) {
@@ -325,7 +325,7 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
     
     roomCache.set(roomId, room);
     
-    // 初始化游戏状态
+    // 初始化猫鼠行动状态
     gameCache.set(roomId, {
       status: 'playing',
       countdown: room.settings.gameDuration,
@@ -333,22 +333,22 @@ app.post('/api/game/room/:roomId/start', (req, res) => {
       winner: null
     });
     
-    // 通知所有玩家游戏开始
+    // 通知所有玩家猫鼠行动开始
     io.to(`room_${roomId}`).emit('gameStart', {
       players: room.players,
       startTime: room.startTime,
       endTime: room.endTime
     });
     
-    console.log('[游戏开始] roomId:', roomId, '猫:', catCount, '鼠:', mouseCount, '谜底模式:', riddleMode);
+    console.log('[猫鼠行动开始] roomId:', roomId, '猫:', catCount, '鼠:', mouseCount, '谜底模式:', riddleMode);
     
     res.json({
       success: true,
-      message: '游戏开始',
+      message: '猫鼠行动开始',
       players: room.players
     });
   } catch (error) {
-    console.error('[开始游戏失败]', error);
+    console.error('[开始猫鼠行动失败]', error);
     res.status(500).json({ success: false, message: '开始失败' });
   }
 });
@@ -365,21 +365,21 @@ function generateRiddle() {
   return digits.join('');
 }
 
-// ========== 游戏相关 ==========
+// ========== 猫鼠行动相关 ==========
 
-// 获取游戏状态
+// 获取猫鼠行动状态
 app.get('/api/game/:gameId/status', (req, res) => {
   const { gameId } = req.params;
   const room = roomCache.get(gameId);
   
   if (!room) {
-    return res.status(404).json({ success: false, message: '游戏不存在' });
+    return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
   }
   
   const now = Date.now();
   const countdown = room.endTime ? Math.max(0, Math.floor((room.endTime - now) / 1000)) : 0;
   
-  // 检查游戏是否结束
+  // 检查猫鼠行动是否结束
   if (room.status === 'playing' && countdown <= 0) {
     room.status = 'ended';
     room.winner = 'mouse';
@@ -445,7 +445,7 @@ app.post('/api/game/:gameId/leave', (req, res) => {
     const { gameId } = req.params;
     const { playerId } = req.body;
     const room = roomCache.get(gameId);
-    if (!room) return res.status(404).json({ success: false, message: '游戏不存在' });
+    if (!room) return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     const player = room.players.find(p => p.id === playerId);
     if (!player) return res.status(404).json({ success: false, message: '玩家不存在' });
 
@@ -453,9 +453,9 @@ app.post('/api/game/:gameId/leave', (req, res) => {
     player.lastUpdate = Date.now();
     roomCache.set(gameId, room);
     io.to(`room_${gameId}`).emit('playerLeft', { playerId, players: room.players });
-    res.json({ success: true, message: '已离开游戏' });
+    res.json({ success: true, message: '已离开猫鼠行动' });
   } catch (error) {
-    console.error('[离开游戏失败]', error);
+    console.error('[离开猫鼠行动失败]', error);
     res.status(500).json({ success: false, message: '离开失败' });
   }
 });
@@ -481,11 +481,11 @@ app.post('/api/game/:gameId/location', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     if (room.status !== 'playing') {
-      return res.status(400).json({ success: false, message: '游戏未进行中' });
+      return res.status(400).json({ success: false, message: '猫鼠行动未进行中' });
     }
     
     // 更新玩家位置
@@ -522,11 +522,11 @@ app.post('/api/game/:gameId/catch', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     if (room.status !== 'playing') {
-      return res.status(400).json({ success: false, message: '游戏未进行中' });
+      return res.status(400).json({ success: false, message: '猫鼠行动未进行中' });
     }
     
     // 验证猫的身份
@@ -577,7 +577,7 @@ app.post('/api/game/:gameId/catch', (req, res) => {
     
     console.log(`[扫码抓住] ${cat.nickname} 抓住了 ${mouse.nickname}`);
     
-    // 检查游戏是否结束（所有老鼠被抓住）
+    // 检查猫鼠行动是否结束（所有老鼠被抓住）
     const caughtMice = room.players.filter(p => p.role === 'mouse' && p.isCaught).length;
     const totalMice = room.players.filter(p => p.role === 'mouse').length;
     
@@ -595,7 +595,7 @@ app.post('/api/game/:gameId/catch', (req, res) => {
         endTime: room.endTime
       });
       
-      console.log('[游戏结束] 猫获胜！');
+      console.log('[猫鼠行动结束] 猫获胜！');
     }
     
     res.json({
@@ -618,11 +618,11 @@ app.post('/api/game/:gameId/item', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     if (room.status !== 'playing') {
-      return res.status(400).json({ success: false, message: '游戏未进行中' });
+      return res.status(400).json({ success: false, message: '猫鼠行动未进行中' });
     }
     
     const player = room.players.find(p => p.id === playerId);
@@ -674,7 +674,7 @@ app.post('/api/game/:gameId/item', (req, res) => {
   }
 });
 
-// 结束游戏
+// 结束猫鼠行动
 app.post('/api/game/:gameId/end', (req, res) => {
   try {
     const { gameId } = req.params;
@@ -682,7 +682,7 @@ app.post('/api/game/:gameId/end', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     room.status = 'ended';
@@ -691,7 +691,7 @@ app.post('/api/game/:gameId/end', (req, res) => {
     room.winReason = 'manual';
     roomCache.set(gameId, room);
     
-    // 通知所有玩家游戏结束
+    // 通知所有玩家猫鼠行动结束
     io.to(`room_${gameId}`).emit('gameEnd', {
       status: 'ended',
       endTime: room.endTime,
@@ -699,26 +699,26 @@ app.post('/api/game/:gameId/end', (req, res) => {
       winReason: room.winReason
     });
     
-    console.log('[游戏结束] roomId:', gameId, '获胜者:', winner);
+    console.log('[猫鼠行动结束] roomId:', gameId, '获胜者:', winner);
     
     res.json({
       success: true,
-      message: '游戏已结束',
+      message: '猫鼠行动已结束',
       result: { winner: room.winner, endTime: room.endTime }
     });
   } catch (error) {
-    console.error('[结束游戏失败]', error);
+    console.error('[结束猫鼠行动失败]', error);
     res.status(500).json({ success: false, message: '结束失败' });
   }
 });
 
-// 获取游戏历史
+// 获取猫鼠行动历史
 app.get('/api/game/history/:userId', (req, res) => {
   try {
     const { userId } = req.params;
     const history = [];
     
-    // 遍历所有房间查找该用户参与的游戏
+    // 遍历所有房间查找该用户参与的猫鼠行动
     roomCache.keys().forEach(key => {
       const room = roomCache.get(key);
       if (room && room.status === 'ended') {
@@ -764,7 +764,7 @@ app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     const player = room.players.find(p => p.id === playerId);
@@ -772,7 +772,7 @@ app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
       return res.status(404).json({ success: false, message: '玩家不存在' });
     }
     
-    // 返回玩家的谜底（游戏开始时已分配）
+    // 返回玩家的谜底（猫鼠行动开始时已分配）
     if (player.taskRiddle) {
       return res.json({
         success: true,
@@ -780,7 +780,7 @@ app.get('/api/game/:gameId/task/riddle/:playerId', (req, res) => {
       });
     }
     
-    // 如果没有谜底（游戏未开始或其他情况），生成一个临时的
+    // 如果没有谜底（猫鼠行动未开始或其他情况），生成一个临时的
     const riddle = generateRiddle();
     player.taskRiddle = riddle;
     roomCache.set(gameId, room);
@@ -805,7 +805,7 @@ app.get('/api/game/:gameId/task/quiz/:playerId', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     const player = room.players.find(p => p.id === playerId);
@@ -818,7 +818,7 @@ app.get('/api/game/:gameId/task/quiz/:playerId', (req, res) => {
       return res.status(500).json({ success: false, message: '题库未加载' });
     }
     
-    // 如果玩家已有题目，返回已有的（保证同一局游戏题目不变）
+    // 如果玩家已有题目，返回已有的（保证同一局猫鼠行动题目不变）
     if (player.quizQuestions && player.quizQuestions.length === 5) {
       return res.json({
         success: true,
@@ -911,7 +911,7 @@ function generateTaskPoint(room) {
   };
 }
 
-// 获取游戏状态时更新任务点
+// 获取猫鼠行动状态时更新任务点
 function updateTaskPoint(room) {
   if (!ENABLE_TASKS) return null;
   const now = Date.now();
@@ -943,7 +943,7 @@ function updateTaskPoint(room) {
   return room.taskPoint;
 }
 
-// 完成任务（猜数字游戏）
+// 完成任务（猫鼠行动中的猜数字任务）
 app.post('/api/game/:gameId/task/complete', (req, res) => {
   try {
     if (!ENABLE_TASKS) {
@@ -954,7 +954,7 @@ app.post('/api/game/:gameId/task/complete', (req, res) => {
     const room = roomCache.get(gameId);
     
     if (!room) {
-      return res.status(404).json({ success: false, message: '游戏不存在' });
+      return res.status(404).json({ success: false, message: '猫鼠行动不存在' });
     }
     
     const player = room.players.find(p => p.id === playerId);
@@ -1090,5 +1090,5 @@ io.on('connection', (socket) => {
 const PORT = Number(process.env.PORT || 4000);
 
 primaryServer.listen(PORT, '0.0.0.0', () => {
-  console.log(`🐱🐭 猫鼠游戏服务器已启动：${useHttps ? 'HTTPS' : 'HTTP'} ${PORT}`);
+  console.log(`🐱🐭 猫鼠行动服务器已启动：${useHttps ? 'HTTPS' : 'HTTP'} ${PORT}`);
 });

@@ -1,0 +1,98 @@
+[
+  {
+    "file": "DESIGN_BASELINE.md",
+    "replacements": 1
+  },
+  {
+    "file": "GEO_MAP_BINDING.md",
+    "replacements": 3
+  },
+  {
+    "file": "README.md",
+    "replacements": 3
+  },
+  {
+    "file": "RELEASE.md",
+    "replacements": 1
+  },
+  {
+    "file": "RULES_PILOT_0_3.md",
+    "replacements": 1
+  },
+  {
+    "file": "cat-mouse-server/package.json",
+    "replacements": 1
+  },
+  {
+    "file": "cat-mouse-server/server.js",
+    "replacements": 44
+  },
+  {
+    "file": "pages/history/history.js",
+    "replacements": 2
+  },
+  {
+    "file": "pages/history/history.json",
+    "replacements": 1
+  },
+  {
+    "file": "pages/history/history.wxml",
+    "replacements": 5
+  },
+  {
+    "file": "pages/history/history.wxss",
+    "replacements": 1
+  },
+  {
+    "file": "pages/profile/profile.js",
+    "replacements": 1
+  },
+  {
+    "file": "pages/profile/profile.wxml",
+    "replacements": 4
+  },
+  {
+    "file": "pages/quiz/quiz.js",
+    "replacements": 2
+  },
+  {
+    "file": "pages/quiz/quiz.wxml",
+    "replacements": 2
+  },
+  {
+    "file": "pages/quiz/quiz.wxss",
+    "replacements": 1
+  },
+  {
+    "file": "pages/task/task.js",
+    "replacements": 3
+  },
+  {
+    "file": "pages/task/task.wxml",
+    "replacements": 4
+  },
+  {
+    "file": "pages/task/task.wxss",
+    "replacements": 2
+  },
+  {
+    "file": "project.config.json",
+    "replacements": 2
+  },
+  {
+    "file": "scripts/build-display-font.py",
+    "replacements": 2
+  },
+  {
+    "file": "scripts/review-jiulonghu-coverage.py",
+    "replacements": 1
+  },
+  {
+    "file": "utils/api.js",
+    "replacements": 9
+  },
+  {
+    "file": "utils/dev-preview.js",
+    "replacements": 1
+  }
+]

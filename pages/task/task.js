@@ -16,7 +16,7 @@ Page({
     canSubmit: false,  // 是否可以提交
     startTime: null,   // 开始时间
     elapsedTime: '0:00', // 用时
-    gameEnded: false,  // 游戏是否结束
+    gameEnded: false,  // 猫鼠行动是否结束
     showResult: false, // 显示结果弹窗
     reward: 50,        // 奖励积分
     pendingReward: null, // 待领取的奖励信息
@@ -228,7 +228,7 @@ Page({
     }
   },
 
-  // 游戏胜利（猜对，但不发放奖励，需要返回任务点领取）
+  // 猫鼠行动胜利（猜对，但不发放奖励，需要返回任务点领取）
   async onGameWon() {
     console.log('[猜数字] ========== onGameWon 开始 ==========');
     this.stopElapsedTimer();
@@ -325,7 +325,7 @@ Page({
     this.startElapsedTimer();
   },
 
-  // 返回游戏
+  // 返回猫鼠行动
   onBack() {
     wx.navigateBack();
   }

@@ -1,4 +1,4 @@
-// pages/history/history.js - 游戏历史记录页面
+// pages/history/history.js - 猫鼠行动历史记录页面
 const app = getApp();
 const { historyAPI } = require('../../utils/api');
 
@@ -36,7 +36,7 @@ Page({
     }
   },
 
-  // 加载游戏历史
+  // 加载猫鼠行动历史
   async loadHistory() {
     if (this.data.isLoading) return;
     

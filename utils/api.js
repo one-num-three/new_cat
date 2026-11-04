@@ -138,7 +138,7 @@ function handleFail(err, startTime, reject) {
   reject(err);
 }
 
-// 游戏相关 API
+// 猫鼠行动相关 API
 export const gameAPI = {
   // 创建房间
   createRoom(data) {
@@ -154,7 +154,7 @@ export const gameAPI = {
     });
   },
   
-  // 重新加入游戏（被踢出的玩家恢复积分）
+  // 重新加入猫鼠行动（被踢出的玩家恢复积分）
   rejoinGame(roomId, playerId) {
     return request({ 
       url: `/api/game/room/${roomId}/rejoin`, 
@@ -178,7 +178,7 @@ export const gameAPI = {
     });
   },
   
-  // 开始游戏
+  // 开始猫鼠行动
   startGame(roomId, playerId) {
     return request({ 
       url: `/api/game/room/${roomId}/start`, 
@@ -187,7 +187,7 @@ export const gameAPI = {
     });
   },
   
-  // 获取游戏状态（带视野过滤）
+  // 获取猫鼠行动状态（带视野过滤）
   getGameStatus(gameId, playerId, latitude, longitude) {
     let url = `/api/game/${gameId}/status`;
     if (playerId && latitude && longitude) {
@@ -214,7 +214,7 @@ export const gameAPI = {
     });
   },
   
-  // 结束游戏
+  // 结束猫鼠行动
   endGame(gameId, winner) {
     return request({ 
       url: `/api/game/${gameId}/end`, 
@@ -239,7 +239,7 @@ export const gameAPI = {
     });
   },
   
-  // 离开游戏（掉线）
+  // 离开猫鼠行动（掉线）
   leaveGame(gameId, playerId) {
     return request({ 
       url: `/api/game/${gameId}/leave`, 
@@ -266,7 +266,7 @@ export const gameAPI = {
     });
   },
   
-  // 完成任务（支持猜数字游戏）
+  // 完成任务（支持猫鼠行动中的猜数字任务）
   completeTask(gameId, playerId, taskData) {
     return request({ 
       url: `/api/game/${gameId}/task/complete`, 
@@ -316,9 +316,9 @@ export const systemAPI = {
   }
 };
 
-// 游戏历史 API
+// 猫鼠行动历史 API
 export const historyAPI = {
-  // 获取游戏历史
+  // 获取猫鼠行动历史
   getHistory(userId) {
     return request({ url: `/api/game/history/${userId}` });
   }

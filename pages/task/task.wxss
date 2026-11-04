@@ -42,7 +42,7 @@
   color: #aaa;
 }
 
-/* 游戏状态 */
+/* 猫鼠行动状态 */
 .game-status {
   display: flex;
   justify-content: center;
@@ -245,7 +245,7 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* 游戏结束弹窗 */
+/* 猫鼠行动结束弹窗 */
 .game-end-modal {
   position: fixed;
   top: 0;
