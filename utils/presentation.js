@@ -44,10 +44,10 @@ function locationSignal(sample,options={}){
   if(issue==='OUTSIDE_VENUE')return state('范围外','定位精度估计为'+precision+'，服务端判定在活动范围外，请核对边界并返回场内。');
   if(issue==='LOCATION_JUMP')return state('待稳定','定位精度估计为'+precision+'，发生位置跳变，请停下等待稳定。');
   if(issue==='STALE_LOCATION')return state('待更新','服务器已有更新的位置，本次旧样本不重复采用，请等待下一次定位。');
-  if(issue==='INVALID_LOCATION'&&accuracy<=25)return state('待校验','定位精度估计为'+precision+'，但样本未通过服务端校验，请等待下一次定位。');
+  if(issue==='INVALID_LOCATION'&&accuracy<=50)return state('待校验','定位精度估计为'+precision+'，但样本未通过服务端校验，请等待下一次定位。');
   if(issue&&issue!=='INVALID_LOCATION')return state('未同步','定位精度估计为'+precision+'，上报未确认，请检查网络并等待同步。');
   const level=accuracy<=5?4:accuracy<=10?3:accuracy<=25?2:1,tone=level>=3?'good':level===2?'fair':'weak';
-  return {...base,level,tone,text:precision,detail:level+' / 4格，定位精度估计为'+precision+'，'+base.ageSeconds+'秒前更新。'+(accuracy>25?'超过25米，本次不用于准备和抓捕，请到开阔处等待稳定。':(sample.accepted===null?'本次正在同步。':'')+'数值越小越好；实际误差可能更大，准备和抓捕仍由服务端校验。')};
+  return {...base,level,tone,text:precision,detail:level+' / 4格，定位精度估计为'+precision+'，'+base.ageSeconds+'秒前更新。'+(accuracy>50?'超过50米，本次不用于准备和抓捕，请到开阔处等待稳定。':(sample.accepted===null?'本次正在同步。':'')+'数值越小越好；实际误差可能更大，准备和抓捕仍由服务端校验。')};
 }
 module.exports={metrics,project,eventTime,resize,locationSignal};
 

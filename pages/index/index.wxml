@@ -1,5 +1,5 @@
-<view class="screen homeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px">
-  <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
+<view class="screen homeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+  <nav-bar pinned="{{true}}" title="猫鼠行动" preview="{{devPreview}}" />
   <image class="homeHero" src="/assets/pixel-v1/home-hero.png" mode="widthFix" aria-label="和熟人到户外，玩一场猫鼠追逐" />
   <view class="homeForm">
     <button wx:if="{{resumeKind}}" class="resumeBand" disabled="{{resumeKind==='checking'}}" bindtap="restore"><text>{{resumeKind==='room'?'等待中的房间':resumeKind==='match'?'正在进行的对局':resumeKind==='result'?'上一局结果':resumeKind==='unavailable'?'上次房间暂不可用':'检查上次房间'}}</text><text>{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'请稍候':'继续查看 ›'}}</text></button>

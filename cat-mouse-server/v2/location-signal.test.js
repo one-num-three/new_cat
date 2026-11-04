@@ -1,8 +1,8 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const {locationSignal}=require('../../utils/presentation'),root=path.resolve(__dirname,'../..'),flush=()=>new Promise(r=>setImmediate(r));
 test('location signal quantifies platform accuracy at every boundary without inventing a percent or accepting poor fixes',()=>{
- for(const [accuracy,level,text]of [[4.9,4,'±5m'],[5,4,'±5m'],[5.01,3,'±6m'],[10,3,'±10m'],[10.01,2,'±11m'],[25,2,'±25m'],[25.01,1,'±26m'],[80,1,'±80m'],[1000,1,'>999m']]){
-  const s=locationSignal({accuracy,at:100000},{now:100000});assert.equal(s.level,level);assert.equal(s.text,text);if(accuracy>25)assert.match(s.detail,/不用于准备和抓捕/);assert.doesNotMatch(s.text,/%/);
+ for(const [accuracy,level,text]of [[4.9,4,'±5m'],[5,4,'±5m'],[5.01,3,'±6m'],[10,3,'±10m'],[10.01,2,'±11m'],[25,2,'±25m'],[25.01,1,'±26m'],[50,1,'±50m'],[50.01,1,'±51m'],[80,1,'±80m'],[1000,1,'>999m']]){
+  const s=locationSignal({accuracy,at:100000},{now:100000});assert.equal(s.level,level);assert.equal(s.text,text);if(accuracy>50)assert.match(s.detail,/不用于准备和抓捕/);assert.doesNotMatch(s.text,/%/);
  }
  for(const accuracy of [0,-1,NaN,Infinity,null,undefined])assert.equal(locationSignal({accuracy,at:100000},{now:100000}).level,0);
 });
@@ -21,7 +21,7 @@ function harness(post=async()=>({accepted:true})){
  return {loc,states,sent,storage,options,emit:p=>change?.(p),callback:()=>change,gps:()=>gps,advance:n=>now+=n,p:{latitude:32,longitude:118,accuracy:5}};
 }
 test('rejected native fixes still expose their accuracy locally, fresh fixes recover, and status contains no coordinates',async()=>{
- const h=harness(async(_,p)=>{if(p.accuracy>25){const e=Error('poor');e.code='INVALID_LOCATION';throw e;}return {accepted:true};});h.loc.start('room',()=>{},h.options);h.emit({...h.p,accuracy:80});await flush();
+ const h=harness(async(_,p)=>{if(p.accuracy>50){const e=Error('poor');e.code='INVALID_LOCATION';throw e;}return {accepted:true};});h.loc.start('room',()=>{},h.options);h.emit({...h.p,accuracy:80});await flush();
  assert.equal(h.loc.status().quality.accuracy,80);assert.equal(h.loc.status().quality.accepted,false);assert.equal(locationSignal(h.loc.status().quality,{now:100000}).level,1);assert.equal(h.sent[0].data.accuracy,80,'server validation is preserved, not silently relaxed');
  assert.doesNotMatch(JSON.stringify(h.states),/latitude|longitude|"lat"|"lng"|session/);h.advance(2000);h.emit(h.p);await flush();assert.equal(h.loc.status().quality.issue,'');assert.equal(h.loc.status().quality.accepted,true);assert.equal(locationSignal(h.loc.status().quality,{now:102000}).level,4);
  h.loc.stop();assert.equal(h.loc.status().quality,null);

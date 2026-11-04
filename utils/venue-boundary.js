@@ -12,6 +12,7 @@ function normalize(v,image){
  if(!v||v.confirmed!==true||!point(v))error('INVALID_VENUE');
  const within=p=>!image.gcjBounds||(p.lng>=image.gcjBounds[0]&&p.lat>=image.gcjBounds[1]&&p.lng<=image.gcjBounds[2]&&p.lat<=image.gcjBounds[3]);
  if(!within(v))error('VENUE_MAP_MISMATCH');
+ if(image.nativeOnly&&!Object.prototype.hasOwnProperty.call(v,'boundary'))error('INVALID_BOUNDARY');
  const base={lat:v.lat,lng:v.lng,confirmed:true,mapId:image.id};
  if(!Object.prototype.hasOwnProperty.call(v,'boundary')){if(!Number.isInteger(v.radiusM)||v.radiusM<100||v.radiusM>500)error('INVALID_VENUE');return {...base,radiusM:v.radiusM};}
  const ring=v.boundary;if(!Array.isArray(ring)||ring.length<3||ring.length>16||ring.some(p=>!point(p)))error('INVALID_BOUNDARY');

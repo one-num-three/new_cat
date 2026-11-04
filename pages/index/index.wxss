@@ -10,7 +10,7 @@
 .homeActions{display:flex;flex-direction:column;gap:8rpx;margin:18rpx -5rpx 0}
 .formError{display:block;margin:18rpx 0 0;padding:16rpx 18rpx;border:2rpx solid #e8b295;background:#ffedd9;color:#a53b1e;font-size:calc(25rpx * var(--font-scale));line-height:1.55;overflow-wrap:break-word}
 .homeFooter{margin-top:10rpx}
-.homeExtra{padding:0 31rpx calc(24rpx + env(safe-area-inset-bottom));box-sizing:border-box}
+.homeExtra{padding:0 31rpx calc(24rpx + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));box-sizing:border-box}
 .resumeBand{display:flex;align-items:center;justify-content:space-between;gap:12rpx;width:100%;margin:0 0 20rpx;padding:18rpx 20rpx;box-sizing:border-box;border:2rpx solid #adc393;border-radius:0;background:#e7eed9;color:#2c5834;text-align:left;font-size:calc(26rpx * var(--font-scale));font-weight:400;line-height:1.45}
 .resumeBand text:first-child{flex:1;min-width:0}.resumeBand text:last-child{flex:none}.resumeBand[disabled]{background:#f1ecdf;color:#747368}
 .venueEntry{display:flex;align-items:center;justify-content:space-between;gap:20rpx;width:100%;margin:12rpx 0 0;padding:20rpx 24rpx;color:#285b32;text-align:left;line-height:1.45;border-radius:0}
@@ -23,4 +23,4 @@
 .homeScreen{width:var(--vw,100vw)}
 .homeScreen .venueEntry,.homeScreen .resumeBand{width:100%!important}
 
-.scanInviteButton{margin:14rpx 0;width:100%;border:2px solid #477f60;border-radius:2px;color:#384b38;background:#fcf8ed;font-size:calc(29rpx * var(--font-scale));min-height:44px;line-height:1.4;padding:16rpx}.inviteLandingHint{display:block;font-size:26rpx;line-height:1.4;color:#477f60;margin:12rpx 0}
+.scanInviteButton{margin:14rpx 0;width:100%!important;border:2px solid #477f60;border-radius:2px;color:#384b38;background:#fcf8ed;font-size:calc(29rpx * var(--font-scale));min-height:44px;line-height:1.4;padding:16rpx}.inviteLandingHint{display:block;overflow-wrap:anywhere;font-size:calc(26rpx * var(--font-scale,1));line-height:1.4;color:#477f60;margin:12rpx 0}

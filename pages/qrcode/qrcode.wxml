@@ -1,5 +1,5 @@
 <view class="codeScreen {{fontScale>1.15?'fontLarge':''}}" style="--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;min-height:{{viewportHeight}}px;padding-bottom:{{safeBottom}}px">
-  <nav-bar title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
+  <nav-bar pinned="{{true}}" title="猫鼠行动" back="{{true}}" preview="{{devPreview}}" />
   <view class="navSpace" style="height:{{navHeight}}px"></view>
   <image class="codeRole" src="/assets/pixel-v1/code-role.png" mode="widthFix" aria-label="鼠队行动，躲避猫咪，坚持到最后" />
 

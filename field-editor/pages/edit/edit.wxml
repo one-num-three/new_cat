@@ -1,4 +1,4 @@
-<view class="fieldScreen {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}}">
+<view class="fieldScreen {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
  <nav-bar title="集合点与活动范围" back="{{true}}" preview="{{devPreview}}" />
  <view class="editorHeading"><picker range="{{mapOptions}}" range-key="label" value="{{mapIndex}}" bindchange="selectMap" disabled="{{!editable || busy}}"><text class="fieldName">{{venueName}} ▾</text></picker><text class="fieldSubtitle">真实地图 · GCJ-02</text></view>
  <view class="fieldMap"><map id="fieldMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" markers="{{markers}}" polygons="{{polygons}}" polyline="{{polyline}}" enable-scroll="{{true}}" enable-zoom="{{true}}" show-location="{{false}}" bindtap="tapMap" bindmarkertap="tapMarker" bindcallouttap="tapMarker" /><view wx:if="{{loading}}" class="mapLoading"><text>正在读取场地…</text></view></view>

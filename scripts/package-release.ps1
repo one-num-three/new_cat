@@ -29,7 +29,7 @@ try {
   # 只复制首发闭环所需的小程序文件；实验页和后端不会混入小程序压缩包。
   $miniFiles = @('app.js','app.json','project.config.json','sitemap.json','utils\config.js','utils\v2.js','utils\capture-proof.js','utils\location-v2.js','utils\snapshot-v2.js','utils\dev-preview.js','utils\pixel-theme.wxss','utils\fusion-font.wxss','utils\team-config.js','utils\geo-registration.js','utils\osm-art-registration.js','utils\osm-art-model.js','utils\vendor','utils\presentation.js','utils\pixel-font.wxss','utils\pixel-art-ratios.wxss','utils\venue-camera.js','utils\venue-art-config.js','utils\pixel-button-dimensions.js','utils\map-markers.js','utils\venue-catalog.js','utils\venue-images.js','utils\campus-art-models.js','utils\venue-resources.js','venue-maps','assets\map-markers-v2','assets\pixel-v1','venue-xuanwu','components','pages\index','pages\room','pages\map','pages\qrcode','pages\dev','pages\venue','pages\calibrate')
   $miniFiles += @('app.wxss','utils\venue-boundary.js','utils\qr-protocol.js','utils\capture-flow.js','utils\room-live.js','field-editor','room-tools')
-  $miniFiles += 'utils\foreground-location.js'
+  $miniFiles += @('utils\foreground-location.js','utils\native-venue.js')
   $miniFiles += @('utils\track-export.js','utils\track-poster.js','utils\track-highlights.js','utils\track-bubble-placement.js','utils\track-bubble-assets.js')
   $miniFiles += 'utils\location-scenarios.js'
   $miniFiles += @('utils\model-map.js','utils\model-reference.js','utils\model-camera.js','utils\model-resources.js','campus3d')
