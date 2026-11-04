@@ -87,13 +87,15 @@ function start(roomId,onError,options={}){
  };
  if(options.background&&options.matchId&&typeof wx.startLocationUpdateBackground==='function'){
   mode='requesting';publish();
-  try{wx.startLocationUpdateBackground({type:'gcj02',success:()=>{if(!current(roomId,run)){if(!activeRoom)wx.stopLocationUpdate({fail:()=>{}});return;}mode='background';backgroundReady=true;publish();},fail:()=>{if(!current(roomId,run))return;notice='后台定位未开启，请检查授权及微信接口权限；暂需保持前台';foregroundStart();}});}catch{notice='当前微信无法开启后台定位，请保持前台';foregroundStart();}
+  const beginBackground=()=>{if(!current(roomId,run))return;try{wx.startLocationUpdateBackground({type:'gcj02',success:()=>{if(!current(roomId,run)){if(!activeRoom)wx.stopLocationUpdate({fail:()=>{}});return;}mode='background';backgroundReady=true;publish();},fail:()=>{if(!current(roomId,run))return;notice='后台定位未开启，请检查授权及微信接口权限；暂需保持前台';foregroundStart();}});}catch{notice='当前微信无法开启后台定位，请保持前台';foregroundStart();}};
+  if(typeof wx.authorize==='function'){const denied=()=>{if(!current(roomId,run))return;notice='未允许后台定位，请在小程序设置中开启；暂需保持前台';foregroundStart();};try{wx.authorize({scope:'scope.userLocation',success:()=>{if(current(roomId,run))wx.authorize({scope:'scope.userLocationBackground',success:beginBackground,fail:denied});},fail:denied});}catch{denied();}}else beginBackground();
  }else{if(options.background)notice='当前微信不支持后台定位，请更新微信并保持前台';foregroundStart();}
  if(!current(roomId,run))return false;
  timer=setInterval(()=>{
   if(!current(roomId,run))return;
   if(Date.now()>=owner.maxUntil){halt('TRACKING_TIMEOUT');return;}
   if(!foreground&&!backgroundReady){halt('BACKGROUND_UNAVAILABLE');return;}
+  if(mode==='requesting')return;
   if(foreground)fallback(roomId,onError,run);else audit(roomId,onError,run);
  },1000);return true;
 }

@@ -89,3 +89,14 @@ test('late opener draft preserves edits while keeping the return channel availab
  page.data.roomId='';page.setData({meeting:null});page.assess();assert.equal(page.data.canSave,false);assert.match(page.data.saveHint,/集合点/);
  page.setData({meeting:origin,mapCompatible:true});page.assess();assert.equal(page.data.canSave,true);
  });
+
+test('new native editor centers on current GCJ02 without inventing a meeting or overriding user edits',()=>{
+ let gps,calls=0;const page=editor({}, {getLocation:o=>{gps=o;calls++;}});page.init({mapId:'native-gcj02-v1'});page.onShow();assert.equal(calls,1);assert.equal(gps.type,'gcj02');assert.equal(page.data.initialLocating,true);
+ gps.success({latitude:31.23,longitude:121.47,accuracy:80});gps.complete();assert.equal(page.data.latitude,31.23);assert.equal(page.data.longitude,121.47);assert.equal(page.data.meeting,null);assert.equal(page.data.initialLocating,false);page.onShow();assert.equal(calls,1);
+ const other=editor({}, {getLocation:o=>gps=o});other.init({mapId:'native-gcj02-v1'});other.onShow();other.mapMoved({causedBy:'gesture'});const before=other.data.latitude;gps.success({latitude:30,longitude:120});assert.equal(other.data.latitude,before);other.onHide();gps.complete();assert.equal(other.data.initialLocating,false);
+ const switched=editor({}, {getLocation:o=>gps=o});switched.init({mapId:image.id});switched.selectMap({detail:{value:switched.data.mapOptions.findIndex(m=>m.id==='native-gcj02-v1')}});assert.equal(switched.data.initialLocating,true);gps.success({latitude:31.2,longitude:121.4});gps.complete();assert.equal(switched.data.latitude,31.2);
+ const saved=editor({}, {getLocation:()=>{throw Error('saved venue must retain its center');}});saved.init({mapId:image.id,venue:venue()});saved.onShow();assert.equal(saved.data.latitude,origin.lat);
+});
+test('initial location refusal keeps manual native venue editing available',()=>{
+ let gps;const page=editor({}, {getLocation:o=>gps=o});page.init({mapId:'native-gcj02-v1'});page.onShow();gps.fail({errMsg:'auth deny'});gps.complete();assert.equal(page.data.editable,true);assert.equal(page.data.initialLocating,false);assert.match(page.data.locationHint,/手动选点/);
+});

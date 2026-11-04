@@ -52,3 +52,10 @@ test('server binds background samples to the match and never stores a post-termi
  for(const p of [a,b]){await s.location(id,p,sample());await s.ready(id,p,true);}const next=await s.start(id,a),before=s.positions.get(id+':'+a).sampleSeq;const old=await s.location(id,a,{...sample(),matchId:m.match.id});assert.equal(old.accepted,false);assert.equal(old.tracking.matchId,next.match.id);assert.equal(s.positions.get(id+':'+a).sampleSeq,before);assert.equal((await store.query('SELECT * FROM match_results')).rows.length,1);
  }finally{await store.close();assert.ok(fs.realpathSync(dir).startsWith(root+path.sep));fs.rmSync(dir,{recursive:true,force:true});}
 });
+
+test('background permission is explicitly requested after foreground permission, without duplicate GPS while waiting',()=>{
+ const h=harness(),requests=[];h.wx.authorize=o=>requests.push(o);h.loc.start('room',()=>{},h.options);assert.equal(requests[0].scope,'scope.userLocation');assert.equal(h.background(),undefined);h.advance(4000);h.tick();assert.equal(h.gps(),undefined);
+ requests[0].success();assert.equal(requests[1].scope,'scope.userLocationBackground');requests[1].success();assert.equal(h.loc.canBackground('room','match'),true);h.loc.stop();
+ const denied=harness(),pending=[];denied.wx.authorize=o=>pending.push(o);denied.loc.start('room',()=>{},denied.options);pending[0].success();pending[1].fail();assert.equal(denied.loc.status().mode,'foreground');assert.equal(denied.loc.canBackground('room','match'),false);assert.match(denied.loc.status().notice,/未允许后台定位/);denied.loc.stop();
+ const late=harness(),callbacks=[];late.wx.authorize=o=>callbacks.push(o);late.loc.start('room',()=>{},late.options);callbacks[0].success();late.loc.stop();callbacks[1].success();assert.equal(late.background(),undefined);
+});

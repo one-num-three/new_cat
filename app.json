@@ -18,7 +18,7 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "用于对局中前后台位置同步，出局、退出或结束后停止"
+      "desc": "用于选点及对局前后台定位"
     }
   },
   "requiredPrivateInfos": [
