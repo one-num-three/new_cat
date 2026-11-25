@@ -3,6 +3,10 @@
   "packOptions": {
     "ignore": [
       {
+        "type": "folder",
+        "value": "hardware"
+      },
+      {
         "type": "file",
         "value": "TRACKS_AND_TEAM_VISION.md"
       },
