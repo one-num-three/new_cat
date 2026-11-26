@@ -2,7 +2,7 @@
   <view class="navLine" style="height:{{barHeight}}px">
     <button wx:if="{{back || preview}}" class="navBack" bindtap="goBack" aria-label="{{preview?'返回调试台':'返回'}}">‹</button>
     <view class="navBrand {{back || preview?'withBack':''}}">
-      <image wx:if="{{!back && !preview}}" class="navLogo" src="/assets/pixel-v1/logo.png" mode="aspectFit" aria-hidden="true" />
+      <image wx:if="{{!back && !preview}}" class="navLogo" src="/assets/sdv-v1/nav-cat.png" mode="aspectFit" aria-hidden="true" />
       <text class="navTitle">{{title}}</text>
       <text wx:if="{{preview}}" class="navPreview">预览</text>
     </view>

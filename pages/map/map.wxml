@@ -85,7 +85,7 @@
   </view>
 
   <view class="playHud compactHud role-{{match.myRole}}" aria-label="本场活动状态">
-    <image class="hudAvatar" src="{{roleArt}}" mode="aspectFit" aria-hidden="true" />
+    <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
     <view class="compactIdentity">
       <text class="roleName">{{roleText}}</text>
       <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
@@ -222,7 +222,7 @@
     <view class="drawerContent">
       <view wx:if="{{drawerTab==='team'}}" class="squadColumns">
         <view class="squad catsGroup">
-          <view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view>
+          <view class="squadHead"><image src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view>
           <view class="teamGrid catGrid">
             <view wx:for="{{cats}}" wx:key="id" class="teamMember">
               <image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" />
@@ -234,7 +234,7 @@
           </view>
         </view>
         <view class="squad miceGroup">
-          <view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view>
+          <view class="squadHead"><image src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view>
           <view class="teamGrid mouseGrid">
             <view wx:for="{{mice}}" wx:key="id" class="teamMember">
               <image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" />

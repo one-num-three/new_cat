@@ -19,11 +19,11 @@
       </view>
       <view class="teamSpriteStrip">
         <view class="teamSpriteItem">
-          <image class="teamSpriteIcon" src="/assets/pixel-v1/role-cat.png" mode="aspectFit" aria-hidden="true" />
+          <image class="teamSpriteIcon" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
           <text class="teamSpriteText">{{catsCount}}人</text>
         </view>
         <view class="teamSpriteItem">
-          <image class="teamSpriteIcon" src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" aria-hidden="true" />
+          <image class="teamSpriteIcon" src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" aria-hidden="true" />
           <text class="teamSpriteText">{{miceCount}}人</text>
         </view>
         <button class="sdvIconBtn sdvIconBtnSm {{customTeamOpen?'sdvBtnBlue':'sdvBtnPaper'}} customIconBtn" hover-class="sdvPressed" bindtap="toggleCustomTeam" aria-label="{{customTeamOpen?'收起自定义人数':'自定义人数'}}">
@@ -140,9 +140,9 @@
       </view>
       <view class="sdvChipRow summaryChips">
         <view class="sdvInfoChip">
-          <image class="chipSprite" src="/assets/pixel-v1/role-cat.png" mode="aspectFit" aria-hidden="true" />
+          <image class="chipSprite" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
           <text>{{catsCount}}</text>
-          <image class="chipSprite" src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" aria-hidden="true" />
+          <image class="chipSprite" src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" aria-hidden="true" />
           <text>{{(rules?rules.total:total)-catsCount}}</text>
         </view>
         <view class="sdvInfoChip">
