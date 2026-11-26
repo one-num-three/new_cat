@@ -1,0 +1,1971 @@
+{
+  "project": "catmouse-band-v15",
+  "component_count": 80,
+  "net_count": 55,
+  "components": [
+    {
+      "ref": "J1",
+      "val": "MAG_CHG_USB",
+      "fp": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical_SMD_Pin1Left",
+      "lib": "Connector_Generic:Conn_01x04",
+      "nets": {
+        "1": "+5V",
+        "2": "GND",
+        "3": "USB_DN_EXT",
+        "4": "USB_DP_EXT"
+      }
+    },
+    {
+      "ref": "U4",
+      "val": "MCP73831-2-OT",
+      "fp": "Package_TO_SOT_SMD:SOT-23-5",
+      "lib": "Battery_Management:MCP73831-2-OT",
+      "nets": {
+        "1": "CHG_STAT",
+        "2": "GND",
+        "3": "+BATT",
+        "4": "+5V",
+        "5": "CHG_PROG"
+      }
+    },
+    {
+      "ref": "C4",
+      "val": "4.7uF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+5V",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C5",
+      "val": "4.7uF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+BATT",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R7",
+      "val": "3.3k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "CHG_PROG",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R8",
+      "val": "1k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+5V",
+        "2": "CHG_LED_A"
+      }
+    },
+    {
+      "ref": "D13",
+      "val": "RED_CHG",
+      "fp": "LED_SMD:LED_0603_1608Metric",
+      "lib": "Device:LED",
+      "nets": {
+        "1": "CHG_STAT",
+        "2": "CHG_LED_A"
+      }
+    },
+    {
+      "ref": "J2",
+      "val": "BAT_300mAh",
+      "fp": "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal",
+      "lib": "Connector_Generic:Conn_01x02",
+      "nets": {
+        "1": "+BATT",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U5",
+      "val": "AP2112K-3.3",
+      "fp": "Package_TO_SOT_SMD:SOT-23-5",
+      "lib": "Regulator_Linear:AP2112K-3.3",
+      "nets": {
+        "1": "+BATT",
+        "2": "GND",
+        "3": "+BATT",
+        "4": "NC",
+        "5": "+3V3"
+      }
+    },
+    {
+      "ref": "C6",
+      "val": "10uF",
+      "fp": "Capacitor_SMD:C_0603_1608Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C7",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R9",
+      "val": "200k 1%",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+BATT",
+        "2": "BATT_ADC"
+      }
+    },
+    {
+      "ref": "R10",
+      "val": "200k 1%",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "BATT_ADC",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C8",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "BATT_ADC",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U1",
+      "val": "ESP32-C3-WROOM-02",
+      "fp": "RF_Module:ESP32-C3-WROOM-02",
+      "lib": "RF_Module:ESP32-C3-WROOM-02",
+      "nets": {
+        "1": "+3V3",
+        "2": "ESP_EN",
+        "3": "BTN_USER",
+        "4": "MOTOR_PWM",
+        "5": "I2C_SDA",
+        "6": "I2C_SCL",
+        "7": "LED_PWR_EN",
+        "8": "BOOT_SW",
+        "9": "GND",
+        "10": "NFC_RST",
+        "11": "BUZZER_PWM",
+        "12": "LED_DATA",
+        "13": "USB_DN",
+        "14": "USB_DP",
+        "15": "IMU_INT",
+        "16": "BATT_ADC",
+        "17": "IO1_EXT",
+        "18": "IO0_EXT",
+        "19": "GND"
+      }
+    },
+    {
+      "ref": "R1",
+      "val": "10k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+3V3",
+        "2": "ESP_EN"
+      }
+    },
+    {
+      "ref": "C1",
+      "val": "1uF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "ESP_EN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C2",
+      "val": "10uF",
+      "fp": "Capacitor_SMD:C_0603_1608Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C3",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R2",
+      "val": "10k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+3V3",
+        "2": "BOOT_SW"
+      }
+    },
+    {
+      "ref": "R3",
+      "val": "4.7k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+3V3",
+        "2": "I2C_SDA"
+      }
+    },
+    {
+      "ref": "R4",
+      "val": "4.7k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+3V3",
+        "2": "I2C_SCL"
+      }
+    },
+    {
+      "ref": "R5",
+      "val": "22R",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "USB_DN",
+        "2": "USB_DN_EXT"
+      }
+    },
+    {
+      "ref": "R6",
+      "val": "22R",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "USB_DP",
+        "2": "USB_DP_EXT"
+      }
+    },
+    {
+      "ref": "TP1",
+      "val": "BOOT_TP",
+      "fp": "TestPoint:TestPoint_Pad_D1.5mm",
+      "lib": "Connector:TestPoint",
+      "nets": {
+        "1": "BOOT_SW"
+      }
+    },
+    {
+      "ref": "TP2",
+      "val": "IO0_TP",
+      "fp": "TestPoint:TestPoint_Pad_D1.5mm",
+      "lib": "Connector:TestPoint",
+      "nets": {
+        "1": "IO0_EXT"
+      }
+    },
+    {
+      "ref": "TP3",
+      "val": "IO1_TP",
+      "fp": "TestPoint:TestPoint_Pad_D1.5mm",
+      "lib": "Connector:TestPoint",
+      "nets": {
+        "1": "IO1_EXT"
+      }
+    },
+    {
+      "ref": "U2",
+      "val": "PN5321A3HN",
+      "fp": "Package_DFN_QFN:HVQFN-40-1EP_6x6mm_P0.5mm_EP4.1x4.1mm",
+      "lib": "RF_NFC:PN5321A3HN_C1xx",
+      "nets": {
+        "1": "GND",
+        "2": "NC",
+        "3": "GND",
+        "4": "NFC_TX1",
+        "5": "+3V3",
+        "6": "NFC_TX2",
+        "7": "GND",
+        "8": "+3V3",
+        "9": "NFC_VMID",
+        "10": "NFC_RX",
+        "11": "GND",
+        "12": "NC",
+        "13": "NC",
+        "14": "NFC_OSCIN",
+        "15": "NFC_OSCOUT",
+        "16": "+3V3",
+        "17": "GND",
+        "18": "GND",
+        "19": "NC",
+        "20": "NC",
+        "21": "NC",
+        "22": "NC",
+        "23": "+3V3",
+        "24": "NC",
+        "25": "NC",
+        "26": "NC",
+        "27": "I2C_SCL",
+        "28": "I2C_SDA",
+        "29": "NC",
+        "30": "NC",
+        "31": "NC",
+        "32": "NC",
+        "33": "NC",
+        "34": "NC",
+        "35": "NC",
+        "36": "NC",
+        "37": "NC",
+        "38": "NFC_RST",
+        "39": "NFC_DVDD",
+        "40": "+3V3",
+        "41": "GND"
+      }
+    },
+    {
+      "ref": "C9",
+      "val": "4.7uF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C10",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C11",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C12",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_DVDD",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C13",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_VMID",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R11",
+      "val": "10k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+3V3",
+        "2": "NFC_RST"
+      }
+    },
+    {
+      "ref": "Y1",
+      "val": "27.12MHz",
+      "fp": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+      "lib": "Device:Crystal_GND24",
+      "nets": {
+        "1": "NFC_OSCIN",
+        "2": "GND",
+        "3": "NFC_OSCOUT",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "C14",
+      "val": "22pF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_OSCIN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C15",
+      "val": "22pF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_OSCOUT",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "L1",
+      "val": "560nH",
+      "fp": "Inductor_SMD:L_0603_1608Metric",
+      "lib": "Device:L",
+      "nets": {
+        "1": "NFC_TX1",
+        "2": "NFC_EMC1"
+      }
+    },
+    {
+      "ref": "L2",
+      "val": "560nH",
+      "fp": "Inductor_SMD:L_0603_1608Metric",
+      "lib": "Device:L",
+      "nets": {
+        "1": "NFC_TX2",
+        "2": "NFC_EMC2"
+      }
+    },
+    {
+      "ref": "C16",
+      "val": "150pF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_EMC1",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C17",
+      "val": "150pF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_EMC2",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C18",
+      "val": "47pF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_EMC1",
+        "2": "NFC_ANT1"
+      }
+    },
+    {
+      "ref": "C19",
+      "val": "47pF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_EMC2",
+        "2": "NFC_ANT2"
+      }
+    },
+    {
+      "ref": "C20",
+      "val": "1nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "NFC_EMC1",
+        "2": "NFC_RX_MID"
+      }
+    },
+    {
+      "ref": "R12",
+      "val": "1k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "NFC_RX_MID",
+        "2": "NFC_RX"
+      }
+    },
+    {
+      "ref": "J3",
+      "val": "NFC_FPC_COIL",
+      "fp": "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal",
+      "lib": "Connector_Generic:Conn_01x02",
+      "nets": {
+        "1": "NFC_ANT1",
+        "2": "NFC_ANT2"
+      }
+    },
+    {
+      "ref": "U3",
+      "val": "LIS2DH12TR",
+      "fp": "Package_LGA:LGA-12_2x2mm_P0.5mm",
+      "lib": "Sensor_Motion:LIS2DE12",
+      "nets": {
+        "1": "I2C_SCL",
+        "2": "+3V3",
+        "3": "IMU_SA0",
+        "4": "I2C_SDA",
+        "5": "GND",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "+3V3",
+        "10": "+3V3",
+        "11": "NC",
+        "12": "IMU_INT"
+      }
+    },
+    {
+      "ref": "R19",
+      "val": "10k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+3V3",
+        "2": "IMU_SA0"
+      }
+    },
+    {
+      "ref": "C21",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "SW1",
+      "val": "USER_BTN",
+      "fp": "Button_Switch_SMD:SW_SPST_B3U-1000P",
+      "lib": "Switch:SW_Push",
+      "nets": {
+        "1": "BTN_USER",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C22",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "BTN_USER",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R13",
+      "val": "100R",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "MOTOR_PWM",
+        "2": "MOT_G"
+      }
+    },
+    {
+      "ref": "R14",
+      "val": "100k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "MOT_G",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "Q2",
+      "val": "AO3400A",
+      "fp": "Package_TO_SOT_SMD:SOT-23",
+      "lib": "Transistor_FET:AO3400A",
+      "nets": {
+        "1": "MOT_G",
+        "2": "GND",
+        "3": "MOT_NEG"
+      }
+    },
+    {
+      "ref": "D14",
+      "val": "1N4148W",
+      "fp": "Diode_SMD:D_SOD-323",
+      "lib": "Device:D",
+      "nets": {
+        "1": "+BATT",
+        "2": "MOT_NEG"
+      }
+    },
+    {
+      "ref": "J4",
+      "val": "MOTOR_1027",
+      "fp": "Connector_JST:JST_SH_SM02B-SRSS-TB_1x02-1MP_P1.00mm_Horizontal",
+      "lib": "Connector_Generic:Conn_01x02",
+      "nets": {
+        "1": "+BATT",
+        "2": "MOT_NEG"
+      }
+    },
+    {
+      "ref": "R15",
+      "val": "100R",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "BUZZER_PWM",
+        "2": "BUZZ_G"
+      }
+    },
+    {
+      "ref": "R16",
+      "val": "100k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "BUZZ_G",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "Q3",
+      "val": "AO3400A",
+      "fp": "Package_TO_SOT_SMD:SOT-23",
+      "lib": "Transistor_FET:AO3400A",
+      "nets": {
+        "1": "BUZZ_G",
+        "2": "GND",
+        "3": "BUZZ_NEG"
+      }
+    },
+    {
+      "ref": "LS1",
+      "val": "PKMCS0909E",
+      "fp": "Buzzer_Beeper:Buzzer_Murata_PKMCS0909E",
+      "lib": "Device:Buzzer",
+      "nets": {
+        "1": "+BATT",
+        "2": "BUZZ_NEG"
+      }
+    },
+    {
+      "ref": "Q1",
+      "val": "AO3401A",
+      "fp": "Package_TO_SOT_SMD:SOT-23",
+      "lib": "Transistor_FET:AO3401A",
+      "nets": {
+        "1": "LED_PWR_EN",
+        "2": "+BATT",
+        "3": "VLED"
+      }
+    },
+    {
+      "ref": "R17",
+      "val": "100k",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "+BATT",
+        "2": "LED_PWR_EN"
+      }
+    },
+    {
+      "ref": "R18",
+      "val": "330R",
+      "fp": "Resistor_SMD:R_0402_1005Metric",
+      "lib": "Device:R",
+      "nets": {
+        "1": "LED_DATA",
+        "2": "LED_D0"
+      }
+    },
+    {
+      "ref": "C23",
+      "val": "10uF",
+      "fp": "Capacitor_SMD:C_0603_1608Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C24",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C25",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C26",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C27",
+      "val": "100nF",
+      "fp": "Capacitor_SMD:C_0402_1005Metric",
+      "lib": "Device:C",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D1",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D1",
+        "2": "GND",
+        "3": "LED_D0",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D2",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D2",
+        "2": "GND",
+        "3": "LED_D1",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D3",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D3",
+        "2": "GND",
+        "3": "LED_D2",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D4",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D4",
+        "2": "GND",
+        "3": "LED_D3",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D5",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D5",
+        "2": "GND",
+        "3": "LED_D4",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D6",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D6",
+        "2": "GND",
+        "3": "LED_D5",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D7",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D7",
+        "2": "GND",
+        "3": "LED_D6",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D8",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D8",
+        "2": "GND",
+        "3": "LED_D7",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D9",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D9",
+        "2": "GND",
+        "3": "LED_D8",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D10",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D10",
+        "2": "GND",
+        "3": "LED_D9",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D11",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "LED_D11",
+        "2": "GND",
+        "3": "LED_D10",
+        "4": "VLED"
+      }
+    },
+    {
+      "ref": "D12",
+      "val": "WS2812B-2020",
+      "fp": "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm",
+      "lib": "LED:WS2812B-2020",
+      "nets": {
+        "1": "NC",
+        "2": "GND",
+        "3": "LED_D11",
+        "4": "VLED"
+      }
+    }
+  ],
+  "nets": {
+    "+5V": [
+      [
+        "J1",
+        "1"
+      ],
+      [
+        "U4",
+        "4"
+      ],
+      [
+        "C4",
+        "1"
+      ],
+      [
+        "R8",
+        "1"
+      ]
+    ],
+    "GND": [
+      [
+        "J1",
+        "2"
+      ],
+      [
+        "U4",
+        "2"
+      ],
+      [
+        "C4",
+        "2"
+      ],
+      [
+        "C5",
+        "2"
+      ],
+      [
+        "R7",
+        "2"
+      ],
+      [
+        "J2",
+        "2"
+      ],
+      [
+        "U5",
+        "2"
+      ],
+      [
+        "C6",
+        "2"
+      ],
+      [
+        "C7",
+        "2"
+      ],
+      [
+        "R10",
+        "2"
+      ],
+      [
+        "C8",
+        "2"
+      ],
+      [
+        "U1",
+        "9"
+      ],
+      [
+        "U1",
+        "19"
+      ],
+      [
+        "C1",
+        "2"
+      ],
+      [
+        "C2",
+        "2"
+      ],
+      [
+        "C3",
+        "2"
+      ],
+      [
+        "U2",
+        "1"
+      ],
+      [
+        "U2",
+        "3"
+      ],
+      [
+        "U2",
+        "7"
+      ],
+      [
+        "U2",
+        "11"
+      ],
+      [
+        "U2",
+        "17"
+      ],
+      [
+        "U2",
+        "18"
+      ],
+      [
+        "U2",
+        "41"
+      ],
+      [
+        "C9",
+        "2"
+      ],
+      [
+        "C10",
+        "2"
+      ],
+      [
+        "C11",
+        "2"
+      ],
+      [
+        "C12",
+        "2"
+      ],
+      [
+        "C13",
+        "2"
+      ],
+      [
+        "Y1",
+        "2"
+      ],
+      [
+        "Y1",
+        "4"
+      ],
+      [
+        "C14",
+        "2"
+      ],
+      [
+        "C15",
+        "2"
+      ],
+      [
+        "C16",
+        "2"
+      ],
+      [
+        "C17",
+        "2"
+      ],
+      [
+        "U3",
+        "5"
+      ],
+      [
+        "U3",
+        "6"
+      ],
+      [
+        "U3",
+        "7"
+      ],
+      [
+        "U3",
+        "8"
+      ],
+      [
+        "C21",
+        "2"
+      ],
+      [
+        "SW1",
+        "2"
+      ],
+      [
+        "C22",
+        "2"
+      ],
+      [
+        "R14",
+        "2"
+      ],
+      [
+        "Q2",
+        "2"
+      ],
+      [
+        "R16",
+        "2"
+      ],
+      [
+        "Q3",
+        "2"
+      ],
+      [
+        "C23",
+        "2"
+      ],
+      [
+        "C24",
+        "2"
+      ],
+      [
+        "C25",
+        "2"
+      ],
+      [
+        "C26",
+        "2"
+      ],
+      [
+        "C27",
+        "2"
+      ],
+      [
+        "D1",
+        "2"
+      ],
+      [
+        "D2",
+        "2"
+      ],
+      [
+        "D3",
+        "2"
+      ],
+      [
+        "D4",
+        "2"
+      ],
+      [
+        "D5",
+        "2"
+      ],
+      [
+        "D6",
+        "2"
+      ],
+      [
+        "D7",
+        "2"
+      ],
+      [
+        "D8",
+        "2"
+      ],
+      [
+        "D9",
+        "2"
+      ],
+      [
+        "D10",
+        "2"
+      ],
+      [
+        "D11",
+        "2"
+      ],
+      [
+        "D12",
+        "2"
+      ]
+    ],
+    "USB_DN_EXT": [
+      [
+        "J1",
+        "3"
+      ],
+      [
+        "R5",
+        "2"
+      ]
+    ],
+    "USB_DP_EXT": [
+      [
+        "J1",
+        "4"
+      ],
+      [
+        "R6",
+        "2"
+      ]
+    ],
+    "CHG_STAT": [
+      [
+        "U4",
+        "1"
+      ],
+      [
+        "D13",
+        "1"
+      ]
+    ],
+    "+BATT": [
+      [
+        "U4",
+        "3"
+      ],
+      [
+        "C5",
+        "1"
+      ],
+      [
+        "J2",
+        "1"
+      ],
+      [
+        "U5",
+        "1"
+      ],
+      [
+        "U5",
+        "3"
+      ],
+      [
+        "R9",
+        "1"
+      ],
+      [
+        "D14",
+        "1"
+      ],
+      [
+        "J4",
+        "1"
+      ],
+      [
+        "LS1",
+        "1"
+      ],
+      [
+        "Q1",
+        "2"
+      ],
+      [
+        "R17",
+        "1"
+      ]
+    ],
+    "CHG_PROG": [
+      [
+        "U4",
+        "5"
+      ],
+      [
+        "R7",
+        "1"
+      ]
+    ],
+    "CHG_LED_A": [
+      [
+        "R8",
+        "2"
+      ],
+      [
+        "D13",
+        "2"
+      ]
+    ],
+    "+3V3": [
+      [
+        "U5",
+        "5"
+      ],
+      [
+        "C6",
+        "1"
+      ],
+      [
+        "C7",
+        "1"
+      ],
+      [
+        "U1",
+        "1"
+      ],
+      [
+        "R1",
+        "1"
+      ],
+      [
+        "C2",
+        "1"
+      ],
+      [
+        "C3",
+        "1"
+      ],
+      [
+        "R2",
+        "1"
+      ],
+      [
+        "R3",
+        "1"
+      ],
+      [
+        "R4",
+        "1"
+      ],
+      [
+        "U2",
+        "5"
+      ],
+      [
+        "U2",
+        "8"
+      ],
+      [
+        "U2",
+        "16"
+      ],
+      [
+        "U2",
+        "23"
+      ],
+      [
+        "U2",
+        "40"
+      ],
+      [
+        "C9",
+        "1"
+      ],
+      [
+        "C10",
+        "1"
+      ],
+      [
+        "C11",
+        "1"
+      ],
+      [
+        "R11",
+        "1"
+      ],
+      [
+        "U3",
+        "2"
+      ],
+      [
+        "U3",
+        "9"
+      ],
+      [
+        "U3",
+        "10"
+      ],
+      [
+        "R19",
+        "1"
+      ],
+      [
+        "C21",
+        "1"
+      ]
+    ],
+    "BATT_ADC": [
+      [
+        "R9",
+        "2"
+      ],
+      [
+        "R10",
+        "1"
+      ],
+      [
+        "C8",
+        "1"
+      ],
+      [
+        "U1",
+        "16"
+      ]
+    ],
+    "ESP_EN": [
+      [
+        "U1",
+        "2"
+      ],
+      [
+        "R1",
+        "2"
+      ],
+      [
+        "C1",
+        "1"
+      ]
+    ],
+    "BTN_USER": [
+      [
+        "U1",
+        "3"
+      ],
+      [
+        "SW1",
+        "1"
+      ],
+      [
+        "C22",
+        "1"
+      ]
+    ],
+    "MOTOR_PWM": [
+      [
+        "U1",
+        "4"
+      ],
+      [
+        "R13",
+        "1"
+      ]
+    ],
+    "I2C_SDA": [
+      [
+        "U1",
+        "5"
+      ],
+      [
+        "R3",
+        "2"
+      ],
+      [
+        "U2",
+        "28"
+      ],
+      [
+        "U3",
+        "4"
+      ]
+    ],
+    "I2C_SCL": [
+      [
+        "U1",
+        "6"
+      ],
+      [
+        "R4",
+        "2"
+      ],
+      [
+        "U2",
+        "27"
+      ],
+      [
+        "U3",
+        "1"
+      ]
+    ],
+    "LED_PWR_EN": [
+      [
+        "U1",
+        "7"
+      ],
+      [
+        "Q1",
+        "1"
+      ],
+      [
+        "R17",
+        "2"
+      ]
+    ],
+    "BOOT_SW": [
+      [
+        "U1",
+        "8"
+      ],
+      [
+        "R2",
+        "2"
+      ],
+      [
+        "TP1",
+        "1"
+      ]
+    ],
+    "NFC_RST": [
+      [
+        "U1",
+        "10"
+      ],
+      [
+        "U2",
+        "38"
+      ],
+      [
+        "R11",
+        "2"
+      ]
+    ],
+    "BUZZER_PWM": [
+      [
+        "U1",
+        "11"
+      ],
+      [
+        "R15",
+        "1"
+      ]
+    ],
+    "LED_DATA": [
+      [
+        "U1",
+        "12"
+      ],
+      [
+        "R18",
+        "1"
+      ]
+    ],
+    "USB_DN": [
+      [
+        "U1",
+        "13"
+      ],
+      [
+        "R5",
+        "1"
+      ]
+    ],
+    "USB_DP": [
+      [
+        "U1",
+        "14"
+      ],
+      [
+        "R6",
+        "1"
+      ]
+    ],
+    "IMU_INT": [
+      [
+        "U1",
+        "15"
+      ],
+      [
+        "U3",
+        "12"
+      ]
+    ],
+    "IO1_EXT": [
+      [
+        "U1",
+        "17"
+      ],
+      [
+        "TP3",
+        "1"
+      ]
+    ],
+    "IO0_EXT": [
+      [
+        "U1",
+        "18"
+      ],
+      [
+        "TP2",
+        "1"
+      ]
+    ],
+    "NFC_TX1": [
+      [
+        "U2",
+        "4"
+      ],
+      [
+        "L1",
+        "1"
+      ]
+    ],
+    "NFC_TX2": [
+      [
+        "U2",
+        "6"
+      ],
+      [
+        "L2",
+        "1"
+      ]
+    ],
+    "NFC_VMID": [
+      [
+        "U2",
+        "9"
+      ],
+      [
+        "C13",
+        "1"
+      ]
+    ],
+    "NFC_RX": [
+      [
+        "U2",
+        "10"
+      ],
+      [
+        "R12",
+        "2"
+      ]
+    ],
+    "NFC_OSCIN": [
+      [
+        "U2",
+        "14"
+      ],
+      [
+        "Y1",
+        "1"
+      ],
+      [
+        "C14",
+        "1"
+      ]
+    ],
+    "NFC_OSCOUT": [
+      [
+        "U2",
+        "15"
+      ],
+      [
+        "Y1",
+        "3"
+      ],
+      [
+        "C15",
+        "1"
+      ]
+    ],
+    "NFC_DVDD": [
+      [
+        "U2",
+        "39"
+      ],
+      [
+        "C12",
+        "1"
+      ]
+    ],
+    "NFC_EMC1": [
+      [
+        "L1",
+        "2"
+      ],
+      [
+        "C16",
+        "1"
+      ],
+      [
+        "C18",
+        "1"
+      ],
+      [
+        "C20",
+        "1"
+      ]
+    ],
+    "NFC_EMC2": [
+      [
+        "L2",
+        "2"
+      ],
+      [
+        "C17",
+        "1"
+      ],
+      [
+        "C19",
+        "1"
+      ]
+    ],
+    "NFC_ANT1": [
+      [
+        "C18",
+        "2"
+      ],
+      [
+        "J3",
+        "1"
+      ]
+    ],
+    "NFC_ANT2": [
+      [
+        "C19",
+        "2"
+      ],
+      [
+        "J3",
+        "2"
+      ]
+    ],
+    "NFC_RX_MID": [
+      [
+        "C20",
+        "2"
+      ],
+      [
+        "R12",
+        "1"
+      ]
+    ],
+    "IMU_SA0": [
+      [
+        "U3",
+        "3"
+      ],
+      [
+        "R19",
+        "2"
+      ]
+    ],
+    "MOT_G": [
+      [
+        "R13",
+        "2"
+      ],
+      [
+        "R14",
+        "1"
+      ],
+      [
+        "Q2",
+        "1"
+      ]
+    ],
+    "MOT_NEG": [
+      [
+        "Q2",
+        "3"
+      ],
+      [
+        "D14",
+        "2"
+      ],
+      [
+        "J4",
+        "2"
+      ]
+    ],
+    "BUZZ_G": [
+      [
+        "R15",
+        "2"
+      ],
+      [
+        "R16",
+        "1"
+      ],
+      [
+        "Q3",
+        "1"
+      ]
+    ],
+    "BUZZ_NEG": [
+      [
+        "Q3",
+        "3"
+      ],
+      [
+        "LS1",
+        "2"
+      ]
+    ],
+    "VLED": [
+      [
+        "Q1",
+        "3"
+      ],
+      [
+        "C23",
+        "1"
+      ],
+      [
+        "C24",
+        "1"
+      ],
+      [
+        "C25",
+        "1"
+      ],
+      [
+        "C26",
+        "1"
+      ],
+      [
+        "C27",
+        "1"
+      ],
+      [
+        "D1",
+        "4"
+      ],
+      [
+        "D2",
+        "4"
+      ],
+      [
+        "D3",
+        "4"
+      ],
+      [
+        "D4",
+        "4"
+      ],
+      [
+        "D5",
+        "4"
+      ],
+      [
+        "D6",
+        "4"
+      ],
+      [
+        "D7",
+        "4"
+      ],
+      [
+        "D8",
+        "4"
+      ],
+      [
+        "D9",
+        "4"
+      ],
+      [
+        "D10",
+        "4"
+      ],
+      [
+        "D11",
+        "4"
+      ],
+      [
+        "D12",
+        "4"
+      ]
+    ],
+    "LED_D0": [
+      [
+        "R18",
+        "2"
+      ],
+      [
+        "D1",
+        "3"
+      ]
+    ],
+    "LED_D1": [
+      [
+        "D1",
+        "1"
+      ],
+      [
+        "D2",
+        "3"
+      ]
+    ],
+    "LED_D2": [
+      [
+        "D2",
+        "1"
+      ],
+      [
+        "D3",
+        "3"
+      ]
+    ],
+    "LED_D3": [
+      [
+        "D3",
+        "1"
+      ],
+      [
+        "D4",
+        "3"
+      ]
+    ],
+    "LED_D4": [
+      [
+        "D4",
+        "1"
+      ],
+      [
+        "D5",
+        "3"
+      ]
+    ],
+    "LED_D5": [
+      [
+        "D5",
+        "1"
+      ],
+      [
+        "D6",
+        "3"
+      ]
+    ],
+    "LED_D6": [
+      [
+        "D6",
+        "1"
+      ],
+      [
+        "D7",
+        "3"
+      ]
+    ],
+    "LED_D7": [
+      [
+        "D7",
+        "1"
+      ],
+      [
+        "D8",
+        "3"
+      ]
+    ],
+    "LED_D8": [
+      [
+        "D8",
+        "1"
+      ],
+      [
+        "D9",
+        "3"
+      ]
+    ],
+    "LED_D9": [
+      [
+        "D9",
+        "1"
+      ],
+      [
+        "D10",
+        "3"
+      ]
+    ],
+    "LED_D10": [
+      [
+        "D10",
+        "1"
+      ],
+      [
+        "D11",
+        "3"
+      ]
+    ],
+    "LED_D11": [
+      [
+        "D11",
+        "1"
+      ],
+      [
+        "D12",
+        "3"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+(version 1)
+
+(rule "JLC_4Layer_Min_Clearance"
+  (constraint clearance (min 0.127mm))
+)
+
+(rule "Power_Track_Width"
+  (condition "A.NetClass == 'Power'")
+  (constraint track_width (min 0.15mm))
+)
+
+(rule "Copper_To_Board_Edge"
+  (constraint edge_clearance (min 0.30mm))
+)

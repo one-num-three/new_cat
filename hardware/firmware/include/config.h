@@ -14,11 +14,15 @@ constexpr int PIN_SDA      = 6;   // D4
 constexpr int PIN_SCL      = 7;   // D5
 constexpr int PIN_LED_DATA = 21;  // D6  WS2812B DIN
 constexpr int PIN_BUZZER   = 20;  // D7  无源蜂鸣器
-constexpr int PIN_NFC_RST  = 10;  // D10 PN532 RSTPDN，没接线设为 -1
-constexpr int PIN_LED_PWR  = -1;  // D8(GPIO8) 灯环高边 PMOS 开关；原型直连电池开关设 -1
+constexpr int PIN_NFC_RST  = 10;  // D10 / IO10 PN532 ~RSTPD
+#ifdef CATMOUSE_EVT_4LAYER_PCB
+constexpr int PIN_LED_PWR  = 8;   // IO8 接 Q1 AO3401A 高边 PMOS 栅极（低电平导通，上电100k上拉默认断电）
+constexpr uint32_t I2C_FREQ = 400000;  // 定制 4 层板完整地平面，启用 400kHz Fast Mode
+#else
+constexpr int PIN_LED_PWR  = -1;  // 原型直连物理拨动开关设 -1
+constexpr uint32_t I2C_FREQ = 100000;  // 杜邦线原型用 100k 更稳
+#endif
 constexpr bool LED_PWR_ACTIVE_HIGH = false;  // PMOS 低电平导通
-
-constexpr uint32_t I2C_FREQ = 100000;  // 杜邦线原型用 100k 更稳；PCB 可改 400k
 
 // ---------------- 灯环 ----------------
 constexpr int     LED_COUNT                  = 12;

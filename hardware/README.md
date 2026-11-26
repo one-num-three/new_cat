@@ -37,22 +37,30 @@ hardware/
 ├── README.md                   # 硬件模块总览、仿真运行与快速上手指南
 ├── docs/
 │   ├── 硬件架构设计基线.md      # V1.5 冻结硬件架构、五道电气保护与 POC→EVT→MP 演进路线
+│   ├── 4层PCB设计与检视说明.md  # KiCad 10 4层紧凑主板叠层、RF净空、嘉立创工艺与引脚对齐表
 │   ├── V1.5-硬件规格.md        # 硬件选型、PN532 双模机制、接线定义、功耗预算与测试指标
 │   ├── 通信协议.md             # BLE GATT 指令/事件定义、广播包格式、NFC APDU 与 NDEF 协议
 │   ├── 产品设计方案.md          # ID/MD 三层叠层、声光触觉盲操矩阵、道具卡生态与 20 联充电箱
 │   ├── 产品报价与财务分析.md    # 10/100/1000/5000 套阶梯报价、B/C 端商业定价与盈亏平衡测算
 │   ├── BOM与报价测算.csv        # 四阶段元器件、PCBA、模具、充电箱精细化成本明细表
 │   └── 原型采购清单.csv         # 10 套（含 2 套备件）免画板原型的淘宝/立创采购物料表
-├── firmware/                   # Seeed XIAO ESP32C3 完整固件工程 (PlatformIO + Arduino)
-│   ├── platformio.ini          # 编译环境与依赖库配置 (NimBLE + Adafruit NeoPixel)
+├── pcb/                        # KiCad 10.0 原生 4 层紧凑主板工程 (40x46mm, 1.0mm厚)
+│   ├── catmouse-band-v15/      # .kicad_pro/.kicad_sch/.kicad_pcb + ERC/DRC报告 + 嘉立创Gerber/BOM/CPL + 3D渲染图
+│   ├── generate_schematic.py   # 自包含 KiCad 10 原理图生成器 (官方库展开)
+│   ├── generate_4layer_pcb.py  # 4 层板布局、细间距扇出与 3D A* 布线生成器
+│   ├── verify_netlist_vs_firmware.py # KiCad 官方网表 <-> EVT 固件引脚 100% 对齐校验
+│   └── export_fab_and_renders.py     # 一键导出嘉立创打样生产包与 3D 渲染预览图
+├── firmware/                   # Seeed XIAO ESP32C3 & EVT 4层主板双目标固件工程 (PlatformIO)
+│   ├── platformio.ini          # [env:xiao_esp32c3] 原型 + [env:evt_4layer_pcb] 4层定制主板
 │   ├── include/                # 引脚配置、协议码、驱动接口
-│   └── src/                    # 8 个核心固件源码（含灯环断电、LVP 过放保护、I2C 自愈、产测 CLI）
+│   └── src/                    # 8 个核心固件源码（含 GPIO8 灯环断电、LVP 过放保护、I2C 自愈、产测 CLI）
 ├── scripts/
 │   └── flash_and_test.ps1      # 一键编译、批量烧录与串口自动化产测脚本
 ├── sim/                        # 真实 C++17 多手环硬件在环（Firmware-in-the-Loop）仿真系统
 │   ├── hal/                    # 虚拟 LIS2DH12 / PN532 / NimBLE / NeoPixel / FreeRTOS 芯片层
 │   ├── build_sim.py            # 直接编译全部 8 个真实 firmware/src/*.cpp 成 band_node.exe
-│   └── run_hil_sim.py          # 4 进程真固件联调仿真（碰撞/NFC/解救/道具/50m GPS/深睡/续航）
+│   ├── run_hil_sim.py          # 4 进程真固件联调仿真（碰撞/NFC/解救/道具/50m GPS/深睡/续航）
+│   └── run_evt_virtual_flash_and_hil.py # EVT 4层主板虚拟烧录 (USB-JTAG) + GPIO8 PMOS 断电全链路联调
 └── tests/
     └── verify_firmware.py      # 源码结构、引脚约束、协议一致性与状态机静态校验
 ```
@@ -89,14 +97,14 @@ hardware/
 .\scripts\flash_and_test.ps1 -Action selftest -Port COM5
 ```
 
-### 2. 运行真实 C++17 多手环硬件在环仿真与协议校验
+### 2. 运行真实 C++17 多手环硬件在环仿真与 EVT 4 层主板虚拟烧录联调
 
-无需实物硬件即可直接编译全部 8 个真实 `firmware/src/*.cpp` 文件，拉起 4 个独立手环进程跑通完整对局仿真（产测 CLI、I2C 自愈、Android/iPhone NFC 绑定、脱机猫抓鼠与牢房免撞解救、联机 50m GPS 反作弊、道具卡、深睡保护与 20 分钟续航核算）：
+无需实物硬件即可直接编译全部 8 个真实 `firmware/src/*.cpp` 文件，模拟通过背面 4-pin 磁吸口原生 USB-JTAG 烧录至 4 层定制主板（启用 `GPIO8` 高边 PMOS 断电与 `400 kHz` I2C），并拉起 4 个独立手环进程跑通完整对局仿真：
 
 ```bash
-python sim/build_sim.py
-python sim/run_hil_sim.py
-python tests/verify_firmware.py
+python pcb/verify_netlist_vs_firmware.py     # KiCad 10 官方网表 <-> EVT 固件 12 引脚对齐校验
+python sim/run_evt_virtual_flash_and_hil.py  # 编译 EVT 固件 + 虚拟烧录 + 6 大场景 + PMOS 断电联调
+python tests/verify_firmware.py              # 固件静态结构与协议一致性校验
 ```
 
 ### 3. 脱机免手机实测流程

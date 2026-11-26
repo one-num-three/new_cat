@@ -1,8 +1,8 @@
 # 猫鼠行动 · 微信试点
 
-## 猫鼠手环硬件 V1.5（2026-11-27，架构冻结 + 真实 C++ 硬件在环仿真通过）
+## 猫鼠手环硬件 V1.5（2026-11-27，4 层 KiCad 10 PCB 0 ERC/0 DRC 错误/0 飞线 + 虚拟烧录联调全通）
 
-补齐手环完整硬件架构、固件部署与产测工具链、多手环 C++17 硬件在环仿真以及产品设计与商业报价方案（目录 `hardware/`）。硬件采用 Seeed XIAO ESP32C3 + PN532（读卡/卡模拟双模 NFC）+ LIS2DH12 碰撞唤醒 + 12 位 WS2812B 灯环 + 振动马达 + 蜂鸣器，固件已补齐灯环高边断电、电池 LVP 过放深睡、I2C 9-clock 总线自愈、牢房自动被动监听轻贴解救及串口产测 CLI。已直接编译全部 8 个真实固件 `.cpp` 文件跑通 4 进程 6 大场景硬件在环仿真（零警告零错误），且已将 `hardware` 加入 `project.config.json` 打包忽略项，不影响现有小程序主包与回归测试。[硬件总览与仿真](hardware/README.md) · [硬件架构基线](hardware/docs/硬件架构设计基线.md) · [V1.5 硬件规格](hardware/docs/V1.5-硬件规格.md) · [BLE/NFC 通信协议](hardware/docs/通信协议.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md) · [四阶段 BOM 测算](hardware/docs/BOM与报价测算.csv)。
+补齐手环完整硬件方案、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品设计与商业报价分析（目录 `hardware/`）。4 层主板尺寸 `40×46 mm`（板厚 `1.0 mm`，嘉立创 4 层工艺），集成 `ESP32-C3-WROOM-02`（2.4GHz 天线 4 层全净空）+ `PN5321A3HN` 双模 NFC + `LIS2DH12TR` + 12× `WS2812B-2020` 环形灯阵 + `AO3401A` 高边 PMOS 断电（`GPIO8`）+ 磁吸 USB-JTAG 一线充电烧录口，已通过 **KiCad 10 官方 ERC（0 错误 / 0 警告）、4 层 PCB DRC（0 错误 / 0 未连接飞线）**、官方网表与 EVT 固件 12 引脚 100% 物理对齐及 4 进程全链路虚拟烧录联调；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包与回归测试。[硬件总览](hardware/README.md) · [4 层 PCB 设计说明](hardware/docs/4层PCB设计与检视说明.md) · [KiCad 工程与生产包](hardware/pcb/catmouse-band-v15/) · [硬件架构基线](hardware/docs/硬件架构设计基线.md) · [通信协议](hardware/docs/通信协议.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
 
 ## 当前位置与后台授权（2026-11-04，前端修订）
 
