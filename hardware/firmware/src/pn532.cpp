@@ -53,6 +53,7 @@ bool PN532::wake() {
       asleep_ = false;
       return true;
     }
+    if (i == 1) bus::recover();  // 连续失败尝试 9-clock I2C 总线自愈
     delay(10);
   }
   return false;

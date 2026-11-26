@@ -1,8 +1,8 @@
 # 猫鼠行动 · 微信试点
 
-## 猫鼠手环硬件 V1.5（2026-11-25，本地完成）
+## 猫鼠手环硬件 V1.5（2026-11-27，架构冻结 + 真实 C++ 硬件在环仿真通过）
 
-补齐手环硬件方案与 ESP32-C3 固件（目录 `hardware/`），采用 Seeed XIAO ESP32C3 + PN532（读卡/卡模拟双模 NFC）+ LIS2DH12 碰撞唤醒 + 12 位 WS2812B 灯环 + 振动马达 + 蜂鸣器。支持猫抓鼠、自由鼠解救牢房队友、拾取 NTAG215 道具卡及手机碰一碰绑定，并提供免小程序脱机试玩模式（`STANDALONE`）。已与现有 `api/v2` 状态机及 50 米 GPS 校验对齐，且已将 `hardware` 加入 `project.config.json` 打包忽略项，不影响现有小程序主包与回归测试。[硬件总览与上手](hardware/README.md) · [V1.5 硬件规格](hardware/docs/V1.5-硬件规格.md) · [BLE/NFC 通信协议](hardware/docs/通信协议.md) · [10 套原型采购清单](hardware/docs/原型采购清单.csv)。
+补齐手环完整硬件架构、固件部署与产测工具链、多手环 C++17 硬件在环仿真以及产品设计与商业报价方案（目录 `hardware/`）。硬件采用 Seeed XIAO ESP32C3 + PN532（读卡/卡模拟双模 NFC）+ LIS2DH12 碰撞唤醒 + 12 位 WS2812B 灯环 + 振动马达 + 蜂鸣器，固件已补齐灯环高边断电、电池 LVP 过放深睡、I2C 9-clock 总线自愈、牢房自动被动监听轻贴解救及串口产测 CLI。已直接编译全部 8 个真实固件 `.cpp` 文件跑通 4 进程 6 大场景硬件在环仿真（零警告零错误），且已将 `hardware` 加入 `project.config.json` 打包忽略项，不影响现有小程序主包与回归测试。[硬件总览与仿真](hardware/README.md) · [硬件架构基线](hardware/docs/硬件架构设计基线.md) · [V1.5 硬件规格](hardware/docs/V1.5-硬件规格.md) · [BLE/NFC 通信协议](hardware/docs/通信协议.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md) · [四阶段 BOM 测算](hardware/docs/BOM与报价测算.csv)。
 
 ## 当前位置与后台授权（2026-11-04，前端修订）
 

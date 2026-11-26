@@ -1,6 +1,7 @@
 #include "ble_service.h"
 
 #include <NimBLEDevice.h>
+#include <freertos/semphr.h>
 #include <atomic>
 
 #include "config.h"

@@ -143,7 +143,7 @@ def check_protocol_consistency():
         assert f"0x{code:02X}" in doc_proto, f"0x{code:02X} ({cname}) missing from 通信协议.md!"
 
     evts = {name: int(val, 16) for name, val in re.findall(r"(EVT_\w+)\s*=\s*(0x[0-9A-Fa-f]+)", proto)}
-    assert len(evts) == 9, f"Expected 9 BLE events, got {len(evts)}"
+    assert len(evts) == 10, f"Expected 10 BLE events, got {len(evts)}"
     for ename, code in evts.items():
         assert f"0x{code:02X}" in doc_proto, f"0x{code:02X} ({ename}) missing from 通信协议.md!"
 
@@ -155,7 +155,7 @@ def check_protocol_consistency():
     assert "PN532::tgInitAsTarget(uint8_t* initRx, uint8_t& initLen, uint16_t timeoutMs)" in pn_cpp
     assert "pn.tgInitAsTarget(initCmd, initLen," in nfc_cpp
 
-    print("[PASS] 3. BLE/NFC 跨文件 API 签名及《通信协议.md》14 条指令 / 9 类事件一致性检查通过")
+    print("[PASS] 3. BLE/NFC 跨文件 API 签名及《通信协议.md》14 条指令 / 10 类事件一致性检查通过")
 
 
 # ---- 镜像验证 pn532.cpp 的帧编解码逻辑 ----

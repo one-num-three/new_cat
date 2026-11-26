@@ -1,5 +1,6 @@
 #include "nfc_manager.h"
 
+#include <freertos/semphr.h>
 #include <atomic>
 
 #include "config.h"
@@ -273,7 +274,10 @@ void runWindow(const WindowReq& req) {
     uint32_t slotEnd = millis() + slot;
     if (doPoll) {
       pn.rfField(true);
-      while (!done && !cancelReq && (int32_t)(slotEnd - millis()) > 0) done = pollOnce();
+      while (!done && !cancelReq && (int32_t)(slotEnd - millis()) > 0) {
+        done = pollOnce();
+        if (!done) delay(15);  // 释放 I2C 总线并降低无目标时的轮询功耗
+      }
       pn.rfField(false);
     } else {
       while (!done && !cancelReq && (int32_t)(slotEnd - millis()) > 0) {

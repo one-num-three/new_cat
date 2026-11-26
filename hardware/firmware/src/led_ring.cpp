@@ -16,8 +16,28 @@ struct Layer {
 };
 Layer base, ovl;
 bool ovlActive = false;
+bool powerOn = false;
 uint8_t maxBright = LED_DEFAULT_MAX_BRIGHTNESS;
 uint32_t lastFrame = 0;
+
+void setPower(bool on) {
+  if (PIN_LED_PWR < 0) {
+    powerOn = on;
+    return;
+  }
+  if (powerOn == on) return;
+  if (on) {
+    digitalWrite(PIN_LED_PWR, LED_PWR_ACTIVE_HIGH ? HIGH : LOW);
+    delay(2);  // 等待高边 PMOS 与灯珠内部逻辑上电稳定
+    powerOn = true;
+  } else {
+    // 断电前先拉低数据线，防止 GPIO 通过保护二极管向灯珠反灌供电
+    pinMode(PIN_LED_DATA, OUTPUT);
+    digitalWrite(PIN_LED_DATA, LOW);
+    digitalWrite(PIN_LED_PWR, LED_PWR_ACTIVE_HIGH ? LOW : HIGH);
+    powerOn = false;
+  }
+}
 
 inline uint32_t scale(uint32_t rgb, uint8_t k) {
   uint8_t r = ((rgb >> 16) & 0xFF) * k / 255;
@@ -68,6 +88,11 @@ void render(const Layer& l, uint32_t now) {
 }  // namespace
 
 void begin() {
+  if (PIN_LED_PWR >= 0) {
+    pinMode(PIN_LED_PWR, OUTPUT);
+    digitalWrite(PIN_LED_PWR, LED_PWR_ACTIVE_HIGH ? LOW : HIGH);
+  }
+  setPower(true);
   strip.begin();
   strip.setBrightness(maxBright);
   strip.clear();
@@ -98,8 +123,11 @@ void overlay(Effect e, uint32_t rgb, uint16_t ms) {
 void off() {
   base.effect = OFF;
   ovlActive = false;
-  strip.clear();
-  strip.show();
+  if (powerOn) {
+    strip.clear();
+    strip.show();
+  }
+  setPower(false);
 }
 
 void update() {
@@ -107,7 +135,17 @@ void update() {
   if (now - lastFrame < 20) return;  // 50 fps
   lastFrame = now;
   if (ovlActive && (int32_t)(now - ovl.untilMs) >= 0) ovlActive = false;
-  render(ovlActive ? ovl : base, now);
+  const Layer& active = ovlActive ? ovl : base;
+  if (active.effect == OFF) {
+    if (powerOn) {
+      strip.clear();
+      strip.show();
+      setPower(false);
+    }
+    return;
+  }
+  if (!powerOn) setPower(true);
+  render(active, now);
   strip.show();
 }
 }  // namespace led

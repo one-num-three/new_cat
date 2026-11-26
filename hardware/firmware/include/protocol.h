@@ -40,6 +40,7 @@ enum EvtType : uint8_t {
   EVT_NFC_BIND_READ = 0x07,
   EVT_ACK           = 0x08,
   EVT_ROLE_CHANGED  = 0x09,
+  EVT_LOW_BATTERY   = 0x0A,
 };
 
 enum AckResult : uint8_t { ACK_OK = 0, ACK_BAD_ARGS = 1, ACK_UNKNOWN = 2 };

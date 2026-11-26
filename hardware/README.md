@@ -34,25 +34,27 @@ flowchart LR
 
 ```text
 hardware/
-├── README.md                   # 硬件模块总览与快速上手指南
+├── README.md                   # 硬件模块总览、仿真运行与快速上手指南
 ├── docs/
+│   ├── 硬件架构设计基线.md      # V1.5 冻结硬件架构、五道电气保护与 POC→EVT→MP 演进路线
 │   ├── V1.5-硬件规格.md        # 硬件选型、PN532 双模机制、接线定义、功耗预算与测试指标
 │   ├── 通信协议.md             # BLE GATT 指令/事件定义、广播包格式、NFC APDU 与 NDEF 协议
-│   └── 原型采购清单.csv        # 10 套（含 2 套备件）免画板原型的采购物料表
+│   ├── 产品设计方案.md          # ID/MD 三层叠层、声光触觉盲操矩阵、道具卡生态与 20 联充电箱
+│   ├── 产品报价与财务分析.md    # 10/100/1000/5000 套阶梯报价、B/C 端商业定价与盈亏平衡测算
+│   ├── BOM与报价测算.csv        # 四阶段元器件、PCBA、模具、充电箱精细化成本明细表
+│   └── 原型采购清单.csv         # 10 套（含 2 套备件）免画板原型的淘宝/立创采购物料表
 ├── firmware/                   # Seeed XIAO ESP32C3 完整固件工程 (PlatformIO + Arduino)
 │   ├── platformio.ini          # 编译环境与依赖库配置 (NimBLE + Adafruit NeoPixel)
-│   ├── include/
-│   │   ├── config.h            # GPIO 引脚映射、灯环亮度、碰撞阈值与时间窗口参数
-│   │   ├── protocol.h          # 角色枚举、14 条 BLE 指令码、9 类事件码与振感音效 ID
-│   │   ├── pn532.h             # 精简版 PN532 I2C 驱动接口（Initiator + Target 卡模拟）
-│   │   ├── nfc_manager.h       # FreeRTOS NFC 角色窗口调度器接口
-│   │   ├── imu.h               # LIS2DH12 硬件高通滤波碰撞检测接口
-│   │   ├── peripherals.h       # 灯环、马达、蜂鸣器、按键、电池采样接口
-│   │   ├── ble_service.h       # BLE GATT 服务与动态广播接口
-│   │   └── bus.h               # I2C 总线互斥锁封装
-│   └── src/                    # 各模块实现与主状态机 (main.cpp)
+│   ├── include/                # 引脚配置、协议码、驱动接口
+│   └── src/                    # 8 个核心固件源码（含灯环断电、LVP 过放保护、I2C 自愈、产测 CLI）
+├── scripts/
+│   └── flash_and_test.ps1      # 一键编译、批量烧录与串口自动化产测脚本
+├── sim/                        # 真实 C++17 多手环硬件在环（Firmware-in-the-Loop）仿真系统
+│   ├── hal/                    # 虚拟 LIS2DH12 / PN532 / NimBLE / NeoPixel / FreeRTOS 芯片层
+│   ├── build_sim.py            # 直接编译全部 8 个真实 firmware/src/*.cpp 成 band_node.exe
+│   └── run_hil_sim.py          # 4 进程真固件联调仿真（碰撞/NFC/解救/道具/50m GPS/深睡/续航）
 └── tests/
-    └── verify_firmware.py      # 源码结构、引脚约束、协议一致性与 NFC 握手全链路仿真测试
+    └── verify_firmware.py      # 源码结构、引脚约束、协议一致性与状态机静态校验
 ```
 
 ---
@@ -76,22 +78,24 @@ hardware/
 
 ## 快速编译、烧录与测试
 
-### 1. 编译与烧录固件
+### 1. 编译、烧录与单板自动化产测
 
-安装 [PlatformIO](https://platformio.org/) 后在 `firmware/` 目录下执行：
+安装 [PlatformIO](https://platformio.org/) 后可使用一键脚本（自动将工具链缓存指向 D 盘）或在 `firmware/` 目录下执行：
 
-```bash
-cd firmware
-pio run                 # 编译 ESP32-C3 固件
-pio run -t upload       # 通过 USB-C 烧录至 Seeed XIAO ESP32C3
-pio device monitor      # 打开 115200 串口日志查看外设自检状态
+```powershell
+# 一键编译 / 烧录 / 串口自动产测（验证 IMU + PN532 + 电量 + 声光）
+.\scripts\flash_and_test.ps1 -Action build
+.\scripts\flash_and_test.ps1 -Action flash -Port COM5
+.\scripts\flash_and_test.ps1 -Action selftest -Port COM5
 ```
 
-### 2. 运行协议与固件校验测试
+### 2. 运行真实 C++17 多手环硬件在环仿真与协议校验
 
-无需连接硬件即可在本地验证引脚约束、协议表一致性及 PN532 / APDU / NDEF 状态机：
+无需实物硬件即可直接编译全部 8 个真实 `firmware/src/*.cpp` 文件，拉起 4 个独立手环进程跑通完整对局仿真（产测 CLI、I2C 自愈、Android/iPhone NFC 绑定、脱机猫抓鼠与牢房免撞解救、联机 50m GPS 反作弊、道具卡、深睡保护与 20 分钟续航核算）：
 
 ```bash
+python sim/build_sim.py
+python sim/run_hil_sim.py
 python tests/verify_firmware.py
 ```
 

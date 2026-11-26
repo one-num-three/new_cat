@@ -30,9 +30,14 @@ bool lastBleConnected = false;
 
 uint8_t evtSeq = 0;
 uint32_t lastImpactMs = 0;
+bool hasImpact = false;
 uint32_t lastBattMs = 0;
+uint32_t lastJailedListenMs = 0;
 uint16_t curBattMv = 3800;
 uint8_t curBattPct = 55;
+uint8_t lowBattStreak = 0;
+bool lowBattWarned = false;
+String serialBuf;
 String bindUrlBuf;
 String activeBindUrl;
 
@@ -97,6 +102,16 @@ void sendBatteryEvent() {
   e[1] = 0;
   memcpy(&e[2], &curBattMv, 2);
   e[4] = curBattPct;
+  sendEventRaw(e, sizeof(e));
+}
+
+void sendLowBatteryEvent(uint8_t critical) {
+  uint8_t e[6];
+  e[0] = EVT_LOW_BATTERY;
+  e[1] = 0;
+  memcpy(&e[2], &curBattMv, 2);
+  e[4] = curBattPct;
+  e[5] = critical;
   sendEventRaw(e, sizeof(e));
 }
 
@@ -389,6 +404,111 @@ void handleButton(uint8_t kind) {
     }
   }
 }
+
+void checkBatteryLvp() {
+  // 排除裸板未焊分压电阻的 ADC 悬空低值
+  if (curBattMv < BATT_PRESENT_MIN_MV) {
+    lowBattStreak = 0;
+    return;
+  }
+  if (curBattMv <= BATT_CRITICAL_MV) {
+    lowBattStreak++;
+    sendLowBatteryEvent(1);
+    led::overlay(led::FLASH, 0xFF0000, 1000);
+    haptic::play(PAT_ERROR);
+    buzzer::play(PAT_ERROR);
+    if (lowBattStreak >= 3) {
+      Serial.printf("[PWR] Critical battery %u mV -> auto sleep\n", curBattMv);
+      enterDeepSleep();
+    }
+  } else if (curBattMv <= BATT_LOW_MV) {
+    lowBattStreak = 0;
+    if (!lowBattWarned) {
+      lowBattWarned = true;
+      sendLowBatteryEvent(0);
+      led::overlay(led::FLASH, 0xFF2000, 600);
+      haptic::play(PAT_DOUBLE);
+    }
+  } else {
+    lowBattStreak = 0;
+    lowBattWarned = false;
+  }
+}
+
+void runFactorySelfTest() {
+  Serial.println("=== FACTORY SELF-TEST START ===");
+  bool imuOk = imu::ok();
+  bool nfcOk = nfc::ok();
+  uint16_t mv = battery::readMv();
+  uint8_t pct = battery::percent(mv);
+  bool battOk = (mv >= 3000 && mv <= 4350) || (mv < BATT_PRESENT_MIN_MV);
+  Serial.printf("[TEST] ID:   %02X%02X%02X%02X%02X%02X\n",
+                bandId[0], bandId[1], bandId[2], bandId[3], bandId[4], bandId[5]);
+  Serial.printf("[TEST] URL:  %s%02X%02X%02X%02X%02X%02X\n",
+                activeBindUrl.c_str(),
+                bandId[0], bandId[1], bandId[2], bandId[3], bandId[4], bandId[5]);
+  Serial.printf("[TEST] IMU:  %s (ths=%u mg)\n", imuOk ? "PASS" : "FAIL", imu::threshold());
+  Serial.printf("[TEST] NFC:  %s\n", nfcOk ? "PASS" : "FAIL");
+  Serial.printf("[TEST] BATT: %u mV (%u%%) -> %s\n", mv, pct, battOk ? "PASS" : "WARN");
+  led::overlay(led::RAINBOW, 0, 1200);
+  haptic::play(PAT_START);
+  buzzer::play(PAT_START);
+  Serial.printf("=== FACTORY SELF-TEST RESULT: %s ===\n", (imuOk && nfcOk && battOk) ? "PASS" : "FAIL");
+}
+
+void handleSerialLine(String line) {
+  line.trim();
+  if (line.length() == 0) return;
+  line.toUpperCase();
+  if (line == "HELP") {
+    Serial.println("Commands: INFO | TEST | ROLE <0-4> | NFC | LED <0-6> | VIB <0-9> | BUZZ <0-9> | RECOVER | SLEEP");
+  } else if (line == "INFO") {
+    Serial.printf("[INFO] fw=%d.%d id=%02X%02X%02X%02X%02X%02X role=%u team=%u session=%lu batt=%umV(%u%%) ble=%u imu=%u nfc=%u standalone=%u\n",
+                  FW_VERSION_MAJOR, FW_VERSION_MINOR,
+                  bandId[0], bandId[1], bandId[2], bandId[3], bandId[4], bandId[5],
+                  curRole, curTeam, (unsigned long)curSession, curBattMv, curBattPct,
+                  ble::connected() ? 1 : 0, imu::ok() ? 1 : 0, nfc::ok() ? 1 : 0, standaloneMode ? 1 : 0);
+  } else if (line == "TEST") {
+    runFactorySelfTest();
+  } else if (line.startsWith("ROLE ")) {
+    int r = line.substring(5).toInt();
+    if (r >= 0 && r < ROLE_COUNT) {
+      changeRole((uint8_t)r, curTeam, REASON_CMD);
+      Serial.printf("[CLI] role=%d\n", r);
+    }
+  } else if (line == "NFC") {
+    nfc::requestWindow(nfc::MODE_AUTO, 3000);
+    Serial.println("[CLI] NFC window 3000ms opened");
+  } else if (line.startsWith("LED ")) {
+    int e = line.substring(4).toInt();
+    if (e >= 0 && e < led::EFFECT_COUNT) led::overlay((led::Effect)e, 0x00FF80, 1500);
+  } else if (line.startsWith("VIB ")) {
+    haptic::play((uint8_t)line.substring(4).toInt());
+  } else if (line.startsWith("BUZZ ")) {
+    buzzer::play((uint8_t)line.substring(5).toInt());
+  } else if (line == "RECOVER") {
+    bus::recover();
+    Serial.println("[CLI] I2C bus recovered");
+  } else if (line == "SLEEP") {
+    enterDeepSleep();
+  } else {
+    Serial.printf("[CLI] Unknown command: %s (type HELP)\n", line.c_str());
+  }
+}
+
+void pollSerialCli() {
+  while (Serial.available() > 0) {
+    char c = (char)Serial.read();
+    if (c == '\r' || c == '\n') {
+      if (serialBuf.length() > 0) {
+        handleSerialLine(serialBuf);
+        serialBuf = "";
+      }
+    } else if (serialBuf.length() < 64) {
+      serialBuf += c;
+    }
+  }
+}
 }  // namespace
 
 void setup() {
@@ -466,7 +586,8 @@ void loop() {
 
   // 4. IMU 碰撞检测 -> 自动触发 NFC 窗口
   uint16_t peakMg = 0;
-  if (imu::poll(peakMg) && (now - lastImpactMs >= IMPACT_COOLDOWN_MS)) {
+  if (imu::poll(peakMg) && (!hasImpact || (now - lastImpactMs >= IMPACT_COOLDOWN_MS))) {
+    hasImpact = true;
     lastImpactMs = now;
     uint8_t e[4];
     e[0] = EVT_IMPACT;
@@ -478,6 +599,13 @@ void loop() {
       haptic::play(PAT_TICK);
       nfc::requestWindow(nfc::MODE_AUTO, NFC_WINDOW_MS);
     }
+  }
+
+  // 4.5 被抓的鼠（ROLE_JAILED）原地等待队友解救：周期自动开启被动 Listen 窗（不开射频场，约12mA）
+  // 监听 900ms / 间隔 1100ms（休眠间隙仅 200ms < 自由鼠 300ms Poll 时隙），数学上 100% 必然命中！
+  if (curRole == ROLE_JAILED && !nfc::busy() && (now - lastJailedListenMs >= 1100)) {
+    lastJailedListenMs = now;
+    nfc::requestWindow(nfc::MODE_LISTEN, 900);
   }
 
   // 5. 处理 NFC 任务上报的事件
@@ -500,16 +628,20 @@ void loop() {
     }
   }
 
-  // 6. 定时采样电量并更新广播包
+  // 6. 定时采样电量、欠压保护并更新广播包
   if (now - lastBattMs >= BATTERY_REPORT_MS) {
     lastBattMs = now;
     curBattMv = battery::readMv();
     curBattPct = battery::percent(curBattMv);
     syncBleInfo();
     sendBatteryEvent();
+    checkBatteryLvp();
   }
 
-  // 7. 非阻塞更新灯环、振动、蜂鸣器动画
+  // 7. 串口产测自检 CLI
+  pollSerialCli();
+
+  // 8. 非阻塞更新灯环、振动、蜂鸣器动画
   led::update();
   haptic::update();
   buzzer::update();

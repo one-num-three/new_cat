@@ -15,6 +15,8 @@ constexpr int PIN_SCL      = 7;   // D5
 constexpr int PIN_LED_DATA = 21;  // D6  WS2812B DIN
 constexpr int PIN_BUZZER   = 20;  // D7  无源蜂鸣器
 constexpr int PIN_NFC_RST  = 10;  // D10 PN532 RSTPDN，没接线设为 -1
+constexpr int PIN_LED_PWR  = -1;  // D8(GPIO8) 灯环高边 PMOS 开关；原型直连电池开关设 -1
+constexpr bool LED_PWR_ACTIVE_HIGH = false;  // PMOS 低电平导通
 
 constexpr uint32_t I2C_FREQ = 100000;  // 杜邦线原型用 100k 更稳；PCB 可改 400k
 
@@ -40,9 +42,12 @@ constexpr uint32_t BUTTON_LONG_MS       = 1200;
 constexpr uint32_t BUTTON_POWER_OFF_MS  = 4000;
 constexpr uint32_t BUTTON_DOUBLE_GAP_MS = 350;
 
-// ---------------- 电池 ----------------
-constexpr uint32_t BATTERY_REPORT_MS = 30000;
-constexpr float    BATT_DIVIDER      = 2.0f;
+// ---------------- 电池与过放保护 ----------------
+constexpr uint32_t BATTERY_REPORT_MS  = 30000;
+constexpr float    BATT_DIVIDER       = 2.0f;
+constexpr uint16_t BATT_LOW_MV        = 3550;  // <10% 低电告警
+constexpr uint16_t BATT_CRITICAL_MV   = 3300;  // 连续 3 次低于该值自动深睡保护
+constexpr uint16_t BATT_PRESENT_MIN_MV = 1200; // 低于此值视为未焊分压电阻/裸板 USB 调试，不触发自动关机
 
 // ---------------- BLE ----------------
 #define BLE_SVC_UUID   "7a3e0001-5c1d-4b8e-9a2f-6c4d1e0b9a10"
