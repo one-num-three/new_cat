@@ -1,75 +1,338 @@
 <view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
 <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
-<view wx:if="{{!match}}" class="emptyState"><text>正在同步本局状态</text><text class="bodyCopy">{{error || '请稍候，状态由服务器确认。'}}</text><button class="textButton" bindtap="goHome">返回首页</button></view>
-<scroll-view wx:elif="{{terminal}}" scroll-y class="terminalScroll">
- <image class="resultHero" src="{{stateArt}}" mode="widthFix" aria-label="{{uiState==='catWin'?'猫队获胜':uiState==='mouseWin'?'鼠队获胜':'本局取消，不计胜负'}}" />
- <view class="terminalContent"><view class="pixelPaper resultStats"><text class="resultReason">{{uiState==='catWin'?'捕获目标已完成':uiState==='mouseWin'?'猫队未达到捕获目标':'公开记录'}}</text><view class="resultStatRow"><view><text wx:if="{{uiState!=='catWin'}}" class="statLabel">已抓捕</text><view class="statValue"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view></view><view wx:if="{{uiState!=='cancelled'}}" class="resultStatus"><text class="statLabel">对局状态</text><text class="statusBadge">已结束</text></view></view></view>
- <view wx:if="{{uiState==='mouseWin'}}" class="resultMap"><map wx:if="{{venueMapId==='native-gcj02-v1'}}" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" polygons="{{venuePolygons}}" /><venue-art wx:else class="venueArt" image-id="{{venueMapId}}" src="{{parkArt}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" /></view>
- <view class="trackResultActions" wx:if="{{!devPreview && !offline && match.trackVersion==='tracks-v1'}}"><button class="textButton" bindtap="openTracks" data-scope="self">我的行动轨迹与导出</button><button wx:if="{{owner}}" class="textButton" bindtap="openTracks" data-scope="all">全员轨迹 · 房主导出</button></view><view class="resultActions"><pixel-action class="pixelControl" wx:if="{{canReplay}}" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-replay.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-replay.png':'/assets/pixel-v1/button-cancelled-replay.png'}}" label="再来一局" tone="{{uiState==='cancelled'?'green':'orange'}}" font-scale="{{fontScale}}" bindaction="replay" /><text wx:else class="waitingHost">{{offline?'等待连接恢复后开始下一局':'等待房主开始下一局'}}</text><pixel-action class="pixelControl" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-details.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-details.png':'/assets/pixel-v1/button-cancelled-details.png'}}" label="查看对局详情" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" /><pixel-action class="pixelControl" skin="{{uiState==='catWin'?'/assets/pixel-v1/button-catwin-home.png':uiState==='mouseWin'?'/assets/pixel-v1/button-mousewin-home.png':'/assets/pixel-v1/button-cancelled-home.png'}}" label="返回首页" tone="plain" font-scale="{{fontScale}}" bindaction="goHome" /></view><text wx:if="{{uiState==='cancelled'}}" class="recordNote">这局记录保留，下一轮使用新的对局</text></view>
-</scroll-view>
-<block wx:else>
- <view class="mapCanvas" aria-label="对局定位地图">
-  <campus-model wx:if="{{modelMode}}" class="campusModel" compact="{{true}}" image-id="{{venueMapId}}" geo-data="{{geoData}}" layout-key="{{viewportWidth+'x'+viewportHeight}}" bindready="onMapReady" bindfallback="useArtMap" />
-  <venue-art class="venueArt" style="--venue-dock-display:none" wx:elif="{{artMode}}" bindready="onMapReady" src="{{parkArt}}" image-id="{{venueMapId}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
-  <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" polygons="{{venuePolygons}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
- </view>
- <view class="playHud compactHud role-{{match.myRole}}" aria-label="本局状态">
-  <image class="hudAvatar" src="{{roleArt}}" mode="aspectFit" aria-hidden="true"/>
-  <view class="compactIdentity"><text class="roleName">{{roleText}}</text><text class="phaseName">{{offline?'重连中':uiState==='paused'?'本局暂停':uiState==='captured'?'已出局':phaseText}}</text></view>
-  <text class="compactClock">{{clock}}</text><view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view>
-  <text class="registrationState">{{offline?'断线':modelMode?'3D参考':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'OSM参考'):hasSelf?'已定位':'定位中'}}</text>
- </view>
- <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
- <view class="mapTools">
-  <button class="edgeButton locateButton" bindtap="locateSelf" aria-label="回到本人位置"><pixel-glyph kind="locate" size="27"/></button>
-  <button class="edgeButton layerButton" wx:if="{{venueMapId!=='native-gcj02-v1'}}" bindtap="toggleMapMode" disabled="{{layerLoading}}" aria-label="选择地图图层"><pixel-glyph kind="layers" size="25"/></button>
-  <button wx:if="{{modelMode}}" class="edgeButton" bindtap="tiltModel" aria-label="切换3D俯视与斜视"><pixel-glyph kind="cube" size="25"/></button>
-  <view class="zoomControls"><button class="edgeButton zoomInButton" bindtap="zoomMapIn" disabled="{{modelMode?false:artMode?artCanZoomIn===false:mapScale>=20}}" aria-label="放大地图"><pixel-glyph kind="plus" size="23"/></button><button class="edgeButton zoomOutButton" bindtap="zoomMapOut" disabled="{{modelMode?false:artMode?artCanZoomOut===false:mapScale<=3}}" aria-label="缩小地图"><pixel-glyph kind="minus" size="23"/></button></view>
-  <button wx:if="{{!offline && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="edgeButton pauseButton" bindtap="emergency" aria-label="紧急暂停"><pixel-glyph kind="pause" size="25"/></button>
- </view>
- <view class="mapStatusRegion {{trayExpanded?'aboveDrawer':'aboveTab'}}">
-  <view wx:if="{{offline}}" class="mapStatus statusReconnect"><text class="statusTitle">{{connection==='身份失效'?'身份已失效':'断线重连中，请停下'}}</text><text>{{connection==='身份失效'?'请返回首页重新进入':'旧位置已隐藏，连接恢复后自动同步'}}</text><button wx:if="{{connection==='身份失效'}}" class="compactButton" bindtap="goHome">返回首页</button></view>
-  <view wx:elif="{{uiState==='paused'}}" class="mapStatus"><text class="statusTitle">本局暂停 · 请原地等待</text><text>{{pauseReasonText}}</text><button wx:if="{{canResume}}" class="compactButton" bindtap="resume">恢复本局</button><text wx:else>等待组织者恢复本局</text></view>
-  <view wx:elif="{{uiState==='joining'}}" class="mapStatus"><text class="statusTitle">已补入{{roleText}} · 正在定位入场</text><text>请在场内停下，30秒内完成定位；暂停时等待房主恢复</text></view>
-  <view wx:elif="{{uiState==='left'}}" class="mapStatus"><text class="statusTitle">本轮已退出</text><text>主动退出或入场定位超时；可查看公开状态，下一轮再参与</text></view>
-  <view wx:elif="{{uiState==='captured'}}" class="mapStatus"><text class="statusTitle">本轮出局</text><text>仅查看公开位置，请返回集合点等待结算</text></view>
-  <view wx:elif="{{uiState==='hiding'}}" class="mapStatus"><text class="statusTitle">{{match.myRole==='cat'?'猫留在集合点等待':'鼠先躲藏'}}</text><text>{{match.myRole==='cat'?'躲藏倒计时结束后出发':'在活动范围内寻找躲藏位置'}}</text></view>
-  <view wx:elif="{{nearbyCat}}" class="mapStatus proximityWarning"><text class="statusTitle">附近有猫，注意观察</text><text>{{mouseTeamVision?'地图已标出队伍视野内的猫':'接近预警，不展示猫的精确位置'}}</text></view>
-  <view wx:elif="{{sharedCatCount}}" class="mapStatus"><text class="statusTitle">队友发现了 {{sharedCatCount}} 只猫</text><text>地图猫头像为队伍共享视野，失去视野即移除</text></view>
-  <view wx:elif="{{artMode && (omittedArtRegions || omittedArtBoundary)}}" class="mapStatus"><text>{{omittedArtBoundary?'活动边界超出图片配准，请切实时地图':'部分线索超出图片覆盖，请用叠层图标查看实时地图'}}</text></view>
- </view>
- <view wx:if="{{captureRetry && !offline && !terminal}}" class="captureRetryBar"><text>抓捕结果待确认</text><button bindtap="retryCapture" disabled="{{loading}}">重试确认</button></view>
- <view class="actionDrawer {{trayExpanded?'trayOpen':'trayClosed'}} {{trayDragging?'isDragging':''}}" aria-hidden="{{!trayExpanded}}" style="{{trayDragging?'transform:translateY('+trayDragY+'px)':''}}">
-  <button class="trayGrip" bindtap="toggleTray" catchtouchstart="trayTouchStart" catchtouchmove="trayTouchMove" bindtouchend="trayTouchEnd" bindtouchcancel="trayTouchCancel" aria-label="收起操作面板"><view class="gripMark"/></button>
-  <view class="trayActions">
-   <button wx:if="{{canScan}}" class="iconAction primaryAction catAction" bindtap="scan" disabled="{{loading || !trayExpanded}}" aria-label="{{loading?'正在确认抓捕':'双方停下后扫码确认抓捕'}}"><pixel-glyph kind="code" size="34" color="#fffdf6"/></button>
-   <button wx:if="{{canShowCode}}" class="iconAction primaryAction mouseAction" bindtap="showCode" disabled="{{!trayExpanded}}" aria-label="停下后展示动态抓捕码"><pixel-glyph kind="code" size="34" color="#fffdf6"/></button>
-   <button class="iconAction teamAction" data-tab="team" bindtap="openDrawer" disabled="{{!trayExpanded}}" aria-label="队伍与在线状态"><pixel-glyph kind="team" size="32"/></button>
-   <button class="iconAction rulesAction" data-tab="rules" bindtap="openDrawer" disabled="{{!trayExpanded}}" aria-label="规则与对局操作"><pixel-glyph kind="rules" size="32"/></button>
-  </view>
- </view>
- <view class="collapsedDock {{trayExpanded?'dockHidden':'dockVisible'}}" aria-hidden="{{trayExpanded}}">
-  <button class="dockGrip" bindtap="toggleTray" catchtouchstart="trayTouchStart" catchtouchmove="trayTouchMove" bindtouchend="trayTouchEnd" bindtouchcancel="trayTouchCancel" aria-label="展开操作面板" disabled="{{trayExpanded}}"><view class="gripMark"/></button>
-  <button wx:if="{{canScan}}" class="dockAction catAction" bindtap="scan" disabled="{{trayExpanded || loading}}" aria-label="双方停下后扫码确认抓捕"><pixel-glyph kind="code" size="28" color="#fffdf6"/></button>
-  <button wx:elif="{{canShowCode}}" class="dockAction mouseAction" bindtap="showCode" disabled="{{trayExpanded}}" aria-label="停下后展示动态抓捕码"><pixel-glyph kind="code" size="28" color="#fffdf6"/></button>
-  <button wx:else class="dockAction" bindtap="toggleTray" disabled="{{trayExpanded}}" aria-label="展开队伍与规则"><pixel-glyph kind="team" size="28"/></button>
- </view>
-</block>
-<text wx:if="{{error && !offline}}" class="error mapError">{{error}}</text>
-<view wx:if="{{drawer}}" class="drawerMask {{drawerClosing?'sheetLeaving':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
-<view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd"><view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view><view class="drawerHeader"><image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" /><text>对局详情</text><view class="drawerClose"><button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭详情"><pixel-glyph kind="close" size="18"/></button></view></view><view class="drawerTabs"><button data-tab="team" class="{{drawerTab==='team'?'selected':''}}" bindtap="selectDrawerTab">队伍</button><button data-tab="events" class="{{drawerTab==='events'?'selected':''}}" bindtap="selectDrawerTab">事件</button><button data-tab="rules" class="{{drawerTab==='rules'?'selected':''}}" bindtap="selectDrawerTab">规则</button></view><scroll-view scroll-y class="drawerBody"><view class="drawerContent">
- <view wx:if="{{drawerTab==='team'}}" class="squadColumns"><view class="squad catsGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view><view class="teamGrid catGrid"><view wx:for="{{cats}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState">{{item.status==='joining'?'正在定位入场':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view><view class="squad miceGroup"><view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view><view class="teamGrid mouseGrid"><view wx:for="{{mice}}" wx:key="id" class="teamMember"><image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" /><view><text class="rosterName">{{item.nickname}}</text><text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='joining'?'正在定位入场':item.status==='captured'?'已被捕获':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text></view></view></view></view></view>
- <view wx:if="{{drawerTab==='events'}}" class="eventGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>最近事件</text></view><text wx:if="{{!events.length}}" class="bodyCopy">暂无新事件</text><view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow"><text>{{event.timeText}}</text><text>{{event.kind==='JOIN'?'新玩家补入阵营':event.kind==='JOIN_READY'?'新玩家已入场':event.kind==='JOIN_EXPIRED'?'入场定位超时':event.kind==='LEAVE'?'有玩家退出':event.kind==='CAPTURE'?'完成一次抓捕':event.kind==='RESULT'?'本局结算':event.kind==='PAUSE'?'本局暂停':event.kind==='RESUME'?'本局恢复':event.kind==='CHASING'?'追逐开始':'本局开始'}}</text></view></view>
- <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup"><view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则摘要</text></view><text class="bodyCopy">{{venueName}}</text><text class="bodyCopy">• 30秒躲藏 · 6分钟追逐</text><text class="bodyCopy">• 猫抓满{{match.target}}人获胜</text><text class="bodyCopy">• 取消不计胜负</text><text class="bodyCopy">• 鼠队视野{{mouseTeamVision?'共享：任一存活鼠发现120米内猫，全体存活鼠可见':'独立：只提示本人附近有猫'}}</text><text wx:if="{{match.trackVersion==='tracks-v1'}}" class="bodyCopy">• 结算后可导出本人轨迹，房主可导出全员；保留7天</text><text wx:if="{{!devPreview}}" class="bodyCopy">{{trackingText}} {{trackingNotice}}</text><button wx:if="{{!devPreview && !offline && !terminal && !backgroundReady && (match.myStatus==='active' || match.myStatus==='joining')}}" class="textButton" bindtap="retryBackgroundLocation">开启后台定位</button><button wx:if="{{!devPreview && !offline && !terminal && !backgroundReady && (match.myStatus==='active' || match.myStatus==='joining')}}" class="textButton" bindtap="openLocationSettings">定位权限设置</button><text class="bodyCopy">• {{match.joinPolicy==='reinforce-v2'?'补入后按累计鼠人数的60%更新目标；截止不变':'新玩家按开局比例补入；本局目标与截止时间不变'}}</text></view>
- <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="emergency" /><pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'返回首页':'退出本局'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
- <view class="advancedRules"><text class="bodyCopy">蓝色爪印是本人，绿色双人是队友，旗帜是集合点；猫头像是共享视野内的猫，橘色区域是大致线索。OSM参考位置尚未实地核验，图片覆盖外请切换实时地图。房主保存的标定优先使用。被捕本轮出局；截止时未达标则鼠胜。双方停下扫码，GPS仅作辅助校验。</text><button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="textButton" bindtap="pause">组织者暂停</button><button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="textButton" bindtap="cancel">取消本局</button></view>
-</view></scroll-view></view>
-<view wx:if="{{codeOpen}}" class="codeMask" bindtap="closeCode" catchtouchmove="ignoreTouch"></view>
-<view wx:if="{{codeOpen}}" class="codeSheet" role="dialog" aria-label="动态抓捕码">
- <view class="codeSheetHeader"><text>动态抓捕码</text><button class="sheetCloseButton" bindtap="closeCode" aria-label="关闭动态码"><pixel-glyph kind="close" size="18"/></button></view>
- <scroll-view scroll-y class="codeSheetBody"><text class="codeSafety">双方停下，当面扫码确认</text>
- <view class="inlineQr"><view wx:if="{{devPreview}}" class="codePlaceholder"><image src="/assets/pixel-v1/code-demo-art.png" mode="aspectFit"/><text>演示码 · 不可扫描</text></view><image wx:elif="{{image && seconds>0}}" src="{{image}}" mode="aspectFit" aria-label="本局动态抓捕码"/><view wx:else class="codePlaceholder"><text>{{codeError?'暂时无法生成':'正在更新抓捕码…'}}</text></view></view>
- <text class="codeExpiry">{{devPreview?'预览演示':seconds>0?seconds+' 秒后自动更新':'等待有效抓捕码'}}</text><text wx:if="{{codeError}}" class="codeFailure">{{codeError}}</text><text class="codeFootnote">扫码成功才算抓捕 · GPS仅作辅助校验</text>
- </scroll-view>
+<view wx:if="{{!match}}" class="sdvWoodCard emptyState">
+  <text class="emptyTitle">正在同步状态</text>
+  <text class="bodyCopy">{{error || '请稍候…'}}</text>
+  <button class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="goHome">返回首页</button>
 </view>
+
+<scroll-view wx:elif="{{terminal}}" scroll-y class="terminalScroll">
+  <view class="terminalWrap">
+    <view class="sdvWoodCard summaryHeroCard">
+      <image class="resultHero" src="/assets/sdv-v1/summary-banner.png" mode="widthFix" aria-label="户外活动结束手账归档横幅" />
+      <view class="sdvPlank summaryPlank">
+        <text class="summaryPlankTitle">{{uiState==='cancelled'?'场次已取消':'场次汇总'}}</text>
+        <text class="sdvBadge {{uiState==='cancelled'?'sdvBadgeGray':'sdvBadgeGreen'}}">{{uiState==='cancelled'?'已取消':'已归档'}}</text>
+      </view>
+    </view>
+
+    <view class="sdvWoodCard resultStats">
+      <text class="resultReason">{{uiState==='catWin'?'已达成核验目标':uiState==='mouseWin'?'活动已结束':'记录已归档'}}</text>
+      <view class="resultGrid">
+        <view class="resultMetric">
+          <view class="statIconHead">
+            <pixel-glyph kind="scan" size="13" color="#2c6122" />
+            <text class="statLabel">核验</text>
+          </view>
+          <view class="statValue"><text class="orangeNumber">{{match.captured}}</text><text class="statDenom"> / {{match.target}}</text></view>
+        </view>
+        <view class="resultMetric resultMetricSky">
+          <view class="statIconHead">
+            <pixel-glyph kind="pin" size="13" color="#1e5880" />
+            <text class="statLabel">场地</text>
+          </view>
+          <text class="statVenue">{{venueName}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{uiState==='mouseWin'}}" class="sdvPaperCard resultMapCard">
+      <view class="sdvIconTitle">
+        <pixel-glyph kind="map" size="16" color="#2c6122" />
+        <text>场地范围</text>
+      </view>
+      <view class="resultMap">
+        <map wx:if="{{venueMapId==='native-gcj02-v1'}}" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" polygons="{{venuePolygons}}" />
+        <venue-art wx:else class="venueArt" image-id="{{venueMapId}}" src="{{parkArt}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" />
+      </view>
+    </view>
+
+    <view class="sdvPaperCard trackResultCard" wx:if="{{!devPreview && !offline && match.trackVersion==='tracks-v1'}}">
+      <view class="sdvIconTitle">
+        <pixel-glyph kind="route" size="16" color="#2c6122" />
+        <text>轨迹与海报</text>
+      </view>
+      <view class="trackResultActions">
+        <button class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="openTracks" data-scope="self">
+          <pixel-glyph kind="image" size="15" color="#3b1d0b" />
+          <text>个人海报</text>
+        </button>
+        <button wx:if="{{owner}}" class="sdvBtn sdvBtnPaper sdvBtnSm" bindtap="openTracks" data-scope="all">
+          <pixel-glyph kind="download" size="15" color="#3b1d0b" />
+          <text>全员轨迹</text>
+        </button>
+      </view>
+    </view>
+
+    <view class="resultActions">
+      <pixel-action class="pixelControl" wx:if="{{canReplay}}" skin="/assets/pixel-v1/button-catwin-replay.png" label="发起下一场" tone="green" font-scale="{{fontScale}}" bindaction="replay" />
+      <text wx:else class="waitingHost">{{offline?'重连后可开始下一场':'等待组织者发起下一场'}}</text>
+      <view class="resultSubActions">
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-catwin-details.png" label="明细" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" />
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-catwin-home.png" label="首页" tone="plain" font-scale="{{fontScale}}" bindaction="goHome" />
+      </view>
+    </view>
+    <text wx:if="{{uiState==='cancelled'}}" class="recordNote">已保留本场记录</text>
+    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+  </view>
+</scroll-view>
+
+<block wx:else>
+  <view class="mapCanvas" aria-label="活动定位地图">
+    <campus-model wx:if="{{modelMode}}" class="campusModel" compact="{{true}}" image-id="{{venueMapId}}" geo-data="{{geoData}}" layout-key="{{viewportWidth+'x'+viewportHeight}}" bindready="onMapReady" bindfallback="useArtMap" />
+    <venue-art class="venueArt" style="--venue-dock-display:none" wx:elif="{{artMode}}" bindready="onMapReady" src="{{parkArt}}" image-id="{{venueMapId}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
+    <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" polygons="{{venuePolygons}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
+  </view>
+
+  <view class="playHud compactHud role-{{match.myRole}}" aria-label="本场活动状态">
+    <image class="hudAvatar" src="{{roleArt}}" mode="aspectFit" aria-hidden="true" />
+    <view class="compactIdentity">
+      <text class="roleName">{{roleText}}</text>
+      <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
+    </view>
+    <text class="compactClock">{{clock}}</text>
+    <view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view>
+    <text class="registrationState">{{offline?'断线':modelMode?'3D图':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'像素图'):hasSelf?'已定位':'定位中'}}</text>
+  </view>
+
+  <view class="mapTopLeft">
+    <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
+    <view wx:if="{{meetingGuideText && !offline}}" class="venueNavChip" aria-label="集合点方向与距离">
+      <pixel-glyph kind="compass" size="13" color="#1e5880" />
+      <text>{{meetingGuideText}}</text>
+    </view>
+  </view>
+
+  <view class="mapTools">
+    <button class="edgeButton locateButton" hover-class="sdvPressed" bindtap="locateSelf" aria-label="回到本人位置">
+      <pixel-glyph kind="locate" size="18" color="#332012" />
+      <text class="toolLabel">定位</text>
+    </button>
+    <button class="edgeButton layerButton" hover-class="sdvPressed" wx:if="{{venueMapId!=='native-gcj02-v1'}}" bindtap="toggleMapMode" disabled="{{layerLoading}}" aria-label="选择地图图层">
+      <pixel-glyph kind="layers" size="18" color="#332012" />
+      <text class="toolLabel">图层</text>
+    </button>
+    <button wx:if="{{modelMode}}" class="edgeButton" hover-class="sdvPressed" bindtap="tiltModel" aria-label="切换3D俯视与斜视">
+      <pixel-glyph kind="cube" size="18" color="#332012" />
+      <text class="toolLabel">视角</text>
+    </button>
+    <button class="edgeButton {{vibeOn?'vibeActive':''}}" hover-class="sdvPressed" bindtap="toggleVibe" aria-label="{{vibeOn?'关闭震动提醒':'开启震动提醒'}}">
+      <pixel-glyph kind="{{vibeOn?'bell':'bellOff'}}" size="18" color="{{vibeOn?'#2c6122':'#7c522b'}}" />
+      <text class="toolLabel">{{vibeOn?'提醒':'静音'}}</text>
+    </button>
+  </view>
+
+  <view class="mapStatusRegion">
+    <view wx:if="{{offline}}" class="mapStatus statusReconnect">
+      <text class="statusTitle">{{connection==='身份失效'?'身份失效':'断线重连中'}}</text>
+      <text>{{connection==='身份失效'?'请回首页重进':'恢复后自动同步'}}</text>
+      <button wx:if="{{connection==='身份失效'}}" class="compactButton" bindtap="goHome">回首页</button>
+    </view>
+    <view wx:elif="{{uiState==='paused'}}" class="mapStatus">
+      <text class="statusTitle">活动暂停</text>
+      <text>{{pauseReasonText}}</text>
+      <button wx:if="{{canResume}}" class="compactButton" bindtap="resume">恢复活动</button>
+      <text wx:else>等待组织者恢复</text>
+    </view>
+    <view wx:elif="{{uiState==='joining'}}" class="mapStatus">
+      <text class="statusTitle">已补入{{roleText}}</text>
+      <text>请在范围内定位（30s）</text>
+    </view>
+    <view wx:elif="{{uiState==='left'}}" class="mapStatus">
+      <text class="statusTitle">已退出本场</text>
+      <text>仅查看公开状态</text>
+    </view>
+    <view wx:elif="{{uiState==='captured'}}" class="mapStatus">
+      <text class="statusTitle">已核验登记</text>
+      <text>仅查看公开位置 · 回集合点等待</text>
+    </view>
+    <view wx:elif="{{uiState==='hiding'}}" class="mapStatus">
+      <text class="statusTitle">{{match.myRole==='cat'?'准备倒计时 · 等待出发':'准备倒计时 · 先往范围内'}}</text>
+      <text>{{match.myRole==='cat'?'结束后开始行动':'选好位置 · 右下看明细'}}</text>
+    </view>
+    <view wx:elif="{{nearbyCat}}" class="mapStatus proximityWarning">
+      <text class="statusTitle">附近有猫队</text>
+      <text>{{mouseTeamVision?'地图已标出视野内猫位置':'近距预警 · 无精确坐标'}}</text>
+    </view>
+    <view wx:elif="{{sharedCatCount}}" class="mapStatus">
+      <text class="statusTitle">同伴共享 {{sharedCatCount}} 处</text>
+      <text>猫头像为共享视野，离视野即移除</text>
+    </view>
+    <view wx:elif="{{artMode && (omittedArtRegions || omittedArtBoundary)}}" class="mapStatus">
+      <text>{{omittedArtBoundary?'边界超出像素图，请切实时图':'部分点超出像素图，请切实时图'}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{captureRetry && !offline && !terminal}}" class="captureRetryBar">
+    <text>核验待确认</text>
+    <button class="sdvBtn sdvBtnGreen sdvBtnSm sdvBtnInline" bindtap="retryCapture" disabled="{{loading}}">重试</button>
+  </view>
+
+  <view class="mapBottomDock" aria-label="活动主操作栏">
+    <button wx:if="{{canScan}}" class="dockBtn dockPrimary sdvBtnAmber" hover-class="sdvPressed" bindtap="scan" disabled="{{loading}}" aria-label="{{loading?'正在确认核验':'双方停下后扫码确认核验'}}">
+      <pixel-glyph kind="scan" size="18" color="#fffdf6" />
+      <text>扫码核验</text>
+    </button>
+    <button wx:if="{{canShowCode}}" class="dockBtn dockPrimary sdvBtnBlue" hover-class="sdvPressed" bindtap="showCode" aria-label="停下后展示现场动态核验码">
+      <pixel-glyph kind="code" size="18" color="#fffdf6" />
+      <text>核验码</text>
+    </button>
+    <button wx:if="{{canResume}}" class="dockBtn dockPrimary sdvBtnGreen" hover-class="sdvPressed" bindtap="resume" disabled="{{loading}}" aria-label="恢复活动">
+      <pixel-glyph kind="check" size="18" color="#fffdf6" />
+      <text>恢复</text>
+    </button>
+    <button class="dockBtn {{(canScan || canShowCode || canResume)?'dockSecondary':'dockPrimary'}} sdvBtnPaper" hover-class="sdvPressed" data-tab="team" bindtap="openDrawer" aria-label="查看成员、动态与设置">
+      <pixel-glyph kind="team" size="18" color="#332012" />
+      <text>明细</text>
+      <view wx:if="{{unreadEvents>0}}" class="dockBadge">{{unreadEvents>9?'9+':unreadEvents}}</view>
+    </button>
+  </view>
+</block>
+
+<text wx:if="{{error && !offline}}" class="sdvError mapError">{{error}}</text>
+
+<view wx:if="{{drawer}}" class="drawerMask {{drawerClosing?'sheetLeaving':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
+<view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd">
+  <view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view>
+  <view class="drawerHeader">
+    <image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" />
+    <text class="drawerHeaderTitle">活动明细</text>
+    <view class="drawerClose">
+      <button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭明细"><pixel-glyph kind="close" size="16" color="#332012" /></button>
+    </view>
+  </view>
+  <view class="drawerTabs">
+    <button data-tab="team" class="{{drawerTab==='team'?'selected':''}}" bindtap="selectDrawerTab">
+      <pixel-glyph kind="team" size="14" color="#3b1d0b" />
+      <text>成员</text>
+    </button>
+    <button data-tab="events" class="{{drawerTab==='events'?'selected':''}}" bindtap="selectDrawerTab">
+      <pixel-glyph kind="clock" size="14" color="#3b1d0b" />
+      <text>动态</text>
+    </button>
+    <button data-tab="rules" class="{{drawerTab==='rules'?'selected':''}}" bindtap="selectDrawerTab">
+      <pixel-glyph kind="settings" size="14" color="#3b1d0b" />
+      <text>设置</text>
+    </button>
+  </view>
+  <scroll-view scroll-y class="drawerBody">
+    <view class="drawerContent">
+      <view wx:if="{{drawerTab==='team'}}" class="squadColumns">
+        <view class="squad catsGroup">
+          <view class="squadHead"><image src="/assets/pixel-v1/role-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view>
+          <view class="teamGrid catGrid">
+            <view wx:for="{{cats}}" wx:key="id" class="teamMember">
+              <image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" />
+              <view>
+                <text class="rosterName">{{item.nickname}}</text>
+                <text class="rosterState">{{item.status==='joining'?'定位中':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="squad miceGroup">
+          <view class="squadHead"><image src="/assets/pixel-v1/role-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view>
+          <view class="teamGrid mouseGrid">
+            <view wx:for="{{mice}}" wx:key="id" class="teamMember">
+              <image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" />
+              <view>
+                <text class="rosterName">{{item.nickname}}</text>
+                <text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='joining'?'定位中':item.status==='captured'?'已核验':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{drawerTab==='events'}}" class="eventGroup">
+        <view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>动态</text></view>
+        <text wx:if="{{!events.length}}" class="bodyCopy">暂无动态</text>
+        <view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow">
+          <text class="eventTime">{{event.timeText}}</text>
+          <text>{{event.kind==='JOIN'?'新成员补入':event.kind==='JOIN_READY'?'补入定位完成':event.kind==='JOIN_EXPIRED'?'入场定位超时':event.kind==='LEAVE'?'成员退出':event.kind==='CAPTURE'?'现场核验 +1':event.kind==='RESULT'?'场次汇总':event.kind==='PAUSE'?'活动暂停':event.kind==='RESUME'?'活动恢复':event.kind==='CHASING'?'开始行动':'开始准备'}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup">
+        <view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则与设置</text></view>
+        <view class="sdvPaperCard rulesBox">
+          <view class="ruleItem"><pixel-glyph kind="pin" size="14" color="#2c6122" /><text class="bodyCopy">{{venueName}}</text></view>
+          <view class="ruleItem"><pixel-glyph kind="clock" size="14" color="#a64d0b" /><text class="bodyCopy">30s准备 · 6分 · 目标{{match.target}}人</text></view>
+          <view class="ruleItem"><pixel-glyph kind="eye" size="14" color="#1e5880" /><text class="bodyCopy">鼠队视野：{{mouseTeamVision?'120m共享':'独立预警'}}</text></view>
+          <view wx:if="{{match.trackVersion==='tracks-v1'}}" class="ruleItem"><pixel-glyph kind="route" size="14" color="#2c6122" /><text class="bodyCopy">轨迹留存7天</text></view>
+          <text wx:if="{{!devPreview}}" class="bodyCopy">{{trackingText}} {{trackingNotice}}</text>
+        </view>
+        <view class="drawerToolRow" wx:if="{{!devPreview && !offline && !terminal && !backgroundReady && (match.myStatus==='active' || match.myStatus==='joining')}}">
+          <button class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="retryBackgroundLocation">开启后台定位</button>
+          <button class="sdvBtn sdvBtnPaper sdvBtnSm" bindtap="openLocationSettings">定位权限</button>
+        </view>
+        <view class="drawerActionStack">
+          <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="promptEmergency" />
+          <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="pause">组织者暂停</button>
+          <button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="sdvBtn sdvBtnRed sdvBtnSm" bindtap="cancel">取消本场</button>
+          <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'回首页':'退出活动'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+        </view>
+        <view class="advancedRules">
+          <view class="legendGrid">
+            <view class="legendItem"><view class="legendSwatch swatchSelf"></view><text>本人</text></view>
+            <view class="legendItem"><view class="legendSwatch swatchAlly"></view><text>队友</text></view>
+            <view class="legendItem"><view class="legendSwatch swatchFlag"></view><text>集合点</text></view>
+            <view class="legendItem"><view class="legendSwatch swatchCat"></view><text>共享</text></view>
+          </view>
+          <text class="legendFoot">当面扫码核验 · GPS辅助</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view wx:if="{{codeOpen}}" class="codeMask" bindtap="closeCode" catchtouchmove="ignoreTouch"></view>
+<view wx:if="{{codeOpen}}" class="codeSheet" role="dialog" aria-label="现场核验码">
+  <view class="codeSheetHeader">
+    <view class="sdvIconTitle">
+      <pixel-glyph kind="code" size="18" color="#1c4763" />
+      <text>现场核验码</text>
+    </view>
+    <view class="drawerClose">
+      <button class="sheetCloseButton" bindtap="closeCode" aria-label="关闭核验码"><pixel-glyph kind="close" size="16" color="#332012" /></button>
+    </view>
+  </view>
+  <scroll-view scroll-y class="codeSheetBody">
+    <text class="codeSafety">停在安全处当面扫码</text>
+    <view class="inlineQr">
+      <view wx:if="{{devPreview}}" class="codePlaceholder"><image src="/assets/pixel-v1/code-demo-art.png" mode="aspectFit" /><text>演示码 · 不可扫描</text></view>
+      <image wx:elif="{{image && seconds>0}}" src="{{image}}" mode="aspectFit" aria-label="本场现场动态核验码" />
+      <view wx:else class="codePlaceholder"><text>{{codeError?'无法生成':'更新中…'}}</text></view>
+    </view>
+    <text class="codeExpiry">{{devPreview?'15s 示例':seconds>0?seconds+'s 自动更新':'等待核验码'}}</text>
+    <text wx:if="{{codeError}}" class="sdvError codeFailure">{{codeError}}</text>
+    <text class="codeFootnote">扫码成功即登记 · GPS辅助</text>
+  </scroll-view>
+</view>
+
+<sdv-modal
+  visible="{{layerSheetOpen}}"
+  mode="sheet"
+  title="地图图层"
+  items="{{layerOptions}}"
+  cancelText="取消"
+  fontScale="{{fontScale}}"
+  bindselect="onSelectLayer"
+  bindcancel="closeLayerSheet"
+  bindclose="closeLayerSheet"
+/>
+
+<sdv-modal
+  visible="{{confirmModal.visible}}"
+  mode="dialog"
+  title="{{confirmModal.title}}"
+  content="{{confirmModal.content}}"
+  confirmText="{{confirmModal.confirmText}}"
+  confirmTone="{{confirmModal.confirmTone}}"
+  cancelText="先不"
+  fontScale="{{fontScale}}"
+  bindconfirm="onConfirmModal"
+  bindcancel="closeConfirmModal"
+  bindclose="closeConfirmModal"
+/>
 </view>

@@ -1,4 +1,91 @@
 @import "../../../utils/pixel-theme.wxss";
-.settingsScreen{padding:calc(var(--nav-height,64px) + 18px) 16px calc(28px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));min-height:var(--vh,100vh)}.settingsCard{padding:18px;margin-bottom:16px}.settingsTitle{display:block;font-size:calc(21px * var(--font-scale,1));line-height:1.4}.settingsSwitch{gap:12px;display:flex;align-items:center;justify-content:space-between;margin:12px 0}.settingsCopy,.settingsNote,.settingsError{display:block;font-size:calc(15px * var(--font-scale,1));line-height:1.65;margin-top:12px}.settingsNote{color:#637562}.settingsError{color:#a4462c}.saveSettings{width:100%!important;font:inherit;font-size:calc(16px * var(--font-scale,1));color:#fffdf6;background:#477f60;border:2px solid #243b31;border-radius:2px;margin-top:20px;min-height:48px;line-height:1.5;padding:12px}
 
-.settingsCopy,.settingsNote,.settingsError{overflow-wrap:anywhere}
+.settingsScreen{
+  min-height:var(--vh,100vh);
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  padding:calc(var(--nav-height,64px) + 12px) 14px calc(84px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+  color:#332012;
+}
+
+.settingsWrap{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.settingsWrap .sdvMeadowFooter{
+  margin-top:auto;
+}
+
+.settingsCard{
+  padding:4px 6px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.settingsCardHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.settingsSwitch{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  background:#d4ebba;
+  border:2px solid #35692a;
+  border-radius:0;
+  box-shadow:inset 0 2px 0 #ecf7df,inset 0 -2px 0 #9bc97b;
+  margin:4px 0;
+}
+
+.switchLabelBox{
+  flex:1;
+  min-width:0;
+}
+
+.switchMain{
+  display:block;
+  font-size:calc(16px * var(--font-scale,1));
+  color:#24451c;
+}
+
+.switchSub{
+  display:block;
+  margin-top:2px;
+  font-size:calc(12px * var(--font-scale,1));
+  color:#5e4c3c;
+}
+
+.settingRuleRow{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.settingsCopy{
+  display:block;
+  font-size:calc(13px * var(--font-scale,1));
+  line-height:1.5;
+  color:#332012;
+  overflow-wrap:anywhere;
+}
+
+.settingsNote{
+  display:block;
+  margin-top:2px;
+  font-size:calc(12px * var(--font-scale,1));
+  line-height:1.5;
+  color:#5e4c3c;
+  overflow-wrap:anywhere;
+}
+
+.settingsBanner,.settingsError{margin:0}

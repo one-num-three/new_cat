@@ -1,8 +1,85 @@
-<view class="screen tracksScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px"><nav-bar pinned="{{true}}" title="赛后行动轨迹" back="{{true}}" />
- <text class="tracksTitle">{{scope==='all'?'全员行动轨迹':'我的行动轨迹'}}</text><text class="tracksNote">{{settlementLabel || '正在读取结算'}} · 仅记录有效GPS · 保存7天</text>
- <map wx:if="{{loaded && pointCount}}" class="trackMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="16" polyline="{{polylines}}" markers="{{markers}}" enable-zoom="{{true}}" enable-scroll="{{true}}" show-location="{{false}}" />
- <view wx:else class="pixelPaper trackEmpty"><text>{{loading?'正在读取本局轨迹…':error?'暂时无法读取轨迹':'本局没有有效定位轨迹'}}</text></view>
- <view class="pixelPaper trackSummary"><text>{{pointCount}} 个记录点</text><view wx:for="{{players}}" wx:key="id" class="trackPlayer"><view class="trackIdentity"><text class="trackNickname">{{item.nickname}}</text><text class="trackRole">{{item.role==='cat'?'猫队':'鼠队'}}</text></view><text class="trackPointCount">{{item.points}} 点</text></view></view>
- <text class="tracksNote">{{notice}}</text><view class="trackActions"><button bindtap="exportFile" data-format="csv" disabled="{{!loaded || !pointCount || exporting}}">导出 CSV</button><button bindtap="exportFile" data-format="geojson" disabled="{{!loaded || !pointCount || exporting}}">导出 GeoJSON</button></view>
- <button wx:if="{{loaded && canPoster}}" class="sendTrackFile posterEntry" bindtap="openPoster">生成我的轨迹海报</button><button wx:if="{{fileName}}" class="sendTrackFile" bindtap="sendFile" disabled="{{exporting}}">发送导出文件</button><text wx:if="{{fileName}}" class="tracksNote">{{fileName}}</text><text class="tracksNote">CSV保留GCJ-02原始坐标与时间、精度；GeoJSON转换为近似WGS84。导出文件含行动位置，请自行选择接收方。海报始终只含本人轨迹。</text><button wx:if="{{error}}" class="textButton" bindtap="load">重新读取</button><text wx:if="{{error}}" class="trackError" role="alert">{{error}}</text>
+<view class="screen tracksScreen {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+  <nav-bar pinned="{{true}}" title="活动轨迹记录" back="{{true}}" />
+
+  <view class="tracksWrap">
+    <view class="sdvPlank tracksHeader">
+      <view class="tracksTitleRow">
+        <view class="sdvIconTitle">
+          <map-icon kind="route" size="18" color="#24451c" />
+          <text class="tracksTitle">{{scope==='all'?'全员轨迹':'我的轨迹'}}</text>
+        </view>
+        <text class="sdvBadge {{settlementLabel && settlementLabel.indexOf('取消')>=0?'sdvBadgeGray':'sdvBadgeGreen'}}">{{settlementLabel || '读取中'}}</text>
+      </view>
+      <text class="tracksSub">有效GPS · 保留7天</text>
+    </view>
+
+    <view class="sdvWoodCard trackMapCard">
+      <map wx:if="{{loaded && pointCount}}" class="trackMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="16" polyline="{{polylines}}" markers="{{markers}}" enable-zoom="{{true}}" enable-scroll="{{true}}" show-location="{{false}}" />
+      <view wx:else class="trackEmpty">
+        <text>{{loading?'正在读取轨迹…':error?'无法读取轨迹':'暂无有效定位轨迹'}}</text>
+      </view>
+      <view wx:if="{{loaded && pointCount}}" class="trackLegendBar">
+        <view class="trackLegendItem"><view class="legendDot legendDotCat"></view><text>猫队</text></view>
+        <view class="trackLegendItem"><view class="legendDot legendDotMouse"></view><text>鼠队</text></view>
+        <text class="trackLegendMuted">断线留空</text>
+      </view>
+    </view>
+
+    <view class="sdvPaperCard trackSummary">
+      <view class="trackSummaryHead">
+        <view class="sdvIconTitle">
+          <map-icon kind="team" size="16" color="#2c6122" />
+          <text>成员点位</text>
+        </view>
+        <text class="sdvBadge sdvBadgeAmber">{{pointCount}} 点</text>
+      </view>
+      <view wx:for="{{players}}" wx:key="id" class="trackPlayer">
+        <view class="trackIdentity">
+          <image class="trackRoleIcon" src="{{item.role==='cat'?'/assets/pixel-v1/role-cat.png':'/assets/pixel-v1/role-mouse.png'}}" mode="aspectFit" aria-hidden="true" />
+          <text class="trackNickname">{{item.nickname}}</text>
+        </view>
+        <text class="trackPointCount">{{item.points}} 点</text>
+      </view>
+    </view>
+
+    <text wx:if="{{notice && (fileName || !pointCount)}}" class="sdvNotice tracksNotice">{{notice}}</text>
+
+    <view class="sdvWoodCard trackExportCard">
+      <view class="sdvIconTitle">
+        <map-icon kind="download" size="16" color="#2c6122" />
+        <text>海报与导出</text>
+      </view>
+      <view class="trackActions">
+        <button wx:if="{{loaded && canPoster}}" class="sdvBtn sdvBtnAmber sdvBtnSm" hover-class="sdvPressed" bindtap="openPoster">
+          <map-icon kind="image" size="15" color="#fffdf6" />
+          <text>轨迹海报</text>
+        </button>
+        <button class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="openExportSheet" disabled="{{!loaded || !pointCount || exporting}}">
+          <map-icon kind="download" size="15" color="#fffdf6" />
+          <text>导出文件 ▾</text>
+        </button>
+      </view>
+      <button wx:if="{{fileName}}" class="sdvBtn sdvBtnWood" hover-class="sdvPressed" bindtap="sendFile" disabled="{{exporting}}">
+        <map-icon kind="share" size="16" color="#3b1d0b" />
+        <text>发送导出文件</text>
+      </button>
+      <text wx:if="{{fileName}}" class="trackFileBadge">{{fileName}}</text>
+    </view>
+
+    <text wx:if="{{error}}" class="sdvError trackError" role="alert">{{error}}</text>
+    <button wx:if="{{error}}" class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" bindtap="load">重新读取</button>
+    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+  </view>
+
+  <sdv-modal
+    visible="{{exportSheetOpen}}"
+    mode="sheet"
+    title="导出格式"
+    items="{{exportSheetItems}}"
+    cancelText="取消"
+    fontScale="{{fontScale}}"
+    bindselect="onSelectExport"
+    bindcancel="closeExportSheet"
+    bindclose="closeExportSheet"
+  />
 </view>

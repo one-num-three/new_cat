@@ -139,5 +139,5 @@ test('catch code page ignores late token, detects capture and cleans temporary f
   assert.notEqual(second,first);assert.ok(files.has(second));assert.ok(!files.has(first));assert.ok(unlinked.includes(first));
   snapshot={match:{phase:'CHASING',myStatus:'captured',myRole:'mouse'}};
   await statusTick();
-  assert.equal(files.size,0);assert.equal(page.data.image,'');assert.match(page.data.error,/已被捕/);assert.ok(stops>=2);
+  assert.equal(files.size,0);assert.equal(page.data.image,'');assert.match(page.data.error,/已完成核验/);assert.ok(stops>=2);
 });

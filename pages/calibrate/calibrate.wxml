@@ -1,13 +1,80 @@
-<view class="screen calibrateScreen" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
- <nav-bar pinned="{{true}}" title="地图位置标定" back="{{true}}" preview="{{devPreview}}" />
- <text class="calTitle">{{venueName}}</text><text class="calCopy">先轻点图片上的固定地标，再在真实地图中将同一地标移动到十字中心，或站在地标旁采集GPS。请分散选点，核验点不参与拟合。</text>
- <view class="calArt"><venue-art class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" scroll-top="{{scrollTop}}" auto-tour="{{false}}" calibration-mode="{{true}}" pins="{{pins}}" bindpoint="picked" /></view>
- <text class="calStatus">{{pending?'已选图片像素：'+pendingLabel:'拖动、双指缩放图片，然后轻点地标'}}</text>
- <view class="calKinds"><button disabled="{{busy}}" data-kind="control" bindtap="chooseKind" class="{{kind==='control'?'selected':''}}">控制点</button><button disabled="{{busy}}" data-kind="check" bindtap="chooseKind" class="{{kind==='check'?'selected':''}}">独立核验点</button></view>
- <view class="controlMapFrame"><map id="controlMap" class="controlMap" latitude="{{centerLat}}" longitude="{{centerLng}}" scale="17" enable-rotate="{{false}}" show-location="{{false}}"/><text class="mapCross" aria-hidden="true">+</text></view>
- <view class="calActions"><button bindtap="addMap" disabled="{{!pending || busy || devPreview || !owner}}">绑定十字中心地标</button><button bindtap="addGps" disabled="{{!pending || busy || devPreview || !owner}}">站在地标旁采集GPS</button></view>
- <text class="calCopy">坐标统一为GCJ-02。至少3个分散控制点、2个独立核验点；核验最大误差须不超过10米。草稿保存在本机，保存后同步房间。不显示标定覆盖区以外的位置。</text>
- <view wx:for="{{points}}" wx:key="index" class="calRow"><text>{{index+1}} · {{item.kind==='control'?'控制':'核验'}} · {{item.lat}}, {{item.lng}}</text><button data-index="{{index}}" bindtap="remove" disabled="{{busy}}">移除</button></view>
- <text class="calStatus">{{summary}}</text><text wx:if="{{validationError}}" class="calCopy">{{validationError}}</text><text wx:if="{{error}}" class="error" role="alert">{{error}}</text>
- <button class="calSave" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">保存到本房间</button><button class="textButton" bindtap="back">返回房间</button>
+<view class="screen calibrateScreen {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+  <nav-bar pinned="{{true}}" title="地图位置标定" back="{{true}}" preview="{{devPreview}}" />
+
+  <view class="calWrap">
+    <view class="sdvPlank calHead">
+      <text class="calTitle">{{venueName}}</text>
+      <text class="sdvBadge sdvBadgeGreen">GCJ-02 标定</text>
+    </view>
+
+    <view class="sdvWoodCard calCard">
+      <view class="sdvIconTitle">
+        <map-icon kind="pin" size="16" color="#2c6122" />
+        <text>1. 图片地标</text>
+      </view>
+      <view class="calArt">
+        <venue-art class="venueArt" image-id="{{mapId}}" src="{{venueSource}}" scroll-top="{{scrollTop}}" auto-tour="{{false}}" calibration-mode="{{true}}" pins="{{pins}}" bindpoint="picked" />
+      </view>
+      <view class="calPickBar">
+        <text class="calStatusText">{{pending?'已选：'+pendingLabel:'轻点图片选地标'}}</text>
+      </view>
+    </view>
+
+    <view class="sdvWoodCard calCard">
+      <view class="sdvIconTitle">
+        <map-icon kind="locate" size="16" color="#2c6122" />
+        <text>2. 真实坐标</text>
+      </view>
+      <view class="sdvPillGroup calKinds">
+        <button class="sdvPill {{kind==='control'?'sdvPillActive':''}}" hover-class="sdvPressed" disabled="{{busy}}" data-kind="control" bindtap="chooseKind">控制点</button>
+        <button class="sdvPill {{kind==='check'?'sdvPillActive':''}}" hover-class="sdvPressed" disabled="{{busy}}" data-kind="check" bindtap="chooseKind">核验点</button>
+      </view>
+      <view class="controlMapFrame">
+        <map id="controlMap" class="controlMap" latitude="{{centerLat}}" longitude="{{centerLng}}" scale="17" enable-rotate="{{false}}" show-location="{{false}}" />
+        <text class="mapCross" aria-hidden="true">+</text>
+      </view>
+      <view class="calActions">
+        <button class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="addMap" disabled="{{!pending || busy || devPreview || !owner}}">
+          <map-icon kind="locate" size="15" color="#fffdf6" />
+          <text>十字绑定</text>
+        </button>
+        <button class="sdvBtn sdvBtnWood sdvBtnSm" hover-class="sdvPressed" bindtap="addGps" disabled="{{!pending || busy || devPreview || !owner}}">
+          <map-icon kind="pin" size="15" color="#3b1d0b" />
+          <text>GPS采集</text>
+        </button>
+      </view>
+    </view>
+
+    <view class="sdvPaperCard calCard">
+      <view class="sdvIconTitle">
+        <map-icon kind="check" size="16" color="#2c6122" />
+        <text>3. 已标定点</text>
+      </view>
+      <view class="sdvPlank calSummaryBar">
+        <text class="calSummaryText">{{summary}}</text>
+      </view>
+      <view wx:if="{{points.length}}" class="calPointList">
+        <view wx:for="{{points}}" wx:key="index" class="calRow">
+          <text class="sdvBadge {{item.kind==='control'?'sdvBadgeGreen':'sdvBadgeBlue'}}">{{item.kind==='control'?'控制':'核验'}}</text>
+          <text class="calCoord">{{index+1}} · {{item.lat}}, {{item.lng}}</text>
+          <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper calRemoveBtn" hover-class="sdvPressed" data-index="{{index}}" bindtap="remove" disabled="{{busy}}" aria-label="移除">
+            <map-icon kind="trash" size="15" color="#8c2c1b" />
+          </button>
+        </view>
+      </view>
+      <text class="calHintNote">≥3控制点 · ≥2核验点 · 误差≤10m</text>
+      <text wx:if="{{validationError}}" class="sdvNotice calMsg" role="status">{{validationError}}</text>
+      <text wx:if="{{error}}" class="sdvError calMsg" role="alert">{{error}}</text>
+    </view>
+  </view>
+
+  <view class="sdvStickyBar calSticky">
+    <view class="calStickyRow">
+      <button class="sdvBtn sdvBtnGreen" hover-class="sdvPressed" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">
+        <map-icon kind="check" size="16" color="#fffdf6" />
+        <text>保存</text>
+      </button>
+      <button class="sdvBtn sdvBtnWood" hover-class="sdvPressed" bindtap="back">返回</button>
+    </view>
+  </view>
 </view>

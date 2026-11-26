@@ -18,7 +18,7 @@ Page({
    this.resourceLoading=true;try{await resources.ensure(image.id);if(!this.active&&run===this.serial)await new Promise(resolve=>this.resume=resolve);}finally{this.resourceLoading=false;}if(!live(this)||run!==this.serial)return;
    const canvas=await this.canvas();const result=await poster.render(canvas,raw,image);if(!live(this)||run!==this.serial)return;
    path=await new Promise((resolve,reject)=>wx.canvasToTempFilePath({canvas,fileType:'png',destWidth:941,destHeight:1672,success:r=>resolve(r.tempFilePath),fail:reject},this));
-   if(!live(this)||run!==this.serial){this.remove(path);return;}this.files.add(path);this.rawViewer=viewer;this.setData({posterPath:path,notice:result.notice,settlementLabel:raw.outcome==='cancelled'?'本局已取消，不计胜负':'本局已结算'});
+   if(!live(this)||run!==this.serial){this.remove(path);return;}this.files.add(path);this.rawViewer=viewer;this.setData({posterPath:path,notice:result.notice,settlementLabel:raw.outcome==='cancelled'?'已取消 · 已归档':'已结束 · 已归档'});
   }catch(e){if(live(this)&&run===this.serial)this.setData({error:e.message||e.errMsg||'生成失败，请重试'});}
   finally{if(run===this.serial)this.setData({loading:false});}
  },

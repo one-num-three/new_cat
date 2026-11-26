@@ -1,0 +1,483 @@
+/* 全站统一星露谷（方案 A：鹈鹕镇像素春草地 × 暖蜂蜜羊皮纸 × 晴空蓝）16-bit 九宫格木框设计基线 */
+@import "./sdv-borders.wxss";
+
+page{
+  --sdv-bg:#a8d481;
+  --sdv-sky:#7bc4ec;
+  --sdv-sky-soft:#cdebfb;
+  --sdv-sky-deep:#1e5880;
+  --sdv-meadow:#d4ebba;
+  --sdv-meadow-border:#35692a;
+  --sdv-paper:#fbe3b0;
+  --sdv-paper-warm:#f5dcab;
+  --sdv-paper-inset:#fff3d6;
+  --sdv-wood-dark:#4f2710;
+  --sdv-wood-mid:#b5652a;
+  --sdv-wood-light:#e8a254;
+  --sdv-wood-deep:#7b3c14;
+  --sdv-wood-header:#f2cf94;
+  --sdv-ink:#3b1d0b;
+  --sdv-ink-muted:#5e3616;
+  --sdv-ink-soft:#7c522b;
+  --sdv-green:#4a943b;
+  --sdv-green-deep:#2c6122;
+  --sdv-green-soft:#d4ebba;
+  --sdv-amber:#e87f24;
+  --sdv-amber-deep:#a64d0b;
+  --sdv-amber-soft:#ffdba3;
+  --sdv-blue:#3588bd;
+  --sdv-blue-deep:#1e5880;
+  --sdv-blue-soft:#cdebfb;
+  --sdv-red:#d1503a;
+  --sdv-red-deep:#8c2c1b;
+  --sdv-red-soft:#f8d4c8;
+}
+
+page,.sdvScreen{
+  background-color:#a8d481;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAMFBMVEWo1IGUxGt+sFaV1Pb/8b3/2F4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0sjQ7AAAAEHRSTlP///////8AAAAAAAAAAAAAIU9pvgAAAJRJREFUeNrVVDkOgDAMs8zEmJUxX+gX+v8nsPIFRgbKLY4mEoVMaaNadpoY+F7I/oKZAAp1IiQOcclvEar0sE/nHgCiNO2U00Y+5quQ0wo/8K208p87wxc43NFhqWVYlWhaBslWIReIdKsi/h/iVaFQFuAgxqkOdocZfTJo3W3s0srh6PXZEyXHZtC9sXTNQnEOT2MACBQLL/LX8NwAAAAASUVORK5CYII=");
+  background-repeat:repeat;
+  background-size:64px 64px;
+  image-rendering:pixelated;
+  color:#3b1d0b;
+}
+
+.sdvScreen{
+  position:relative;
+  width:var(--vw,100vw);
+  min-height:var(--vh,100vh);
+  box-sizing:border-box;
+  font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+}
+
+/* 经典星露谷 16-bit 蜂蜜橡木九宫格木框 × 暖蜂蜜羊皮纸 #fbe3b0 */
+.sdvWoodCard{
+  position:relative;
+  box-sizing:border-box;
+  background:transparent;
+  border:12px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAMAAADwSaEZAAAAYFBMVEX747A7HAp7PBRPJw+1ZSroolTivnvPfzgAAAD/4J4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIc5qwAAAAIHRSTlP//////////wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHWLUo4AAACJSURBVHja7dhBDoAgDETRSlH0/he2JE5iJMEiOzt/qfIWurGV/WqZCIYEwuqFdSKAUTBAh5WvkpU73e/XcwCjYWqlD9VzUTG8WB0IH4KY6uaIWIvJS/W5YuEcMWLEiBEjRoyYFxNH7h+XIBjnAB/2HMRKp+Gp7qcY9xp+DIulNFGzpQqAcU87hJ35oT8B4pyRyAAAAABJRU5ErkJggg==");
+  border-image-slice:24 fill;
+  border-image-width:12px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#3b1d0b;
+}
+
+/* 暖麦纸卡 #f5dcab */
+.sdvPaperCard{
+  position:relative;
+  box-sizing:border-box;
+  background:transparent;
+  border:8px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX13Kt9SB7atnj/78nr0JsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABT5iN4AAAAIHRSTlP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIKAJ8AAABRSURBVHja7dc7DgAgCETB9Xf/KyuJVDZoYrG6ryNmqBFtlA4yB1LsQwmUZ26YsT3UQJj5ghcwggkLCwsLCwvfxzZgI2FO7AuiLVcvGf7wX9UBdf0PoUQKOGgAAAAASUVORK5CYII=");
+  border-image-slice:16 fill;
+  border-image-width:8px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#3b1d0b;
+}
+
+/* 嫩春草九宫格标牌（主标牌 #d4ebba） */
+.sdvPlank{
+  box-sizing:border-box;
+  background:transparent;
+  border:8px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXR6bY1aSqbyXuw44wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAeB5AAAAIHRSTlP/////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHNoJQAAABKSURBVHja7dc7DgAgCARR/Nz/zEriVjZqbNCZjphHjVZ76SB3FhRrKAvlkUxk7A+2kRaAwWAwGAwG38Q+gN/HWrDadPUGwx/+qxpqaQshoKOzbwAAAABJRU5ErkJggg==");
+  border-image-slice:16 fill;
+  border-image-width:8px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#24451c;
+}
+
+.sdvPlankSky{
+  box-sizing:border-box;
+  background:transparent;
+  border:12px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAMAAADwSaEZAAAAYFBMVEXN6/s7HAp4OxSzZStPJw/lo1ib0vDPfzgAAAD/4J4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvF3G6AAAAIHRSTlP//////////wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHWLUo4AAACJSURBVHja7dhBDoAgDETRClX0/he2JE5iJMEiOzt/qfIWurGV/WqZCIYEwuqFdSKAUTBAh5WvkpU73e/XcwCjYWqlD9VzUTG8WB0IH4KY6uaIWIvJS/W5YuEcMWLEiBEjRoyYFxNH7h+XIBjnAB/2HMRKp+Gp7qcY9xp+DIulNFGzpQqAcU87hJ35oT8B2ZIGEwAAAABJRU5ErkJggg==");
+  border-image-slice:24 fill;
+  border-image-width:12px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#1c4763;
+}
+
+.sdvPlankWood{
+  box-sizing:border-box;
+  background:transparent;
+  border:12px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAMAAADwSaEZAAAAYFBMVEXyz5Q7HApwNhBPJw+oXCTfoFnZsG7PfzgAAAD/4J4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6oaVOAAAAIHRSTlP//////////wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHWLUo4AAACJSURBVHja7dhBDoAgDETRSlH0/he2JE5iJMEiOzt/qfIWurGV/WqZCIYEwuqFdSKAUTBAh5WvkpU73e/XcwCjYWqlD9VzUTG8WB0IH4KY6uaIWIvJS/W5YuEcMWLEiBEjRoyYFxNH7h+XIBjnAB/2HMRKp+Gp7qcY9xp+DIulNFGzpQqAcU87hJ35oT8B4pyRyAAAAABJRU5ErkJggg==");
+  border-image-slice:24 fill;
+  border-image-width:12px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#3b1d0b;
+}
+
+.sdvSectionTitle{
+  display:flex;
+  align-items:center;
+  gap:10rpx;
+  font-size:calc(30rpx * var(--font-scale,1));
+  line-height:1.35;
+  color:#3b1d0b;
+}
+
+.sdvSectionTitle::before{
+  content:"";
+  display:block;
+  width:8rpx;
+  height:28rpx;
+  flex:none;
+  background:#4a943b;
+  border:2px solid #2b5a22;
+  border-radius:0;
+}
+
+/* 统一 16-bit 四钉阶梯角木牌/按键 */
+.sdvBtn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8rpx;
+  box-sizing:border-box;
+  width:100%!important;
+  min-height:44px;
+  margin:0;
+  padding:6px 10px;
+  border:8px solid transparent;
+  border-radius:0;
+  background:transparent;
+  color:#3b1d0b;
+  font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif;
+  font-size:calc(17px * var(--font-scale,1));
+  font-weight:400;
+  line-height:1.3;
+  white-space:normal;
+  text-align:center;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX86L9PJxDZtXX/9t4AAADKomIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXneK8AAAAIHRSTlP/////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL+SNhkAAABcSURBVHja7dexDoAgFEPRivL/v8wzsYkJAw8Th0LvZshxYCq4ouNDt4Mo5seZqDzRKGMeIlGN+AN1jImMjY2NjY2N/8ccKlm4CuZQGdUNGlH8vrRM3eoVwxu+qxpejg2hIhHKNwAAAABJRU5ErkJggg==");
+  border-image-slice:16 fill;
+  border-image-width:8px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+}
+
+.sdvBtn::after{border:0}
+.sdvBtn:active{transform:translateY(2px);opacity:.92}
+.sdvBtn[disabled]{opacity:.68;filter:saturate(.55)}
+
+.sdvBtnGreen,
+.sdvBtnAmber,
+.sdvBtnBlue,
+.sdvBtnRed,
+.sdvBtnWood,
+.sdvBtnPaper{
+  background:transparent;
+  border-style:solid;
+  border-color:transparent;
+  border-image-slice:16 fill;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  box-shadow:none;
+}
+
+.sdvBtnGreen{
+  color:#fffdf6;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEVKlDs1XissYSKCz28AAAAiTRqy658AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASJoYXAAAAIHRSTlP/////AP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIHgJG4AAABeSURBVHja7dcxCsAgEETRjSbe/8iu4EDAIqtgMWZ+F+SlsBrt9q6FmjNSjI8cKPVgmHE7KJ4Fejz8gB3bRMLCwsLCwsL7MYZKFJ6CMVS+GgYNKX5fWqRh9ZLhH76rKp5MDdG5gp/iAAAAAElFTkSuQmCC");
+}
+
+.sdvBtnAmber{
+  color:#fffdf6;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXofyRPJxCmTQv/tGMAAACMPQb/1ZkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxDzccAAAAIHRSTlP/////AP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIHgJG4AAABeSURBVHja7dcxCsAgEETRjSbe/8iu4EDAIqtgMWZ+F+SlsBrt9q6FmjNSjI8cKPVgmHE7KJ4Fejz8gB3bRMLCwsLCwsL7MYZKFJ6CMVS+GgYNKX5fWqRh9ZLhH76rKp5MDdG5gp/iAAAAAElFTkSuQmCC");
+}
+
+.sdvBtnBlue{
+  color:#fffdf6;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEU1iL0aRGMeWIByxPIAAACo3/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKyGoUAAAAIHRSTlP/////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL+SNhkAAABcSURBVHja7dfLCsAgDETR+Oj//7IJGCiUlrHgYtq5O9GTdbTulReFM1KchwZUZ2mYcVwcngHF+xzAjm0hYWFhYWFh4f04FxUUfgWfhzx1WWhIMQpvt14y/MN/1QC3oQ0B2N2W5gAAAABJRU5ErkJggg==");
+}
+
+.sdvBtnRed{
+  color:#fffdf6;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXRUDpcGxCMLBvvg3AAAABuIRT/tKYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnefcNAAAAIHRSTlP/////AP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIHgJG4AAABeSURBVHja7dcxCsAgEETRjSbe/8iu4EDAIqtgMWZ+F+SlsBrt9q6FmjNSjI8cKPVgmHE7KJ4Fejz8gB3bRMLCwsLCwsL7MYZKFJ6CMVS+GgYNKX5fWqRh9ZLhH76rKp5MDdG5gp/iAAAAAElFTkSuQmCC");
+}
+
+.sdvBtnWood{
+  color:#3b1d0b;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX/57OeSg3lvXP/9NH3254AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDtBM8AAAAIHRSTlP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIKAJ8AAABRSURBVHja7dc7DgAgCETB9Xf/KyuJVDZoYrG6ryNmqBFtlA4yB1LsQwmUZ26YsT3UQJj5ghcwggkLCwsLCwvfxzZgI2FO7AuiLVcvGf7wX9UBdf0PoUQKOGgAAAAASUVORK5CYII=");
+}
+
+.sdvBtnPaper{
+  color:#3b1d0b;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX86L9PJxDZtXX/9t4AAADKomIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXneK8AAAAIHRSTlP/////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL+SNhkAAABcSURBVHja7dexDoAgFEPRivL/v8wzsYkJAw8Th0LvZshxYCq4ouNDt4Mo5seZqDzRKGMeIlGN+AN1jImMjY2NjY2N/8ccKlm4CuZQGdUNGlH8vrRM3eoVwxu+qxpejg2hIhHKNwAAAABJRU5ErkJggg==");
+}
+
+.sdvBtnSm{
+  min-height:38px;
+  padding:4px 8px;
+  border-width:6px;
+  border-image-width:6px;
+  font-size:calc(14px * var(--font-scale,1));
+}
+
+.sdvBtnInline{
+  width:auto!important;
+  flex:none;
+}
+
+/* 暖麦橡木硬边分段选择槽 */
+.sdvPillGroup{
+  display:flex;
+  gap:8rpx;
+  padding:6rpx;
+  background:#e8cb92;
+  border:2px solid #7d481e;
+  border-radius:0;
+  box-shadow:inset 0 2px 0 #d4b172,inset 0 -2px 0 #f7e2b5;
+  box-sizing:border-box;
+}
+
+.sdvPill{
+  flex:1 1 0;
+  min-width:0;
+  width:auto!important;
+  min-height:42px;
+  margin:0!important;
+  padding:8px 10px;
+  border:2px solid transparent;
+  border-radius:0;
+  background:transparent;
+  color:#5e3616;
+  font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif;
+  font-size:calc(15px * var(--font-scale,1));
+  line-height:1.3;
+  white-space:normal;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sdvPill::after{border:0}
+
+.sdvPillActive{
+  background:#4a943b;
+  color:#fffdf6;
+  border-color:#2c6122;
+  box-shadow:inset 0 2px 0 #82cf6f,inset 0 -2px 0 #2c6122;
+}
+
+/* 凹陷像素暖羊皮纸输入框 #fff3d6 */
+.sdvInput{
+  display:block;
+  width:100%;
+  min-width:0;
+  min-height:44px;
+  box-sizing:border-box;
+  padding:6px 8px;
+  background:transparent;
+  border:6px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAAAYFBMVEX/89ZPJxDRtILmy5n/+egAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2dlgbAAAAIHRSTlP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIKAJ8AAABKSURBVHja7dY7EgAgCENB/N3/ykKRygJsHHDyOp1srbK0dpHtJTnCoTtNDdsKyC4lECAREREREdELNLQIsl0VBOh1vO5J0Yf/vQ0DXQqRFQmKkAAAAABJRU5ErkJggg==");
+  border-image-slice:12 fill;
+  border-image-width:6px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#3b1d0b;
+  font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC",sans-serif;
+  font-size:calc(17px * var(--font-scale,1));
+  line-height:1.35;
+}
+
+/* 底部固定蜂蜜木桌草沿操作栏 */
+.sdvStickyBar{
+  position:fixed;
+  left:0;
+  right:auto;
+  bottom:0;
+  width:var(--vw,100vw);
+  max-width:100vw;
+  z-index:18;
+  box-sizing:border-box;
+  background:#f6dca8;
+  border-top:3px solid #3b1c0a;
+  box-shadow:inset 0 4px 0 #4d9a3b,inset 0 6px 0 #82cf6f,0 -2px 0 #79a857;
+  padding:14px 14px calc(10px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+}
+
+/* 像素印章徽标（暖羊皮纸硬边双像素框） */
+.sdvBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  padding:3px 9px;
+  border:2px solid #4f2710;
+  border-radius:0;
+  background:#ffecc2;
+  box-shadow:inset 0 2px 0 #fff7e0,0 2px 0 #cfa96c;
+  color:#3b1d0b;
+  font-size:calc(12px * var(--font-scale,1));
+  line-height:1.25;
+  white-space:nowrap;
+}
+
+.sdvBadgeGreen{background:#d4ebba;border-color:#2c6122;color:#2c6122;box-shadow:inset 0 2px 0 #ecf7df,0 2px 0 #9bc97b}
+.sdvBadgeAmber{background:#ffdba3;border-color:#a64d0b;color:#7a3303;box-shadow:inset 0 2px 0 #fff0d1,0 2px 0 #d9a75f}
+.sdvBadgeBlue{background:#cdebfb;border-color:#1e5880;color:#1c4763;box-shadow:inset 0 2px 0 #eaf7fe,0 2px 0 #8dc3e0}
+.sdvBadgeRed{background:#f8d4c8;border-color:#8c2c1b;color:#731d0f;box-shadow:inset 0 2px 0 #fceae4,0 2px 0 #d49c8e}
+.sdvBadgeGray{background:#e8d8b7;border-color:#6b4d2b;color:#4f351a;box-shadow:inset 0 2px 0 #f7ebd1,0 2px 0 #c2ad84}
+
+/* 晴空提示条、引导卡与错误条 */
+.sdvNotice{
+  display:block;
+  padding:9px 12px;
+  background:#d2ecfa;
+  border:2px solid #2a6b94;
+  border-radius:0;
+  box-shadow:inset 0 2px 0 #eef8fe,inset 0 -2px 0 #9bd2f0,0 2px 0 #79a857;
+  color:#1c4763;
+  font-size:calc(13px * var(--font-scale,1));
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+
+.sdvGuideTip{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  padding:4px 6px;
+  background:transparent;
+  border:8px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXR6bY1aSqbyXuw44wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAeB5AAAAIHRSTlP/////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHNoJQAAABKSURBVHja7dc7DgAgCARR/Nz/zEriVjZqbNCZjphHjVZ76SB3FhRrKAvlkUxk7A+2kRaAwWAwGAwG38Q+gN/HWrDadPUGwx/+qxpqaQshoKOzbwAAAABJRU5ErkJggg==");
+  border-image-slice:16 fill;
+  border-image-width:8px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#24451c;
+  font-size:calc(12px * var(--font-scale,1));
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+
+.sdvGuideDot{
+  width:8px;
+  height:8px;
+  margin-top:4px;
+  flex:none;
+  background:#4a943b;
+  border:2px solid #24451c;
+  border-radius:0;
+}
+
+.sdvMeadowFooter{
+  display:block;
+  width:100%;
+  aspect-ratio:750 / 184;
+  height:auto!important;
+  margin-top:4px;
+  border-radius:0;
+  image-rendering:pixelated;
+}
+
+.sdvPressed{
+  transform:translateY(2px);
+  opacity:.9;
+  filter:brightness(.94);
+}
+
+.sdvError{
+  display:block;
+  padding:4px 6px;
+  background:transparent;
+  border:8px solid transparent;
+  border-radius:0;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX41MiMLBvfpJj85d3wwbQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATjZe2AAAAIHRSTlP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIKAJ8AAABRSURBVHja7dc7DgAgCETB9Xf/KyuJVDZoYrG6ryNmqBFtlA4yB1LsQwmUZ26YsT3UQJj5ghcwggkLCwsLCwvfxzZgI2FO7AuiLVcvGf7wX9UBdf0PoUQKOGgAAAAASUVORK5CYII=");
+  border-image-slice:16 fill;
+  border-image-width:8px;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+  color:#731d0f;
+  font-size:calc(13px * var(--font-scale,1));
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+
+.sdvIconTitle{
+  display:flex;
+  align-items:center;
+  gap:8rpx;
+  min-width:0;
+  font-size:calc(28rpx * var(--font-scale,1));
+  line-height:1.3;
+  color:#3b1d0b;
+}
+
+.sdvIconBtn{
+  flex:none;
+  width:44px!important;
+  min-width:44px;
+  height:44px;
+  min-height:44px;
+  margin:0!important;
+  padding:0!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-width:6px;
+  border-style:solid;
+  border-color:transparent;
+  border-image-width:6px;
+  border-radius:0;
+  box-sizing:border-box;
+}
+
+.sdvIconBtn::after{border:0}
+.sdvIconBtn:active{transform:translateY(2px);opacity:.92}
+.sdvIconBtn[disabled]{opacity:.55}
+
+.sdvIconBtnSm{
+  width:36px!important;
+  min-width:36px;
+  height:36px;
+  min-height:36px;
+}
+
+.sdvChipRow{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.sdvInfoChip{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:3px 8px;
+  background:#fff2d4;
+  border:2px solid #b58447;
+  border-radius:0;
+  box-shadow:inset 0 1px 0 #fff9e8;
+  font-size:calc(12px * var(--font-scale,1));
+  line-height:1.25;
+  color:#3b1d0b;
+  white-space:nowrap;
+}

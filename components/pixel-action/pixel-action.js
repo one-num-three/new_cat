@@ -8,6 +8,6 @@ Component({
   notifyLayout(){this.triggerEvent('layout',{}, {bubbles:true,composed:true});},
   loaded(e){const {width,height}=e.detail||{};if(Number.isFinite(width)&&width>0&&Number.isFinite(height)&&height>0){this.setData({artWidth:width,artHeight:height,artFailed:false});this.notifyLayout();}},
   failed(){this.setData({artFailed:true});this.notifyLayout();},
-  activate(){if(!this.data.disabled&&!this.data.loading)this.triggerEvent('action');}
+  activate(){if(!this.data.disabled&&!this.data.loading){try{if(typeof wx!=='undefined'&&'vibrateShort' in wx)wx.vibrateShort({type:'light'});}catch{}this.triggerEvent('action');}}
  }
 });

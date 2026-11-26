@@ -66,7 +66,7 @@ test('map art and event timestamps are display only while authenticated actions 
  assert.equal(mouse.stateArt,'');assert.match(mouse.roleArt,/pixel-v1\/role-mouse.png$/);
  const offline=project(snapshot('CHASING','mouse'),true);assert.equal(offline.parkArt,'/venue-xuanwu/assets/xuanwu-lake-v4.jpg');assert.equal(offline.canShowCode,false);
  const {eventTime}=require('../../utils/presentation');assert.equal(eventTime(undefined),'—');assert.match(eventTime(1791766800000),/^\d{2}:\d{2}$/);
- const map=fs.readFileSync(path.join(root,'pages/map/map.wxml'),'utf8');assert.match(map,/event.timeText/);assert.match(map,/取消不计胜负/);
+ const map=fs.readFileSync(path.join(root,'pages/map/map.wxml'),'utf8');assert.match(map,/event.timeText/);assert.match(map,/已保留本场记录/);
  assert.match(map,/<venue-art[^>]*wx:elif="{{artMode}}"/);assert.doesNotMatch(map,/<venue-art[^>]*(?:markers=|circles=|latitude=|longitude=)/);assert.match(map,/class="mapStatus/);assert.match(map,/class="resultHero"[^>]*mode="widthFix"/);
  assert.match(map,/<map wx:else id="gameMap" class="gameMap"[^>]*markers="{{markers}}"[^>]*circles="{{circles}}"/);
 });

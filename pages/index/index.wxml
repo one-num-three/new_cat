@@ -1,20 +1,110 @@
-<view class="screen homeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="sdvScreen homeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="猫鼠行动" preview="{{devPreview}}" />
-  <image class="homeHero" src="/assets/pixel-v1/home-hero.png" mode="widthFix" aria-label="和熟人到户外，玩一场猫鼠追逐" />
-  <view class="homeForm">
-    <button wx:if="{{resumeKind}}" class="resumeBand" disabled="{{resumeKind==='checking'}}" bindtap="restore"><text>{{resumeKind==='room'?'等待中的房间':resumeKind==='match'?'正在进行的对局':resumeKind==='result'?'上一局结果':resumeKind==='unavailable'?'上次房间暂不可用':'检查上次房间'}}</text><text>{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'请稍候':'继续查看 ›'}}</text></button>
-    <view class="paperFrame homeField"><text class="fieldLabel">你的昵称</text><input class="homeInput" value="{{nickname}}" maxlength="20" placeholder="先取个名字" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="你的昵称" /></view>
-    <view class="paperFrame homeField"><text class="fieldLabel">房间码</text><input class="homeInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" /></view>
-    <text wx:if="{{inviteHint}}" class="inviteLandingHint">{{inviteHint}}</text><button class="scanInviteButton" bindtap="scanInvite" disabled="{{loading}}">扫码加入</button>
-    <view class="homeActions">
-      <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="加入房间" tone="orange" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="join" />
-      <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
+  <view class="homeMain">
+    <view class="sdvWoodCard heroCard">
+      <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
+      <view class="heroCaption"><text>户外定位 · 计时 · 核验</text></view>
     </view>
-    <text wx:if="{{error}}" class="formError" role="alert">{{error}}</text>
-  </view>
-  <image class="homeFooter" src="/assets/pixel-v1/home-footer.png" mode="widthFix" aria-label="30 秒躲藏，6 分钟追逐" />
-  <view class="homeExtra">
-    <button class="venueEntry paperFrame" bindtap="openVenue"><view class="venueEntryCopy"><text class="venueEntryTitle">场地地图</text><text class="venueEntryHint">玄武湖 · 九龙湖 · 四牌楼</text></view><text class="entryArrow" aria-hidden="true">›</text></button>
+
+    <button wx:if="{{resumeKind}}" class="sdvPlankSky resumeBand" hover-class="sdvPressed" disabled="{{resumeKind==='checking'}}" bindtap="restore">
+      <view class="resumeLeft">
+        <map-icon kind="{{resumeKind==='match'?'flag':'door'}}" size="15" color="#1c4763" />
+        <text class="resumeText">{{resumeKind==='room'?'等待中房间 · 点击返回':resumeKind==='match'?'活动进行中 · 一键回到':resumeKind==='result'?'上一场记录 · 查看汇总':resumeKind==='unavailable'?'房间暂不可用':'检查进行中活动…'}}</text>
+      </view>
+      <text class="resumeAction">{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'稍候':'继续 ›'}}</text>
+    </button>
+
+    <view class="sdvPaperCard identityBar">
+      <view class="identityLabelWrap">
+        <map-icon kind="user" size="16" color="#5e3616" />
+        <text class="identityLabel">称呼</text>
+      </view>
+      <input class="sdvInput identityInput" value="{{nickname}}" maxlength="20" placeholder="输入你的称呼" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="我的称呼" />
+      <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper randNameBtn" hover-class="sdvPressed" bindtap="randomNickname" aria-label="随机称呼">
+        <map-icon kind="dice" size="18" color="#5e3616" />
+      </button>
+    </view>
+
+    <view class="sdvWoodCard entryCard joinCard">
+      <view class="cardHead">
+        <view class="sdvIconTitle">
+          <map-icon kind="door" size="18" color="#a64d0b" />
+          <text>加入活动</text>
+        </view>
+      </view>
+      <view class="codeEntryRow">
+        <input class="sdvInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" />
+        <button wx:if="{{clipCode && !code}}" class="sdvIconBtn sdvBtnGreen pasteIconBtn" hover-class="sdvPressed" bindtap="pasteClipCode" aria-label="粘贴剪贴板房间码">
+          <map-icon kind="paste" size="20" color="#fffdf6" />
+        </button>
+        <button class="sdvIconBtn sdvBtnWood scanIconBtn" hover-class="sdvPressed" bindtap="scanInvite" disabled="{{loading}}" aria-label="扫码获取房间码">
+          <map-icon kind="scan" size="22" color="#3b1d0b" />
+        </button>
+      </view>
+      <text wx:if="{{inviteHint}}" class="inviteLandingHint">{{inviteHint}}</text>
+      <view class="cardAction">
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="加入活动" tone="orange" dynamic="{{false}}" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="joinOrScan" />
+      </view>
+    </view>
+
+    <view class="sdvPaperCard entryCard createCard">
+      <view class="cardHead">
+        <view class="sdvIconTitle">
+          <map-icon kind="flag" size="18" color="#2c6122" />
+          <text>发起活动</text>
+        </view>
+      </view>
+      <view class="cardAction">
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
+      </view>
+    </view>
+
+    <text wx:if="{{error}}" class="sdvError homeError" role="alert">{{error}}</text>
+
+    <view class="sdvPaperCard guideMiniCard">
+      <view class="guideFlowRow">
+        <view class="guideFlowItem">
+          <image class="guideStepIcon" src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" />
+          <text class="guideStepTitle">填称呼</text>
+        </view>
+        <text class="guideFlowArrow" aria-hidden="true">›</text>
+        <view class="guideFlowItem">
+          <image class="guideStepIcon" src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" />
+          <text class="guideStepTitle">进房间</text>
+        </view>
+        <text class="guideFlowArrow" aria-hidden="true">›</text>
+        <view class="guideFlowItem">
+          <view class="guideStepIconBox"><map-icon kind="scan" size="20" color="#2c6122" /></view>
+          <text class="guideStepTitle">扫码核验</text>
+        </view>
+      </view>
+      <view class="signpostRow">
+        <button class="signpostLink" bindtap="openVenue">
+          <map-icon kind="map" size="15" color="#2a6e99" />
+          <text>场地地图 ›</text>
+        </button>
+        <text class="signpostDivider" aria-hidden="true">|</text>
+        <button class="signpostLink" bindtap="openGuide">
+          <map-icon kind="info" size="15" color="#2c6122" />
+          <text>使用说明 ›</text>
+        </button>
+      </view>
+    </view>
+
     <button wx:if="{{devAvailable}}" class="devLink" bindtap="openDev">界面调试台</button>
+    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
   </view>
+
+  <sdv-modal
+    visible="{{guideOpen}}"
+    mode="dialog"
+    title="使用说明"
+    content="1. 输入或扫码填房间码加入。\n2. 点「创建活动」设人数与场地。\n3. 现场当面停下后扫码核验。"
+    showCancel="{{false}}"
+    confirmText="知道了"
+    confirmTone="green"
+    fontScale="{{fontScale}}"
+    bindconfirm="closeGuide"
+    bindclose="closeGuide"
+  />
 </view>

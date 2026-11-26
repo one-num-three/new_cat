@@ -9,9 +9,9 @@
     "pages/calibrate/calibrate"
   ],
   "window": {
-    "backgroundColor": "#fcf8ed",
+    "backgroundColor": "#a8d481",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fcf8ed",
+    "navigationBarBackgroundColor": "#7bc4ec",
     "navigationBarTitleText": "猫鼠行动",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
@@ -36,7 +36,9 @@
   "usingComponents": {
     "location-signal": "/components/location-signal/location-signal",
     "nav-bar": "/components/nav-bar/nav-bar",
-    "pixel-action": "/components/pixel-action/pixel-action"
+    "pixel-action": "/components/pixel-action/pixel-action",
+    "map-icon": "/components/map-icon/map-icon",
+    "sdv-modal": "/components/sdv-modal/sdv-modal"
   },
   "subPackages": [
     {
