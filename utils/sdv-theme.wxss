@@ -507,56 +507,65 @@ page,.sdvScreen{
   margin-top:4px;
 }
 
-/* 星露谷「夜间营火」配色（纯 CSS 变量，零额外图像体积） */
+/* 星露谷「夜间营火」配色（深夜宝蓝 #1E2B4D + 低眩光暖夜灯羊皮纸 + 暖金篝火光晕） */
 .sdvNight,.sdvNight.sdvScreen,.sdvNight.screen,.sdvNight.mapPage{
-  background-color:#243526;
+  background-color:#1e2b4d;
   background-image:none;
-  color:#f6e6c2;
+  color:#faecd0;
+  --signal-bg:#3f2d1eee;
+  --signal-border:2px solid #b5773c;
+  --signal-border-image:none;
+  --signal-pad:4px 9px;
+  --signal-color:#faecd0;
+  --signal-shadow:inset 0 2px 0 #66482d,0 0 8px rgba(242,182,78,.22);
+  --signal-bar-off:#6b523b;
 }
 
 .sdvNight .pinnedNav{
-  background:#1f324a;
-  border-bottom-color:#120a05;
-  box-shadow:inset 0 2px 0 #314d6e,inset 0 -4px 0 #3f7a34,inset 0 -6px 0 #62a851,0 2px 0 #142217;
+  background:#15203b;
+  border-bottom-color:#0e1529;
+  box-shadow:inset 0 2px 0 #2a3e6b,inset 0 -4px 0 #3f7a34,inset 0 -6px 0 #62a851,0 2px 0 #121a33;
 }
 
 .sdvNight .floatingNav .navBrand{
   border-image-source:none;
-  background:#34261c;
-  border:2px solid #8a562d;
+  background:#3f2d1eee;
+  border:2px solid #b5773c;
+  box-shadow:inset 0 1px 0 #66482d,0 0 8px rgba(242,182,78,.22);
   padding:2px 8px;
 }
 
-.sdvNight .navTitle{color:#f7e8c6;}
+.sdvNight .navTitle{color:#faecd0;}
 
 .sdvNight .navBack{
   border-image-source:none;
-  background:#463323;
-  border:2px solid #8a562d;
-  color:#f7e8c6;
+  background:#4e3824;
+  border:2px solid #b5773c;
+  box-shadow:inset 0 2px 0 #705033;
+  color:#faecd0;
 }
 
 .sdvNight .sdvWoodCard{
   border-image-source:none;
-  background:#34261c;
-  border:3px solid #160d07;
-  box-shadow:inset 0 0 0 2px #7a4b26,inset 0 0 0 4px #4d3422;
+  background:#443121;
+  border:3px solid #1b1008;
+  box-shadow:inset 0 0 0 2px #a86c34,inset 0 0 0 4px #63442a,0 0 12px rgba(242,182,78,.24),0 3px 0 #121a33;
   padding:10px;
-  color:#f6e6c2;
+  color:#faecd0;
 }
 
 .sdvNight .sdvPaperCard{
   border-image-source:none;
-  background:#2d2219;
-  border:2px solid #7a4b26;
-  box-shadow:inset 0 2px 0 #453224;
+  background:#3b2b1d;
+  border:2px solid #9c6430;
+  box-shadow:inset 0 2px 0 #593e28,0 0 10px rgba(242,182,78,.18),0 2px 0 #121a33;
   padding:8px;
-  color:#f6e6c2;
+  color:#faecd0;
 }
 
 .sdvNight .sdvPlank{
   border-image-source:none;
-  background:#253d27;
+  background:#29472c;
   border:2px solid #599c4a;
   padding:6px 10px;
   color:#dff5d4;
@@ -564,33 +573,33 @@ page,.sdvScreen{
 
 .sdvNight .sdvPlankSky,.sdvNight .sdvNotice,.sdvNight .codeRow,.sdvNight .codePlate,.sdvNight .safetyNote,.sdvNight .venueDropInner,.sdvNight .venueNavChip{
   border-image-source:none;
-  background:#1e3447;
-  border-color:#4b8cb8;
-  color:#d8eefc;
-  box-shadow:inset 0 2px 0 #2d4c66;
+  background:#523a24;
+  border-color:#b87a3d;
+  color:#fce8c2;
+  box-shadow:inset 0 2px 0 #704f31,0 0 8px rgba(242,182,78,.22);
 }
 
 .sdvNight .sdvInput{
   border-image-source:none;
-  background:#211812;
-  border:2px solid #8a562d;
+  background:#2a1e14;
+  border:2px solid #9c6430;
   padding:6px 10px;
   color:#fff2d6;
-  box-shadow:inset 0 2px 0 #140d09;
+  box-shadow:inset 0 2px 0 #1a110b;
 }
 
 .sdvNight .sdvBtnPaper,.sdvNight .sdvBtnWood,.sdvNight .edgeButton,.sdvNight .sheetCloseButton{
   border-image-source:none;
-  background:#463323;
-  border:2px solid #9c6434;
-  box-shadow:inset 0 2px 0 #664930,inset 0 -2px 0 #261a11;
-  color:#f7e8c6;
+  background:#4e3824;
+  border:2px solid #b5773c;
+  box-shadow:inset 0 2px 0 #705033,inset 0 -2px 0 #2e1f13,0 0 8px rgba(242,182,78,.18);
+  color:#faecd0;
 }
 
 .sdvNight .sdvStickyBar,.sdvNight .fieldPanel{
-  background:#2a1f17;
-  border-color:#140c06;
-  box-shadow:inset 0 3px 0 #4a8c3c,inset 0 -2px 0 #1a120d;
+  background:#332418;
+  border-color:#1b1008;
+  box-shadow:inset 0 3px 0 #4a8c3c,inset 0 -2px 0 #1f150d,0 -2px 10px rgba(242,182,78,.14);
 }
 
 .sdvNight .playHud{
@@ -601,10 +610,11 @@ page,.sdvScreen{
 
 .sdvNight .hudPlaque{
   border-image-source:none;
-  background:#2d2219ee;
-  border:2px solid #8a562d;
+  background:#3f2d1eee;
+  border:2px solid #b5773c;
+  box-shadow:inset 0 2px 0 #66482d,0 0 10px rgba(242,182,78,.26),0 3px 0 rgba(16,22,42,.55);
   padding:4px 8px;
-  color:#f6e6c2;
+  color:#faecd0;
 }
 
 .sdvNight .mapBottomDock{
@@ -615,52 +625,61 @@ page,.sdvScreen{
 
 .sdvNight .bulletinBoard{padding:0;}
 .sdvNight .boardBody{background:transparent;padding:8rpx 10px 8px;}
-.sdvNight .boardDivider{border-top-color:#7a4b26;}
-.sdvNight .boardPost{top:-9px;background:#59371e;border-color:#160d07;box-shadow:inset 0 2px 0 #8a562d;}
+.sdvNight .boardDivider{border-top-color:#9c6430;}
+.sdvNight .boardPost{top:-9px;background:#6e4624;border-color:#1b1008;box-shadow:inset 0 2px 0 #b5773c;}
 .sdvNight .boardTuftLeft{left:-6px;}
 .sdvNight .boardTuftRight{right:-6px;bottom:-4px;}
 
 .sdvNight .drawer,.sdvNight .codeSheet{
-  background:#2d2219;
-  border-color:#8a562d;
-  color:#f6e6c2;
+  background:#3b2b1d;
+  border-color:#b5773c;
+  color:#faecd0;
 }
 
 .sdvNight .drawerHeader,.sdvNight .sheetGrip,.sdvNight .codeSheetHeader{
-  background:#1f324a;
-  color:#f7e8c6;
+  background:#523a24;
+  color:#faecd0;
 }
+
+.sdvNight .drawerHandle{background:#b5773c;}
 
 .sdvNight .drawerTabs{
-  background:#231a13;
-  border-bottom-color:#7a4b26;
+  background:#2f2116;
+  border-bottom-color:#9c6430;
 }
 
-.sdvNight .drawerTabs>button{color:#c9b493;}
-.sdvNight .drawerTabs>.selected{background:#2d2219;color:#f7e8c6;}
+.sdvNight .drawerTabs>button{color:#d8c29e;}
+.sdvNight .drawerTabs>.selected{background:#3b2b1d;color:#faecd0;}
 
-.sdvNight .sdvInfoChip,.sdvNight .guideFlowItem,.sdvNight .teamSpriteStrip,.sdvNight .venueGuide,.sdvNight .sdvPillGroup,.sdvNight .squad,.sdvNight .rulesBox,.sdvNight .mapStatus,.sdvNight .playerCard,.sdvNight .calPickBar,.sdvNight .demoCard{
-  background:#3d2d20;
-  border-color:#8a562d;
+.sdvNight .sdvInfoChip,.sdvNight .guideFlowItem,.sdvNight .teamSpriteStrip,.sdvNight .venueGuide,.sdvNight .sdvPillGroup,.sdvNight .squad,.sdvNight .rulesBox,.sdvNight .mapStatus,.sdvNight .playerCard,.sdvNight .calPickBar,.sdvNight .demoCard,.sdvNight .resultMetricSky{
+  background:#4d3826;
+  border-color:#a36a35;
   box-shadow:none;
-  color:#f6e6c2;
+  color:#faecd0;
 }
 
-.sdvNight .sdvPill{color:#d6c09d;}
-.sdvNight .heroCaption{background:#253d27;border-top-color:#160d07;color:#d4ebba;box-shadow:none;}
-.sdvNight .sdvIconTitle,.sdvNight .identityLabel,.sdvNight .playerName,.sdvNight .roomCode,.sdvNight .inviteCode,.sdvNight .venueTitle,.sdvNight .summaryVenue,.sdvNight .compactClock,.sdvNight .bodyCopy,.sdvNight .drawerHeaderTitle,.sdvNight .toolLabel,.sdvNight .teamSpriteText,.sdvNight .rosterName,.sdvNight .settingsCopy,.sdvNight .statsValue,.sdvNight .instruction,.sdvNight .demoTitle,.sdvNight .eventRow{color:#f7e8c6;}
+.sdvNight .resultMetric{
+  background:#29472c;
+  border-color:#599c4a;
+  box-shadow:none;
+  color:#dff5d4;
+}
+
+.sdvNight .sdvPill{color:#dfd0b4;}
+.sdvNight .heroCaption{background:#29472c;border-top-color:#1b1008;color:#d8f2ca;box-shadow:none;}
+.sdvNight .sdvIconTitle,.sdvNight .identityLabel,.sdvNight .playerName,.sdvNight .roomCode,.sdvNight .inviteCode,.sdvNight .venueTitle,.sdvNight .summaryVenue,.sdvNight .compactClock,.sdvNight .bodyCopy,.sdvNight .drawerHeaderTitle,.sdvNight .toolLabel,.sdvNight .teamSpriteText,.sdvNight .rosterName,.sdvNight .settingsCopy,.sdvNight .statsValue,.sdvNight .instruction,.sdvNight .demoTitle,.sdvNight .eventRow{color:#faecd0;}
 .sdvNight .role-cat .roleName{color:#ffae63;}
-.sdvNight .role-mouse .roleName{color:#8fd0f5;}
+.sdvNight .role-mouse .roleName{color:#9be889;}
 .sdvNight .phaseName,.sdvNight .vibeActive .toolLabel{color:#9be889;}
-.sdvNight .registrationState{color:#d8c29e;border-left-color:#7a4b26;}
-.sdvNight .compactProgress{border-left-color:#7a4b26;}
+.sdvNight .registrationState{color:#dfd0b4;border-left-color:#9c6430;}
+.sdvNight .compactProgress{border-left-color:#9c6430;}
 .sdvNight .compactClock.clock-warn{color:#3b1d0b;}
 .sdvNight .compactClock.clock-urgent{color:#fffdf6;}
 .sdvNight .guideStepTitle{color:#b6e39f;}
-.sdvNight .venueHint,.sdvNight .legendFoot,.sdvNight .demoCaption,.sdvNight .inviteNote,.sdvNight .settingsNote,.sdvNight .statLabel,.sdvNight .eventTime{color:#c9b493;}
-.sdvNight .signpostLink{color:#8fd0f5;}
-.sdvNight .resumeAction,.sdvNight .venueDropValue,.sdvNight .safetyCopy,.sdvNight .codePlankTitle{color:#bfe3ff;}
-.sdvNight .homeHero,.sdvNight .createHeroImg,.sdvNight .resultHero,.sdvNight .sdvMeadowFooter{filter:brightness(.84) contrast(1.04);}
+.sdvNight .venueHint,.sdvNight .legendFoot,.sdvNight .demoCaption,.sdvNight .inviteNote,.sdvNight .settingsNote,.sdvNight .statLabel,.sdvNight .eventTime{color:#d8c29e;}
+.sdvNight .signpostLink{color:#f0c987;}
+.sdvNight .resumeAction,.sdvNight .venueDropValue,.sdvNight .safetyCopy,.sdvNight .codePlankTitle{color:#f7c266;}
+.sdvNight .homeHero,.sdvNight .createHeroImg,.sdvNight .resultHero,.sdvNight .sdvMeadowFooter{filter:brightness(.86) contrast(1.04);}
 .sdvNight .sdvIconBtn.sdvBtnPaper map-icon,
 .sdvNight .sdvIconBtn.sdvBtnWood map-icon,
 .sdvNight .edgeButton pixel-glyph,
