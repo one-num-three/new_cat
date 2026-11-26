@@ -1,4 +1,4 @@
-<view class="sdvScreen codeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="sdvScreen codeScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="现场核验码" back="{{true}}" preview="{{devPreview}}" />
   <view class="navSpace" style="height:{{navHeight}}px"></view>
 

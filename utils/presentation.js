@@ -1,11 +1,15 @@
 const venueCatalog=require('./venue-catalog');
 // Display-only projection: authority stays in authenticated server snapshots.
+function readNightMode() {
+  try { return typeof wx !== 'undefined' && 'getStorageSync' in wx && wx.getStorageSync('sdvTheme') === 'night'; }
+  catch { return false; }
+}
 function metrics() {
   let w={}, capsule={}, base={};
   try { w=wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync(); capsule=wx.getMenuButtonBoundingClientRect ? wx.getMenuButtonBoundingClientRect() : {}; base=wx.getAppBaseInfo ? wx.getAppBaseInfo() : {}; } catch {}
   const statusHeight=w.statusBarHeight || 20;
   const navHeight=capsule.bottom ? capsule.bottom+Math.max(4,capsule.top-statusHeight) : statusHeight+44;
-  return {navHeight,statusHeight,viewportHeight:w.windowHeight||844,viewportWidth:w.windowWidth||390,safeBottom:w.safeArea?Math.max(0,w.screenHeight-w.safeArea.bottom):0,fontScale:Math.min(1.3,Math.max(1,(base.fontSizeSetting||16)/16))};
+  return {navHeight,statusHeight,viewportHeight:w.windowHeight||844,viewportWidth:w.windowWidth||390,safeBottom:w.safeArea?Math.max(0,w.screenHeight-w.safeArea.bottom):0,fontScale:Math.min(1.3,Math.max(1,(base.fontSizeSetting||16)/16)),nightMode:readNightMode()};
 }
 function project(s,offline=false) {
   const m=s.match || {}, terminal=['FINISHED','CANCELLED'].includes(m.phase);

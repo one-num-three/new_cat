@@ -1,4 +1,4 @@
-<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
+<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
 <nav-bar title="猫鼠行动" preview="{{devPreview}}" />
 <view wx:if="{{!match}}" class="sdvWoodCard emptyState">
   <text class="emptyTitle">正在同步状态</text>
@@ -90,7 +90,7 @@
       <text class="roleName">{{roleText}}</text>
       <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
     </view>
-    <text class="compactClock">{{clock}}</text>
+    <text class="compactClock {{clockAlert?'clock-'+clockAlert:''}}">{{clock}}</text>
     <view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view>
     <text class="registrationState">{{offline?'断线':modelMode?'3D图':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'像素图'):hasSelf?'已定位':'定位中'}}</text>
   </view>
@@ -189,7 +189,10 @@
   </view>
 </block>
 
-<text wx:if="{{error && !offline}}" class="sdvError mapError">{{error}}</text>
+<view wx:if="{{error && !offline}}" class="sdvError mapError errorDismissible" bindtap="clearError" role="alert" aria-label="关闭提示">
+  <text class="errorText">{{error}}</text>
+  <text class="errorClose" aria-hidden="true">×</text>
+</view>
 
 <view wx:if="{{drawer}}" class="drawerMask {{drawerClosing?'sheetLeaving':''}}" bindtap="closeDrawer" catchtouchmove="ignoreTouch"></view>
 <view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd">
@@ -266,6 +269,10 @@
           <button class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="retryBackgroundLocation">开启后台定位</button>
           <button class="sdvBtn sdvBtnPaper sdvBtnSm" bindtap="openLocationSettings">定位权限</button>
         </view>
+        <button class="sdvBtn sdvBtnPaper sdvBtnSm nightToggleBtn" hover-class="sdvPressed" bindtap="toggleNightMode">
+          <pixel-glyph kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#f0b854':'#5e3616'}}" />
+          <text>{{nightMode?'切换日间模式':'夜间营火模式'}}</text>
+        </button>
         <view class="drawerActionStack">
           <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="promptEmergency" />
           <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="pause">组织者暂停</button>

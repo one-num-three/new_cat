@@ -1,4 +1,4 @@
-<view class="screen inviteScreen {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="screen inviteScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="邀请成员" back="{{true}}" />
 
   <view class="inviteWrap">
@@ -23,8 +23,8 @@
 
         <view class="codePlate">
           <text class="inviteCode" selectable bindtap="copy">{{code || '—'}}</text>
-          <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper" hover-class="sdvPressed" bindtap="copy" disabled="{{!code}}" aria-label="复制房间码">
-            <map-icon kind="copy" size="17" color="#1c4763" />
+          <button class="sdvIconBtn sdvIconBtnSm {{copied?'sdvBtnGreen':'sdvBtnPaper'}}" hover-class="sdvPressed" bindtap="copy" disabled="{{!code}}" aria-label="复制房间码">
+            <map-icon kind="{{copied?'check':'copy'}}" size="17" color="{{copied?'#fffdf6':'#1c4763'}}" />
           </button>
         </view>
       </view>

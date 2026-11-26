@@ -1,4 +1,4 @@
-<view class="screen fieldScreen {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="screen fieldScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar title="集合点与活动范围" back="{{true}}" preview="{{devPreview}}" />
 
   <view class="editorTopBar">
@@ -65,12 +65,22 @@
         <text>删除顶点 {{selected+1}}</text>
       </button>
 
-      <text wx:if="{{error || validation}}" class="sdvError fieldError" role="alert">{{error || validation}}</text>
+      <view wx:if="{{error || validation}}" class="sdvError sdvErrorRow fieldError" bindtap="clearError" role="alert">
+        <text class="errorText">{{error || validation}}</text>
+        <text class="errorClose" aria-hidden="true">×</text>
+      </view>
+      <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
 
-      <button wx:if="{{points.length>=3 && !meeting}}" class="sdvBtn sdvBtnWood sdvBtnSm" hover-class="sdvPressed" data-mode="meeting" bindtap="setMode">
-        <map-icon kind="pin" size="14" color="#3b1d0b" />
-        <text>选集合点</text>
-      </button>
+      <view wx:if="{{points.length>=3 && !meeting}}" class="meetingQuickRow">
+        <button class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="autoMeeting" disabled="{{busy || !editable}}">
+          <map-icon kind="pin" size="14" color="#fffdf6" />
+          <text>一键中心集合点</text>
+        </button>
+        <button class="sdvBtn sdvBtnWood sdvBtnSm" hover-class="sdvPressed" data-mode="meeting" bindtap="setMode" disabled="{{busy || !editable}}">
+          <map-icon kind="locate" size="14" color="#3b1d0b" />
+          <text>手动点选</text>
+        </button>
+      </view>
 
       <button class="sdvBtn sdvBtnAmber fieldSave" hover-class="sdvPressed" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">
         <map-icon kind="check" size="16" color="#fffdf6" />

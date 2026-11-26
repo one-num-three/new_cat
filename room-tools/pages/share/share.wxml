@@ -1,4 +1,4 @@
-<view class="screen shareScreen {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="screen shareScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="个人轨迹海报" back="{{true}}" />
 
   <view class="shareWrap">
@@ -22,6 +22,7 @@
   <view class="sdvStickyBar shareDock">
     <text wx:if="{{feedback}}" class="sdvNotice shareFeedback" role="status">{{feedback}}</text>
     <text wx:if="{{error && posterPath}}" class="sdvError shareError" role="alert">{{error}}</text>
+    <button wx:if="{{needAlbumSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openAlbumSetting">去开启相册权限</button>
     <view class="shareActions">
       <button class="sdvBtn sdvBtnWood" hover-class="sdvPressed" bindtap="saveImage" disabled="{{!posterPath || loading || saving}}" loading="{{saving && action==='save'}}">
         <map-icon kind="download" size="16" color="#3b1d0b" />

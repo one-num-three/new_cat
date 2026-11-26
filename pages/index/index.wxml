@@ -1,4 +1,4 @@
-<view class="sdvScreen homeScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="sdvScreen homeScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="猫鼠行动" preview="{{devPreview}}" />
   <view class="homeMain">
     <view class="sdvWoodCard heroCard">
@@ -79,14 +79,19 @@
         </view>
       </view>
       <view class="signpostRow">
-        <button class="signpostLink" bindtap="openVenue">
+        <button class="signpostLink" hover-class="sdvPressed" bindtap="openVenue">
           <map-icon kind="map" size="15" color="#2a6e99" />
           <text>场地地图 ›</text>
         </button>
         <text class="signpostDivider" aria-hidden="true">|</text>
-        <button class="signpostLink" bindtap="openGuide">
+        <button class="signpostLink" hover-class="sdvPressed" bindtap="openGuide">
           <map-icon kind="info" size="15" color="#2c6122" />
           <text>使用说明 ›</text>
+        </button>
+        <text class="signpostDivider" aria-hidden="true">|</text>
+        <button class="signpostLink" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{nightMode?'切换日间模式':'切换夜间营火模式'}}">
+          <map-icon kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#f0b854':'#5e3616'}}" />
+          <text>{{nightMode?'日间':'夜间'}}</text>
         </button>
       </view>
     </view>

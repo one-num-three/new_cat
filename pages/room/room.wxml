@@ -1,4 +1,4 @@
-<view class="sdvScreen roomScreen {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px;--vw:{{viewportWidth}}px">
+<view class="sdvScreen roomScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px;--vw:{{viewportWidth}}px">
   <nav-bar pinned="{{true}}" title="{{roomId?'活动准备':'发起活动'}}" back="{{true}}" preview="{{devPreview}}" />
 
   <view wx:if="{{!roomId}}" class="createContent">
@@ -92,7 +92,11 @@
       </view>
     </view>
 
-    <text wx:if="{{error}}" class="sdvError roomError" role="alert">{{error}}</text>
+    <view wx:if="{{error}}" class="sdvError sdvErrorRow roomError" bindtap="clearError" role="alert">
+      <text class="errorText">{{error}}</text>
+      <text class="errorClose" aria-hidden="true">×</text>
+    </view>
+    <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
 
     <view class="sdvStickyBar">
       <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建活动" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError || venueResource!=='ready'}}" font-scale="{{fontScale}}" bindaction="create" />
@@ -182,7 +186,11 @@
       <view wx:if="{{!roster.length}}" class="emptyRoster">点上方按钮邀请成员</view>
     </view>
 
-    <text wx:if="{{error}}" class="sdvError roomError" role="alert">{{error}}</text>
+    <view wx:if="{{error}}" class="sdvError sdvErrorRow roomError" bindtap="clearError" role="alert">
+      <text class="errorText">{{error}}</text>
+      <text class="errorClose" aria-hidden="true">×</text>
+    </view>
+    <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
     <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
 
     <view class="sdvStickyBar">

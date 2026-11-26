@@ -171,3 +171,13 @@
 .large .editorTools{
   grid-template-columns:1fr;
 }
+
+.meetingQuickRow{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:8px;
+}
+
+.large .meetingQuickRow{
+  grid-template-columns:1fr;
+}

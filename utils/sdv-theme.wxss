@@ -481,3 +481,184 @@ page,.sdvScreen{
   color:#3b1d0b;
   white-space:nowrap;
 }
+
+.sdvErrorRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.errorText{
+  flex:1;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+.errorClose{
+  flex:none;
+  font-size:16px;
+  line-height:1;
+  padding:0 4px;
+  color:inherit;
+}
+
+.permLinkBtn{
+  margin-top:4px;
+}
+
+/* 星露谷「夜间营火」配色（纯 CSS 变量，零额外图像体积） */
+.sdvNight,.sdvNight.sdvScreen,.sdvNight.screen,.sdvNight.mapPage{
+  background-color:#243526;
+  background-image:none;
+  color:#f6e6c2;
+}
+
+.sdvNight .pinnedNav{
+  background:#1f324a;
+  border-bottom-color:#120a05;
+  box-shadow:inset 0 2px 0 #314d6e,inset 0 -4px 0 #3f7a34,inset 0 -6px 0 #62a851,0 2px 0 #142217;
+}
+
+.sdvNight .floatingNav .navBrand{
+  border-image-source:none;
+  background:#34261c;
+  border:2px solid #8a562d;
+  padding:2px 8px;
+}
+
+.sdvNight .navTitle{color:#f7e8c6;}
+
+.sdvNight .navBack{
+  border-image-source:none;
+  background:#463323;
+  border:2px solid #8a562d;
+  color:#f7e8c6;
+}
+
+.sdvNight .sdvWoodCard{
+  border-image-source:none;
+  background:#34261c;
+  border:3px solid #160d07;
+  box-shadow:inset 0 0 0 2px #7a4b26,inset 0 0 0 4px #4d3422;
+  padding:10px;
+  color:#f6e6c2;
+}
+
+.sdvNight .sdvPaperCard{
+  border-image-source:none;
+  background:#2d2219;
+  border:2px solid #7a4b26;
+  box-shadow:inset 0 2px 0 #453224;
+  padding:8px;
+  color:#f6e6c2;
+}
+
+.sdvNight .sdvPlank{
+  border-image-source:none;
+  background:#253d27;
+  border:2px solid #599c4a;
+  padding:6px 10px;
+  color:#dff5d4;
+}
+
+.sdvNight .sdvPlankSky,.sdvNight .sdvNotice,.sdvNight .codeRow,.sdvNight .codePlate,.sdvNight .safetyNote,.sdvNight .venueDropInner,.sdvNight .venueNavChip{
+  border-image-source:none;
+  background:#1e3447;
+  border-color:#4b8cb8;
+  color:#d8eefc;
+  box-shadow:inset 0 2px 0 #2d4c66;
+}
+
+.sdvNight .sdvInput{
+  border-image-source:none;
+  background:#211812;
+  border:2px solid #8a562d;
+  padding:6px 10px;
+  color:#fff2d6;
+  box-shadow:inset 0 2px 0 #140d09;
+}
+
+.sdvNight .sdvBtnPaper,.sdvNight .sdvBtnWood,.sdvNight .edgeButton,.sdvNight .sheetCloseButton{
+  border-image-source:none;
+  background:#463323;
+  border:2px solid #9c6434;
+  box-shadow:inset 0 2px 0 #664930,inset 0 -2px 0 #261a11;
+  color:#f7e8c6;
+}
+
+.sdvNight .sdvStickyBar,.sdvNight .mapBottomDock,.sdvNight .fieldPanel{
+  background:#2a1f17;
+  border-color:#140c06;
+  box-shadow:inset 0 3px 0 #4a8c3c,inset 0 -2px 0 #1a120d;
+}
+
+.sdvNight .playHud{
+  border-image-source:none;
+  background:#2d2219ee;
+  border:2px solid #8a562d;
+  color:#f6e6c2;
+}
+
+.sdvNight .drawer,.sdvNight .codeSheet{
+  background:#2d2219;
+  border-color:#8a562d;
+  color:#f6e6c2;
+}
+
+.sdvNight .drawerHeader,.sdvNight .sheetGrip,.sdvNight .codeSheetHeader{
+  background:#1f324a;
+  color:#f7e8c6;
+}
+
+.sdvNight .drawerTabs{
+  background:#231a13;
+  border-bottom-color:#7a4b26;
+}
+
+.sdvNight .drawerTabs>button{color:#c9b493;}
+.sdvNight .drawerTabs>.selected{background:#2d2219;color:#f7e8c6;}
+
+.sdvNight .sdvInfoChip,.sdvNight .guideFlowItem,.sdvNight .teamSpriteStrip,.sdvNight .venueGuide,.sdvNight .sdvPillGroup,.sdvNight .squad,.sdvNight .rulesBox,.sdvNight .mapStatus,.sdvNight .playerCard,.sdvNight .calPickBar,.sdvNight .demoCard{
+  background:#3d2d20;
+  border-color:#8a562d;
+  box-shadow:none;
+  color:#f6e6c2;
+}
+
+.sdvNight .sdvPill{color:#d6c09d;}
+.sdvNight .heroCaption{background:#253d27;border-top-color:#160d07;color:#d4ebba;box-shadow:none;}
+.sdvNight .sdvIconTitle,.sdvNight .identityLabel,.sdvNight .playerName,.sdvNight .roomCode,.sdvNight .inviteCode,.sdvNight .venueTitle,.sdvNight .summaryVenue,.sdvNight .compactClock,.sdvNight .bodyCopy,.sdvNight .drawerHeaderTitle,.sdvNight .toolLabel,.sdvNight .teamSpriteText,.sdvNight .rosterName,.sdvNight .settingsCopy,.sdvNight .statsValue,.sdvNight .instruction,.sdvNight .demoTitle,.sdvNight .eventRow{color:#f7e8c6;}
+.sdvNight .role-cat .roleName{color:#ffae63;}
+.sdvNight .role-mouse .roleName{color:#8fd0f5;}
+.sdvNight .phaseName,.sdvNight .vibeActive .toolLabel{color:#9be889;}
+.sdvNight .registrationState{color:#d8c29e;border-left-color:#7a4b26;}
+.sdvNight .compactProgress{border-left-color:#7a4b26;}
+.sdvNight .compactClock.clock-warn{color:#3b1d0b;}
+.sdvNight .compactClock.clock-urgent{color:#fffdf6;}
+.sdvNight .guideStepTitle{color:#b6e39f;}
+.sdvNight .venueHint,.sdvNight .legendFoot,.sdvNight .demoCaption,.sdvNight .inviteNote,.sdvNight .settingsNote,.sdvNight .statLabel,.sdvNight .eventTime{color:#c9b493;}
+.sdvNight .signpostLink{color:#8fd0f5;}
+.sdvNight .resumeAction,.sdvNight .venueDropValue,.sdvNight .safetyCopy,.sdvNight .codePlankTitle{color:#bfe3ff;}
+.sdvNight .homeHero,.sdvNight .createHeroImg,.sdvNight .resultHero,.sdvNight .sdvMeadowFooter{filter:brightness(.84) contrast(1.04);}
+.sdvNight .sdvIconBtn.sdvBtnPaper map-icon,
+.sdvNight .sdvIconBtn.sdvBtnWood map-icon,
+.sdvNight .edgeButton pixel-glyph,
+.sdvNight .dockSecondary pixel-glyph,
+.sdvNight .sheetCloseButton pixel-glyph,
+.sdvNight .venueNavChip pixel-glyph,
+.sdvNight .resumeLeft map-icon,
+.sdvNight .identityLabelWrap map-icon,
+.sdvNight .sdvIconTitle map-icon,
+.sdvNight .sdvIconTitle pixel-glyph,
+.sdvNight .settingRuleRow map-icon,
+.sdvNight .ruleItem pixel-glyph,
+.sdvNight .guideStepIconBox map-icon,
+.sdvNight .guideIcon map-icon,
+.sdvNight .sdvPill:not(.sdvPillActive) map-icon,
+.sdvNight .sdvBtnPaper map-icon,
+.sdvNight .sdvBtnWood map-icon,
+.sdvNight .signpostLink:not(:last-child) map-icon{
+  filter:invert(.92) sepia(.28) brightness(1.18);
+}
+.sdvNight .sdvError{border-image-source:none;background:#4a201a;border:2px solid #c95843;padding:8px 10px;color:#ffd8cf;}

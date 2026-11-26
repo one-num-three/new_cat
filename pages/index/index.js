@@ -6,10 +6,11 @@ const tapHaptic=(type='light')=>{try{if(typeof wx!=='undefined'&&'vibrateShort' 
 const FUN_NAMES=['小橘','田鼠','松果','青苔','风铃','溪石','橡果','星露','草帽','露珠','树莓','薄荷','山雀','麦穗','云朵','向日葵'];
 Page({
   onResize(e) { this.setData(presentation.resize(e)); },
-  data: { fontScale:1, nickname:'', code:'', clipCode:'', loading:false, error:'', resumeKind:'', devAvailable:false, devPreview:false, guideOpen:false },
+  data: { fontScale:1, nickname:'', code:'', clipCode:'', loading:false, error:'', resumeKind:'', devAvailable:false, devPreview:false, guideOpen:false, nightMode:false },
   onLoad(options={}) { this.unloaded=false;this.setData({...presentation.metrics(),code:invitation.launch(options),inviteHint:invitation.launch(options)?'已填邀请码，点下方加入':''}); this.devPreview=preview.accepts(options.devPreview);this.setData({devPreview:this.devPreview,devAvailable:preview.enabled()}); },
   async onShow() {
     if(this.devPreview){this.setData({nickname:'',code:'',clipCode:'',resumeKind:''});return;}
+    try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night';if(n!==!!this.data.nightMode)this.setData({nightMode:n});}}catch{}
     this.setData({ nickname: wx.getStorageSync('nickname') || '' });
     if(!this.data.code){try{if(typeof wx!=='undefined'&&'getClipboardData' in wx)wx.getClipboardData({success:r=>{if(this.unloaded)return;const m=String(r?.data||'').trim().toUpperCase().match(/\b([0-9A-F]{10})\b/);this.setData({clipCode:m&&m[1]!==this.data.code?m[1]:''});},fail:()=>{}});}catch{}}
     const roomId = wx.getStorageSync('v2RoomId');
@@ -25,6 +26,7 @@ Page({
   onUnload(){this.unloaded=true;this.resumeRequestId=(this.resumeRequestId||0)+1;},
   openGuide(){tapHaptic();this.setData({guideOpen:true});},
   closeGuide(){this.setData({guideOpen:false});},
+  toggleNightMode(){tapHaptic();const next=!this.data.nightMode;this.setData({nightMode:next});try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('sdvTheme',next?'night':'day');}catch{}},
   randomNickname(){tapHaptic();const cur=(this.data.nickname||'').trim();const pool=FUN_NAMES.filter(n=>n!==cur);const next=pool[Math.floor(Math.random()*pool.length)]||FUN_NAMES[0];this.setData({nickname:next,error:''});if(!this.devPreview){try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('nickname',next);}catch{}}},
   pasteClipCode(){if(!this.data.clipCode)return;tapHaptic();this.setData({code:this.data.clipCode,clipCode:'',inviteHint:'已填入剪贴板房间码',error:''});},
   joinOrScan(){if(this.data.code.trim()||this.devPreview)this.join();else this.scanInvite();},
