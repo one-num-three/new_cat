@@ -74,12 +74,12 @@
     <view class="sdvPaperCard guideMiniCard">
       <view class="guideFlowRow">
         <view class="guideFlowItem">
-          <image class="guideStepIcon" src="/assets/pixel-v1/rules-icon-cat.png" mode="aspectFit" aria-hidden="true" />
+          <image class="guideStepIcon" src="/assets/sdv-v1/rules-cat.png" mode="aspectFit" aria-hidden="true" />
           <text class="guideStepTitle">填称呼</text>
         </view>
         <text class="guideFlowArrow" aria-hidden="true">›</text>
         <view class="guideFlowItem">
-          <image class="guideStepIcon" src="/assets/pixel-v1/rules-icon-clock.png" mode="aspectFit" aria-hidden="true" />
+          <image class="guideStepIcon" src="/assets/sdv-v1/rules-clock.png" mode="aspectFit" aria-hidden="true" />
           <text class="guideStepTitle">进房间</text>
         </view>
         <text class="guideFlowArrow" aria-hidden="true">›</text>

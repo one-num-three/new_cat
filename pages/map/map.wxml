@@ -202,7 +202,7 @@
 <view wx:if="{{drawer}}" class="drawer {{drawerClosing?'sheetLeaving':''}}" bindanimationend="drawerAnimationEnd">
   <view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view>
   <view class="drawerHeader">
-    <image class="drawerLogo" src="/assets/pixel-v1/drawer-title-icon.png" mode="aspectFit" />
+    <image class="drawerLogo" src="/assets/sdv-v1/drawer-title.png" mode="aspectFit" />
     <text class="drawerHeaderTitle">活动明细</text>
     <view class="drawerClose">
       <button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭明细"><pixel-glyph kind="close" size="16" color="#332012" /></button>
@@ -229,7 +229,7 @@
           <view class="squadHead"><image src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" /><text>猫队 {{cats.length}}人</text></view>
           <view class="teamGrid catGrid">
             <view wx:for="{{cats}}" wx:key="id" class="teamMember">
-              <image src="/assets/pixel-v1/drawer-cat-avatar.png" mode="aspectFit" />
+              <image src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" />
               <view>
                 <text class="rosterName">{{item.nickname}}</text>
                 <text class="rosterState">{{item.status==='joining'?'定位中':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text>
@@ -241,7 +241,7 @@
           <view class="squadHead"><image src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" /><text>鼠队 {{mice.length}}人</text></view>
           <view class="teamGrid mouseGrid">
             <view wx:for="{{mice}}" wx:key="id" class="teamMember">
-              <image src="/assets/pixel-v1/drawer-mouse-avatar.png" mode="aspectFit" />
+              <image src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" />
               <view>
                 <text class="rosterName">{{item.nickname}}</text>
                 <text class="rosterState {{item.status==='captured'?'caught':''}}">{{item.status==='joining'?'定位中':item.status==='captured'?'已核验':item.status==='left'?'已退出':item.presence==='online'?'在线':'重连中'}}</text>
@@ -252,7 +252,7 @@
       </view>
 
       <view wx:if="{{drawerTab==='events'}}" class="eventGroup">
-        <view class="sectionHeading"><image src="/assets/pixel-v1/drawer-event-icon.png" mode="aspectFit" /><text>动态</text></view>
+        <view class="sectionHeading"><image src="/assets/sdv-v1/drawer-event.png" mode="aspectFit" /><text>动态</text></view>
         <text wx:if="{{!events.length}}" class="bodyCopy">暂无动态</text>
         <view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow">
           <text class="eventTime">{{event.timeText}}</text>
@@ -261,7 +261,7 @@
       </view>
 
       <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup">
-        <view class="sectionHeading"><image src="/assets/pixel-v1/drawer-rules-icon.png" mode="aspectFit" /><text>规则与设置</text></view>
+        <view class="sectionHeading"><image src="/assets/sdv-v1/drawer-rules.png" mode="aspectFit" /><text>规则与设置</text></view>
         <view class="sdvPaperCard rulesBox">
           <view class="ruleItem"><pixel-glyph kind="pin" size="14" color="#2c6122" /><text class="bodyCopy">{{venueName}}</text></view>
           <view class="ruleItem"><pixel-glyph kind="clock" size="14" color="#a64d0b" /><text class="bodyCopy">30s准备 · 6分 · 目标{{match.target}}人</text></view>
@@ -311,7 +311,7 @@
   <scroll-view scroll-y class="codeSheetBody">
     <text class="codeSafety">停在安全处当面扫码</text>
     <view class="inlineQr">
-      <view wx:if="{{devPreview}}" class="codePlaceholder"><image src="/assets/pixel-v1/code-demo-art.png" mode="aspectFit" /><text>演示码 · 不可扫描</text></view>
+      <view wx:if="{{devPreview}}" class="codePlaceholder"><image src="/assets/sdv-v1/demo-cat-mouse.png" mode="aspectFit" /><text>演示码 · 不可扫描</text></view>
       <image wx:elif="{{image && seconds>0}}" src="{{image}}" mode="aspectFit" aria-label="本场现场动态核验码" />
       <view wx:else class="codePlaceholder"><text>{{codeError?'无法生成':'更新中…'}}</text></view>
     </view>

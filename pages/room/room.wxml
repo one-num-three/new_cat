@@ -172,7 +172,7 @@
       </view>
       <view class="rosterGrid">
         <view wx:for="{{roster}}" wx:key="id" class="sdvPaperCard playerCard">
-          <image class="playerAvatar" src="/assets/pixel-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" />
+          <image class="playerAvatar" src="/assets/sdv-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" />
           <text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text>
           <view wx:if="{{index===0}}" class="hostMark" aria-label="组织者">
             <map-icon kind="crown" size="11" color="#a64d0b" />

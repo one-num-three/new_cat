@@ -700,4 +700,5 @@ page,.sdvScreen{
 .sdvNight .signpostLink:not(:last-child) map-icon{
   filter:invert(.92) sepia(.28) brightness(1.18);
 }
+.sdvNight .demoArtFrame{background:#3b2b1d;border-color:#9c6430;box-shadow:none;}
 .sdvNight .sdvError{border-image-source:none;background:#4a201a;border:2px solid #c95843;padding:8px 10px;color:#ffd8cf;}

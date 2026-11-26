@@ -583,7 +583,7 @@ campus-model{display:block;width:100%;height:100%}
 }
 
 .drawerHeaderTitle{flex:1;min-width:0}
-.drawerLogo{width:28px;height:30px;flex:none}
+.drawerLogo{width:28px;height:30px;flex:none;image-rendering:pixelated}
 .drawerClose{width:38px;flex:none}
 
 .sheetCloseButton{
@@ -660,13 +660,13 @@ campus-model{display:block;width:100%;height:100%}
   color:#3b1d0b;
 }
 
-.miceGroup .squadHead{background:#cdebfb;border-bottom-color:#2a6b94}
-.squadHead image{width:26px;height:26px;flex:none}
+.miceGroup .squadHead{background:#d4ebba;border-bottom-color:#4a943b}
+.squadHead image{width:26px;height:26px;flex:none;image-rendering:pixelated}
 .teamGrid{padding:6px}
 .mouseGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
 
 .teamMember{display:flex;gap:5px;align-items:center;padding:5px 0;min-width:0}
-.teamMember image{width:30px;height:34px;flex:none}
+.teamMember image{width:30px;height:34px;flex:none;image-rendering:pixelated}
 .teamMember>view{min-width:0;flex:1}
 .rosterName{display:block;font-size:calc(12px * var(--font-scale));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#332012}
 .rosterState{display:block;font-size:10px;line-height:1.4;color:#2c6122}
@@ -674,7 +674,7 @@ campus-model{display:block;width:100%;height:100%}
 
 .eventGroup,.rulesGroup{margin:4px 0}
 .sectionHeading{display:flex;align-items:center;gap:8px;font-size:calc(16px * var(--font-scale));margin-bottom:8px;color:#332012}
-.sectionHeading image{width:22px;height:22px;flex:none}
+.sectionHeading image{width:22px;height:22px;flex:none;image-rendering:pixelated}
 .eventRow{display:flex;gap:12px;margin:6px 0;padding-left:12px;border-left:3px solid #e87f24;font-size:calc(13px * var(--font-scale));line-height:1.5;color:#332012}
 .eventTime{color:#5e4c3c;flex:none;font-variant-numeric:tabular-nums}
 

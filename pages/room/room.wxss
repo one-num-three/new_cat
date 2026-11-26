@@ -331,7 +331,7 @@
   border-image-width:6px;
 }
 
-.playerAvatar{display:block;flex:none;width:44rpx;height:42rpx}
+.playerAvatar{display:block;flex:none;width:44rpx;height:42rpx;image-rendering:pixelated}
 
 .playerName{
   display:block;

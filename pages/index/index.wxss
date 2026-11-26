@@ -257,6 +257,7 @@
   width:38rpx;
   height:38rpx;
   display:block;
+  image-rendering:pixelated;
 }
 
 .guideStepIconBox{

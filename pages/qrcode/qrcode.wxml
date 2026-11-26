@@ -15,7 +15,7 @@
       <view class="qrCard {{devPreview?'demoCard':''}}">
         <view wx:if="{{devPreview}}" class="qrDemo">
           <view class="demoArtFrame">
-            <image class="demoArt" src="/assets/pixel-v1/code-demo-art.png" mode="widthFix" aria-hidden="true" />
+            <image class="demoArt" src="/assets/sdv-v1/demo-cat-mouse.png" mode="widthFix" aria-hidden="true" />
           </view>
           <text class="demoTitle">演示码</text>
           <text class="demoCaption">不可扫描</text>
