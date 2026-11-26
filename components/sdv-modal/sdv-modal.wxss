@@ -143,11 +143,8 @@
 .sdvSheetItem:active{opacity:.85}
 
 .sdvSheetActive{
-  padding:11px 14px;
-  background:#cdebfb;
-  border:2px solid #2a6e99;
-  border-image:none;
-  box-shadow:inset 0 2px 0 #eaf7fe,inset 0 -2px 0 #9bd2f0;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEXR6bY1aSqbyXuw44wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAeB5AAAAIHRSTlP/////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHNoJQAAABKSURBVHja7dc7DgAgCARR/Nz/zEriVjZqbNCZjphHjVZ76SB3FhRrKAvlkUxk7A+2kRaAwWAwGAwG38Q+gN/HWrDadPUGwx/+qxpqaQshoKOzbwAAAABJRU5ErkJggg==");
+  color:#24451c;
 }
 
 .sdvSheetDanger{
@@ -177,8 +174,8 @@
 .sdvSheetBadge{
   flex:none;
   padding:2px 7px;
-  background:#3588bd;
-  border:2px solid #1e5880;
+  background:#4a943b;
+  border:2px solid #2c6122;
   border-radius:0;
   color:#fffdf6;
   font-size:11px;
