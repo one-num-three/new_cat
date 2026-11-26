@@ -24,7 +24,7 @@
         <view class="codePlate">
           <text class="inviteCode" selectable bindtap="copy">{{code || '—'}}</text>
           <button class="sdvIconBtn sdvIconBtnSm {{copied?'sdvBtnGreen':'sdvBtnPaper'}}" hover-class="sdvPressed" bindtap="copy" disabled="{{!code}}" aria-label="复制房间码">
-            <map-icon kind="{{copied?'check':'copy'}}" size="17" color="{{copied?'#fffdf6':'#1c4763'}}" />
+            <map-icon kind="{{copied?'check':'copy'}}" size="17" color="{{copied?'#fffdf6':'#3b1d0b'}}" />
           </button>
         </view>
       </view>

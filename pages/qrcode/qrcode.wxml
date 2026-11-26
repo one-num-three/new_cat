@@ -6,7 +6,7 @@
     <view class="sdvWoodCard codeCard">
       <view class="sdvPlankSky codePlank">
         <view class="sdvIconTitle">
-          <map-icon kind="code" size="18" color="#1c4763" />
+          <map-icon kind="code" size="18" color="#5e3616" />
           <text class="codePlankTitle">现场核验码</text>
         </view>
         <text class="sdvBadge sdvBadgeAmber">{{devPreview?'15s 示例':seconds>0?seconds+'s':'同步中'}}</text>

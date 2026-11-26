@@ -38,13 +38,13 @@
   gap:10px;
   padding:10px 14px;
   border:0;
-  border-bottom:2px solid #2a6b94;
+  border-bottom:2px solid #7b3c14;
   border-radius:0;
 }
 
 .codePlankTitle{
   font-size:calc(18px * var(--font-scale));
-  color:#1c4763;
+  color:#3b1d0b;
 }
 
 .heading{
@@ -174,10 +174,10 @@
 .safetyNote{
   margin:0 16px 14px;
   padding:9px 12px;
-  background:#d2ecfa;
-  border:2px solid #2a6b94;
+  background:#f5dcab;
+  border:2px solid #7b3c14;
   border-radius:0;
-  box-shadow:inset 0 2px 0 #eef8fe,inset 0 -2px 0 #9bd2f0,0 2px 0 #cfa96c;
+  box-shadow:inset 0 2px 0 #fff0cf,inset 0 -2px 0 #d9b678,0 2px 0 #cfa96c;
   display:flex;
   align-items:center;
   gap:10px;
@@ -203,7 +203,7 @@
   min-width:0;
   font-size:calc(13px * var(--font-scale));
   line-height:1.4;
-  color:#1d4e6e;
+  color:#3b1d0b;
 }
 
 .backAction{padding:0 16px}

@@ -28,7 +28,7 @@
         </view>
         <view class="resultMetric resultMetricSky">
           <view class="statIconHead">
-            <pixel-glyph kind="pin" size="13" color="#1e5880" />
+            <pixel-glyph kind="pin" size="13" color="#a64d0b" />
             <text class="statLabel">场地</text>
           </view>
           <text class="statVenue">{{venueName}}</text>
@@ -85,20 +85,24 @@
   </view>
 
   <view class="playHud compactHud role-{{match.myRole}}" aria-label="本场活动状态">
-    <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
-    <view class="compactIdentity">
-      <text class="roleName">{{roleText}}</text>
-      <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
+    <view class="hudPlaque hudLeft">
+      <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
+      <view class="compactIdentity">
+        <text class="roleName">{{roleText}}</text>
+        <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
+      </view>
     </view>
-    <text class="compactClock {{clockAlert?'clock-'+clockAlert:''}}">{{clock}}</text>
-    <view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text> / {{match.target}}</text></view>
-    <text class="registrationState">{{offline?'断线':modelMode?'3D图':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'像素图'):hasSelf?'已定位':'定位中'}}</text>
+    <view class="hudPlaque hudRight">
+      <text class="compactClock {{clockAlert?'clock-'+clockAlert:''}}">{{clock}}</text>
+      <view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text>/{{match.target}}</text></view>
+      <text class="registrationState">{{offline?'断线':modelMode?'3D图':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'像素图'):hasSelf?'已定位':'定位中'}}</text>
+    </view>
   </view>
 
   <view class="mapTopLeft">
     <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
     <view wx:if="{{meetingGuideText && !offline}}" class="venueNavChip" aria-label="集合点方向与距离">
-      <pixel-glyph kind="compass" size="13" color="#1e5880" />
+      <pixel-glyph kind="compass" size="13" color="#a64d0b" />
       <text>{{meetingGuideText}}</text>
     </view>
   </view>
@@ -173,7 +177,7 @@
       <pixel-glyph kind="scan" size="18" color="#fffdf6" />
       <text>扫码核验</text>
     </button>
-    <button wx:if="{{canShowCode}}" class="dockBtn dockPrimary sdvBtnBlue" hover-class="sdvPressed" bindtap="showCode" aria-label="停下后展示现场动态核验码">
+    <button wx:if="{{canShowCode}}" class="dockBtn dockPrimary sdvBtnGreen" hover-class="sdvPressed" bindtap="showCode" aria-label="停下后展示现场动态核验码">
       <pixel-glyph kind="code" size="18" color="#fffdf6" />
       <text>核验码</text>
     </button>
@@ -261,7 +265,7 @@
         <view class="sdvPaperCard rulesBox">
           <view class="ruleItem"><pixel-glyph kind="pin" size="14" color="#2c6122" /><text class="bodyCopy">{{venueName}}</text></view>
           <view class="ruleItem"><pixel-glyph kind="clock" size="14" color="#a64d0b" /><text class="bodyCopy">30s准备 · 6分 · 目标{{match.target}}人</text></view>
-          <view class="ruleItem"><pixel-glyph kind="eye" size="14" color="#1e5880" /><text class="bodyCopy">鼠队视野：{{mouseTeamVision?'120m共享':'独立预警'}}</text></view>
+          <view class="ruleItem"><pixel-glyph kind="eye" size="14" color="#2c6122" /><text class="bodyCopy">鼠队视野：{{mouseTeamVision?'120m共享':'独立预警'}}</text></view>
           <view wx:if="{{match.trackVersion==='tracks-v1'}}" class="ruleItem"><pixel-glyph kind="route" size="14" color="#2c6122" /><text class="bodyCopy">轨迹留存7天</text></view>
           <text wx:if="{{!devPreview}}" class="bodyCopy">{{trackingText}} {{trackingNotice}}</text>
         </view>
@@ -297,7 +301,7 @@
 <view wx:if="{{codeOpen}}" class="codeSheet" role="dialog" aria-label="现场核验码">
   <view class="codeSheetHeader">
     <view class="sdvIconTitle">
-      <pixel-glyph kind="code" size="18" color="#1c4763" />
+      <pixel-glyph kind="code" size="18" color="#5e3616" />
       <text>现场核验码</text>
     </view>
     <view class="drawerClose">

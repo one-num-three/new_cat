@@ -105,12 +105,12 @@ page,.sdvScreen{
   border:12px solid transparent;
   border-radius:0;
   box-shadow:none;
-  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAMAAADwSaEZAAAAYFBMVEXN6/s7HAp4OxSzZStPJw/lo1ib0vDPfzgAAAD/4J4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvF3G6AAAAIHRSTlP//////////wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHWLUo4AAACJSURBVHja7dhBDoAgDETRClX0/he2JE5iJMEiOzt/qfIWurGV/WqZCIYEwuqFdSKAUTBAh5WvkpU73e/XcwCjYWqlD9VzUTG8WB0IH4KY6uaIWIvJS/W5YuEcMWLEiBEjRoyYFxNH7h+XIBjnAB/2HMRKp+Gp7qcY9xp+DIulNFGzpQqAcU87hJ35oT8B2ZIGEwAAAABJRU5ErkJggg==");
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAMAAADwSaEZAAAAYFBMVEXyz5Q7HApwNhBPJw+oXCTfoFnZsG7PfzgAAAD/4J4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6oaVOAAAAIHRSTlP//////////wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHWLUo4AAACJSURBVHja7dhBDoAgDETRSlH0/he2JE5iJMEiOzt/qfIWurGV/WqZCIYEwuqFdSKAUTBAh5WvkpU73e/XcwCjYWqlD9VzUTG8WB0IH4KY6uaIWIvJS/W5YuEcMWLEiBEjRoyYFxNH7h+XIBjnAB/2HMRKp+Gp7qcY9xp+DIulNFGzpQqAcU87hJ35oT8B4pyRyAAAAABJRU5ErkJggg==");
   border-image-slice:24 fill;
   border-image-width:12px;
   border-image-repeat:round;
   image-rendering:pixelated;
-  color:#1c4763;
+  color:#3b1d0b;
 }
 
 .sdvPlankWood{
@@ -338,19 +338,19 @@ page,.sdvScreen{
 
 .sdvBadgeGreen{background:#d4ebba;border-color:#2c6122;color:#2c6122;box-shadow:inset 0 2px 0 #ecf7df,0 2px 0 #9bc97b}
 .sdvBadgeAmber{background:#ffdba3;border-color:#a64d0b;color:#7a3303;box-shadow:inset 0 2px 0 #fff0d1,0 2px 0 #d9a75f}
-.sdvBadgeBlue{background:#cdebfb;border-color:#1e5880;color:#1c4763;box-shadow:inset 0 2px 0 #eaf7fe,0 2px 0 #8dc3e0}
+.sdvBadgeBlue{background:#f2cf94;border-color:#7b3c14;color:#3b1d0b;box-shadow:inset 0 2px 0 #ffe9bf,0 2px 0 #cfa96c}
 .sdvBadgeRed{background:#f8d4c8;border-color:#8c2c1b;color:#731d0f;box-shadow:inset 0 2px 0 #fceae4,0 2px 0 #d49c8e}
 .sdvBadgeGray{background:#e8d8b7;border-color:#6b4d2b;color:#4f351a;box-shadow:inset 0 2px 0 #f7ebd1,0 2px 0 #c2ad84}
 
-/* 晴空提示条、引导卡与错误条 */
+/* 暖麦提示条、引导卡与错误条 */
 .sdvNotice{
   display:block;
   padding:9px 12px;
-  background:#d2ecfa;
-  border:2px solid #2a6b94;
+  background:#f2cf94;
+  border:2px solid #7b3c14;
   border-radius:0;
-  box-shadow:inset 0 2px 0 #eef8fe,inset 0 -2px 0 #9bd2f0,0 2px 0 #79a857;
-  color:#1c4763;
+  box-shadow:inset 0 2px 0 #ffe9bf,inset 0 -2px 0 #d4aa6a,0 2px 0 #79a857;
+  color:#3b1d0b;
   font-size:calc(13px * var(--font-scale,1));
   line-height:1.5;
   overflow-wrap:anywhere;
@@ -587,18 +587,38 @@ page,.sdvScreen{
   color:#f7e8c6;
 }
 
-.sdvNight .sdvStickyBar,.sdvNight .mapBottomDock,.sdvNight .fieldPanel{
+.sdvNight .sdvStickyBar,.sdvNight .fieldPanel{
   background:#2a1f17;
   border-color:#140c06;
   box-shadow:inset 0 3px 0 #4a8c3c,inset 0 -2px 0 #1a120d;
 }
 
 .sdvNight .playHud{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+
+.sdvNight .hudPlaque{
   border-image-source:none;
   background:#2d2219ee;
   border:2px solid #8a562d;
+  padding:4px 8px;
   color:#f6e6c2;
 }
+
+.sdvNight .mapBottomDock{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+
+.sdvNight .bulletinBoard{padding:0;}
+.sdvNight .boardBody{background:transparent;padding:8rpx 10px 8px;}
+.sdvNight .boardDivider{border-top-color:#7a4b26;}
+.sdvNight .boardPost{top:-9px;background:#59371e;border-color:#160d07;box-shadow:inset 0 2px 0 #8a562d;}
+.sdvNight .boardTuftLeft{left:-6px;}
+.sdvNight .boardTuftRight{right:-6px;bottom:-4px;}
 
 .sdvNight .drawer,.sdvNight .codeSheet{
   background:#2d2219;

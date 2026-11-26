@@ -1,49 +1,59 @@
 <view class="sdvScreen homeScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="猫鼠行动" preview="{{devPreview}}" />
   <view class="homeMain">
-    <view class="sdvWoodCard heroCard">
-      <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
-      <view class="heroCaption"><text>户外定位 · 计时 · 核验</text></view>
-    </view>
-
     <button wx:if="{{resumeKind}}" class="sdvPlankSky resumeBand" hover-class="sdvPressed" disabled="{{resumeKind==='checking'}}" bindtap="restore">
       <view class="resumeLeft">
-        <map-icon kind="{{resumeKind==='match'?'flag':'door'}}" size="15" color="#1c4763" />
+        <map-icon kind="{{resumeKind==='match'?'flag':'door'}}" size="15" color="#7b3c14" />
         <text class="resumeText">{{resumeKind==='room'?'等待中房间 · 点击返回':resumeKind==='match'?'活动进行中 · 一键回到':resumeKind==='result'?'上一场记录 · 查看汇总':resumeKind==='unavailable'?'房间暂不可用':'检查进行中活动…'}}</text>
       </view>
       <text class="resumeAction">{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'稍候':'继续 ›'}}</text>
     </button>
 
-    <view class="sdvPaperCard identityBar">
-      <view class="identityLabelWrap">
-        <map-icon kind="user" size="16" color="#5e3616" />
-        <text class="identityLabel">称呼</text>
+    <view class="sdvWoodCard bulletinBoard">
+      <view class="boardPost boardPostLeft" aria-hidden="true"></view>
+      <view class="boardPost boardPostRight" aria-hidden="true"></view>
+      <view class="boardTuft boardTuftLeft" aria-hidden="true"></view>
+      <view class="boardTuft boardTuftRight" aria-hidden="true"></view>
+      <view class="heroStage">
+        <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
+        <view class="heroCaption"><text>户外定位 · 计时 · 核验</text></view>
       </view>
-      <input class="sdvInput identityInput" value="{{nickname}}" maxlength="20" placeholder="输入你的称呼" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="我的称呼" />
-      <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper randNameBtn" hover-class="sdvPressed" bindtap="randomNickname" aria-label="随机称呼">
-        <map-icon kind="dice" size="18" color="#5e3616" />
-      </button>
-    </view>
 
-    <view class="sdvWoodCard entryCard joinCard">
-      <view class="cardHead">
-        <view class="sdvIconTitle">
-          <map-icon kind="door" size="18" color="#a64d0b" />
-          <text>加入活动</text>
+      <view class="boardBody">
+        <view class="identityBar">
+          <view class="identityLabelWrap">
+            <map-icon kind="user" size="16" color="#5e3616" />
+            <text class="identityLabel">称呼</text>
+          </view>
+          <input class="sdvInput identityInput" value="{{nickname}}" maxlength="20" placeholder="输入你的称呼" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="我的称呼" />
+          <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper randNameBtn" hover-class="sdvPressed" bindtap="randomNickname" aria-label="随机称呼">
+            <map-icon kind="dice" size="18" color="#5e3616" />
+          </button>
         </view>
-      </view>
-      <view class="codeEntryRow">
-        <input class="sdvInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" />
-        <button wx:if="{{clipCode && !code}}" class="sdvIconBtn sdvBtnGreen pasteIconBtn" hover-class="sdvPressed" bindtap="pasteClipCode" aria-label="粘贴剪贴板房间码">
-          <map-icon kind="paste" size="20" color="#fffdf6" />
-        </button>
-        <button class="sdvIconBtn sdvBtnWood scanIconBtn" hover-class="sdvPressed" bindtap="scanInvite" disabled="{{loading}}" aria-label="扫码获取房间码">
-          <map-icon kind="scan" size="22" color="#3b1d0b" />
-        </button>
-      </view>
-      <text wx:if="{{inviteHint}}" class="inviteLandingHint">{{inviteHint}}</text>
-      <view class="cardAction">
-        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="加入活动" tone="orange" dynamic="{{false}}" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="joinOrScan" />
+
+        <view class="boardDivider" aria-hidden="true"></view>
+
+        <view class="joinSection">
+          <view class="cardHead">
+            <view class="sdvIconTitle">
+              <map-icon kind="door" size="18" color="#a64d0b" />
+              <text>加入活动</text>
+            </view>
+          </view>
+          <view class="codeEntryRow">
+            <input class="sdvInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" />
+            <button wx:if="{{clipCode && !code}}" class="sdvIconBtn sdvBtnGreen pasteIconBtn" hover-class="sdvPressed" bindtap="pasteClipCode" aria-label="粘贴剪贴板房间码">
+              <map-icon kind="paste" size="20" color="#fffdf6" />
+            </button>
+            <button class="sdvIconBtn sdvBtnWood scanIconBtn" hover-class="sdvPressed" bindtap="scanInvite" disabled="{{loading}}" aria-label="扫码获取房间码">
+              <map-icon kind="scan" size="22" color="#3b1d0b" />
+            </button>
+          </view>
+          <text wx:if="{{inviteHint}}" class="inviteLandingHint">{{inviteHint}}</text>
+          <view class="cardAction">
+            <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="加入活动" tone="orange" dynamic="{{false}}" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="joinOrScan" />
+          </view>
+        </view>
       </view>
     </view>
 
@@ -80,7 +90,7 @@
       </view>
       <view class="signpostRow">
         <button class="signpostLink" hover-class="sdvPressed" bindtap="openVenue">
-          <map-icon kind="map" size="15" color="#2a6e99" />
+          <map-icon kind="map" size="15" color="#4a943b" />
           <text>场地地图 ›</text>
         </button>
         <text class="signpostDivider" aria-hidden="true">|</text>
