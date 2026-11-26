@@ -14,13 +14,13 @@
 .venueScene{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
 .geoAnchor{position:absolute;pointer-events:none}
 .geoBadge{position:absolute;width:0;height:0;transform-origin:0 0}
-.geoMarker{position:absolute;display:block;max-width:none!important;z-index:1;image-rendering:pixelated}
+.geoMarker{position:absolute;display:block;max-width:none!important;z-index:1;image-rendering:pixelated;filter:drop-shadow(0 1px 0 #fffdf6) drop-shadow(0 2px 3px rgba(27,16,8,.55))}
 .geoDot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;box-sizing:border-box;border-radius:50%;background:#e03324;border:2px solid #fffdf6;box-shadow:0 0 0 1.5px #4f170c,0 0 0 5px rgba(224,51,36,.36);z-index:2;pointer-events:none}
 .geo-ally .geoDot{left:-6px;top:-6px;width:12px;height:12px;background:#f06423;box-shadow:0 0 0 1.5px #4f2710,0 0 0 4px rgba(240,100,35,.32)}
 .geo-enemy .geoDot{left:-6px;top:-6px;width:12px;height:12px;background:#d92626;box-shadow:0 0 0 1.5px #4f170c,0 0 0 4px rgba(217,38,38,.32)}
 .geo-venue .geoDot{left:-4.5px;top:-4.5px;width:9px;height:9px;border-width:1.5px;background:#f09c1a;box-shadow:0 0 0 1.5px #4f2710}
 .geoLabel{position:absolute;left:0;top:10px;transform:translateX(-50%);white-space:nowrap;padding:0 5px;background:rgba(255,253,246,.94);border:1.5px solid #4f2710;font-size:11px;line-height:15px;color:#332012;text-shadow:none;z-index:3}
 .geo-self .geoLabel{background:#e03324;border-color:#4f170c;color:#fffdf6}
-.geoRegion{position:absolute;border:2px solid #e87f24;background:rgba(232,127,36,.2);box-sizing:border-box;border-radius:50%;pointer-events:none}
+.geoRegion{position:absolute;border:2px dashed #e87f24;background:rgba(232,127,36,.12);box-sizing:border-box;border-radius:50%;pointer-events:none}
 .geoPin{display:block;width:24px;height:24px;line-height:24px;text-align:center;background:#e87f24;color:#fffdf6;border:2px solid #4f2710;border-radius:50%;font-size:12px;pointer-events:none}
 .venueBoundaryLine{position:absolute;height:3px;background:#4a943b;border-top:1px solid #fffdf6;border-bottom:1px solid #fffdf6;transform-origin:0 50%;pointer-events:none;box-sizing:border-box}

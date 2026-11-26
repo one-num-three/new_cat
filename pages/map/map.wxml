@@ -94,8 +94,7 @@
     </view>
     <view class="hudPlaque hudRight">
       <text class="compactClock {{clockAlert?'clock-'+clockAlert:''}}">{{clock}}</text>
-      <view class="compactProgress"><text class="orangeNumber">{{match.captured}}</text><text>/{{match.target}}</text></view>
-      <text class="registrationState">{{offline?'断线':modelMode?'3D图':artMode?(mapCalibration?'待核验':artReferenceState==='none'?'待标定':'像素图'):hasSelf?'已定位':'定位中'}}</text>
+      <view class="compactProgress"><text class="progressTag">已抓</text><text class="orangeNumber">{{match.captured}}</text><text class="progressSep">/{{match.target}}</text></view>
     </view>
   </view>
 
@@ -120,7 +119,7 @@
       <pixel-glyph kind="cube" size="18" color="#332012" />
       <text class="toolLabel">视角</text>
     </button>
-    <button class="edgeButton {{vibeOn?'vibeActive':''}}" hover-class="sdvPressed" bindtap="toggleVibe" aria-label="{{vibeOn?'关闭震动提醒':'开启震动提醒'}}">
+    <button class="edgeButton {{vibeOn?'vibeActive':'vibeMuted'}}" hover-class="sdvPressed" bindtap="toggleVibe" aria-label="{{vibeOn?'关闭震动提醒':'开启震动提醒'}}">
       <pixel-glyph kind="{{vibeOn?'bell':'bellOff'}}" size="18" color="{{vibeOn?'#2c6122':'#7c522b'}}" />
       <text class="toolLabel">{{vibeOn?'提醒':'静音'}}</text>
     </button>
@@ -185,9 +184,9 @@
       <pixel-glyph kind="check" size="18" color="#fffdf6" />
       <text>恢复</text>
     </button>
-    <button class="dockBtn {{(canScan || canShowCode || canResume)?'dockSecondary':'dockPrimary'}} sdvBtnPaper" hover-class="sdvPressed" data-tab="team" bindtap="openDrawer" aria-label="查看成员、动态与设置">
+    <button class="dockBtn {{(canScan || canShowCode || canResume)?'dockSecondary':'dockPrimary'}} sdvBtnPaper" hover-class="sdvPressed" data-tab="team" bindtap="openDrawer" aria-label="查看成员、战况与设置">
       <pixel-glyph kind="team" size="18" color="#332012" />
-      <text>明细</text>
+      <text>战况</text>
       <view wx:if="{{unreadEvents>0}}" class="dockBadge">{{unreadEvents>9?'9+':unreadEvents}}</view>
     </button>
   </view>

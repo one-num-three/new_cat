@@ -22,6 +22,7 @@
 }
 
 .bulletinBoard{
+  position:relative;
   overflow:visible;
   padding:0;
   margin-top:4px;
@@ -48,26 +49,15 @@
 .boardPostLeft{left:22px}
 .boardPostRight{right:22px}
 
-.boardTuft{
+.boardGroundShadow{
   position:absolute;
-  width:4px;
-  height:4px;
+  left:10px;
+  right:10px;
+  bottom:-16px;
+  height:6px;
+  background:rgba(72,118,46,.32);
   pointer-events:none;
-  z-index:3;
-}
-
-.boardTuftLeft{
-  left:-14px;
-  top:92px;
-  background:#4a943b;
-  box-shadow:0 4px 0 #2c6122,4px 4px 0 #82cf6f,-4px 4px 0 #2c6122,0 -4px 0 #82cf6f,4px 0 0 #ffe066;
-}
-
-.boardTuftRight{
-  right:-14px;
-  bottom:-10px;
-  background:#4a943b;
-  box-shadow:-4px 0 0 #82cf6f,0 -4px 0 #2c6122,4px 0 0 #2c6122,-4px -4px 0 #ffe066,-8px 0 0 #4a943b;
+  z-index:0;
 }
 
 .boardBody{
@@ -103,7 +93,7 @@
   border-top:2px solid #4f2710;
   box-shadow:inset 0 2px 0 #ecf7df,inset 0 -2px 0 #a9cf88;
   text-align:center;
-  font-size:calc(22rpx * var(--font-scale,1));
+  font-size:calc(24rpx * var(--font-scale,1));
   line-height:1.3;
   color:#24451c;
 }
@@ -115,10 +105,12 @@
   gap:10rpx;
   width:100%!important;
   margin:0;
-  padding:6rpx 12rpx;
-  min-height:38px;
-  border-width:8px;
-  border-image-width:8px;
+  padding:8rpx 14rpx;
+  min-height:40px;
+  background:#ffe082;
+  border:2px solid #8a4b10;
+  box-shadow:inset 0 2px 0 #fff3bf,inset 0 -2px 0 #e0a838,0 2px 0 #79a857;
+  color:#4f2304;
   text-align:left;
   font-size:calc(24rpx * var(--font-scale,1));
   line-height:1.3;
@@ -127,7 +119,7 @@
 .resumeBand::after{border:0}
 .resumeLeft{display:flex;align-items:center;gap:8rpx;flex:1;min-width:0}
 .resumeText{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.resumeAction{flex:none;color:#a64d0b;font-size:calc(23rpx * var(--font-scale,1))}
+.resumeAction{flex:none;color:#7b3c14;font-size:calc(24rpx * var(--font-scale,1))}
 .resumeBand[disabled]{opacity:.65}
 
 .identityBar{
@@ -164,7 +156,7 @@
 }
 
 .fieldPlaceholder{
-  color:#8d9986;
+  color:#6e5a44;
   font-weight:400;
 }
 
@@ -221,58 +213,59 @@
   padding:12rpx 12rpx 8rpx;
   display:flex;
   flex-direction:column;
-  gap:10rpx;
+  gap:8rpx;
 }
 
-.guideFlowRow{
+.guideStepStrip{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:6rpx;
+  padding:4rpx 2rpx 8rpx;
 }
 
-.guideFlowItem{
-  flex:1;
-  min-width:0;
-  padding:8rpx 4rpx;
-  background:#fff2d4;
-  border:2px solid #b58447;
-  border-radius:0;
-  box-shadow:inset 0 2px 0 #fff9e8,inset 0 -2px 0 #e6cb99;
-  text-align:center;
+.guideStepItem{
   display:flex;
-  flex-direction:column;
   align-items:center;
-  gap:4rpx;
+  gap:5rpx;
+  min-width:0;
 }
 
-.guideFlowArrow{
+.stepNum{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32rpx;
+  height:32rpx;
   flex:none;
-  color:#7c522b;
-  font-size:28rpx;
+  background:#f2cf94;
+  border:2px solid #7b3c14;
+  border-radius:0;
+  color:#4f2304;
+  font-size:calc(20rpx * var(--font-scale,1));
   line-height:1;
 }
 
 .guideStepIcon{
-  width:38rpx;
-  height:38rpx;
   display:block;
+  width:36rpx;
+  height:36rpx;
+  flex:none;
   image-rendering:pixelated;
 }
 
-.guideStepIconBox{
-  width:38rpx;
-  height:38rpx;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.stepLabel{
+  font-size:calc(24rpx * var(--font-scale,1));
+  color:#3b1d0b;
+  line-height:1.25;
+  white-space:nowrap;
 }
 
-.guideStepTitle{
-  display:block;
-  font-size:calc(22rpx * var(--font-scale,1));
-  color:#2c6122;
-  line-height:1.25;
+.stepArrow{
+  flex:none;
+  font-size:calc(24rpx * var(--font-scale,1));
+  color:#9c6430;
+  line-height:1;
 }
 
 .signpostRow{
@@ -296,7 +289,7 @@
   background:transparent;
   color:#5e3616;
   font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;
-  font-size:calc(24rpx * var(--font-scale,1));
+  font-size:calc(25rpx * var(--font-scale,1));
   line-height:1.3;
   border-radius:0;
 }
@@ -311,7 +304,7 @@
   padding:6rpx 18rpx;
   background:transparent;
   color:#5e4c3c;
-  font-size:calc(23rpx * var(--font-scale,1));
+  font-size:calc(24rpx * var(--font-scale,1));
   font-weight:400;
   line-height:1.5;
   text-decoration:underline;
@@ -325,4 +318,4 @@
 .fontLarge .identityBar{flex-wrap:wrap}
 .fontLarge .identityLabelWrap{flex-basis:100%}
 .fontLarge .identityInput{flex-basis:100%;width:100%}
-.fontLarge .guideFlowRow{flex-wrap:wrap}
+.fontLarge .guideStepStrip{flex-wrap:wrap;justify-content:center;row-gap:8rpx}

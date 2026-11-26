@@ -39,6 +39,9 @@
     </view>
 
     <text wx:if="{{error}}" class="sdvError inviteError" role="alert">{{error}}</text>
-    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <view class="meadowFooterStage">
+      <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+      <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    </view>
   </view>
 </view>

@@ -1,9 +1,9 @@
 <view class="sdvScreen homeScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="猫鼠行动" preview="{{devPreview}}" />
   <view class="homeMain">
-    <button wx:if="{{resumeKind}}" class="sdvPlankSky resumeBand" hover-class="sdvPressed" disabled="{{resumeKind==='checking'}}" bindtap="restore">
+    <button wx:if="{{resumeKind}}" class="sdvPlank resumeBand" hover-class="sdvPressed" disabled="{{resumeKind==='checking'}}" bindtap="restore">
       <view class="resumeLeft">
-        <map-icon kind="{{resumeKind==='match'?'flag':'door'}}" size="15" color="#7b3c14" />
+        <map-icon kind="{{resumeKind==='match'?'flag':'door'}}" size="15" color="#6e3608" />
         <text class="resumeText">{{resumeKind==='room'?'等待中房间 · 点击返回':resumeKind==='match'?'活动进行中 · 一键回到':resumeKind==='result'?'上一场记录 · 查看汇总':resumeKind==='unavailable'?'房间暂不可用':'检查进行中活动…'}}</text>
       </view>
       <text class="resumeAction">{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'稍候':'继续 ›'}}</text>
@@ -12,11 +12,10 @@
     <view class="sdvWoodCard bulletinBoard">
       <view class="boardPost boardPostLeft" aria-hidden="true"></view>
       <view class="boardPost boardPostRight" aria-hidden="true"></view>
-      <view class="boardTuft boardTuftLeft" aria-hidden="true"></view>
-      <view class="boardTuft boardTuftRight" aria-hidden="true"></view>
+      <view class="boardGroundShadow" aria-hidden="true"></view>
       <view class="heroStage">
         <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
-        <view class="heroCaption"><text>户外定位 · 计时 · 核验</text></view>
+        <view class="heroCaption"><text>猫追鼠躲 · 户外定位 · 扫码核验</text></view>
       </view>
 
       <view class="boardBody">
@@ -65,42 +64,45 @@
         </view>
       </view>
       <view class="cardAction">
-        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="green" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
       </view>
     </view>
 
     <text wx:if="{{error}}" class="sdvError homeError" role="alert">{{error}}</text>
 
     <view class="sdvPaperCard guideMiniCard">
-      <view class="guideFlowRow">
-        <view class="guideFlowItem">
+      <view class="guideStepStrip">
+        <view class="guideStepItem">
+          <text class="stepNum">1</text>
           <image class="guideStepIcon" src="/assets/sdv-v1/rules-cat.png" mode="aspectFit" aria-hidden="true" />
-          <text class="guideStepTitle">填称呼</text>
+          <text class="stepLabel">填称呼</text>
         </view>
-        <text class="guideFlowArrow" aria-hidden="true">›</text>
-        <view class="guideFlowItem">
-          <image class="guideStepIcon" src="/assets/sdv-v1/rules-clock.png" mode="aspectFit" aria-hidden="true" />
-          <text class="guideStepTitle">进房间</text>
+        <text class="stepArrow" aria-hidden="true">›</text>
+        <view class="guideStepItem">
+          <text class="stepNum">2</text>
+          <map-icon kind="door" size="15" color="#3b1d0b" />
+          <text class="stepLabel">进房间</text>
         </view>
-        <text class="guideFlowArrow" aria-hidden="true">›</text>
-        <view class="guideFlowItem">
-          <view class="guideStepIconBox"><map-icon kind="scan" size="20" color="#2c6122" /></view>
-          <text class="guideStepTitle">扫码核验</text>
+        <text class="stepArrow" aria-hidden="true">›</text>
+        <view class="guideStepItem">
+          <text class="stepNum">3</text>
+          <map-icon kind="scan" size="15" color="#3b1d0b" />
+          <text class="stepLabel">扫码核验</text>
         </view>
       </view>
       <view class="signpostRow">
         <button class="signpostLink" hover-class="sdvPressed" bindtap="openVenue">
-          <map-icon kind="map" size="15" color="#4a943b" />
+          <map-icon kind="map" size="15" color="#5e3616" />
           <text>场地地图 ›</text>
         </button>
         <text class="signpostDivider" aria-hidden="true">|</text>
         <button class="signpostLink" hover-class="sdvPressed" bindtap="openGuide">
-          <map-icon kind="info" size="15" color="#2c6122" />
+          <map-icon kind="info" size="15" color="#5e3616" />
           <text>使用说明 ›</text>
         </button>
         <text class="signpostDivider" aria-hidden="true">|</text>
         <button class="signpostLink" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{nightMode?'切换日间模式':'切换夜间营火模式'}}">
-          <map-icon kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#f0b854':'#5e3616'}}" />
+          <map-icon kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#ffd269':'#5e3616'}}" />
           <text>{{nightMode?'日间':'夜间'}}</text>
         </button>
       </view>

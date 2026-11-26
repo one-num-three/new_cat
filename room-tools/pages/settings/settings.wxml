@@ -41,7 +41,10 @@
     <text wx:if="{{notice}}" class="sdvNotice settingsBanner">{{notice}}</text>
     <text wx:if="{{error}}" class="sdvError settingsError" role="alert">{{error}}</text>
     <button wx:if="{{error}}" class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" bindtap="load">重新读取</button>
-    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <view class="meadowFooterStage">
+      <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+      <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    </view>
   </view>
 
   <view wx:if="{{editable}}" class="sdvStickyBar">

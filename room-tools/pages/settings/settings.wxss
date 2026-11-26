@@ -16,7 +16,7 @@
   gap:7px;
 }
 
-.settingsWrap .sdvMeadowFooter{
+.settingsWrap .meadowFooterStage{
   margin-top:auto;
 }
 

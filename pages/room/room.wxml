@@ -191,7 +191,10 @@
       <text class="errorClose" aria-hidden="true">×</text>
     </view>
     <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
-    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <view class="meadowFooterStage">
+      <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+      <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    </view>
 
     <view class="sdvStickyBar">
       <text wx:if="{{!canStart}}" class="stickyHint">{{startHint}}</text>

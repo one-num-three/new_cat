@@ -27,9 +27,9 @@
   flex:1;
 }
 
-.readyContent .sdvMeadowFooter{
+.readyContent .meadowFooterStage{
   margin-top:auto;
-  padding-top:8rpx;
+  padding-top:12px;
 }
 
 .createHeroCard{

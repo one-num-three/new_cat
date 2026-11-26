@@ -35,7 +35,7 @@
       </view>
       <view wx:for="{{players}}" wx:key="id" class="trackPlayer">
         <view class="trackIdentity">
-          <image class="trackRoleIcon" src="{{item.role==='cat'?'/assets/pixel-v1/role-cat.png':'/assets/pixel-v1/role-mouse.png'}}" mode="aspectFit" aria-hidden="true" />
+          <image class="trackRoleIcon" src="{{item.role==='cat'?'/assets/sdv-v1/hud-cat.png':'/assets/sdv-v1/hud-mouse.png'}}" mode="aspectFit" aria-hidden="true" />
           <text class="trackNickname">{{item.nickname}}</text>
         </view>
         <text class="trackPointCount">{{item.points}} 点</text>
