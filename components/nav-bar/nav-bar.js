@@ -1,7 +1,7 @@
 const {metrics,resize}=require('../../utils/presentation');
 Component({
  options:{styleIsolation:'apply-shared'},
- properties:{pinned:{type:Boolean,value:false},title:{type:String,value:'猫鼠行动'},back:{type:Boolean,value:false},preview:{type:Boolean,value:false}},
+ properties:{pinned:{type:Boolean,value:false},title:{type:String,value:'猫鼠行动'},back:{type:Boolean,value:false},preview:{type:Boolean,value:false},custom:{type:Boolean,value:false}},
  data:{statusHeight:20,barHeight:44},
  lifetimes:{attached(){this.syncMetrics();}},
  pageLifetimes:{show(){this.syncMetrics();},resize(e){this.syncMetrics(e);}},

@@ -1,5 +1,13 @@
 <view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
-<nav-bar title="猫鼠行动" preview="{{devPreview}}" />
+<nav-bar title="猫鼠行动" preview="{{devPreview}}" custom="{{!!(match && !terminal)}}">
+  <view wx:if="{{match && !terminal}}" class="hudPlaque navRolePlaque role-{{match.myRole}}" aria-label="阵营与状态">
+    <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
+    <text class="roleName">{{roleText}}</text>
+    <text class="navRoleDot">·</text>
+    <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
+    <text wx:if="{{devPreview}}" class="navPreviewTag">预览</text>
+  </view>
+</nav-bar>
 <view wx:if="{{!match}}" class="sdvWoodCard emptyState">
   <text class="emptyTitle">正在同步状态</text>
   <text class="bodyCopy">{{error || '请稍候…'}}</text>
@@ -85,47 +93,36 @@
   </view>
 
   <view class="playHud compactHud role-{{match.myRole}}" aria-label="本场活动状态">
-    <view class="mapHudLeftCol">
-      <view class="hudPlaque hudLeft">
-        <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
-        <view class="compactIdentity">
-          <text class="roleName">{{roleText}}</text>
-          <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
-        </view>
-      </view>
-      <view class="mapTopLeft">
-        <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
-        <view wx:if="{{meetingGuideText && !offline}}" class="venueNavChip" aria-label="集合点方向与距离">
-          <pixel-glyph kind="compass" size="13" color="#a64d0b" />
-          <text>{{meetingGuideText}}</text>
-        </view>
-      </view>
-    </view>
-
-    <view class="mapHudRightCol">
-      <view class="hudPlaque hudRight">
+    <view class="hudPlaque hudMainBar">
+      <view class="hudMainMetrics">
         <text class="compactClock {{clockAlert?'clock-'+clockAlert:''}}">{{clock}}</text>
         <view class="compactProgress"><text class="progressTag">已抓</text><text class="orangeNumber">{{match.captured}}</text><text class="progressSep">/{{match.target}}</text></view>
       </view>
-      <view class="mapTools">
-        <button class="edgeButton locateButton" hover-class="sdvPressed" bindtap="locateSelf" aria-label="回到本人位置">
-          <pixel-glyph kind="locate" size="18" color="#332012" />
-          <text class="toolLabel">定位</text>
-        </button>
-        <button class="edgeButton layerButton" hover-class="sdvPressed" wx:if="{{venueMapId!=='native-gcj02-v1'}}" bindtap="toggleMapMode" disabled="{{layerLoading}}" aria-label="选择地图图层">
-          <pixel-glyph kind="layers" size="18" color="#332012" />
-          <text class="toolLabel">图层</text>
-        </button>
-        <button wx:if="{{modelMode}}" class="edgeButton" hover-class="sdvPressed" bindtap="tiltModel" aria-label="切换3D俯视与斜视">
-          <pixel-glyph kind="cube" size="18" color="#332012" />
-          <text class="toolLabel">视角</text>
-        </button>
-        <button class="edgeButton {{vibeOn?'vibeActive':'vibeMuted'}}" hover-class="sdvPressed" bindtap="toggleVibe" aria-label="{{vibeOn?'关闭震动提醒':'开启震动提醒'}}">
-          <pixel-glyph kind="{{vibeOn?'bell':'bellOff'}}" size="18" color="{{vibeOn?'#2c6122':'#7c522b'}}" />
-          <text class="toolLabel">{{vibeOn?'提醒':'静音'}}</text>
-        </button>
-      </view>
+      <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
     </view>
+    <view wx:if="{{meetingGuideText && !offline}}" class="venueNavChip" aria-label="集合点方向与距离">
+      <pixel-glyph kind="compass" size="12" color="#a64d0b" />
+      <text>{{meetingGuideText}}</text>
+    </view>
+  </view>
+
+  <view class="mapTools" aria-label="地图辅助工具">
+    <button class="edgeButton {{vibeOn?'vibeActive':'vibeMuted'}}" hover-class="sdvPressed" bindtap="toggleVibe" aria-label="{{vibeOn?'关闭震动提醒':'开启震动提醒'}}">
+      <pixel-glyph kind="{{vibeOn?'bell':'bellOff'}}" size="18" color="{{vibeOn?'#2c6122':'#7c522b'}}" />
+      <text class="toolLabel">{{vibeOn?'提醒':'静音'}}</text>
+    </button>
+    <button wx:if="{{modelMode}}" class="edgeButton" hover-class="sdvPressed" bindtap="tiltModel" aria-label="切换3D俯视与斜视">
+      <pixel-glyph kind="cube" size="18" color="#332012" />
+      <text class="toolLabel">视角</text>
+    </button>
+    <button class="edgeButton layerButton" hover-class="sdvPressed" wx:if="{{venueMapId!=='native-gcj02-v1'}}" bindtap="toggleMapMode" disabled="{{layerLoading}}" aria-label="选择地图图层">
+      <pixel-glyph kind="layers" size="18" color="#332012" />
+      <text class="toolLabel">图层</text>
+    </button>
+    <button class="edgeButton locateButton" hover-class="sdvPressed" bindtap="locateSelf" aria-label="回到本人位置">
+      <pixel-glyph kind="locate" size="18" color="#332012" />
+      <text class="toolLabel">定位</text>
+    </button>
   </view>
 
   <view class="mapStatusRegion">

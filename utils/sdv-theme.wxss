@@ -645,15 +645,23 @@ page,.sdvScreen{
 }
 
 .sdvNight .venueNavChip{
-  background:transparent;
-  border:6px solid transparent;
-  box-shadow:none;
-  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEUUCwU/LR5qPBcnFQrCg0KMVSVXMRIAAAD1xngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACuLM+oAAAAIHRSTlP/////////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABvqATQAAABpSURBVHja7dc5DoAwDETRQNjuf2I8CBeRJWLRoAnzO2SeC5qEslvlRZcjxd6SaL4LmwgxBoe1dgKsVrOAGGNYE4WPNgCeHhIWFhYWFv4K42GzMgcd3hsF+6BXuNCQYl+QLdx6yfAP/6tOK9Id4cKlkQIAAAAASUVORK5CYII=");
-  border-image-slice:16 fill;
-  border-image-width:6px;
-  border-image-repeat:round;
-  image-rendering:pixelated;
+  background:rgba(59,43,29,.92);
+  border:2px solid #9c6430;
+  border-image-source:none;
+  box-shadow:inset 0 1px 0 #6e4624,0 2px 0 rgba(10,16,32,.42);
   color:#fce8c2;
+}
+
+.sdvNight .mapLocationSignal{
+  --signal-bg:#2e2015;
+  --signal-border:2px solid #9c6430;
+  --signal-border-image:none;
+  --signal-pad:2px 7px;
+  --signal-min-h:28px;
+  --signal-shadow:inset 0 1px 0 #4d3522;
+  --signal-filter:none;
+  --signal-color:#faecd0;
+  --signal-bar-off:#6b523b;
 }
 
 .sdvNight .resumeBand{
@@ -715,6 +723,11 @@ page,.sdvScreen{
   padding:2px 6px;
   color:#faecd0;
 }
+
+.sdvNight .hudMainBar{padding:2px 8px;}
+.sdvNight .navRolePlaque{padding:0 6px 0 4px;}
+.sdvNight .navRoleDot{color:#cbb594;}
+.sdvNight .navPreviewTag{background:#664018;border-color:#f2b64e;color:#ffe69e;}
 
 .sdvNight .mapBottomDock{
   background:transparent;
