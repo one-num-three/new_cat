@@ -537,6 +537,8 @@ page,.sdvScreen{
   --nav-title-color:#faecd0;
   --action-plain-border-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEVOOCQUCwUtHhK1dzwAAADywnIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSb205AAAAIHRSTlP/////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL+SNhkAAABVSURBVHja7dfLCgAgCERRe/3/L6eQELRJocXQ3F3EcWtJ10oicwKK/dAuqis3yNguhiYX7QPQsQQiJiYmJiYmfo99YaeWOziOhI6jA45XLxj+8F81AcFQDTFN3LbYAAAAAElFTkSuQmCC");
   --action-plain-color:#faecd0;
+  --venue-art-filter:brightness(.74) saturate(.84) contrast(1.06) hue-rotate(-6deg);
+  --venue-vp-bg:#16233d;
 }
 
 .sdvNight .pinnedNav{
@@ -778,7 +780,31 @@ page,.sdvScreen{
 
 .sdvNight .sdvPill{color:#dfd0b4;}
 .sdvNight .heroCaption{background:#29472c;border-top-color:#1b1008;color:#d8f2ca;box-shadow:none;}
-.sdvNight .sdvIconTitle,.sdvNight .identityLabel,.sdvNight .playerName,.sdvNight .roomCode,.sdvNight .inviteCode,.sdvNight .venueTitle,.sdvNight .summaryVenue,.sdvNight .compactClock,.sdvNight .bodyCopy,.sdvNight .drawerHeaderTitle,.sdvNight .toolLabel,.sdvNight .teamSpriteText,.sdvNight .rosterName,.sdvNight .settingsCopy,.sdvNight .statsValue,.sdvNight .instruction,.sdvNight .demoTitle,.sdvNight .eventRow,.sdvNight .stepLabel{color:#faecd0;}
+.sdvNight .sdvIconTitle,.sdvNight .identityLabel,.sdvNight .identityCompactLabel,.sdvNight .playerName,.sdvNight .roomCode,.sdvNight .inviteCode,.sdvNight .venueTitle,.sdvNight .summaryVenue,.sdvNight .compactClock,.sdvNight .bodyCopy,.sdvNight .drawerHeaderTitle,.sdvNight .toolLabel,.sdvNight .teamSpriteText,.sdvNight .rosterName,.sdvNight .settingsCopy,.sdvNight .statsValue,.sdvNight .instruction,.sdvNight .demoTitle,.sdvNight .eventRow{color:#faecd0;}
+.sdvNight .identityCompactBtn{background:#4d3826;border-color:#a36a35;box-shadow:none;color:#faecd0;}
+.sdvNight .identityCompactName{color:#ffd269;}
+.sdvNight .createHeroStage{border-color:#1b1008;background:#1e2b4d;box-shadow:0 3px 0 rgba(10,16,32,.48);}
+.sdvNight .summaryRibbon{background:rgba(59,43,29,.92);border-color:#9c6430;box-shadow:inset 0 1px 0 #6e4624;color:#faecd0;}
+.sdvNight .roomLocationSignal{
+  --signal-bg:#2e2015;
+  --signal-border:2px solid #9c6430;
+  --signal-border-image:none;
+  --signal-pad:2px 7px;
+  --signal-min-h:26px;
+  --signal-shadow:inset 0 1px 0 #4d3522;
+  --signal-filter:none;
+  --signal-color:#faecd0;
+  --signal-bar-off:#6b523b;
+}
+.sdvNight .resultVictoryBanner{background:#4d3826;border-color:#b5773c;box-shadow:none;color:#faecd0;}
+.sdvNight .victory-catWin{background:#523a24;border-color:#d98a38;}
+.sdvNight .victory-mouseWin{background:#29472c;border-color:#599c4a;}
+.sdvNight .victory-cancelled{background:#4d3826;border-color:#8c6d48;}
+.sdvNight .victoryTitle{color:#ffd269;}
+.sdvNight .victory-mouseWin .victoryTitle{color:#9be889;}
+.sdvNight .victory-cancelled .victoryTitle{color:#d8c29e;}
+.sdvNight .resultReason,.sdvNight .createParamHint{color:#d8c29e;}
+.sdvNight .victoryMedal{background:#664018;border-color:#f2b64e;box-shadow:none;color:#ffe69e;}
 .sdvNight .role-cat .roleName{color:#ffae63;}
 .sdvNight .role-mouse .roleName{color:#9be889;}
 .sdvNight .phaseName,.sdvNight .vibeActive .toolLabel{color:#9be889;}
@@ -786,14 +812,12 @@ page,.sdvScreen{
 .sdvNight .compactProgress{border-left-color:#9c6430;}
 .sdvNight .compactClock.clock-warn{color:#3b1d0b;}
 .sdvNight .compactClock.clock-urgent{color:#fffdf6;}
-.sdvNight .guideStepStrip{border-top-color:#7d4e24;}
-.sdvNight .stepNum{background:#5c3f24;border-color:#b5773c;color:#fae7ad;}
-.sdvNight .stepArrow{color:#b58447;}
 .sdvNight .sdvBadgeAmber{background:#664018;border-color:#f2b64e;color:#ffe69e;}
 .sdvNight .venueHint,.sdvNight .legendFoot,.sdvNight .demoCaption,.sdvNight .inviteNote,.sdvNight .settingsNote,.sdvNight .statLabel,.sdvNight .eventTime{color:#d8c29e;}
 .sdvNight .signpostLink{color:#f0c987;}
+.sdvNight .signpostDivider{color:#8c6d48;}
 .sdvNight .resumeAction,.sdvNight .venueDropValue,.sdvNight .safetyCopy,.sdvNight .codePlankTitle{color:#ffd269;}
-.sdvNight .homeHero,.sdvNight .createHeroImg,.sdvNight .resultHero,.sdvNight .sdvMeadowFooter,.sdvNight .fenceMascot{filter:brightness(.86) contrast(1.04);}
+.sdvNight .homeHero,.sdvNight .createHeroImg,.sdvNight .resultHero,.sdvNight .sdvMeadowFooter,.sdvNight .fenceMascot{filter:brightness(.78) saturate(.86) contrast(1.06);}
 .sdvNight .sdvIconBtn.sdvBtnPaper map-icon,
 .sdvNight .sdvIconBtn.sdvBtnWood map-icon,
 .sdvNight .edgeButton pixel-glyph,
@@ -802,11 +826,11 @@ page,.sdvScreen{
 .sdvNight .venueNavChip pixel-glyph,
 .sdvNight .resumeLeft map-icon,
 .sdvNight .identityLabelWrap map-icon,
+.sdvNight .identityCompactBtn map-icon,
 .sdvNight .sdvIconTitle map-icon,
 .sdvNight .sdvIconTitle pixel-glyph,
 .sdvNight .settingRuleRow map-icon,
 .sdvNight .ruleItem pixel-glyph,
-.sdvNight .guideStepItem map-icon,
 .sdvNight .guideIcon map-icon,
 .sdvNight .sdvPill:not(.sdvPillActive) map-icon,
 .sdvNight .sdvBtnPaper map-icon,

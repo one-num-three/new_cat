@@ -19,12 +19,23 @@
       </view>
 
       <view class="boardBody">
-        <view class="identityBar">
+        <view wx:if="{{nickname && !editingName}}" class="identityCompact">
+          <view class="identityCompactBtn" hover-class="sdvPressed" bindtap="startEditName" aria-label="修改称呼">
+            <map-icon kind="user" size="15" color="#5e3616" />
+            <text class="identityCompactLabel">称呼</text>
+            <text class="identityCompactName">{{nickname}}</text>
+            <map-icon kind="edit" size="13" color="#7c522b" />
+          </view>
+          <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper randNameBtn" hover-class="sdvPressed" bindtap="randomNickname" aria-label="随机称呼">
+            <map-icon kind="dice" size="18" color="#5e3616" />
+          </button>
+        </view>
+        <view wx:else class="identityBar">
           <view class="identityLabelWrap">
             <map-icon kind="user" size="16" color="#5e3616" />
             <text class="identityLabel">称呼</text>
           </view>
-          <input class="sdvInput identityInput" value="{{nickname}}" maxlength="20" placeholder="输入你的称呼" placeholder-class="fieldPlaceholder" bindinput="nameInput" aria-label="我的称呼" />
+          <input class="sdvInput identityInput" value="{{nickname}}" maxlength="20" placeholder="输入你的称呼" placeholder-class="fieldPlaceholder" focus="{{editingName}}" bindinput="nameInput" bindblur="finishEditName" bindconfirm="finishEditName" aria-label="我的称呼" />
           <button class="sdvIconBtn sdvIconBtnSm sdvBtnPaper randNameBtn" hover-class="sdvPressed" bindtap="randomNickname" aria-label="随机称呼">
             <map-icon kind="dice" size="18" color="#5e3616" />
           </button>
@@ -56,40 +67,13 @@
       </view>
     </view>
 
-    <view class="sdvPaperCard entryCard createCard">
-      <view class="cardHead">
-        <view class="sdvIconTitle">
-          <map-icon kind="flag" size="18" color="#2c6122" />
-          <text>发起活动</text>
-        </view>
-      </view>
-      <view class="cardAction">
-        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
-      </view>
+    <view class="secondaryActionWrap">
+      <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-create.png" label="创建活动" tone="plain" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="create" />
     </view>
 
     <text wx:if="{{error}}" class="sdvError homeError" role="alert">{{error}}</text>
 
-    <view class="sdvPaperCard guideMiniCard">
-      <view class="guideStepStrip">
-        <view class="guideStepItem">
-          <text class="stepNum">1</text>
-          <image class="guideStepIcon" src="/assets/sdv-v1/rules-cat.png" mode="aspectFit" aria-hidden="true" />
-          <text class="stepLabel">填称呼</text>
-        </view>
-        <text class="stepArrow" aria-hidden="true">›</text>
-        <view class="guideStepItem">
-          <text class="stepNum">2</text>
-          <map-icon kind="door" size="15" color="#3b1d0b" />
-          <text class="stepLabel">进房间</text>
-        </view>
-        <text class="stepArrow" aria-hidden="true">›</text>
-        <view class="guideStepItem">
-          <text class="stepNum">3</text>
-          <map-icon kind="scan" size="15" color="#3b1d0b" />
-          <text class="stepLabel">扫码核验</text>
-        </view>
-      </view>
+    <view class="sdvPaperCard signpostBar">
       <view class="signpostRow">
         <button class="signpostLink" hover-class="sdvPressed" bindtap="openVenue">
           <map-icon kind="map" size="15" color="#5e3616" />

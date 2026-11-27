@@ -133,7 +133,7 @@
 .guideTools{
   position:absolute;
   right:10px;
-  top:10px;
+  bottom:14px;
   display:flex;
   flex-direction:column;
   gap:7px;
@@ -162,6 +162,7 @@
   border-image-width:6px;
   border-image-repeat:round;
   image-rendering:pixelated;
+  filter:drop-shadow(0 3px 0 rgba(27,16,8,.36));
   color:#3b1d0b;
 }
 

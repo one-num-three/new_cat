@@ -32,9 +32,16 @@
   padding-top:12px;
 }
 
-.createHeroCard{
+.createHeroStage{
+  height:156rpx;
   overflow:hidden;
-  padding:0;
+  display:flex;
+  align-items:center;
+  border:3px solid #4f2710;
+  border-radius:0;
+  background:#d4ebba;
+  box-shadow:0 3px 0 rgba(72,118,46,.32);
+  box-sizing:border-box;
 }
 
 .createHeroImg{
@@ -45,19 +52,31 @@
   image-rendering:pixelated;
 }
 
-.stepCard,.inviteCard,.summaryToolCard,.rosterCard{
+.stepCard,.inviteCard,.rosterCard{
   padding:6rpx 8rpx;
   display:flex;
   flex-direction:column;
   gap:8rpx;
 }
 
-.paramBar{
-  padding:4rpx 6rpx;
+.summaryRibbon{
+  padding:8rpx 12rpx;
+  background:rgba(251,227,176,.92);
+  border:2px solid #7b3c14;
+  border-radius:0;
+  box-shadow:inset 0 1px 0 #fff3d6;
+  display:flex;
+  flex-direction:column;
+  gap:8rpx;
+  box-sizing:border-box;
 }
 
-.paramChips{
-  justify-content:space-between;
+.createParamHint{
+  padding:2rpx 0;
+  text-align:center;
+  font-size:calc(23rpx * var(--font-scale,1));
+  line-height:1.35;
+  color:#5e3616;
 }
 
 .stepHeader,.inviteTopRow,.rosterHeading,.summaryHead{
@@ -234,7 +253,14 @@
 .venueTitle{display:block;font-size:calc(27rpx * var(--font-scale,1));line-height:1.35;color:#332012}
 .venueHint{display:block;margin-top:4rpx;font-size:calc(22rpx * var(--font-scale,1));line-height:1.4;color:#5e4c3c;overflow-wrap:anywhere}
 
+.venueRangeBtn{
+  margin-top:10rpx;
+  align-self:flex-start;
+  gap:5px;
+}
+
 .venueGuide{
+  position:relative;
   flex:0 0 42%;
   min-width:0;
   padding:8rpx;
@@ -246,6 +272,21 @@
   flex-direction:column;
   align-items:center;
   justify-content:center;
+}
+
+.venueEditBadge{
+  position:absolute;
+  top:6rpx;
+  right:6rpx;
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#4a943b;
+  border:1.5px solid #2c6122;
+  border-radius:0;
+  pointer-events:none;
 }
 
 .venueGuideImage{display:block;width:100%;height:140rpx}
@@ -266,7 +307,7 @@
 .roomCode{
   flex:1;
   min-width:0;
-  font-size:calc(40rpx * var(--font-scale,1));
+  font-size:calc(34rpx * var(--font-scale,1));
   line-height:1.2;
   letter-spacing:0.5rpx;
   font-variant-numeric:tabular-nums;
@@ -281,6 +322,16 @@
   align-items:center;
   gap:6px;
   flex:none;
+}
+
+.codeShareBtn{
+  width:auto!important;
+  flex:none;
+  min-height:36px;
+  height:36px;
+  padding:0 10px;
+  font-size:calc(13px * var(--font-scale,1));
+  gap:4px;
 }
 
 .summaryVenueWrap{
@@ -311,6 +362,18 @@
   align-items:center;
   gap:8rpx;
   flex:none;
+}
+
+.roomLocationSignal{
+  flex:none;
+  --signal-bg:#fff2d4;
+  --signal-border:2px solid #b58447;
+  --signal-border-image:none;
+  --signal-pad:2px 7px;
+  --signal-min-h:26px;
+  --signal-shadow:inset 0 1px 0 #fff9e8;
+  --signal-filter:none;
+  --signal-color:#3b1d0b;
 }
 
 .rosterGrid{

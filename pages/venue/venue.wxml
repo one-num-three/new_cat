@@ -1,5 +1,5 @@
 <view class="screen venueScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
-  <nav-bar title="场地地图" back="{{true}}" />
+  <nav-bar pinned="{{true}}" title="场地地图" back="{{true}}" />
 
   <view class="venueHeaderWrap">
     <view class="sdvPlankSky venueBar">
@@ -29,25 +29,25 @@
     <map wx:else class="guideNativeMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="17" markers="{{markers}}" show-location="{{false}}" enable-rotate="{{false}}" bindregionchange="onNativeRegion" />
 
     <view class="guideTools">
-      <button class="guideIcon {{locationOn?'active':''}}" bindtap="locate" aria-label="开启定位或回到本人">
-        <map-icon kind="locate" size="18" color="{{locationOn?'#2c6122':'#332012'}}" />
-        <text class="guideLabel">定位</text>
-      </button>
-      <button class="guideIcon" wx:if="{{mapId!=='native-gcj02-v1'}}" bindtap="openLayerSheet" disabled="{{layerLoading}}" aria-label="选择地图图层">
-        <map-icon kind="layers" size="18" color="#332012" />
-        <text class="guideLabel">图层</text>
-      </button>
-      <button wx:if="{{modelMode}}" class="guideIcon" bindtap="tiltModel" aria-label="切换3D俯视与斜视">
-        <map-icon kind="cube" size="18" color="#332012" />
-        <text class="guideLabel">视角</text>
+      <button wx:if="{{locationOn}}" class="guideIcon guideStop" bindtap="stopGps" aria-label="停止本人定位">
+        <map-icon kind="close" size="16" color="#8c2c1b" />
+        <text class="guideLabel">停定</text>
       </button>
       <button wx:if="{{modelMode}}" class="guideIcon" bindtap="modelReset" aria-label="查看整个3D校园">
         <map-icon kind="map" size="18" color="#332012" />
         <text class="guideLabel">全览</text>
       </button>
-      <button wx:if="{{locationOn}}" class="guideIcon guideStop" bindtap="stopGps" aria-label="停止本人定位">
-        <map-icon kind="close" size="16" color="#8c2c1b" />
-        <text class="guideLabel">停定</text>
+      <button wx:if="{{modelMode}}" class="guideIcon" bindtap="tiltModel" aria-label="切换3D俯视与斜视">
+        <map-icon kind="cube" size="18" color="#332012" />
+        <text class="guideLabel">视角</text>
+      </button>
+      <button class="guideIcon" wx:if="{{mapId!=='native-gcj02-v1'}}" bindtap="openLayerSheet" disabled="{{layerLoading}}" aria-label="选择地图图层">
+        <map-icon kind="layers" size="18" color="#332012" />
+        <text class="guideLabel">图层</text>
+      </button>
+      <button class="guideIcon {{locationOn?'active':''}}" bindtap="locate" aria-label="开启定位或回到本人">
+        <map-icon kind="locate" size="18" color="{{locationOn?'#2c6122':'#332012'}}" />
+        <text class="guideLabel">定位</text>
       </button>
     </view>
   </view>

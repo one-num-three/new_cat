@@ -1,5 +1,5 @@
 <view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
-<nav-bar title="猫鼠行动" preview="{{devPreview}}" custom="{{!!(match && !terminal)}}">
+<nav-bar title="猫鼠行动" pinned="{{terminal}}" preview="{{devPreview}}" custom="{{!!(match && !terminal)}}">
   <view wx:if="{{match && !terminal}}" class="hudPlaque navRolePlaque role-{{match.myRole}}" aria-label="阵营与状态">
     <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
     <text class="roleName">{{roleText}}</text>
@@ -25,7 +25,18 @@
     </view>
 
     <view class="sdvWoodCard resultStats">
-      <text class="resultReason">{{uiState==='catWin'?'已达成核验目标':uiState==='mouseWin'?'活动已结束':'记录已归档'}}</text>
+      <view class="resultVictoryBanner victory-{{uiState}}">
+        <image wx:if="{{uiState==='catWin' || uiState==='mouseWin'}}" class="victoryMascot" src="{{uiState==='catWin'?'/assets/sdv-v1/hud-cat.png':'/assets/sdv-v1/hud-mouse.png'}}" mode="aspectFit" aria-hidden="true" />
+        <pixel-glyph wx:else kind="flag" size="22" color="#5e3616" />
+        <view class="victoryCopy">
+          <text class="victoryTitle">{{uiState==='catWin'?'猫队达成目标':uiState==='mouseWin'?'鼠队成功脱险':'场次已取消'}}</text>
+          <text class="resultReason">{{uiState==='catWin'?'已达成核验目标':uiState==='mouseWin'?'活动已结束':'记录已归档'}}</text>
+        </view>
+        <view wx:if="{{uiState==='catWin' || uiState==='mouseWin'}}" class="victoryMedal" aria-hidden="true">
+          <pixel-glyph kind="crown" size="15" color="#a64d0b" />
+          <text>胜</text>
+        </view>
+      </view>
       <view class="resultGrid">
         <view class="resultMetric">
           <view class="statIconHead">
@@ -278,9 +289,11 @@
         </button>
         <view class="drawerActionStack">
           <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="promptEmergency" />
-          <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="pause">组织者暂停</button>
-          <button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="sdvBtn sdvBtnRed sdvBtnSm" bindtap="cancel">取消本场</button>
-          <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'回首页':'退出活动'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+          <view class="drawerSubActions">
+            <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="pause">组织者暂停</button>
+            <button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="sdvBtn sdvBtnRed sdvBtnSm" bindtap="cancel">取消本场</button>
+            <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'回首页':'退出活动'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
+          </view>
         </view>
         <view class="advancedRules">
           <view class="legendGrid">

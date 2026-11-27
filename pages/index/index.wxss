@@ -135,6 +135,44 @@
   padding:0;
 }
 
+.identityCompact{
+  display:flex;
+  align-items:center;
+  gap:8rpx;
+}
+
+.identityCompactBtn{
+  flex:1;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:8rpx;
+  min-height:38px;
+  padding:6rpx 12rpx;
+  background:#fff3d6;
+  border:2px solid #b58447;
+  border-radius:0;
+  box-shadow:inset 0 2px 0 #fff9e8;
+  box-sizing:border-box;
+}
+
+.identityCompactLabel{
+  flex:none;
+  font-size:calc(24rpx * var(--font-scale,1));
+  color:#5e3616;
+  white-space:nowrap;
+}
+
+.identityCompactName{
+  flex:1;
+  min-width:0;
+  font-size:calc(28rpx * var(--font-scale,1));
+  color:#3b1d0b;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
 .randNameBtn{
   flex:none;
 }
@@ -166,11 +204,8 @@
   font-weight:400;
 }
 
-.entryCard{
-  padding:6rpx 8rpx 8rpx;
-  display:flex;
-  flex-direction:column;
-  gap:10rpx;
+.secondaryActionWrap{
+  padding:2rpx 0;
 }
 
 .cardHead{
@@ -215,63 +250,8 @@
 .cardAction{margin-top:2rpx}
 .homeError{margin:0}
 
-.guideMiniCard{
-  padding:12rpx 12rpx 8rpx;
-  display:flex;
-  flex-direction:column;
-  gap:8rpx;
-}
-
-.guideStepStrip{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:6rpx;
-  padding:4rpx 2rpx 8rpx;
-}
-
-.guideStepItem{
-  display:flex;
-  align-items:center;
-  gap:5rpx;
-  min-width:0;
-}
-
-.stepNum{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:32rpx;
-  height:32rpx;
-  flex:none;
-  background:#f2cf94;
-  border:2px solid #7b3c14;
-  border-radius:0;
-  color:#4f2304;
-  font-size:calc(20rpx * var(--font-scale,1));
-  line-height:1;
-}
-
-.guideStepIcon{
-  display:block;
-  width:36rpx;
-  height:36rpx;
-  flex:none;
-  image-rendering:pixelated;
-}
-
-.stepLabel{
-  font-size:calc(24rpx * var(--font-scale,1));
-  color:#3b1d0b;
-  line-height:1.25;
-  white-space:nowrap;
-}
-
-.stepArrow{
-  flex:none;
-  font-size:calc(24rpx * var(--font-scale,1));
-  color:#9c6430;
-  line-height:1;
+.signpostBar{
+  padding:2rpx 8rpx;
 }
 
 .signpostRow{
@@ -279,8 +259,6 @@
   align-items:center;
   justify-content:center;
   gap:14rpx;
-  padding-top:6rpx;
-  border-top:2px dashed #b58447;
 }
 
 .signpostLink{
@@ -324,4 +302,3 @@
 .fontLarge .identityBar{flex-wrap:wrap}
 .fontLarge .identityLabelWrap{flex-basis:100%}
 .fontLarge .identityInput{flex-basis:100%;width:100%}
-.fontLarge .guideStepStrip{flex-wrap:wrap;justify-content:center;row-gap:8rpx}
