@@ -405,11 +405,11 @@ def run(context):
         for px, py in [(-3.8, 3.2), (-1.3, 4.3), (1.3, 4.3), (3.8, 3.2)]:
             emb_profs.add(draw_circle_xy(sk_emb, px, py, 0.95))
         extrude_profile(c_top, emb_profs, -0.35, adsk.fusion.FeatureOperations.CutFeatureOperation)
-        # 右侧按键开口(上) + 3 声学槽
+        # 右侧按键开口(上) + 3 声学槽（正对蜂鸣器 Y=-5.2）
         sk_rc = c_top.sketches.add(p_split)
         rc_profs = adsk.core.ObjectCollection.create()
         rc_profs.add(draw_rounded_rect_xy(sk_rc, 16.2, 1.5, 3.4, 10.0, 0.4))
-        for sy in (-8.2, -6.7, -5.2):
+        for sy in (-6.7, -5.2, -3.7):
             rc_profs.add(draw_rounded_rect_xy(sk_rc, 16.2, sy, 3.2, 0.65, 0.25))
         extrude_profile(c_top, rc_profs, 2.05, adsk.fusion.FeatureOperations.CutFeatureOperation)
         assign_appearance(c_top, apps, "CM_Obsidian_PC_ABS")
@@ -434,21 +434,21 @@ def run(context):
         p_flr = offset_plane_xy(c_bot, 25.10, "Pln_Inner_Floor")
         sk2c = c_bot.sketches.add(p_flr)
         extrude_profile(c_bot, draw_rounded_rect_xy(sk2c, 0.0, 0.0, 30.4, 38.4, 7.7), 5.75, adsk.fusion.FeatureOperations.CutFeatureOperation)
-        # 右侧按键开口(下) + 前后腕带 FPC 过线口
+        # 右侧按键开口(下) + 前翼正中 FPC 过线口 + 后翼西侧偏置过线口（绕开 -Y BLE 天线净空区）
         p_bs = offset_plane_xy(c_bot, 30.80, "Pln_Bot_Split")
         sk2s = c_bot.sketches.add(p_bs)
         bs_profs = adsk.core.ObjectCollection.create()
         bs_profs.add(draw_rounded_rect_xy(sk2s, 16.2, 1.5, 3.4, 10.0, 0.4))
         bs_profs.add(draw_rounded_rect_xy(sk2s, 0.0, 20.0, 5.6, 3.2, 0.3))
-        bs_profs.add(draw_rounded_rect_xy(sk2s, 0.0, -20.0, 5.6, 3.2, 0.3))
+        bs_profs.add(draw_rounded_rect_xy(sk2s, -9.8, -20.0, 5.2, 3.2, 0.3))
         extrude_profile(c_bot, bs_profs, -1.95, adsk.fusion.FeatureOperations.CutFeatureOperation)
-        # 背面 4-pin 磁吸沉孔 + 2×M2 沉头孔
+        # 背面 +Y 侧 4-pin 磁吸沉孔 (Y=+14.8) + 2×M2 沉头孔 (X=±12.6, Y=+11.0)，彻底远离 -Y BLE 天线！
         sk2h = c_bot.sketches.add(p_bot)
         pogo_profs = adsk.core.ObjectCollection.create()
         for px in (-3.81, -1.27, 1.27, 3.81):
-            pogo_profs.add(draw_circle_xy(sk2h, px, -14.2, 0.99))
-        for sx in (-11.2, 11.2):
-            pogo_profs.add(draw_circle_xy(sk2h, sx, 14.2, 2.05))
+            pogo_profs.add(draw_circle_xy(sk2h, px, 14.8, 0.99))
+        for sx in (-12.6, 12.6):
+            pogo_profs.add(draw_circle_xy(sk2h, sx, 11.0, 2.05))
         extrude_profile(c_bot, pogo_profs, 0.90, adsk.fusion.FeatureOperations.CutFeatureOperation)
         assign_appearance(c_bot, apps, "CM_Obsidian_PC_ABS")
 
@@ -465,22 +465,21 @@ def run(context):
         extrude_profile(c_btn, draw_rounded_rect_local(sk_bf, p_cf.x / MM, p_cf.y / MM, 11.4, 4.8, 1.8), 0.42, adsk.fusion.FeatureOperations.JoinFeatureOperation)
         assign_appearance(c_btn, apps, "CM_Button_Silicone")
 
-        # ---------------- 04_NFC_FPC_Coil_Ferrite ----------------
+        # ---------------- 04_NFC_FPC_Coil_Ferrite (居中 Y=+2.25，严格退离 -Y BLE 天线净空区 >=1.5mm!) ----------------
         occ_nfc, c_nfc = new_subcomp(root, "04_NFC_FPC_Coil_Ferrite")
         occs["nfc"] = occ_nfc
         p_fer = offset_plane_xy(c_nfc, 33.75, "Pln_Ferrite")
         sk_f = c_nfc.sketches.add(p_fer)
-        extrude_profile(c_nfc, draw_rounded_rect_xy(sk_f, 0.0, 0.0, 26.0, 32.0, 5.5), 0.20)
+        extrude_profile(c_nfc, draw_rounded_rect_xy(sk_f, 0.0, 2.25, 25.0, 24.5, 5.0), 0.20)
         p_cl = offset_plane_xy(c_nfc, 34.00, "Pln_NFC_Coil")
         sk_c = c_nfc.sketches.add(p_cl)
-        draw_rounded_rect_xy(sk_c, 0.0, 0.0, 25.6, 31.6, 5.2)
-        draw_rounded_rect_xy(sk_c, 0.0, 0.0, 18.0, 24.0, 3.2)
-        # 取外环面 (面积最大且非内矩形)
+        draw_rounded_rect_xy(sk_c, 0.0, 2.25, 24.6, 24.1, 4.8)
+        draw_rounded_rect_xy(sk_c, 0.0, 2.25, 17.2, 16.7, 3.0)
         ring_p = sk_c.profiles.item(0)
         extrude_profile(c_nfc, ring_p, 0.25)
         assign_appearance(c_nfc, apps, "CM_Copper_NFC_FPC")
 
-        # ---------------- 05_Mainboard_4Layer_PCBA ----------------
+        # ---------------- 05_Mainboard_4Layer_PCBA (单面 L1 贴片 · RF 净空与分区布局) ----------------
         occ_pcb, c_pcb = new_subcomp(root, "05_Mainboard_4Layer_PCBA")
         occs["pcb"] = occ_pcb
         p_pcb = offset_plane_xy(c_pcb, 29.65, "Pln_PCB")
@@ -488,48 +487,53 @@ def run(context):
         extrude_profile(c_pcb, draw_rounded_rect_xy(sk_p, 0.0, 0.0, 28.4, 35.4, 6.2), 1.00)
         p_smd = offset_plane_xy(c_pcb, 30.65, "Pln_SMD")
         for cx, cy, w, l, h in [
-            (-2.5, -7.2, 13.2, 16.6, 2.30),  # ESP32-C3-MINI-1
-            (-6.5, 6.5, 6.0, 6.0, 0.85),     # PN5321A3HN
-            (0.8, 5.5, 2.0, 2.0, 0.90),      # LIS2DH12TR
-            (8.6, -6.5, 9.0, 9.0, 1.75),     # PKMCS0909E Buzzer
-            (12.4, 1.5, 2.6, 4.2, 1.60),     # SW1 Tactile
-            (0.0, 15.0, 5.4, 3.2, 0.95),     # Front LED FPC ZIF
-            (0.0, -15.0, 5.4, 3.2, 0.95),    # Rear LED FPC ZIF
+            (-2.2, -9.2, 13.2, 16.6, 2.30),  # ESP32-C3-MINI-1 (天线端探至 -Y 净空区)
+            (-6.8, 6.2, 6.0, 6.0, 0.85),     # PN5321A3HN
+            (-11.8, 6.2, 2.5, 3.2, 0.80),    # 27.12MHz 晶振 Y1
+            (0.5, 4.2, 2.0, 2.0, 0.90),      # LIS2DH12TR IMU
+            (9.5, -5.2, 9.0, 9.0, 1.75),     # PKMCS0909E 蜂鸣器 (正对右侧声学孔)
+            (5.2, 5.2, 2.9, 2.8, 1.10),      # PMIC MCP73831
+            (8.6, 5.2, 2.9, 2.8, 1.10),      # AP2112K-3.3 LDO
+            (5.2, 9.0, 2.9, 2.8, 1.10),      # Q1 AO3401A LED PMOS
+            (8.6, 9.0, 2.9, 2.8, 1.10),      # Q2/Q3 马达/蜂鸣器驱动
+            (12.5, 1.5, 2.6, 4.2, 1.60),     # SW1 右侧微动开关
+            (0.0, 15.0, 5.4, 3.0, 0.95),     # J_LED_F 前翼 4P FPC 座
+            (-11.2, -5.8, 3.0, 5.4, 0.95),   # J_LED_R 后翼 4P FPC 座 (西侧绕行避让 BLE)
         ]:
             sk_m = c_pcb.sketches.add(p_smd)
             extrude_profile(c_pcb, draw_rounded_rect_xy(sk_m, cx, cy, w, l, 0.25), h)
         assign_appearance(c_pcb, apps, "CM_PCB_Matte_Green")
 
-        # ---------------- 06_Battery_402025_300mAh ----------------
+        # ---------------- 06_Battery_402025_300mAh (Y ∈ [-9.5, +8.8]，远离 BLE 净空区) ----------------
         occ_bat, c_bat = new_subcomp(root, "06_Battery_402025_300mAh")
         occs["bat"] = occ_bat
         p_bat = offset_plane_xy(c_bat, 25.30, "Pln_Bat")
         sk_bat = c_bat.sketches.add(p_bat)
-        extrude_profile(c_bat, draw_rounded_rect_xy(sk_bat, 0.0, -1.5, 25.0, 20.0, 1.6), 4.00)
+        extrude_profile(c_bat, draw_rounded_rect_xy(sk_bat, 0.0, -0.35, 22.0, 18.3, 1.6), 4.00)
         assign_appearance(c_bat, apps, "CM_LiPo_Silver_Foil")
 
-        # ---------------- 07_Vibration_Motor_1027 ----------------
+        # ---------------- 07_Vibration_Motor_1027 (Y=+14.0 贴肤底壁) ----------------
         occ_mot, c_mot = new_subcomp(root, "07_Vibration_Motor_1027")
         occs["mot"] = occ_mot
         p_mot = offset_plane_xy(c_mot, 25.25, "Pln_Motor")
         sk_mot = c_mot.sketches.add(p_mot)
-        extrude_profile(c_mot, draw_circle_xy(sk_mot, 0.0, 13.8, 5.0), 2.70)
+        extrude_profile(c_mot, draw_circle_xy(sk_mot, 0.0, 14.0, 5.0), 2.70)
         assign_appearance(c_mot, apps, "CM_LiPo_Silver_Foil")
 
-        # ---------------- 08_Pogo_Magnets_Screws ----------------
+        # ---------------- 08_Pogo_Magnets_Screws (全部位于 +Y 侧，远离 -Y BLE 天线!) ----------------
         occ_hw, c_hw = new_subcomp(root, "08_Pogo_Magnets_Screws")
         occs["hw"] = occ_hw
         p_pg = offset_plane_xy(c_hw, 23.85, "Pln_Pogo")
         sk_pg = c_hw.sketches.add(p_pg)
         pg_profs = adsk.core.ObjectCollection.create()
         for px in (-3.81, -1.27, 1.27, 3.81):
-            pg_profs.add(draw_circle_xy(sk_pg, px, -14.2, 0.90))
+            pg_profs.add(draw_circle_xy(sk_pg, px, 14.8, 0.90))
         extrude_profile(c_hw, pg_profs, 0.80)
         p_mg = offset_plane_xy(c_hw, 24.10, "Pln_Mag")
         sk_mg = c_hw.sketches.add(p_mg)
         mg_profs = adsk.core.ObjectCollection.create()
-        for mx in (-9.0, 9.0):
-            mg_profs.add(draw_circle_xy(sk_mg, mx, -14.2, 2.00))
+        for mx in (-8.5, 8.5):
+            mg_profs.add(draw_circle_xy(sk_mg, mx, 14.8, 2.00))
         extrude_profile(c_hw, mg_profs, 0.90)
         assign_appearance(c_hw, apps, "CM_Gold_Pogo_Brass")
 

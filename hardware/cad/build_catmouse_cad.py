@@ -242,8 +242,8 @@ def build_top_shell() -> Part:
         with Locations((POD_W / 2.0 - 0.8, 1.5, Z_SPLIT + 1.00)):
             Box(3.6, 10.0, 2.05, mode=Mode.SUBTRACT)
 
-        # 右侧 3 道超薄蜂鸣器声学微孔（面向外侧不被手腕闷音）
-        for sy in (-8.2, -6.7, -5.2):
+        # 右侧 3 道超薄蜂鸣器声学微孔（正对 PCB 蜂鸣器 PKMCS0909E 中心 Y=-5.2mm，朝外发声不被手腕闷音）
+        for sy in (-6.7, -5.2, -3.7):
             with Locations((POD_W / 2.0 - 0.9, sy, Z_SPLIT + 1.50)):
                 Box(3.2, 0.65, 1.50, mode=Mode.SUBTRACT)
     return bp.part
@@ -270,27 +270,28 @@ def build_bottom_shell() -> Part:
         with Locations((POD_W / 2.0 - 0.8, 1.5, Z_SPLIT - 1.00)):
             Box(3.6, 10.0, 2.05, mode=Mode.SUBTRACT)
 
-        # 4-pin 镀金磁吸 Pogo 触点沉孔 (Phi 1.98mm，深度 0.95mm，位于 Z=23.80..24.75)
+        # 4-pin 镀金磁吸 Pogo 触点沉孔 (移至 +Y 侧 Y=+14.8mm，彻底远离 -Y 侧 2.4GHz BLE 天线净空区！)
         for px in (-3.81, -1.27, 1.27, 3.81):
-            with Locations((px, -14.2, Z_POD_BOT + 0.45)):
+            with Locations((px, 14.8, Z_POD_BOT + 0.45)):
                 Cylinder(radius=0.99, height=1.00, mode=Mode.SUBTRACT)
 
-        # 2× N52 磁铁内嵌盲孔 (Phi 4.24mm，Z=24.05..25.08，底部留 0.25mm 薄壁防水)
-        for mx in (-9.0, 9.0):
-            with Locations((mx, -14.2, Z_POD_BOT + 0.78)):
+        # 2× N52 磁铁内嵌盲孔 (位于 +Y 侧 x=±8.5, y=+14.8mm，远离 BLE 天线 >=26mm，底留 0.25mm 防水壁)
+        for mx in (-8.5, 8.5):
+            with Locations((mx, 14.8, Z_POD_BOT + 0.78)):
                 Cylinder(radius=2.12, height=1.05, mode=Mode.SUBTRACT)
 
-        # 2× M2 不锈钢装配螺丝过孔 + 沉头孔 (x=±11.2, y=+14.2)
-        for sx in (-11.2, 11.2):
-            with Locations((sx, 14.2, Z_POD_BOT + 0.65)):
+        # 2× M2 不锈钢装配螺丝过孔 + 沉头孔 (x=±12.6, y=+11.0，远离 BLE 天线 >=22mm 且避开电池/马达/磁铁)
+        for sx in (-12.6, 12.6):
+            with Locations((sx, 11.0, Z_POD_BOT + 0.65)):
                 Cylinder(radius=1.12, height=1.80, mode=Mode.SUBTRACT)
-            with Locations((sx, 14.2, Z_POD_BOT + 0.35)):
+            with Locations((sx, 11.0, Z_POD_BOT + 0.35)):
                 Cylinder(radius=2.05, height=0.80, mode=Mode.SUBTRACT)
 
-        # 前后腕带 FPC 柔性灯带防水过线口 (Y=±20.0, X∈[-2.8, 2.8], Z∈[29.8, 30.85])
-        for sy in (-20.0, 20.0):
-            with Locations((0.0, sy, Z_SPLIT - 0.48)):
-                Box(5.6, 3.2, 1.05, mode=Mode.SUBTRACT)
+        # 前/后双翼腕带 FPC 过线槽：前翼正中 (+20.0)；后翼靠西侧偏置 (-9.8, -20.0) 绕行避开 -Y 2.4GHz 天线净空区！
+        with Locations((0.0, 20.0, Z_SPLIT - 0.48)):
+            Box(5.6, 3.2, 1.05, mode=Mode.SUBTRACT)
+        with Locations((-9.8, -20.0, Z_SPLIT - 0.48)):
+            Box(5.2, 3.2, 1.05, mode=Mode.SUBTRACT)
     return bp.part
 
 
@@ -316,113 +317,137 @@ def build_side_button() -> Part:
 
 
 def build_nfc_coil_ferrite() -> Compound:
-    """04_NFC_FPC_Coil_Ferrite: 13.56MHz 无遮挡环形 FPC 线圈 (26×32mm) + 0.20mm 铁氧体隔磁片，紧贴顶盖内壁。"""
-    # 铁氧体隔磁片 Z ∈ [33.75, 33.95]
+    """04_NFC_FPC_Coil_Ferrite: 25×24.5mm 13.56MHz 环形 NFC 线圈 + 0.20mm 铁氧体（居中于 Y=+2.25，严格避让 -Y BLE 天线净空区 Y<-11.5！）。"""
+    # 铁氧体隔磁片 Y ∈ [-10.0, +14.5], Z ∈ [33.75, 33.95] -> 距 BLE 天线净空区 (-11.5) 留足 1.50mm RF 隔离带！
     with BuildPart() as bp_fer:
         with BuildSketch(Plane.XY.offset(33.75)):
-            RectangleRounded(26.0, 32.0, 5.5)
+            with Locations((0.0, 2.25)):
+                RectangleRounded(25.0, 24.5, 5.0)
         extrude(amount=0.20)
     ferrite = bp_fer.part
 
     # 铜质多匝环形 NFC FPC 线圈 Z ∈ [34.00, 34.25]
     with BuildPart() as bp_coil:
         with BuildSketch(Plane.XY.offset(34.00)):
-            RectangleRounded(25.6, 31.6, 5.2)
-            RectangleRounded(18.0, 24.0, 3.2, mode=Mode.SUBTRACT)
+            with Locations((0.0, 2.25)):
+                RectangleRounded(24.6, 24.1, 4.8)
+                RectangleRounded(17.2, 16.7, 3.0, mode=Mode.SUBTRACT)
         extrude(amount=0.25)
     coil = bp_coil.part
     return Compound(children=[ferrite, coil])
 
 
 def build_mainboard_pcba() -> Compound:
-    """05_Mainboard_4Layer_PCBA: 紧凑 4 层核心主板 (28.4×35.4×1.0mm) + ESP32-C3 + PN532 + IMU + 蜂鸣器 + 双侧 FPC ZIF 座。"""
+    """
+    05_Mainboard_4Layer_PCBA: 严格按 RF/EMC 规范分区的单面贴片(L1) 4 层核心主板布局 (28.4×35.4×1.0mm)：
+    - -Y 端 (Y ∈ [-17.7, -11.5])：2.4GHz BLE 天线 4 层全净空区（无铜、无铁氧体、无电池、无磁铁！）
+    - 东侧 (X=+9.5, Y=-5.2)：PKMCS0909E 蜂鸣器直对右侧 3 道声学出音槽
+    - 西北象限 (X=-6.8, Y=+6.2)：PN532 + 27.12MHz 晶振 + 13.56MHz 匹配网络（距 BLE 天线 >18mm！）
+    - 中心 (X=+0.5, Y=+4.2)：LIS2DH12TR IMU（贴近质心）
+    - 东北象限：MCP73831 + AP2112K-3.3 + Q1/Q2/Q3 电源驱动区
+    - L4 底层纯平面（0 贴片突起，仅磁吸 Pogo 焊盘与产测点，防止挤压锂电池！）
+    """
     # FR4 基板 Z ∈ [29.65, 30.65]
     with BuildPart() as bp_pcb:
         with BuildSketch(Plane.XY.offset(29.65)):
             RectangleRounded(28.4, 35.4, 6.2)
         extrude(amount=1.00)
-        # 避让 M2 螺丝定位柱
-        for sx in (-11.2, 11.2):
-            with Locations((sx, 14.2, 30.15)):
+        # 避让 2× M2 螺丝定位柱 (x=±12.6, y=+11.0)
+        for sx in (-12.6, 12.6):
+            with Locations((sx, 11.0, 30.15)):
                 Cylinder(radius=2.1, height=1.4, mode=Mode.SUBTRACT)
     pcb = bp_pcb.part
 
-    # 关键芯片与模块 (全部 Z ∈ [30.65, 33.15]，距铁氧体 33.75 净空 >= 0.60mm!)
+    # 单面 L1 关键芯片与模块 (全部 Z ∈ [30.65, 33.00]，距上方铁氧体 33.75 净空 >= 0.75mm!)
     chips = []
-    # 1. ESP32-C3-MINI-1 屏蔽罩模组 (13.2 x 16.6 x 2.30mm)
+    # 1. ESP32-C3-MINI-1 模组 (天线端探至 -Y 边缘 Y=-17.5，屏蔽体位于 Y ∈ [-11.5, -0.9])
     with BuildPart() as p:
-        with Locations((-2.5, -7.2, 30.65 + 1.15)):
+        with Locations((-2.2, -9.2, 30.65 + 1.15)):
             Box(13.2, 16.6, 2.30)
     chips.append(p.part)
     # 2. PN5321A3HN 双模 NFC 芯片 (HVQFN-40, 6.0 x 6.0 x 0.85mm)
     with BuildPart() as p:
-        with Locations((-6.5, 6.5, 30.65 + 0.425)):
+        with Locations((-6.8, 6.2, 30.65 + 0.425)):
             Box(6.0, 6.0, 0.85)
     chips.append(p.part)
-    # 3. LIS2DH12TR IMU (2.0 x 2.0 x 0.90mm)
+    # 2b. 27.12MHz NFC 晶振 Y1 (3.2 x 2.5 x 0.80mm，紧邻 PN532 OSCIN/OSCOUT)
     with BuildPart() as p:
-        with Locations((0.8, 5.5, 30.65 + 0.45)):
+        with Locations((-11.8, 6.2, 30.65 + 0.40)):
+            Box(2.5, 3.2, 0.80)
+    chips.append(p.part)
+    # 3. LIS2DH12TR IMU (2.0 x 2.0 x 0.90mm，居中抗旋转误触)
+    with BuildPart() as p:
+        with Locations((0.5, 4.2, 30.65 + 0.45)):
             Box(2.0, 2.0, 0.90)
     chips.append(p.part)
-    # 4. PKMCS0909E 超薄贴片蜂鸣器 (9.0 x 9.0 x 1.75mm，正对右侧 3 声学出音孔)
+    # 4. PKMCS0909E 超薄贴片蜂鸣器 (9.0 x 9.0 x 1.75mm，正对右侧 3 道声学出音槽 Y=-5.2)
     with BuildPart() as p:
-        with Locations((8.6, -6.5, 30.65 + 0.875)):
+        with Locations((9.5, -5.2, 30.65 + 0.875)):
             Box(9.0, 9.0, 1.75)
     chips.append(p.part)
-    # 5. 右侧贴片轻触开关 SW1 (4.2 x 2.6 x 1.60mm，紧邻侧键内顶柱)
+    # 5. PMIC 电源/高边 PMOS 驱动区 (MCP73831 + AP2112K + AO3401A/AO3400A 紧凑阵列，X=+6.5, Y=+6.8)
+    for px, py in [(5.2, 5.2), (8.6, 5.2), (5.2, 9.0), (8.6, 9.0)]:
+        with BuildPart() as p:
+            with Locations((px, py, 30.65 + 0.55)):
+                Box(2.9, 2.8, 1.10)
+        chips.append(p.part)
+    # 6. 右侧贴片轻触开关 SW1 (2.6 x 4.2 x 1.60mm，紧邻侧键内顶柱)
     with BuildPart() as p:
-        with Locations((12.4, 1.5, 30.65 + 0.80)):
+        with Locations((12.5, 1.5, 30.65 + 0.80)):
             Box(2.6, 4.2, 1.60)
     chips.append(p.part)
-    # 6. 前/后双翼腕带 LED FPC 4-pin ZIF 连接器 (5.4 x 3.2 x 0.95mm)
-    for zy in (-15.0, 15.0):
-        with BuildPart() as p:
-            with Locations((0.0, zy, 30.65 + 0.475)):
-                Box(5.4, 3.2, 0.95)
-        chips.append(p.part)
+    # 7. 前翼 FPC ZIF 座 (正中 Y=+15.0) + 后翼 FPC ZIF 座 (西侧偏置 X=-11.2, Y=-5.8，完全绕开 BLE 天线净空区!)
+    with BuildPart() as p:
+        with Locations((0.0, 15.0, 30.65 + 0.475)):
+            Box(5.4, 3.0, 0.95)
+    chips.append(p.part)
+    with BuildPart() as p:
+        with Locations((-11.2, -5.8, 30.65 + 0.475)):
+            Box(3.0, 5.4, 0.95)
+    chips.append(p.part)
 
     return Compound(children=[pcb, *chips])
 
 
 def build_battery() -> Part:
-    """06_Battery_402025_300mAh: 25.0 x 20.0 x 4.00 mm 高密度穿戴软包锂电池（带保护板）。"""
+    """06_Battery_402025_300mAh: 22.0 x 18.3 x 4.00 mm 高密度穿戴软包锂电池（Y ∈ [-9.5, +8.8]，严格退离 -Y BLE 天线净空区 >=2.0mm!）。"""
     with BuildPart() as bp:
         with BuildSketch(Plane.XY.offset(25.30)):
-            with Locations((0.0, -1.5)):
-                RectangleRounded(25.0, 20.0, 1.6)
+            with Locations((0.0, -0.35)):
+                RectangleRounded(22.0, 18.3, 1.6)
         extrude(amount=4.00)
     return bp.part
 
 
 def build_vibration_motor() -> Part:
-    """07_Vibration_Motor_1027: Phi 10.0 x 2.70 mm 扁平转子/线性振动马达，紧贴皮肤侧底壁传递清晰振感。"""
+    """07_Vibration_Motor_1027: Phi 10.0 x 2.70 mm 扁平振动马达，紧贴皮肤侧底壁 (Y=+14.0)，远离 BLE 天线。"""
     with BuildPart() as bp:
-        with Locations((0.0, 13.8, 25.25 + 1.35)):
+        with Locations((0.0, 14.0, 25.25 + 1.35)):
             Cylinder(radius=5.0, height=2.70)
     return bp.part
 
 
 def build_pogo_magnets_hardware() -> Compound:
-    """08_Pogo_Magnets_Screws: 4× 镀金磁吸充电/USB-JTAG 触点 + 2× N52 定位磁铁 + 2× M2 不锈钢螺丝。"""
+    """08_Pogo_Magnets_Screws: 全部位于 +Y 侧（彻底远离 -Y BLE 天线净空区 >=22mm！）。"""
     items = []
-    # 4× 镀金 Pogo 触点 (Phi 1.80 x 0.80mm, Z ∈ [23.85, 24.65])
+    # 4× 镀金 Pogo 触点 (Phi 1.80 x 0.80mm, Y=+14.8, Z ∈ [23.85, 24.65])
     for px in (-3.81, -1.27, 1.27, 3.81):
         with BuildPart() as p:
-            with Locations((px, -14.2, Z_POD_BOT + 0.05 + 0.40)):
+            with Locations((px, 14.8, Z_POD_BOT + 0.05 + 0.40)):
                 Cylinder(radius=0.90, height=0.80)
         items.append(p.part)
-    # 2× N52 钕铁硼磁铁 (Phi 4.00 x 0.90mm, Z ∈ [24.10, 25.00])
-    for mx in (-9.0, 9.0):
+    # 2× N52 钕铁硼磁铁 (Phi 4.00 x 0.90mm, X=±8.5, Y=+14.8, Z ∈ [24.10, 25.00])
+    for mx in (-8.5, 8.5):
         with BuildPart() as p:
-            with Locations((mx, -14.2, Z_POD_BOT + 0.30 + 0.45)):
+            with Locations((mx, 14.8, Z_POD_BOT + 0.30 + 0.45)):
                 Cylinder(radius=2.00, height=0.90)
         items.append(p.part)
-    # 2× M2 不锈钢装配螺丝 (沉头 + 螺杆，Z ∈ [23.95, 29.00])
-    for sx in (-11.2, 11.2):
+    # 2× M2 不锈钢装配螺丝 (X=±12.6, Y=+11.0, Z ∈ [23.95, 29.00])
+    for sx in (-12.6, 12.6):
         with BuildPart() as p:
-            with Locations((sx, 14.2, Z_POD_BOT + 0.35)):
+            with Locations((sx, 11.0, Z_POD_BOT + 0.35)):
                 Cylinder(radius=1.85, height=0.55)
-            with Locations((sx, 14.2, Z_POD_BOT + 2.60)):
+            with Locations((sx, 11.0, Z_POD_BOT + 2.60)):
                 Cylinder(radius=0.95, height=4.40)
         items.append(p.part)
     return Compound(children=items)

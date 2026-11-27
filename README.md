@@ -3,10 +3,10 @@
 ## 猫鼠手环硬件 V1.5（2026-11-27，Strap-Halo 腕带光环 ID/Fusion 3D CAD + 4 层 KiCad 10 PCB + 虚拟烧录全通）
 
 补齐手环完整硬件方案、**Strap-Halo 腕带光环版工业设计渲染图与 15 件参数化 3D CAD / Autodesk Fusion 360 工程**、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品报价分析（目录 `hardware/`）。
-- **工业设计与 3D 结构 (`design/` · `cad/`)**：将 12× `WS2812B-2020` 灯环从主机表盘移至双翼液态硅胶腕带内部（前翼 4 线回环 FPC、0 导线跨表扣），实现 300° 环腕发光与无屏鹅卵石顶面 100% 无遮挡 NFC 碰触；15 件多实体 B-Rep STEP 装配体已通过全 105 组 `0.000 mm³` 零碰撞校验（整机估算 `34.07 g`），同步提供 100% 原生参数化 Fusion 360 脚本与高清三阵营/四视图/爆炸图/纵剖图。
-- **4 层 PCB 与虚拟烧录 (`pcb/` · `firmware/` · `sim/`)**：KiCad 10 官方 ERC（0 违规）、4 层 PCB DRC（0 错误 / 0 未连接飞线）、官方网表与 EVT 固件 12 引脚 100% 对齐及 4 进程全链路虚拟烧录联调通过；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包。
+- **工业设计与 3D 结构 (`design/` · `cad/`)**：将 12× `WS2812B-2020` 灯环从主机表盘移至双翼液态硅胶腕带内部（前翼 4 线回环 FPC、后翼西侧绕行避让 BLE 天线、0 导线跨表扣），实现 300° 环腕发光与无屏鹅卵石顶面 100% 无遮挡 NFC 碰触；15 件多实体 B-Rep STEP 装配体已通过全 105 组 `0.000 mm³` 零碰撞校验（整机估算 `32.77 g`），同步冻结 ECAD/MCAD 协同布局规范、100% 原生参数化 Fusion 360 脚本与 5 张高清工程评审图。
+- **4 层 PCB 参考与虚拟烧录 (`pcb/` · `firmware/` · `sim/`)**：KiCad 10 官方 ERC（0 违规）、4 层 PCB DRC（0 错误 / 0 未连接飞线）、官方网表与 EVT 固件 12 引脚 100% 对齐及 4 进程全链路虚拟烧录联调通过；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包。
 
-入口：[硬件总览](hardware/README.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [3D CAD & Fusion 360 工程](hardware/cad/README.md) · [4 层 PCB 设计说明](hardware/docs/4层PCB设计与检视说明.md) · [KiCad 工程与生产包](hardware/pcb/catmouse-band-v15/) · [通信协议](hardware/docs/通信协议.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
+入口：[硬件总览](hardware/README.md) · [PCB 与 3D 结构协同布局规范](hardware/docs/PCB与3D结构协同布局规范.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [3D CAD & Fusion 360 工程](hardware/cad/README.md) · [4 层 PCB 设计说明](hardware/docs/4层PCB设计与检视说明.md) · [通信协议](hardware/docs/通信协议.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
 
 ## 当前位置与后台授权（2026-11-04，前端修订）
 

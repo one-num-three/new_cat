@@ -456,7 +456,111 @@ def render_all_sheets():
     fig.savefig(p4, facecolor=fig.get_facecolor())
     plt.close(fig)
 
-    print(f"[PASS] 4 张高清 CAD 工程评审图已导出至: {RENDER_DIR}")
+    print("[RENDER 5/5] 渲染 ECAD/MCAD PCB 规范布局平面蓝图 + 3D 开盖协同装配图...")
+    from matplotlib.patches import Circle as MplCircle, FancyBboxPatch
+
+    fig = plt.figure(figsize=(16.5, 8.6), dpi=140)
+    fig.patch.set_facecolor("#F6F8FC")
+    ax_2d = fig.add_subplot(1, 2, 1)
+    ax_3d = fig.add_subplot(1, 2, 2)
+
+    # -------- 左图：2D 精确毫米级 PCB 功能分区与禁布区规范蓝图 --------
+    ax_2d.set_facecolor("#FFFFFF")
+    ax_2d.set_aspect("equal")
+    ax_2d.set_xlim(-21.5, 22.0)
+    ax_2d.set_ylim(-23.5, 24.0)
+    ax_2d.grid(True, linestyle=":", linewidth=0.6, color="#CBD5E1", alpha=0.8)
+    ax_2d.set_xlabel("X 坐标 (mm)  [原点 = 主机中心，+X 为右侧按键/蜂鸣器侧]", fontsize=10, fontweight="bold", color="#334155")
+    ax_2d.set_ylabel("Y 坐标 (mm)  [-Y 为 BLE 天线端，+Y 为前翼腕带/磁吸端]", fontsize=10, fontweight="bold", color="#334155")
+    ax_2d.set_title("2D PCB 规范布局平面图 (28.4×35.4×1.0mm · 单面L1贴片 · 4层板)", fontsize=12, fontweight="bold", color="#0F172A", pad=8)
+
+    # 外壳轮廓 (34×42mm, R=9.5)
+    ax_2d.add_patch(FancyBboxPatch((-17.0, -21.0), 34.0, 42.0, boxstyle="round,pad=0,rounding_size=9.5",
+                                   fc="none", ec="#94A3B8", lw=1.4, ls="--", label="主机外轮廓 34×42mm"))
+    # PCB 轮廓 (28.4×35.4mm, R=6.2)
+    ax_2d.add_patch(FancyBboxPatch((-14.2, -17.7), 28.4, 35.4, boxstyle="round,pad=0,rounding_size=6.2",
+                                   fc="#ECFDF5", ec="#047857", lw=2.0))
+
+    # 红色斜线：2.4GHz BLE 天线 4 层 + 铁氧体 + 金属全净空区 (Y ∈ [-17.7, -11.5])
+    ax_2d.add_patch(FancyBboxPatch((-9.0, -17.7), 18.0, 6.2, boxstyle="round,pad=0,rounding_size=1.2",
+                                   fc="#FEE2E2", ec="#DC2626", lw=1.6, hatch="///", alpha=0.85))
+    ax_2d.text(0.0, -14.8, "2.4GHz BLE 天线 4 层全净空区\n(无铜/无铁氧体/无电池/无磁铁)", ha="center", va="center",
+               fontsize=8.2, fontweight="bold", color="#991B1B",
+               bbox=dict(boxstyle="round,pad=0.2", fc="#FFFFFF", ec="#FCA5A5", alpha=0.92))
+
+    # 橙色虚线框：顶盖下方 13.56MHz NFC 线圈 + 0.2mm 铁氧体投影 (Y ∈ [-10.0, +14.5])
+    ax_2d.add_patch(FancyBboxPatch((-12.5, -10.0), 25.0, 24.5, boxstyle="round,pad=0,rounding_size=4.8",
+                                   fc="none", ec="#EA580C", lw=1.8, ls="-."))
+    ax_2d.annotate(
+        "顶盖 13.56MHz NFC 线圈 + 0.2mm 铁氧体投影 (25×24.5mm, 距BLE≥1.5mm)",
+        xy=(-6.0, 14.5), xytext=(-20.6, 22.4),
+        fontsize=7.6, fontweight="bold", color="#C2410C",
+        arrowprops=dict(arrowstyle="-|>", color="#EA580C", lw=1.1),
+    )
+
+    # 底层投影虚线：电池 (22×18.3, Y∈[-9.5,+8.8]) + 1027 马达 (0, +14.0)
+    ax_2d.add_patch(FancyBboxPatch((-11.0, -9.5), 22.0, 18.3, boxstyle="round,pad=0,rounding_size=1.5",
+                                   fc="none", ec="#64748B", lw=1.1, ls=":"))
+    ax_2d.add_patch(MplCircle((0.0, 14.0), 5.0, fc="none", ec="#475569", lw=1.2, ls=":"))
+    ax_2d.text(0.0, 19.6, "底腔 1027 马达 (0,+14.0) & 底面 4-pin 磁吸/2×N52 (+Y 远离 BLE)", ha="center", va="center", fontsize=7.5, fontweight="bold", color="#475569")
+
+    # 核心 L1 单面贴片器件方块（精确坐标！）
+    blocks = [
+        (-8.8, -11.5, 13.2, 10.6, "#1E293B", "#0F172A", "ESP32-C3-MINI-1\n金属屏蔽体\n(-2.2, -9.2)", "#FFFFFF"),
+        (5.0, -9.7, 9.0, 9.0, "#334155", "#0F172A", "PKMCS0909E\n贴片蜂鸣器\n(+9.5, -5.2)", "#FFFFFF"),
+        (-9.8, 3.2, 6.0, 6.0, "#1D4ED8", "#1E3A8A", "PN532\nQFN40\n(-6.8,+6.2)", "#FFFFFF"),
+        (-13.1, 4.6, 2.5, 3.2, "#7C3AED", "#4C1D95", "27.12M\nY1", "#FFFFFF"),
+        (-9.1, 10.0, 4.6, 2.8, "#0284C7", "#0369A1", "13.56M匹配", "#FFFFFF"),
+        (-0.5, 3.2, 2.0, 2.0, "#0D9488", "#115E59", "IMU", "#FFFFFF"),
+        (3.8, 3.8, 6.3, 6.6, "#D97706", "#92400E", "电源&驱动区\nMCP73831\nAP2112K\nQ1/Q2/Q3", "#FFFFFF"),
+        (11.2, -0.6, 2.6, 4.2, "#475569", "#0F172A", "SW1", "#FFFFFF"),
+        (-2.7, 13.5, 5.4, 3.0, "#B45309", "#78350F", "J_LED_F\n前翼4P", "#FFFFFF"),
+        (-12.7, -8.5, 3.0, 5.4, "#B45309", "#78350F", "J_LED_R\n后翼4P", "#FFFFFF"),
+    ]
+    for bx, by, bw, bh, fc, ec, txt, tc in blocks:
+        ax_2d.add_patch(FancyBboxPatch((bx, by), bw, bh, boxstyle="round,pad=0,rounding_size=0.4", fc=fc, ec=ec, lw=1.2, alpha=0.92))
+        ax_2d.text(bx + bw * 0.5, by + bh * 0.5, txt, ha="center", va="center", fontsize=6.9, fontweight="bold", color=tc)
+
+    # 2× M2 螺丝孔 + 4-pin 镀金 Pogo (底面半透投影不遮字) + 2× N52 磁铁位置标注
+    for sx in (-12.6, 12.6):
+        ax_2d.add_patch(MplCircle((sx, 11.0), 2.05, fc="#FEF3C7", ec="#B45309", lw=1.4))
+        ax_2d.text(sx, 11.0, "M2", ha="center", va="center", fontsize=7.0, fontweight="bold", color="#78350F")
+    for px in (-3.81, -1.27, 1.27, 3.81):
+        ax_2d.add_patch(MplCircle((px, 14.8), 0.72, fc="none", ec="#CA8A04", lw=1.3, ls="--"))
+    for mx in (-8.5, 8.5):
+        ax_2d.add_patch(MplCircle((mx, 14.8), 1.9, fc="none", ec="#CA8A04", lw=1.2, ls="--"))
+        ax_2d.text(mx, 14.8, "N52", ha="center", va="center", fontsize=6.6, fontweight="bold", color="#854D0E")
+
+    # 右侧结构接口指示（按键 & 3 道声学孔）
+    ax_2d.annotate("右侧硅胶按键\n(Y=+1.5)", xy=(14.2, 1.5), xytext=(15.6, 4.5), fontsize=7.8, fontweight="bold", color="#0F172A",
+                   arrowprops=dict(arrowstyle="-|>", color="#334155", lw=1.0))
+    ax_2d.annotate("3 声学出音孔\n(Y=-5.2)", xy=(14.2, -5.2), xytext=(15.4, -8.5), fontsize=7.8, fontweight="bold", color="#0F172A",
+                   arrowprops=dict(arrowstyle="-|>", color="#334155", lw=1.0))
+    ax_2d.annotate("后翼FPC西侧绕行\n(避让BLE天线)", xy=(-11.2, -8.5), xytext=(-20.8, -14.0), fontsize=7.4, fontweight="bold", color="#92400E",
+                   arrowprops=dict(arrowstyle="-|>", color="#B45309", lw=1.0))
+
+    # -------- 右图：3D 开盖实模机电协同透视图（隐藏顶壳与 NFC 线圈，直观审视主板与壳体/腕带配合！） --------
+    meshes_open = load_cad_meshes(glow_rgb=(0.08, 0.96, 0.50), only_ids={"02", "03", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"})
+    im_open, _ = render_scene_zbuf(
+        meshes_open, 900, 900,
+        eye=(48.0, -45.0, 125.0), target=(0.0, 0.0, 26.0),
+        up=(0.0, 1.0, 0.0), ortho_scale=68.0, ssaa=2,
+        bg_top=(245, 248, 253), bg_bot=(230, 236, 245),
+    )
+    ax_3d.imshow(im_open)
+    ax_3d.set_title("3D 开盖机电协同实模视图（已隐藏顶壳与NFC，核对单面PCBA与外壳/腕带净空）", fontsize=11.5, fontweight="bold", color="#0F172A", pad=8)
+    ax_3d.axis("off")
+
+    fig.suptitle(
+        "CatMouse Band V1.5 (Strap-Halo) — PCB 设计规范分区与 3D 机电协同布局总图 (0.000 mm³ 碰撞校验)",
+        fontsize=14, fontweight="bold", color="#0F172A", y=0.98,
+    )
+    plt.tight_layout(rect=[0, 0, 1, 0.94])
+    p5 = RENDER_DIR / "cad_05_ecad_mcad_layout_blueprint.png"
+    fig.savefig(p5, facecolor=fig.get_facecolor())
+    plt.close(fig)
+
+    print(f"[PASS] 5 张高清 CAD 工程与机电协同评审图已导出至: {RENDER_DIR}")
 
 
 if __name__ == "__main__":
