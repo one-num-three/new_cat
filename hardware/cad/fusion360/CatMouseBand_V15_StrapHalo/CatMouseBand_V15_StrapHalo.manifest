@@ -1,0 +1,10 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "author": "CatMouse Band V1.5 Hardware Engineering",
+  "description": {
+    "": "CatMouse Band V1.5 (Strap-Halo 腕带光环版) — 100% Native Parametric Fusion 360 Feature Tree (15 Components, User Parameters fx, Swept 300-deg Glowing Wristband Halo, Custom CMF & Live Button Slider Joint)."
+  },
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}

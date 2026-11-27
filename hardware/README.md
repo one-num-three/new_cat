@@ -44,6 +44,15 @@ hardware/
 │   ├── 产品报价与财务分析.md    # 10/100/1000/5000 套阶梯报价、B/C 端商业定价与盈亏平衡测算
 │   ├── BOM与报价测算.csv        # 四阶段元器件、PCBA、模具、充电箱精细化成本明细表
 │   └── 原型采购清单.csv         # 10 套（含 2 套备件）免画板原型的淘宝/立创采购物料表
+├── design/                     # Strap-Halo 腕带光环版工业设计 (ID) 高清渲染图
+│   └── renders/                # 三阵营腕带光环主图、Pin-and-Tuck 变体、户外夜跑双环碰触场景图
+├── cad/                        # 15 零件参数化 3D CAD 装配体与 Autodesk Fusion 360 原生工程
+│   ├── README.md               # Fusion 360 两种打开方式（STEP 直开 / Shift+S 原生参数化脚本）
+│   ├── build_catmouse_cad.py   # build123d / OpenCASCADE 参数化建模与 0.000 mm³ 碰撞干涉校验
+│   ├── render_cad_views.py     # 基于精确 B-Rep 网格的多视角 3D 渲染与 X=0 纵剖图脚本
+│   ├── fusion360/              # 100% 原生参数化 Fusion 360 脚本（18 个 fx 参数 + 实时运动副 + CMF）
+│   ├── output/                 # CatMouseBand_V15_StrapHalo.step + 15 单件 STEP/STL + 校验报告
+│   └── renders/                # 3D 三阵营实模、工程四视图、15 件爆炸装配图、X=0 纵剖叠层图
 ├── pcb/                        # KiCad 10.0 原生 4 层紧凑主板工程 (40x46mm, 1.0mm厚)
 │   ├── catmouse-band-v15/      # .kicad_pro/.kicad_sch/.kicad_pcb + ERC/DRC报告 + 嘉立创Gerber/BOM/CPL + 3D渲染图
 │   ├── generate_schematic.py   # 自包含 KiCad 10 原理图生成器 (官方库展开)

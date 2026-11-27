@@ -1,8 +1,12 @@
 # 猫鼠行动 · 微信试点
 
-## 猫鼠手环硬件 V1.5（2026-11-27，4 层 KiCad 10 PCB 0 ERC/0 DRC 错误/0 飞线 + 虚拟烧录联调全通）
+## 猫鼠手环硬件 V1.5（2026-11-27，Strap-Halo 腕带光环 ID/Fusion 3D CAD + 4 层 KiCad 10 PCB + 虚拟烧录全通）
 
-补齐手环完整硬件方案、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品设计与商业报价分析（目录 `hardware/`）。4 层主板尺寸 `40×46 mm`（板厚 `1.0 mm`，嘉立创 4 层工艺），集成 `ESP32-C3-WROOM-02`（2.4GHz 天线 4 层全净空）+ `PN5321A3HN` 双模 NFC + `LIS2DH12TR` + 12× `WS2812B-2020` 环形灯阵 + `AO3401A` 高边 PMOS 断电（`GPIO8`）+ 磁吸 USB-JTAG 一线充电烧录口，已通过 **KiCad 10 官方 ERC（0 错误 / 0 警告）、4 层 PCB DRC（0 错误 / 0 未连接飞线）**、官方网表与 EVT 固件 12 引脚 100% 物理对齐及 4 进程全链路虚拟烧录联调；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包与回归测试。[硬件总览](hardware/README.md) · [4 层 PCB 设计说明](hardware/docs/4层PCB设计与检视说明.md) · [KiCad 工程与生产包](hardware/pcb/catmouse-band-v15/) · [硬件架构基线](hardware/docs/硬件架构设计基线.md) · [通信协议](hardware/docs/通信协议.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
+补齐手环完整硬件方案、**Strap-Halo 腕带光环版工业设计渲染图与 15 件参数化 3D CAD / Autodesk Fusion 360 工程**、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品报价分析（目录 `hardware/`）。
+- **工业设计与 3D 结构 (`design/` · `cad/`)**：将 12× `WS2812B-2020` 灯环从主机表盘移至双翼液态硅胶腕带内部（前翼 4 线回环 FPC、0 导线跨表扣），实现 300° 环腕发光与无屏鹅卵石顶面 100% 无遮挡 NFC 碰触；15 件多实体 B-Rep STEP 装配体已通过全 105 组 `0.000 mm³` 零碰撞校验（整机估算 `34.07 g`），同步提供 100% 原生参数化 Fusion 360 脚本与高清三阵营/四视图/爆炸图/纵剖图。
+- **4 层 PCB 与虚拟烧录 (`pcb/` · `firmware/` · `sim/`)**：KiCad 10 官方 ERC（0 违规）、4 层 PCB DRC（0 错误 / 0 未连接飞线）、官方网表与 EVT 固件 12 引脚 100% 对齐及 4 进程全链路虚拟烧录联调通过；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包。
+
+入口：[硬件总览](hardware/README.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [3D CAD & Fusion 360 工程](hardware/cad/README.md) · [4 层 PCB 设计说明](hardware/docs/4层PCB设计与检视说明.md) · [KiCad 工程与生产包](hardware/pcb/catmouse-band-v15/) · [通信协议](hardware/docs/通信协议.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
 
 ## 当前位置与后台授权（2026-11-04，前端修订）
 

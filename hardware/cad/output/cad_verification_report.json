@@ -1,0 +1,536 @@
+{
+  "model": "CatMouseBand_V15_StrapHalo",
+  "architecture": "Screenless Pebble NFC Pod + Dual-Wing 300-deg Glowing Silicone Wristband Halo",
+  "overall_bbox_mm": {
+    "width_x": 34.55,
+    "length_y": 69.48,
+    "height_z": 68.85
+  },
+  "pod_dimensions_mm": {
+    "width": 34.0,
+    "length": 42.0,
+    "thickness": 11.8
+  },
+  "wrist_inner_ellipse_mm": {
+    "ry": 31.0,
+    "rz": 24.0,
+    "nominal_circumference_mm": 173.5
+  },
+  "strap_specs_mm": {
+    "width": 22.0,
+    "thickness": 3.4,
+    "light_guide_width": 7.6,
+    "led_count": 12
+  },
+  "wall_thickness_min_mm": {
+    "top_nfc_deck": 1.2,
+    "bottom_skin_wall": 1.3,
+    "side_wall": 1.8,
+    "strap_inner_floor": 1.25
+  },
+  "part_count": 15,
+  "all_brep_valid": true,
+  "total_estimated_mass_g": 34.07,
+  "mass_target_g": 38.0,
+  "mass_pass": true,
+  "interference_count": 0,
+  "interferences": [],
+  "step_file": "C:\\Users\\Keke_\\.gemini\\antigravity\\scratch\\catmouse-band\\cad\\output\\CatMouseBand_V15_StrapHalo.step",
+  "parts": [
+    {
+      "id": "01",
+      "name": "Top_Shell_NFC",
+      "material": "PC+ABS Matte Obsidian",
+      "valid_brep": true,
+      "volume_mm3": 2219.05,
+      "mass_g": 2.55,
+      "bbox_mm": {
+        "x": [
+          -17.0,
+          17.0
+        ],
+        "y": [
+          -21.0,
+          21.0
+        ],
+        "z": [
+          30.8,
+          35.6
+        ]
+      },
+      "rgba": [
+        0.2,
+        0.22,
+        0.25,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        26.0
+      ]
+    },
+    {
+      "id": "02",
+      "name": "Bottom_Shell_Pogo",
+      "material": "PC+ABS Matte Obsidian",
+      "valid_brep": true,
+      "volume_mm3": 2804.23,
+      "mass_g": 3.22,
+      "bbox_mm": {
+        "x": [
+          -17.0,
+          17.0
+        ],
+        "y": [
+          -21.0,
+          21.0
+        ],
+        "z": [
+          23.8,
+          30.8
+        ]
+      },
+      "rgba": [
+        0.17,
+        0.19,
+        0.22,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        -14.0
+      ]
+    },
+    {
+      "id": "03",
+      "name": "Side_Button_Silicone",
+      "material": "LSR Silicone 65A",
+      "valid_brep": true,
+      "volume_mm3": 88.45,
+      "mass_g": 0.1,
+      "bbox_mm": {
+        "x": [
+          14.35,
+          17.55
+        ],
+        "y": [
+          -4.2,
+          7.2
+        ],
+        "z": [
+          28.4,
+          33.2
+        ]
+      },
+      "rgba": [
+        0.28,
+        0.3,
+        0.34,
+        1.0
+      ],
+      "explode_vec": [
+        14.0,
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "id": "04",
+      "name": "NFC_FPC_Coil_Ferrite",
+      "material": "Copper FPC + Ferrite",
+      "valid_brep": true,
+      "volume_mm3": 251.84,
+      "mass_g": 1.13,
+      "bbox_mm": {
+        "x": [
+          -13.0,
+          13.0
+        ],
+        "y": [
+          -16.0,
+          16.0
+        ],
+        "z": [
+          33.75,
+          34.25
+        ]
+      },
+      "rgba": [
+        0.85,
+        0.54,
+        0.22,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        17.0
+      ]
+    },
+    {
+      "id": "05",
+      "name": "Mainboard_4Layer_PCBA",
+      "material": "FR4 + SMD Modules",
+      "valid_brep": true,
+      "volume_mm3": 1675.05,
+      "mass_g": 4.02,
+      "bbox_mm": {
+        "x": [
+          -14.2,
+          14.2
+        ],
+        "y": [
+          -17.7,
+          17.7
+        ],
+        "z": [
+          29.65,
+          32.95
+        ]
+      },
+      "rgba": [
+        0.1,
+        0.44,
+        0.26,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        7.0
+      ]
+    },
+    {
+      "id": "06",
+      "name": "Battery_402025_300mAh",
+      "material": "LiPo Pouch Cell",
+      "valid_brep": true,
+      "volume_mm3": 1991.21,
+      "mass_g": 5.77,
+      "bbox_mm": {
+        "x": [
+          -12.5,
+          12.5
+        ],
+        "y": [
+          -11.5,
+          8.5
+        ],
+        "z": [
+          25.3,
+          29.3
+        ]
+      },
+      "rgba": [
+        0.78,
+        0.81,
+        0.85,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        -4.0
+      ]
+    },
+    {
+      "id": "07",
+      "name": "Vibration_Motor_1027",
+      "material": "Coin Motor (Steel/Cu)",
+      "valid_brep": true,
+      "volume_mm3": 212.06,
+      "mass_g": 1.23,
+      "bbox_mm": {
+        "x": [
+          -5.0,
+          5.0
+        ],
+        "y": [
+          8.8,
+          18.8
+        ],
+        "z": [
+          25.25,
+          27.95
+        ]
+      },
+      "rgba": [
+        0.68,
+        0.72,
+        0.77,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        6.0,
+        -5.0
+      ]
+    },
+    {
+      "id": "08",
+      "name": "Pogo_Magnets_Screws",
+      "material": "Au Brass + N52 + SS",
+      "valid_brep": true,
+      "volume_mm3": 66.26,
+      "mass_g": 0.52,
+      "bbox_mm": {
+        "x": [
+          -13.05,
+          13.05
+        ],
+        "y": [
+          -16.2,
+          16.05
+        ],
+        "z": [
+          23.85,
+          28.6
+        ]
+      },
+      "rgba": [
+        0.94,
+        0.76,
+        0.24,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        -22.0
+      ]
+    },
+    {
+      "id": "09",
+      "name": "Strap_Front_Silicone",
+      "material": "LSR Silicone 60A Charcoal",
+      "valid_brep": true,
+      "volume_mm3": 4145.89,
+      "mass_g": 4.73,
+      "bbox_mm": {
+        "x": [
+          -11.0,
+          11.0
+        ],
+        "y": [
+          7.0,
+          34.38
+        ],
+        "z": [
+          -26.79,
+          29.57
+        ]
+      },
+      "rgba": [
+        0.22,
+        0.24,
+        0.27,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        14.0,
+        -4.0
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Strap_Rear_Silicone",
+      "material": "LSR Silicone 60A Charcoal",
+      "valid_brep": true,
+      "volume_mm3": 6249.93,
+      "mass_g": 7.12,
+      "bbox_mm": {
+        "x": [
+          -11.0,
+          11.0
+        ],
+        "y": [
+          -34.38,
+          22.91
+        ],
+        "z": [
+          -31.41,
+          29.57
+        ]
+      },
+      "rgba": [
+        0.22,
+        0.24,
+        0.27,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        -14.0,
+        -4.0
+      ]
+    },
+    {
+      "id": "11",
+      "name": "LightGuide_Front_Diffuser",
+      "material": "Frosted Optical Silicone",
+      "valid_brep": true,
+      "volume_mm3": 569.28,
+      "mass_g": 0.64,
+      "bbox_mm": {
+        "x": [
+          -3.8,
+          3.8
+        ],
+        "y": [
+          17.92,
+          34.74
+        ],
+        "z": [
+          -23.56,
+          29.62
+        ]
+      },
+      "rgba": [
+        0.15,
+        0.96,
+        0.52,
+        0.95
+      ],
+      "explode_vec": [
+        0.0,
+        24.0,
+        2.0
+      ]
+    },
+    {
+      "id": "12",
+      "name": "LightGuide_Rear_Diffuser",
+      "material": "Frosted Optical Silicone",
+      "valid_brep": true,
+      "volume_mm3": 569.28,
+      "mass_g": 0.64,
+      "bbox_mm": {
+        "x": [
+          -3.8,
+          3.8
+        ],
+        "y": [
+          -34.74,
+          -17.92
+        ],
+        "z": [
+          -23.56,
+          29.62
+        ]
+      },
+      "rgba": [
+        0.15,
+        0.96,
+        0.52,
+        0.95
+      ],
+      "explode_vec": [
+        0.0,
+        -24.0,
+        2.0
+      ]
+    },
+    {
+      "id": "13",
+      "name": "LED_FPC_12xWS2812B",
+      "material": "Polyimide FPC + 12 LEDs",
+      "valid_brep": true,
+      "volume_mm3": 112.29,
+      "mass_g": 0.25,
+      "bbox_mm": {
+        "x": [
+          -2.25,
+          2.25
+        ],
+        "y": [
+          -33.23,
+          33.23
+        ],
+        "z": [
+          -21.46,
+          27.65
+        ]
+      },
+      "rgba": [
+        0.94,
+        0.66,
+        0.14,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        -10.0
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Tang_Buckle_Aluminum",
+      "material": "6061-T6 Anodized Dark",
+      "valid_brep": true,
+      "volume_mm3": 588.27,
+      "mass_g": 1.59,
+      "bbox_mm": {
+        "x": [
+          -13.1,
+          13.1
+        ],
+        "y": [
+          -4.8,
+          4.8
+        ],
+        "z": [
+          -33.25,
+          -26.25
+        ]
+      },
+      "rgba": [
+        0.32,
+        0.35,
+        0.4,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        -24.0
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Silicone_Keeper_Loop",
+      "material": "LSR Silicone 60A Charcoal",
+      "valid_brep": true,
+      "volume_mm3": 489.29,
+      "mass_g": 0.56,
+      "bbox_mm": {
+        "x": [
+          -12.9,
+          12.9
+        ],
+        "y": [
+          9.75,
+          19.29
+        ],
+        "z": [
+          -31.33,
+          -19.06
+        ]
+      },
+      "rgba": [
+        0.2,
+        0.22,
+        0.25,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        14.0,
+        -20.0
+      ]
+    }
+  ]
+}
