@@ -24,7 +24,7 @@ Page({
   tiltModel(){this.selectComponent('.campusModel')?.tilt();},
   useArtMap(){this.selectMapLayer('art');},
   onResize(e) { this.setData(presentation.resize(e)); },
-  data:{ trackingText:'',trackingNotice:'',backgroundReady:false,captureRetry:false,mapCompatible:true,fontScale:1, nightMode:false, roomId:'', match:null, roster:[], events:[], unreadEvents:0, vibeOn:true, meetingGuideText:'', markers:[], circles:[],venuePolygons:[],omittedArtBoundary:false, nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', clockAlert:'', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,modelMode:false,layerLoading:false,trayExpanded:true,trayDragging:false,trayDragY:0, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true, layerSheetOpen:false, layerOptions:[], confirmModal:{visible:false,action:'',title:'',content:'',confirmText:'确认',confirmTone:'amber'} },
+  data:{ trackingText:'',trackingNotice:'',backgroundReady:false,fgTipDismissed:false,captureRetry:false,mapCompatible:true,fontScale:1, nightMode:false, roomId:'', match:null, roster:[], events:[], unreadEvents:0, vibeOn:true, meetingGuideText:'', markers:[], circles:[],venuePolygons:[],omittedArtBoundary:false, nearbyCat:false, offline:false, latitude:32.0584,longitude:118.7968, clock:'--:--', clockAlert:'', roleText:'', phaseText:'', pauseReasonText:'', connection:'正在连接', error:'', drawer:false, owner:false, loading:false, devPreview:false, artMode:true,modelMode:false,layerLoading:false,trayExpanded:true,trayDragging:false,trayDragY:0, drawerTab:'team', drawerClosing:false, codeOpen:false, image:'',seconds:0,codeError:'',hasSelf:false,locationText:'等待定位',mapScale:17,followSelf:true, layerSheetOpen:false, layerOptions:[], confirmModal:{visible:false,action:'',title:'',content:'',confirmText:'确认',confirmTone:'amber'} },
   onLoad(o) { this.setData(presentation.metrics()); this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.previewCase=o.devPreview;this.previewMapId=this.devPreview&&venueCatalog.get(o.mapId)?o.mapId:venueCatalog.DEFAULT_ID;let vibeOn=true;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx&&wx.getStorageSync('vibeOn')===false)vibeOn=false;}catch{}this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId || wx.getStorageSync('v2RoomId'),devPreview:this.devPreview,artMode:true,vibeOn}); },
   toggleVibe(){const next=!this.data.vibeOn;this.setData({vibeOn:next});if(!this.devPreview){try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('vibeOn',next);}catch{}}if(next)tapHaptic('medium');},
   toggleNightMode(){tapHaptic();const next=!this.data.nightMode;this.setData({nightMode:next});try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('sdvTheme',next?'night':'day');}catch{}},
@@ -33,12 +33,30 @@ Page({
   onShow() { if(this.previewDenied)return;this.active=true;this.backgroundTracking=false;this.lifecycle=(this.lifecycle||0)+1;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night';if(n!==!!this.data.nightMode)this.setData({nightMode:n});}}catch{}if(this.devPreview){this.lastSnapshot=null;this.apply(preview.mapSnapshot(this.previewCase,'dev-preview-me',this.previewMapId));if(this.previewCase==='offline')this.setOffline('', '重连中');else this.setData({connection:'界面预览'});return;}if(loc.status){const state=loc.status();this.locationRunning=state.running&&state.roomId===this.data.roomId&&state.matchId===this.data.match?.id;this.onTrackingStatus(this.locationRunning?state:{running:false,mode:'off',backgroundReady:false,notice:state.notice||''});}this.reconnectAttempt=0; this.poll(); if(!this.socketOpen)this.startPolling(); this.startSocket(); clearInterval(this.clockTimer); this.clockTimer=setInterval(()=>this.updateClock(),1000); },
   onHide() { this.cleanup(!this.devPreview&&!!loc.canBackground?.(this.data.roomId,this.data.match?.id)); }, onUnload() { this.unloaded=true;this.cleanup(); },
   cleanup(keepTracking=false) { this.closeCode();syncKeepAwake(this,false);if(this.data.layerSheetOpen||this.data.confirmModal?.visible)this.setData({layerSheetOpen:false,'confirmModal.visible':false});if(this.drawerExitTimer){clearTimeout(this.drawerExitTimer);this.drawerExitTimer=null;}if(this.data.drawer)this.setData({drawer:false,drawerClosing:false});this._sheetStart=null;this._trayGesture=null;if(this.data.trayDragging)this.setData({trayDragging:false,trayDragY:0});this.active=false;this.backgroundTracking=keepTracking;this.pollSerial=(this.pollSerial||0)+1;this.fetching=false;this.setOffline('', '正在连接');clearInterval(this.pollTimer);clearInterval(this.clockTimer);this.pollTimer=null;this.clockTimer=null;if(!keepTracking){clearInterval(this.heartbeatTimer);clearTimeout(this.reconnectTimer);this.heartbeatTimer=null;this.reconnectTimer=null;const socket=this.socket;this.socket=null;this.socketOpen=false;if(socket)socket.close();if(!this.devPreview)loc.stop();this.locationRunning=false;} },
-  onTrackingStatus(s){this.locationRunning=s.running;if(this.active){this.setData({trackingText:s.mode==='background'?'后台定位已开启':s.mode==='requesting'?'正在申请后台定位':s.running?'仅前台定位':'定位已停止',trackingNotice:s.notice||'',backgroundReady:!!s.backgroundReady});if(s.quality)this.localQuality=s.quality;this.updateLocationSignal();}if(!s.running&&this.backgroundTracking)this.cleanup();},
+  dismissFgTip(){this.setData({fgTipDismissed:true});},
+  onTrackingStatus(s){this.locationRunning=s.running;if(this.active){this.setData({trackingText:s.mode==='background'?'后台定位已开启':s.mode==='requesting'?'正在申请后台定位':s.running?'仅前台定位':'定位已停止',trackingNotice:s.notice||'',backgroundReady:!!s.backgroundReady,...(s.reason==='BACKGROUND_UNAVAILABLE'?{fgTipDismissed:false}:{})});if(s.quality)this.localQuality=s.quality;this.updateLocationSignal();}if(!s.running&&this.backgroundTracking)this.cleanup();},
   updateLocationSignal(){if(!this.active)return;const m=this.data.match,signal=presentation.locationSignal(this.localQuality||this.snapshotQuality,{offline:this.data.offline,stopped:!!m&&(done(m)||['captured','left'].includes(m.myStatus))});if(JSON.stringify(signal)!==JSON.stringify(this.data.locationSignal))this.setData({locationSignal:signal});},
   onLocationError(e){if(!this.active)return;this.localQuality={...this.localQuality,issue:e.code||e.errMsg||e.message||'LOCATION_UNAVAILABLE'};this.updateLocationSignal();},
   startLocation() { if(!this.data.match || done(this.data.match) || !['active','joining'].includes(this.data.match.myStatus) || this.locationRunning)return; this.locationRunning=true;const started=loc.start(this.data.roomId,e=>this.onLocationError(e),{matchId:this.data.match.id,match:this.data.match,background:true,onStatus:s=>this.onTrackingStatus(s),isLiveConnected:()=>this.socketOpen});if(started===false)this.locationRunning=false; },
   retryBackgroundLocation(){if(this.devPreview||!this.active)return;loc.stop();this.locationRunning=false;this.startLocation();},
   openLocationSettings(){if(this.devPreview)return;wx.openSetting({success:r=>{if(this.active&&r.authSetting?.['scope.userLocationBackground'])this.retryBackgroundLocation();}});},
+  openSignalCheck(){
+    tapHaptic();
+    const sig=this.data.locationSignal;
+    const status=this.data.trackingText || '等待定位';
+    const sigLine=sig?.text ? `${sig.text}${sig.detail?'（'+sig.detail+'）':''}` : '等待信号读数';
+    const tip=this.data.trackingNotice || '建议在户外开阔处保持定位与后台位置权限开启';
+    this.setData({
+      confirmModal:{
+        visible:true,
+        action:this.devPreview?'':'openLocationSettings',
+        title:'定位信号自检',
+        content:`定位通道：${status}\n信号精度：${sigLine}\n排查提示：${tip}`,
+        confirmText:this.devPreview?'知道了':'定位设置',
+        confirmTone:'green'
+      }
+    });
+  },
   startPolling() { if(this.pollTimer) return; this.pollTimer=setInterval(()=>this.poll(),2000); },
   startSocket:liveRoom.startSocket,socketDropped:liveRoom.socketDropped,scheduleReconnect:liveRoom.scheduleReconnect,
   receiveSnapshot(s){if(this.active)this.apply(s);else if(this.backgroundTracking){loc.syncMatch?.(s);if(!loc.canBackground?.(this.data.roomId,this.data.match?.id))this.cleanup();}},
@@ -74,6 +92,14 @@ Page({
     if(!this.devPreview&&this.data.vibeOn){const alertKey=(s.nearbyCat?'near:':'')+m.captured+':'+m.phase;if(this.lastVibeAlert&&this.lastVibeAlert!==alertKey&&((!this.lastVibeNear&&s.nearbyCat)||m.captured>(this.lastVibeCaptured||0)||(m.phase==='PAUSED'&&this.lastVibePhase!=='PAUSED'))){tapHaptic('heavy');}this.lastVibeAlert=alertKey;this.lastVibeNear=!!s.nearbyCat;this.lastVibeCaptured=m.captured;this.lastVibePhase=m.phase;}
     this.serverRemaining=m.remainingMs; this.syncedAt=Date.now(); this.updateClock();
     if(this.devPreview)return;
+    if(done(m)&&m.id&&typeof wx!=='undefined'&&'getStorageSync' in wx&&'setStorageSync' in wx){
+      try{
+        const entry={matchId:m.id,roomId:this.data.roomId,venueName:image?.label||'活动场地',mapId:s.venue?.mapId||venueCatalog.DEFAULT_ID,nativeOnly:!!image?.nativeOnly,myRole:m.myRole,myStatus:m.myStatus,outcome:m.outcome||(m.phase==='CANCELLED'?'cancelled':'finished'),captured:m.captured||0,target:m.target||0,totalPlayers:(s.roster||[]).length,owner:!!s.owner,trackVersion:m.trackVersion||'',endedAt:Number.isFinite(s.serverTime)?s.serverTime:Date.now()};
+        const raw=wx.getStorageSync('v2MatchHistory');
+        const list=Array.isArray(raw)?raw:[];
+        wx.setStorageSync('v2MatchHistory',[entry,...list.filter(x=>x&&x.matchId!==entry.matchId)].slice(0,30));
+      }catch{}
+    }
     syncKeepAwake(this,!done(m)&&['HIDING','CHASING'].includes(m.phase));
     if(loc.status){const state=loc.status();if(state.roomId!==this.data.roomId||state.matchId!==m.id)this.locationRunning=false;}
     if(done(m) || ['captured','left'].includes(m.myStatus)) { loc.stop(); this.locationRunning=false; } else this.startLocation();
@@ -146,6 +172,7 @@ Page({
     if(action==='cancel'){try{await api.cancel(this.data.roomId);await this.poll();}catch(e){this.setData({error:e.message});}}
     else if(action==='leave'){try{await api.leave(this.data.roomId);this.cleanup();wx.reLaunch({url:'/pages/index/index'});}catch(e){this.setData({error:e.message});}}
     else if(action==='emergency'){await this.emergency();}
+    else if(action==='openLocationSettings'){this.openLocationSettings();}
   },
   backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});},
   goHome() { this.cleanup(); if(this.devPreview)this.backToDev();else wx.reLaunch({url:'/pages/index/index'}); },

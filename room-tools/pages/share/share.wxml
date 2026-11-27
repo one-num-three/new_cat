@@ -5,7 +5,10 @@
     <view class="sdvWoodCard posterCard">
       <image wx:if="{{posterPath}}" class="posterImage" src="{{posterPath}}" mode="widthFix" show-menu-by-longpress="{{true}}" bindtap="previewImage" />
       <view wx:else class="shareEmpty">
+        <image class="shareEmptyArt" src="/assets/sdv-v1/demo-cat-mouse.png" mode="widthFix" aria-hidden="true" />
+        <view wx:if="{{loading}}" class="shareLoadingDots" aria-hidden="true"><view></view><view></view><view></view></view>
         <text class="shareEmptyTitle">{{loading?'正在合成海报…':'海报未就绪'}}</text>
+        <text class="shareEmptySub">{{loading?'正在绘制本次路线与里程数据…':'返回重试或检查网络后再生成'}}</text>
         <text wx:if="{{error}}" class="sdvError shareError">{{error}}</text>
         <button wx:if="{{!loading}}" class="sdvBtn sdvBtnWood sdvBtnSm" hover-class="sdvPressed" bindtap="load">重试</button>
       </view>

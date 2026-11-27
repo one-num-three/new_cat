@@ -3,43 +3,45 @@
   <view class="navSpace" style="height:{{navHeight}}px"></view>
 
   <view class="codeBody">
-    <view class="sdvWoodCard codeCard">
-      <view class="codePlank">
-        <view class="sdvIconTitle">
-          <map-icon kind="code" size="18" color="#5e3616" />
-          <text class="codePlankTitle">动态核验</text>
-        </view>
-        <text class="sdvBadge sdvBadgeAmber">{{devPreview?'15s 示例':seconds>0?seconds+'s':'同步中'}}</text>
-      </view>
-
-      <view class="qrCard {{devPreview?'demoCard':''}}">
-        <view wx:if="{{devPreview}}" class="qrDemo">
-          <view class="demoArtFrame">
-            <image class="demoArt" src="/assets/sdv-v1/demo-cat-mouse.png" mode="widthFix" aria-hidden="true" />
+    <view class="codeCenter">
+      <view class="sdvWoodCard codeCard">
+        <view class="codePlank">
+          <view class="sdvIconTitle">
+            <map-icon kind="code" size="18" color="#5e3616" />
+            <text class="codePlankTitle">动态核验</text>
           </view>
-          <text class="demoTitle">演示码</text>
-          <text class="demoCaption">不可扫描</text>
+          <text class="sdvBadge sdvBadgeAmber">{{devPreview?'15s 示例':seconds>0?seconds+'s':'同步中'}}</text>
         </view>
-        <image wx:elif="{{image}}" src="{{image}}" mode="aspectFit" class="qr" aria-label="本场现场动态核验码" />
-        <view wx:elif="{{error}}" class="qrState">
-          <text class="qrStateMark">!</text>
-          <text class="qrLoading">无法展示核验码</text>
+
+        <view class="qrCard {{devPreview?'demoCard':''}}">
+          <view wx:if="{{devPreview}}" class="qrDemo">
+            <view class="demoArtFrame">
+              <image class="demoArt" src="/assets/sdv-v1/demo-cat-mouse.png" mode="widthFix" aria-hidden="true" />
+            </view>
+            <text class="demoTitle">演示码</text>
+            <text class="demoCaption">不可扫描</text>
+          </view>
+          <image wx:elif="{{image}}" src="{{image}}" mode="aspectFit" class="qr" aria-label="本场现场动态核验码" />
+          <view wx:elif="{{error}}" class="qrState">
+            <text class="qrStateMark">!</text>
+            <text class="qrLoading">无法展示核验码</text>
+          </view>
+          <view wx:else class="qrState">
+            <view class="loadingPixels" aria-hidden="true"><view></view><view></view><view></view></view>
+            <text class="qrLoading">正在生成…</text>
+          </view>
         </view>
-        <view wx:else class="qrState">
-          <view class="loadingPixels" aria-hidden="true"><view></view><view></view><view></view></view>
-          <text class="qrLoading">正在生成…</text>
+
+        <text wx:if="{{error}}" class="sdvError codeError">{{error}}</text>
+
+        <view class="safetyNote">
+          <view class="safetyMark" aria-hidden="true"><text>!</text></view>
+          <text class="safetyCopy">停下当面扫码 · GPS辅助</text>
         </view>
-      </view>
 
-      <text wx:if="{{error}}" class="sdvError codeError">{{error}}</text>
-
-      <view class="safetyNote">
-        <view class="safetyMark" aria-hidden="true"><text>!</text></view>
-        <text class="safetyCopy">停下当面扫码 · GPS辅助</text>
-      </view>
-
-      <view class="backAction">
-        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-code-back.png" label="返回地图" tone="plain" font-scale="{{fontScale}}" bindaction="back" />
+        <view class="backAction">
+          <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-code-back.png" label="返回地图" tone="plain" font-scale="{{fontScale}}" bindaction="back" />
+        </view>
       </view>
     </view>
 

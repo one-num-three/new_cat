@@ -8,7 +8,7 @@
 .venueControl::after,.venueRetry::after{border:0}
 .venueReset,.venueTour{font-size:12px}
 .venueControl[disabled]{opacity:.45}
-.venueAttribution{position:absolute;left:6px;bottom:var(--venue-attr-bottom,3px);color:#3b1d0b;font-size:8px;opacity:.72;text-shadow:0 1px 0 #fae3b2,1px 0 0 #fae3b2;pointer-events:none}
+.venueAttribution{position:absolute;left:6px;bottom:var(--venue-attr-bottom,3px);padding:1px 5px;background:var(--venue-attr-bg,rgba(255,243,214,.84));border:1px solid var(--venue-attr-border,rgba(79,39,16,.45));color:var(--venue-attr-color,#3b1d0b);font-size:8px;line-height:1.25;opacity:.92;text-shadow:none;pointer-events:none}
 .venueStatus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:#a8d481;color:#3b1d0b;font-size:14px}
 .venueRetry{min-height:44px;padding:4px 12px;background:transparent;color:#3b1d0b;border:8px solid transparent;border-radius:0;box-shadow:none;border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX/57OeSg3lvXP/9NH3254AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDtBM8AAAAIHRSTlP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIKAJ8AAABRSURBVHja7dc7DgAgCETB9Xf/KyuJVDZoYrG6ryNmqBFtlA4yB1LsQwmUZ26YsT3UQJj5ghcwggkLCwsLCwvfxzZgI2FO7AuiLVcvGf7wX9UBdf0PoUQKOGgAAAAASUVORK5CYII=");border-image-slice:16 fill;border-image-width:8px;border-image-repeat:round;image-rendering:pixelated;font-size:14px}
 .venueScene{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}

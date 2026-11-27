@@ -9,7 +9,7 @@
   display:flex;
   flex-direction:column;
   padding-top:var(--nav-height,64px);
-  padding-bottom:calc(104px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+  padding-bottom:calc(78px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
   color:#332012;
   font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;
   overflow-x:hidden;
@@ -24,12 +24,27 @@
   box-sizing:border-box;
 }
 
+.readyContent{
+  gap:0;
+}
+
+.readyMainStack{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:12rpx;
+  padding:6rpx 0 8rpx;
+  box-sizing:border-box;
+}
+
 .createContent .sdvMeadowFooter{
   margin-top:auto;
 }
 
 .readyContent .meadowFooterStage{
-  margin-top:auto;
+  margin-top:0;
+  flex:none;
   padding-top:12px;
 }
 
@@ -70,11 +85,34 @@
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
+  gap:2rpx;
   padding:4rpx 10rpx;
   text-align:center;
   font-size:calc(23rpx * var(--font-scale,1));
   line-height:1.35;
   color:#5e3616;
+}
+
+.createParamBtn{
+  width:100%!important;
+  margin:0;
+  min-height:34px;
+}
+
+.createParamBtn::after{border:0}
+
+.paramToggleTag{
+  margin-left:6rpx;
+  padding:1rpx 8rpx;
+  background:#ffdba3;
+  border:1.5px solid #a64d0b;
+  color:#7a3303;
+  font-size:calc(20rpx * var(--font-scale,1));
+  line-height:1.25;
+}
+
+.sdvInfoChipTap{
+  border-color:#4a943b;
 }
 
 .stepHeader,.inviteTopRow,.rosterHeading,.summaryHead{
@@ -468,6 +506,15 @@
 .roomActions .pixelControl{
   flex:1 1 0;
   min-width:0;
+}
+
+.roomActionsHostReady .pixelControl:first-child{
+  flex:1.75 1 0;
+}
+
+.roomActionsHostReady .pixelControl:last-child{
+  flex:0.85 1 0;
+  opacity:.9;
 }
 
 .roomActions .nativeAction{

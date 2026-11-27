@@ -1,0 +1,85 @@
+<view class="screen historyScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+  <nav-bar pinned="{{true}}" title="历史战绩" back="{{true}}" />
+
+  <view class="historyWrap">
+    <view class="historyCenter">
+      <view class="sdvWoodCard historyStatsCard">
+        <view class="historyStatsHead">
+          <view class="sdvIconTitle">
+            <map-icon kind="clock" size="18" color="#2c6122" />
+            <text>近期活动概览</text>
+          </view>
+          <button wx:if="{{totalCount>0}}" class="sdvBtn sdvBtnPaper sdvBtnSm sdvBtnInline" hover-class="sdvPressed" bindtap="promptClear">清空</button>
+        </view>
+        <view class="historyStatGrid">
+          <view class="historyStatBox">
+            <text class="historyStatNum">{{totalCount}}</text>
+            <text class="historyStatLabel">总场次</text>
+          </view>
+          <view class="historyStatBox">
+            <text class="historyStatNum">{{winCount}}</text>
+            <text class="historyStatLabel">胜场</text>
+          </view>
+          <view class="historyStatBox">
+            <text class="historyStatNum">{{captureSum}}</text>
+            <text class="historyStatLabel">累计核验</text>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{!records.length}}" class="sdvPaperCard historyEmpty">
+        <image class="historyEmptyArt" src="/assets/sdv-v1/demo-cat-mouse.png" mode="widthFix" aria-hidden="true" />
+        <text class="historyEmptyTitle">暂无已归档活动</text>
+        <text class="historyEmptyCopy">每场猫鼠行动结束后会自动保存在这里，7 天内可随时回看轨迹与生成个人海报。</text>
+        <button class="sdvBtn sdvBtnGreen sdvBtnSm historyBackBtn" hover-class="sdvPressed" bindtap="goHome">返回首页发起活动</button>
+      </view>
+
+      <view wx:else class="historyList">
+        <view wx:for="{{records}}" wx:key="matchId" class="sdvPaperCard historyItem">
+          <view class="historyTopRow">
+            <view class="historyRoleWrap">
+              <image class="historyRoleImg" src="{{item.myRole==='cat'?'/assets/sdv-v1/hud-cat.png':'/assets/sdv-v1/hud-mouse.png'}}" mode="aspectFit" aria-hidden="true" />
+              <view class="historyTitleCopy">
+                <text class="historyVenue">{{item.venueName}}</text>
+                <text class="historyMeta">{{item.dateText}} · {{item.roleText}} · {{item.totalPlayers||'-'}}人 · 核验 {{item.captured}}/{{item.target}}</text>
+              </view>
+            </view>
+            <text class="sdvBadge {{item.outcomeTone}}">{{item.outcomeLabel}}</text>
+          </view>
+
+          <view class="historyActions">
+            <button wx:if="{{item.trackValid}}" class="sdvBtn sdvBtnWood sdvBtnSm" hover-class="sdvPressed" bindtap="openTracks" data-id="{{item.matchId}}" data-owner="{{item.owner}}">
+              <map-icon kind="route" size="14" color="#3b1d0b" />
+              <text>{{item.owner?'全员轨迹':'个人轨迹'}}</text>
+            </button>
+            <button wx:if="{{item.canPoster}}" class="sdvBtn sdvBtnAmber sdvBtnSm" hover-class="sdvPressed" bindtap="openPoster" data-id="{{item.matchId}}">
+              <map-icon kind="image" size="14" color="#fffdf6" />
+              <text>轨迹海报</text>
+            </button>
+            <text wx:if="{{!item.trackValid}}" class="historyExpiredTip">轨迹已超 7 天或该局未记录轨迹</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="meadowFooterStage meadowBleed14">
+      <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+      <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    </view>
+  </view>
+
+  <sdv-modal
+    visible="{{clearModalOpen}}"
+    mode="dialog"
+    title="清空本地战绩？"
+    content="仅清除本机缓存的近期活动列表，不会影响已保存至相册的轨迹海报。"
+    showCancel="{{true}}"
+    cancelText="先不"
+    confirmText="确认清空"
+    confirmTone="red"
+    fontScale="{{fontScale}}"
+    bindconfirm="confirmClear"
+    bindcancel="closeClear"
+    bindclose="closeClear"
+  />
+</view>

@@ -1,7 +1,29 @@
 {
   "desc": "关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
-  "rules": [{
-    "action": "allow",
-    "page": "*"
-  }]
+  "rules": [
+    {
+      "action": "disallow",
+      "page": "pages/dev/dev"
+    },
+    {
+      "action": "disallow",
+      "page": "pages/calibrate/calibrate"
+    },
+    {
+      "action": "disallow",
+      "page": "campus3d/pages/open/open"
+    },
+    {
+      "action": "disallow",
+      "page": "venue-maps/pages/open/open"
+    },
+    {
+      "action": "disallow",
+      "page": "venue-xuanwu/pages/open/open"
+    },
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
 }

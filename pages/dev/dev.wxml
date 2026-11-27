@@ -8,7 +8,7 @@
         <text class="sdvBadge sdvBadgeGreen">样例数据</text>
       </view>
       <text class="devDescription">晴日公园 · 16-bit 像素</text>
-      <text class="devNote">样例数据 · 不连接真实对局</text>
+      <text class="devNote">不连接真实对局</text>
       <button class="sdvBtn sdvBtnGreen venuePreviewEntry" bindtap="openVenue">三处场地地图 · 完整导览</button>
     </view>
 

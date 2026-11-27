@@ -2,45 +2,47 @@
   <nav-bar pinned="{{true}}" title="活动配置" back="{{true}}" />
 
   <view class="settingsWrap">
-    <view class="sdvWoodCard settingsCard">
-      <view class="settingsCardHead">
+    <view class="settingsCenter">
+      <view class="sdvWoodCard settingsCard">
+        <view class="settingsCardHead">
+          <view class="sdvIconTitle">
+            <map-icon kind="eye" size="18" color="#2c6122" />
+            <text>鼠队视野</text>
+          </view>
+          <text class="sdvBadge {{mouseTeamVision?'sdvBadgeGreen':'sdvBadgeGray'}}">{{mouseTeamVision?'共享':'独立'}}</text>
+        </view>
+
+        <view class="settingsSwitch">
+          <view class="switchLabelBox">
+            <text class="switchMain">{{mouseTeamVision?'120m 共享视野':'仅近距预警'}}</text>
+            <text wx:if="{{!editable}}" class="switchSub">仅组织者开局前可改</text>
+          </view>
+          <switch checked="{{mouseTeamVision}}" disabled="{{!editable || saving}}" bindchange="toggle" color="#4a943b" aria-label="鼠队视野共享" />
+        </view>
+
+        <text class="settingsCopy">开启：120m内猫位置全组共享（5s移除）</text>
+        <text class="settingsCopy">关闭：仅周边提醒，不显精确坐标</text>
+      </view>
+
+      <view class="sdvPaperCard settingsCard">
         <view class="sdvIconTitle">
-          <map-icon kind="eye" size="18" color="#2c6122" />
-          <text>鼠队视野</text>
+          <map-icon kind="route" size="18" color="#2c6122" />
+          <text>轨迹记录</text>
         </view>
-        <text class="sdvBadge {{mouseTeamVision?'sdvBadgeGreen':'sdvBadgeGray'}}">{{mouseTeamVision?'共享':'独立'}}</text>
-      </view>
-
-      <view class="settingsSwitch">
-        <view class="switchLabelBox">
-          <text class="switchMain">{{mouseTeamVision?'120m 共享视野':'仅近距预警'}}</text>
-          <text wx:if="{{!editable}}" class="switchSub">仅组织者开局前可改</text>
+        <view class="settingRuleRow">
+          <map-icon kind="clock" size="14" color="#2c6122" />
+          <text class="settingsCopy">每2s记录有效GPS · 保留7天</text>
         </view>
-        <switch checked="{{mouseTeamVision}}" disabled="{{!editable || saving}}" bindchange="toggle" color="#4a943b" aria-label="鼠队视野共享" />
+        <view class="settingRuleRow">
+          <map-icon kind="download" size="14" color="#2c6122" />
+          <text class="settingsCopy">个人导本人 · 组织者导全员</text>
+        </view>
       </view>
 
-      <text class="settingsCopy">开启：120m内猫位置全组共享（5s移除）</text>
-      <text class="settingsCopy">关闭：仅周边提醒，不显精确坐标</text>
+      <text wx:if="{{notice}}" class="sdvNotice settingsBanner">{{notice}}</text>
+      <text wx:if="{{error}}" class="sdvError settingsError" role="alert">{{error}}</text>
+      <button wx:if="{{error}}" class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" bindtap="load">重新读取</button>
     </view>
-
-    <view class="sdvPaperCard settingsCard">
-      <view class="sdvIconTitle">
-        <map-icon kind="route" size="18" color="#2c6122" />
-        <text>轨迹记录</text>
-      </view>
-      <view class="settingRuleRow">
-        <map-icon kind="clock" size="14" color="#2c6122" />
-        <text class="settingsCopy">每2s记录有效GPS · 保留7天</text>
-      </view>
-      <view class="settingRuleRow">
-        <map-icon kind="download" size="14" color="#2c6122" />
-        <text class="settingsCopy">个人导本人 · 组织者导全员</text>
-      </view>
-    </view>
-
-    <text wx:if="{{notice}}" class="sdvNotice settingsBanner">{{notice}}</text>
-    <text wx:if="{{error}}" class="sdvError settingsError" role="alert">{{error}}</text>
-    <button wx:if="{{error}}" class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" bindtap="load">重新读取</button>
     <view class="meadowFooterStage meadowBleed14">
       <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
       <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />

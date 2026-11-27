@@ -109,11 +109,16 @@
         <text class="compactClock {{clockAlert?'clock-'+clockAlert:''}}">{{clock}}</text>
         <view class="compactProgress"><text class="progressTag">已抓</text><text class="orangeNumber">{{match.captured}}</text><text class="progressSep">/{{match.target}}</text></view>
       </view>
-      <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
+      <view wx:if="{{meetingGuideText && !offline}}" class="hudGuideInline" aria-label="集合点方向与距离">
+        <pixel-glyph kind="compass" size="12" color="#a64d0b" />
+        <text class="hudGuideText">{{meetingGuideText}}</text>
+      </view>
+      <location-signal class="mapLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" bindtap="openSignalCheck" />
     </view>
-    <view wx:if="{{meetingGuideText && !offline}}" class="venueNavChip" aria-label="集合点方向与距离">
-      <pixel-glyph kind="compass" size="12" color="#a64d0b" />
-      <text>{{meetingGuideText}}</text>
+    <view wx:if="{{!devPreview && !offline && !terminal && !backgroundReady && !fgTipDismissed && (match.myStatus==='active' || match.myStatus==='joining')}}" class="fgLocationBanner" role="status">
+      <text class="fgLocationText">仅前台定位 · 请保持亮屏勿切出微信</text>
+      <button class="fgLocationBtn" hover-class="sdvPressed" bindtap="openLocationSettings">设置</button>
+      <button class="fgLocationClose" hover-class="sdvPressed" bindtap="dismissFgTip" aria-label="关闭提示">×</button>
     </view>
   </view>
 
@@ -214,6 +219,7 @@
   <view class="drawerHeader">
     <image class="drawerLogo" src="/assets/sdv-v1/drawer-title.png" mode="aspectFit" />
     <text class="drawerHeaderTitle">活动战况</text>
+    <button class="sheetCloseButton drawerNightBtn" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{nightMode?'切换日间模式':'切换夜间营火模式'}}"><pixel-glyph kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#ffd269':'#5e3616'}}" /></button>
     <view class="drawerClose">
       <button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭战况"><pixel-glyph kind="close" size="16" color="#332012" /></button>
     </view>
@@ -281,10 +287,6 @@
           <button class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="retryBackgroundLocation">开启后台定位</button>
           <button class="sdvBtn sdvBtnPaper sdvBtnSm" bindtap="openLocationSettings">定位权限</button>
         </view>
-        <button class="sdvBtn sdvBtnPaper sdvBtnSm nightToggleBtn" hover-class="sdvPressed" bindtap="toggleNightMode">
-          <pixel-glyph kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#f0b854':'#5e3616'}}" />
-          <text>{{nightMode?'切换日间模式':'夜间营火模式'}}</text>
-        </button>
         <view class="drawerActionStack">
           <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停（安全突发）" tone="red" font-scale="{{fontScale}}" bindaction="promptEmergency" />
           <view class="drawerSubActions">

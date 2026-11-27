@@ -1,0 +1,183 @@
+@import "../../../utils/pixel-theme.wxss";
+
+.historyScreen{
+  min-height:var(--vh,100vh);
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  padding:calc(var(--nav-height,64px) + 10px) 14px 0;
+  color:#332012;
+  font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+
+.historyWrap{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+
+.historyCenter{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding-bottom:8px;
+}
+
+.historyWrap .meadowFooterStage{
+  margin-top:auto;
+  flex:none;
+}
+
+.historyStatsCard{
+  padding:8px 10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.historyStatsHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.historyStatGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+}
+
+.historyStatBox{
+  padding:8px 6px;
+  background:#fff2d4;
+  border:2px solid #b58447;
+  box-shadow:inset 0 1px 0 #fff9e8;
+  text-align:center;
+}
+
+.historyStatNum{
+  display:block;
+  font-size:calc(20px * var(--font-scale,1));
+  line-height:1.2;
+  font-variant-numeric:tabular-nums;
+  color:#a64d0b;
+}
+
+.historyStatLabel{
+  display:block;
+  margin-top:2px;
+  font-size:calc(11px * var(--font-scale,1));
+  color:#5e3616;
+}
+
+.historyEmpty{
+  padding:20px 14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:8px;
+}
+
+.historyEmptyArt{
+  width:118px;
+  aspect-ratio:240 / 95;
+  height:auto!important;
+  image-rendering:pixelated;
+}
+
+.historyEmptyTitle{
+  font-size:calc(16px * var(--font-scale,1));
+  color:#3b1d0b;
+}
+
+.historyEmptyCopy{
+  font-size:calc(12px * var(--font-scale,1));
+  line-height:1.5;
+  color:#5e4c3c;
+}
+
+.historyBackBtn{
+  margin-top:4px;
+}
+
+.historyList{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.historyItem{
+  padding:8px 10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.historyTopRow{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.historyRoleWrap{
+  flex:1;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.historyRoleImg{
+  width:28px;
+  height:28px;
+  flex:none;
+  image-rendering:pixelated;
+}
+
+.historyTitleCopy{
+  flex:1;
+  min-width:0;
+}
+
+.historyVenue{
+  display:block;
+  font-size:calc(15px * var(--font-scale,1));
+  line-height:1.3;
+  color:#3b1d0b;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.historyMeta{
+  display:block;
+  margin-top:2px;
+  font-size:calc(11px * var(--font-scale,1));
+  line-height:1.35;
+  font-variant-numeric:tabular-nums;
+  color:#5e4c3c;
+}
+
+.historyActions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.historyActions>button{
+  flex:1 1 0;
+  min-width:0;
+}
+
+.historyExpiredTip{
+  font-size:calc(12px * var(--font-scale,1));
+  color:#7c522b;
+}
+
+.fontLarge .historyStatGrid{grid-template-columns:1fr}
+.fontLarge .historyActions{flex-direction:column}

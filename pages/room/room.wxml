@@ -12,7 +12,7 @@
           <map-icon kind="team" size="18" color="#2c6122" />
           <text>人数</text>
         </view>
-        <text class="sdvBadge sdvBadgeAmber">目标 {{targetCount}} 人</text>
+        <text class="sdvBadge sdvBadgeAmber">捕鼠目标 {{targetCount}}</text>
       </view>
       <view class="sdvPillGroup presetRow">
         <button wx:for="{{presets}}" wx:key="*this" data-total="{{item}}" bindtap="applyPreset" hover-class="sdvPressed" class="sdvPill {{total===item?'sdvPillActive':''}}">{{item}}人</button>
@@ -90,9 +90,9 @@
       </view>
     </view>
 
-    <view class="sdvPaperCard createParamBar">
-      <text>30s准备</text><view class="sdvDot" aria-hidden="true"></view><text>6分钟</text><view class="sdvDot" aria-hidden="true"></view><text>自动分组</text>
-    </view>
+    <button class="sdvPaperCard createParamBar createParamBtn" hover-class="sdvPressed" bindtap="toggleCreateVision" aria-label="切换鼠队视野模式">
+      <text>30s准备</text><view class="sdvDot" aria-hidden="true"></view><text>6分钟</text><view class="sdvDot" aria-hidden="true"></view><text>鼠视野:{{mouseTeamVision?'120m共享':'独立预警'}}</text><text class="paramToggleTag">切换</text>
+    </button>
 
     <view wx:if="{{error}}" class="sdvError sdvErrorRow roomError" bindtap="clearError" role="alert">
       <text class="errorText">{{error}}</text>
@@ -108,94 +108,96 @@
   </view>
 
   <view wx:else class="readyContent">
-    <view class="sdvWoodCard inviteCard">
-      <view class="inviteTopRow">
-        <view class="sdvIconTitle">
-          <map-icon kind="code" size="18" color="#a64d0b" />
-          <text>房间码</text>
-        </view>
-        <text class="sdvBadge {{connection==='实时连接'?'sdvBadgeGreen':'sdvBadgeBlue'}}">{{devPreview?'预览':connection==='实时连接'?'在线':connection || '同步中'}}</text>
-      </view>
-      <view class="codeRow">
-        <text class="roomCode" selectable bindtap="copy">{{code || '同步中'}}</text>
-        <view class="codeIconGroup">
-          <button class="sdvIconBtn sdvIconBtnSm {{copyTip==='已复制'?'sdvBtnGreen':'sdvBtnPaper'}}" hover-class="sdvPressed" bindtap="copy" disabled="{{!code}}" aria-label="复制房间码">
-            <map-icon kind="{{copyTip==='已复制'?'check':'copy'}}" size="17" color="{{copyTip==='已复制'?'#fffdf6':'#3b1d0b'}}" />
-          </button>
-          <button class="sdvIconBtn sdvIconBtnSm sdvBtnWood" hover-class="sdvPressed" bindtap="invite" disabled="{{!code}}" aria-label="邀请二维码">
-            <map-icon kind="code" size="17" color="#3b1d0b" />
-          </button>
-          <button class="sdvBtn sdvBtnSm sdvBtnGreen codeShareBtn" hover-class="sdvPressed" open-type="share" disabled="{{!code || devPreview}}" aria-label="微信转发邀请">
-            <map-icon kind="share" size="15" color="#fffdf6" />
-            <text>邀请</text>
-          </button>
-        </view>
-      </view>
-    </view>
-
-    <view class="summaryRibbon">
-      <view class="summaryHead">
-        <view class="sdvIconTitle summaryVenueWrap">
-          <map-icon kind="pin" size="16" color="#2c6122" />
-          <text class="summaryVenue">{{venueName}}</text>
-        </view>
-        <button class="sdvIconBtn sdvIconBtnSm sdvBtnWood" hover-class="sdvPressed" bindtap="openConfigSheet" aria-label="活动配置与规则">
-          <map-icon kind="settings" size="18" color="#3b1d0b" />
-        </button>
-      </view>
-      <view class="sdvChipRow summaryChips">
-        <view class="sdvInfoChip">
-          <image class="chipSprite" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
-          <text>{{catsCount}}</text>
-          <image class="chipSprite" src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" aria-hidden="true" />
-          <text>{{(rules?rules.total:total)-catsCount}}</text>
-        </view>
-        <view class="sdvInfoChip">
-          <map-icon kind="scan" size="13" color="#a64d0b" />
-          <text>目标{{targetCount}}</text>
-        </view>
-        <view class="sdvInfoChip">
-          <map-icon kind="eye" size="13" color="#2c6122" />
-          <text>鼠视野:{{mouseTeamVision?'共享':'独立'}}</text>
-        </view>
-        <view class="sdvInfoChip">
-          <text>{{venueSummaryText}}</text>
-        </view>
-      </view>
-    </view>
-
-    <view class="sdvWoodCard rosterCard">
-      <view class="rosterHeading">
-        <view class="sdvIconTitle">
-          <map-icon kind="team" size="18" color="#2c6122" />
-          <text>成员 {{roster.length}}/{{rules?rules.total:total}}</text>
-        </view>
-        <view class="rosterHeadRight">
-          <location-signal wx:if="{{!devPreview}}" class="roomLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" />
-          <text class="sdvBadge {{canStart?'sdvBadgeGreen':'sdvBadgeAmber'}}">{{canStart?'全员就绪':readyCount+'就绪'}}</text>
-        </view>
-      </view>
-      <view class="rosterGrid">
-        <view wx:for="{{roster}}" wx:key="id" class="sdvPaperCard playerCard">
-          <image class="playerAvatar" src="/assets/sdv-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" />
-          <text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text>
-          <view wx:if="{{index===0}}" class="hostMark" aria-label="组织者">
-            <map-icon kind="crown" size="11" color="#a64d0b" />
+    <view class="readyMainStack">
+      <view class="sdvWoodCard inviteCard">
+        <view class="inviteTopRow">
+          <view class="sdvIconTitle">
+            <map-icon kind="code" size="18" color="#a64d0b" />
+            <text>房间码</text>
           </view>
-          <view class="readyMark {{item.ready?'isReady':'isWaiting'}}" aria-label="{{item.ready?'已准备':'未准备'}}">
-            <map-icon wx:if="{{item.ready}}" kind="check" size="13" color="#2c6122" />
-            <text wx:else class="readyDot">·</text>
+          <text class="sdvBadge {{connection==='实时连接'?'sdvBadgeGreen':'sdvBadgeBlue'}}">{{devPreview?'预览':connection==='实时连接'?'在线':connection || '同步中'}}</text>
+        </view>
+        <view class="codeRow">
+          <text class="roomCode" selectable bindtap="copy">{{code || '同步中'}}</text>
+          <view class="codeIconGroup">
+            <button class="sdvIconBtn sdvIconBtnSm {{copyTip==='已复制'?'sdvBtnGreen':'sdvBtnPaper'}}" hover-class="sdvPressed" bindtap="copy" disabled="{{!code}}" aria-label="复制房间码">
+              <map-icon kind="{{copyTip==='已复制'?'check':'copy'}}" size="17" color="{{copyTip==='已复制'?'#fffdf6':'#3b1d0b'}}" />
+            </button>
+            <button class="sdvIconBtn sdvIconBtnSm sdvBtnWood" hover-class="sdvPressed" bindtap="invite" disabled="{{!code}}" aria-label="邀请二维码">
+              <map-icon kind="code" size="17" color="#3b1d0b" />
+            </button>
+            <button class="sdvBtn sdvBtnSm sdvBtnGreen codeShareBtn" hover-class="sdvPressed" open-type="share" disabled="{{!code || devPreview}}" aria-label="微信转发邀请">
+              <map-icon kind="share" size="15" color="#fffdf6" />
+              <text>邀请</text>
+            </button>
           </view>
         </view>
       </view>
-      <view wx:if="{{!roster.length}}" class="emptyRoster">点上方按钮邀请成员</view>
-    </view>
 
-    <view wx:if="{{error}}" class="sdvError sdvErrorRow roomError" bindtap="clearError" role="alert">
-      <text class="errorText">{{error}}</text>
-      <text class="errorClose" aria-hidden="true">×</text>
+      <view class="summaryRibbon">
+        <view class="summaryHead">
+          <view class="sdvIconTitle summaryVenueWrap">
+            <map-icon kind="pin" size="16" color="#2c6122" />
+            <text class="summaryVenue">{{venueName}}</text>
+          </view>
+          <button class="sdvIconBtn sdvIconBtnSm sdvBtnWood" hover-class="sdvPressed" bindtap="openConfigSheet" aria-label="活动配置与规则">
+            <map-icon kind="settings" size="18" color="#3b1d0b" />
+          </button>
+        </view>
+        <view class="sdvChipRow summaryChips">
+          <view class="sdvInfoChip">
+            <image class="chipSprite" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+            <text>{{catsCount}}</text>
+            <image class="chipSprite" src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" aria-hidden="true" />
+            <text>{{(rules?rules.total:total)-catsCount}}</text>
+          </view>
+          <view class="sdvInfoChip">
+            <map-icon kind="scan" size="13" color="#a64d0b" />
+            <text>捕鼠{{targetCount}}</text>
+          </view>
+          <view class="sdvInfoChip sdvInfoChipTap" hover-class="sdvPressed" bindtap="openVisionInfo" aria-label="查看鼠队视野说明">
+            <map-icon kind="eye" size="13" color="#2c6122" />
+            <text>鼠视野:{{mouseTeamVision?'共享':'独立'}} ›</text>
+          </view>
+          <view class="sdvInfoChip">
+            <text>{{venueSummaryText}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="sdvWoodCard rosterCard">
+        <view class="rosterHeading">
+          <view class="sdvIconTitle">
+            <map-icon kind="team" size="18" color="#2c6122" />
+            <text>成员 {{roster.length}}/{{rules?rules.total:total}}</text>
+          </view>
+          <view class="rosterHeadRight">
+            <location-signal wx:if="{{!devPreview}}" class="roomLocationSignal" signal="{{locationSignal}}" font-scale="{{fontScale}}" bindtap="openSignalModal" />
+            <text class="sdvBadge {{canStart?'sdvBadgeGreen':'sdvBadgeAmber'}}">{{canStart?'全员就绪':readyCount+'就绪'}}</text>
+          </view>
+        </view>
+        <view class="rosterGrid">
+          <view wx:for="{{roster}}" wx:key="id" class="sdvPaperCard playerCard">
+            <image class="playerAvatar" src="/assets/sdv-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" />
+            <text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text>
+            <view wx:if="{{index===0}}" class="hostMark" aria-label="组织者">
+              <map-icon kind="crown" size="11" color="#a64d0b" />
+            </view>
+            <view class="readyMark {{item.ready?'isReady':'isWaiting'}}" aria-label="{{item.ready?'已准备':'未准备'}}">
+              <map-icon wx:if="{{item.ready}}" kind="check" size="13" color="#2c6122" />
+              <text wx:else class="readyDot">·</text>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{!roster.length}}" class="emptyRoster">点上方按钮邀请成员</view>
+      </view>
+
+      <view wx:if="{{error}}" class="sdvError sdvErrorRow roomError" bindtap="clearError" role="alert">
+        <text class="errorText">{{error}}</text>
+        <text class="errorClose" aria-hidden="true">×</text>
+      </view>
+      <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
     </view>
-    <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
     <view class="meadowFooterStage meadowBleed22">
       <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
       <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
@@ -203,7 +205,7 @@
 
     <view class="sdvStickyBar">
       <text wx:if="{{!canStart}}" class="stickyHint">{{startHint}}</text>
-      <view class="roomActions">
+      <view class="roomActions {{owner && ready?'roomActionsHostReady':''}}">
         <pixel-action class="pixelControl" wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始活动':'等待就绪'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" />
         <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" />
       </view>
@@ -254,12 +256,40 @@
     visible="{{rulesModalOpen}}"
     mode="dialog"
     title="活动规则"
-    content="• 30秒准备 · 6分钟活动 · 目标 {{targetCount}} 人。\n• 中途按比例补入，目标按鼠队 60% 更新。\n• 有效GPS保留7天；当面停下再扫码核验。"
+    content="• 30秒准备 · 6分钟活动 · 捕鼠目标 {{targetCount}} 人。\n• 中途按比例补入，目标按鼠队 60% 更新。\n• 有效GPS保留7天；当面停下再扫码核验。"
     showCancel="{{false}}"
     confirmText="知道了"
     confirmTone="green"
     fontScale="{{fontScale}}"
     bindconfirm="closeRulesModal"
     bindclose="closeRulesModal"
+  />
+
+  <sdv-modal
+    visible="{{visionModalOpen}}"
+    mode="dialog"
+    title="鼠队视野模式"
+    content="{{mouseTeamVision?'当前为「120m 共享视野」：鼠队成员周围 120 米内有猫时，位置将共享给其他鼠队友（离开 5 秒后移除）。':'当前为「独立近距预警」：鼠队成员各自接收近距预警提示，不在地图显示精确猫坐标。'}}"
+    showCancel="{{false}}"
+    confirmText="知道了"
+    confirmTone="green"
+    fontScale="{{fontScale}}"
+    bindconfirm="closeVisionInfo"
+    bindclose="closeVisionInfo"
+  />
+
+  <sdv-modal
+    visible="{{signalModalOpen}}"
+    mode="dialog"
+    title="定位信号自检"
+    content="{{signalModalContent}}"
+    showCancel="{{signalModalNeedSetting}}"
+    cancelText="关闭"
+    confirmText="{{signalModalNeedSetting?'定位设置':'知道了'}}"
+    confirmTone="green"
+    fontScale="{{fontScale}}"
+    bindconfirm="confirmSignalModal"
+    bindcancel="closeSignalModal"
+    bindclose="closeSignalModal"
   />
 </view>

@@ -180,6 +180,7 @@ page,.sdvScreen{
 .sdvBtn::after{border:0}
 .sdvBtn:active{transform:translateY(2px);opacity:.92}
 .sdvBtn[disabled]{opacity:.68;filter:saturate(.55)}
+.sdvBtnGreen[disabled],.sdvBtnAmber[disabled],.sdvBtnBlue[disabled],.sdvBtnRed[disabled]{opacity:.92;filter:saturate(.25) brightness(.7);color:#f3e7cf}
 
 .sdvBtnGreen,
 .sdvBtnAmber,
@@ -564,6 +565,9 @@ page,.sdvScreen{
   --action-plain-color:#faecd0;
   --venue-art-filter:brightness(.56) saturate(.74) contrast(1.12) hue-rotate(-14deg);
   --venue-vp-bg:#111b33;
+  --venue-attr-bg:rgba(30,43,77,.86);
+  --venue-attr-border:rgba(181,119,60,.65);
+  --venue-attr-color:#faecd0;
 }
 
 .sdvNight .pinnedNav{
@@ -833,7 +837,8 @@ page,.sdvScreen{
 .sdvNight .role-cat .roleName{color:#ffae63;}
 .sdvNight .role-mouse .roleName{color:#9be889;}
 .sdvNight .phaseName,.sdvNight .vibeActive .toolLabel{color:#9be889;}
-.sdvNight .progressTag,.sdvNight .progressSep,.sdvNight .fieldPlaceholder{color:#cbb594;}
+.sdvNight .progressTag,.sdvNight .progressSep{color:#e6d6b5;}
+.sdvNight .fieldPlaceholder{color:#cbb594;}
 .sdvNight .compactProgress{border-left-color:#9c6430;}
 .sdvNight .compactClock.clock-warn{color:#3b1d0b;}
 .sdvNight .compactClock.clock-urgent{color:#fffdf6;}
@@ -891,6 +896,41 @@ page,.sdvScreen{
 }
 .sdvNight .vibeMuted .toolLabel{color:#c4b08e;}
 .sdvNight .demoArtFrame{background:#3b2b1d;border-color:#9c6430;box-shadow:none;}
+.sdvNight .fieldFooter{background:#332418;border-top-color:#9c6430;}
+.sdvNight .hudGuideInline{background:rgba(46,32,21,.88);border-color:#9c6430;color:#faecd0;}
+.sdvNight .paramToggleTag{background:#664018;border-color:#f2b64e;color:#ffe69e;}
+.sdvNight .clearCodeBtn{background:#523a24;border-color:#b5773c;color:#faecd0;}
+.sdvNight .guideStepCard{background:#4d3826;border-color:#a36a35;box-shadow:none;}
+.sdvNight .guideStepTitle{color:#9be889;}
+.sdvNight .guideStepDesc{color:#faecd0;}
+.sdvNight .drawerNightBtn{
+  background:transparent;
+  border-color:transparent;
+  box-shadow:none;
+  border-image-source:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEVOOCQUCwUtHhK1dzwAAADywnIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSb205AAAAIHRSTlP/////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL+SNhkAAABVSURBVHja7dfLCgAgCERRe/3/L6eQELRJocXQ3F3EcWtJ10oicwKK/dAuqis3yNguhiYX7QPQsQQiJiYmJiYmfo99YaeWOziOhI6jA45XLxj+8F81AcFQDTFN3LbYAAAAAElFTkSuQmCC");
+  border-image-slice:16 fill;
+  border-image-repeat:round;
+  image-rendering:pixelated;
+}
+.sdvNight .shareEmpty{background:#4d3826;border-color:#a36a35;}
+.sdvNight .shareEmptyTitle{color:#faecd0;}
+.sdvNight .shareEmptySub{color:#d8c29e;}
+.sdvNight .clipManualChip{background:#4d3826;border-color:#a36a35;color:#faecd0;box-shadow:none;}
+.sdvNight .clipManualChip map-icon{filter:brightness(0) invert(.92) sepia(.14) saturate(1.1);}
+.sdvNight .mapLoading{background:rgba(46,32,21,.92);color:#faecd0;}
+.sdvNight .clipManualAction{background:#9c6430;border-color:#ffd269;color:#fffdf6;}
+.sdvNight .consentCard{background:#4d3826;border-color:#a36a35;box-shadow:none;}
+.sdvNight .consentTitle{color:#9be889;}
+.sdvNight .consentCopy{color:#faecd0;}
+.sdvNight .consentLinkBtn{color:#ffd269;}
+.sdvNight .fgLocationBanner{background:#664018;border-color:#f2b64e;color:#ffe69e;box-shadow:none;}
+.sdvNight .fgLocationBtn{background:#4a943b;border-color:#82cf6f;color:#fffdf6;}
+.sdvNight .fgLocationClose{background:#4d3826;border-color:#b5773c;color:#faecd0;}
+.sdvNight .historyStatBox{background:#2e2015;border-color:#9c6430;box-shadow:none;}
+.sdvNight .historyStatNum{color:#ffd269;}
+.sdvNight .historyStatLabel,.sdvNight .historyMeta,.sdvNight .historyExpiredTip{color:#d8c29e;}
+.sdvNight .historyVenue,.sdvNight .historyEmptyTitle{color:#faecd0;}
+.sdvNight .historyEmptyCopy{color:#d8c29e;}
 .sdvNight .sdvError{
   background:transparent;
   border:8px solid transparent;

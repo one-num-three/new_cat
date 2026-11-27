@@ -48,7 +48,8 @@
         "pages/invite/invite",
         "pages/settings/settings",
         "pages/tracks/tracks",
-        "pages/share/share"
+        "pages/share/share",
+        "pages/history/history"
       ]
     },
     {
