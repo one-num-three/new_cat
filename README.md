@@ -1,12 +1,13 @@
 # 猫鼠行动 · 微信试点
 
-## 猫鼠手环硬件 V1.5（2026-11-27，Strap-Halo 腕带光环 ID/Fusion 3D CAD + 方案 A 内部连接结构 + 4 层 KiCad 10 PCB）
+## 猫鼠手环硬件 V1.5（2026-11-27，Strap-Halo 腕带光环双版本 3D CAD + 方案 A 内部连接结构 + 4 层 KiCad 10 PCB）
 
-补齐手环完整硬件方案、**Strap-Halo 腕带光环版工业设计渲染图与 16 件参数化 3D CAD / Autodesk Fusion 360 工程**、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品报价分析（目录 `hardware/`）。
-- **工业设计与 3D 结构 (`design/` · `cad/`)**：将 12× `WS2812B-2020` 灯环从主机表盘移至双翼液态硅胶腕带内部，并完整建模 **方案 A 内部机电连接结构**（前/后双路内埋式柔性 FPC 进仓尾带、主板高对比白色开槽 4-Pin ZIF 翻盖座 `J_LED_F`/`J_LED_R`、双端一体化硅胶 T 型防拉脱防水密封头、以及顶盖 NFC 线圈 C 型下弯触点弹片）；16 件多实体 B-Rep STEP 装配体已通过全 120 组 `0.000 mm³` 零碰撞校验（整机估算 `32.98 g`），同步冻结 ECAD/MCAD 协同布局规范、100% 原生参数化 Fusion 360 脚本 (v3) 与 6 张高清工程评审图（含内部连接 4 视角微距详图）。
+补齐手环完整硬件方案、**Strap-Halo 腕带光环版双版本 16 件参数化 3D CAD / Autodesk Fusion 360 工程（量产针扣版 + EVT `120–200 mm` 非对称低遮挡魔术贴简版）**、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品报价分析（目录 `hardware/`）。
+- **量产针扣版 & 方案 A 内部连接 (`cad/output/CatMouseBand_V15_StrapHalo.step`)**：12× `WS2812B-2020` 移至双翼腕带内部实现 300° 环腕发光与无屏鹅卵石无遮挡 NFC 顶面；完整建模前/后内埋式 FPC 进仓尾带、主板白色开槽 4-Pin ZIF 翻盖座（`J_LED_F`/`J_LED_R`）、双端硅胶 T 型防拉脱防水密封头与顶盖 NFC 铜质 C 型弹片尾带（16/16 合法 B-Rep，`0.000 mm³` 零碰撞，`32.98 g`）。
+- **EVT `120–200 mm` 非对称低遮挡魔术贴简版 (`cad/output/CatMouseBand_V15_Velcro_Lite.step`)**：100% 复用主机仓与方案 A 内部连接，采用“前翼内侧 `86.5 mm` 长毛面 + 后翼外侧 `24.0 mm` 精简刺面”非对称布局（0 金属表扣/0 冲孔/适合 3D 打印手板，`0.000 mm³` 零碰撞，`34.99 g`），实现 **`136–200 mm` 腕围 0% 零遮光（12/12 全亮）**、**`120 mm` 极细腕仍保 8–9/12 亮灯**且全范围保持 `20–24 mm` 强力粘合，附 5 档腕围遮盖定量分析图。
 - **4 层 PCB 参考与虚拟烧录 (`pcb/` · `firmware/` · `sim/`)**：KiCad 10 官方 ERC（0 违规）、4 层 PCB DRC（0 错误 / 0 未连接飞线）、官方网表与 EVT 固件 12 引脚 100% 对齐及 4 进程全链路虚拟烧录联调通过；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包。
 
-入口：[硬件总览](hardware/README.md) · [PCB 与 3D 结构协同布局规范](hardware/docs/PCB与3D结构协同布局规范.md) · [产品设计方案](hardware/docs/产品设计方案.md) · [3D CAD & Fusion 360 工程](hardware/cad/README.md) · [4 层 PCB 设计说明](hardware/docs/4层PCB设计与检视说明.md) · [通信协议](hardware/docs/通信协议.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
+入口：[硬件总览](hardware/README.md) · [PCB 与 3D 结构协同布局规范](hardware/docs/PCB与3D结构协同布局规范.md) · [3D CAD & Fusion 360 双版本工程](hardware/cad/README.md) · [方案 A 内部连接微距详图](hardware/cad/renders/cad_06_fpc_connection_detail.png) · [120–200mm 魔术贴遮盖分析图](hardware/cad/renders/cad_velcro_02_wrist_occlusion_analysis.png) · [产品设计方案](hardware/docs/产品设计方案.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
 
 ## 当前位置与后台授权（2026-11-04，前端修订）
 
