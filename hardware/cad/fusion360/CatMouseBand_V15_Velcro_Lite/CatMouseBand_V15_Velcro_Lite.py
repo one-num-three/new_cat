@@ -386,12 +386,12 @@ def assign_appearance(comp: adsk.fusion.Component, apps: dict, key: str):
 
 
 def rear_velcro_off(th_neg: float) -> float:
-    if th_neg >= -60.0:
+    if th_neg >= -24.5:
         return 0.0
-    s1 = min(1.0, (-60.0 - th_neg) / 20.0)
+    s1 = min(1.0, (-24.5 - th_neg) / 20.0)
     base_off = 5.10 * (s1 * s1 * (3.0 - 2.0 * s1))
-    if th_neg < -119.0:
-        s2 = min(1.0, (-119.0 - th_neg) / 7.0)
+    if th_neg < -147.0:
+        s2 = min(1.0, (-147.0 - th_neg) / 6.5)
         base_off += 1.40 * (s2 * s2 * (3.0 - 2.0 * s2))
     return base_off
 
@@ -730,49 +730,49 @@ def run(context):
             (-12.20, -14.85), (-10.65, -16.65),
         ]
 
-        # ---------------- 09_Strap_Front_Velcro (延伸至 -96° 作为魔术贴毛面基带，无表扣无孔!) ----------------
+        # ---------------- 09_Strap_Front_Velcro (超长延伸至 -132°，覆盖 59mm 魔术贴毛面基带!) ----------------
         step = "09_Strap_Front_Velcro"
         occ_sf, c_sf = new_subcomp(root, "09_Strap_Front_Velcro")
         occs["strap_f"] = occ_sf
-        pts_sf = wing_spine_points(+1.0, -96.0, n_arc=20, with_tuck=False)
+        pts_sf = wing_spine_points(+1.0, -132.0, n_arc=26, with_tuck=False)
         b_sf = sweep_band_new_body(c_sf, pts_sf, 22.0, -1.70, 1.70, 1.25, "StrapF")
         # 一体成型 T 型防拉脱密封头 (Join 到 b_sf)
         extrude_z_rect(c_sf, 0.0, 20.625, 12.10, 1.85, 0.0, 26.75, 29.48, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Front_TAnchor_Neck")
         extrude_z_rect(c_sf, 0.0, 19.335, 15.30, 0.77, 0.0, 26.75, 30.65, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Front_TAnchor_Head")
-        pts_cf = wing_spine_points(+1.0, -58.0, n_arc=13, with_tuck=False)[1:]
+        pts_cf = wing_spine_points(+1.0, -23.0, n_arc=10, with_tuck=False)[1:]
         b_cf_tool = sweep_band_new_body(c_sf, pts_cf, 8.0, -0.45, 2.50, 0.0, "ChanF_Tool")
         b_tf_tun = sweep_band_new_body(c_sf, fpc_front_tail_yz[:5], 2.8, -0.34, 0.34, 0.0, "TunnelF_Tool", x_mm=0.0)
         combine_bodies(c_sf, b_sf, [b_cf_tool, b_tf_tun], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanF_And_Tunnel")
         assign_appearance(c_sf, apps, "CM_Charcoal_LSR_Silicone")
 
-        # ---------------- 10_Strap_Rear_Velcro (台阶叠压搭接 + 末端 +1.4mm 微翘易撕拉手!) ----------------
+        # ---------------- 10_Strap_Rear_Velcro (超长延伸至 -153.5° 叠压搭接 + 末端 +1.4mm 易撕拉手!) ----------------
         step = "10_Strap_Rear_Velcro"
         occ_sr, c_sr = new_subcomp(root, "10_Strap_Rear_Velcro")
         occs["strap_r"] = occ_sr
-        pts_sr = wing_spine_points(-1.0, -126.0, n_arc=24, with_tuck=True)
+        pts_sr = wing_spine_points(-1.0, -153.5, n_arc=30, with_tuck=True)
         b_sr = sweep_band_new_body(c_sr, pts_sr, 22.0, -1.70, 1.70, 1.25, "StrapR")
         extrude_z_rect(c_sr, 0.0, -20.625, 12.10, 1.85, 0.0, 26.75, 29.48, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Rear_TAnchor_Neck")
         extrude_z_rect(c_sr, 0.0, -19.335, 15.30, 0.77, 0.0, 26.75, 30.65, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Rear_TAnchor_Head")
         extrude_z_rect(c_sr, -9.65, -20.325, 2.40, 2.25, 0.0, 27.15, 30.65, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Rear_West_Gland")
-        pts_cr = wing_spine_points(-1.0, -58.0, n_arc=13, with_tuck=False)[1:]
+        pts_cr = wing_spine_points(-1.0, -23.0, n_arc=10, with_tuck=False)[1:]
         b_cr_tool = sweep_band_new_body(c_sr, pts_cr, 8.0, -0.45, 2.50, 0.0, "ChanR_Tool")
         b_tr_tun_b = extrude_z_poly(c_sr, rear_tunnel_strap_poly, 27.20, 27.90, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "TunnelR_B_Tool").bodies.item(0)
         b_tr_tun_c = sweep_band_new_body(c_sr, rear_sbend_yz[:4], 2.5, -0.34, 0.34, 0.0, "TunnelR_C_Tool", x_mm=-9.65)
         combine_bodies(c_sr, b_sr, [b_cr_tool, b_tr_tun_b, b_tr_tun_c], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanR_And_Tunnel")
         assign_appearance(c_sr, apps, "CM_Charcoal_LSR_Silicone")
 
-        # ---------------- 11 & 12: 前/后双翼乳白雾面导光条 (300° 腕带发光光环!) ----------------
+        # ---------------- 11 & 12: 前/后双翼乳白雾面导光条 (上方+双侧 224° 高密发光光环!) ----------------
         step = "11_LightGuide_Front"
         occ_lgf, c_lgf = new_subcomp(root, "11_LightGuide_Front_Diffuser")
         occs["lg_f"] = occ_lgf
-        pts_lgf = wing_spine_points(+1.0, -57.2, n_arc=13, with_tuck=False)[1:]
+        pts_lgf = wing_spine_points(+1.0, -22.0, n_arc=10, with_tuck=False)[1:]
         sweep_band_new_body(c_lgf, pts_lgf, 7.6, 0.70, 2.05, 0.50, "LGF")
         assign_appearance(c_lgf, apps, "CM_Glow_Mouse_Green")
 
         step = "12_LightGuide_Rear"
         occ_lgr, c_lgr = new_subcomp(root, "12_LightGuide_Rear_Diffuser")
         occs["lg_r"] = occ_lgr
-        pts_lgr = wing_spine_points(-1.0, -57.2, n_arc=13, with_tuck=False)[1:]
+        pts_lgr = wing_spine_points(-1.0, -22.0, n_arc=10, with_tuck=False)[1:]
         sweep_band_new_body(c_lgr, pts_lgr, 7.6, 0.70, 2.05, 0.50, "LGR")
         assign_appearance(c_lgr, apps, "CM_Glow_Mouse_Green")
 
@@ -788,19 +788,19 @@ def run(context):
         extrude_z_poly(c_fpc, rear_dogleg_pod_poly, 31.07, 31.23, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Pod_To_ZIF")
         assign_appearance(c_fpc, apps, "CM_Amber_LED_FPC")
 
-        # ---------------- 14_Velcro_Loop_Pad_Front (18mm 宽背胶魔术贴毛面 · 前翼外侧) ----------------
+        # ---------------- 14_Velcro_Loop_Pad_Front (18mm×59mm 超长背胶魔术贴毛面 · 前翼外侧) ----------------
         step = "14_Velcro_Loop_Pad_Front"
         occ_vl, c_vl = new_subcomp(root, "14_Velcro_Loop_Pad_Front")
         occs["velcro_loop"] = occ_vl
-        pts_vl = arc_only_points(+1.0, -60.5, -95.0, n_pts=14, with_tuck=False)
+        pts_vl = arc_only_points(+1.0, -25.5, -130.0, n_pts=22, with_tuck=False)
         sweep_band_new_body(c_vl, pts_vl, 18.0, 1.78, 2.48, 0.20, "Velcro_Loop_Front")
         assign_appearance(c_vl, apps, "CM_Velcro_Loop_Slate")
 
-        # ---------------- 15_Velcro_Hook_Pad_Rear (18mm 宽背胶魔术贴刺面 · 后翼内侧) ----------------
+        # ---------------- 15_Velcro_Hook_Pad_Rear (18mm×56mm 超长背胶魔术贴刺面 · 后翼内侧) ----------------
         step = "15_Velcro_Hook_Pad_Rear"
         occ_vh, c_vh = new_subcomp(root, "15_Velcro_Hook_Pad_Rear")
         occs["velcro_hook"] = occ_vh
-        pts_vh = arc_only_points(-1.0, -85.5, -118.5, n_pts=14, with_tuck=True)
+        pts_vh = arc_only_points(-1.0, -51.5, -146.0, n_pts=22, with_tuck=True)
         sweep_band_new_body(c_vh, pts_vh, 18.0, -2.48, -1.78, 0.20, "Velcro_Hook_Rear")
         assign_appearance(c_vh, apps, "CM_Velcro_Hook_Tan")
 

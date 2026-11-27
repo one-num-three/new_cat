@@ -49,15 +49,19 @@ PARTS_DIR = CAD_OUT / "parts_velcro"
 
 def build_velcro_strap_and_halo_system():
     """
-    构建 V1.5-Lite 极简魔术贴发光腕带系统：
-    - 保留前/后 300° 光学导光环 + 方案 A 双路内埋 FPC 排线 + 双端 T 型防拉脱防水密封头
-    - 取消表扣、束带环与冲孔，底部采用 18mm 宽直接搭接背胶魔术贴（前毛面 + 后刺面 + 易撕小翘边）
+    构建 V1.5-Lite 大范围可调魔术贴发光腕带系统（覆盖 136–240 mm 超宽腕围，约 104 mm 无级调节！）：
+    - 保留主机上方与两侧最显眼的 224° 双翼光学导光环（前/后翼均至 -22°，12 颗 WS2812B-2020 更密集均匀）
+      与方案 A 双路内埋 FPC 排线 + 双端 T 型防拉脱防水密封头。
+    - 取消底部表扣、束带环与冲孔，将整个手腕下半圈腾给超长 18mm 宽背胶魔术贴搭接区：
+      * 前翼延伸至 -132°，外侧贴 ~59mm 超长魔术贴毛面 (-25.5° .. -130.0°)
+      * 后翼自 -24.5° 顺滑外扩 +5.10mm 并延伸至 -153.5°（含末端 +1.4mm 易撕拉手），内侧贴 ~56mm 超长魔术贴刺面 (-51.5° .. -146.0°)
+      * 展开总有效周长 263mm，保留 ≥22mm 粘合余量即可支持 136mm（细腕/儿童）~ 240mm（粗腕/冬装袖口外戴）！
     - 严格保证全 16 零件 0.000 mm³ 实体干涉！
     """
     RY_MID = base.WRIST_RY + base.STRAP_T * 0.5  # 32.70
     RZ_MID = base.WRIST_RZ + base.STRAP_T * 0.5  # 25.70
 
-    def build_wing_spine(sign_y: float, end_theta_deg: float, n_arc: int = 38, tuck_fn=None) -> list[Vector]:
+    def build_wing_spine(sign_y: float, end_theta_deg: float, n_arc: int = 44, tuck_fn=None) -> list[Vector]:
         shoulder_raw = [
             (21.20, 27.80),
             (23.10, 27.78),
@@ -85,7 +89,7 @@ def build_velcro_strap_and_halo_system():
             pts.append(Vector(0.0, sign_y * y, z))
         return pts
 
-    def sample_arc_only(sign_y: float, th_start: float, th_end: float, n_pts: int = 20, off_fn=None) -> list[Vector]:
+    def sample_arc_only(sign_y: float, th_start: float, th_end: float, n_pts: int = 28, off_fn=None) -> list[Vector]:
         pts = []
         for i in range(n_pts):
             u = i / (n_pts - 1)
@@ -103,20 +107,20 @@ def build_velcro_strap_and_halo_system():
             pts.append(Vector(0.0, sign_y * y, z))
         return pts
 
-    # 后翼魔术贴台阶偏移：在 -60° -> -80° 间顺滑外扩 +5.10mm（让出前翼厚 + 双方魔术贴总厚），
-    # 末端 -119° -> -126° 再轻翘 +1.40mm 形成手指易撕拉手！
+    # 后翼超长魔术贴台阶偏移：在 -24.5° -> -44.5° 间顺滑外扩 +5.10mm（早于前翼末端 -48° 完成让位，0 干涉！），
+    # 末端 -147.0° -> -153.5° 再轻翘 +1.40mm 形成手指易撕拉手！
     def rear_velcro_off(th_neg: float) -> float:
-        if th_neg >= -60.0:
+        if th_neg >= -24.5:
             return 0.0
-        s1 = min(1.0, (-60.0 - th_neg) / 20.0)
+        s1 = min(1.0, (-24.5 - th_neg) / 20.0)
         base_off = 5.10 * (s1 * s1 * (3.0 - 2.0 * s1))
-        if th_neg < -119.0:
-            s2 = min(1.0, (-119.0 - th_neg) / 7.0)
+        if th_neg < -147.0:
+            s2 = min(1.0, (-147.0 - th_neg) / 6.5)
             base_off += 1.40 * (s2 * s2 * (3.0 - 2.0 * s2))
         return base_off
 
-    # 1. 前翼硅胶/TPU 腕带 (+Y 侧，延伸至底面 -96° 作为魔术贴毛面贴附基带，无表扣无孔！)
-    front_spine = build_wing_spine(+1.0, -96.0, n_arc=40, tuck_fn=None)
+    # 1. 前翼硅胶/TPU 腕带 (+Y 侧，超长延伸至 -132° 作为 59mm 魔术贴毛面基带，无表扣无孔！)
+    front_spine = build_wing_spine(+1.0, -132.0, n_arc=50, tuck_fn=None)
     strap_front = base.make_swept_band(front_spine, base.STRAP_W, -base.STRAP_T * 0.5, base.STRAP_T * 0.5, corner_r=1.35)
 
     # 前翼 T 型硅胶防拉脱防水密封头（与主机底壳 T 槽完全一致）
@@ -127,12 +131,13 @@ def build_velcro_strap_and_halo_system():
             Box(15.30, 0.77, 3.90)
     strap_front = strap_front + bp_tf.part
 
-    front_chan_spine = build_wing_spine(+1.0, -58.0, n_arc=28, tuck_fn=None)[1:]
+    # 前翼导光凹槽（覆盖整个上方+外侧可视面至 -23.0°，下方 109° 全部让给超长魔术贴调节区！）
+    front_chan_spine = build_wing_spine(+1.0, -23.0, n_arc=18, tuck_fn=None)[1:]
     front_chan_cut = base.make_swept_band(front_chan_spine, base.CHAN_W, base.STRAP_T * 0.5 - base.CHAN_D, base.STRAP_T * 0.5 + 1.2, corner_r=0.35)
     strap_front = strap_front - front_chan_cut
 
-    # 2. 后翼硅胶/TPU 腕带 (-Y 侧，延伸至 -126° 叠压在前翼毛面外侧，末端微翘易撕拉手，无冲孔！)
-    rear_spine = build_wing_spine(-1.0, -126.0, n_arc=50, tuck_fn=rear_velcro_off)
+    # 2. 后翼硅胶/TPU 腕带 (-Y 侧，超长延伸至 -153.5° 叠压在前翼毛面外侧，末端微翘易撕拉手，无冲孔！)
+    rear_spine = build_wing_spine(-1.0, -153.5, n_arc=58, tuck_fn=rear_velcro_off)
     strap_rear = base.make_swept_band(rear_spine, base.STRAP_W, -base.STRAP_T * 0.5, base.STRAP_T * 0.5, corner_r=1.35)
 
     # 后翼 T 型硅胶防拉脱密封头 + 西侧独立防水过线硅胶塞
@@ -145,15 +150,15 @@ def build_velcro_strap_and_halo_system():
             Box(2.40, 2.25, 3.50)
     strap_rear = strap_rear + bp_tr.part
 
-    rear_chan_spine = build_wing_spine(-1.0, -58.0, n_arc=28, tuck_fn=None)[1:]
+    rear_chan_spine = build_wing_spine(-1.0, -23.0, n_arc=18, tuck_fn=None)[1:]
     rear_chan_cut = base.make_swept_band(rear_chan_spine, base.CHAN_W, base.STRAP_T * 0.5 - base.CHAN_D, base.STRAP_T * 0.5 + 1.2, corner_r=0.35)
     strap_rear = strap_rear - rear_chan_cut
 
-    # 3. 前/后双翼乳白雾面高透光学导光条 (与主线完全一致，300° 环腕发光！)
-    lg_front_spine = build_wing_spine(+1.0, -57.2, n_arc=28, tuck_fn=None)[1:]
+    # 3. 前/后双翼乳白雾面高透光学导光条 (覆盖上方+双侧全可视面 ~224°，6+6=12 颗灯珠更密更亮!)
+    lg_front_spine = build_wing_spine(+1.0, -22.0, n_arc=18, tuck_fn=None)[1:]
     lg_front = base.make_swept_band(lg_front_spine, base.LG_W, base.STRAP_T * 0.5 - 1.00, base.STRAP_T * 0.5 + 0.35, dome_outer=0.45)
 
-    lg_rear_spine = build_wing_spine(-1.0, -57.2, n_arc=28, tuck_fn=None)[1:]
+    lg_rear_spine = build_wing_spine(-1.0, -22.0, n_arc=18, tuck_fn=None)[1:]
     lg_rear = base.make_swept_band(lg_rear_spine, base.LG_W, base.STRAP_T * 0.5 - 1.00, base.STRAP_T * 0.5 + 0.35, dome_outer=0.45)
 
     # 4. 方案 A 柔性聚酰亚胺 FPC 灯带 + 双路进仓尾带 + 12 颗 WS2812B-2020 (100% 复用主线坐标!)
@@ -223,12 +228,12 @@ def build_velcro_strap_and_halo_system():
             led_bodies.append(bp_l.part)
     led_fpc_assy = Compound(children=led_bodies)
 
-    # 5. 14_Velcro_Loop_Pad_Front: 前翼外侧 18mm 宽背胶魔术贴毛面 (th_front = -60.5° .. -95.0°，厚 0.70mm，距前翼外壁留 0.08mm)
-    velcro_loop_spine = sample_arc_only(+1.0, -60.5, -95.0, n_pts=20, off_fn=None)
+    # 5. 14_Velcro_Loop_Pad_Front: 前翼外侧 18mm×59mm 超长背胶魔术贴毛面 (th_front = -25.5° .. -130.0°，距前翼外壁留 0.08mm)
+    velcro_loop_spine = sample_arc_only(+1.0, -25.5, -130.0, n_pts=32, off_fn=None)
     velcro_loop = base.make_swept_band(velcro_loop_spine, 18.0, 1.78, 2.48, corner_r=0.25)
 
-    # 6. 15_Velcro_Hook_Pad_Rear: 后翼内侧 18mm 宽背胶魔术贴刺面 (th_rear = -85.5° .. -118.5°，贴合于后翼内壁，距毛面留 0.14mm 贴合间隙)
-    velcro_hook_spine = sample_arc_only(-1.0, -85.5, -118.5, n_pts=20, off_fn=rear_velcro_off)
+    # 6. 15_Velcro_Hook_Pad_Rear: 后翼内侧 18mm×56mm 超长背胶魔术贴刺面 (th_rear = -51.5° .. -146.0°，贴合于后翼内壁，距毛面留 0.14mm)
+    velcro_hook_spine = sample_arc_only(-1.0, -51.5, -146.0, n_pts=32, off_fn=rear_velcro_off)
     velcro_hook = base.make_swept_band(velcro_hook_spine, 18.0, -2.48, -1.78, corner_r=0.25)
 
     return strap_front, strap_rear, lg_front, lg_rear, led_fpc_assy, velcro_loop, velcro_hook
@@ -338,8 +343,9 @@ def verify_and_export(parts: list[base.PartSpec]):
     bb_all = assy.bounding_box()
     report = {
         "model": "CatMouseBand_V15_Velcro_Lite",
-        "architecture": "Simplified EVT Velcro Hook-and-Loop Sport Band + Screenless NFC Pod + 300-deg Glowing Halo + Plan A Internal FPC/ZIF",
-        "fastening": "Direct Overlap 18mm Adhesive Velcro (Front Loop Pad + Rear Hook Pad + Easy-Peel Pull Tab, 0 Metal Buckles)",
+        "architecture": "Wide-Range Adjustable EVT Velcro Sport Band (136-240 mm wrist range) + Screenless NFC Pod + 224-deg Glowing Halo + Plan A Internal FPC/ZIF",
+        "fastening": "Long Direct-Overlap 18mm Adhesive Velcro (59mm Front Loop Pad + 56mm Rear Hook Pad + Easy-Peel Pull Tab, 104mm stepless adjustment)",
+        "wrist_adjustable_range_mm": {"min": 136.0, "max": 240.0, "span": 104.0, "front_loop_len_mm": 59.0, "rear_hook_len_mm": 56.0},
         "overall_bbox_mm": {
             "width_x": round(bb_all.max.X - bb_all.min.X, 2),
             "length_y": round(bb_all.max.Y - bb_all.min.Y, 2),

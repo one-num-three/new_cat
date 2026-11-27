@@ -95,30 +95,30 @@ def main():
         bg_top=(244, 247, 252), bg_bot=(228, 234, 243),
     )
 
-    print("[VELCRO RENDER 3/4] 渲染底部魔术贴直接搭接特写...")
+    print("[VELCRO RENDER 3/4] 渲染超长魔术贴搭接区特写（59mm 毛面 + 56mm 刺面）...")
     im_velcro, _ = rc.render_scene_zbuf(
         meshes_green, 860, 680,
-        eye=(82.0, 28.0, -48.0), target=(0.0, 4.0, -27.5),
-        ortho_scale=42.0, ssaa=2,
+        eye=(85.0, 26.0, -40.0), target=(0.0, 2.0, -24.0),
+        ortho_scale=58.0, ssaa=2,
         bg_top=(244, 247, 252), bg_bot=(228, 234, 243),
     )
 
-    print("[VELCRO RENDER 4/4] 渲染 X=0 纵剖叠层视图（上部方案A FPC→ZIF + 底部魔术贴零干涉叠层）...")
+    print("[VELCRO RENDER 4/4] 渲染 X=0 纵剖叠层视图（上部方案A FPC→ZIF + 底部超长魔术贴零干涉叠层）...")
     meshes_sec = load_velcro_meshes(glow_rgb=(0.08, 0.96, 0.50), clip_x_positive=True)
     im_sec, _ = rc.render_scene_zbuf(
         meshes_sec, 860, 680,
         eye=(145.0, 0.0, 2.0), target=(0.0, 0.0, 2.0),
-        ortho_scale=82.0, ssaa=2,
+        ortho_scale=84.0, ssaa=2,
         bg_top=(244, 247, 252), bg_bot=(228, 234, 243),
     )
 
     fig, axes = plt.subplots(2, 2, figsize=(16.0, 12.2), dpi=140)
     fig.patch.set_facecolor("#F4F7FC")
     panels = [
-        (im_iso, "① 轴测实模 · 保留无屏 NFC 主机 + 300° 发光腕带，极简零金属表扣"),
-        (im_side, "② 右侧轮廓 · 前/后导光环止于 -57°，底部纯魔术贴搭接（0 冲孔/0 表扣）"),
-        (im_velcro, "③ 底部魔术贴特写 · 18mm 背胶毛面(蓝灰) + 刺面(暖褐) + 末端微翘易撕拉手"),
-        (im_sec, "④ X=0 纵剖校验 · 上部方案 A FPC→ZIF 保持一致，底部魔术贴搭接 0 碰撞"),
+        (im_iso, "① 轴测实模 · 224° 上/双侧高密光环 + 下半圈超长魔术贴大范围调节"),
+        (im_side, "② 右侧轮廓 · 可调腕围 136–240 mm（跨度 104 mm，兼容细腕至冬装外戴）"),
+        (im_velcro, "③ 超长魔术贴特写 · 59mm 毛面(蓝灰) + 56mm 刺面(暖褐) + 末端微翘拉手"),
+        (im_sec, "④ X=0 纵剖校验 · 12 颗灯珠高密分布，下部超长魔术贴叠层 0 碰撞"),
     ]
     for ax, (im, title) in zip(axes.flat, panels):
         ax.imshow(im)
@@ -126,8 +126,8 @@ def main():
         ax.axis("off")
 
     fig.suptitle(
-        f"CatMouse Band V1.5-Lite (EVT 魔术贴简版) — 16 零件 B-Rep 实模 | 整机 {mass_g:.2f} g | 0.000 mm³ 碰撞干涉",
-        fontsize=14.0, fontweight="bold", color="#0F172A", y=0.98,
+        f"CatMouse Band V1.5-Lite (大范围可调魔术贴版 · 136–240 mm 腕围) — 16 零件 | 整机 {mass_g:.2f} g | 0.000 mm³ 碰撞",
+        fontsize=13.8, fontweight="bold", color="#0F172A", y=0.98,
     )
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     out_p = RENDER_DIR / "cad_velcro_01_overview.png"

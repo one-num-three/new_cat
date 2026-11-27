@@ -41,9 +41,9 @@
 - [fusion360/CatMouseBand_V15_StrapHalo/](fusion360/CatMouseBand_V15_StrapHalo/)：原生 Fusion 360 参数化脚本 (v3)
 - [renders/](renders/)：6 张高清 CAD 工程评审图（含 [cad_06_fpc_connection_detail.png](renders/cad_06_fpc_connection_detail.png) 内部连接 4 视角微距详图）
 
-### 版本 2：V1.5-Lite Velcro（EVT 魔术贴简版 · `32.16 g` · 零金属表扣 / 适合 3D 打印手板）
-- **定位**：100% 沿用 V1.5 无屏 NFC 主机、300° 发光导光环与方案 A 内部 FPC→ZIF / T 型密封结构；取消底部 CNC 铝合金针扣、硅胶束带环与 5 个冲孔，改为极简 **18mm 背胶魔术贴直接搭接（前毛面 + 后刺面 + 末端微翘易撕拉手）**，0 导线跨魔术贴区，最适合前期 3D 打印 TPU 手板与外场实测。
-- [build_catmouse_velcro_cad.py](build_catmouse_velcro_cad.py)：16 零件魔术贴简版建模与 `0.000 mm³` 干涉校验脚本（16/16 实体合法，整机 `32.16 g`）
+### 版本 2：V1.5-Lite Velcro（EVT 大范围可调魔术贴简版 · `136–240 mm` 腕围 · `36.68 g`）
+- **定位**：100% 沿用 V1.5 无屏 NFC 主机与方案 A 内部 FPC→ZIF / T 型密封结构；保留上方与双侧最显眼的 `224°` 高密发光导光环（12× `WS2812B-2020`），将整个手腕下半圈让位给 **18 mm 宽超长背胶魔术贴直接搭接（前翼 `59 mm` 毛面 + 后翼 `56 mm` 刺面 + 末端 `+1.4 mm` 易撕拉手）**，支持 **`136–240 mm`（跨度 `104 mm`）无级调节**（细腕/儿童至粗腕/冬装袖口外戴全覆盖），0 金属表扣、0 冲孔、0 导线跨魔术贴区。
+- [build_catmouse_velcro_cad.py](build_catmouse_velcro_cad.py)：16 零件魔术贴简版建模与 `0.000 mm³` 干涉校验脚本（16/16 实体合法，整机 `36.68 g`）
 - [output/CatMouseBand_V15_Velcro_Lite.step](output/CatMouseBand_V15_Velcro_Lite.step)：完整 16 零件魔术贴简版 B-Rep STEP 装配体
 - [fusion360/CatMouseBand_V15_Velcro_Lite/](fusion360/CatMouseBand_V15_Velcro_Lite/)：原生 Fusion 360 魔术贴简版参数化脚本（已同步安装到本机 Fusion Scripts 目录）
-- [renders/cad_velcro_01_overview.png](renders/cad_velcro_01_overview.png)：魔术贴简版 4 视角高清工程评审图（轴测 / 侧视 / 底部魔术贴特写 / `X=0` 纵剖）
+- [renders/cad_velcro_01_overview.png](renders/cad_velcro_01_overview.png)：魔术贴简版 4 视角高清工程评审图（轴测 / 侧视 / 超长魔术贴特写 / `X=0` 纵剖）
