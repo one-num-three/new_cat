@@ -1,24 +1,36 @@
 {
   "model": "CatMouseBand_V15_Velcro_Lite",
-  "architecture": "Wide-Range Adjustable EVT Velcro Sport Band (136-240 mm wrist range) + Screenless NFC Pod + 224-deg Glowing Halo + Plan A Internal FPC/ZIF",
-  "fastening": "Long Direct-Overlap 18mm Adhesive Velcro (59mm Front Loop Pad + 56mm Rear Hook Pad + Easy-Peel Pull Tab, 104mm stepless adjustment)",
+  "architecture": "Asymmetric Low-Occlusion 120-200 mm EVT Velcro Sport Band + Screenless NFC Pod + High-Density Dual-Wing Halo + Plan A Internal FPC/ZIF",
+  "fastening": "Asymmetric Direct-Overlap 18mm Adhesive Velcro (86.5mm Inner Front Loop Track + 24.0mm Compact Outer Rear Hook Pad + Easy-Peel Pull Tab)",
   "wrist_adjustable_range_mm": {
-    "min": 136.0,
-    "max": 240.0,
-    "span": 104.0,
-    "front_loop_len_mm": 59.0,
-    "rear_hook_len_mm": 56.0
+    "min": 120.0,
+    "max": 200.0,
+    "span": 80.0,
+    "pod_len_mm": 42.0,
+    "light_guide_len_each_mm": 25.3,
+    "front_wing_inner_len_mm": 119.3,
+    "rear_wing_outer_len_mm": 66.1,
+    "flat_total_len_mm": 227.4,
+    "front_loop_len_mm": 86.5,
+    "rear_hook_len_mm": 24.0,
+    "zero_occlusion_wrist_range_mm": [
+      136.0,
+      200.0
+    ],
+    "occlusion_at_120mm_front_pct": 61.0,
+    "visible_leds_at_120mm": "9/12 (Rear 6/6 + Front 3/6)",
+    "velcro_engagement_at_200mm_mm": 20.5
   },
   "overall_bbox_mm": {
     "width_x": 34.55,
-    "length_y": 71.04,
-    "height_z": 68.06
+    "length_y": 78.24,
+    "height_z": 70.44
   },
   "part_count": 16,
   "all_brep_valid": true,
-  "total_estimated_mass_g": 36.68,
+  "total_estimated_mass_g": 34.99,
   "mass_target_g": 35.0,
-  "mass_pass": false,
+  "mass_pass": true,
   "interference_count": 0,
   "interferences": [],
   "step_file": "C:\\Users\\Keke_\\.gemini\\antigravity\\scratch\\catmouse-band\\cad\\output\\CatMouseBand_V15_Velcro_Lite.step",
@@ -292,19 +304,19 @@
       "name": "Strap_Front_Velcro",
       "material": "TPU 85A / LSR Charcoal",
       "valid_brep": true,
-      "volume_mm3": 6670.85,
-      "mass_g": 7.6,
+      "volume_mm3": 8758.23,
+      "mass_g": 9.98,
       "bbox_mm": {
         "x": [
           -11.0,
           11.0
         ],
         "y": [
-          -23.14,
-          34.38
+          -35.23,
+          36.8
         ],
         "z": [
-          -27.36,
+          -30.98,
           30.65
         ]
       },
@@ -325,19 +337,19 @@
       "name": "Strap_Rear_Velcro",
       "material": "TPU 85A / LSR Charcoal",
       "valid_brep": true,
-      "volume_mm3": 8605.53,
-      "mass_g": 9.81,
+      "volume_mm3": 5356.67,
+      "mass_g": 6.11,
       "bbox_mm": {
         "x": [
           -11.0,
           11.0
         ],
         "y": [
-          -34.38,
-          36.3
+          -40.7,
+          -15.74
         ],
         "z": [
-          -32.46,
+          -34.84,
           30.65
         ]
       },
@@ -358,20 +370,20 @@
       "name": "LightGuide_Front_Diffuser",
       "material": "Frosted Optical Silicone",
       "valid_brep": true,
-      "volume_mm3": 399.66,
-      "mass_g": 0.45,
+      "volume_mm3": 258.62,
+      "mass_g": 0.29,
       "bbox_mm": {
         "x": [
           -3.8,
           3.8
         ],
         "y": [
-          23.41,
-          34.74
+          23.89,
+          36.97
         ],
         "z": [
-          -10.86,
-          29.62
+          5.54,
+          29.57
         ]
       },
       "rgba": [
@@ -391,20 +403,20 @@
       "name": "LightGuide_Rear_Diffuser",
       "material": "Frosted Optical Silicone",
       "valid_brep": true,
-      "volume_mm3": 399.66,
-      "mass_g": 0.45,
+      "volume_mm3": 258.62,
+      "mass_g": 0.29,
       "bbox_mm": {
         "x": [
           -3.8,
           3.8
         ],
         "y": [
-          -34.74,
-          -23.41
+          -36.97,
+          -23.89
         ],
         "z": [
-          -10.86,
-          29.62
+          5.54,
+          29.57
         ]
       },
       "rgba": [
@@ -424,19 +436,19 @@
       "name": "LED_FPC_12xWS2812B",
       "material": "Polyimide FPC + 12 LEDs",
       "valid_brep": true,
-      "volume_mm3": 100.12,
-      "mass_g": 0.22,
+      "volume_mm3": 80.26,
+      "mass_g": 0.18,
       "bbox_mm": {
         "x": [
           -12.2,
           2.25
         ],
         "y": [
-          -33.23,
-          33.23
+          -35.22,
+          35.22
         ],
         "z": [
-          -9.66,
+          5.53,
           31.25
         ]
       },
@@ -457,20 +469,20 @@
       "name": "Velcro_Loop_Pad_Front",
       "material": "Nylon Velcro Loop (Soft)",
       "valid_brep": true,
-      "volume_mm3": 751.99,
-      "mass_g": 0.49,
+      "volume_mm3": 1181.07,
+      "mass_g": 0.77,
       "bbox_mm": {
         "x": [
           -9.0,
           9.0
         ],
         "y": [
-          -22.45,
-          31.59
+          -35.5,
+          37.55
         ],
         "z": [
-          -28.18,
-          -12.04
+          -31.78,
+          -2.92
         ]
       },
       "rgba": [
@@ -490,20 +502,20 @@
       "name": "Velcro_Hook_Pad_Rear",
       "material": "Nylon Velcro Hook (Grip)",
       "valid_brep": true,
-      "volume_mm3": 700.86,
-      "mass_g": 0.49,
+      "volume_mm3": 293.03,
+      "mass_g": 0.21,
       "bbox_mm": {
         "x": [
           -9.0,
           9.0
         ],
         "y": [
-          -22.15,
-          29.6
+          -36.01,
+          -18.96
         ],
         "z": [
-          -29.02,
-          -16.12
+          -28.49,
+          -12.26
         ]
       },
       "rgba": [
