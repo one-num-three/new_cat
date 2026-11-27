@@ -33,11 +33,17 @@
 
 ---
 
-## 三、文件清单
+## 三、两个并存版本与文件清单
 
-- [build_catmouse_cad.py](build_catmouse_cad.py)：`build123d` / OpenCASCADE 16 零件参数化建模与 `0.000 mm³` 干涉校验脚本
-- [render_cad_views.py](render_cad_views.py)：基于精确 B-Rep 网格的 6 组 3D 工程图 + `X=0` 剖切 + 内部连接微距特写渲染脚本
+### 版本 1：V1.5 Strap-Halo（量产针扣版 · `32.98 g`）
+- [build_catmouse_cad.py](build_catmouse_cad.py)：16 零件参数化建模与 `0.000 mm³` 干涉校验脚本
 - [output/CatMouseBand_V15_StrapHalo.step](output/CatMouseBand_V15_StrapHalo.step)：完整 16 零件多实体 B-Rep STEP 装配体
-- [output/parts/](output/parts/)：16 个独立零件的 `.step` 与 `.stl`（可直接送 3D 打印手板）
-- [renders/](renders/)：6 张高清 CAD 工程评审图（含 [cad_06_fpc_connection_detail.png](renders/cad_06_fpc_connection_detail.png) 内部连接结构 4 视角微距详图）
-- [fusion360/CatMouseBand_V15_StrapHalo/](fusion360/CatMouseBand_V15_StrapHalo/)：原生 Autodesk Fusion 360 参数化脚本 (v3) 与 `.manifest`
+- [fusion360/CatMouseBand_V15_StrapHalo/](fusion360/CatMouseBand_V15_StrapHalo/)：原生 Fusion 360 参数化脚本 (v3)
+- [renders/](renders/)：6 张高清 CAD 工程评审图（含 [cad_06_fpc_connection_detail.png](renders/cad_06_fpc_connection_detail.png) 内部连接 4 视角微距详图）
+
+### 版本 2：V1.5-Lite Velcro（EVT 魔术贴简版 · `32.16 g` · 零金属表扣 / 适合 3D 打印手板）
+- **定位**：100% 沿用 V1.5 无屏 NFC 主机、300° 发光导光环与方案 A 内部 FPC→ZIF / T 型密封结构；取消底部 CNC 铝合金针扣、硅胶束带环与 5 个冲孔，改为极简 **18mm 背胶魔术贴直接搭接（前毛面 + 后刺面 + 末端微翘易撕拉手）**，0 导线跨魔术贴区，最适合前期 3D 打印 TPU 手板与外场实测。
+- [build_catmouse_velcro_cad.py](build_catmouse_velcro_cad.py)：16 零件魔术贴简版建模与 `0.000 mm³` 干涉校验脚本（16/16 实体合法，整机 `32.16 g`）
+- [output/CatMouseBand_V15_Velcro_Lite.step](output/CatMouseBand_V15_Velcro_Lite.step)：完整 16 零件魔术贴简版 B-Rep STEP 装配体
+- [fusion360/CatMouseBand_V15_Velcro_Lite/](fusion360/CatMouseBand_V15_Velcro_Lite/)：原生 Fusion 360 魔术贴简版参数化脚本（已同步安装到本机 Fusion Scripts 目录）
+- [renders/cad_velcro_01_overview.png](renders/cad_velcro_01_overview.png)：魔术贴简版 4 视角高清工程评审图（轴测 / 侧视 / 底部魔术贴特写 / `X=0` 纵剖）

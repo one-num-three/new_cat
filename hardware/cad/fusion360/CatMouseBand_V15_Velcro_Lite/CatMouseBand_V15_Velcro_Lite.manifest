@@ -1,0 +1,10 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "author": "CatMouse Band V1.5 Hardware Engineering",
+  "description": {
+    "": "CatMouse Band V1.5-Lite (EVT 魔术贴简版) — 100% Native Parametric Fusion 360 Feature Tree (16 Components, Direct-Overlap 18mm Velcro Hook-and-Loop Band, Plan A Internal FPC-to-ZIF & T-Anchor Glands, Zero Metal Buckles)."
+  },
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}
