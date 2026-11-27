@@ -138,6 +138,50 @@ def draw_circle_xy(sk: adsk.fusion.Sketch, cx_mm: float, cy_mm: float, r_mm: flo
     sk.sketchCurves.sketchCircles.addByCenterRadius(adsk.core.Point3D.create(cp.x, cp.y, 0.0), mm(r_mm))
 
 
+def draw_closed_poly_xy(sk: adsk.fusion.Sketch, xy_pts: list[tuple[float, float]]) -> None:
+    """在偏移 XY 平面中按世界 (X, Y) 顶点绘制严格闭合单环多边形（用于可展开扁平 FPC 与穿线隧道）。"""
+    lc = sk.sketchCurves.sketchLines
+    spts = []
+    for x_mm, y_mm in xy_pts:
+        p = sk.modelToSketchSpace(pt(x_mm, y_mm, 0.0))
+        spts.append(adsk.core.Point3D.create(p.x, p.y, 0.0))
+    prev = None
+    first_start = None
+    for i in range(len(spts)):
+        if i == 0:
+            prev = lc.addByTwoPoints(spts[0], spts[1])
+            first_start = prev.startSketchPoint
+        elif i < len(spts) - 1:
+            prev = lc.addByTwoPoints(prev.endSketchPoint, spts[i + 1])
+        else:
+            lc.addByTwoPoints(prev.endSketchPoint, first_start)
+
+
+def extrude_z_poly(
+    comp: adsk.fusion.Component,
+    xy_pts: list[tuple[float, float]],
+    z0_mm: float,
+    z1_mm: float,
+    op: adsk.fusion.FeatureOperations,
+    name: str,
+    target_bodies: list[adsk.fusion.BRepBody] | None = None,
+) -> adsk.fusion.ExtrudeFeature:
+    pln = offset_plane_xy(comp, min(z0_mm, z1_mm), f"_Pln_{name}")
+    sk = comp.sketches.add(pln)
+    sk.name = f"_Sk_{name}"
+    sk.isLightBulbOn = False
+    draw_closed_poly_xy(sk, xy_pts)
+    return extrude_one_side(
+        comp,
+        sk.profiles.item(0),
+        abs(z1_mm - z0_mm),
+        op,
+        positive=_dir_positive(pln, 0.0, 0.0, 1.0),
+        target_bodies=target_bodies,
+        name=name,
+    )
+
+
 def all_profiles(sk: adsk.fusion.Sketch) -> adsk.core.ObjectCollection:
     col = adsk.core.ObjectCollection.create()
     for i in range(sk.profiles.count):
@@ -285,6 +329,7 @@ def make_custom_appearances(app: adsk.core.Application, design: adsk.fusion.Desi
         "CM_Gold_Pogo_Brass": (238, 192, 60),
         "CM_LiPo_Silver_Foil": (198, 204, 214),
         "CM_Anodized_SpaceGrey": (76, 82, 92),
+        "CM_ZIF_Ivory_LCP": (240, 235, 222),
     }
     base_app = None
     for lib in app.materialLibraries:
@@ -379,14 +424,15 @@ def sweep_band_new_body(
     r_outer: float,
     corner_r: float,
     tag: str,
+    x_mm: float = 0.0,
 ) -> adsk.fusion.BRepBody:
-    """使用实测稳健的 3D 样条 + setByPath(ProportionalPathDistanceType, 0.0) 扫掠实体。"""
+    """使用实测稳健的常 X 3D 样条 + setByPath(ProportionalPathDistanceType, 0.0) 扫掠实体。"""
     sk_p = comp.sketches.add(comp.xYConstructionPlane)
     sk_p.name = f"_Path_{tag}"
     sk_p.isLightBulbOn = False
     pcol = adsk.core.ObjectCollection.create()
     for y_mm, z_mm in yz_pts:
-        pcol.add(pt(0.0, y_mm, z_mm))
+        pcol.add(pt(x_mm, y_mm, z_mm))
     sp = sk_p.sketchCurves.sketchFittedSplines.add(pcol)
     path = comp.features.createPath(sp, False)
 
@@ -401,9 +447,9 @@ def sweep_band_new_body(
     sk_s.isLightBulbOn = False
 
     y0, z0 = yz_pts[0]
-    p_orig = sk_s.modelToSketchSpace(pt(0.0, y0, z0))
-    p_out = sk_s.modelToSketchSpace(pt(0.0, y0, z0 + 1.0))
-    p_x = sk_s.modelToSketchSpace(pt(1.0, y0, z0))
+    p_orig = sk_s.modelToSketchSpace(pt(x_mm, y0, z0))
+    p_out = sk_s.modelToSketchSpace(pt(x_mm, y0, z0 + 1.0))
+    p_x = sk_s.modelToSketchSpace(pt(x_mm + 1.0, y0, z0))
 
     vx_x, vx_y = p_x.x - p_orig.x, p_x.y - p_orig.y
     vo_x, vo_y = p_out.x - p_orig.x, p_out.y - p_orig.y
@@ -492,14 +538,18 @@ def run(context):
         b_bot = f_bot.bodies.item(0)
         try_fillet_z_edges(c_bot, b_bot, 23.80, 2.40, "Fillet_Bot_Pebble")
         extrude_z_rect(c_bot, 0.0, 0.0, 30.4, 38.4, 7.7, 25.10, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Bot_Cavity", [b_bot])
-        # 右侧按键开口(下) + 前/后腕带 FPC 过线口（后翼西侧偏置绕开 BLE 天线！）
-        p_bs = offset_plane_xy(c_bot, 30.80, "_Pln_Bot_Slots")
-        sk_bs = c_bot.sketches.add(p_bs)
-        sk_bs.isLightBulbOn = False
-        draw_rounded_rect_xy(sk_bs, 16.2, 1.5, 3.4, 10.0, 0.35)
-        draw_rounded_rect_xy(sk_bs, 0.0, 20.0, 5.6, 3.2, 0.25)
-        draw_rounded_rect_xy(sk_bs, -9.8, -20.0, 5.2, 3.2, 0.25)
-        extrude_one_side(c_bot, all_profiles(sk_bs), 1.95, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_bs, 0.0, 0.0, -1.0), target_bodies=[b_bot], name="Cut_Bot_Btn_FPC")
+        # 前/后端内侧加厚 T 型防拉脱压紧凸台 (Join 到 b_bot)
+        for tag_c, sy in (("Front", +1.0), ("Rear", -1.0)):
+            extrude_z_rect(c_bot, 0.0, sy * 18.725, 18.4, 1.15, 0.0, 25.10, 30.80, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"Join_TCollar_{tag_c}")
+        # 右侧按键开口(下)
+        extrude_z_rect(c_bot, 16.2, 1.5, 3.4, 10.0, 0.35, 28.85, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Bot_Btn", [b_bot])
+        # 前/后对称 T 型硅胶腕带防拉脱锁扣槽（顶部敞口至 Z=30.80）
+        for tag_c, sy in (("Front", +1.0), ("Rear", -1.0)):
+            extrude_z_rect(c_bot, 0.0, sy * 20.50, 12.4, 1.60, 0.0, 26.60, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, f"Cut_TNeck_{tag_c}", [b_bot])
+            extrude_z_rect(c_bot, 0.0, sy * 19.275, 15.6, 0.95, 0.0, 26.60, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, f"Cut_THead_{tag_c}", [b_bot])
+        # 前翼中心 FPC 过线口 + 后翼西侧独立防水 FPC 过线口 (X=-9.65，绕开 -Y BLE 天线净空区!)
+        extrude_z_rect(c_bot, 0.0, 18.50, 3.8, 0.90, 0.0, 29.00, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_FPC_Slot_F", [b_bot])
+        extrude_z_rect(c_bot, -9.65, -19.60, 2.7, 3.40, 0.0, 27.00, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_FPC_Slot_R_West", [b_bot])
         # 背面 +Y 侧 4-pin 磁吸沉孔 (Y=+14.8) + 2×M2 沉头孔 (X=±12.6, Y=+11.0)
         p_bh = offset_plane_xy(c_bot, 23.80, "_Pln_Bot_Holes")
         sk_bh = c_bot.sketches.add(p_bh)
@@ -538,7 +588,7 @@ def run(context):
         extrude_one_side(c_btn, sk_bf.profiles.item(0), 0.80, adsk.fusion.FeatureOperations.JoinFeatureOperation, positive=_dir_positive(p_bf, 1.0, 0.0, 0.0), name="Btn_Flange")
         assign_appearance(c_btn, apps, "CM_Button_Silicone")
 
-        # ---------------- 04_NFC_FPC_Coil_Ferrite (居中 Y=+2.25，严格退离 -Y BLE 天线 >=1.5mm!) ----------------
+        # ---------------- 04_NFC_FPC_Coil_Ferrite (含铜质 C 型下弯触点尾带!) ----------------
         step = "04_NFC_FPC_Coil_Ferrite"
         occ_nfc, c_nfc = new_subcomp(root, "04_NFC_FPC_Coil_Ferrite")
         occs["nfc"] = occ_nfc
@@ -549,6 +599,16 @@ def run(context):
         draw_rounded_rect_xy(sk_c, 0.0, 2.25, 24.6, 24.1, 4.8)
         draw_rounded_rect_xy(sk_c, 0.0, 2.25, 17.2, 16.7, 3.0)
         extrude_one_side(c_nfc, ring_profile(sk_c), 0.25, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_cl, 0.0, 0.0, 1.0), name="NFC_Copper_Coil")
+        # 铜质 C 型柔性下弯触点排线 (X=-6.8，绕过铁氧体前缘压接主板 J_NFC_SPRING 弹片座)
+        nfc_tail_yz = [
+            (13.80, 34.12),
+            (14.85, 34.04),
+            (15.35, 33.25),
+            (14.65, 32.15),
+            (13.00, 31.52),
+            (11.40, 31.49),
+        ]
+        sweep_band_new_body(c_nfc, nfc_tail_yz, 3.0, -0.09, 0.09, 0.0, "NFC_Flex_Tail", x_mm=-6.8)
         assign_appearance(c_nfc, apps, "CM_Copper_NFC_FPC")
 
         # ---------------- 05_Mainboard_4Layer_PCBA (单面 L1 贴片 · RF 净空与分区布局) ----------------
@@ -559,20 +619,18 @@ def run(context):
         b_pcb = f_pcb.bodies.item(0)
         for sx in (-12.6, 12.6):
             extrude_z_cyl(c_pcb, sx, 11.0, 2.1, 29.55, 30.75, adsk.fusion.FeatureOperations.CutFeatureOperation, f"PCB_M2_Notch_{int(sx)}", [b_pcb])
-        for idx_m, (mname, cx, cy, w, l, h) in enumerate([
-            ("ESP32_C3_MINI", -2.2, -9.2, 13.2, 16.6, 2.30),
+        for mname, cx, cy, w, l, h in [
+            ("ESP32_C3_MINI", -1.7, -9.2, 13.2, 16.6, 2.30),
             ("PN532_QFN40", -6.8, 6.2, 6.0, 6.0, 0.85),
             ("Y1_27M12", -11.8, 6.2, 2.5, 3.2, 0.80),
             ("LIS2DH12_IMU", 0.5, 4.2, 2.0, 2.0, 0.90),
-            ("PKMCS0909E_Buzzer", 9.5, -5.2, 9.0, 9.0, 1.75),
+            ("PKMCS0909E_Buzzer", 9.6, -5.2, 9.0, 9.0, 1.75),
             ("PMIC_MCP73831", 5.2, 5.2, 2.9, 2.8, 1.10),
             ("LDO_AP2112K", 8.6, 5.2, 2.9, 2.8, 1.10),
             ("Q1_LED_PMOS", 5.2, 9.0, 2.9, 2.8, 1.10),
             ("Q2Q3_Drivers", 8.6, 9.0, 2.9, 2.8, 1.10),
             ("SW1_Tactile", 12.5, 1.5, 2.6, 4.2, 1.60),
-            ("J_LED_F_ZIF", 0.0, 15.0, 5.4, 3.0, 0.95),
-            ("J_LED_R_ZIF", -11.2, -5.8, 3.0, 5.4, 0.95),
-        ]):
+        ]:
             extrude_z_rect(c_pcb, cx, cy, w, l, 0.20, 30.65, 30.65 + h, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, mname)
         assign_appearance(c_pcb, apps, "CM_PCB_Matte_Green")
 
@@ -580,14 +638,14 @@ def run(context):
         step = "06_Battery_402025_300mAh"
         occ_bat, c_bat = new_subcomp(root, "06_Battery_402025_300mAh")
         occs["bat"] = occ_bat
-        extrude_z_rect(c_bat, 0.0, -0.35, 22.0, 18.3, 1.6, 25.30, 29.30, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Battery_LiPo")
+        extrude_z_rect(c_bat, 0.0, -1.05, 23.6, 16.9, 1.6, 25.30, 29.30, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Battery_LiPo")
         assign_appearance(c_bat, apps, "CM_LiPo_Silver_Foil")
 
         # ---------------- 07_Vibration_Motor_1027 ----------------
         step = "07_Vibration_Motor_1027"
         occ_mot, c_mot = new_subcomp(root, "07_Vibration_Motor_1027")
         occs["mot"] = occ_mot
-        extrude_z_cyl(c_mot, 0.0, 14.0, 5.0, 25.25, 27.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Motor_1027")
+        extrude_z_cyl(c_mot, 0.0, 12.8, 5.0, 25.25, 27.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Motor_1027")
         assign_appearance(c_mot, apps, "CM_LiPo_Silver_Foil")
 
         # ---------------- 08_Pogo_Magnets_Screws ----------------
@@ -603,26 +661,69 @@ def run(context):
             extrude_z_cyl(c_hw, sx, 11.0, 0.95, 24.50, 28.90, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"M2_Shaft_{i+1}")
         assign_appearance(c_hw, apps, "CM_Gold_Pogo_Brass")
 
-        # ---------------- 09_Strap_Front_Silicone ----------------
+        # 方案 A 前/后翼进仓 FPC 共享路径定义（腕带穿线隧道与 FPC 实体共用同一套坐标，保证 0 干涉！）
+        fpc_front_tail_yz = [
+            (23.25, 27.55),
+            (21.85, 27.85),
+            (20.20, 29.10),
+            (18.70, 30.25),
+            (17.65, 31.05),
+            (16.40, 31.15),
+            (14.80, 31.15),
+        ]
+        rear_sbend_yz = [
+            (-21.55, 27.55),
+            (-20.75, 28.10),
+            (-19.65, 29.40),
+            (-18.40, 30.40),
+            (-17.35, 31.05),
+            (-16.65, 31.15),
+        ]
+        # 单环闭合多边形：后翼腕带肩部横向折弯段 (X: 0 -> -9.65)
+        rear_dogleg_strap_poly = [
+            (-10.65, -23.35), (1.00, -23.35), (1.00, -21.55),
+            (-8.65, -21.55), (-8.65, -21.25), (-10.65, -21.25),
+        ]
+        rear_tunnel_strap_poly = [
+            (-10.90, -23.60), (1.30, -23.60), (1.30, -21.30),
+            (-8.40, -21.30), (-8.40, -21.05), (-10.90, -21.05),
+        ]
+        # 单环闭合多边形：后翼仓内绕行段 (绕开 ESP32 BLE 天线，沿 X=-11.20 直插 J_LED_R 槽口!)
+        rear_dogleg_pod_poly = [
+            (-10.65, -17.05), (-8.65, -17.05), (-8.65, -16.25),
+            (-10.20, -14.45), (-10.20, -5.85), (-12.20, -5.85),
+            (-12.20, -14.85), (-10.65, -16.65),
+        ]
+
+        # ---------------- 09_Strap_Front_Silicone (含一体 T 型防拉脱防水密封头 + 内埋 FPC 隧道!) ----------------
         step = "09_Strap_Front_Silicone"
         occ_sf, c_sf = new_subcomp(root, "09_Strap_Front_Silicone")
         occs["strap_f"] = occ_sf
         pts_sf = wing_spine_points(+1.0, -77.5, n_arc=16, with_tuck=False)
         b_sf = sweep_band_new_body(c_sf, pts_sf, 22.0, -1.70, 1.70, 1.25, "StrapF")
+        # 一体成型 T 型防拉脱密封头 (Join 到 b_sf)
+        extrude_z_rect(c_sf, 0.0, 20.625, 12.10, 1.85, 0.0, 26.75, 29.48, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Front_TAnchor_Neck")
+        extrude_z_rect(c_sf, 0.0, 19.335, 15.30, 0.77, 0.0, 26.75, 30.65, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Front_TAnchor_Head")
         pts_cf = wing_spine_points(+1.0, -58.0, n_arc=13, with_tuck=False)[1:]
         b_cf_tool = sweep_band_new_body(c_sf, pts_cf, 8.0, -0.45, 2.50, 0.0, "ChanF_Tool")
-        combine_bodies(c_sf, b_sf, [b_cf_tool], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanF")
+        b_tf_tun = sweep_band_new_body(c_sf, fpc_front_tail_yz[:5], 2.8, -0.34, 0.34, 0.0, "TunnelF_Tool", x_mm=0.0)
+        combine_bodies(c_sf, b_sf, [b_cf_tool, b_tf_tun], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanF_And_Tunnel")
         assign_appearance(c_sf, apps, "CM_Charcoal_LSR_Silicone")
 
-        # ---------------- 10_Strap_Rear_Silicone ----------------
+        # ---------------- 10_Strap_Rear_Silicone (含一体 T 型锚块 + 西侧防水塞 + 内埋 FPC 隧道!) ----------------
         step = "10_Strap_Rear_Silicone"
         occ_sr, c_sr = new_subcomp(root, "10_Strap_Rear_Silicone")
         occs["strap_r"] = occ_sr
         pts_sr = wing_spine_points(-1.0, -127.0, n_arc=22, with_tuck=True)
         b_sr = sweep_band_new_body(c_sr, pts_sr, 22.0, -1.70, 1.70, 1.25, "StrapR")
+        extrude_z_rect(c_sr, 0.0, -20.625, 12.10, 1.85, 0.0, 26.75, 29.48, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Rear_TAnchor_Neck")
+        extrude_z_rect(c_sr, 0.0, -19.335, 15.30, 0.77, 0.0, 26.75, 30.65, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Rear_TAnchor_Head")
+        extrude_z_rect(c_sr, -9.65, -20.325, 2.40, 2.25, 0.0, 27.15, 30.65, adsk.fusion.FeatureOperations.JoinFeatureOperation, "Rear_West_Gland")
         pts_cr = wing_spine_points(-1.0, -58.0, n_arc=13, with_tuck=False)[1:]
         b_cr_tool = sweep_band_new_body(c_sr, pts_cr, 8.0, -0.45, 2.50, 0.0, "ChanR_Tool")
-        combine_bodies(c_sr, b_sr, [b_cr_tool], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanR")
+        b_tr_tun_b = extrude_z_poly(c_sr, rear_tunnel_strap_poly, 27.20, 27.90, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "TunnelR_B_Tool").bodies.item(0)
+        b_tr_tun_c = sweep_band_new_body(c_sr, rear_sbend_yz[:4], 2.5, -0.34, 0.34, 0.0, "TunnelR_C_Tool", x_mm=-9.65)
+        combine_bodies(c_sr, b_sr, [b_cr_tool, b_tr_tun_b, b_tr_tun_c], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanR_And_Tunnel")
         assign_appearance(c_sr, apps, "CM_Charcoal_LSR_Silicone")
 
         # ---------------- 11 & 12: 前/后双翼乳白雾面导光条 (300° 腕带发光光环!) ----------------
@@ -640,12 +741,16 @@ def run(context):
         sweep_band_new_body(c_lgr, pts_lgr, 7.6, 0.70, 2.05, 0.50, "LGR")
         assign_appearance(c_lgr, apps, "CM_Glow_Mouse_Green")
 
-        # ---------------- 13_LED_FPC_12xWS2812B ----------------
+        # ---------------- 13_LED_FPC_12xWS2812B (双翼灯带 + 方案 A 进仓排线直插 ZIF!) ----------------
         step = "13_LED_FPC_12xWS2812B"
         occ_fpc, c_fpc = new_subcomp(root, "13_LED_FPC_12xWS2812B")
         occs["fpc"] = occ_fpc
-        sweep_band_new_body(c_fpc, pts_lgf, 4.5, -0.31, -0.15, 0.0, "FPCF")
-        sweep_band_new_body(c_fpc, pts_lgr, 4.5, -0.31, -0.15, 0.0, "FPCR")
+        sweep_band_new_body(c_fpc, pts_lgf, 4.5, -0.31, -0.15, 0.0, "FPCF_Wing")
+        sweep_band_new_body(c_fpc, fpc_front_tail_yz, 2.2, -0.08, 0.08, 0.0, "FPCF_Tail_To_ZIF", x_mm=0.0)
+        sweep_band_new_body(c_fpc, pts_lgr, 4.5, -0.31, -0.15, 0.0, "FPCR_Wing")
+        extrude_z_poly(c_fpc, rear_dogleg_strap_poly, 27.47, 27.63, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Strap_Dogleg")
+        sweep_band_new_body(c_fpc, rear_sbend_yz, 2.0, -0.08, 0.08, 0.0, "FPCR_West_SBend", x_mm=-9.65)
+        extrude_z_poly(c_fpc, rear_dogleg_pod_poly, 31.07, 31.23, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Pod_To_ZIF")
         assign_appearance(c_fpc, apps, "CM_Amber_LED_FPC")
 
         # ---------------- 14_Tang_Buckle_Aluminum ----------------
@@ -671,6 +776,28 @@ def run(context):
         draw_rounded_rect_xy(sk_kp, 0.0, 14.2, 23.2, 3.8, 0.9)
         extrude_one_side(c_kp, ring_profile(sk_kp), 10.6, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_kp, 0.0, 0.0, 1.0), name="Keeper_Ring")
         assign_appearance(c_kp, apps, "CM_Charcoal_LSR_Silicone")
+
+        # ---------------- 16_ZIF_Connectors_4Pin (高对比白色 4-Pin ZIF 翻盖座 + NFC 弹片座!) ----------------
+        step = "16_ZIF_Connectors_4Pin"
+        occ_zif, c_zif = new_subcomp(root, "16_ZIF_Connectors_4Pin")
+        occs["zif"] = occ_zif
+        # 1. J_LED_F (+Y 开口直迎前翼 FPC)
+        b_jf = extrude_z_rect(c_zif, 0.0, 14.6, 5.4, 3.2, 0.0, 30.67, 31.82, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_LED_F_Body").bodies.item(0)
+        extrude_z_rect(c_zif, 0.0, 13.45, 4.4, 0.85, 0.0, 31.80, 32.12, adsk.fusion.FeatureOperations.JoinFeatureOperation, "J_LED_F_FlipLock")
+        for tag_e, sx in (("L", -2.90), ("R", 2.90)):
+            extrude_z_rect(c_zif, sx, 14.2, 0.60, 1.6, 0.0, 30.67, 31.17, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_LED_F_Ear_{tag_e}")
+        extrude_z_rect(c_zif, 0.0, 15.325, 2.80, 1.85, 0.0, 30.91, 31.39, adsk.fusion.FeatureOperations.CutFeatureOperation, "J_LED_F_Slot", [b_jf])
+        # 2. J_LED_R (-Y 开口直迎西侧绕行后翼 FPC)
+        b_jr = extrude_z_rect(c_zif, -11.2, -5.8, 4.6, 3.2, 0.0, 30.67, 31.82, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_LED_R_Body").bodies.item(0)
+        extrude_z_rect(c_zif, -11.2, -4.65, 3.8, 0.85, 0.0, 31.80, 32.12, adsk.fusion.FeatureOperations.JoinFeatureOperation, "J_LED_R_FlipLock")
+        for tag_e, sx in (("L", -13.70), ("R", -8.70)):
+            extrude_z_rect(c_zif, sx, -5.4, 0.60, 1.6, 0.0, 30.67, 31.17, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_LED_R_Ear_{tag_e}")
+        extrude_z_rect(c_zif, -11.2, -6.525, 2.80, 1.85, 0.0, 30.91, 31.39, adsk.fusion.FeatureOperations.CutFeatureOperation, "J_LED_R_Slot", [b_jr])
+        # 3. J_NFC_SPRING (13.56MHz 双弹片接触底座)
+        extrude_z_rect(c_zif, -6.8, 11.4, 4.2, 2.4, 0.0, 30.67, 31.11, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_NFC_Spring_Base")
+        for tag_p, dx in (("L", -1.0), ("R", 1.0)):
+            extrude_z_rect(c_zif, -6.8 + dx, 11.4, 0.90, 1.50, 0.0, 31.08, 31.32, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_NFC_Contact_{tag_p}")
+        assign_appearance(c_zif, apps, "CM_ZIF_Ivory_LCP")
 
         # ---------------- 2. 刚性装配组 + 右侧按键滑移运动副 ----------------
         step = "joints"
@@ -715,7 +842,7 @@ def run(context):
 
         report = {
             "design_name": root.name,
-            "mode": "100% Native Parametric Fusion 360 Feature Tree (v2)",
+            "mode": "100% Native Parametric Fusion 360 Feature Tree (v3 - Plan A Internal FPC/ZIF/T-Anchor)",
             "user_parameters": param_count,
             "components": root.occurrences.count,
             "appearances": list(apps.keys()),
@@ -727,7 +854,8 @@ def run(context):
 
         ui.messageBox(
             f"CatMouse Band V1.5 (Strap-Halo 腕带光环版) 原生参数化工程构建完成！\n\n"
-            f"- 特征树：15 个独立组件（无屏NFC主机 + 300° 发光腕带 + 12×LED FPC + 针扣）\n"
+            f"- 特征树：16 个独立组件（含方案 A 前/后翼内埋 FPC 排线尾带、白色开槽 ZIF 翻盖座、双端 T 型防水锚块与 NFC 下弯弹片）\n"
+            f"- 提示：在左侧浏览器关闭 01_Top_Shell_NFC (眼睛图标)，即可直接透视内部 FPC→ZIF 插接结构！\n"
             f"- 用户参数 (fx)：{param_count} 个\n"
             f"- 外观色板：{len(apps)} 种（按 A 键可拖拽红猫/绿鼠/蓝求救导光环一键换色）\n"
             f"- 实时运动副：{joint_name} (0..0.45 mm)\n"

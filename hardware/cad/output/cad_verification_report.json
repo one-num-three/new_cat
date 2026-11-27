@@ -28,9 +28,9 @@
     "side_wall": 1.8,
     "strap_inner_floor": 1.25
   },
-  "part_count": 15,
+  "part_count": 16,
   "all_brep_valid": true,
-  "total_estimated_mass_g": 32.77,
+  "total_estimated_mass_g": 32.98,
   "mass_target_g": 38.0,
   "mass_pass": true,
   "interference_count": 0,
@@ -75,8 +75,8 @@
       "name": "Bottom_Shell_Pogo",
       "material": "PC+ABS Matte Obsidian",
       "valid_brep": true,
-      "volume_mm3": 2805.03,
-      "mass_g": 3.23,
+      "volume_mm3": 2760.75,
+      "mass_g": 3.17,
       "bbox_mm": {
         "x": [
           -17.0,
@@ -141,8 +141,8 @@
       "name": "NFC_FPC_Coil_Ferrite",
       "material": "Copper FPC + Ferrite",
       "valid_brep": true,
-      "volume_mm3": 191.6,
-      "mass_g": 0.86,
+      "volume_mm3": 194.71,
+      "mass_g": 0.88,
       "bbox_mm": {
         "x": [
           -12.5,
@@ -150,11 +150,11 @@
         ],
         "y": [
           -10.0,
-          14.5
+          15.43
         ],
         "z": [
-          33.75,
-          34.25
+          31.39,
+          34.32
         ]
       },
       "rgba": [
@@ -174,8 +174,8 @@
       "name": "Mainboard_4Layer_PCBA",
       "material": "FR4 + SMD Modules",
       "valid_brep": true,
-      "volume_mm3": 1716.86,
-      "mass_g": 4.12,
+      "volume_mm3": 1686.08,
+      "mass_g": 4.05,
       "bbox_mm": {
         "x": [
           -14.2,
@@ -207,16 +207,16 @@
       "name": "Battery_402025_300mAh",
       "material": "LiPo Pouch Cell",
       "valid_brep": true,
-      "volume_mm3": 1601.61,
-      "mass_g": 4.64,
+      "volume_mm3": 1586.57,
+      "mass_g": 4.6,
       "bbox_mm": {
         "x": [
-          -11.0,
-          11.0
+          -11.8,
+          11.8
         ],
         "y": [
           -9.5,
-          8.8
+          7.4
         ],
         "z": [
           25.3,
@@ -248,8 +248,8 @@
           5.0
         ],
         "y": [
-          9.0,
-          19.0
+          7.8,
+          17.8
         ],
         "z": [
           25.25,
@@ -306,8 +306,8 @@
       "name": "Strap_Front_Silicone",
       "material": "LSR Silicone 60A Charcoal",
       "valid_brep": true,
-      "volume_mm3": 4145.89,
-      "mass_g": 4.73,
+      "volume_mm3": 4233.47,
+      "mass_g": 4.83,
       "bbox_mm": {
         "x": [
           -11.0,
@@ -319,7 +319,7 @@
         ],
         "z": [
           -26.79,
-          29.57
+          30.65
         ]
       },
       "rgba": [
@@ -339,8 +339,8 @@
       "name": "Strap_Rear_Silicone",
       "material": "LSR Silicone 60A Charcoal",
       "valid_brep": true,
-      "volume_mm3": 6249.93,
-      "mass_g": 7.12,
+      "volume_mm3": 6396.12,
+      "mass_g": 7.29,
       "bbox_mm": {
         "x": [
           -11.0,
@@ -352,7 +352,7 @@
         ],
         "z": [
           -31.41,
-          29.57
+          30.65
         ]
       },
       "rgba": [
@@ -438,11 +438,11 @@
       "name": "LED_FPC_12xWS2812B",
       "material": "Polyimide FPC + 12 LEDs",
       "valid_brep": true,
-      "volume_mm3": 112.29,
-      "mass_g": 0.25,
+      "volume_mm3": 125.0,
+      "mass_g": 0.28,
       "bbox_mm": {
         "x": [
-          -2.25,
+          -12.2,
           2.25
         ],
         "y": [
@@ -451,7 +451,7 @@
         ],
         "z": [
           -21.46,
-          27.65
+          31.25
         ]
       },
       "rgba": [
@@ -530,6 +530,39 @@
         0.0,
         14.0,
         -20.0
+      ]
+    },
+    {
+      "id": "16",
+      "name": "ZIF_Connectors_4Pin",
+      "material": "LCP Ivory White + Contacts",
+      "valid_brep": true,
+      "volume_mm3": 40.65,
+      "mass_g": 0.07,
+      "bbox_mm": {
+        "x": [
+          -14.0,
+          3.2
+        ],
+        "y": [
+          -7.4,
+          16.2
+        ],
+        "z": [
+          30.67,
+          32.12
+        ]
+      },
+      "rgba": [
+        0.94,
+        0.92,
+        0.87,
+        1.0
+      ],
+      "explode_vec": [
+        0.0,
+        0.0,
+        11.0
       ]
     }
   ]
