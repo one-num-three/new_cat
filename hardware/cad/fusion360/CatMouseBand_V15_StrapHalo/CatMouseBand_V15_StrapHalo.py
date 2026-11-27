@@ -1,13 +1,10 @@
-"""CatMouse Band V1.5 ("Strap-Halo" 腕带光环版) — 100% 原生参数化 Autodesk Fusion 360 脚本
+"""CatMouse Band V1.5 ("Strap-Halo" 腕带光环版) — 100% 原生参数化 Autodesk Fusion 360 脚本 (v2 稳健版)
 
-在 Fusion 360 中按 Shift+S 打开“脚本和附加模块”，选中 CatMouseBand_V15_StrapHalo 点击“运行”，
-即可自动在当前文档中构建完整 15 件原生参数化特征树（含 User Parameters fx、草图、放样/扫掠腕带光环、
-圆角倒角、红猫/绿鼠/蓝求救 CMF 外观库、按键滑移运动副，并自动导出原生 .f3d 存档）。
-
-结构规范（与已通过 0.000 mm^3 碰撞校验的 STEP 装配体 100% 毫米级同源）：
-- 主机仓：34.0 x 42.0 x 11.8 mm 极简无屏鹅卵石（顶面全留给 13.56MHz NFC 线圈 + 0.2mm 铁氧体，盲触猫爪+NFC波纹凹雕）
-- 发光环：位于液态硅胶腕带双翼中央（7.6 mm 宽乳白雾面导光条 + 4.5 mm 柔性 FPC + 12 颗 WS2812B-2020，300° 环腕发光，0 导线跨表扣）
-- 表扣与充电：底部阳极氧化铝合金针扣 + 硅胶防滑束带环；主机背面 4-pin 镀金磁吸 USB-JTAG/充电触点 + 2×N52 磁铁 + 2×M2 螺柱
+已严格对齐本机 Autodesk Fusion 360 API 实测规范：
+- 全部拉伸使用 DistanceExtentDefinition + 平面法向自检 + participantBodies
+- 全部腕带扫掠使用 3D 样条 + setByPath(ProportionalPathDistanceType, 0.0) + NewBody 扫掠 + Combine(Cut)
+- 圆角使用 edgeSetInputs.addConstantRadiusEdgeSet
+- 外观使用 appearance.properties + ColorProperty（含红猫/绿鼠/蓝求救三套发光导光条材质）
 """
 from __future__ import annotations
 
@@ -25,7 +22,6 @@ OUT_DIR = pathlib.Path(r"C:\Users\Keke_\.gemini\antigravity\scratch\catmouse-ban
 F3D_PATH = OUT_DIR / "CatMouseBand_V15_StrapHalo_Native.f3d"
 REPORT_PATH = OUT_DIR / "fusion_native_report.json"
 
-# ======================== 与 STEP 模型完全同源的主参数 (mm) ========================
 PARAMS_MM = {
     "wrist_ry": (31.0, "mm", "手腕内轮廓 Y 半轴 (宽 62mm)"),
     "wrist_rz": (24.0, "mm", "手腕内轮廓 Z 半轴 (厚 48mm)"),
@@ -66,11 +62,17 @@ def _signed_offset(base_pln: adsk.fusion.ConstructionPlane, coord_mm: float, axi
     return coord_mm if c >= 0.0 else -coord_mm
 
 
+def _dir_positive(pln: adsk.fusion.ConstructionPlane, dx: float, dy: float, dz: float) -> bool:
+    n = pln.geometry.normal
+    return (n.x * dx + n.y * dy + n.z * dz) >= 0.0
+
+
 def offset_plane_xy(comp: adsk.fusion.Component, z_mm: float, name: str) -> adsk.fusion.ConstructionPlane:
     inp = comp.constructionPlanes.createInput()
     inp.setByOffset(comp.xYConstructionPlane, val_mm(_signed_offset(comp.xYConstructionPlane, z_mm, 2)))
     pln = comp.constructionPlanes.add(inp)
     pln.name = name
+    pln.isLightBulbOn = False
     return pln
 
 
@@ -79,14 +81,7 @@ def offset_plane_yz(comp: adsk.fusion.Component, x_mm: float, name: str) -> adsk
     inp.setByOffset(comp.yZConstructionPlane, val_mm(_signed_offset(comp.yZConstructionPlane, x_mm, 0)))
     pln = comp.constructionPlanes.add(inp)
     pln.name = name
-    return pln
-
-
-def plane_at_path_start(comp: adsk.fusion.Component, path_curve: adsk.fusion.SketchCurve, name: str) -> adsk.fusion.ConstructionPlane:
-    inp = comp.constructionPlanes.createInput()
-    inp.setByDistanceOnPath(path_curve, adsk.core.ValueInput.createByReal(0.0))
-    pln = comp.constructionPlanes.add(inp)
-    pln.name = name
+    pln.isLightBulbOn = False
     return pln
 
 
@@ -97,147 +92,240 @@ def draw_rounded_rect_local(
     w_mm: float,
     h_mm: float,
     r_mm: float,
-) -> adsk.fusion.Profile:
-    """在草图局部 2D 坐标系中绘制严格闭合的圆角矩形并返回新建 Profile。"""
-    before = sk.profiles.count
+) -> None:
+    """在草图局部 2D 平面中绘制严格闭合 CCW 圆角矩形（或直角矩形当 r<=0.05）。"""
     hw, hh = w_mm * 0.5, h_mm * 0.5
+    lc = sk.sketchCurves.sketchLines
+    if r_mm <= 0.05:
+        p0 = pt(cx_mm - hw, cy_mm - hh, 0.0)
+        p1 = pt(cx_mm + hw, cy_mm - hh, 0.0)
+        p2 = pt(cx_mm + hw, cy_mm + hh, 0.0)
+        p3 = pt(cx_mm - hw, cy_mm + hh, 0.0)
+        l0 = lc.addByTwoPoints(p0, p1)
+        l1 = lc.addByTwoPoints(l0.endSketchPoint, p2)
+        l2 = lc.addByTwoPoints(l1.endSketchPoint, p3)
+        lc.addByTwoPoints(l2.endSketchPoint, l0.startSketchPoint)
+        return
     r = max(0.06, min(r_mm, hw - 0.04, hh - 0.04))
     ac = sk.sketchCurves.sketchArcs
-    lc = sk.sketchCurves.sketchLines
     specs = [
         (cx_mm + hw - r, cy_mm + hh - r, cx_mm + hw, cy_mm + hh - r),
         (cx_mm - hw + r, cy_mm + hh - r, cx_mm - hw + r, cy_mm + hh),
         (cx_mm - hw + r, cy_mm - hh + r, cx_mm - hw, cy_mm - hh + r),
         (cx_mm + hw - r, cy_mm - hh + r, cx_mm + hw - r, cy_mm - hh),
     ]
-    arcs = []
-    for acx, acy, sx, sy in specs:
-        arcs.append(ac.addByCenterStartSweep(pt(acx, acy, 0.0), pt(sx, sy, 0.0), math.pi * 0.5))
+    arcs = [ac.addByCenterStartSweep(pt(acx, acy, 0.0), pt(sx, sy, 0.0), math.pi * 0.5) for acx, acy, sx, sy in specs]
     for i in range(4):
         lc.addByTwoPoints(arcs[i].endSketchPoint, arcs[(i + 1) % 4].startSketchPoint)
-    return sk.profiles.item(max(0, sk.profiles.count - 1 if sk.profiles.count > before else 0))
 
 
-def draw_rounded_rect_xy(
-    sk: adsk.fusion.Sketch,
+def draw_rounded_rect_xy(sk: adsk.fusion.Sketch, cx_mm: float, cy_mm: float, w_mm: float, h_mm: float, r_mm: float) -> None:
+    """在偏移 XY 平面中按世界 (X, Y) 绘制严格闭合 CCW 圆角矩形（自动处理坐标系手性）。"""
+    c_mid = sk.modelToSketchSpace(pt(cx_mm, cy_mm, 0.0))
+    px = sk.modelToSketchSpace(pt(cx_mm + 1.0, cy_mm, 0.0))
+    py = sk.modelToSketchSpace(pt(cx_mm, cy_mm + 1.0, 0.0))
+    ux, uy = px.x - c_mid.x, px.y - c_mid.y
+    vx, vy = py.x - c_mid.x, py.y - c_mid.y
+    # 检查 2D 草图坐标系相对世界 XY 的方向
+    if abs(ux) >= abs(uy):
+        draw_rounded_rect_local(sk, c_mid.x / MM, c_mid.y / MM, w_mm, h_mm, r_mm)
+    else:
+        draw_rounded_rect_local(sk, c_mid.x / MM, c_mid.y / MM, h_mm, w_mm, r_mm)
+
+
+def draw_circle_xy(sk: adsk.fusion.Sketch, cx_mm: float, cy_mm: float, r_mm: float) -> None:
+    cp = sk.modelToSketchSpace(pt(cx_mm, cy_mm, 0.0))
+    sk.sketchCurves.sketchCircles.addByCenterRadius(adsk.core.Point3D.create(cp.x, cp.y, 0.0), mm(r_mm))
+
+
+def all_profiles(sk: adsk.fusion.Sketch) -> adsk.core.ObjectCollection:
+    col = adsk.core.ObjectCollection.create()
+    for i in range(sk.profiles.count):
+        col.add(sk.profiles.item(i))
+    return col
+
+
+def ring_profile(sk: adsk.fusion.Sketch) -> adsk.fusion.Profile:
+    """从同心双环草图中精确选取环形外轮廓（profileLoops.count == 2）。"""
+    for i in range(sk.profiles.count):
+        p = sk.profiles.item(i)
+        if p.profileLoops.count >= 2:
+            return p
+    return sk.profiles.item(0)
+
+
+def extrude_one_side(
+    comp: adsk.fusion.Component,
+    prof,
+    dist_mm: float,
+    op: adsk.fusion.FeatureOperations,
+    positive: bool = True,
+    target_bodies: list[adsk.fusion.BRepBody] | None = None,
+    name: str = "",
+) -> adsk.fusion.ExtrudeFeature:
+    inp = comp.features.extrudeFeatures.createInput(prof, op)
+    direction = (
+        adsk.fusion.ExtentDirections.PositiveExtentDirection
+        if positive
+        else adsk.fusion.ExtentDirections.NegativeExtentDirection
+    )
+    inp.setOneSideExtent(adsk.fusion.DistanceExtentDefinition.create(val_mm(abs(dist_mm))), direction)
+    if target_bodies is not None and op in (
+        adsk.fusion.FeatureOperations.CutFeatureOperation,
+        adsk.fusion.FeatureOperations.IntersectFeatureOperation,
+    ):
+        inp.participantBodies = target_bodies
+    feat = comp.features.extrudeFeatures.add(inp)
+    if name:
+        feat.name = name
+    return feat
+
+
+def extrude_z_rect(
+    comp: adsk.fusion.Component,
     cx_mm: float,
     cy_mm: float,
     w_mm: float,
     h_mm: float,
     r_mm: float,
-) -> adsk.fusion.Profile:
-    """在任意偏移 XY 平面草图中按世界 X,Y 坐标绘制圆角矩形。"""
-    before = sk.profiles.count
-    hw, hh = w_mm * 0.5, h_mm * 0.5
-    r = max(0.06, min(r_mm, hw - 0.04, hh - 0.04))
-    ac = sk.sketchCurves.sketchArcs
-    lc = sk.sketchCurves.sketchLines
-    specs = [
-        (cx_mm + hw - r, cy_mm + hh - r, cx_mm + hw, cy_mm + hh - r),
-        (cx_mm - hw + r, cy_mm + hh - r, cx_mm - hw + r, cy_mm + hh),
-        (cx_mm - hw + r, cy_mm - hh + r, cx_mm - hw, cy_mm - hh + r),
-        (cx_mm + hw - r, cy_mm - hh + r, cx_mm + hw - r, cy_mm - hh),
-    ]
-    arcs = []
-    for acx, acy, sx, sy in specs:
-        cp = sk.modelToSketchSpace(pt(acx, acy, 0.0))
-        sp = sk.modelToSketchSpace(pt(sx, sy, 0.0))
-        arcs.append(
-            ac.addByCenterStartSweep(
-                adsk.core.Point3D.create(cp.x, cp.y, 0.0),
-                adsk.core.Point3D.create(sp.x, sp.y, 0.0),
-                math.pi * 0.5,
-            )
-        )
-    for i in range(4):
-        lc.addByTwoPoints(arcs[i].endSketchPoint, arcs[(i + 1) % 4].startSketchPoint)
-    return sk.profiles.item(max(0, sk.profiles.count - 1 if sk.profiles.count > before else 0))
-
-
-def draw_circle_xy(sk: adsk.fusion.Sketch, cx_mm: float, cy_mm: float, r_mm: float) -> adsk.fusion.Profile:
-    before = sk.profiles.count
-    cp = sk.modelToSketchSpace(pt(cx_mm, cy_mm, 0.0))
-    sk.sketchCurves.sketchCircles.addByCenterRadius(adsk.core.Point3D.create(cp.x, cp.y, 0.0), mm(r_mm))
-    return sk.profiles.item(max(0, sk.profiles.count - 1 if sk.profiles.count > before else 0))
-
-
-def extrude_profile(
-    comp: adsk.fusion.Component,
-    prof,
-    dist_mm: float,
-    op: adsk.fusion.FeatureOperations = adsk.fusion.FeatureOperations.NewBodyFeatureOperation,
-    symmetric: bool = False,
+    z0_mm: float,
+    z1_mm: float,
+    op: adsk.fusion.FeatureOperations,
+    name: str,
+    target_bodies: list[adsk.fusion.BRepBody] | None = None,
 ) -> adsk.fusion.ExtrudeFeature:
-    feats = comp.features.extrudeFeatures
-    inp = feats.createInput(prof, op)
-    if symmetric:
-        inp.setSymmetricExtent(val_mm(abs(dist_mm) * 0.5), True)
-    else:
-        inp.setDistanceExtent(False, val_mm(dist_mm))
-    return feats.add(inp)
+    pln = offset_plane_xy(comp, min(z0_mm, z1_mm), f"_Pln_{name}")
+    sk = comp.sketches.add(pln)
+    sk.name = f"_Sk_{name}"
+    sk.isLightBulbOn = False
+    draw_rounded_rect_xy(sk, cx_mm, cy_mm, w_mm, h_mm, r_mm)
+    return extrude_one_side(
+        comp,
+        sk.profiles.item(0),
+        abs(z1_mm - z0_mm),
+        op,
+        positive=_dir_positive(pln, 0.0, 0.0, 1.0),
+        target_bodies=target_bodies,
+        name=name,
+    )
+
+
+def extrude_z_cyl(
+    comp: adsk.fusion.Component,
+    cx_mm: float,
+    cy_mm: float,
+    r_mm: float,
+    z0_mm: float,
+    z1_mm: float,
+    op: adsk.fusion.FeatureOperations,
+    name: str,
+    target_bodies: list[adsk.fusion.BRepBody] | None = None,
+) -> adsk.fusion.ExtrudeFeature:
+    pln = offset_plane_xy(comp, min(z0_mm, z1_mm), f"_Pln_{name}")
+    sk = comp.sketches.add(pln)
+    sk.name = f"_Sk_{name}"
+    sk.isLightBulbOn = False
+    draw_circle_xy(sk, cx_mm, cy_mm, r_mm)
+    return extrude_one_side(
+        comp,
+        sk.profiles.item(0),
+        abs(z1_mm - z0_mm),
+        op,
+        positive=_dir_positive(pln, 0.0, 0.0, 1.0),
+        target_bodies=target_bodies,
+        name=name,
+    )
+
+
+def combine_bodies(
+    comp: adsk.fusion.Component,
+    target: adsk.fusion.BRepBody,
+    tools: list[adsk.fusion.BRepBody],
+    op: adsk.fusion.FeatureOperations,
+    name: str,
+) -> adsk.fusion.CombineFeature:
+    col = adsk.core.ObjectCollection.create()
+    for t in tools:
+        col.add(t)
+    inp = comp.features.combineFeatures.createInput(target, col)
+    inp.operation = op
+    inp.isKeepToolBodies = False
+    feat = comp.features.combineFeatures.add(inp)
+    feat.name = name
+    return feat
+
+
+def try_fillet_z_edges(comp: adsk.fusion.Component, body: adsk.fusion.BRepBody, z_mm: float, r_mm: float, name: str):
+    try:
+        col = adsk.core.ObjectCollection.create()
+        for e in body.edges:
+            if abs(e.boundingBox.maxPoint.z - mm(z_mm)) < mm(0.08) and abs(e.boundingBox.minPoint.z - mm(z_mm)) < mm(0.08):
+                col.add(e)
+        if col.count > 0:
+            inp = comp.features.filletFeatures.createInput()
+            inp.edgeSetInputs.addConstantRadiusEdgeSet(col, val_mm(r_mm), True)
+            f = comp.features.filletFeatures.add(inp)
+            f.name = name
+    except Exception:
+        pass
 
 
 def make_custom_appearances(app: adsk.core.Application, design: adsk.fusion.Design) -> dict[str, adsk.core.Appearance]:
-    """创建 CatMouse Band V1.5 专属 CMF 外观库（含红猫 / 绿鼠 / 蓝求救三套发光导光条材质，可一键拖拽换色！）。"""
-    apps: dict[str, adsk.core.Appearance] = {}
-    lib = app.materialLibraries.itemByName("Fusion Appearance Library")
-    if lib is None:
-        for i in range(app.materialLibraries.count):
-            ml = app.materialLibraries.item(i)
-            if "Appearance" in ml.name:
-                lib = ml
+    """创建 CatMouse Band V1.5 CMF 外观色板（使用 Fusion 实测兼容的 appearance.properties + ColorProperty API）。"""
+    palette = {
+        "CM_Obsidian_PC_ABS": (44, 48, 54),
+        "CM_Charcoal_LSR_Silicone": (52, 56, 63),
+        "CM_Button_Silicone": (72, 77, 86),
+        "CM_Glow_Mouse_Green": (22, 245, 130),
+        "CM_Glow_Cat_Red": (250, 42, 62),
+        "CM_Glow_Jailed_Blue": (34, 138, 255),
+        "CM_PCB_Matte_Green": (24, 108, 66),
+        "CM_Copper_NFC_FPC": (214, 138, 58),
+        "CM_Amber_LED_FPC": (236, 166, 36),
+        "CM_Gold_Pogo_Brass": (238, 192, 60),
+        "CM_LiPo_Silver_Foil": (198, 204, 214),
+        "CM_Anodized_SpaceGrey": (76, 82, 92),
+    }
+    base_app = None
+    for lib in app.materialLibraries:
+        for item in lib.appearances:
+            if any(k in item.name.lower() for k in ("plastic - matte", "abs", "matte", "plastic", "paint")):
+                for prop in item.properties:
+                    if prop.objectType == adsk.core.ColorProperty.classType() and not prop.isReadOnly:
+                        base_app = item
+                        break
+            if base_app is not None:
                 break
-    if lib is None:
-        return apps
+        if base_app is not None:
+            break
+    if base_app is None and design.appearances.count > 0:
+        base_app = design.appearances.item(0)
 
-    base_matte = (
-        lib.appearances.itemByName("Plastic - Matte (Black)")
-        or lib.appearances.itemByName("Plastic - Matte (Gray)")
-        or lib.appearances.item(0)
-    )
-    base_metal = (
-        lib.appearances.itemByName("Aluminum - Satin")
-        or lib.appearances.itemByName("Steel - Satin")
-        or base_matte
-    )
-    base_glow = (
-        lib.appearances.itemByName("LED (Green)")
-        or lib.appearances.itemByName("Plastic - Translucent Matte (White)")
-        or base_matte
-    )
-
-    palette = [
-        ("CM_Obsidian_PC_ABS", base_matte, (44, 48, 54)),
-        ("CM_Charcoal_LSR_Silicone", base_matte, (52, 56, 63)),
-        ("CM_Button_Silicone", base_matte, (72, 77, 86)),
-        ("CM_Glow_Mouse_Green", base_glow, (22, 245, 130)),
-        ("CM_Glow_Cat_Red", base_glow, (250, 42, 62)),
-        ("CM_Glow_Jailed_Blue", base_glow, (34, 138, 255)),
-        ("CM_PCB_Matte_Green", base_matte, (24, 108, 66)),
-        ("CM_Copper_NFC_FPC", base_metal, (214, 138, 58)),
-        ("CM_Amber_LED_FPC", base_matte, (236, 166, 36)),
-        ("CM_Gold_Pogo_Brass", base_metal, (238, 192, 60)),
-        ("CM_LiPo_Silver_Foil", base_metal, (198, 204, 214)),
-        ("CM_Anodized_SpaceGrey", base_metal, (76, 82, 92)),
-    ]
-
-    for name, src, (r, g, b) in palette:
+    out: dict[str, adsk.core.Appearance] = {}
+    if base_app is None:
+        return out
+    for name, (r, g, b) in palette.items():
         try:
             existing = design.appearances.itemByName(name)
             if existing is not None:
-                apps[name] = existing
+                out[name] = existing
                 continue
-            dup = design.appearances.addByCopy(src, name)
-            for p_name in ("opaque_albedo", "metal_f0", "surface_albedo", "emissive_color"):
-                prop = dup.appearanceProperties.itemByName(p_name)
-                if prop is not None:
+            new_app = design.appearances.addByCopy(base_app, name)
+            col = adsk.core.Color.create(r, g, b, 255)
+            done = False
+            for prop in new_app.properties:
+                if prop.objectType == adsk.core.ColorProperty.classType() and not prop.isReadOnly:
                     cp = adsk.core.ColorProperty.cast(prop)
-                    if cp is not None:
-                        cp.value = adsk.core.Color.create(r, g, b, 255)
-            apps[name] = dup
+                    pid = (cp.id or "").lower()
+                    if any(k in pid for k in ("albedo", "diffuse", "color", "base")) or not done:
+                        if cp.hasConnectedTexture:
+                            cp.hasConnectedTexture = False
+                        cp.value = col
+                        done = True
+            out[name] = new_app
         except Exception:
             pass
-    return apps
+    return out
 
 
 def assign_appearance(comp: adsk.fusion.Component, apps: dict, key: str):
@@ -251,8 +339,8 @@ def assign_appearance(comp: adsk.fusion.Component, apps: dict, key: str):
             pass
 
 
-def wing_spine_points(sign_y: float, end_theta_deg: float, n_arc: int = 18, with_tuck: bool = False) -> list[tuple[float, float]]:
-    """返回 Y-Z 平面内的腕带平滑中心脊线点集 [(y_mm, z_mm), ...]，从主机端面水平切出零浮空。"""
+def wing_spine_points(sign_y: float, end_theta_deg: float, n_arc: int = 16, with_tuck: bool = False) -> list[tuple[float, float]]:
+    """返回 Y-Z 平面内从主机端面水平切出、无缝衔接手腕椭圆的平滑中心脊线。"""
     ry_mid = 32.70
     rz_mid = 25.70
     shoulder = [
@@ -283,19 +371,7 @@ def wing_spine_points(sign_y: float, end_theta_deg: float, n_arc: int = 18, with
     return pts
 
 
-def add_yz_spline(comp: adsk.fusion.Component, yz_pts: list[tuple[float, float]], name: str) -> tuple[adsk.fusion.Sketch, adsk.fusion.SketchFittedSpline]:
-    """在 YZ 平面创建 3D/2D 拟合样条曲线，用于原生 Sweep 扫掠。"""
-    sk = comp.sketches.add(comp.yZConstructionPlane)
-    sk.name = name
-    col = adsk.core.ObjectCollection.create()
-    for y_mm, z_mm in yz_pts:
-        p3 = sk.modelToSketchSpace(pt(0.0, y_mm, z_mm))
-        col.add(adsk.core.Point3D.create(p3.x, p3.y, 0.0))
-    sp = sk.sketchCurves.sketchFittedSplines.add(col)
-    return sk, sp
-
-
-def sweep_rect_along_yz_spline(
+def sweep_band_new_body(
     comp: adsk.fusion.Component,
     yz_pts: list[tuple[float, float]],
     width_x: float,
@@ -303,44 +379,50 @@ def sweep_rect_along_yz_spline(
     r_outer: float,
     corner_r: float,
     tag: str,
-    op: adsk.fusion.FeatureOperations = adsk.fusion.FeatureOperations.NewBodyFeatureOperation,
-):
-    """沿 YZ 平面样条在起点创建法向草图并执行原生 Fusion Sweep。"""
-    sk_p, sp = add_yz_spline(comp, yz_pts, f"Path_{tag}")
-    pln0 = plane_at_path_start(comp, sp, f"Pln_{tag}")
-    sk_s = comp.sketches.add(pln0)
-    sk_s.name = f"Sec_{tag}"
+) -> adsk.fusion.BRepBody:
+    """使用实测稳健的 3D 样条 + setByPath(ProportionalPathDistanceType, 0.0) 扫掠实体。"""
+    sk_p = comp.sketches.add(comp.xYConstructionPlane)
+    sk_p.name = f"_Path_{tag}"
+    sk_p.isLightBulbOn = False
+    pcol = adsk.core.ObjectCollection.create()
+    for y_mm, z_mm in yz_pts:
+        pcol.add(pt(0.0, y_mm, z_mm))
+    sp = sk_p.sketchCurves.sketchFittedSplines.add(pcol)
+    path = comp.features.createPath(sp, False)
 
-    # 计算在 pln0 局部坐标中哪一侧指向椭圆外侧（+Z 在起端 y=±21.2, z=27.8）
+    cp_inp = comp.constructionPlanes.createInput()
+    cp_inp.setByPath(path, adsk.fusion.PathDistanceTypes.ProportionalPathDistanceType, adsk.core.ValueInput.createByReal(0.0))
+    pln0 = comp.constructionPlanes.add(cp_inp)
+    pln0.name = f"_Pln_{tag}"
+    pln0.isLightBulbOn = False
+
+    sk_s = comp.sketches.add(pln0)
+    sk_s.name = f"_Sec_{tag}"
+    sk_s.isLightBulbOn = False
+
     y0, z0 = yz_pts[0]
     p_orig = sk_s.modelToSketchSpace(pt(0.0, y0, z0))
     p_out = sk_s.modelToSketchSpace(pt(0.0, y0, z0 + 1.0))
     p_x = sk_s.modelToSketchSpace(pt(1.0, y0, z0))
 
-    # 判断草图局部坐标轴映射 (dx_world_x vs dy_world_out)
     vx_x, vx_y = p_x.x - p_orig.x, p_x.y - p_orig.y
     vo_x, vo_y = p_out.x - p_orig.x, p_out.y - p_orig.y
     thick = abs(r_outer - r_inner)
     rc = 0.5 * (r_inner + r_outer)
 
     if abs(vx_x) >= abs(vx_y):
-        # X 沿草图局部 X，外法向沿草图局部 Y
         sgn = 1.0 if vo_y >= 0.0 else -1.0
-        prof = draw_rounded_rect_local(sk_s, p_orig.x / MM, p_orig.y / MM + sgn * rc, width_x, thick, corner_r)
+        draw_rounded_rect_local(sk_s, p_orig.x / MM, p_orig.y / MM + sgn * rc, width_x, thick, corner_r)
     else:
-        # X 沿草图局部 Y，外法向沿草图局部 X
         sgn = 1.0 if vo_x >= 0.0 else -1.0
-        prof = draw_rounded_rect_local(sk_s, p_orig.x / MM + sgn * rc, p_orig.y / MM, thick, width_x, corner_r)
+        draw_rounded_rect_local(sk_s, p_orig.x / MM + sgn * rc, p_orig.y / MM, thick, width_x, corner_r)
 
-    path = comp.features.createPath(sp)
-    sw_feats = comp.features.sweepFeatures
-    sw_inp = sw_feats.createInput(prof, path, op)
-    sw_inp.orientation = adsk.fusion.SweepOrientationTypes.PerpendicularOrientationType
-    sw = sw_feats.add(sw_inp)
-    sk_p.isLightBulbOn = False
-    sk_s.isLightBulbOn = False
-    pln0.isLightBulbOn = False
-    return sw
+    sw_inp = comp.features.sweepFeatures.createInput(
+        sk_s.profiles.item(0), path, adsk.fusion.FeatureOperations.NewBodyFeatureOperation
+    )
+    sw_feat = comp.features.sweepFeatures.add(sw_inp)
+    sw_feat.name = f"Sweep_{tag}"
+    return sw_feat.bodies.item(0)
 
 
 def new_subcomp(root: adsk.fusion.Component, name: str) -> tuple[adsk.fusion.Occurrence, adsk.fusion.Component]:
@@ -352,250 +434,246 @@ def new_subcomp(root: adsk.fusion.Component, name: str) -> tuple[adsk.fusion.Occ
 
 def run(context):
     ui = None
+    step = "init"
     try:
         app = adsk.core.Application.get()
         ui = app.userInterface
-        doc = app.documents.add(adsk.core.DocumentTypes.FusionDesignDocumentType)
+        app.documents.add(adsk.core.DocumentTypes.FusionDesignDocumentType)
         design = adsk.fusion.Design.cast(app.activeProduct)
         design.designType = adsk.fusion.DesignTypes.ParametricDesignType
         root = design.rootComponent
         root.name = "CatMouseBand_V15_StrapHalo"
 
-        # 1. 注册 18 个原生参数表 (fx User Parameters)
+        # 1. 注册 18 个原生参数 (fx)
+        step = "user_parameters"
         param_count = 0
         for pname, (pval, unit, comment) in PARAMS_MM.items():
-            try:
-                design.userParameters.add(pname, adsk.core.ValueInput.createByReal(pval * MM), unit, comment)
+            if design.userParameters.itemByName(pname) is None:
+                design.userParameters.add(pname, val_mm(pval), unit, comment)
                 param_count += 1
-            except Exception:
-                pass
 
+        step = "appearances"
         apps = make_custom_appearances(app, design)
         occs: dict[str, adsk.fusion.Occurrence] = {}
 
         # ---------------- 01_Top_Shell_NFC ----------------
+        step = "01_Top_Shell_NFC"
         occ_top, c_top = new_subcomp(root, "01_Top_Shell_NFC")
         occs["top"] = occ_top
-        p_split = offset_plane_xy(c_top, 30.80, "Pln_Split")
-        sk1 = c_top.sketches.add(p_split)
-        prof1 = draw_rounded_rect_xy(sk1, 0.0, 0.0, 34.0, 42.0, 9.5)
-        ext1 = extrude_profile(c_top, prof1, 4.80)
-        # 顶面鹅卵石大圆角
-        try:
-            ec = adsk.core.ObjectCollection.create()
-            for e in ext1.bodies.item(0).edges:
-                if abs(e.boundingBox.maxPoint.z - mm(35.60)) < mm(0.08) and abs(e.boundingBox.minPoint.z - mm(35.60)) < mm(0.08):
-                    ec.add(e)
-            if ec.count > 0:
-                fi = c_top.features.filletFeatures.createInput()
-                fi.addConstantRadiusEdgeSet(ec, val_mm(2.60), True)
-                c_top.features.filletFeatures.add(fi)
-        except Exception:
-            pass
-        # 内部掏空 (壁厚侧 1.8mm / 顶 NFC 窗 1.2mm)
-        sk1c = c_top.sketches.add(p_split)
-        prof1c = draw_rounded_rect_xy(sk1c, 0.0, 0.0, 30.4, 38.4, 7.7)
-        extrude_profile(c_top, prof1c, 3.60, adsk.fusion.FeatureOperations.CutFeatureOperation)
+        f_top = extrude_z_rect(c_top, 0.0, 0.0, 34.0, 42.0, 9.5, 30.80, 35.60, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Top_Body")
+        b_top = f_top.bodies.item(0)
+        try_fillet_z_edges(c_top, b_top, 35.60, 2.60, "Fillet_Top_Pebble")
+        # 挖空内部腔体 (侧壁 1.8mm，顶 NFC 窗 1.20mm)
+        extrude_z_rect(c_top, 0.0, 0.0, 30.4, 38.4, 7.7, 30.75, 34.40, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Top_Cavity", [b_top])
         # 顶面盲触 NFC 波纹 + 猫爪凹雕 (0.35mm)
-        p_top = offset_plane_xy(c_top, 35.60, "Pln_Top_Emblem")
+        p_top = offset_plane_xy(c_top, 35.60, "_Pln_Emblem")
         sk_emb = c_top.sketches.add(p_top)
-        emb_profs = adsk.core.ObjectCollection.create()
+        sk_emb.isLightBulbOn = False
         for w_bar, dy in [(8.8, -2.0), (6.4, -1.0), (4.0, 0.0)]:
-            emb_profs.add(draw_rounded_rect_xy(sk_emb, 0.0, dy, w_bar, 0.72, 0.32))
+            draw_rounded_rect_xy(sk_emb, 0.0, dy, w_bar, 0.72, 0.30)
         for px, py in [(-3.8, 3.2), (-1.3, 4.3), (1.3, 4.3), (3.8, 3.2)]:
-            emb_profs.add(draw_circle_xy(sk_emb, px, py, 0.95))
-        extrude_profile(c_top, emb_profs, -0.35, adsk.fusion.FeatureOperations.CutFeatureOperation)
+            draw_circle_xy(sk_emb, px, py, 0.95)
+        extrude_one_side(c_top, all_profiles(sk_emb), 0.35, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_top, 0.0, 0.0, -1.0), target_bodies=[b_top], name="Cut_NFC_Emblem")
         # 右侧按键开口(上) + 3 声学槽（正对蜂鸣器 Y=-5.2）
-        sk_rc = c_top.sketches.add(p_split)
-        rc_profs = adsk.core.ObjectCollection.create()
-        rc_profs.add(draw_rounded_rect_xy(sk_rc, 16.2, 1.5, 3.4, 10.0, 0.4))
+        p_sp = offset_plane_xy(c_top, 30.80, "_Pln_Top_SideCuts")
+        sk_rc = c_top.sketches.add(p_sp)
+        sk_rc.isLightBulbOn = False
+        draw_rounded_rect_xy(sk_rc, 16.2, 1.5, 3.4, 10.0, 0.35)
         for sy in (-6.7, -5.2, -3.7):
-            rc_profs.add(draw_rounded_rect_xy(sk_rc, 16.2, sy, 3.2, 0.65, 0.25))
-        extrude_profile(c_top, rc_profs, 2.05, adsk.fusion.FeatureOperations.CutFeatureOperation)
+            draw_rounded_rect_xy(sk_rc, 16.2, sy, 3.2, 0.65, 0.20)
+        extrude_one_side(c_top, all_profiles(sk_rc), 2.05, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_sp, 0.0, 0.0, 1.0), target_bodies=[b_top], name="Cut_Top_Btn_Acoustic")
         assign_appearance(c_top, apps, "CM_Obsidian_PC_ABS")
 
         # ---------------- 02_Bottom_Shell_Pogo ----------------
+        step = "02_Bottom_Shell_Pogo"
         occ_bot, c_bot = new_subcomp(root, "02_Bottom_Shell_Pogo")
         occs["bot"] = occ_bot
-        p_bot = offset_plane_xy(c_bot, 23.80, "Pln_Pod_Bot")
-        sk2 = c_bot.sketches.add(p_bot)
-        ext2 = extrude_profile(c_bot, draw_rounded_rect_xy(sk2, 0.0, 0.0, 34.0, 42.0, 9.5), 7.00)
-        try:
-            ec = adsk.core.ObjectCollection.create()
-            for e in ext2.bodies.item(0).edges:
-                if abs(e.boundingBox.maxPoint.z - mm(23.80)) < mm(0.08) and abs(e.boundingBox.minPoint.z - mm(23.80)) < mm(0.08):
-                    ec.add(e)
-            if ec.count > 0:
-                fi = c_bot.features.filletFeatures.createInput()
-                fi.addConstantRadiusEdgeSet(ec, val_mm(2.40), True)
-                c_bot.features.filletFeatures.add(fi)
-        except Exception:
-            pass
-        p_flr = offset_plane_xy(c_bot, 25.10, "Pln_Inner_Floor")
-        sk2c = c_bot.sketches.add(p_flr)
-        extrude_profile(c_bot, draw_rounded_rect_xy(sk2c, 0.0, 0.0, 30.4, 38.4, 7.7), 5.75, adsk.fusion.FeatureOperations.CutFeatureOperation)
-        # 右侧按键开口(下) + 前翼正中 FPC 过线口 + 后翼西侧偏置过线口（绕开 -Y BLE 天线净空区）
-        p_bs = offset_plane_xy(c_bot, 30.80, "Pln_Bot_Split")
-        sk2s = c_bot.sketches.add(p_bs)
-        bs_profs = adsk.core.ObjectCollection.create()
-        bs_profs.add(draw_rounded_rect_xy(sk2s, 16.2, 1.5, 3.4, 10.0, 0.4))
-        bs_profs.add(draw_rounded_rect_xy(sk2s, 0.0, 20.0, 5.6, 3.2, 0.3))
-        bs_profs.add(draw_rounded_rect_xy(sk2s, -9.8, -20.0, 5.2, 3.2, 0.3))
-        extrude_profile(c_bot, bs_profs, -1.95, adsk.fusion.FeatureOperations.CutFeatureOperation)
-        # 背面 +Y 侧 4-pin 磁吸沉孔 (Y=+14.8) + 2×M2 沉头孔 (X=±12.6, Y=+11.0)，彻底远离 -Y BLE 天线！
-        sk2h = c_bot.sketches.add(p_bot)
-        pogo_profs = adsk.core.ObjectCollection.create()
+        f_bot = extrude_z_rect(c_bot, 0.0, 0.0, 34.0, 42.0, 9.5, 23.80, 30.80, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Bot_Body")
+        b_bot = f_bot.bodies.item(0)
+        try_fillet_z_edges(c_bot, b_bot, 23.80, 2.40, "Fillet_Bot_Pebble")
+        extrude_z_rect(c_bot, 0.0, 0.0, 30.4, 38.4, 7.7, 25.10, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Bot_Cavity", [b_bot])
+        # 右侧按键开口(下) + 前/后腕带 FPC 过线口（后翼西侧偏置绕开 BLE 天线！）
+        p_bs = offset_plane_xy(c_bot, 30.80, "_Pln_Bot_Slots")
+        sk_bs = c_bot.sketches.add(p_bs)
+        sk_bs.isLightBulbOn = False
+        draw_rounded_rect_xy(sk_bs, 16.2, 1.5, 3.4, 10.0, 0.35)
+        draw_rounded_rect_xy(sk_bs, 0.0, 20.0, 5.6, 3.2, 0.25)
+        draw_rounded_rect_xy(sk_bs, -9.8, -20.0, 5.2, 3.2, 0.25)
+        extrude_one_side(c_bot, all_profiles(sk_bs), 1.95, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_bs, 0.0, 0.0, -1.0), target_bodies=[b_bot], name="Cut_Bot_Btn_FPC")
+        # 背面 +Y 侧 4-pin 磁吸沉孔 (Y=+14.8) + 2×M2 沉头孔 (X=±12.6, Y=+11.0)
+        p_bh = offset_plane_xy(c_bot, 23.80, "_Pln_Bot_Holes")
+        sk_bh = c_bot.sketches.add(p_bh)
+        sk_bh.isLightBulbOn = False
         for px in (-3.81, -1.27, 1.27, 3.81):
-            pogo_profs.add(draw_circle_xy(sk2h, px, 14.8, 0.99))
+            draw_circle_xy(sk_bh, px, 14.8, 0.99)
         for sx in (-12.6, 12.6):
-            pogo_profs.add(draw_circle_xy(sk2h, sx, 11.0, 2.05))
-        extrude_profile(c_bot, pogo_profs, 0.90, adsk.fusion.FeatureOperations.CutFeatureOperation)
+            draw_circle_xy(sk_bh, sx, 11.0, 2.05)
+        extrude_one_side(c_bot, all_profiles(sk_bh), 0.90, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_bh, 0.0, 0.0, 1.0), target_bodies=[b_bot], name="Cut_Bot_Pogo_M2")
         assign_appearance(c_bot, apps, "CM_Obsidian_PC_ABS")
 
         # ---------------- 03_Side_Button_Silicone ----------------
+        step = "03_Side_Button_Silicone"
         occ_btn, c_btn = new_subcomp(root, "03_Side_Button_Silicone")
         occs["btn"] = occ_btn
-        p_bx = offset_plane_yz(c_btn, 15.40, "Pln_Btn_Base")
+        p_bx = offset_plane_yz(c_btn, 15.40, "_Pln_Btn_Cap")
         sk_b = c_btn.sketches.add(p_bx)
-        p_c = sk_b.modelToSketchSpace(pt(15.40, 1.5, 30.80))
-        extrude_profile(c_btn, draw_rounded_rect_local(sk_b, p_c.x / MM, p_c.y / MM, 9.6, 3.6, 1.6), 2.15)
-        p_bf = offset_plane_yz(c_btn, 14.70, "Pln_Btn_Flange")
+        sk_b.isLightBulbOn = False
+        pc = sk_b.modelToSketchSpace(pt(15.40, 1.5, 30.80))
+        py_dir = sk_b.modelToSketchSpace(pt(15.40, 2.5, 30.80))
+        if abs(py_dir.x - pc.x) >= abs(py_dir.y - pc.y):
+            draw_rounded_rect_local(sk_b, pc.x / MM, pc.y / MM, 9.6, 3.6, 1.6)
+        else:
+            draw_rounded_rect_local(sk_b, pc.x / MM, pc.y / MM, 3.6, 9.6, 1.6)
+        f_btn = extrude_one_side(c_btn, sk_b.profiles.item(0), 2.15, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_bx, 1.0, 0.0, 0.0), name="Btn_Cap")
+        # 内部防水裙边 (14.70 -> 15.50，与外部按键帽重叠 0.10mm 确保 Join 100% 成功!)
+        p_bf = offset_plane_yz(c_btn, 14.70, "_Pln_Btn_Flange")
         sk_bf = c_btn.sketches.add(p_bf)
-        p_cf = sk_bf.modelToSketchSpace(pt(14.70, 1.5, 30.80))
-        extrude_profile(c_btn, draw_rounded_rect_local(sk_bf, p_cf.x / MM, p_cf.y / MM, 11.4, 4.8, 1.8), 0.42, adsk.fusion.FeatureOperations.JoinFeatureOperation)
+        sk_bf.isLightBulbOn = False
+        pcf = sk_bf.modelToSketchSpace(pt(14.70, 1.5, 30.80))
+        pyf = sk_bf.modelToSketchSpace(pt(14.70, 2.5, 30.80))
+        if abs(pyf.x - pcf.x) >= abs(pyf.y - pcf.y):
+            draw_rounded_rect_local(sk_bf, pcf.x / MM, pcf.y / MM, 11.4, 4.8, 1.8)
+        else:
+            draw_rounded_rect_local(sk_bf, pcf.x / MM, pcf.y / MM, 4.8, 11.4, 1.8)
+        extrude_one_side(c_btn, sk_bf.profiles.item(0), 0.80, adsk.fusion.FeatureOperations.JoinFeatureOperation, positive=_dir_positive(p_bf, 1.0, 0.0, 0.0), name="Btn_Flange")
         assign_appearance(c_btn, apps, "CM_Button_Silicone")
 
-        # ---------------- 04_NFC_FPC_Coil_Ferrite (居中 Y=+2.25，严格退离 -Y BLE 天线净空区 >=1.5mm!) ----------------
+        # ---------------- 04_NFC_FPC_Coil_Ferrite (居中 Y=+2.25，严格退离 -Y BLE 天线 >=1.5mm!) ----------------
+        step = "04_NFC_FPC_Coil_Ferrite"
         occ_nfc, c_nfc = new_subcomp(root, "04_NFC_FPC_Coil_Ferrite")
         occs["nfc"] = occ_nfc
-        p_fer = offset_plane_xy(c_nfc, 33.75, "Pln_Ferrite")
-        sk_f = c_nfc.sketches.add(p_fer)
-        extrude_profile(c_nfc, draw_rounded_rect_xy(sk_f, 0.0, 2.25, 25.0, 24.5, 5.0), 0.20)
-        p_cl = offset_plane_xy(c_nfc, 34.00, "Pln_NFC_Coil")
+        extrude_z_rect(c_nfc, 0.0, 2.25, 25.0, 24.5, 5.0, 33.75, 33.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "NFC_Ferrite")
+        p_cl = offset_plane_xy(c_nfc, 34.00, "_Pln_NFC_Coil")
         sk_c = c_nfc.sketches.add(p_cl)
+        sk_c.isLightBulbOn = False
         draw_rounded_rect_xy(sk_c, 0.0, 2.25, 24.6, 24.1, 4.8)
         draw_rounded_rect_xy(sk_c, 0.0, 2.25, 17.2, 16.7, 3.0)
-        ring_p = sk_c.profiles.item(0)
-        extrude_profile(c_nfc, ring_p, 0.25)
+        extrude_one_side(c_nfc, ring_profile(sk_c), 0.25, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_cl, 0.0, 0.0, 1.0), name="NFC_Copper_Coil")
         assign_appearance(c_nfc, apps, "CM_Copper_NFC_FPC")
 
         # ---------------- 05_Mainboard_4Layer_PCBA (单面 L1 贴片 · RF 净空与分区布局) ----------------
+        step = "05_Mainboard_4Layer_PCBA"
         occ_pcb, c_pcb = new_subcomp(root, "05_Mainboard_4Layer_PCBA")
         occs["pcb"] = occ_pcb
-        p_pcb = offset_plane_xy(c_pcb, 29.65, "Pln_PCB")
-        sk_p = c_pcb.sketches.add(p_pcb)
-        extrude_profile(c_pcb, draw_rounded_rect_xy(sk_p, 0.0, 0.0, 28.4, 35.4, 6.2), 1.00)
-        p_smd = offset_plane_xy(c_pcb, 30.65, "Pln_SMD")
-        for cx, cy, w, l, h in [
-            (-2.2, -9.2, 13.2, 16.6, 2.30),  # ESP32-C3-MINI-1 (天线端探至 -Y 净空区)
-            (-6.8, 6.2, 6.0, 6.0, 0.85),     # PN5321A3HN
-            (-11.8, 6.2, 2.5, 3.2, 0.80),    # 27.12MHz 晶振 Y1
-            (0.5, 4.2, 2.0, 2.0, 0.90),      # LIS2DH12TR IMU
-            (9.5, -5.2, 9.0, 9.0, 1.75),     # PKMCS0909E 蜂鸣器 (正对右侧声学孔)
-            (5.2, 5.2, 2.9, 2.8, 1.10),      # PMIC MCP73831
-            (8.6, 5.2, 2.9, 2.8, 1.10),      # AP2112K-3.3 LDO
-            (5.2, 9.0, 2.9, 2.8, 1.10),      # Q1 AO3401A LED PMOS
-            (8.6, 9.0, 2.9, 2.8, 1.10),      # Q2/Q3 马达/蜂鸣器驱动
-            (12.5, 1.5, 2.6, 4.2, 1.60),     # SW1 右侧微动开关
-            (0.0, 15.0, 5.4, 3.0, 0.95),     # J_LED_F 前翼 4P FPC 座
-            (-11.2, -5.8, 3.0, 5.4, 0.95),   # J_LED_R 后翼 4P FPC 座 (西侧绕行避让 BLE)
-        ]:
-            sk_m = c_pcb.sketches.add(p_smd)
-            extrude_profile(c_pcb, draw_rounded_rect_xy(sk_m, cx, cy, w, l, 0.25), h)
+        f_pcb = extrude_z_rect(c_pcb, 0.0, 0.0, 28.4, 35.4, 6.2, 29.65, 30.65, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FR4_4L_Board")
+        b_pcb = f_pcb.bodies.item(0)
+        for sx in (-12.6, 12.6):
+            extrude_z_cyl(c_pcb, sx, 11.0, 2.1, 29.55, 30.75, adsk.fusion.FeatureOperations.CutFeatureOperation, f"PCB_M2_Notch_{int(sx)}", [b_pcb])
+        for idx_m, (mname, cx, cy, w, l, h) in enumerate([
+            ("ESP32_C3_MINI", -2.2, -9.2, 13.2, 16.6, 2.30),
+            ("PN532_QFN40", -6.8, 6.2, 6.0, 6.0, 0.85),
+            ("Y1_27M12", -11.8, 6.2, 2.5, 3.2, 0.80),
+            ("LIS2DH12_IMU", 0.5, 4.2, 2.0, 2.0, 0.90),
+            ("PKMCS0909E_Buzzer", 9.5, -5.2, 9.0, 9.0, 1.75),
+            ("PMIC_MCP73831", 5.2, 5.2, 2.9, 2.8, 1.10),
+            ("LDO_AP2112K", 8.6, 5.2, 2.9, 2.8, 1.10),
+            ("Q1_LED_PMOS", 5.2, 9.0, 2.9, 2.8, 1.10),
+            ("Q2Q3_Drivers", 8.6, 9.0, 2.9, 2.8, 1.10),
+            ("SW1_Tactile", 12.5, 1.5, 2.6, 4.2, 1.60),
+            ("J_LED_F_ZIF", 0.0, 15.0, 5.4, 3.0, 0.95),
+            ("J_LED_R_ZIF", -11.2, -5.8, 3.0, 5.4, 0.95),
+        ]):
+            extrude_z_rect(c_pcb, cx, cy, w, l, 0.20, 30.65, 30.65 + h, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, mname)
         assign_appearance(c_pcb, apps, "CM_PCB_Matte_Green")
 
-        # ---------------- 06_Battery_402025_300mAh (Y ∈ [-9.5, +8.8]，远离 BLE 净空区) ----------------
+        # ---------------- 06_Battery_402025_300mAh ----------------
+        step = "06_Battery_402025_300mAh"
         occ_bat, c_bat = new_subcomp(root, "06_Battery_402025_300mAh")
         occs["bat"] = occ_bat
-        p_bat = offset_plane_xy(c_bat, 25.30, "Pln_Bat")
-        sk_bat = c_bat.sketches.add(p_bat)
-        extrude_profile(c_bat, draw_rounded_rect_xy(sk_bat, 0.0, -0.35, 22.0, 18.3, 1.6), 4.00)
+        extrude_z_rect(c_bat, 0.0, -0.35, 22.0, 18.3, 1.6, 25.30, 29.30, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Battery_LiPo")
         assign_appearance(c_bat, apps, "CM_LiPo_Silver_Foil")
 
-        # ---------------- 07_Vibration_Motor_1027 (Y=+14.0 贴肤底壁) ----------------
+        # ---------------- 07_Vibration_Motor_1027 ----------------
+        step = "07_Vibration_Motor_1027"
         occ_mot, c_mot = new_subcomp(root, "07_Vibration_Motor_1027")
         occs["mot"] = occ_mot
-        p_mot = offset_plane_xy(c_mot, 25.25, "Pln_Motor")
-        sk_mot = c_mot.sketches.add(p_mot)
-        extrude_profile(c_mot, draw_circle_xy(sk_mot, 0.0, 14.0, 5.0), 2.70)
+        extrude_z_cyl(c_mot, 0.0, 14.0, 5.0, 25.25, 27.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Motor_1027")
         assign_appearance(c_mot, apps, "CM_LiPo_Silver_Foil")
 
-        # ---------------- 08_Pogo_Magnets_Screws (全部位于 +Y 侧，远离 -Y BLE 天线!) ----------------
+        # ---------------- 08_Pogo_Magnets_Screws ----------------
+        step = "08_Pogo_Magnets_Screws"
         occ_hw, c_hw = new_subcomp(root, "08_Pogo_Magnets_Screws")
         occs["hw"] = occ_hw
-        p_pg = offset_plane_xy(c_hw, 23.85, "Pln_Pogo")
-        sk_pg = c_hw.sketches.add(p_pg)
-        pg_profs = adsk.core.ObjectCollection.create()
-        for px in (-3.81, -1.27, 1.27, 3.81):
-            pg_profs.add(draw_circle_xy(sk_pg, px, 14.8, 0.90))
-        extrude_profile(c_hw, pg_profs, 0.80)
-        p_mg = offset_plane_xy(c_hw, 24.10, "Pln_Mag")
-        sk_mg = c_hw.sketches.add(p_mg)
-        mg_profs = adsk.core.ObjectCollection.create()
-        for mx in (-8.5, 8.5):
-            mg_profs.add(draw_circle_xy(sk_mg, mx, 14.8, 2.00))
-        extrude_profile(c_hw, mg_profs, 0.90)
+        for i, px in enumerate((-3.81, -1.27, 1.27, 3.81)):
+            extrude_z_cyl(c_hw, px, 14.8, 0.90, 23.85, 24.65, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"Pogo_{i+1}")
+        for i, mx in enumerate((-8.5, 8.5)):
+            extrude_z_cyl(c_hw, mx, 14.8, 2.00, 24.10, 25.00, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"N52_Mag_{i+1}")
+        for i, sx in enumerate((-12.6, 12.6)):
+            extrude_z_cyl(c_hw, sx, 11.0, 1.85, 23.95, 24.50, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"M2_Head_{i+1}")
+            extrude_z_cyl(c_hw, sx, 11.0, 0.95, 24.50, 28.90, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"M2_Shaft_{i+1}")
         assign_appearance(c_hw, apps, "CM_Gold_Pogo_Brass")
 
-        # ---------------- 09_Strap_Front_Silicone (无缝衔接主机 +Y 端 + 光学导光槽) ----------------
+        # ---------------- 09_Strap_Front_Silicone ----------------
+        step = "09_Strap_Front_Silicone"
         occ_sf, c_sf = new_subcomp(root, "09_Strap_Front_Silicone")
         occs["strap_f"] = occ_sf
-        pts_sf = wing_spine_points(+1.0, -77.5, n_arc=18, with_tuck=False)
-        sweep_rect_along_yz_spline(c_sf, pts_sf, 22.0, -1.70, 1.70, 1.30, "StrapF")
-        pts_cf = wing_spine_points(+1.0, -58.0, n_arc=14, with_tuck=False)[1:]
-        sweep_rect_along_yz_spline(c_sf, pts_cf, 8.0, -0.45, 2.80, 0.30, "ChanF", adsk.fusion.FeatureOperations.CutFeatureOperation)
+        pts_sf = wing_spine_points(+1.0, -77.5, n_arc=16, with_tuck=False)
+        b_sf = sweep_band_new_body(c_sf, pts_sf, 22.0, -1.70, 1.70, 1.25, "StrapF")
+        pts_cf = wing_spine_points(+1.0, -58.0, n_arc=13, with_tuck=False)[1:]
+        b_cf_tool = sweep_band_new_body(c_sf, pts_cf, 8.0, -0.45, 2.50, 0.0, "ChanF_Tool")
+        combine_bodies(c_sf, b_sf, [b_cf_tool], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanF")
         assign_appearance(c_sf, apps, "CM_Charcoal_LSR_Silicone")
 
-        # ---------------- 10_Strap_Rear_Silicone (无缝衔接主机 -Y 端 + 光学槽 + 外偏穿扣舌带) ----------------
+        # ---------------- 10_Strap_Rear_Silicone ----------------
+        step = "10_Strap_Rear_Silicone"
         occ_sr, c_sr = new_subcomp(root, "10_Strap_Rear_Silicone")
         occs["strap_r"] = occ_sr
-        pts_sr = wing_spine_points(-1.0, -127.0, n_arc=26, with_tuck=True)
-        sweep_rect_along_yz_spline(c_sr, pts_sr, 22.0, -1.70, 1.70, 1.30, "StrapR")
-        pts_cr = wing_spine_points(-1.0, -58.0, n_arc=14, with_tuck=False)[1:]
-        sweep_rect_along_yz_spline(c_sr, pts_cr, 8.0, -0.45, 2.80, 0.30, "ChanR", adsk.fusion.FeatureOperations.CutFeatureOperation)
+        pts_sr = wing_spine_points(-1.0, -127.0, n_arc=22, with_tuck=True)
+        b_sr = sweep_band_new_body(c_sr, pts_sr, 22.0, -1.70, 1.70, 1.25, "StrapR")
+        pts_cr = wing_spine_points(-1.0, -58.0, n_arc=13, with_tuck=False)[1:]
+        b_cr_tool = sweep_band_new_body(c_sr, pts_cr, 8.0, -0.45, 2.50, 0.0, "ChanR_Tool")
+        combine_bodies(c_sr, b_sr, [b_cr_tool], adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_ChanR")
         assign_appearance(c_sr, apps, "CM_Charcoal_LSR_Silicone")
 
         # ---------------- 11 & 12: 前/后双翼乳白雾面导光条 (300° 腕带发光光环!) ----------------
+        step = "11_LightGuide_Front"
         occ_lgf, c_lgf = new_subcomp(root, "11_LightGuide_Front_Diffuser")
         occs["lg_f"] = occ_lgf
-        pts_lgf = wing_spine_points(+1.0, -57.2, n_arc=14, with_tuck=False)[1:]
-        sweep_rect_along_yz_spline(c_lgf, pts_lgf, 7.6, 0.70, 2.05, 0.55, "LGF")
+        pts_lgf = wing_spine_points(+1.0, -57.2, n_arc=13, with_tuck=False)[1:]
+        sweep_band_new_body(c_lgf, pts_lgf, 7.6, 0.70, 2.05, 0.50, "LGF")
         assign_appearance(c_lgf, apps, "CM_Glow_Mouse_Green")
 
+        step = "12_LightGuide_Rear"
         occ_lgr, c_lgr = new_subcomp(root, "12_LightGuide_Rear_Diffuser")
         occs["lg_r"] = occ_lgr
-        pts_lgr = wing_spine_points(-1.0, -57.2, n_arc=14, with_tuck=False)[1:]
-        sweep_rect_along_yz_spline(c_lgr, pts_lgr, 7.6, 0.70, 2.05, 0.55, "LGR")
+        pts_lgr = wing_spine_points(-1.0, -57.2, n_arc=13, with_tuck=False)[1:]
+        sweep_band_new_body(c_lgr, pts_lgr, 7.6, 0.70, 2.05, 0.50, "LGR")
         assign_appearance(c_lgr, apps, "CM_Glow_Mouse_Green")
 
-        # ---------------- 13_LED_FPC_12xWS2812B (双翼柔性聚酰亚胺灯带) ----------------
+        # ---------------- 13_LED_FPC_12xWS2812B ----------------
+        step = "13_LED_FPC_12xWS2812B"
         occ_fpc, c_fpc = new_subcomp(root, "13_LED_FPC_12xWS2812B")
         occs["fpc"] = occ_fpc
-        sweep_rect_along_yz_spline(c_fpc, pts_lgf, 4.5, -0.31, -0.15, 0.05, "FPCF")
-        sweep_rect_along_yz_spline(c_fpc, pts_lgr, 4.5, -0.31, -0.15, 0.05, "FPCR")
+        sweep_band_new_body(c_fpc, pts_lgf, 4.5, -0.31, -0.15, 0.0, "FPCF")
+        sweep_band_new_body(c_fpc, pts_lgr, 4.5, -0.31, -0.15, 0.0, "FPCR")
         assign_appearance(c_fpc, apps, "CM_Amber_LED_FPC")
 
         # ---------------- 14_Tang_Buckle_Aluminum ----------------
+        step = "14_Tang_Buckle_Aluminum"
         occ_bk, c_bk = new_subcomp(root, "14_Tang_Buckle_Aluminum")
         occs["buckle"] = occ_bk
-        p_bk = offset_plane_xy(c_bk, -33.25, "Pln_Buckle")
+        p_bk = offset_plane_xy(c_bk, -33.25, "_Pln_Buckle")
         sk_bk = c_bk.sketches.add(p_bk)
+        sk_bk.isLightBulbOn = False
         draw_rounded_rect_xy(sk_bk, 0.0, 0.0, 26.2, 9.6, 2.0)
         draw_rounded_rect_xy(sk_bk, 0.0, 0.0, 23.2, 5.2, 1.0)
-        extrude_profile(c_bk, sk_bk.profiles.item(0), 7.00)
+        extrude_one_side(c_bk, ring_profile(sk_bk), 7.00, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_bk, 0.0, 0.0, 1.0), name="Buckle_Frame")
         assign_appearance(c_bk, apps, "CM_Anodized_SpaceGrey")
 
         # ---------------- 15_Silicone_Keeper_Loop ----------------
+        step = "15_Silicone_Keeper_Loop"
         occ_kp, c_kp = new_subcomp(root, "15_Silicone_Keeper_Loop")
         occs["keeper"] = occ_kp
-        p_kp = offset_plane_xy(c_kp, -31.8, "Pln_Keeper")
+        p_kp = offset_plane_xy(c_kp, -31.8, "_Pln_Keeper")
         sk_kp = c_kp.sketches.add(p_kp)
+        sk_kp.isLightBulbOn = False
         draw_rounded_rect_xy(sk_kp, 0.0, 14.2, 25.8, 6.2, 1.8)
         draw_rounded_rect_xy(sk_kp, 0.0, 14.2, 23.2, 3.8, 0.9)
-        extrude_profile(c_kp, sk_kp.profiles.item(0), 10.6)
+        extrude_one_side(c_kp, ring_profile(sk_kp), 10.6, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_kp, 0.0, 0.0, 1.0), name="Keeper_Ring")
         assign_appearance(c_kp, apps, "CM_Charcoal_LSR_Silicone")
 
-        # ---------------- 2. 刚性装配组 + 右侧防水按键滑移运动副 (0 .. -0.45mm) ----------------
+        # ---------------- 2. 刚性装配组 + 右侧按键滑移运动副 ----------------
+        step = "joints"
         rigid_col = adsk.core.ObjectCollection.create()
         for k, o in occs.items():
             if k != "btn":
@@ -616,13 +694,14 @@ def run(context):
             j_btn.name = joint_name
             lim = adsk.fusion.SliderJointMotion.cast(j_btn.jointMotion).slideLimits
             lim.isMinimumValueEnabled = True
-            lim.minimumValue = -0.045  # -0.45 mm 按压行程
+            lim.minimumValue = -0.045
             lim.isMaximumValueEnabled = True
             lim.maximumValue = 0.0
         except Exception:
             pass
 
         # ---------------- 3. 调整视角并导出 .f3d 存档 ----------------
+        step = "export_f3d"
         vp = app.activeViewport
         cam = vp.camera
         cam.viewOrientation = adsk.core.ViewOrientations.IsoTopRightViewOrientation
@@ -636,7 +715,7 @@ def run(context):
 
         report = {
             "design_name": root.name,
-            "mode": "100% Native Parametric Fusion 360 Feature Tree",
+            "mode": "100% Native Parametric Fusion 360 Feature Tree (v2)",
             "user_parameters": param_count,
             "components": root.occurrences.count,
             "appearances": list(apps.keys()),
@@ -648,13 +727,13 @@ def run(context):
 
         ui.messageBox(
             f"CatMouse Band V1.5 (Strap-Halo 腕带光环版) 原生参数化工程构建完成！\n\n"
-            f"- 特征树：15 个独立组件（主机 + 300° 发光硅胶腕带 + 12×LED FPC + 针扣）\n"
+            f"- 特征树：15 个独立组件（无屏NFC主机 + 300° 发光腕带 + 12×LED FPC + 针扣）\n"
             f"- 用户参数 (fx)：{param_count} 个\n"
-            f"- 外观色板：{len(apps)} 种（含红猫/绿鼠/蓝求救导光环，可拖拽一键换色）\n"
+            f"- 外观色板：{len(apps)} 种（按 A 键可拖拽红猫/绿鼠/蓝求救导光环一键换色）\n"
             f"- 实时运动副：{joint_name} (0..0.45 mm)\n"
             f"- 已自动导出 .f3d：{F3D_PATH}",
             "CatMouse Band V1.5 — Fusion 360",
         )
     except Exception:
         if ui:
-            ui.messageBox("CatMouse Band V1.5 构建异常:\n" + traceback.format_exc())
+            ui.messageBox(f"CatMouse Band V1.5 在步骤 [{step}] 异常:\n" + traceback.format_exc())
