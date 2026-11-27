@@ -11,7 +11,7 @@
       </view>
     </view>
 
-    <text wx:if="{{notice}}" class="sdvNotice shareBanner">{{notice}}</text>
+    <text wx:if="{{notice && !posterPath}}" class="sdvNotice shareBanner">{{notice}}</text>
 
     <view class="sdvPaperCard shareMiniNote">
       <map-icon kind="info" size="13" color="#5e3616" />

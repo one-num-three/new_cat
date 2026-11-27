@@ -2,7 +2,7 @@
   <nav-bar pinned="{{true}}" title="活动轨迹记录" back="{{true}}" />
 
   <view class="tracksWrap">
-    <view class="sdvPlank tracksHeader">
+    <view class="sdvPaperCard tracksHeader">
       <view class="tracksTitleRow">
         <view class="sdvIconTitle">
           <map-icon kind="route" size="18" color="#24451c" />
@@ -29,16 +29,16 @@
       <view class="trackSummaryHead">
         <view class="sdvIconTitle">
           <map-icon kind="team" size="16" color="#2c6122" />
-          <text>成员点位</text>
+          <text>成员轨迹</text>
         </view>
-        <text class="sdvBadge sdvBadgeAmber">{{pointCount}} 点</text>
+        <text class="sdvBadge sdvBadgeAmber">{{players.length}} 人</text>
       </view>
       <view wx:for="{{players}}" wx:key="id" class="trackPlayer">
         <view class="trackIdentity">
           <image class="trackRoleIcon" src="{{item.role==='cat'?'/assets/sdv-v1/hud-cat.png':'/assets/sdv-v1/hud-mouse.png'}}" mode="aspectFit" aria-hidden="true" />
           <text class="trackNickname">{{item.nickname}}</text>
         </view>
-        <text class="trackPointCount">{{item.points}} 点</text>
+        <text class="trackPointCount">{{item.metricText || (item.points+' 点')}}</text>
       </view>
     </view>
 
@@ -68,7 +68,7 @@
 
     <text wx:if="{{error}}" class="sdvError trackError" role="alert">{{error}}</text>
     <button wx:if="{{error}}" class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" bindtap="load">重新读取</button>
-    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <image class="sdvMeadowFooter meadowBleed14" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
   </view>
 
   <sdv-modal

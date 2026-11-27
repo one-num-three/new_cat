@@ -7,7 +7,13 @@
       <text class="sdvBadge sdvBadgeGreen">GCJ-02 标定</text>
     </view>
 
-    <view class="sdvWoodCard calCard">
+    <view class="sdvPillGroup calStepTabs">
+      <button class="sdvPill {{calStep==='pick'?'sdvPillActive':''}}" hover-class="sdvPressed" data-step="pick" bindtap="chooseStep">1. 选图点</button>
+      <button class="sdvPill {{calStep==='bind'?'sdvPillActive':''}}" hover-class="sdvPressed" data-step="bind" bindtap="chooseStep">2. 对地图</button>
+      <button class="sdvPill {{calStep==='list'?'sdvPillActive':''}}" hover-class="sdvPressed" data-step="list" bindtap="chooseStep">3. 已标定({{points.length}})</button>
+    </view>
+
+    <view wx:if="{{calStep==='pick'}}" class="sdvWoodCard calCard">
       <view class="sdvIconTitle">
         <map-icon kind="pin" size="16" color="#2c6122" />
         <text>1. 图片地标</text>
@@ -17,10 +23,11 @@
       </view>
       <view class="calPickBar">
         <text class="calStatusText">{{pending?'已选：'+pendingLabel:'轻点图片选地标'}}</text>
+        <button wx:if="{{pending}}" class="sdvBtn sdvBtnGreen sdvBtnSm sdvBtnInline" hover-class="sdvPressed" data-step="bind" bindtap="chooseStep">去绑定坐标 ›</button>
       </view>
     </view>
 
-    <view class="sdvWoodCard calCard">
+    <view wx:if="{{calStep==='bind'}}" class="sdvWoodCard calCard">
       <view class="sdvIconTitle">
         <map-icon kind="locate" size="16" color="#2c6122" />
         <text>2. 真实坐标</text>
@@ -45,7 +52,7 @@
       </view>
     </view>
 
-    <view class="sdvPaperCard calCard">
+    <view wx:if="{{calStep==='list'}}" class="sdvPaperCard calCard">
       <view class="sdvIconTitle">
         <map-icon kind="check" size="16" color="#2c6122" />
         <text>3. 已标定点</text>

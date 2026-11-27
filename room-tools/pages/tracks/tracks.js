@@ -1,10 +1,24 @@
-const api=require('../../../utils/v2'),presentation=require('../../../utils/presentation'),catalog=require('../../../utils/venue-catalog'),exporter=require('../../../utils/track-export');
+const api=require('../../../utils/v2'),presentation=require('../../../utils/presentation'),catalog=require('../../../utils/venue-catalog'),exporter=require('../../../utils/track-export'),{distance}=require('../../../utils/track-highlights');
+function playerMetrics(p){
+ const pts=p.points||[];let distM=0,durMs=0;
+ for(const part of exporter.segments(pts)){
+  if(part.length>1){
+   durMs+=Math.max(0,part[part.length-1].sampledAt-part[0].sampledAt);
+   for(let i=1;i<part.length;i++){const d=distance(part[i-1],part[i]);if(Number.isFinite(d)&&d<150)distM+=d;}
+  }
+ }
+ if(!pts.length)return '无定位';
+ const distText=distM>=1000?(distM/1000).toFixed(2)+'km':Math.round(distM)+'m';
+ const sec=Math.round(durMs/1000),min=Math.floor(sec/60),rem=sec%60;
+ const timeText=sec>0?(min?min+'分'+String(rem).padStart(2,'0')+'秒':sec+'秒'):'';
+ return distM>0&&timeText?distText+' · '+timeText:pts.length+' 点';
+}
 Page({
  data:{matchId:'',scope:'self',fontScale:1,navHeight:64,nightMode:false,loading:false,exporting:false,loaded:false,error:'',notice:'',pointCount:0,fileName:'',players:[],polylines:[],markers:[],latitude:32.0584,longitude:118.7968,exportSheetOpen:false,exportSheetItems:[{id:'csv',label:'导出 CSV 表格',hint:'保留 GCJ-02 原始坐标、时间戳与精度'},{id:'geojson',label:'导出 GeoJSON 路线',hint:'转换为近似 WGS84，适合地图工具打开'}]},
  onLoad(o){this.serial=0;this.files=new Set();this.setData({...presentation.metrics(),matchId:o.matchId||'',scope:o.scope==='all'?'all':'self'});},onShow(){this.active=true;this.serial++;this.raw=null;this.viewer=wx.getStorageSync('v2UserId');this.exportPath=null;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night';if(n!==!!this.data.nightMode)this.setData({nightMode:n});}}catch{}this.setData({fileName:'',loaded:false,pointCount:0,polylines:[],markers:[],players:[]});this.load();},onHide(){this.active=false;this.serial++;this.raw=null;this.setData({loading:false,exporting:false});},onUnload(){this.onHide();this.raw=null;for(const p of this.files||[])try{wx.getFileSystemManager().unlinkSync(p);}catch{}this.files?.clear();},onResize(e){this.setData(presentation.resize(e));},
  async load(){if(!this.active||this.data.loading)return;const run=this.serial;this.setData({loading:true,error:''});try{await api.session();const r=await api.tracks(this.data.matchId,this.data.scope);if(!this.active||run!==this.serial)return;if(r.matchId!==this.data.matchId||r.scope!==this.data.scope||r.schema!=='tracks-v1')throw Error('轨迹响应不匹配');this.raw=r;const polylines=[],markers=[];let count=0,first;
   for(const p of r.players){count+=p.points.length;first=first||p.points[0];for(const part of exporter.segments(p.points)){if(part.length>1)polylines.push({points:part.map(q=>({latitude:q.lat,longitude:q.lng})),color:p.role==='cat'?'#e27b20':'#4e8b3c',width:4});}if(p.points.length)markers.push({id:markers.length+1,latitude:p.points[0].lat,longitude:p.points[0].lng,title:p.nickname+' · 起点',iconPath:p.role==='cat'?'/assets/pixel-v1/role-cat.png':'/assets/pixel-v1/role-mouse.png',width:30,height:30});}
-  this.setData({canPoster:!catalog.get(r.venue.mapId)?.nativeOnly,loaded:true,settlementLabel:r.outcome==='cancelled'?'已取消 · 已归档':'已结束 · 已归档',pointCount:count,players:r.players.map(p=>({id:p.id,nickname:p.nickname,role:p.role,points:p.points.length})),polylines,markers,latitude:first?.lat||r.venue.lat,longitude:first?.lng||r.venue.lng,notice:count?'绿色路线为鼠队，橙色路线为猫队；断线与暂停处不连线':'本场暂无有效轨迹点；不使用模拟路线补齐'});
+  this.setData({canPoster:!catalog.get(r.venue.mapId)?.nativeOnly,loaded:true,settlementLabel:r.outcome==='cancelled'?'已取消 · 已归档':'已结束 · 已归档',pointCount:count,players:r.players.map(p=>({id:p.id,nickname:p.nickname,role:p.role,points:p.points.length,metricText:playerMetrics(p)})),polylines,markers,latitude:first?.lat||r.venue.lat,longitude:first?.lng||r.venue.lng,notice:count?'绿色路线为鼠队，橙色路线为猫队；断线与暂停处不连线':'本场暂无有效轨迹点；不使用模拟路线补齐'});
  }catch(e){if(this.active&&run===this.serial){this.raw=null;this.setData({loaded:false,polylines:[],markers:[],players:[],pointCount:0,error:e.message});}}finally{if(this.active&&run===this.serial)this.setData({loading:false});}},
  openPoster(){if(this.active&&this.raw&&this.viewer===wx.getStorageSync('v2UserId'))wx.navigateTo({url:'/room-tools/pages/share/share?matchId='+encodeURIComponent(this.data.matchId)});},
  openExportSheet(){if(!this.data.loaded||!this.data.pointCount||this.data.exporting)return;this.setData({exportSheetOpen:true});},

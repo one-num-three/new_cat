@@ -3,7 +3,7 @@
   <view wx:if="{{match && !terminal}}" class="hudPlaque navRolePlaque role-{{match.myRole}}" aria-label="阵营与状态">
     <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
     <text class="roleName">{{roleText}}</text>
-    <text class="navRoleDot">·</text>
+    <view class="navRoleDot" aria-hidden="true"></view>
     <text class="phaseName">{{offline?'重连中':uiState==='paused'?'已暂停':uiState==='captured'?'已核验':phaseText}}</text>
     <text wx:if="{{devPreview}}" class="navPreviewTag">预览</text>
   </view>
@@ -30,7 +30,7 @@
         <pixel-glyph wx:else kind="flag" size="22" color="#5e3616" />
         <view class="victoryCopy">
           <text class="victoryTitle">{{uiState==='catWin'?'猫队达成目标':uiState==='mouseWin'?'鼠队成功脱险':'场次已取消'}}</text>
-          <text class="resultReason">{{uiState==='catWin'?'已达成核验目标':uiState==='mouseWin'?'活动已结束':'记录已归档'}}</text>
+          <text class="resultReason">{{uiState==='catWin'?'共 '+(roster.length||match.target)+' 人参与 · 核验完成':uiState==='mouseWin'?'共 '+(roster.length||match.target)+' 人参与 · 计时结束':'本场记录已保存归档'}}</text>
         </view>
         <view wx:if="{{uiState==='catWin' || uiState==='mouseWin'}}" class="victoryMedal" aria-hidden="true">
           <pixel-glyph kind="crown" size="15" color="#a64d0b" />
@@ -87,19 +87,19 @@
       <pixel-action class="pixelControl" wx:if="{{canReplay}}" skin="/assets/pixel-v1/button-catwin-replay.png" label="发起下一场" tone="green" font-scale="{{fontScale}}" bindaction="replay" />
       <text wx:else class="waitingHost">{{offline?'重连后可开始下一场':'等待组织者发起下一场'}}</text>
       <view class="resultSubActions">
-        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-catwin-details.png" label="明细" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" />
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-catwin-details.png" label="战况" tone="plain" font-scale="{{fontScale}}" bindaction="toggleDrawer" />
         <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-catwin-home.png" label="首页" tone="plain" font-scale="{{fontScale}}" bindaction="goHome" />
       </view>
     </view>
     <text wx:if="{{uiState==='cancelled'}}" class="recordNote">已保留本场记录</text>
-    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <image class="sdvMeadowFooter meadowBleed14" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
   </view>
 </scroll-view>
 
 <block wx:else>
   <view class="mapCanvas" aria-label="活动定位地图">
     <campus-model wx:if="{{modelMode}}" class="campusModel" compact="{{true}}" image-id="{{venueMapId}}" geo-data="{{geoData}}" layout-key="{{viewportWidth+'x'+viewportHeight}}" bindready="onMapReady" bindfallback="useArtMap" />
-    <venue-art class="venueArt" style="--venue-dock-display:none" wx:elif="{{artMode}}" bindready="onMapReady" src="{{parkArt}}" image-id="{{venueMapId}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
+    <venue-art class="venueArt" style="--venue-dock-display:none;--venue-attr-bottom:calc(68px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)))" wx:elif="{{artMode}}" bindready="onMapReady" src="{{parkArt}}" image-id="{{venueMapId}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" bindprojection="onArtProjection" bindcamera="onArtCamera" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale+'-'+uiState}}" />
     <map wx:else id="gameMap" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" markers="{{markers}}" circles="{{circles}}" polygons="{{venuePolygons}}" show-location="{{false}}" enable-rotate="{{false}}" enable-overlooking="{{false}}" bindregionchange="onMapRegion" />
   </view>
 
@@ -213,9 +213,9 @@
   <view class="sheetGrip" bindtouchstart="sheetTouchStart" bindtouchend="sheetTouchEnd"><view class="drawerHandle"></view></view>
   <view class="drawerHeader">
     <image class="drawerLogo" src="/assets/sdv-v1/drawer-title.png" mode="aspectFit" />
-    <text class="drawerHeaderTitle">活动明细</text>
+    <text class="drawerHeaderTitle">活动战况</text>
     <view class="drawerClose">
-      <button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭明细"><pixel-glyph kind="close" size="16" color="#332012" /></button>
+      <button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭战况"><pixel-glyph kind="close" size="16" color="#332012" /></button>
     </view>
   </view>
   <view class="drawerTabs">
@@ -262,7 +262,6 @@
       </view>
 
       <view wx:if="{{drawerTab==='events'}}" class="eventGroup">
-        <view class="sectionHeading"><image src="/assets/sdv-v1/drawer-event.png" mode="aspectFit" /><text>动态</text></view>
         <text wx:if="{{!events.length}}" class="bodyCopy">暂无动态</text>
         <view wx:for="{{events}}" wx:for-item="event" wx:key="seq" class="eventRow">
           <text class="eventTime">{{event.timeText}}</text>
@@ -271,7 +270,6 @@
       </view>
 
       <view wx:if="{{drawerTab==='rules'}}" class="rulesGroup">
-        <view class="sectionHeading"><image src="/assets/sdv-v1/drawer-rules.png" mode="aspectFit" /><text>规则与设置</text></view>
         <view class="sdvPaperCard rulesBox">
           <view class="ruleItem"><pixel-glyph kind="pin" size="14" color="#2c6122" /><text class="bodyCopy">{{venueName}}</text></view>
           <view class="ruleItem"><pixel-glyph kind="clock" size="14" color="#a64d0b" /><text class="bodyCopy">30s准备 · 6分 · 目标{{match.target}}人</text></view>
@@ -288,9 +286,9 @@
           <text>{{nightMode?'切换日间模式':'夜间营火模式'}}</text>
         </button>
         <view class="drawerActionStack">
-          <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停" tone="red" font-scale="{{fontScale}}" bindaction="promptEmergency" />
+          <pixel-action class="pixelControl" wx:if="{{!offline && !terminal && (match.phase==='CHASING' || match.phase==='HIDING')}}" skin="/assets/pixel-v1/button-drawer-pause.png" label="紧急暂停（安全突发）" tone="red" font-scale="{{fontScale}}" bindaction="promptEmergency" />
           <view class="drawerSubActions">
-            <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="pause">组织者暂停</button>
+            <button wx:if="{{!offline && owner && (match.phase==='CHASING' || match.phase==='HIDING')}}" class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="pause">常规暂停</button>
             <button wx:if="{{!offline && owner && match.phase==='PAUSED'}}" class="sdvBtn sdvBtnRed sdvBtnSm" bindtap="cancel">取消本场</button>
             <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-drawer-leave.png" label="{{terminal?'回首页':'退出活动'}}" tone="plain" dynamic="{{terminal}}" font-scale="{{fontScale}}" bindaction="leave" />
           </view>

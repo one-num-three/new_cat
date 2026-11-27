@@ -1,8 +1,8 @@
 <view class="sdvScreen roomScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px;--vw:{{viewportWidth}}px">
-  <nav-bar pinned="{{true}}" title="{{roomId?'活动准备':'发起活动'}}" back="{{true}}" preview="{{devPreview}}" />
+  <nav-bar pinned="{{true}}" title="{{roomId?'活动准备':'创建活动'}}" back="{{true}}" preview="{{devPreview}}" />
 
   <view wx:if="{{!roomId}}" class="createContent">
-    <view class="createHeroStage">
+    <view class="sdvWoodCard createHeroCard">
       <image class="createHeroImg" src="/assets/sdv-v1/create-banner.png" mode="widthFix" aria-label="户外活动路线与集合点木牌横幅" />
     </view>
 
@@ -18,13 +18,16 @@
         <button wx:for="{{presets}}" wx:key="*this" data-total="{{item}}" bindtap="applyPreset" hover-class="sdvPressed" class="sdvPill {{total===item?'sdvPillActive':''}}">{{item}}人</button>
       </view>
       <view class="teamSpriteStrip">
-        <view class="teamSpriteItem">
-          <image class="teamSpriteIcon" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
-          <text class="teamSpriteText">{{catsCount}}人</text>
-        </view>
-        <view class="teamSpriteItem">
-          <image class="teamSpriteIcon" src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" aria-hidden="true" />
-          <text class="teamSpriteText">{{miceCount}}人</text>
+        <view class="teamSpriteGroup">
+          <view class="teamSpriteItem">
+            <image class="teamSpriteIcon" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+            <text class="teamSpriteText">猫队 {{catsCount}}人</text>
+          </view>
+          <view class="sdvDot" aria-hidden="true"></view>
+          <view class="teamSpriteItem">
+            <image class="teamSpriteIcon" src="/assets/sdv-v1/hud-mouse.png" mode="aspectFit" aria-hidden="true" />
+            <text class="teamSpriteText">鼠队 {{miceCount}}人</text>
+          </view>
         </view>
         <button class="sdvIconBtn sdvIconBtnSm {{customTeamOpen?'sdvBtnAmber':'sdvBtnPaper'}} customIconBtn" hover-class="sdvPressed" bindtap="toggleCustomTeam" aria-label="{{customTeamOpen?'收起自定义人数':'自定义人数'}}">
           <map-icon kind="{{customTeamOpen?'close':'edit'}}" size="16" color="{{customTeamOpen?'#fffdf6':'#3b1d0b'}}" />
@@ -83,13 +86,12 @@
           <view wx:if="{{nativeOnly}}" class="venueGuideLoading"><text>实时地图</text></view>
           <image wx:elif="{{venueResource==='ready'}}" class="venueGuideImage" src="{{venueSource}}" mode="aspectFit" aria-label="{{venueName}}场地导览" />
           <view wx:else class="venueGuideLoading"><text>{{venueResource==='error'?'加载失败':'加载中…'}}</text><button wx:if="{{venueResource==='error'}}" class="sdvBtn sdvBtnPaper sdvBtnSm" catchtap="loadVenueArt">重试</button></view>
-          <view class="venueEditBadge" aria-hidden="true"><map-icon kind="edit" size="11" color="#fffdf6" /></view>
         </view>
       </view>
     </view>
 
-    <view class="createParamHint">
-      <text>30s准备 · 6分钟 · 自动分组</text>
+    <view class="sdvPaperCard createParamBar">
+      <text>30s准备</text><view class="sdvDot" aria-hidden="true"></view><text>6分钟</text><view class="sdvDot" aria-hidden="true"></view><text>自动分组</text>
     </view>
 
     <view wx:if="{{error}}" class="sdvError sdvErrorRow roomError" bindtap="clearError" role="alert">
@@ -97,6 +99,8 @@
       <text class="errorClose" aria-hidden="true">×</text>
     </view>
     <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
+
+    <image class="sdvMeadowFooter meadowBleed22" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
 
     <view class="sdvStickyBar">
       <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建活动" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError || venueResource!=='ready'}}" font-scale="{{fontScale}}" bindaction="create" />
@@ -152,7 +156,7 @@
         </view>
         <view class="sdvInfoChip">
           <map-icon kind="eye" size="13" color="#2c6122" />
-          <text>{{mouseTeamVision?'共享':'独立'}}</text>
+          <text>鼠视野:{{mouseTeamVision?'共享':'独立'}}</text>
         </view>
         <view class="sdvInfoChip">
           <text>{{venueSummaryText}}</text>
@@ -192,7 +196,7 @@
       <text class="errorClose" aria-hidden="true">×</text>
     </view>
     <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
-    <view class="meadowFooterStage">
+    <view class="meadowFooterStage meadowBleed22">
       <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
       <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
     </view>

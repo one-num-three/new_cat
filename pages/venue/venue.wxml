@@ -2,24 +2,25 @@
   <nav-bar pinned="{{true}}" title="场地地图" back="{{true}}" />
 
   <view class="venueHeaderWrap">
-    <view class="sdvPlankSky venueBar">
-      <picker class="venuePicker" range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap">
-        <view class="venuePickerValue">
-          <text class="venuePickerText">{{venueName}}</text>
-          <text class="venuePickerArrow" aria-hidden="true">▾</text>
-        </view>
-      </picker>
-      <text class="sdvBadge {{locationOn?'sdvBadgeGreen':'sdvBadgeBlue'}}">{{locationOn?(simulated?'模拟':'定位中'):'导览'}}</text>
-    </view>
-
-    <view class="sdvPaperCard gpsInfo" role="status">
-      <view class="gpsTopRow">
-        <map-icon kind="locate" size="14" color="{{locationOn?'#2c6122':'#5e3616'}}" />
-        <text class="venueReference">{{locationOn?(simulated?'模拟定位 · 仅本机':'实时定位 · 仅本机'):'场地导览 · 定位未开启'}}</text>
-        <text wx:if="{{locationOn}}" class="gpsMain">{{locationText}}</text>
+    <view class="sdvWoodCard venueControlBar">
+      <view class="venueBar">
+        <picker class="venuePicker" range="{{venueOptions}}" range-key="label" value="{{venueMapIndex}}" bindchange="selectVenueMap">
+          <view class="venuePickerValue">
+            <text class="venuePickerText">{{venueName}}</text>
+            <text class="venuePickerArrow" aria-hidden="true">▾</text>
+          </view>
+        </picker>
+        <text wx:if="{{locationOn}}" class="sdvBadge sdvBadgeGreen">{{simulated?'模拟':'定位中'}}</text>
       </view>
-      <text wx:if="{{coordinateText}}" class="gpsCoordinates">{{coordinateText}}</text>
-      <text wx:if="{{locationError}}" class="gpsMessage">{{locationError}}</text>
+      <view class="gpsInfo" role="status">
+        <view class="gpsTopRow">
+          <map-icon kind="locate" size="14" color="{{locationOn?'#2c6122':'#5e3616'}}" />
+          <text class="venueReference">{{locationOn?(simulated?'模拟定位 · 仅本机':'实时定位 · 仅本机'):'场地导览 · 定位未开启'}}</text>
+          <text wx:if="{{locationOn}}" class="gpsMain">{{locationText}}</text>
+        </view>
+        <text wx:if="{{coordinateText}}" class="gpsCoordinates">{{coordinateText}}</text>
+        <text wx:if="{{locationError}}" class="gpsMessage">{{locationError}}</text>
+      </view>
     </view>
   </view>
 

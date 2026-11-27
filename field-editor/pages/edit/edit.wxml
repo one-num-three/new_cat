@@ -1,15 +1,15 @@
 <view class="screen fieldScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
-  <nav-bar title="集合点与活动范围" back="{{true}}" preview="{{devPreview}}" />
+  <nav-bar pinned="{{true}}" title="集合点与活动范围" back="{{true}}" preview="{{devPreview}}" />
 
   <view class="editorTopBar">
-    <view class="sdvPlankSky editorHeading">
+    <view class="sdvPaperCard editorHeading">
       <picker class="fieldPicker" range="{{mapOptions}}" range-key="label" value="{{mapIndex}}" bindchange="selectMap" disabled="{{!editable || busy}}">
         <view class="fieldNamePill">
           <text class="fieldName">{{venueName}}</text>
           <text class="fieldArrow" aria-hidden="true">▾</text>
         </view>
       </picker>
-      <text class="sdvBadge sdvBadgeGreen">GCJ-02</text>
+      <text class="sdvBadge {{canSave?'sdvBadgeGreen':'sdvBadgeAmber'}}">{{canSave?'已就绪':'编辑中'}}</text>
     </view>
   </view>
 
@@ -20,7 +20,7 @@
     </view>
   </view>
 
-  <scroll-view scroll-y class="fieldPanel" style="height:{{fontScale>1.15?viewportHeight*0.48:viewportHeight*0.41}}px">
+  <scroll-view scroll-y class="fieldPanel" style="height:{{fontScale>1.15?viewportHeight*0.44:viewportHeight*0.36}}px">
     <view class="fieldPanelContent">
       <text wx:if="{{devPreview}}" class="sdvNotice demoNote">预览模式 · 不读取GPS</text>
       <text wx:if="{{locationHint}}" class="sdvNotice fieldMsg" role="status">{{locationHint}}</text>
@@ -71,16 +71,10 @@
       </view>
       <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
 
-      <view wx:if="{{points.length>=3 && !meeting}}" class="meetingQuickRow">
-        <button class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="autoMeeting" disabled="{{busy || !editable}}">
-          <map-icon kind="pin" size="14" color="#fffdf6" />
-          <text>一键中心集合点</text>
-        </button>
-        <button class="sdvBtn sdvBtnWood sdvBtnSm" hover-class="sdvPressed" data-mode="meeting" bindtap="setMode" disabled="{{busy || !editable}}">
-          <map-icon kind="locate" size="14" color="#3b1d0b" />
-          <text>手动点选</text>
-        </button>
-      </view>
+      <button wx:if="{{points.length>=3 && !meeting}}" class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="autoMeeting" disabled="{{busy || !editable}}">
+        <map-icon kind="pin" size="14" color="#fffdf6" />
+        <text>一键中心集合点</text>
+      </button>
 
       <button class="sdvBtn sdvBtnAmber fieldSave" hover-class="sdvPressed" bindtap="save" disabled="{{!canSave || busy}}" loading="{{busy}}">
         <map-icon kind="check" size="16" color="#fffdf6" />

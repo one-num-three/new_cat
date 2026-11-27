@@ -10,12 +10,10 @@
     </button>
 
     <view class="sdvWoodCard bulletinBoard">
-      <view class="boardPost boardPostLeft" aria-hidden="true"></view>
-      <view class="boardPost boardPostRight" aria-hidden="true"></view>
       <view class="boardGroundShadow" aria-hidden="true"></view>
       <view class="heroStage">
         <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
-        <view class="heroCaption"><text>猫追鼠躲 · 户外定位 · 扫码核验</text></view>
+        <view class="heroCaption"><text>猫追鼠躲</text><view class="sdvDot" aria-hidden="true"></view><text>户外定位</text><view class="sdvDot" aria-hidden="true"></view><text>扫码核验</text></view>
       </view>
 
       <view class="boardBody">
@@ -44,24 +42,20 @@
         <view class="boardDivider" aria-hidden="true"></view>
 
         <view class="joinSection">
-          <view class="cardHead">
-            <view class="sdvIconTitle">
-              <map-icon kind="door" size="18" color="#a64d0b" />
-              <text>加入活动</text>
-            </view>
-          </view>
           <view class="codeEntryRow">
             <input class="sdvInput codeInput" value="{{code}}" maxlength="10" placeholder="输入10位房间码" placeholder-class="fieldPlaceholder" bindinput="codeInput" aria-label="10 位房间码" />
-            <button wx:if="{{clipCode && !code}}" class="sdvIconBtn sdvBtnGreen pasteIconBtn" hover-class="sdvPressed" bindtap="pasteClipCode" aria-label="粘贴剪贴板房间码">
-              <map-icon kind="paste" size="20" color="#fffdf6" />
-            </button>
             <button class="sdvIconBtn sdvBtnWood scanIconBtn" hover-class="sdvPressed" bindtap="scanInvite" disabled="{{loading}}" aria-label="扫码获取房间码">
               <map-icon kind="scan" size="22" color="#3b1d0b" />
             </button>
           </view>
+          <button wx:if="{{clipCode && !code}}" class="clipSuggestChip" hover-class="sdvPressed" bindtap="pasteClipCode" aria-label="填入剪贴板房间码">
+            <map-icon kind="paste" size="14" color="#2c6122" />
+            <text class="clipSuggestText">粘贴房间码 {{clipCode}}</text>
+            <text class="clipSuggestAction">填入</text>
+          </button>
           <text wx:if="{{inviteHint}}" class="inviteLandingHint">{{inviteHint}}</text>
           <view class="cardAction">
-            <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="加入活动" tone="orange" dynamic="{{false}}" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="joinOrScan" />
+            <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-home-join.png" label="{{code?'加入活动':'扫码加入'}}" tone="orange" dynamic="{{!code}}" loading="{{loading}}" disabled="{{loading}}" font-scale="{{fontScale}}" bindaction="joinOrScan" />
           </view>
         </view>
       </view>
@@ -77,23 +71,23 @@
       <view class="signpostRow">
         <button class="signpostLink" hover-class="sdvPressed" bindtap="openVenue">
           <map-icon kind="map" size="15" color="#5e3616" />
-          <text>场地地图 ›</text>
+          <text>场地地图</text>
         </button>
         <text class="signpostDivider" aria-hidden="true">|</text>
         <button class="signpostLink" hover-class="sdvPressed" bindtap="openGuide">
           <map-icon kind="info" size="15" color="#5e3616" />
-          <text>使用说明 ›</text>
+          <text>使用说明</text>
         </button>
         <text class="signpostDivider" aria-hidden="true">|</text>
         <button class="signpostLink" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{nightMode?'切换日间模式':'切换夜间营火模式'}}">
           <map-icon kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#ffd269':'#5e3616'}}" />
-          <text>{{nightMode?'日间':'夜间'}}</text>
+          <text>{{nightMode?'日间模式':'夜间模式'}}</text>
         </button>
       </view>
     </view>
 
     <button wx:if="{{devAvailable}}" class="devLink" bindtap="openDev">界面调试台</button>
-    <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <image class="sdvMeadowFooter meadowBleed22" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
   </view>
 
   <sdv-modal

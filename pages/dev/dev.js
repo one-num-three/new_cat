@@ -2,8 +2,9 @@ const presentation=require('../../utils/presentation');
 const preview = require('../../utils/dev-preview');
 Page({
   onResize(e) { this.setData(presentation.resize(e)); },
-  data:{cases:[],available:false},
+  data:{cases:[],available:false,nightMode:false},
   onLoad(){this.setData(presentation.metrics());const available=preview.enabled();this.setData({available,cases:available?preview.cases:[],groups:available?preview.groups:[]});if(!available)wx.reLaunch({url:'/pages/index/index'});},
+  onShow(){try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night';if(n!==!!this.data.nightMode)this.setData({nightMode:n});}}catch{}},
   openVenueEditor(){if(!preview.enabled())return;wx.navigateTo({url:'/field-editor/pages/edit/edit?devPreview=venueEditor&mapId=seu-jiulonghu-v1'});},
   openCalibration(){wx.navigateTo({url:'/pages/calibrate/calibrate?devPreview=calibrate'});},
   home(){wx.reLaunch({url:'/pages/index/index'});},

@@ -49,7 +49,7 @@
 }
 
 .calArt{
-  height:clamp(220px,calc(var(--vh,100vh) * .36),300px);
+  height:clamp(220px,calc(var(--vh,100vh) * .38),330px);
   border:2px solid #3b1c0a;
   border-radius:0;
   overflow:hidden;
@@ -63,11 +63,20 @@
 }
 
 .calPickBar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
   padding:8px 10px;
   background:#f2cf94;
   border:2px solid #7b3c14;
   border-radius:0;
   box-shadow:inset 0 2px 0 #ffe9bf,0 2px 0 #cfa362;
+}
+
+.calStepTabs .sdvPill{
+  font-size:calc(13px * var(--font-scale,1));
+  padding:6px 4px;
 }
 
 .calStatusText{

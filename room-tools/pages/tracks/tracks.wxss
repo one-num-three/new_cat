@@ -2,14 +2,22 @@
 
 .tracksScreen{
   min-height:var(--vh,100vh);
-  padding:calc(var(--nav-height,64px) + 12px) 14px calc(20px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  padding:calc(var(--nav-height,64px) + 12px) 14px max(var(--safe-bottom,0px),env(safe-area-inset-bottom));
   color:#332012;
 }
 
 .tracksWrap{
+  flex:1;
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:10px;
+}
+
+.tracksWrap .sdvMeadowFooter{
+  margin-top:auto;
 }
 
 .tracksHeader{

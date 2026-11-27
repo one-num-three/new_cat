@@ -6,7 +6,7 @@
       <view class="sdvPlank inviteBanner">
         <view class="sdvIconTitle">
           <map-icon kind="code" size="18" color="#24451c" />
-          <text class="inviteTitle">邀请加入</text>
+          <text class="inviteTitle">房间邀请码</text>
         </view>
         <text class="sdvBadge {{code?'sdvBadgeGreen':'sdvBadgeGray'}}">{{code?'可加入':'读取中'}}</text>
       </view>
@@ -27,19 +27,19 @@
             <map-icon kind="{{copied?'check':'copy'}}" size="17" color="{{copied?'#fffdf6':'#3b1d0b'}}" />
           </button>
         </view>
+
+        <view class="inviteActions">
+          <button class="sdvBtn sdvBtnGreen" hover-class="sdvPressed" open-type="share" disabled="{{!code || loading}}">
+            <map-icon kind="share" size="18" color="#fffdf6" />
+            <text>微信转发</text>
+          </button>
+          <button class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" wx:if="{{error}}" bindtap="load">重新加载</button>
+        </view>
       </view>
     </view>
 
-    <view class="inviteActions">
-      <button class="sdvBtn sdvBtnGreen" hover-class="sdvPressed" open-type="share" disabled="{{!code || loading}}">
-        <map-icon kind="share" size="18" color="#fffdf6" />
-        <text>微信转发</text>
-      </button>
-      <button class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" wx:if="{{error}}" bindtap="load">重新加载</button>
-    </view>
-
     <text wx:if="{{error}}" class="sdvError inviteError" role="alert">{{error}}</text>
-    <view class="meadowFooterStage">
+    <view class="meadowFooterStage meadowBleed14">
       <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
       <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
     </view>

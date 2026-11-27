@@ -30,15 +30,20 @@
 
 .terminalScroll{
   height:calc(var(--vh) - var(--nav-height));
-  padding-bottom:max(20px,var(--safe-bottom),env(safe-area-inset-bottom));
+  padding-bottom:max(0px,var(--safe-bottom),env(safe-area-inset-bottom));
 }
 
 .terminalWrap{
-  padding:12px 14px 16px;
+  min-height:100%;
+  padding:10px 14px 0;
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:9px;
   box-sizing:border-box;
+}
+
+.terminalWrap .sdvMeadowFooter{
+  margin-top:auto;
 }
 
 .summaryHeroCard{
@@ -62,7 +67,7 @@
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  padding:10px 14px;
+  padding:7px 12px;
   border:0;
   border-top:2px solid #4f2710;
   border-radius:0;
@@ -74,10 +79,10 @@
 }
 
 .resultStats{
-  padding:14px 14px 16px;
+  padding:10px 12px;
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:9px;
 }
 
 .resultVictoryBanner{
@@ -199,7 +204,7 @@
 }
 
 .statValue{
-  font-size:calc(24px * var(--font-scale));
+  font-size:calc(26px * var(--font-scale));
   line-height:1.2;
   white-space:nowrap;
 }
@@ -342,8 +347,9 @@ campus-model{display:block;width:100%;height:100%}
 }
 
 .navRoleDot{
-  color:#7c522b;
-  font-size:12px;
+  width:3px;
+  height:3px;
+  background:#7c522b;
   flex:none;
 }
 
@@ -409,7 +415,7 @@ campus-model{display:block;width:100%;height:100%}
 .compactProgress{
   flex:none;
   white-space:nowrap;
-  border-left:2px solid #c5dcb6;
+  border-left:2px solid #c99b5b;
   padding-left:6px;
   font-size:17px;
 }
@@ -468,7 +474,7 @@ campus-model{display:block;width:100%;height:100%}
   position:absolute;
   z-index:4;
   right:10px;
-  bottom:calc(76px + max(var(--safe-bottom),env(safe-area-inset-bottom)));
+  bottom:calc(84px + max(var(--safe-bottom),env(safe-area-inset-bottom)));
   display:flex;
   flex-direction:column;
   align-items:flex-end;
@@ -715,8 +721,8 @@ campus-model{display:block;width:100%;height:100%}
   gap:8px;
   padding:4px 14px 10px;
   background:#f2cf94;
-  border-bottom:3px solid #3b1c0a;
-  box-shadow:inset 0 2px 0 #ffe9bf,inset 0 -3px 0 #4d9a3b,inset 0 -5px 0 #82cf6f;
+  border-bottom:2px solid #7b3c14;
+  box-shadow:inset 0 2px 0 #ffe9bf;
   font-size:calc(20px * var(--font-scale));
   color:#3b1d0b;
 }
@@ -907,10 +913,10 @@ campus-model{display:block;width:100%;height:100%}
   flex:none;
 }
 
-.swatchSelf{background:#2a6e99}
-.swatchAlly{background:#4a943b}
-.swatchFlag{background:#e87f24}
-.swatchCat{background:#c95810}
+.swatchSelf{background:#2274c4}
+.swatchAlly{background:#3f8f34}
+.swatchFlag{background:#f09c1a}
+.swatchCat{background:#d92626}
 
 .legendFoot{
   font-size:12px;

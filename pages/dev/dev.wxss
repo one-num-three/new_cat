@@ -87,7 +87,7 @@
 
 .entryNumber{
   font-size:11px;
-  color:#2a6e99;
+  color:#a64d0b;
   flex:none;
 }
 

@@ -40,7 +40,7 @@
 
 .posterCard{
   width:100%;
-  max-width:278px;
+  max-width:308px;
   margin:0 auto;
   padding:4px;
   background:transparent;

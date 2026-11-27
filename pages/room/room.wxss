@@ -16,6 +16,7 @@
 }
 
 .createContent,.readyContent{
+  flex:1;
   padding:10rpx 22rpx 0;
   display:flex;
   flex-direction:column;
@@ -23,8 +24,8 @@
   box-sizing:border-box;
 }
 
-.readyContent{
-  flex:1;
+.createContent .sdvMeadowFooter{
+  margin-top:auto;
 }
 
 .readyContent .meadowFooterStage{
@@ -32,16 +33,9 @@
   padding-top:12px;
 }
 
-.createHeroStage{
-  height:156rpx;
+.createHeroCard{
+  padding:0;
   overflow:hidden;
-  display:flex;
-  align-items:center;
-  border:3px solid #4f2710;
-  border-radius:0;
-  background:#d4ebba;
-  box-shadow:0 3px 0 rgba(72,118,46,.32);
-  box-sizing:border-box;
 }
 
 .createHeroImg{
@@ -71,8 +65,12 @@
   box-sizing:border-box;
 }
 
-.createParamHint{
-  padding:2rpx 0;
+.createParamBar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:4rpx 10rpx;
   text-align:center;
   font-size:calc(23rpx * var(--font-scale,1));
   line-height:1.35;
@@ -92,6 +90,7 @@
 .teamSpriteStrip{
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:10rpx;
   padding:8rpx 10px;
   background:#fff2d4;
@@ -100,11 +99,19 @@
   box-shadow:inset 0 2px 0 #fff9e8;
 }
 
+.teamSpriteGroup{
+  display:flex;
+  align-items:center;
+  gap:8rpx;
+  flex:1;
+  min-width:0;
+}
+
 .teamSpriteItem{
   display:flex;
   align-items:center;
   gap:6rpx;
-  flex:1;
+  flex:none;
   min-width:0;
 }
 
@@ -261,9 +268,9 @@
 
 .venueGuide{
   position:relative;
-  flex:0 0 42%;
+  flex:0 0 112px;
   min-width:0;
-  padding:8rpx;
+  padding:6rpx;
   background:#fff2d4;
   border:2px solid #b58447;
   border-radius:0;
@@ -274,21 +281,6 @@
   justify-content:center;
 }
 
-.venueEditBadge{
-  position:absolute;
-  top:6rpx;
-  right:6rpx;
-  width:22px;
-  height:22px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#4a943b;
-  border:1.5px solid #2c6122;
-  border-radius:0;
-  pointer-events:none;
-}
-
 .venueGuideImage{display:block;width:100%;height:140rpx}
 .venueGuideLoading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8rpx;height:140rpx;font-size:22rpx;color:#5e3616;text-align:center}
 
@@ -296,7 +288,8 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10rpx;
+  flex-wrap:wrap;
+  gap:8rpx;
   padding:8rpx 12rpx;
   background:#f2cf94;
   border:2px solid #7b3c14;
@@ -305,16 +298,14 @@
 }
 
 .roomCode{
-  flex:1;
+  flex:1 1 auto;
   min-width:0;
-  font-size:calc(34rpx * var(--font-scale,1));
+  font-size:calc(32rpx * var(--font-scale,1));
   line-height:1.2;
-  letter-spacing:0.5rpx;
+  letter-spacing:0;
   font-variant-numeric:tabular-nums;
   color:#3b1d0b;
   white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .codeIconGroup{

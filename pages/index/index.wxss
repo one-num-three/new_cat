@@ -6,26 +6,33 @@
   box-sizing:border-box;
   width:var(--vw,100vw);
   min-height:var(--vh);
+  display:flex;
+  flex-direction:column;
   padding-top:var(--nav-height,64px);
-  padding-bottom:calc(12rpx + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+  padding-bottom:max(var(--safe-bottom,0px),env(safe-area-inset-bottom));
   color:#332012;
   font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;
   overflow-x:hidden;
 }
 
 .homeMain{
-  padding:12rpx 22rpx 8rpx;
+  flex:1;
+  padding:12rpx 22rpx 0;
   display:flex;
   flex-direction:column;
   gap:10rpx;
   box-sizing:border-box;
 }
 
+.homeMain .sdvMeadowFooter{
+  margin-top:auto;
+}
+
 .bulletinBoard{
   position:relative;
   overflow:visible;
   padding:0;
-  margin-top:4px;
+  margin-top:2px;
 }
 
 .heroStage{
@@ -88,6 +95,10 @@
 }
 
 .heroCaption{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
   padding:7rpx 14rpx;
   background:#d4ebba;
   border-top:2px solid #4f2710;
@@ -239,6 +250,45 @@
   min-height:44px;
 }
 
+.clipSuggestChip{
+  display:flex!important;
+  align-items:center;
+  gap:8rpx;
+  width:100%!important;
+  margin:0!important;
+  padding:6rpx 12rpx!important;
+  min-height:34px;
+  background:#d4ebba;
+  border:2px solid #35692a;
+  border-radius:0;
+  box-shadow:inset 0 1px 0 #ecf7df;
+  color:#24451c;
+  font-size:calc(23rpx * var(--font-scale,1));
+  line-height:1.3;
+  text-align:left;
+  box-sizing:border-box;
+}
+
+.clipSuggestChip::after{border:0}
+
+.clipSuggestText{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.clipSuggestAction{
+  flex:none;
+  padding:2rpx 10rpx;
+  background:#4a943b;
+  border:1.5px solid #2c6122;
+  color:#fffdf6;
+  font-size:calc(21rpx * var(--font-scale,1));
+  line-height:1.25;
+}
+
 .inviteLandingHint{
   display:block;
   overflow-wrap:anywhere;
@@ -257,8 +307,8 @@
 .signpostRow{
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:14rpx;
+  justify-content:space-evenly;
+  gap:4rpx;
 }
 
 .signpostLink{
@@ -269,11 +319,11 @@
   width:auto!important;
   min-height:36px;
   margin:0!important;
-  padding:4px 10px!important;
+  padding:4px 8px!important;
   background:transparent;
   color:#5e3616;
   font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;
-  font-size:calc(25rpx * var(--font-scale,1));
+  font-size:calc(24rpx * var(--font-scale,1));
   line-height:1.3;
   border-radius:0;
 }

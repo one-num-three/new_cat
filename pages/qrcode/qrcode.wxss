@@ -16,7 +16,7 @@
 
 .codeBody{
   flex:1;
-  padding:16px 14px 8px;
+  padding:16px 14px 0;
   display:flex;
   flex-direction:column;
   gap:12px;
@@ -36,8 +36,8 @@
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  padding:10px 14px;
-  border:0;
+  padding:8px 14px;
+  background:#f2cf94;
   border-bottom:2px solid #7b3c14;
   border-radius:0;
 }
