@@ -1,4 +1,4 @@
-const api=require('../../../utils/v2'),presentation=require('../../../utils/presentation'),catalog=require('../../../utils/venue-catalog'),resources=require('../../../utils/venue-resources'),poster=require('../../../utils/track-poster');
+const api=require('../../../utils/v2'),presentation=require('../../../utils/presentation'),catalog=require('../../../utils/venue-catalog'),resources=require('../../../utils/venue-resources'),poster=require('../../utils/track-poster');
 const live=p=>p.active&&p.viewer===wx.getStorageSync('v2UserId');
 Page({
  data:{matchId:'',fontScale:1,navHeight:64,themeMode:'day',nightMode:false,needAlbumSetting:false,loading:false,saving:false,action:'',feedback:'',posterPath:'',notice:'',error:''},

@@ -1,6 +1,6 @@
 // Irregular v4 artwork is kept byte-for-byte; venue labels and real data are
 // composed at export time so three identical 1.5MB frames need not be shipped.
-const exporter=require('./track-export'),osm=require('./osm-art-registration'),geo=require('./geo-registration');
+const exporter=require('./track-export'),osm=require('../../utils/osm-art-registration'),geo=require('../../utils/geo-registration');
 const highlights=require('./track-highlights');
 const bubbleAssets=require('./track-bubble-assets');
 const anchors=highlights.anchors;

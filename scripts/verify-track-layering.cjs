@@ -2,7 +2,7 @@
 // Product painter, synthetic image-space regression cases. Not WeChat or GPS.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),cp=require('node:child_process');
 const root=path.resolve(__dirname,'..'),out=path.resolve(process.argv[2]),bundle='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules',lib=require(require.resolve('@napi-rs/canvas',{paths:[bundle]}));
-const poster=require('../utils/track-poster'),layout=require('../utils/track-highlights'),assets=require('../utils/track-bubble-assets'),{place}=require('../utils/track-bubble-placement'),images=require('../utils/venue-images');
+const poster=require('../room-tools/utils/track-poster'),layout=require('../room-tools/utils/track-highlights'),assets=require('../room-tools/utils/track-bubble-assets'),{place}=require('../room-tools/utils/track-bubble-placement'),images=require('../utils/venue-images');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
 const screen=([x,y])=>({x:x/1254*941,y:328+y/1254*941});
 const make=()=>lib.createCanvas(941,1672);
