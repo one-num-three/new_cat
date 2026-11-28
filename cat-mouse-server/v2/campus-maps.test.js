@@ -42,7 +42,7 @@ test('late package completion cannot restore an older campus image or detached c
 test('changing campus invalidates venue confirmation and ignores an older GPS response',async()=>{
  let p;const callbacks=[];vm.runInNewContext(read('pages/room/room.js'),{Page:d=>p=d,require:n=>n.includes('venue-resources')?{ready:()=>true}:n.includes('room-live')?require('../../utils/room-live'):n.includes('snapshot-v2')?require('../../utils/snapshot-v2'):n.includes('venue-boundary')?require('../../utils/venue-boundary'):n.includes('venue-catalog')?catalog:n.includes('team-config')?require('../../utils/team-config'):{},wx:{getLocation:x=>callbacks.push(x)},Math,Number});p.setData=x=>Object.assign(p.data,x);p.active=true;p.lifecycle=1;
  p.data.venue={lat:32,lng:118,confirmed:true};p.selectVenueMap({detail:{value:1}});assert.equal(p.data.venue,null);p.chooseVenue();p.selectVenueMap({detail:{value:2}});callbacks[0].success({latitude:catalog.get(ids[0]).demoPoints[0].lat,longitude:catalog.get(ids[0]).demoPoints[0].lng});assert.equal(p.data.venue,null);
- p.chooseVenue();callbacks[1].success({latitude:32,longitude:118});assert.equal(p.data.venue,null);assert.match(p.data.error,/不在所选校区/);
+ p.chooseVenue();callbacks[1].success({latitude:32,longitude:118});assert.equal(p.data.venue,null);assert.match(p.data.error,/不在所选(校区|场地范围)/);
  p.chooseVenue();const q=catalog.get(ids[1]).demoPoints[0];callbacks[2].success({latitude:q.lat,longitude:q.lng});assert.equal(p.data.venue.mapId,ids[1]);assert.equal(p.data.venue.confirmed,true);
 });
 test('campus rooms bind map/calibration, isolate locations across rooms and persist on restart',async()=>{

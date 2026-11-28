@@ -1,7 +1,7 @@
-<view wx:if="{{visible}}" class="sdvModalWrap {{mode==='sheet'?'sdvModalSheetMode':'sdvModalDialogMode'}}" style="--font-scale:{{fontScale}}" catchtouchmove="ignoreTouch">
-  <view class="sdvModalMask" bindtap="onMaskTap"></view>
+<view wx:if="{{visible}}" class="sdvModalWrap {{mode==='sheet'?'sdvModalSheetMode':'sdvModalDialogMode'}}" style="--font-scale:{{fontScale}}">
+  <view class="sdvModalMask" bindtap="onMaskTap" catchtouchmove="ignoreTouch"></view>
   <view class="sdvModalPanel {{mode==='sheet'?'sdvSheetPanel':'sdvDialogPanel'}}" role="dialog" aria-label="{{title || '提示'}}">
-    <view class="sdvModalHeader">
+    <view class="sdvModalHeader" catchtouchmove="ignoreTouch">
       <text class="sdvModalTitle">{{title || '提示'}}</text>
       <button class="sdvModalClose" bindtap="onMaskTap" aria-label="关闭">×</button>
     </view>
@@ -19,10 +19,10 @@
         </button>
       </view>
     </scroll-view>
-    <view wx:if="{{mode==='sheet'}}" class="sdvModalFooter">
+    <view wx:if="{{mode==='sheet'}}" class="sdvModalFooter" catchtouchmove="ignoreTouch">
       <button class="sdvModalBtn sdvModalBtnPlain" bindtap="onCancel">{{cancelText || '关闭'}}</button>
     </view>
-    <view wx:else class="sdvModalFooter">
+    <view wx:else class="sdvModalFooter" catchtouchmove="ignoreTouch">
       <button wx:if="{{showCancel}}" class="sdvModalBtn sdvModalBtnPlain" bindtap="onCancel">{{cancelText || '取消'}}</button>
       <button class="sdvModalBtn sdvModalBtnTone-{{confirmTone || 'green'}}" bindtap="onConfirm">{{confirmText || '确认'}}</button>
     </view>

@@ -82,10 +82,10 @@ test('room readiness controls explain waiting and never open a round early',asyn
   room.onLoad({devPreview:'ready'});await room.onShow();
   assert.equal(room.data.canStart,true);assert.equal(room.data.readyCount,8);
   await room.toggleReady();assert.equal(room.data.canStart,false);assert.equal(room.data.roster[0].ready,false);
-  assert.match(room.data.startHint,/1 人未准备/);await room.start();assert.deepEqual(events,[]);
-  room.applyRoom({roster:room.data.roster.slice(0,3)});assert.match(room.data.startHint,/5 位伙伴/);
+  assert.match(room.data.startHint,/1 人未就绪/);await room.start();assert.deepEqual(events,[]);
+  room.applyRoom({roster:room.data.roster.slice(0,3)});assert.match(room.data.startHint,/差 5 人/);
   room.applyRoom({roster:preview.roomData('ready').roster,owner:false});await room.start();assert.deepEqual(events,[]);
-  assert.match(source('pages/room/room.wxml'),/<pixel-action[^>]*bindaction="copy"/);
+  assert.match(source('pages/room/room.wxml'),/bindtap="copy"/);
 });
 test('map view labels and drawer distinguish frozen, captured and public venue state',()=>{
   const preview=fixture(),events=[];
@@ -93,7 +93,7 @@ test('map view labels and drawer distinguish frozen, captured and public venue s
   assert.equal(map.data.clock,'04:45');assert.equal(map.data.pauseReasonText,'组织者暂停');
   assert.equal(map.data.circles.length,1);assert.equal(map.data.circles[0].radius,200);
   map.toggleDrawer();assert.equal(map.data.drawer,true);map.closeDrawer();assert.equal(map.data.drawerClosing,true);map.drawerAnimationEnd();assert.equal(map.data.drawer,false);
-  map.onLoad({devPreview:'captured'});map.onShow();assert.equal(map.data.phaseText,'本轮出局');
+  map.onLoad({devPreview:'captured'});map.onShow();assert.equal(map.data.phaseText,'已核验');
   assert.equal(map.data.markers.length,1);assert.equal(map.data.nearbyCat,false);
   assert.match(source('pages/map/map.wxml'),/<scroll-view scroll-y class="drawerBody">/);
   assert.match(source('pages/map/map.wxml'),/class="drawerMask[^\"]*" bindtap="closeDrawer"/);

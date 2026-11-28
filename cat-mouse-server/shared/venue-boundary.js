@@ -20,7 +20,7 @@ function normalize(v,image){
  const a=ring.map(p=>xy(p,v)),n=a.length;
  if(a.some(p=>Math.hypot(...p)>3000))error('BOUNDARY_TOO_LARGE');
  for(let i=0;i<n;i++)for(let j=i+1;j<n;j++)if(Math.hypot(a[i][0]-a[j][0],a[i][1]-a[j][1])<5)error('BOUNDARY_POINTS_CLOSE');
- for(let i=0;i<n;i++){const b=a[(i+1)%n],c=a[(i+2)%n];if(Math.abs(cross(a[i],b,c))<.001&&(edgeDistance(a[i],b,c)<.001||edgeDistance(c,a[i],b)<.001))error('BOUNDARY_INTERSECTS');for(let j=i+1;j<n;j++){if(j===i+1||i===0&&j===n-1)continue;if(intersects(a[i],b,a[j],a[(j+1)%n]))error('BOUNDARY_INTERSECTS');}}
+ for(let i=0;i<n;i++){const b=a[(i+1)%n],c=a[(i+2)%n],ux=a[i][0]-b[0],uy=a[i][1]-b[1],vx=c[0]-b[0],vy=c[1]-b[1],lu=Math.hypot(ux,uy),lv=Math.hypot(vx,vy);if(lu>0&&lv>0&&(ux*vx+uy*vy)/(lu*lv)>.9985)error('BOUNDARY_INTERSECTS');if(Math.abs(cross(a[i],b,c))<.001&&(edgeDistance(a[i],b,c)<.001||edgeDistance(c,a[i],b)<.001))error('BOUNDARY_INTERSECTS');for(let j=i+1;j<n;j++){if(j===i+1||i===0&&j===n-1)continue;if(intersects(a[i],b,a[j],a[(j+1)%n]))error('BOUNDARY_INTERSECTS');}}
  const size=area(ring);if(size<400)error('BOUNDARY_TOO_SMALL');if(size>4000000)error('BOUNDARY_TOO_LARGE');
  if(ringDistance(v,ring)>.001)error('MEETING_OUTSIDE');
  return {...base,boundary:ring.map(p=>({lat:p.lat,lng:p.lng}))};

@@ -4,7 +4,7 @@ const venueImages=require('../shared/venue-images.js').concat([require('../share
 const venueGeometry=require('../shared/venue-boundary');
 const visibility=require('./visibility'),tracks=require('./tracks');
 const { preset, targetFor, distance } = require('./rules');
-const { hash } = require('./store');
+const { hash, isUuid } = require('./store');
 const fail = code => { const e = new Error(code); e.code = code; throw e; };
 const positionKey=(roomId,actor)=>roomId+':'+actor;
 const terminal = m => m && ['FINISHED', 'CANCELLED'].includes(m.phase);
@@ -34,7 +34,7 @@ class Service {
     const mapId=input.mapId??v.mapId??'xuanwu-v4',image=venueImages.find(x=>x.id===mapId);if(!image)fail('INVALID_VENUE_MAP');
     if(input.mapRevision!==undefined&&input.mapRevision!==image.sha256)fail('MAP_REVISION_MISMATCH');
     const venue=venueGeometry.normalize(v,image);
-    const state = { version: 1, rules, settings:{mouseTeamVision:false},venue,mapRevision:image.sha256, members: [{ id: actor, nickname: name(input.nickname), ready: false }], match: null, history: [] };
+    const state = { version: 1, rules, baseRules: structuredClone(rules), settings:{mouseTeamVision:false},venue,mapRevision:image.sha256, members: [{ id: actor, nickname: name(input.nickname), ready: false }], match: null, history: [] };
     const digest=hash(JSON.stringify({rules,venue,mapRevision:image.sha256,nickname:state.members[0].nickname}));
     return this.store.tx(async db=>{
       if(input.commandId){await this.store.commandLock(db,'create-room',actor,input.commandId);const prior=await this.receipt(db,'create-room',actor,input.commandId,digest);if(prior)return prior;}
@@ -58,8 +58,8 @@ class Service {
       const out = await fn(room, db, member);
       const justFinished=!wasTerminal&&terminal(room.state.match);
       if(justFinished){for(const player of room.state.members)player.ready=false;room.state.version++;completed={match:room.state.match,roomId:room.id};}
-      await this.store.save(db, room);
-      if (terminal(room.state.match)) {
+      if(!room._deleted)await this.store.save(db, room);
+      if (!room._deleted && terminal(room.state.match)) {
         const finished = room.state.match;
         await db.query('INSERT INTO match_results VALUES ($1,$2,$3) ON CONFLICT (match_id) DO NOTHING', [finished.id, room.id, JSON.stringify({ matchId:finished.id, outcome:finished.outcome, reason:finished.reason, endedAt:finished.endedAt, captured:finished.captured, target:finished.target, rulesVersion:room.state.rules.version,joinPolicy:finished.joinPolicy||null,targetMouseCount:finished.targetMouseCount||null,initialTeams:finished.initialTeams||null,venue:finished.venue||room.state.venue,mapCalibration:finished.mapCalibration||null,ownerId:room.owner_id,startedAt:finished.startedAt,settings:finished.settings||{mouseTeamVision:false},trackVersion:finished.trackVersion||null,participants:finished.participants.map(p=>({...p,nickname:room.state.members.find(x=>x.id===p.id)?.nickname||'玩家'})) })]);
       }
@@ -114,6 +114,10 @@ class Service {
         await this.tick(room,db);
         const s=room.state,m=s.match,live=m&&!terminal(m);
         if (s.members.length >= (live?60:s.rules.total)) fail('ROOM_FULL');
+        if (live) {
+          const pendingJoins = m.participants.filter(p => p.status === 'joining').length;
+          if (pendingJoins >= Math.max(8, s.baseRules?.total || 8)) fail('JOIN_BUSY');
+        }
         member = { id: actor, nickname: name(nickname), ready: false }; room.state.members.push(member); room.state.version++;
         if(live){
           const initial=m.initialTeams||(m.initialTeams={cats:m.participants.filter(p=>p.role==='cat').length,mice:m.participants.filter(p=>p.role==='mouse').length});
@@ -129,13 +133,42 @@ class Service {
           await this.event(db,m,'JOIN',{playerId:actor,role,previousTarget,target:m.target,cats:s.rules.cats,mice:s.rules.mice});
         }
         await this.store.save(db, room);
+      } else if ((!room.state.match || terminal(room.state.match)) && typeof nickname === 'string' && nickname.trim()) {
+        const nextName = name(nickname);
+        if (member.nickname !== nextName) { member.nickname = nextName; room.state.version++; await this.store.save(db, room); }
       }
       const me=room.state.match?.participants.find(p=>p.id===actor);
       return { roomId: room.id, memberId: member.id,role:me?.role||null,status:me?.status||null };
     });
   }
+  needsTick(room) {
+    const m = room?.state?.match;
+    if (!m || terminal(m)) return false;
+    const now = this.now();
+    if (m.participants.some(p => p.status === 'joining' && now >= p.joinDeadline)) return true;
+    if (!m.participants.some(p => p.role === 'mouse' && ['active', 'joining'].includes(p.status))) return true;
+    if (!m.participants.some(p => p.role === 'cat' && ['active', 'joining'].includes(p.status))) return true;
+    if (m.phase === 'PAUSED') return m.pauseReason !== 'server_restart' && m.pauseUsedMs + now - m.pausedAt >= room.state.rules.pauseBudgetMs;
+    if (now >= m.endsAt) return true;
+    if (m.participants.some(p => p.status === 'active' && (!this.positions.get(positionKey(room.id, p.id)) || now - this.positions.get(positionKey(room.id, p.id)).receivedAt > 30000 || now - (this.lastSeen.get(p.id) || 0) > 30000))) return true;
+    if (m.phase === 'CHASING' && m.intelBucket !== Math.floor(now / room.state.rules.intelMs)) return true;
+    return false;
+  }
   async read(id, actor) {
+    const unlocked = await this.store.room(id, this.store.db, false);
+    if (!unlocked) fail('ROOM_NOT_FOUND');
+    if (!unlocked.state.members.some(p => p.id === actor)) fail('NOT_MEMBER');
+    if (!this.needsTick(unlocked)) return this.view(unlocked, actor);
     return this.mutate(id, actor, room => this.view(room, actor));
+  }
+  async advanceRoom(id, ownerId) {
+    const unlocked = await this.store.room(id, this.store.db, false);
+    const m = unlocked?.state?.match;
+    if (!m || terminal(m)) return;
+    if (this.needsTick(unlocked) || (m.phase !== 'PAUSED' && this.now() - (m.lastTickAt || 0) >= 5000)) {
+      const actor = unlocked.owner_id || ownerId;
+      return this.mutate(id, actor, room => this.view(room, actor));
+    }
   }
   async setSettings(id,actor,input){return this.mutate(id,actor,async(room,db)=>{
     if(room.owner_id!==actor)fail('FORBIDDEN');
@@ -150,7 +183,7 @@ class Service {
   exportTracks(matchId,actor,scope='self'){return tracks.read(this.store,matchId,actor,scope,this.now());}
   view(room, actor) {
     const s = room.state, m = s.match, me = m?.participants.find(p => p.id === actor);
-    const roster = s.members.map(p => ({ id: p.id, nickname: p.nickname, ready: p.ready, role: m?.participants.find(x => x.id === p.id)?.role || null, status: m?.participants.find(x => x.id === p.id)?.status || null, presence: this.now()-(this.lastSeen.get(p.id)||0)<=15000?'online':'reconnecting' }));
+    const roster = s.members.map(p => ({ id: p.id, nickname: p.nickname, ready: p.ready, isOwner: p.id === room.owner_id, role: m?.participants.find(x => x.id === p.id)?.role || null, status: m?.participants.find(x => x.id === p.id)?.status || null, presence: this.now()-(this.lastSeen.get(p.id)||0)<=15000?'online':'reconnecting' }));
     const base = { protocolVersion: 2, viewerId: actor, serverTime: this.now(), roomId: room.id, code: room.code, owner: room.owner_id === actor, version: s.version, venue: s.venue,mapRevision:s.mapRevision||venueImages.find(i=>i.id===(s.venue.mapId||'xuanwu-v4'))?.sha256, rules: s.rules, mapCalibration:s.mapCalibration||null, roster, match: m ? { id: m.id, phase: m.phase, endsAt: m.endsAt, remainingMs: m.phase === 'PAUSED' ? m.remainingMs : Math.max(0, m.endsAt - this.now()), pauseReason: m.pauseReason || null, target: m.target, captured: m.captured, outcome: m.outcome || null, reason: m.reason || null, eventSeq: m.eventSeq, myRole: me?.role, myStatus: me?.status,joinPolicy:m.joinPolicy||'reinforce-v1',targetMouseCount:m.targetMouseCount||null,initialTeams:m.initialTeams||null,joinDeadline:me?.status==='joining'?me.joinDeadline:null } : null, visiblePositions: [], intel: [], nearbyCat: false, events: [] };
     base.settings=s.settings||{mouseTeamVision:false};
     if (!m) return base;
@@ -179,9 +212,14 @@ class Service {
       if(input?.matchId!==undefined){const m=room.state.match,p=m?.participants.find(p=>p.id===actor);if(!m||m.id!==input.matchId||terminal(m)||!['active','joining'].includes(p?.status))return {accepted:false,warning:'TRACKING_STOPPED',tracking:tracking()};}
       if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='captured') fail('CAPTURED');
       if (room.state.match && !terminal(room.state.match) && room.state.match.participants.find(p=>p.id===actor)?.status==='left') fail('LEFT_MATCH');
-      if (![lat, lng, accuracy, sampledAt, sampleSeq].every(Number.isFinite) || lat < -90 || lat > 90 || lng < -180 || lng > 180 || accuracy < 0 || accuracy > 50 || !Number.isInteger(sampleSeq) || coordinateSystem !== 'gcj02' || Math.abs(this.now() - sampledAt) > 10000) fail('INVALID_LOCATION');
-      const key=positionKey(room.id,actor),revision=room.state.venueRevision||0,rawPrev=this.positions.get(key),prev=(rawPrev?.venueRevision||0)===revision?rawPrev:null,rawOutside=this.outside.get(key),lastOutside=(rawOutside?.venueRevision||0)===revision?rawOutside:null;if(lastOutside&&sampledAt<=lastOutside.sampledAt)fail('STALE_LOCATION'); if (prev && sampleSeq <= prev.sampleSeq && this.now()-prev.receivedAt<=5000) fail('STALE_LOCATION');
-      if (prev && distance(prev, { lat, lng }) > Math.max(100, (sampledAt - prev.sampledAt) / 1000 * 20 + 50)) fail('LOCATION_JUMP');
+      if (![lat, lng, accuracy, sampledAt, sampleSeq].every(Number.isFinite) || lat < -90 || lat > 90 || lng < -180 || lng > 180 || accuracy < 0 || accuracy > 50 || !Number.isInteger(sampleSeq) || coordinateSystem !== 'gcj02' || sampledAt > this.now() + 2000 || this.now() - sampledAt > 10000) fail('INVALID_LOCATION');
+      const key=positionKey(room.id,actor),revision=room.state.venueRevision||0,rawPrev=this.positions.get(key),prev=(rawPrev?.venueRevision||0)===revision?rawPrev:null,rawOutside=this.outside.get(key),lastOutside=(rawOutside?.venueRevision||0)===revision?rawOutside:null;if(lastOutside&&sampledAt<=lastOutside.sampledAt)fail('STALE_LOCATION'); if (prev && (sampledAt < prev.sampledAt || sampleSeq <= prev.sampleSeq && this.now()-prev.receivedAt<=5000)) fail('STALE_LOCATION');
+      if (prev) {
+        const dtSec = Math.max(0, Math.min(this.now() - prev.receivedAt, sampledAt - prev.sampledAt)) / 1000;
+        if (distance(prev, { lat, lng }) > dtSec * 20 + 65) fail('LOCATION_JUMP');
+        const anchor = prev.anchor && (this.now() - prev.anchor.at < 10000) ? prev.anchor : { lat: prev.lat, lng: prev.lng, at: prev.receivedAt };
+        if (distance(anchor, { lat, lng }) > Math.max(0, this.now() - anchor.at) / 1000 * 20 + 95) fail('LOCATION_JUMP');
+      }
       if (venueGeometry.outsideDistance(room.state.venue, { lat, lng }) > 50) {
         const previous=lastOutside, o={firstAt:previous?previous.firstAt:this.now(),count:previous?previous.count+1:1,sampledAt,sampleSeq,venueRevision:revision};committed=()=>this.outside.set(positionKey(room.id,actor),o);
         const m=room.state.match;
@@ -194,9 +232,18 @@ class Service {
       const joining=m?.participants.find(p=>p.id===actor&&p.status==='joining');
       if(joining){joining.status='active';room.state.version++;await this.event(db,m,'JOIN_READY',{playerId:actor,role:joining.role});}
       if(input.matchId===m?.id)await tracks.record(db,room,actor,{lat,lng,accuracy,sampledAt},this.now());
-      const point={lat,lng,accuracy,sampledAt,sampleSeq,receivedAt:this.now(),venueRevision:revision};
+      const anchor = prev?.anchor && (this.now() - prev.anchor.at < 10000) ? prev.anchor : { lat, lng, at: this.now() };
+      const point={lat,lng,accuracy,sampledAt,sampleSeq,receivedAt:this.now(),venueRevision:revision,anchor};
       committed=()=>{this.outside.delete(key);this.positions.set(key,point);};
-      if(m?.phase==='CHASING' && (!m.intel || m.intel.length===0) && m.participants.filter(p=>p.role==='mouse' && p.status==='active').every(p=>p.id===actor||this.fresh(p.id,room.id,revision))) { m.intelBucket=-1; this.refreshIntel(room,{[actor]:point}); }
+      if(m?.phase==='CHASING'){
+        const bucket=Math.floor(this.now()/room.state.rules.intelMs);
+        if((!m.intel||m.intel.length===0)&&m.participants.filter(p=>p.role==='mouse'&&p.status==='active').every(p=>p.id===actor||this.fresh(p.id,room.id,revision))){m.intelBucket=-1;this.refreshIntel(room,{[actor]:point});}
+        else if(m.intelBucket===bucket&&m.participants.some(p=>p.id===actor&&p.role==='mouse'&&p.status==='active')&&!(m.intel||[]).some(x=>x.id===actor)){
+          const latStep=50/111320,lngStep=50/(111320*Math.cos(point.lat*Math.PI/180));
+          m.intel=[...(m.intel||[]),{id:actor,cellLat:Math.floor(point.lat/latStep)*latStep,cellLng:Math.floor(point.lng/lngStep)*lngStep,radiusM:50,sampledWindow:bucket,expiresAt:(bucket+1)*room.state.rules.intelMs}];
+          room.state.version++;
+        }
+      }
       return { accepted: true,...(input?.matchId!==undefined?{tracking:tracking()}:{}) };
     },()=>committed?.());
   }
@@ -211,10 +258,31 @@ class Service {
     const now = this.now(), m = { id: crypto.randomUUID(), phase: 'HIDING', endsAt: now + s.rules.hidingMs, lastTickAt:now, participants: rotated.map((p, i) => ({ id: p.id, role: i < s.rules.cats ? 'cat' : 'mouse', status: 'active' })), target: targetFor(s.rules.mice), captured: 0, eventSeq: 0, publicEvents: [], tokens: {}, usedTokens: {}, pauseUsedMs: 0 };
     m.startedAt=now;m.trackVersion='tracks-v1';m.trackSegment=0;m.settings=structuredClone(s.settings||{mouseTeamVision:false});m.venue=structuredClone(s.venue);m.mapCalibration=structuredClone(s.mapCalibration||null);m.initialTeams={cats:s.rules.cats,mice:s.rules.mice};m.joinPolicy='reinforce-v2';m.targetMouseCount=s.rules.mice;s.match = m; s.history.push(m.id); s.version++; await this.event(db, m, 'START', { phase: m.phase }); return this.view(room, actor);
   }); }
-  async event(db, m, kind, payload) { if(kind==='PAUSE'||kind==='RESUME')m.trackSegment=(m.trackSegment||0)+1;m.eventSeq++; const e = { seq: m.eventSeq, kind, payload, at: this.now() }; m.publicEvents.push(e); await db.query('INSERT INTO events VALUES ($1,$2,$3,$4,$5)', [m.id, e.seq, kind, JSON.stringify(payload), e.at]); }
+  async event(db, m, kind, payload) { if(kind==='PAUSE'||kind==='RESUME')m.trackSegment=(m.trackSegment||0)+1;m.eventSeq++; const e = { seq: m.eventSeq, kind, payload, at: this.now() }; m.publicEvents.push(e); if(m.publicEvents.length>32)m.publicEvents=m.publicEvents.slice(-32); await db.query('INSERT INTO events VALUES ($1,$2,$3,$4,$5)', [m.id, e.seq, kind, JSON.stringify(payload), e.at]); }
+  async settleDepletedTeams(room, db) {
+    const m = room.state.match;
+    if (!m || terminal(m)) return false;
+    const miceLeft = m.participants.some(p => p.role === 'mouse' && ['active', 'joining'].includes(p.status));
+    if (!miceLeft) {
+      if (m.captured > 0) {
+        m.phase = 'FINISHED'; m.outcome = 'cat_win'; m.reason = 'all_mice_eliminated'; m.endedAt = this.now(); m.tokens = {}; room.state.version++;
+        await this.event(db, m, 'RESULT', { outcome: 'cat_win', reason: 'all_mice_eliminated' });
+      } else {
+        await this.cancelInside(room, db, 'no_active_mice');
+      }
+      return true;
+    }
+    const catsLeft = m.participants.some(p => p.role === 'cat' && ['active', 'joining'].includes(p.status));
+    if (!catsLeft) {
+      await this.cancelInside(room, db, 'no_active_cats');
+      return true;
+    }
+    return false;
+  }
   async tick(room, db) {
     const m = room.state.match; if (!m || terminal(m)) return;
     for(const p of m.participants)if(p.status==='joining'&&this.now()>=p.joinDeadline){p.status='left';room.state.version++;await this.event(db,m,'JOIN_EXPIRED',{playerId:p.id});}
+    if(await this.settleDepletedTeams(room, db))return;
     if (m.phase === 'PAUSED') { if (m.pauseReason !== 'server_restart' && m.pauseUsedMs + this.now() - m.pausedAt >= room.state.rules.pauseBudgetMs) await this.cancelInside(room, db, 'pause_budget'); return; }
     m.lastTickAt=this.now();
     if (m.phase === 'CHASING' && this.now() >= m.endsAt) { m.phase = 'FINISHED'; m.outcome = 'mouse_win'; m.reason = 'deadline'; m.endedAt = this.now(); m.tokens = {}; room.state.version++; await this.event(db, m, 'RESULT', { outcome: m.outcome, reason: m.reason }); return; }
@@ -230,8 +298,11 @@ class Service {
     const m = room.state.match, bucket = Math.floor(this.now() / room.state.rules.intelMs);
     if (m.intelBucket === bucket) return;
     m.intelBucket = bucket; m.intel = [];
+    const rev = room.state.venueRevision || 0;
     for (const p of m.participants.filter(x => x.role === 'mouse' && x.status === 'active')) {
-      const pos = override[p.id]||this.fresh(p.id,room.id,room.state.venueRevision||0); if (!pos) continue;
+      const key = positionKey(room.id, p.id), rawPos = this.positions.get(key), out = this.outside.get(key);
+      const recentValid = rawPos && (rawPos.venueRevision || 0) === rev && (!out || (out.venueRevision || 0) !== rev) && this.now() - rawPos.receivedAt <= 30000 ? rawPos : null;
+      const pos = override[p.id] || this.fresh(p.id, room.id, rev) || recentValid; if (!pos) continue;
       const latStep = 50 / 111320, lngStep = 50 / (111320 * Math.cos(pos.lat * Math.PI / 180));
       m.intel.push({ id: p.id, cellLat: Math.floor(pos.lat / latStep) * latStep, cellLng: Math.floor(pos.lng / lngStep) * lngStep, radiusM: 50, sampledWindow: bucket, expiresAt: (bucket + 1) * room.state.rules.intelMs });
     }
@@ -262,28 +333,69 @@ class Service {
     delete m.tokens[tokenHash]; m.usedTokens[tokenHash]=mouse.id; mouse.status = 'captured'; m.captured++; room.state.version++;
     await this.event(db, m, 'CAPTURE', { catId: actor, mouseId: mouse.id, captured: m.captured });
     if (m.captured >= m.target) { m.phase = 'FINISHED'; m.outcome = 'cat_win'; m.reason = 'capture_target'; m.endedAt = this.now(); m.tokens = {}; await this.event(db, m, 'RESULT', { outcome: m.outcome, reason: m.reason }); }
+    else await this.settleDepletedTeams(room, db);
     const result = { accepted: true, matchId: m.id, captured: m.captured, outcome: m.outcome || null };
     await db.query('INSERT INTO commands VALUES ($1,$2,$3,$4)', [m.id, actor, commandId, JSON.stringify(result)]);await this.saveReceipt(db,scope,actor,commandId,digest,result);return result;
   }); }
   async pause(id, actor, reason) { return this.mutate(id, actor, async (room, db) => {
     const m = room.state.match; if (!m || terminal(m) || m.phase!=='PAUSED' && this.now()>=m.endsAt) fail('NO_ACTIVE_MATCH');
-    if (room.owner_id !== actor && (reason!=='emergency'||!m.participants.some(p=>p.id===actor&&['active','joining'].includes(p.status)))) fail('FORBIDDEN');
+    const isOwner = room.owner_id === actor;
+    if (isOwner) {
+      if (reason !== undefined && reason !== 'host' && reason !== 'emergency') fail('INVALID_CONFIG');
+    } else {
+      if (reason !== 'emergency' || !m.participants.some(p => p.id === actor && p.status === 'active')) fail('FORBIDDEN');
+      m.emergencyActors = m.emergencyActors || [];
+      if (m.emergencyActors.includes(actor)) fail('PAUSE_LIMIT_REACHED');
+      m.emergencyActors.push(actor);
+    }
     if (m.phase === 'PAUSED') return this.view(room, actor);
     m.resumePhase = m.phase; m.remainingMs = Math.max(0, m.endsAt - this.now()); m.phase = 'PAUSED'; m.pausedAt = this.now(); m.pauseReason = reason || 'host'; m.tokens = {}; room.state.version++; await this.event(db, m, 'PAUSE', { reason: m.pauseReason }); return this.view(room, actor);
   }); }
   async resume(id, actor) { return this.mutate(id, actor, async (room, db) => {
     if (room.owner_id !== actor) fail('FORBIDDEN'); const m = room.state.match; if (m?.phase !== 'PAUSED') fail('NOT_PAUSED');
-    m.pauseUsedMs += this.now() - m.pausedAt;
-    if (m.pauseUsedMs > room.state.rules.pauseBudgetMs) return this.cancelInside(room, db, 'pause_budget');
+    if (m.pauseReason !== 'server_restart') {
+      m.pauseUsedMs += this.now() - m.pausedAt;
+      if (m.pauseUsedMs > room.state.rules.pauseBudgetMs) return this.cancelInside(room, db, 'pause_budget');
+    }
     if (m.participants.some(p => p.status === 'active' && !this.fresh(p.id,room.id,room.state.venueRevision||0))) fail('LOCATION_REQUIRED');
     m.phase = m.resumePhase; m.endsAt = this.now() + m.remainingMs; m.lastTickAt=this.now(); m.pauseReason = null; room.state.version++; await this.event(db, m, 'RESUME', {}); return this.view(room, actor);
   }); }
   async cancelInside(room, db, reason) { const m = room.state.match; m.phase = 'CANCELLED'; m.outcome = 'cancelled'; m.reason = reason; m.endedAt = this.now(); m.tokens = {}; room.state.version++; await this.event(db, m, 'RESULT', { outcome: 'cancelled', reason }); return { matchId: m.id, outcome: 'cancelled' }; }
   async cancel(id, actor) { return this.mutate(id, actor, async (room, db) => { if (room.owner_id !== actor) fail('FORBIDDEN'); if (!room.state.match || terminal(room.state.match)) fail('NO_ACTIVE_MATCH'); return this.cancelInside(room, db, 'host_cancel'); }); }
-  async leave(id, actor) { let leavingRoomId;const result=await this.mutate(id, actor, async (room, db) => { leavingRoomId=room.id;const m = room.state.match; if (m && !terminal(m)) { const p=m.participants.find(p=>p.id===actor),wasActive=p?.status==='active';if(p&&['active','joining'].includes(p.status)){p.status='left';room.state.members.find(p=>p.id===actor).ready=false;room.state.version++;await this.event(db,m,'LEAVE',{playerId:actor});}if(wasActive&&m.phase!=='PAUSED'){m.resumePhase=m.phase;m.remainingMs=Math.max(0,m.endsAt-this.now());m.phase='PAUSED';m.pausedAt=this.now();m.pauseReason='leave';m.tokens={};await this.event(db,m,'PAUSE',{reason:'leave'});} } else { if(room.owner_id===actor)room.state.members.find(p=>p.id===actor).ready=false;else room.state.members=room.state.members.filter(p=>p.id!==actor);room.state.version++; } return { left: true }; }); this.positions.delete(positionKey(leavingRoomId,actor));this.outside.delete(positionKey(leavingRoomId,actor));return result; }
+  shrinkRulesAfterExit(s) {
+    const base = s.baseRules;
+    if (base && s.rules.total > base.total) {
+      const total = Math.max(base.total, s.members.length);
+      const cats = Math.max(1, Math.min(total - 1, Math.round(total * base.cats / base.total)));
+      s.rules = { ...s.rules, total, cats, mice: total - cats };
+    }
+  }
+  async kick(id, actor, targetId) {
+    let kickedRoomId;
+    const result = await this.mutate(id, actor, async room => {
+      if (room.owner_id !== actor) fail('FORBIDDEN');
+      if (room.state.match && !terminal(room.state.match)) fail('IN_PROGRESS');
+      if (!isUuid(targetId) || targetId === actor) fail('INVALID_CONFIG');
+      if (!room.state.members.some(p => p.id === targetId)) fail('NOT_MEMBER');
+      kickedRoomId = room.id;
+      room.state.members = room.state.members.filter(p => p.id !== targetId);
+      this.shrinkRulesAfterExit(room.state);
+      room.state.version++;
+      return this.view(room, actor);
+    });
+    if (kickedRoomId) { this.positions.delete(positionKey(kickedRoomId, targetId)); this.outside.delete(positionKey(kickedRoomId, targetId)); }
+    return result;
+  }
+  async leave(id, actor) { let leavingRoomId;const result=await this.mutate(id, actor, async (room, db) => { leavingRoomId=room.id;const m = room.state.match; if (m && !terminal(m)) { const p=m.participants.find(p=>p.id===actor),wasActive=p?.status==='active';if(p&&['active','joining'].includes(p.status)){p.status='left';room.state.members.find(p=>p.id===actor).ready=false;room.state.version++;await this.event(db,m,'LEAVE',{playerId:actor});}if(room.owner_id===actor){const nextOwner=m.participants.find(x=>x.id!==actor&&x.status==='active')?.id||room.state.members.find(x=>x.id!==actor)?.id;if(nextOwner)room.owner_id=nextOwner;}if(!(await this.settleDepletedTeams(room,db))&&wasActive&&m.phase!=='PAUSED'){m.resumePhase=m.phase;m.remainingMs=Math.max(0,m.endsAt-this.now());m.phase='PAUSED';m.pausedAt=this.now();m.pauseReason='leave';m.tokens={};await this.event(db,m,'PAUSE',{reason:'leave'});} } else { room.state.members=room.state.members.filter(p=>p.id!==actor);if(!room.state.members.length){room._deleted=true;await db.query('DELETE FROM rooms WHERE id=$1',[room.id]);return {left:true};}if(room.owner_id===actor)room.owner_id=room.state.members[0].id;this.shrinkRulesAfterExit(room.state);room.state.version++; } return { left: true }; }); this.positions.delete(positionKey(leavingRoomId,actor));this.outside.delete(positionKey(leavingRoomId,actor));return result; }
+  pruneMemory(maxIdleMs = 3600000) {
+    const cutoff = this.now() - maxIdleMs;
+    for (const [k, v] of this.lastSeen) if (v < cutoff) this.lastSeen.delete(k);
+    for (const [k, v] of this.positions) if ((v.receivedAt || 0) < cutoff) this.positions.delete(k);
+    for (const [k, v] of this.outside) if ((v.firstAt || 0) < cutoff) this.outside.delete(k);
+  }
   clearPositions(m,roomId) { for (const p of m.participants) { this.positions.delete(positionKey(roomId,p.id)); this.outside.delete(positionKey(roomId,p.id)); } }
 }
-function validUuid(x) { return typeof x === 'string' && /^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(x); }
-function name(x) { const s = String(x || '').trim(); if (!s || s.length > 20) fail('INVALID_NAME'); return s; }
+function validUuid(x) { return isUuid(x); }
+function name(x) { if (typeof x !== 'string') fail('INVALID_NAME'); const s = x.replace(/[\u0000-\u001F\u007F\u200B-\u200F\u202A-\u202E\u2066-\u2069]/g, '').trim(); if (!s || s.length > 20) fail('INVALID_NAME'); return s; }
 function coordinate(p) { return { lat: p.lat, lng: p.lng, accuracy: p.accuracy, receivedAt: p.receivedAt }; }
 module.exports = { Service };

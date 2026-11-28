@@ -5,3 +5,7 @@ assets/** -text
 campus3d/assets/** -text
 venue-maps/assets/** -text
 utils/*font.wxss -text
+utils/osm-art-model.js text eol=lf
+utils/track-bubble-placement.js text eol=lf
+utils/venue-boundary.js text eol=lf
+cat-mouse-server/shared/venue-boundary.js text eol=lf

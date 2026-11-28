@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
   [string]$OutputDirectory,
   [switch]$DirectoryOnly
@@ -33,6 +33,7 @@ try {
   $miniFiles += @('utils\track-export.js','utils\track-poster.js','utils\track-highlights.js','utils\track-bubble-placement.js','utils\track-bubble-assets.js')
   $miniFiles += 'utils\location-scenarios.js'
   $miniFiles += @('utils\model-map.js','utils\model-reference.js','utils\model-camera.js','utils\model-resources.js','campus3d')
+  $miniFiles += @('assets\sdv-v1','utils\sdv-theme.wxss','utils\sdv-borders.wxss')
   foreach ($item in $miniFiles) {
     if (-not (Test-Path -LiteralPath (Join-Path $root $item))) {
       throw "Required miniprogram source is missing: $item"
@@ -48,20 +49,21 @@ try {
   $embeddedFontSource = Join-Path $miniStage 'assets\pixel-v1\ui-variable.woff'
   if (Test-Path -LiteralPath $embeddedFontSource) { Remove-Item -LiteralPath $embeddedFontSource -Force }
   # Keep unused reference slices in the source library, not in the shipped UI.
-  foreach ($name in @('button-create-minus.png','button-create-plus.png','rules-icon-capture.png')) {
+  foreach ($name in @('button-create-minus.png','button-create-plus.png','rules-icon-capture.png','cancelled-hero.png','paused-scene.png','home-hero.png','mousewin-hero.png','catwin-hero.png','hiding-scene.png','ready-hero.png','create-hero.png','offline-hero.png','code-role.png','home-footer.png')) {
     $unusedSlice = Join-Path $miniStage ('assets\pixel-v1\' + $name)
     if (Test-Path -LiteralPath $unusedSlice) { Remove-Item -LiteralPath $unusedSlice -Force }
   }
 
-  if ((Get-Content -LiteralPath (Join-Path $root 'components\pixel-action\pixel-action.wxml') -Raw) -match '<image') { throw 'Button artwork is used again; revisit package exclusions' }
+  if ((Get-Content -LiteralPath (Join-Path $root 'components\pixel-action\pixel-action.wxml') -Encoding UTF8 -Raw) -match '<image') { throw 'Button artwork is used again; revisit package exclusions' }
   foreach ($button in (Get-ChildItem -LiteralPath (Join-Path $miniStage 'assets\pixel-v1') -Filter 'button-*.png' -File)) { Remove-Item -LiteralPath $button.FullName -Force }
 
   # Historical faithful-v2 assets and styles stay in the repository but are not
   # part of the current pixel-v1 runtime file list.
-  $appManifest=Get-Content -LiteralPath (Join-Path $miniStage 'app.json') -Raw | ConvertFrom-Json
+  $appManifest=Get-Content -LiteralPath (Join-Path $miniStage 'app.json') -Encoding UTF8 -Raw | ConvertFrom-Json
   $packageBytes=@{main=0L}
+  $miniPrefix=([IO.Path]::GetFullPath($miniStage)).TrimEnd('\','/')+'\'
   foreach($file in @(Get-ChildItem -LiteralPath $miniStage -File -Recurse)) {
-    $relative=[IO.Path]::GetRelativePath($miniStage,$file.FullName).Replace('\','/')
+    $relative=$file.FullName.Substring($miniPrefix.Length).Replace('\','/')
     $group='main'
     foreach($part in $appManifest.subPackages){if($relative.StartsWith($part.root+'/')){$group=$part.root;break}}
     if(!$packageBytes.ContainsKey($group)){$packageBytes[$group]=0L}

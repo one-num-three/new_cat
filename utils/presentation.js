@@ -1,15 +1,70 @@
 const venueCatalog=require('./venue-catalog');
 // Display-only projection: authority stays in authenticated server snapshots.
+let brightBaseline=null,brightReading=false;
+const brightHolders=new Set();
+function readThemeMode() {
+  try {
+    if (typeof wx !== 'undefined' && 'getStorageSync' in wx) {
+      const raw = wx.getStorageSync('sdvTheme');
+      if (raw === 'night' || raw === 'dusk') return raw;
+    }
+  } catch {}
+  return 'day';
+}
 function readNightMode() {
-  try { return typeof wx !== 'undefined' && 'getStorageSync' in wx && wx.getStorageSync('sdvTheme') === 'night'; }
-  catch { return false; }
+  return readThemeMode() !== 'day';
+}
+function boostBrightness(ctx) {
+  if (!ctx || ctx.devPreview) return;
+  brightHolders.add(ctx);
+  if (typeof wx === 'undefined' || !('getScreenBrightness' in wx) || !('setScreenBrightness' in wx)) return;
+  if (brightBaseline !== null) {
+    try { wx.setScreenBrightness({ value: 0.9 }); } catch {}
+    return;
+  }
+  if (brightReading) return;
+  brightReading = true;
+  try {
+    wx.getScreenBrightness({
+      success: r => {
+        if (Number.isFinite(r?.value) && brightBaseline === null) brightBaseline = r.value;
+        if (brightHolders.size > 0 && brightBaseline !== null) {
+          try { wx.setScreenBrightness({ value: 0.9 }); } catch {}
+        }
+      },
+      fail: () => {},
+      complete: () => {
+        brightReading = false;
+        if (brightHolders.size === 0 && brightBaseline !== null) {
+          const v = brightBaseline;
+          brightBaseline = null;
+          try { wx.setScreenBrightness({ value: v }); } catch {}
+        }
+      }
+    });
+  } catch {
+    brightReading = false;
+  }
+}
+function restoreBrightness(ctx) {
+  brightHolders.delete(ctx);
+  if (brightHolders.size > 0 || brightReading || brightBaseline === null) return;
+  const v = brightBaseline;
+  brightBaseline = null;
+  if (Number.isFinite(v) && typeof wx !== 'undefined' && 'setScreenBrightness' in wx) {
+    try { wx.setScreenBrightness({ value: v }); } catch {}
+  }
 }
 function metrics() {
   let w={}, capsule={}, base={};
-  try { w=wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync(); capsule=wx.getMenuButtonBoundingClientRect ? wx.getMenuButtonBoundingClientRect() : {}; base=wx.getAppBaseInfo ? wx.getAppBaseInfo() : {}; } catch {}
+  try { w=(wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync()) || {}; } catch {}
+  try { capsule=(typeof wx !== 'undefined' && 'getMenuButtonBoundingClientRect' in wx && wx.getMenuButtonBoundingClientRect ? wx.getMenuButtonBoundingClientRect() : null) || {}; } catch {}
+  try { base=(typeof wx !== 'undefined' && 'getAppBaseInfo' in wx && wx.getAppBaseInfo ? wx.getAppBaseInfo() : null) || {}; } catch {}
   const statusHeight=w.statusBarHeight || 20;
-  const navHeight=capsule.bottom ? capsule.bottom+Math.max(4,capsule.top-statusHeight) : statusHeight+44;
-  return {navHeight,statusHeight,viewportHeight:w.windowHeight||844,viewportWidth:w.windowWidth||390,safeBottom:w.safeArea?Math.max(0,w.screenHeight-w.safeArea.bottom):0,fontScale:Math.min(1.3,Math.max(1,(base.fontSizeSetting||16)/16)),nightMode:readNightMode()};
+  const validCapsule=Number.isFinite(capsule.bottom) && Number.isFinite(capsule.top) && capsule.bottom > statusHeight && (capsule.height || (capsule.bottom - capsule.top)) >= 24;
+  const navHeight=validCapsule ? Math.max(statusHeight + 40, capsule.bottom + Math.max(4, capsule.top - statusHeight)) : statusHeight + 44;
+  const themeMode=readThemeMode();
+  return {navHeight,statusHeight,viewportHeight:w.windowHeight||844,viewportWidth:w.windowWidth||390,safeBottom:w.safeArea?Math.max(0,w.screenHeight-w.safeArea.bottom):0,fontScale:Math.min(1.3,Math.max(1,(base.fontSizeSetting||16)/16)),themeMode,nightMode:themeMode!=='day'};
 }
 function project(s,offline=false) {
   const m=s.match || {}, terminal=['FINISHED','CANCELLED'].includes(m.phase);
@@ -53,5 +108,5 @@ function locationSignal(sample,options={}){
   const level=accuracy<=5?4:accuracy<=10?3:accuracy<=25?2:1,tone=level>=3?'good':level===2?'fair':'weak';
   return {...base,level,tone,text:precision,detail:level+' / 4格，定位精度估计为'+precision+'，'+base.ageSeconds+'秒前更新。'+(accuracy>50?'超过50米，本次不用于准备和抓捕，请到开阔处等待稳定。':(sample.accepted===null?'本次正在同步。':'')+'数值越小越好；实际误差可能更大，准备和抓捕仍由服务端校验。')};
 }
-module.exports={metrics,project,eventTime,resize,locationSignal};
+module.exports={metrics,project,eventTime,resize,locationSignal,boostBrightness,restoreBrightness,readThemeMode};
 

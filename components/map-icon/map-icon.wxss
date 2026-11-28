@@ -1,1 +1,1 @@
-:host{display:inline-flex;align-items:center;justify-content:center;flex:none;pointer-events:none}.glyph{display:block;position:relative;flex:none}.pixelRun{position:absolute;height:6.5%;background:currentColor}
+:host{display:inline-flex;align-items:center;justify-content:center;flex:none;pointer-events:none}.glyph{display:block;position:relative;flex:none}.pixelRun{position:absolute;height:4.4%;background:currentColor}.pixelRun.t2{opacity:.5}.pixelRun.t3{background:rgba(255,252,240,.65)}

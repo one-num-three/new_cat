@@ -6,9 +6,10 @@ const tapHaptic=(type='light')=>{try{if(typeof wx!=='undefined'&&'vibrateShort' 
 const FUN_NAMES=['小橘','田鼠','松果','青苔','风铃','溪石','橡果','星露','草帽','露珠','树莓','薄荷','山雀','麦穗','云朵','向日葵'];
 Page({
   onResize(e) { this.setData(presentation.resize(e)); },
-  data: { fontScale:1, nickname:'', editingName:false, code:'', clipCode:'', loading:false, error:'', resumeKind:'', devAvailable:false, devPreview:false, guideOpen:false, themeMode:'day', nightMode:false, consentAccepted:false, consentOpen:false, needWxPrivacy:false, privacyContractName:'《猫鼠行动小程序隐私保护指引》' },
-  onLoad(options={}) { this.unloaded=false;this.setData({...presentation.metrics(),code:invitation.launch(options),inviteHint:invitation.launch(options)?'已填邀请码，点下方加入':''}); this.devPreview=preview.accepts(options.devPreview);this.setData({devPreview:this.devPreview,devAvailable:preview.enabled()}); },
+  data: { navHeight:64, statusHeight:20, viewportWidth:390, viewportHeight:844, safeBottom:0, fontScale:1, nickname:'', editingName:false, code:'', inviteHint:'', clipCode:'', loading:false, error:'', resumeKind:'', devAvailable:false, devPreview:false, guideOpen:false, themeMode:'day', nightMode:false, consentAccepted:false, consentOpen:false, needWxPrivacy:false, privacyContractName:'《猫鼠行动小程序隐私保护指引》' },
+  onLoad(options={}) { this.unloaded=false;const launchCode=invitation.launch(options);this.devPreview=preview.accepts(options.devPreview);this.setData({...presentation.metrics(),code:launchCode,inviteHint:launchCode?'已填邀请码，点下方加入':'',devPreview:this.devPreview,devAvailable:preview.enabled()}); },
   async onShow() {
+    this._navigating=false;
     if(this.devPreview){this.setData({nickname:'',editingName:false,code:'',clipCode:'',resumeKind:''});return;}
     try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const raw=wx.getStorageSync('sdvTheme'),mode=raw==='night'||raw==='dusk'?raw:'day',n=mode!=='day',agreed=wx.getStorageSync('sdvSafetyPrivacyV1')==='1';if(mode!==this.data.themeMode||n!==!!this.data.nightMode||agreed!==!!this.data.consentAccepted)this.setData({themeMode:mode,nightMode:n,consentAccepted:agreed});}}catch{}
     if(typeof wx!=='undefined'&&'getPrivacySetting' in wx){try{wx.getPrivacySetting({success:r=>{if(!this.unloaded&&r)this.setData({needWxPrivacy:!!r.needAuthorization,privacyContractName:r.privacyContractName||'《猫鼠行动小程序隐私保护指引》'});},fail:()=>{}});}catch{}}
@@ -36,7 +37,7 @@ Page({
   openGuide(){tapHaptic();this.setData({guideOpen:true});},
   closeGuide(){this.setData({guideOpen:false});},
   openConsent(){tapHaptic();this.pendingConsentAction=null;this.setData({guideOpen:false,consentOpen:true});},
-  closeConsent(){this.pendingConsentAction=null;this.setData({consentOpen:false});},
+  closeConsent(){this.pendingConsentAction=null;if(this._privacyResolve){try{this._privacyResolve({event:'disagree'});}catch{}this._privacyResolve=null;}this.setData({consentOpen:false});},
   openWxPrivacy(){if(typeof wx!=='undefined'&&'openPrivacyContract' in wx){try{wx.openPrivacyContract({fail:()=>{}});}catch{}}},
   ensureConsent(action){
     if(this.devPreview||(this.data.consentAccepted&&!this.data.needWxPrivacy))return true;
@@ -48,18 +49,21 @@ Page({
     tapHaptic();
     const finish=()=>{
       const next=this.pendingConsentAction;this.pendingConsentAction=null;
+      if(this._privacyResolve){try{this._privacyResolve({buttonId:'agree-btn',event:'agree'});}catch{}this._privacyResolve=null;}
       if(typeof wx!=='undefined'&&'setStorageSync' in wx){try{wx.setStorageSync('sdvSafetyPrivacyV1','1');}catch{}}
       this.setData({consentAccepted:true,needWxPrivacy:false,consentOpen:false,error:''});
       if(next==='create')this.create();
       else if(next==='join')this.join();
       else if(next==='scan')this.scanInvite();
+      else if(next==='paste')this.readClipboardCode();
     };
     if(this.data.needWxPrivacy&&typeof wx!=='undefined'&&'requirePrivacyAuthorize' in wx){
-      try{wx.requirePrivacyAuthorize({success:finish,fail:()=>{this.pendingConsentAction=null;this.setData({consentOpen:false,error:'需先同意微信隐私保护指引才可使用定位和房间功能'});}});return;}catch{}
+      try{wx.requirePrivacyAuthorize({success:finish,fail:()=>{this.pendingConsentAction=null;if(this._privacyResolve){try{this._privacyResolve({event:'disagree'});}catch{}this._privacyResolve=null;}this.setData({consentOpen:false,error:'需先同意微信隐私保护指引才可使用定位和房间功能'});}});return;}catch{}
     }
     finish();
   },
   readClipboardCode(){
+    if(!this.ensureConsent('paste'))return;
     tapHaptic();
     if(this.devPreview){this.setData({code:'A1B2C3D4E5',clipCode:'',inviteHint:'已填入演示房间码',error:''});return;}
     if(typeof wx==='undefined'||!('getClipboardData' in wx)){this.setData({error:'当前环境不支持读取剪贴板'});return;}
@@ -79,25 +83,26 @@ Page({
   joinOrScan(){if(this.data.code.trim()||this.devPreview)this.join();else this.scanInvite();},
   scanInvite(){if(this.data.loading||this.scanning)return;if(!this.ensureConsent('scan'))return;tapHaptic();if(this.devPreview){this.setData({error:'演示模式不使用相机，请在真实首页扫码'});return;}this.scanning=true;wx.scanCode({scanType:['qrCode'],success:r=>{if(this.unloaded)return;try{this.setData({code:invitation.readInvite(r),clipCode:'',inviteHint:'已填邀请码，点下方加入',error:''});}catch(e){this.setData({error:e.message});}},fail:e=>{if(!this.unloaded&&!/cancel/.test(e.errMsg||''))this.setData({error:'扫码未完成，请检查相机权限'});},complete:()=>{this.scanning=false;}});},
   startEditName(){tapHaptic();this.setData({editingName:true});},
-  finishEditName(){if((this.data.nickname||'').trim())this.setData({editingName:false});},
+  finishEditName(){const clean=(this.data.nickname||'').trim();if(clean){this.setData({nickname:clean,editingName:false});if(!this.devPreview&&typeof wx!=='undefined'&&'setStorageSync' in wx){try{wx.setStorageSync('nickname',clean);}catch{}}}},
   clearCode(){tapHaptic();this.setData({code:'',inviteHint:'',error:''});},
   nameInput(e) { this.setData({ nickname:e.detail.value }); }, codeInput(e) { const code=e.detail.value.toUpperCase();this.setData({ code, clipCode:code?'':this.data.clipCode }); },
   async prepare() { if(this.devPreview)return this.data.nickname.trim() || '演示成员';let nickname=this.data.nickname.trim(); if (!nickname){nickname=FUN_NAMES[Math.floor(Math.random()*FUN_NAMES.length)]||FUN_NAMES[0];this.setData({nickname,editingName:false});} wx.setStorageSync('nickname',nickname); await api.session(); return nickname; },
   async create() {
     if(!this.ensureConsent('create'))return;
     if(this.devPreview){wx.navigateTo({url:'/pages/room/room?devPreview=create'});return;}
-    if (this.data.loading) return;
+    if (this.data.loading || this._navigating) return;
+    this._navigating=true;
     let nickname=this.data.nickname.trim();
     if (!nickname){nickname=FUN_NAMES[Math.floor(Math.random()*FUN_NAMES.length)]||FUN_NAMES[0];this.setData({nickname,editingName:false});}
     try{wx.setStorageSync('nickname',nickname);}catch{}
     if(typeof api.session==='function'){try{const p=api.session();if(p&&typeof p.catch==='function')p.catch(()=>{});}catch{}}
-    wx.navigateTo({url:'/pages/room/room?mode=create'});
+    wx.navigateTo({url:'/pages/room/room?mode=create',complete:()=>{this._navigating=false;}});
   },
   async join() {
     if(!this.ensureConsent('join'))return;
     if(this.devPreview){wx.navigateTo({url:'/pages/room/room?devPreview=ready'});return;}
     if (this.data.loading) return; this.setData({loading:true,error:''});
-    try { const nickname=await this.prepare(); const code=this.data.code.trim(); if (!/^[0-9A-F]{10}$/.test(code)) throw Error('请输入10位房间码'); const joined=await api.join(code,nickname);const id=joined?.roomId||code;wx.setStorageSync('v2RoomId',id);if(!this.unloaded)wx.navigateTo({url:'/pages/room/room?roomId='+encodeURIComponent(id)}); }
+    try { const nickname=await this.prepare(); const code=this.data.code.trim(); if (!/^[0-9A-F]{10}$/.test(code)) throw Error('请输入10位房间码'); const joined=await api.join(code,nickname);const id=joined?.roomId||code;wx.setStorageSync('v2RoomId',id);const target=joined?.status?'/pages/map/map?roomId=':'/pages/room/room?roomId=';if(!this.unloaded)wx.navigateTo({url:target+encodeURIComponent(id)}); }
     catch(e) { this.setData({error:e.message || '加入失败'}); } finally { this.setData({loading:false}); }
   },
   restore() {

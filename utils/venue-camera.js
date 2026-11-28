@@ -48,7 +48,7 @@ function rubberCamera(vw,vh,bw,bh,c,minScale=MIN_SCALE,padding=0){
   return {x:rubber(c.x,bounded.x),y:rubber(c.y,bounded.y),scale:bounded.scale};
 }
 function unrubberCamera(vw,vh,bw,bh,c,minScale=MIN_SCALE,padding=0){
-  const edge=boundCamera(vw,vh,bw,bh,c,minScale,padding),raw=(v,e)=>{const r=v-e;return e+160*r/Math.max(1e-6,80-Math.abs(r));};
+  const edge=boundCamera(vw,vh,bw,bh,c,minScale,padding),raw=(v,e)=>{const r=Math.max(-79.99,Math.min(79.99,Number.isFinite(v)?v-e:0));return e+160*r/(80-Math.abs(r));};
   return {x:raw(c.x,edge.x),y:raw(c.y,edge.y),scale:edge.scale};
 }
 function zoomAt(c,nextScale,px,py,vw,vh,bw,bh,minScale=MIN_SCALE,padding=0) {

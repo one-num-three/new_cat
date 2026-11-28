@@ -44,3 +44,28 @@ test('shared sprite geometry keeps the visible tip on its map coordinate at ever
  const a=markers.sprite('self');a.anchor.x=0;assert.notEqual(markers.sprite('self').anchor.x,0);
  assert.ok(markers.sprite('venue').anchor.x<.4,'flag pole, not flag canvas centre');
 });
+test('v3 Stardew pixel marker suite keeps valid RGBA alpha, anchored tips and compact main budget',()=>{
+ const suite=[
+  ['self','/assets/map-markers-v3/self.png',48],
+  ['ally','/assets/map-markers-v3/ally.png',48],
+  ['enemy','/assets/map-markers-v3/role-cat-marker.png',40],
+  ['venue','/assets/map-markers-v3/venue.png',48],
+  ['vertex','/assets/map-markers-v3/vertex.png',34],
+  ['vertexSelected','/assets/map-markers-v3/vertex-selected.png',38],
+  ['trackCat','/assets/map-markers-v3/track-cat.png',38],
+  ['trackMouse','/assets/map-markers-v3/track-mouse.png',38],
+  ['trackEnd','/assets/map-markers-v3/track-end.png',34]
+ ];
+ let total=0;
+ for(const [tone,expectedPath,size]of suite){
+  const s=markers.sprite(tone);assert.ok(s,'missing sprite '+tone);
+  assert.equal(s.iconPath,expectedPath);assert.equal(s.width,size);assert.equal(s.height,size);
+  const bytes=fs.readFileSync(path.join(root,s.iconPath.slice(1))),im=rgba(bytes);total+=bytes.length;
+  for(const [cx,cy]of [[0,0],[im.width-1,0],[0,im.height-1],[im.width-1,im.height-1]])assert.equal(im.data[(cy*im.width+cx)*4+3],0);
+  const ax=Math.round(s.anchor.x*im.width),ay=Math.round(s.anchor.y*im.height);let contact=false;
+  for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=ax+dx,y=ay+dy;if(x>=0&&x<im.width&&y>=0&&y<im.height&&im.data[(y*im.width+x)*4+3]>=200)contact=true;}
+  assert.ok(contact,tone+' tip must hit opaque pixels');
+  const c=markers.callout(tone,'测试');assert.ok(c&&c.content==='测试'&&c.borderWidth>=1&&c.bgColor);
+ }
+ assert.ok(total<60*1024,'v3 marker suite must stay under 60 KB');
+});

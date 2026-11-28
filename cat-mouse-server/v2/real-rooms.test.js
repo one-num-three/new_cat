@@ -36,7 +36,7 @@ test('capture scanner is single-flight, retries the same command, and ignores la
  page.scan();page.unloaded=true;callbacks[1].success({result:JSON.stringify(qr.capture(proof))});await new Promise(r=>setImmediate(r));assert.equal(requests.length,2);
 });
 test('native button image slices stay in source while upload exclusions retain the native button path',()=>{
- assert.doesNotMatch(read('components/pixel-action/pixel-action.wxml'),/<image/);assert.doesNotMatch(read('components/pixel-action/pixel-action.wxss'),/url\(/);const ignored=JSON.parse(read('project.config.json')).packOptions.ignore;for(const name of fs.readdirSync(path.join(root,'assets/pixel-v1')).filter(n=>/^button-.*\.png$/.test(n)))assert.ok(ignored.some(x=>x.type==='file'&&x.value==='assets/pixel-v1/'+name));
+ assert.doesNotMatch(read('components/pixel-action/pixel-action.wxml'),/<image/);assert.doesNotMatch(read('components/pixel-action/pixel-action.wxss'),/\/assets\/pixel-v1\//);const ignored=JSON.parse(read('project.config.json')).packOptions.ignore;for(const name of fs.readdirSync(path.join(root,'assets/pixel-v1')).filter(n=>/^button-.*\.png$/.test(n)))assert.ok(ignored.some(x=>x.type==='file'&&x.value==='assets/pixel-v1/'+name));
 });
 test('invitation keeps the share target across hide while deleting its temporary PNG',async()=>{
  let definition;const files=new Map(),api={session:async()=>{},invite:async()=>({code:'ABCDEF0123',path:'/pages/index/index?roomCode=ABCDEF0123',qrPngBase64:'cG5n',canNewPlayerJoin:true,availableSlots:7})};

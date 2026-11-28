@@ -1,10 +1,12 @@
 const crypto = require('node:crypto');
 const { PGlite } = require('@electric-sql/pglite');
 const { Pool } = require('pg');
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const isUuid = x => typeof x === 'string' && UUID_RE.test(x);
 class Store {
   constructor({ url, dataDir }) { this.url = url; this.dataDir = dataDir; this.embedded = !url; this.queue = Promise.resolve(); }
   async init() {
-    this.db = this.embedded ? new PGlite(this.dataDir || './data') : new Pool({ connectionString: this.url, max: 8 });
+    this.db = this.embedded ? new PGlite(this.dataDir || './data') : new Pool({ connectionString: this.url, ...(process.env.PGPASSWORD ? { password: process.env.PGPASSWORD } : {}), max: 8 });
     await this.query('CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY, user_id UUID NOT NULL, expires_at BIGINT NOT NULL)');
     await this.query('CREATE TABLE IF NOT EXISTS rooms (id UUID PRIMARY KEY, code TEXT UNIQUE NOT NULL, owner_id UUID NOT NULL, state JSONB NOT NULL)');
     await this.query('CREATE TABLE IF NOT EXISTS events (match_id UUID NOT NULL, seq INTEGER NOT NULL, kind TEXT NOT NULL, payload JSONB NOT NULL, created_at BIGINT NOT NULL, PRIMARY KEY(match_id, seq))');
@@ -35,13 +37,24 @@ class Store {
     const r = await this.query('SELECT user_id FROM sessions WHERE token_hash=$1 AND expires_at>$2', [hash(token), Date.now()]);
     return r.rows[0]?.user_id || null;
   }
+  async deleteSession(token) {
+    if (!token) return;
+    await this.query('DELETE FROM sessions WHERE token_hash=$1', [hash(token)]);
+  }
+  async purgeExpired(now = Date.now()) {
+    await this.query('DELETE FROM sessions WHERE expires_at<=$1', [now]);
+  }
   async room(idOrCode, db = this.db, lock = false) {
-    const r = await db.query(`SELECT * FROM rooms WHERE ${idOrCode.length === 36 ? 'id' : 'code'}=$1${lock && !this.embedded ? ' FOR UPDATE' : ''}`, [idOrCode]);
+    if (typeof idOrCode !== 'string') return null;
+    const byId = isUuid(idOrCode);
+    if (!byId && !/^[0-9A-F]{10}$/i.test(idOrCode)) return null;
+    const value = byId ? idOrCode : idOrCode.toUpperCase();
+    const r = await db.query(`SELECT * FROM rooms WHERE ${byId ? 'id' : 'code'}=$1${lock && !this.embedded ? ' FOR UPDATE' : ''}`, [value]);
     return r.rows[0] || null;
   }
-  save(db, room) { return db.query('UPDATE rooms SET state=$2 WHERE id=$1', [room.id, JSON.stringify(room.state)]); }
+  save(db, room) { return db.query('UPDATE rooms SET owner_id=$2, state=$3 WHERE id=$1', [room.id, room.owner_id, JSON.stringify(room.state)]); }
   async commandLock(db,scope,actor,commandId){if(!this.embedded)await db.query('SELECT pg_advisory_xact_lock(hashtext($1),hashtext($2))',[scope+':'+actor,commandId]);}
   async close() { await this.db.close?.(); await this.db.end?.(); }
 }
 function hash(s) { return crypto.createHash('sha256').update(s).digest('hex'); }
-module.exports = { Store, hash };
+module.exports = { Store, hash, isUuid };

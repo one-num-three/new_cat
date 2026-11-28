@@ -341,12 +341,72 @@
       {
         "value": "utils/api.js",
         "type": "file"
+      },
+      {
+        "value": "node_modules",
+        "type": "folder"
+      },
+      {
+        "value": ".vscode",
+        "type": "folder"
+      },
+      {
+        "value": ".idea",
+        "type": "folder"
+      },
+      {
+        "value": ".env",
+        "type": "file"
+      },
+      {
+        "value": "pages/dev/fusion-font.wxss",
+        "type": "file"
+      },
+      {
+        "value": ".pem",
+        "type": "suffix"
+      },
+      {
+        "value": ".p12",
+        "type": "suffix"
+      },
+      {
+        "value": ".pfx",
+        "type": "suffix"
+      },
+      {
+        "value": ".key",
+        "type": "suffix"
+      },
+      {
+        "value": ".dump",
+        "type": "suffix"
+      },
+      {
+        "value": ".zip",
+        "type": "suffix"
+      },
+      {
+        "value": ".log",
+        "type": "suffix"
       }
     ],
     "include": [
       {
         "value": "campus3d/assets/campus-meta.bin",
         "type": "file"
+      },
+      {
+        "value": "campus3d/assets/campus.bin",
+        "type": "file"
+      },
+      {
+        "value": "campus3d/assets/ground.jpg",
+        "type": "file"
+      },
+      {
+        "value": "room-tools/assets",
+        "type": "folder"
       }
     ]
   },
@@ -365,7 +425,7 @@
     "autoAudits": false,
     "newFeature": false,
     "uglifyFileName": false,
-    "uploadWithSourceMap": true,
+    "uploadWithSourceMap": false,
     "useIsolateContext": true,
     "nodeModules": false,
     "enhance": true,
@@ -374,7 +434,7 @@
     "packNpmManually": false,
     "enableEngineNative": false,
     "packNpmRelation": false,
-    "ignoreReqValidDate": true,
+    "ignoreReqValidDate": false,
     "postcss": false,
     "compileWorklet": false,
     "packNpmRelationList": [],

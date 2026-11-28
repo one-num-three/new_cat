@@ -1,23 +1,31 @@
 @import "../../utils/pixel-theme.wxss";
 
+page{
+  height:100%;
+  overflow:hidden;
+}
+
 .homeScreen{
   --vw:100vw;
   --vh:100vh;
   box-sizing:border-box;
   width:var(--vw,100vw);
-  min-height:var(--vh);
+  height:var(--vh,100vh);
+  min-height:0;
   display:flex;
   flex-direction:column;
   padding-top:var(--nav-height,64px);
   padding-bottom:0;
   color:#332012;
   font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 
 .homeMain{
   flex:1;
-  padding:6rpx 22rpx 0;
+  min-height:0;
+  overflow:hidden;
+  padding:4rpx 22rpx 0;
   display:flex;
   flex-direction:column;
   gap:0;
@@ -26,29 +34,77 @@
 
 .homeContent{
   flex:1;
+  min-height:0;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:16rpx;
-  padding:8rpx 0 8rpx;
+  gap:10rpx;
+  padding:4rpx 0 6rpx;
   box-sizing:border-box;
 }
 
-.homeMain .sdvMeadowFooter{
+.homeFenceDock{
+  flex:none;
+  display:flex;
+  flex-direction:column;
+  line-height:0;
+  font-size:0;
+  pointer-events:none;
+  margin-top:0;
+}
+
+.homeFenceDock .sdvMeadowFooter{
+  display:block;
+  width:100%;
   margin-top:0;
   flex:none;
 }
 
+.homeFenceApron{
+  width:100%;
+  height:max(24px,var(--safe-bottom,0px),env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,#79c945 0%,#6cb942 45%,#5ea63d 100%);
+}
+
+.sdvNight .homeFenceApron{
+  filter:brightness(.58) saturate(.74) contrast(1.1) hue-rotate(-14deg);
+}
+
+.sdvNight.sdvDusk .homeFenceApron{
+  filter:brightness(.78) saturate(.90) contrast(1.04) sepia(.10) hue-rotate(-6deg);
+}
+
+.sdvNight.sdvDeepNight .homeFenceApron{
+  filter:brightness(.46) saturate(.66) contrast(1.08) hue-rotate(-14deg);
+}
+
 .bulletinBoard{
+  flex:0 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
   position:relative;
   overflow:visible;
   padding:0;
-  margin-top:2px;
+  margin-top:0;
 }
 
 .heroStage{
+  flex:0 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
   overflow:hidden;
   padding:0;
+}
+
+.heroMedia{
+  flex:0 1 auto;
+  min-height:72px;
+  max-height:calc((var(--vh,100vh) - var(--nav-height,64px)) * 0.27);
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
 }
 
 .boardPost{
@@ -79,25 +135,31 @@
 }
 
 .boardBody{
-  padding:14rpx 14rpx 12rpx;
+  flex:none;
+  padding:10rpx 12rpx 10rpx;
   display:flex;
   flex-direction:column;
-  gap:12rpx;
+  gap:8rpx;
+}
+
+.homeScreen.sdvNight .boardBody{
+  padding:10rpx 12rpx 10rpx;
 }
 
 .boardDivider{
   height:0;
   border-top:2px dashed #b58447;
-  margin:4rpx 0;
+  margin:2rpx 0;
 }
 
 .joinSection{
   display:flex;
   flex-direction:column;
-  gap:12rpx;
+  gap:8rpx;
 }
 
 .homeHero{
+  flex:none;
   display:block;
   width:100%;
   aspect-ratio:384 / 256!important;
@@ -106,11 +168,12 @@
 }
 
 .heroCaption{
+  flex:none;
   display:flex;
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
-  padding:5rpx 12rpx;
+  padding:4rpx 12rpx;
   background:#d4ebba;
   border-top:2px solid #4f2710;
   box-shadow:inset 0 2px 0 #ecf7df,inset 0 -2px 0 #a9cf88;
@@ -121,6 +184,7 @@
 }
 
 .resumeBandRow{
+  flex:none;
   display:flex;
   align-items:stretch;
   gap:6rpx;
@@ -183,7 +247,7 @@
   display:flex;
   align-items:center;
   gap:8rpx;
-  min-height:36px;
+  min-height:34px;
   padding:4rpx 12rpx;
   background:#fff3d6;
   border:2px solid #b58447;
@@ -230,8 +294,8 @@
 .identityInput{
   flex:1;
   min-width:0;
-  height:calc(66rpx * var(--font-scale,1));
-  min-height:40px;
+  height:calc(62rpx * var(--font-scale,1));
+  min-height:36px;
   font-size:calc(28rpx * var(--font-scale,1));
 }
 
@@ -241,7 +305,8 @@
 }
 
 .secondaryActionWrap{
-  padding:4rpx 0;
+  flex:none;
+  padding:0;
 }
 
 .cardHead{
@@ -266,8 +331,8 @@
 .codeInput{
   width:100%;
   min-width:0;
-  height:calc(74rpx * var(--font-scale,1));
-  min-height:40px;
+  height:calc(68rpx * var(--font-scale,1));
+  min-height:38px;
   font-size:calc(28rpx * var(--font-scale,1));
   letter-spacing:1rpx;
 }
@@ -304,8 +369,8 @@
   flex:none;
   width:calc(80rpx * var(--font-scale,1))!important;
   min-width:44px;
-  height:calc(74rpx * var(--font-scale,1));
-  min-height:40px;
+  height:calc(68rpx * var(--font-scale,1));
+  min-height:38px;
 }
 
 .clipSuggestChip{
@@ -314,8 +379,8 @@
   gap:8rpx;
   width:100%!important;
   margin:0!important;
-  padding:4rpx 10rpx!important;
-  min-height:32px;
+  padding:3rpx 10rpx!important;
+  min-height:30px;
   background:#d4ebba;
   border:2px solid #35692a;
   border-radius:0;
@@ -368,11 +433,13 @@
   color:#2c6122;
 }
 
-.cardAction{margin-top:6rpx}
-.homeError{margin:0}
+.cardAction{margin-top:4rpx}
+.homeScreen .nativeAction{padding:9px 14px;font-size:calc(18px * var(--action-scale,1));}
+.homeError{flex:none;margin:0}
 
 .signpostBar{
-  padding:4rpx 10rpx;
+  flex:none;
+  padding:2rpx 8rpx;
 }
 
 .signpostRow{
@@ -388,9 +455,9 @@
   justify-content:center;
   gap:6rpx;
   width:auto!important;
-  min-height:34px;
+  min-height:32px;
   margin:0!important;
-  padding:4px 6px!important;
+  padding:3px 6px!important;
   background:transparent;
   color:#5e3616;
   font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;
@@ -404,15 +471,16 @@
 .signpostDivider{color:#9db890;font-size:24rpx}
 
 .devLink{
+  flex:none;
   width:auto;
-  min-height:40px;
+  min-height:24px;
   margin:0 auto;
-  padding:6rpx 18rpx;
+  padding:2rpx 14rpx;
   background:transparent;
   color:#5e4c3c;
-  font-size:calc(24rpx * var(--font-scale,1));
+  font-size:calc(22rpx * var(--font-scale,1));
   font-weight:400;
-  line-height:1.5;
+  line-height:1.3;
   text-decoration:underline;
   border-radius:0;
 }
@@ -487,7 +555,8 @@
 
 .consentLinkBtn::after{border:0}
 
-.narrowCanvas .homeMain{padding:6rpx 16rpx 0}
+.narrowCanvas .homeMain{padding:4rpx 16rpx 0}
+.narrowCanvas .homeFenceDock.meadowBleed22{width:calc(100% + 32rpx)!important;margin-left:-16rpx;margin-right:-16rpx;}
 .narrowCanvas .codeInput{font-size:calc(25rpx * var(--font-scale,1))}
 .fontLarge .identityBar{flex-wrap:wrap}
 .fontLarge .identityLabelWrap{flex-basis:100%}

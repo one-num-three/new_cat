@@ -2,9 +2,13 @@
   <nav-bar pinned="{{true}}" title="{{roomId?'活动准备':'创建活动'}}" back="{{true}}" preview="{{devPreview}}" />
 
   <view wx:if="{{!roomId}}" class="createContent">
-    <view class="sdvWoodCard createHeroCard">
-      <image class="createHeroImg" src="/assets/sdv-v1/create-banner.png" mode="widthFix" aria-label="户外活动路线与集合点木牌横幅" />
-    </view>
+    <view class="createBody">
+      <view class="createMain">
+        <view class="sdvWoodCard createHeroCard">
+          <view class="createHeroMedia">
+            <image class="createHeroImg" src="/assets/sdv-v1/create-banner.png" mode="widthFix" aria-label="户外活动路线与集合点木牌横幅" />
+          </view>
+        </view>
 
     <view class="sdvWoodCard stepCard">
       <view class="stepHeader">
@@ -71,7 +75,7 @@
       <view class="venuePreviewRow">
         <view class="venuePreviewCopy">
           <view class="venueState">
-            <view class="locationPin {{venue?'confirmed':''}}" aria-hidden="true"></view>
+            <view class="locationPinBadge {{venue?'confirmed':''}}" aria-hidden="true"><map-icon kind="pin" size="15" color="{{venue?'#fffdf6':'#5e3616'}}" /></view>
             <view class="venueStateCopy">
               <text class="venueTitle">{{venue?'集合点就绪':'未设集合点'}}</text>
               <text class="venueHint">{{venue?venueSummaryText:(nativeOnly?'点按钮在地图框选范围':'点右侧地图框选或定位')}}</text>
@@ -100,16 +104,21 @@
       <text class="errorClose" aria-hidden="true">×</text>
     </view>
     <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
+      </view>
+      <view class="roomFenceDock meadowBleed22" aria-hidden="true">
+        <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+      </view>
+    </view>
 
-    <image class="sdvMeadowFooter meadowBleed22" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
-
-    <view class="sdvStickyBar">
+    <view class="sdvStickyBar roomFooterBar">
       <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-create-submit.png" label="创建活动" tone="green" loading="{{loading}}" disabled="{{loading || !!teamError || (!nativeOnly && !venueThumb && venueResource!=='ready')}}" font-scale="{{fontScale}}" bindaction="create" />
     </view>
   </view>
 
   <view wx:else class="readyContent">
-    <view class="readyMainStack">
+    <scroll-view scroll-y class="readyScroll">
+      <view class="readyInner">
+        <view class="readyMainStack">
       <view class="sdvWoodCard inviteCard">
         <view class="inviteTopRow">
           <view class="sdvIconTitle">
@@ -181,7 +190,7 @@
           <view wx:for="{{roster}}" wx:key="id" class="sdvPaperCard playerCard">
             <image class="playerAvatar" src="/assets/sdv-v1/ready-avatar-{{index%8}}.png" mode="aspectFit" aria-hidden="true" />
             <text class="playerName" aria-label="{{item.nickname}}">{{item.nickname}}</text>
-            <view wx:if="{{index===0}}" class="hostMark" aria-label="组织者">
+            <view wx:if="{{item.isOwner || (item.isOwner===undefined && index===0)}}" class="hostMark" aria-label="组织者">
               <map-icon kind="crown" size="11" color="#a64d0b" />
             </view>
             <view class="readyMark {{item.ready?'isReady':'isWaiting'}}" aria-label="{{item.ready?'已准备':'未准备'}}">
@@ -199,16 +208,18 @@
       </view>
       <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
     </view>
-    <view class="meadowFooterStage meadowBleed22">
-      <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
-      <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
-    </view>
+        <view class="meadowFooterStage meadowBleed22">
+          <image class="fenceMascot" src="/assets/sdv-v1/hud-cat.png" mode="aspectFit" aria-hidden="true" />
+          <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+        </view>
+      </view>
+    </scroll-view>
 
-    <view class="sdvStickyBar">
+    <view class="sdvStickyBar roomFooterBar">
       <text wx:if="{{!canStart}}" class="stickyHint">{{startHint}}</text>
       <view class="roomActions {{owner && ready?'roomActionsHostReady':''}}">
         <pixel-action class="pixelControl" wx:if="{{owner}}" skin="/assets/pixel-v1/button-ready-start.png" label="{{canStart?'开始活动':'等待就绪'}}" tone="orange" dynamic="{{!canStart}}" disabled="{{!canStart || loading}}" loading="{{loading}}" font-scale="{{fontScale}}" bindaction="start" />
-        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" font-scale="{{fontScale}}" bindaction="toggleReady" />
+        <pixel-action class="pixelControl" skin="/assets/pixel-v1/button-ready-cancel.png" label="{{ready?'取消准备':'定位准备'}}" tone="{{ready?'plain':'green'}}" dynamic="{{!ready}}" loading="{{readyBusy}}" disabled="{{readyBusy || loading}}" font-scale="{{fontScale}}" bindaction="toggleReady" />
       </view>
     </view>
   </view>
@@ -292,5 +303,20 @@
     bindconfirm="confirmSignalModal"
     bindcancel="closeSignalModal"
     bindclose="closeSignalModal"
+  />
+
+  <sdv-modal
+    visible="{{leaveModalOpen}}"
+    mode="dialog"
+    title="退出当前房间？"
+    content="退出后将释放你的房间名额并返回首页。"
+    showCancel="{{true}}"
+    cancelText="先不"
+    confirmText="确认退出"
+    confirmTone="red"
+    fontScale="{{fontScale}}"
+    bindconfirm="confirmLeaveRoom"
+    bindcancel="closeLeaveModal"
+    bindclose="closeLeaveModal"
   />
 </view>

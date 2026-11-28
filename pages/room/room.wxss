@@ -1,31 +1,71 @@
 @import "../../utils/pixel-theme.wxss";
 
+page{
+  height:100%;
+  overflow:hidden;
+}
+
 .roomScreen{
   --vw:100vw;
   --vh:100vh;
   box-sizing:border-box;
   width:var(--vw,100vw);
-  min-height:var(--vh);
+  height:var(--vh,100vh);
+  min-height:0;
   display:flex;
   flex-direction:column;
   padding-top:var(--nav-height,64px);
-  padding-bottom:calc(78px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+  padding-bottom:0;
   color:#332012;
   font-family:CatMouseFusionUI,ParkReplicaUI,"PingFang SC","Microsoft YaHei",sans-serif;
-  overflow-x:hidden;
+  overflow:hidden;
 }
 
 .createContent,.readyContent{
   flex:1;
-  padding:12rpx 22rpx 0;
+  min-height:0;
+  padding:0;
   display:flex;
   flex-direction:column;
-  gap:16rpx;
+  gap:0;
+  overflow:hidden;
   box-sizing:border-box;
 }
 
-.readyContent{
-  gap:0;
+.createBody{
+  flex:1;
+  min-height:0;
+  padding:6rpx 22rpx 0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+
+.createMain{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:10rpx;
+  padding:4rpx 0 4rpx;
+  box-sizing:border-box;
+}
+
+.readyScroll{
+  flex:1;
+  min-height:0;
+  width:100%;
+  height:100%;
+}
+
+.readyInner{
+  min-height:100%;
+  padding:8rpx 22rpx 0;
+  display:flex;
+  flex-direction:column;
+  box-sizing:border-box;
 }
 
 .readyMainStack{
@@ -38,22 +78,49 @@
   box-sizing:border-box;
 }
 
-.createContent .sdvMeadowFooter{
-  margin-top:auto;
+.roomFenceDock{
+  flex:none;
+  display:flex;
+  flex-direction:column;
+  line-height:0;
+  font-size:0;
+  pointer-events:none;
+  margin-top:0;
 }
 
-.readyContent .meadowFooterStage{
+.roomFenceDock .sdvMeadowFooter{
+  display:block;
+  width:100%;
+  margin-top:0;
+  flex:none;
+}
+
+.readyInner .meadowFooterStage{
   margin-top:0;
   flex:none;
   padding-top:12px;
 }
 
 .createHeroCard{
+  flex:0 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
   padding:0;
   overflow:hidden;
 }
 
+.createHeroMedia{
+  flex:0 1 auto;
+  min-height:42px;
+  max-height:calc((var(--vh,100vh) - var(--nav-height,64px)) * 0.17);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+
 .createHeroImg{
+  flex:none;
   display:block;
   width:100%;
   aspect-ratio:750 / 234!important;
@@ -66,6 +133,17 @@
   display:flex;
   flex-direction:column;
   gap:12rpx;
+}
+
+.createMain .stepCard{
+  flex:none;
+  padding:8rpx 10rpx;
+  gap:8rpx;
+}
+
+.createMain .presetRow .sdvPill{
+  min-height:32px;
+  padding:4px 6px;
 }
 
 .summaryRibbon{
@@ -81,12 +159,13 @@
 }
 
 .createParamBar{
+  flex:none;
   display:flex;
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
   gap:2rpx;
-  padding:4rpx 10rpx;
+  padding:2rpx 8rpx;
   text-align:center;
   font-size:calc(23rpx * var(--font-scale,1));
   line-height:1.35;
@@ -96,7 +175,7 @@
 .createParamBtn{
   width:100%!important;
   margin:0;
-  min-height:34px;
+  min-height:30px;
 }
 
 .createParamBtn::after{border:0}
@@ -130,7 +209,7 @@
   align-items:center;
   justify-content:space-between;
   gap:10rpx;
-  padding:8rpx 10px;
+  padding:5rpx 8px;
   background:#fff2d4;
   border:2px solid #b58447;
   border-radius:0;
@@ -189,7 +268,7 @@
 
 .teamField input{
   width:100%;
-  height:48px;
+  height:40px;
   border:2px solid #4f2710;
   border-radius:0;
   background:#fff3d6;
@@ -197,7 +276,7 @@
   text-align:center;
   font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;
   font-weight:400;
-  font-size:24px;
+  font-size:20px;
   color:transparent;
 }
 
@@ -208,17 +287,18 @@
   left:2px;
   right:2px;
   bottom:2px;
-  height:44px;
-  line-height:44px;
+  height:36px;
+  line-height:36px;
   margin:0;
   text-align:center;
   font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;
-  font-size:24px;
+  font-size:20px;
   color:#332012;
   pointer-events:none;
 }
 
-.roomInlineError,.roomError{margin:0}
+.roomInlineError,.roomError{flex:none;margin:0}
+.permLinkBtn{flex:none}
 
 .venueDropdown{display:block;width:100%}
 
@@ -226,8 +306,8 @@
   display:flex;
   align-items:center;
   gap:8rpx;
-  min-height:42px;
-  padding:6px 10px;
+  min-height:36px;
+  padding:4px 10px;
   background:#fff3d6;
   border:2px solid #7b3c14;
   border-radius:0;
@@ -254,7 +334,7 @@
 .venuePreviewRow{
   display:flex;
   align-items:stretch;
-  gap:18rpx;
+  gap:16rpx;
 }
 
 .venuePreviewCopy{
@@ -268,47 +348,44 @@
 .venueState{
   display:flex;
   align-items:flex-start;
-  gap:12rpx;
+  gap:10rpx;
 }
 
-.locationPin{
-  position:relative;
+.locationPinBadge{
   flex:none;
-  width:28rpx;
-  height:28rpx;
-  margin-top:4rpx;
-  border:4rpx solid #4f2710;
-  border-radius:50% 50% 50% 0;
-  transform:rotate(-45deg);
-  background:#d8e3cd;
+  width:24px;
+  height:24px;
+  margin-top:2rpx;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff3d6;
+  border:2px solid #7b3c14;
+  border-radius:0;
+  box-shadow:inset 0 1px 0 #fff9e8,0 1px 0 #cfa96c;
 }
 
-.locationPin::after{
-  content:"";
-  position:absolute;
-  inset:6rpx;
-  background:#fffdf6;
-  border-radius:50%;
-  border:2rpx solid #4f2710;
+.locationPinBadge.confirmed{
+  background:#4a943b;
+  border-color:#2c6122;
+  box-shadow:inset 0 1px 0 #82cf6f,0 1px 0 #9bc97b;
 }
-
-.locationPin.confirmed{background:#4a943b}
 
 .venueStateCopy{min-width:0;flex:1}
 .venueTitle{display:block;font-size:calc(27rpx * var(--font-scale,1));line-height:1.35;color:#332012}
-.venueHint{display:block;margin-top:4rpx;font-size:calc(22rpx * var(--font-scale,1));line-height:1.4;color:#5e4c3c;overflow-wrap:anywhere}
+.venueHint{display:block;margin-top:2rpx;font-size:calc(22rpx * var(--font-scale,1));line-height:1.35;color:#5e4c3c;overflow-wrap:anywhere}
 
 .venueRangeBtn{
-  margin-top:14rpx;
+  margin-top:8rpx;
   align-self:flex-start;
   gap:6px;
 }
 
 .venueGuide{
   position:relative;
-  flex:0 0 112px;
+  flex:0 0 108px;
   min-width:0;
-  padding:6rpx;
+  padding:5rpx;
   background:#fff2d4;
   border:2px solid #b58447;
   border-radius:0;
@@ -319,8 +396,8 @@
   justify-content:center;
 }
 
-.venueGuideImage{display:block;width:100%;height:140rpx}
-.venueGuideLoading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8rpx;height:140rpx;font-size:22rpx;color:#5e3616;text-align:center}
+.venueGuideImage{display:block;width:100%;height:104rpx}
+.venueGuideLoading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6rpx;height:104rpx;font-size:22rpx;color:#5e3616;text-align:center}
 
 .codeRow{
   display:flex;
@@ -517,12 +594,37 @@
   opacity:.9;
 }
 
+.roomFooterBar{
+  position:static;
+  flex:none;
+  width:100%;
+  padding:10px 14px calc(8px + max(var(--safe-bottom,0px),env(safe-area-inset-bottom)));
+}
+
+.roomScreen .nativeAction{
+  padding:9px 14px;
+  font-size:calc(18px * var(--action-scale,1));
+}
+
 .roomActions .nativeAction{
   font-size:calc(17px * var(--action-scale,1));
   padding:11px 8px;
 }
 
-.narrowCanvas .createContent,.narrowCanvas .readyContent{padding:14rpx 16rpx 0}
+.sdvNight.sdvDeepNight .locationPinBadge{
+  background:#1d1814;
+  border-color:#544230;
+  box-shadow:none;
+}
+
+.sdvNight.sdvDeepNight .locationPinBadge.confirmed{
+  background:#2d4f2c;
+  border-color:#446e42;
+  box-shadow:none;
+}
+
+.narrowCanvas .createBody,.narrowCanvas .readyInner{padding:6rpx 16rpx 0}
+.narrowCanvas .roomFenceDock.meadowBleed22,.narrowCanvas .meadowFooterStage.meadowBleed22{width:calc(100% + 32rpx)!important;margin-left:-16rpx;margin-right:-16rpx;}
 .narrowCanvas .roomCode{font-size:calc(34rpx * var(--font-scale,1))}
 .fontLarge .venuePreviewRow{flex-wrap:wrap}
 .fontLarge .venueGuide{flex:0 0 100%}

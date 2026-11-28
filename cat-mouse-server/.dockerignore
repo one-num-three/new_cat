@@ -1,6 +1,12 @@
 node_modules
 npm-debug.log
 .env
+.env.*
 .git
 README.md
+server.js
+data
+v2/*.test.js
+v2/*.cjs
+趣味问题数据库.json
 

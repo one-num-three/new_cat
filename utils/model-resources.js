@@ -5,4 +5,4 @@ function ensure(){if(loaded)return Promise.resolve();if(pending)return pending.p
  try{wx.navigateTo({url:'/campus3d/pages/open/open?resource=1',fail});}catch{fail();}return promise;
 }
 function markLoaded(){loaded=true;const job=pending;pending=null;if(job)job.resolve();}
-module.exports={ensure,markLoaded,ready:()=>loaded};
+module.exports={ensure,markLoaded,ready:()=>loaded,isBootstrapping:()=>pending!==null};

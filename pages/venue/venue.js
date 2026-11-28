@@ -2,7 +2,7 @@ const presentation = require('../../utils/presentation');
 const catalog=require('../../utils/venue-catalog');
 const foreground=require('../../utils/foreground-location'),osm=require('../../utils/osm-art-registration'),mapMarkers=require('../../utils/map-markers');
 const scenarios=require('../../utils/location-scenarios');
-const modelResources=require('../../utils/model-resources'),modelMap=require('../../utils/model-map');
+const modelResources=require('../../utils/model-resources'),venueResources=require('../../utils/venue-resources'),modelMap=require('../../utils/model-map');
 
 function layoutKey(metrics) {
   return [metrics.viewportWidth, metrics.viewportHeight, metrics.fontScale, metrics.navHeight, metrics.safeBottom].join(':');
@@ -16,20 +16,20 @@ Page({
   onLoad(options={}) { this.selectMap(options.mapId||catalog.DEFAULT_ID);this.refreshLayout();this.simulation=scenarios.get(options.simPosition,this.data.mapId);if(options.simPosition&&!this.simulation)this.setData({locationError:'模拟定位仅限电脑开发工具；真机请点准星获取实际位置'}); },
   selectMap(id){const image=catalog.get(id);if(!image){this.setData({venueError:'未知场地地图'});return;}if(this.simulation&&id!=='seu-jiulonghu-v1'){this.simulation=null;this.simulationStopped=true;this.stopGps();}this.setData({...(id!=='seu-jiulonghu-v1'&&this.data.modelMode?{modelMode:false,artMode:true}:{}),...(!this.position&&image.demoPoints?.[0]?{latitude:image.demoPoints[0].lat,longitude:image.demoPoints[0].lng}:{}),...(image.nativeOnly?{artMode:false,modelMode:false}:catalog.get(this.data.mapId)?.nativeOnly?{artMode:true}:{}),mapId:image.id,venueSource:image.src,venueName:image.label,venueMapIndex:catalog.options.findIndex(x=>x.id===image.id),venueError:''});if(this.position)this.displayPosition(this.position);},
   selectVenueMap(e){const item=catalog.options[Number(e.detail.value)];if(item)this.selectMap(item.id);},
-  onShow() { this.active=true;this.refreshLayout();if(this.simulation&&!this.simulationStopped)this.startSimulation();else if(this.resumeLocationAfterResource){this.resumeLocationAfterResource=false;this.locate();} },
-  onHide(){this.stopGps();this.active=false;},onUnload(){this.unloaded=true;this.stopGps();this.active=false;},
+  onShow() { if(this._resourceHide){this._resourceHide=false;return;}this.active=true;this.refreshLayout();if(this.simulation&&!this.simulationStopped)this.startSimulation();else if(this.resumeLocationAfterResource){this.resumeLocationAfterResource=false;this.locate();} },
+  onHide(){if(venueResources.isBootstrapping?.()||modelResources.isBootstrapping?.()){this._resourceHide=true;return;}this.stopGps();this.active=false;},onUnload(){this.unloaded=true;this._resourceHide=false;this.stopGps();this.active=false;},
   locate(){
     if(this.simulation){this.simulationStopped=false;this.startSimulation();this.focusPosition();return;}
     if(this.data.locationOn&&this.position){this.focusPosition();return;}
     if(this.gps?.isActive())this.gps.stop();
     this.active=true;this.setData({locationOn:true,locationError:'',locationText:'正在获取真实位置…'});
-    if(!this.gps)this.gps=foreground.create(p=>{if(this.active&&this.data.locationOn)this.displayPosition(p);},e=>{if(!this.active)return;this.position=null;const denied=/auth|deny|denied|permission/i.test(e?.errMsg||'');this.setData({locationOn:!!this.gps?.isActive(),hasPosition:false,geoData:{points:[],regions:[]},markers:[],coordinateText:'',locationText:'暂无可用位置',locationError:denied?'请在微信设置中允许定位后重试':e?.message||e?.errMsg||'定位未完成，请重试'});});
+    if(!this.gps)this.gps=foreground.create(p=>{if(this.active&&this.data.locationOn)this.displayPosition(p);},e=>{if(!this.active)return;this.position=null;const msg=e?.errMsg||'';if((e?.errno===104||/privacy/i.test(msg))&&typeof wx!=='undefined'&&'requirePrivacyAuthorize' in wx){this.setData({locationOn:false,hasPosition:false,geoData:{points:[],regions:[]},markers:[],coordinateText:'',locationText:'等待隐私授权',locationError:'需先同意隐私保护指引后才可获取位置'});try{wx.requirePrivacyAuthorize({success:()=>{if(this.active)this.locate();},fail:()=>{}});}catch{}return;}const denied=/auth|deny|denied|permission/i.test(msg);this.setData({locationOn:!!this.gps?.isActive(),hasPosition:false,geoData:{points:[],regions:[]},markers:[],coordinateText:'',locationText:'暂无可用位置',locationError:denied?'请在微信设置中允许定位后重试':e?.message||msg||'定位未完成，请重试'});});
     this.gps.start();
   },
   displayPosition(p){
     this.position=p;const projected=this.data.modelMode?modelMap.project(p,this.data.mapId):osm.project(p,'gcj02',this.data.mapId),first=!this.data.hasPosition,simulated=!!p.simulated;
     const notice=!osm.available(this.data.mapId)?'此地图的定位参考尚未启用，可切换实时地图':catalog.contains(this.data.mapId,p)?'当前位置超出图片参考范围；可切换实时地图':'当前位置远离所选场地，请核对场地或切换实时地图';
-    this.setData({hasPosition:true,simulated,...(first||this.data.followSelf?{latitude:p.lat,longitude:p.lng}:{}),locationText:simulated?'模拟定位 · '+p.label:'本人 · 精度约'+Math.round(p.accuracy)+'米',coordinateText:(simulated?'模拟 ':'')+'GCJ-02 '+p.lat.toFixed(6)+', '+p.lng.toFixed(6),locationError:this.data.modelMode?(projected?'3D近似参考，实地精度待核验':'位置超出模型参考，请切实时地图'):!this.data.artMode?'':projected?'OSM参考位置，实地精度待核验':notice,geoData:{points:[{...p,tone:'self',label:simulated?'模拟本人':'本人'}],regions:[]},markers:[{id:1,latitude:p.lat,longitude:p.lng,...mapMarkers.sprite('self')} ]});
+    this.setData({hasPosition:true,simulated,...(first||this.data.followSelf?{latitude:p.lat,longitude:p.lng}:{}),locationText:simulated?'模拟定位 · '+p.label:'本人 · 精度约'+Math.round(p.accuracy)+'米',coordinateText:(simulated?'模拟 ':'')+'GCJ-02 '+p.lat.toFixed(6)+', '+p.lng.toFixed(6),locationError:this.data.modelMode?(projected?'3D近似参考，实地精度待核验':'位置超出模型参考，请切实时地图'):!this.data.artMode?'':projected?'OSM参考位置，实地精度待核验':notice,geoData:{points:[{...p,tone:'self',label:simulated?'模拟本人':'本人'}],regions:[]},markers:[{id:1,latitude:p.lat,longitude:p.lng,...mapMarkers.sprite('self'),callout:mapMarkers.callout('self',simulated?'模拟本人':'本人')}]});
     if(first&&projected){this.needsInitialFocus=true;wx.nextTick(()=>{if(this.position===p)this.onArtReady();});}
   },
   onArtReady(){if(this.active&&this.position&&this.needsInitialFocus&&this.data.artMode&&this.selectComponent('.venueArt')?.focusSelf())this.needsInitialFocus=false;},
