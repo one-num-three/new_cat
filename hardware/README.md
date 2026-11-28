@@ -37,7 +37,8 @@ hardware/
 ├── README.md                   # 硬件模块总览、仿真运行与快速上手指南
 ├── docs/
 │   ├── 硬件架构设计基线.md      # V1.5 冻结硬件架构、五道电气保护与 POC→EVT→MP 演进路线
-│   ├── PCB与3D结构协同布局规范.md # Strap-Halo 主板轮廓、BLE全净空、NFC隔离、单面L1分区与3D机电接口规范
+│   ├── Strap-Halo-EVT-A-机电变更.md # EVT-A 机电 ECO（12.15mm 顶腔、BLE 铣空槽、FH19C 补强舌、磁吸四线 FPC）
+│   ├── PCB与3D结构协同布局规范.md # EVT-A 主板轮廓、BLE 铣槽全净空、NFC 隔离、单面 L1 分区与 17 件 3D 机电接口规范
 │   ├── 4层PCB设计与检视说明.md  # KiCad 10 4层紧凑主板叠层、RF净空、嘉立创工艺与引脚对齐表
 │   ├── V1.5-硬件规格.md        # 硬件选型、PN532 双模机制、接线定义、功耗预算与测试指标
 │   ├── 通信协议.md             # BLE GATT 指令/事件定义、广播包格式、NFC APDU 与 NDEF 协议
@@ -47,21 +48,21 @@ hardware/
 │   └── 原型采购清单.csv         # 10 套（含 2 套备件）免画板原型的淘宝/立创采购物料表
 ├── design/                     # Strap-Halo 腕带光环版工业设计 (ID) 高清渲染图
 │   └── renders/                # 三阵营腕带光环主图、Pin-and-Tuck 变体、户外夜跑双环碰触场景图
-├── cad/                        # 16 零件参数化 3D CAD 装配体（双版本）与 Autodesk Fusion 360 原生工程
+├── cad/                        # EVT-A 17 零件参数化 3D CAD 装配体（双版本）与 Autodesk Fusion 360 原生工程
 │   ├── README.md               # Fusion 360 两种打开方式（STEP 直开 / Shift+S 原生脚本）与双版本说明
-│   ├── build_catmouse_cad.py   # V1.5 量产针扣版 16 零件建模（含方案A FPC→ZIF / T型密封）与 0.000 mm³ 校验
-│   ├── build_catmouse_velcro_cad.py # V1.5-Lite 120–200mm 非对称低遮挡魔术贴简版 16 零件建模与 0.000 mm³ 校验
-│   ├── render_cad_views.py     # 主线 6 组 3D 工程图 + 方案 A 内部连接 4 视角微距特写渲染脚本
-│   ├── render_velcro_views.py  # 魔术贴简版 4 视角 3D 渲染 + 120–200mm 不同腕围遮盖/粘合分析图脚本
-│   ├── fusion360/              # 双版本 100% 原生参数化 Fusion 360 脚本（V15_StrapHalo & V15_Velcro_Lite）
+│   ├── strap_halo_geometry.py  # 3D CAD 与 KiCad 主板/磁吸 FPC 共享的 EVT-A 毫米级轮廓单源定义
+│   ├── build_catmouse_cad.py   # V1.5 EVT-A 量产针扣版 17 零件建模（含 FH19C + 17 号磁吸 FPC）与 0.000 mm³ 校验
+│   ├── build_catmouse_velcro_cad.py # V1.5-Lite EVT-A 120–200mm 非对称魔术贴简版 17 零件建模与 0.000 mm³ 校验
+│   ├── render_cad_views.py     # 主线 6 组 EVT-A 3D 工程图 + 内部连接 4 视角微距特写渲染脚本
+│   ├── render_velcro_views.py  # 魔术贴简版 EVT-A 4 视角 3D 渲染 + 120–200mm 腕围遮盖/粘合分析图脚本
+│   ├── fusion360/              # 双版本 100% 原生参数化 EVT-A Fusion 360 脚本（17 组件）
 │   ├── output/                 # CatMouseBand_V15_StrapHalo.step + CatMouseBand_V15_Velcro_Lite.step + 校验报告
-│   └── renders/                # 8 张高清工程图（含 cad_06 内部连接详图、cad_velcro_01/02 魔术贴与遮盖分析图）
-├── pcb/                        # KiCad 10.0 原生 4 层紧凑主板工程 (40x46mm, 1.0mm厚)
-│   ├── catmouse-band-v15/      # .kicad_pro/.kicad_sch/.kicad_pcb + ERC/DRC报告 + 嘉立创Gerber/BOM/CPL + 3D渲染图
-│   ├── generate_schematic.py   # 自包含 KiCad 10 原理图生成器 (官方库展开)
-│   ├── generate_4layer_pcb.py  # 4 层板布局、细间距扇出与 3D A* 布线生成器
-│   ├── verify_netlist_vs_firmware.py # KiCad 官方网表 <-> EVT 固件引脚 100% 对齐校验
-│   └── export_fab_and_renders.py     # 一键导出嘉立创打样生产包与 3D 渲染预览图
+│   └── renders/                # 8 张高清 EVT-A 工程图（含 cad_06 内部连接详图、cad_velcro_01/02 魔术贴分析图）
+├── pcb/                        # KiCad 10.0 EVT-A 四层主板、磁吸四线 FPC 与历史参考设计
+│   ├── catmouse-band-v15-strap-halo/ # EVT-A 四层主板 KiCad 工程 (28.4×35.4mm，含 BLE 铣空槽，ERC=0，13/13 引脚一致)
+│   ├── catmouse-band-v15-pogo-flex/  # EVT-A 磁吸四线 C 弯柔性转接板（绕马达 0.125mm，0 ERC/0 DRC，含打样 Gerber ZIP）
+│   ├── catmouse-band-v15/      # 历史 40×46mm 4层参考板 + 嘉立创打样包
+│   ├── generate_strap_halo_*.py / generate_pogo_interposer.py / verify_strap_halo.py # EVT-A PCB 生成与校验脚本
 ├── firmware/                   # Seeed XIAO ESP32C3 & EVT 4层主板双目标固件工程 (PlatformIO)
 │   ├── platformio.ini          # [env:xiao_esp32c3] 原型 + [env:evt_4layer_pcb] 4层定制主板
 │   ├── include/                # 引脚配置、协议码、驱动接口
@@ -136,6 +137,7 @@ python tests/verify_firmware.py              # 固件静态结构与协议一致
 - [x] V1.5 硬件选型、双模 NFC 架构与物料清单
 - [x] BLE + NFC 双向握手、NDEF 绑定与 `api/v2` 对接协议定义
 - [x] ESP32-C3 手环固件与脱机猫鼠规则实现
-- [ ] 3D 打印外壳与乳白导光罩结构文件
+- [x] EVT-A 双版本 17 零件 3D CAD（STEP / Fusion 360）与磁吸四线 FPC 打样包
+- [ ] EVT-A 4 层主板剩余飞线连通与嘉立创电阻配料投板
 - [ ] 微信小程序 BLE 桥接模块（对接现有 `pages/map` 与 `utils/v2.js`）
 - [ ] 后端 `api/v2` 扩展 NFC 抓捕/解救/道具凭证裁决接口

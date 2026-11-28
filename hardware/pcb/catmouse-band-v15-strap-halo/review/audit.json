@@ -1,0 +1,150 @@
+{
+  "kicad": "10.0.8",
+  "board": "catmouse-band-v15-strap-halo.kicad_pcb",
+  "copper_layers": 4,
+  "thickness_mm": 1.0,
+  "bottom_assembly_components": [],
+  "rf_keepout_all_four_layers": true,
+  "nfc_exposed_pad_ground_vias": 4,
+  "nfc_exposed_pad_drills_outside_paste": true,
+  "erc": {},
+  "drc": {},
+  "drc_types": {},
+  "drc_ignored": [
+    "tuning_profile_track_geometries",
+    "footprint_filters_mismatch",
+    "footprint_type_mismatch"
+  ],
+  "unconnected_items": 10,
+  "schematic_parity_issues": 0,
+  "pinout": [
+    {
+      "signal": "PIN_BATT_ADC",
+      "gpio": 2,
+      "mini_1_pad": 5,
+      "expected": "BATT_ADC",
+      "schematic": "BATT_ADC",
+      "pcb": "BATT_ADC",
+      "match": true
+    },
+    {
+      "signal": "PIN_IMU_INT",
+      "gpio": 3,
+      "mini_1_pad": 6,
+      "expected": "IMU_INT",
+      "schematic": "IMU_INT",
+      "pcb": "IMU_INT",
+      "match": true
+    },
+    {
+      "signal": "PIN_BUTTON",
+      "gpio": 4,
+      "mini_1_pad": 18,
+      "expected": "BTN_USER",
+      "schematic": "BTN_USER",
+      "pcb": "BTN_USER",
+      "match": true
+    },
+    {
+      "signal": "PIN_MOTOR",
+      "gpio": 5,
+      "mini_1_pad": 19,
+      "expected": "MOTOR_PWM",
+      "schematic": "MOTOR_PWM",
+      "pcb": "MOTOR_PWM",
+      "match": true
+    },
+    {
+      "signal": "PIN_SDA",
+      "gpio": 6,
+      "mini_1_pad": 20,
+      "expected": "I2C_SDA",
+      "schematic": "I2C_SDA",
+      "pcb": "I2C_SDA",
+      "match": true
+    },
+    {
+      "signal": "PIN_SCL",
+      "gpio": 7,
+      "mini_1_pad": 21,
+      "expected": "I2C_SCL",
+      "schematic": "I2C_SCL",
+      "pcb": "I2C_SCL",
+      "match": true
+    },
+    {
+      "signal": "PIN_LED_DATA",
+      "gpio": 21,
+      "mini_1_pad": 31,
+      "expected": "LED_DATA",
+      "schematic": "LED_DATA",
+      "pcb": "LED_DATA",
+      "match": true
+    },
+    {
+      "signal": "PIN_BUZZER",
+      "gpio": 20,
+      "mini_1_pad": 30,
+      "expected": "BUZZER_PWM",
+      "schematic": "BUZZER_PWM",
+      "pcb": "BUZZER_PWM",
+      "match": true
+    },
+    {
+      "signal": "PIN_NFC_RST",
+      "gpio": 10,
+      "mini_1_pad": 16,
+      "expected": "NFC_RST",
+      "schematic": "NFC_RST",
+      "pcb": "NFC_RST",
+      "match": true
+    },
+    {
+      "signal": "PIN_LED_PWR",
+      "gpio": 8,
+      "mini_1_pad": 22,
+      "expected": "LED_PWR_EN",
+      "schematic": "LED_PWR_EN",
+      "pcb": "LED_PWR_EN",
+      "match": true
+    },
+    {
+      "signal": "USB_D-",
+      "gpio": 18,
+      "mini_1_pad": 26,
+      "expected": "USB_DN",
+      "schematic": "USB_DN",
+      "pcb": "USB_DN",
+      "match": true
+    },
+    {
+      "signal": "USB_D+",
+      "gpio": 19,
+      "mini_1_pad": 27,
+      "expected": "USB_DP",
+      "schematic": "USB_DP",
+      "pcb": "USB_DP",
+      "match": true
+    },
+    {
+      "signal": "BOOT_STRAP",
+      "gpio": 9,
+      "mini_1_pad": 23,
+      "expected": "BOOT_SW",
+      "schematic": "BOOT_SW",
+      "pcb": "BOOT_SW",
+      "match": true
+    }
+  ],
+  "interface_pinouts_match": {
+    "J1": true,
+    "J3": true,
+    "J5": true,
+    "J6": true,
+    "R24": true,
+    "U2": true,
+    "U6": true,
+    "Q1": true
+  },
+  "eda_checks_pass": false
+}

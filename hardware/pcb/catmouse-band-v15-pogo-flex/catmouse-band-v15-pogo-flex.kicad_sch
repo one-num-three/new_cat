@@ -1,0 +1,770 @@
+(kicad_sch
+	(version 20250114)
+	(generator "catmouse-band-eda")
+	(generator_version "1.5")
+	(uuid "ae70d924-9a61-48b1-97ec-d69f3028e906")
+	(paper "A3")
+	(title_block
+		(title "CatMouse Band EVT-A - magnetic contact flex")
+		(rev "A")
+	)
+	(lib_symbols
+(symbol "Connector_Generic:Conn_01x04"
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "J"
+			(at 0 5.08 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x04"
+			(at 0 -7.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "connector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Conn_01x04_1_1"
+			(rectangle
+				(start -1.27 3.81)
+				(end 1.27 -6.35)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(rectangle
+				(start -1.27 2.667)
+				(end 0 2.413)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 0.127)
+				(end 0 -0.127)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -2.413)
+				(end 0 -2.667)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -4.953)
+				(end 0 -5.207)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin passive line
+				(at -5.08 2.54 0)
+				(length 3.81)
+				(name "Pin_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 0 0)
+				(length 3.81)
+				(name "Pin_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -2.54 0)
+				(length 3.81)
+				(name "Pin_3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -5.08 0)
+				(length 3.81)
+				(name "Pin_4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+(symbol "power:+5V"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#PWR"
+			(at 0 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 0 3.556 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "global power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "+5V_0_1"
+			(polyline
+				(pts
+					(xy -0.762 1.27) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 2.54) (xy 0.762 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "+5V_1_1"
+			(pin power_in line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+(symbol "power:GND"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#PWR"
+			(at 0 -6.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 0 -3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "global power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "GND_0_1"
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "GND_1_1"
+			(pin power_in line
+				(at 0 0 270)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+(symbol "power:PWR_FLAG"
+		(power global)
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "#FLG"
+			(at 0 1.905 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 0 3.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "flag power"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "PWR_FLAG_0_0"
+			(pin power_out line
+				(at 0 0 90)
+				(length 0)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "PWR_FLAG_0_1"
+			(polyline
+				(pts
+					(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	)
+	(rectangle (start 25.40 25.40) (end 177.80 101.60)
+		(stroke (width 0.254) (type dash) (color 80 110 150 1))
+		(fill (type none))
+		(uuid "6af4a87a-54d9-4de8-9265-89807bbd2cff")
+	)
+	(text "Magnetic contacts to rigid mainboard" (at 27.94 29.90 0)
+		(effects (font (size 2.54 2.54) (bold yes)) (justify left))
+		(uuid "f309fc0c-36e7-4291-bc08-2769b3a86225")
+	)
+	(symbol (lib_id "Connector_Generic:Conn_01x04") (at 66.0400 63.5000 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "367137c7-2dd1-405d-9a61-e8d8a5eb9f33")
+		(property "Reference" "J1" (at 66.04 59.69 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "CASE CONTACTS" (at 66.04 67.31 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "CatMouse_PogoFlex:Flat_4x2.54_Pogo" (at 66.04 63.50 0) (effects (font (size 1.0 1.0))) (hide yes))
+		(property "Datasheet" "~" (at 66.04 63.50 0) (effects (font (size 1.0 1.0))) (hide yes))
+		(pin "1" (uuid "50846825-74ce-4281-992c-efd745335f84"))
+		(pin "2" (uuid "e8bd0c71-ed68-4d1b-9114-e4b67679fa2a"))
+		(pin "3" (uuid "35b1d4dd-ca0e-420b-ab4c-1f06fd497146"))
+		(pin "4" (uuid "67b64903-7b4d-4676-be0d-d6a3d249d40b"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "J1") (unit 1))))
+	)
+	(wire (pts (xy 60.9600 60.9600) (xy 57.1500 60.9600))
+		(stroke (width 0) (type default))
+		(uuid "467d28db-f579-4884-9c60-d27d2cb6db82")
+	)
+	(symbol (lib_id "power:+5V") (at 57.1500 60.9600 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "30ed573f-aa2d-4446-ac1b-bb6cc0255690")
+		(property "Reference" "#PWR001" (at 57.15 63.96 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "+5V" (at 57.15 58.42 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 57.15 60.96 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 57.15 60.96 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "2a108f30-54d0-40c7-8af1-277637106a4f"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR001") (unit 1))))
+	)
+	(wire (pts (xy 60.9600 63.5000) (xy 57.1500 63.5000))
+		(stroke (width 0) (type default))
+		(uuid "a82a6b21-2805-40e3-9d7e-9926816ff491")
+	)
+	(symbol (lib_id "power:GND") (at 57.1500 63.5000 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "0bcd866a-9b52-4179-8d3b-07092066f570")
+		(property "Reference" "#PWR002" (at 57.15 66.50 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "GND" (at 57.15 60.96 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 57.15 63.50 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 57.15 63.50 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "31893c13-15ba-4ee4-98a7-347ba676efe5"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR002") (unit 1))))
+	)
+	(wire (pts (xy 60.9600 66.0400) (xy 57.1500 66.0400))
+		(stroke (width 0) (type default))
+		(uuid "5c28b41e-6f09-481e-87da-45520f75eb73")
+	)
+	(global_label "USB_DN_EXT" (shape bidirectional) (at 57.1500 66.0400 180)
+		(effects (font (size 1.15 1.15)) (justify right))
+		(uuid "8b07ac19-2371-48c9-9584-ae52c45cb02b")
+	)
+	(wire (pts (xy 60.9600 68.5800) (xy 57.1500 68.5800))
+		(stroke (width 0) (type default))
+		(uuid "a879fb8b-09e6-43f2-ba82-21d54655f131")
+	)
+	(global_label "USB_DP_EXT" (shape bidirectional) (at 57.1500 68.5800 180)
+		(effects (font (size 1.15 1.15)) (justify right))
+		(uuid "3b71dc69-17f2-4d0c-a43f-3502b635ef2e")
+	)
+	(symbol (lib_id "Connector_Generic:Conn_01x04") (at 144.7800 63.5000 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "f79e60f9-aebf-4829-96b1-46f70db662f0")
+		(property "Reference" "J2" (at 144.78 59.69 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "MAINBOARD J1" (at 144.78 67.31 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "CatMouse_PogoFlex:Flat_4x2.54_Pogo" (at 144.78 63.50 0) (effects (font (size 1.0 1.0))) (hide yes))
+		(property "Datasheet" "~" (at 144.78 63.50 0) (effects (font (size 1.0 1.0))) (hide yes))
+		(pin "1" (uuid "ed105fff-c915-4592-a52d-0c18e4ca1e81"))
+		(pin "2" (uuid "d1166aa7-1544-45fe-b8b5-923f46ef0e6f"))
+		(pin "3" (uuid "39183157-9fcd-4d2a-af2d-f6ef7d423ac7"))
+		(pin "4" (uuid "5ef3dd24-ef7c-45bd-ae64-432b1c4d525a"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "J2") (unit 1))))
+	)
+	(wire (pts (xy 139.7000 60.9600) (xy 135.8900 60.9600))
+		(stroke (width 0) (type default))
+		(uuid "aee05619-c551-4e68-b907-90584672f204")
+	)
+	(symbol (lib_id "power:+5V") (at 135.8900 60.9600 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "be1b3459-c156-4f33-9fc2-d741187dbaf8")
+		(property "Reference" "#PWR003" (at 135.89 63.96 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "+5V" (at 135.89 58.42 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 135.89 60.96 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 135.89 60.96 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "e77e1b12-2ca1-46d5-887a-eb7f50c4df09"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR003") (unit 1))))
+	)
+	(wire (pts (xy 139.7000 63.5000) (xy 135.8900 63.5000))
+		(stroke (width 0) (type default))
+		(uuid "0a6352cf-b5a7-44c9-aaf4-45fcc9ff0d23")
+	)
+	(symbol (lib_id "power:GND") (at 135.8900 63.5000 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "7a297ad2-d091-41a6-9ce1-bc362f1817b9")
+		(property "Reference" "#PWR004" (at 135.89 66.50 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "GND" (at 135.89 60.96 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 135.89 63.50 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 135.89 63.50 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "fa7f7395-e886-4b8f-9904-5d544caa46c4"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR004") (unit 1))))
+	)
+	(wire (pts (xy 139.7000 66.0400) (xy 135.8900 66.0400))
+		(stroke (width 0) (type default))
+		(uuid "8347615b-4faa-487f-862e-07d6493b2612")
+	)
+	(global_label "USB_DN_EXT" (shape bidirectional) (at 135.8900 66.0400 180)
+		(effects (font (size 1.15 1.15)) (justify right))
+		(uuid "e59f11ec-1fe6-4fe6-893f-f0c56938c633")
+	)
+	(wire (pts (xy 139.7000 68.5800) (xy 135.8900 68.5800))
+		(stroke (width 0) (type default))
+		(uuid "a7b9e12b-d560-46d7-bc8f-f3342bb1f385")
+	)
+	(global_label "USB_DP_EXT" (shape bidirectional) (at 135.8900 68.5800 180)
+		(effects (font (size 1.15 1.15)) (justify right))
+		(uuid "fe4b9d1b-5af1-4e67-9abc-79eb2a4a7051")
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 90.1700 78.7400 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "12a27c2d-3eb5-4ddb-911e-118a9b7c1b38")
+		(property "Reference" "#PWR005" (at 90.17 81.74 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "PWR_FLAG" (at 90.17 76.20 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 90.17 78.74 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 90.17 78.74 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "ae2320f8-43e9-41ac-a42f-acb16217c7d1"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR005") (unit 1))))
+	)
+	(wire (pts (xy 90.1700 78.7400) (xy 90.1700 82.5500))
+		(stroke (width 0) (type default))
+		(uuid "b3733b63-b131-4d50-a884-d994f116994a")
+	)
+	(symbol (lib_id "power:+5V") (at 90.1700 82.5500 180) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "b789d350-125b-4dca-8eb1-847341cf77f0")
+		(property "Reference" "#PWR006" (at 90.17 85.55 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "+5V" (at 90.17 80.01 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 90.17 82.55 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 90.17 82.55 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "667af449-cf04-4ea8-a0ba-aff1d9b5730d"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR006") (unit 1))))
+	)
+	(symbol (lib_id "power:PWR_FLAG") (at 111.7600 78.7400 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "b5ec6045-64ea-4a15-975c-d5f8d4f5326b")
+		(property "Reference" "#PWR007" (at 111.76 81.74 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "PWR_FLAG" (at 111.76 76.20 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 111.76 78.74 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 111.76 78.74 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "8888a577-99c9-40ba-8e40-5cc2cd0adc4f"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR007") (unit 1))))
+	)
+	(wire (pts (xy 111.7600 78.7400) (xy 111.7600 82.5500))
+		(stroke (width 0) (type default))
+		(uuid "29068c7d-bc30-4d69-b4c8-baeefef10f46")
+	)
+	(symbol (lib_id "power:GND") (at 111.7600 82.5500 0) (unit 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
+		(uuid "bee5929d-8572-4fe9-b310-dbcebe00380a")
+		(property "Reference" "#PWR008" (at 111.76 85.55 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Value" "GND" (at 111.76 80.01 0) (effects (font (size 1.15 1.15))))
+		(property "Footprint" "" (at 111.76 82.55 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(property "Datasheet" "" (at 111.76 82.55 0) (effects (font (size 1.27 1.27))) (hide yes))
+		(pin "1" (uuid "45155ca5-bb32-4f9b-9e8b-365d64d7fcf8"))
+		(instances (project "catmouse-band-v15-pogo-flex" (path "/ae70d924-9a61-48b1-97ec-d69f3028e906" (reference "#PWR008") (unit 1))))
+	)
+	(sheet_instances (path "/" (page "1")))
+)

@@ -3,7 +3,7 @@
   "type": "script",
   "author": "CatMouse Band V1.5 Hardware Engineering",
   "description": {
-    "": "CatMouse Band V1.5-Lite (EVT 魔术贴简版) — 100% Native Parametric Fusion 360 Feature Tree (16 Components, Direct-Overlap 18mm Velcro Hook-and-Loop Band, Plan A Internal FPC-to-ZIF & T-Anchor Glands, Zero Metal Buckles)."
+    "": "CatMouse Band V1.5-Lite EVT-A (120-200mm 非对称魔术贴简版) — 100% Native Parametric Fusion 360 Feature Tree (17 Components, 12.15mm Pod, Milled BLE Cutout, 17_Pogo_Flex_Interposer, Hirose FH19C 4P ZIF, Asymmetric Low-Occlusion Velcro Band)."
   },
   "supportedOS": "windows|mac",
   "editEnabled": true

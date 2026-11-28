@@ -1,0 +1,260 @@
+{
+  "$schema": "https://schemas.kicad.org/drc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-11-28T11:29:17",
+  "ignored_checks": [
+    {
+      "description": "Tuning profile track geometries",
+      "key": "tuning_profile_track_geometries"
+    },
+    {
+      "description": "Footprint doesn't match symbol's footprint filters",
+      "key": "footprint_filters_mismatch"
+    },
+    {
+      "description": "Footprint component type doesn't match footprint pads",
+      "key": "footprint_type_mismatch"
+    }
+  ],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.8",
+  "schematic_parity": [],
+  "source": "catmouse-band-v15-strap-halo.kicad_pcb",
+  "unconnected_items": [
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 C19 的焊盘 2 [NFC_ANT2]",
+          "pos": {
+            "x": 92.28,
+            "y": 84.8
+          },
+          "uuid": "cfa80f98-c61d-42ed-9a9b-d32d2d807d3b"
+        },
+        {
+          "description": "F.Cu 上 J3 的焊盘 2 [NFC_ANT2]",
+          "pos": {
+            "x": 94.2,
+            "y": 88.6
+          },
+          "uuid": "cb2d995b-f34b-45e9-828f-1dc354b8c05a"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 R5 的焊盘 2 [USB_DN_EXT]",
+          "pos": {
+            "x": 89.31,
+            "y": 102.4
+          },
+          "uuid": "1a8a8888-3322-43f1-8a14-3164d6fe4e11"
+        },
+        {
+          "description": "走线 [USB_DN_EXT] (F.Cu), 长度: 1.0400 mm",
+          "pos": {
+            "x": 100.8625,
+            "y": 88.45
+          },
+          "uuid": "5d61b121-e32c-4b7c-81f3-569b4cc1697b"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 R6 的焊盘 2 [USB_DP_EXT]",
+          "pos": {
+            "x": 87.2,
+            "y": 101.69
+          },
+          "uuid": "5889ffae-e086-47b0-993b-dfddb094fa61"
+        },
+        {
+          "description": "走线 [USB_DP_EXT] (F.Cu), 长度: 1.1438 mm",
+          "pos": {
+            "x": 102.0063,
+            "y": 90.35
+          },
+          "uuid": "3ee62338-6855-43ee-b27d-d537d6a7f109"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 R17 的焊盘 2 [LED_PWR_GATE]",
+          "pos": {
+            "x": 97.2,
+            "y": 83.49
+          },
+          "uuid": "ce12825f-623b-4e56-baff-3abd31805a7c"
+        },
+        {
+          "description": "走线 [LED_PWR_GATE] (F.Cu), 长度: 0.8485 mm",
+          "pos": {
+            "x": 100.0,
+            "y": 91.5
+          },
+          "uuid": "d058d365-3bd9-4d34-8f74-2b775c287bb4"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 R6 的焊盘 1 [USB_DP]",
+          "pos": {
+            "x": 87.2,
+            "y": 102.71
+          },
+          "uuid": "dd2dab30-81fa-466e-88a1-d50ab07a2b34"
+        },
+        {
+          "description": "F.Cu 上 U1 的焊盘 27 [USB_DP]",
+          "pos": {
+            "x": 92.4,
+            "y": 104.1
+          },
+          "uuid": "236df9cb-a8d3-4f88-aa46-3a536b7f4c14"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 U2 的焊盘 4 [NFC_TX1]",
+          "pos": {
+            "x": 93.95,
+            "y": 90.8625
+          },
+          "uuid": "a3c13877-b49a-413b-935a-00caec0f677f"
+        },
+        {
+          "description": "F.Cu 上 L1 的焊盘 1 [NFC_TX1]",
+          "pos": {
+            "x": 98.0,
+            "y": 91.3875
+          },
+          "uuid": "77d54991-d144-4919-9498-87b525c7a465"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 U2 的焊盘 14 [NFC_OSCIN]",
+          "pos": {
+            "x": 90.2625,
+            "y": 93.05
+          },
+          "uuid": "a88eae43-8352-4a80-82e6-bde28cb1454a"
+        },
+        {
+          "description": "走线 [NFC_OSCIN] (F.Cu), 长度: 2.3479 mm",
+          "pos": {
+            "x": 90.2,
+            "y": 89.7321
+          },
+          "uuid": "720cf0e8-c1a5-4274-b4fe-c28c7d1edc07"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 R24 的焊盘 1 [LED_DOUT_RET]",
+          "pos": {
+            "x": 87.2,
+            "y": 109.51
+          },
+          "uuid": "6efc83df-eeac-4820-9221-caa02788f070"
+        },
+        {
+          "description": "F.Cu 上 J5 的焊盘 4 [LED_DOUT_RET]",
+          "pos": {
+            "x": 99.25,
+            "y": 86.9
+          },
+          "uuid": "9ad40f71-2ab7-48f5-9451-13d437d16e93"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "B.Cu 上 TP2 的焊盘 1 [IO0_EXT]",
+          "pos": {
+            "x": 93.5,
+            "y": 88.1
+          },
+          "uuid": "d3bd22b5-adca-4833-b48e-f35871b80025"
+        },
+        {
+          "description": "F.Cu 上 U1 的焊盘 12 [IO0_EXT]",
+          "pos": {
+            "x": 103.1,
+            "y": 101.6
+          },
+          "uuid": "75380063-3fa9-4b7c-8a01-f0c497b18224"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    },
+    {
+      "description": "Missing connection between items",
+      "items": [
+        {
+          "description": "F.Cu 上 R19 的焊盘 2 [IMU_SA0]",
+          "pos": {
+            "x": 99.31,
+            "y": 83.2
+          },
+          "uuid": "c4343eb4-ceec-48a2-9353-f88bcb9e8086"
+        },
+        {
+          "description": "F.Cu 上 U3 的焊盘 3 [IMU_SA0]",
+          "pos": {
+            "x": 100.25,
+            "y": 95.0375
+          },
+          "uuid": "6605ba31-664d-4115-9ec3-adf6a13929c5"
+        }
+      ],
+      "severity": "error",
+      "type": "unconnected_items"
+    }
+  ],
+  "violations": []
+}

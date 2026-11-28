@@ -55,6 +55,13 @@ from build123d import (
     sweep,
 )
 
+from strap_halo_geometry import (
+    BUTTON_CENTER, BUZZER_CENTER, BUZZER_HEIGHT, FERRITE_BOTTOM_Z, MINI_CENTER,
+    MINI_MAX_HEIGHT, MINI_NOMINAL, MINI_SOLDER_ALLOWANCE, NFC_CRYSTAL_CENTER,
+    NFC_STACK_LIFT, PCB_TOP_Z, POGO_FLEX_BOTTOM_Z, POGO_FLEX_END_Y, POGO_FLEX_RISER_Y,
+    POGO_FLEX_THICKNESS, POGO_FLEX_WIDTH, POGO_X, POGO_Y, board_substrate, pogo_flex_envelope,
+)
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CAD_OUT = ROOT / "cad" / "output"
 PARTS_DIR = CAD_OUT / "parts"
@@ -69,7 +76,7 @@ POD_L = 42.0          # 主机长度 (Y)
 POD_R = 9.5           # 鹅卵石大圆角半径
 Z_POD_BOT = 23.80     # 主机底面 Z
 Z_SPLIT = 30.80       # 上下壳合模分型面 Z
-Z_POD_TOP = 35.60     # 主机顶面 Z (总厚 11.80mm)
+Z_POD_TOP = 35.60 + NFC_STACK_LIFT  # 保留顶盖基准壁厚，增加 MINI-1 上方净空
 WALL_SIDE = 1.80      # 主机侧壁厚
 WALL_TOP = 1.20       # 顶盖 NFC 区壁厚
 WALL_BOT = 1.30       # 底壳贴肤壁厚
@@ -233,7 +240,7 @@ def make_flat_xy_ribbon(
 
 def build_top_shell() -> Part:
     """01_Top_Shell_NFC: 哑光深灰 PC+ABS 极简鹅卵石顶壳，带盲触猫爪+NFC波纹凹雕、右侧按键切口与蜂鸣器声学槽。"""
-    h = Z_POD_TOP - Z_SPLIT  # 4.80mm
+    h = Z_POD_TOP - Z_SPLIT
     with BuildPart() as bp:
         with BuildSketch(Plane.XY.offset(Z_SPLIT)):
             RectangleRounded(POD_W, POD_L, POD_R)
@@ -248,7 +255,7 @@ def build_top_shell() -> Part:
         # 挖空内部电子与 NFC 线圈腔体 (侧壁 1.8mm，顶盖 NFC 窗厚 1.20mm)
         cav_w = POD_W - 2 * WALL_SIDE
         cav_l = POD_L - 2 * WALL_SIDE
-        cav_h = (Z_POD_TOP - WALL_TOP) - Z_SPLIT  # 3.60mm -> 顶至 Z=34.40
+        cav_h = (Z_POD_TOP - WALL_TOP) - Z_SPLIT
         with BuildSketch(Plane.XY.offset(Z_SPLIT - 0.05)):
             RectangleRounded(cav_w, cav_l, POD_R - WALL_SIDE)
         extrude(amount=cav_h + 0.05, mode=Mode.SUBTRACT)
@@ -271,7 +278,8 @@ def build_top_shell() -> Part:
             Box(3.6, 10.0, 2.05, mode=Mode.SUBTRACT)
 
         # 右侧 3 道超薄蜂鸣器声学微孔（正对 PCB 蜂鸣器 PKMCS0909E 中心 Y=-5.2mm，朝外发声不被手腕闷音）
-        for sy in (-6.7, -5.2, -3.7):
+        for offset_y in (-1.5, 0.0, 1.5):
+            sy = BUZZER_CENTER[1] + offset_y
             with Locations((POD_W / 2.0 - 0.9, sy, Z_SPLIT + 1.50)):
                 Box(3.2, 0.65, 1.50, mode=Mode.SUBTRACT)
     return bp.part
@@ -299,14 +307,23 @@ def build_bottom_shell() -> Part:
             with Locations((0.0, sy * 18.725, 25.10 + 2.85)):
                 Box(18.4, 1.15, 5.70)
 
+        # The recess follows the flex below the motor and into the forward
+        # guide. Both sides of the T-shaped strap socket retain shoulders.
+        channel_front_y = POGO_FLEX_RISER_Y + 0.2
+        channel_back_y = POGO_FLEX_END_Y - 0.15
+        with Locations((0, (channel_front_y + channel_back_y) / 2, 25.01)):
+            Box(POGO_FLEX_WIDTH + 0.4, channel_front_y - channel_back_y, 0.42, mode=Mode.SUBTRACT)
+        with Locations((0, (17.95 + channel_front_y) / 2, 27.40)):
+            Box(POGO_FLEX_WIDTH + 0.4, channel_front_y - 17.95, 5.08, mode=Mode.SUBTRACT)
+
         # 右侧按键开口（下半部）
         with Locations((POD_W / 2.0 - 0.8, 1.5, Z_SPLIT - 1.00)):
             Box(3.6, 10.0, 2.05, mode=Mode.SUBTRACT)
 
         # 4-pin 镀金磁吸 Pogo 触点沉孔 (移至 +Y 侧 Y=+14.8mm，彻底远离 -Y 侧 2.4GHz BLE 天线净空区！)
-        for px in (-3.81, -1.27, 1.27, 3.81):
-            with Locations((px, 14.8, Z_POD_BOT + 0.45)):
-                Cylinder(radius=0.99, height=1.00, mode=Mode.SUBTRACT)
+        for px in POGO_X:
+            with Locations((px, POGO_Y, Z_POD_BOT + 0.58)):
+                Cylinder(radius=0.99, height=1.25, mode=Mode.SUBTRACT)
 
         # 2× N52 磁铁内嵌盲孔 (位于 +Y 侧 x=±8.5, y=+14.8mm，远离 BLE 天线 >=26mm，底留 0.25mm 防水壁)
         for mx in (-8.5, 8.5):
@@ -362,17 +379,17 @@ def build_side_button() -> Part:
 
 def build_nfc_coil_ferrite() -> Compound:
     """04_NFC_FPC_Coil_Ferrite: 25×24.5mm 13.56MHz 环形 NFC 线圈 + 0.20mm 铁氧体 + C 型下弯引出触点排线（直达主板 PN532 匹配弹片座 J_NFC_SPRING!）。"""
-    # 铁氧体隔磁片 Y ∈ [-10.0, +14.5], Z ∈ [33.75, 33.95] -> 距 BLE 天线净空区 (-11.5) 留足 1.50mm RF 隔离带！
+    # 铁氧体后缘仍为 Y = -10.0 mm，平移顶盖线圈叠层给模组留出垂直净空。
     with BuildPart() as bp_fer:
-        with BuildSketch(Plane.XY.offset(33.75)):
+        with BuildSketch(Plane.XY.offset(FERRITE_BOTTOM_Z)):
             with Locations((0.0, 2.25)):
                 RectangleRounded(25.0, 24.5, 5.0)
         extrude(amount=0.20)
     ferrite = bp_fer.part
 
-    # 铜质多匝环形 NFC FPC 线圈 Z ∈ [34.00, 34.25]
+    # 铜质多匝环形 NFC FPC 线圈
     with BuildPart() as bp_coil:
-        with BuildSketch(Plane.XY.offset(34.00)):
+        with BuildSketch(Plane.XY.offset(34.00 + NFC_STACK_LIFT)):
             with Locations((0.0, 2.25)):
                 RectangleRounded(24.6, 24.1, 4.8)
                 RectangleRounded(17.2, 16.7, 3.0, mode=Mode.SUBTRACT)
@@ -381,10 +398,10 @@ def build_nfc_coil_ferrite() -> Compound:
 
     # 铜质 C 型柔性引出尾带（宽 3.0mm × 厚 0.18mm，在 X=-6.8 处从线圈 +Y 外缘绕过铁氧体边沿下弯至主板 J_NFC_SPRING 弹片座正上方！）
     nfc_tail_pts = [
-        Vector(-6.8, 13.80, 34.12),
-        Vector(-6.8, 14.85, 34.04),
-        Vector(-6.8, 15.35, 33.25),
-        Vector(-6.8, 14.65, 32.15),
+        Vector(-6.8, 13.80, 34.12 + NFC_STACK_LIFT),
+        Vector(-6.8, 14.85, 34.04 + NFC_STACK_LIFT),
+        Vector(-6.8, 15.35, 33.25 + NFC_STACK_LIFT),
+        Vector(-6.8, 14.65, 32.15 + NFC_STACK_LIFT / 2),
         Vector(-6.8, 13.00, 31.52),
         Vector(-6.8, 11.40, 31.49),
     ]
@@ -396,30 +413,22 @@ def build_mainboard_pcba() -> Compound:
     """
     05_Mainboard_4Layer_PCBA: 严格按 RF/EMC 规范分区的单面贴片(L1) 4 层核心主板布局 (28.4×35.4×1.0mm)：
     - -Y 端 (Y ∈ [-17.7, -11.5])：2.4GHz BLE 天线 4 层全净空区（无铜、无铁氧体、无电池、无磁铁！）
-    - 东侧 (X=+9.6, Y=-5.2)：PKMCS0909E 蜂鸣器直对右侧 3 道声学出音槽
+    - 东侧：PKMCS0909E 蜂鸣器直对右侧 3 道声学出音槽
     - 西北象限 (X=-6.8, Y=+6.2)：PN532 + 27.12MHz 晶振 + 13.56MHz 匹配网络（距 BLE 天线 >18mm！）
     - 中心 (X=+0.5, Y=+4.2)：LIS2DH12TR IMU（贴近质心）
     - 东北象限：MCP73831 + AP2112K-3.3 + Q1/Q2/Q3 电源驱动区
     - L4 底层纯平面（0 贴片突起，仅磁吸 Pogo 焊盘与产测点，防止挤压锂电池！）
     - 注：前/后 FPC ZIF 翻盖座 (J_LED_F / J_LED_R) 与 NFC 弹片座 (J_NFC_SPRING) 独立建模为 16_ZIF_Connectors_4Pin 高对比零件！
     """
-    # FR4 基板 Z ∈ [29.65, 30.65]
-    with BuildPart() as bp_pcb:
-        with BuildSketch(Plane.XY.offset(29.65)):
-            RectangleRounded(28.4, 35.4, 6.2)
-        extrude(amount=1.00)
-        # 避让 2× M2 螺丝定位柱 (x=±12.6, y=+11.0)
-        for sx in (-12.6, 12.6):
-            with Locations((sx, 11.0, 30.15)):
-                Cylinder(radius=2.1, height=1.4, mode=Mode.SUBTRACT)
-    pcb = bp_pcb.part
+    pcb = board_substrate()
 
-    # 单面 L1 关键芯片与模块 (全部 Z ∈ [30.65, 33.00]，距上方铁氧体 33.75 净空 >= 0.75mm!)
+    # 单面 L1 关键芯片与模块。MINI-1 使用原厂最大高度加贴装余量。
     chips = []
-    # 1. ESP32-C3-MINI-1 模组 (中心 X=-1.7, Y=-9.2 -> X ∈ [-8.3, +4.9]，天线端探至 Y=-17.5，西侧留足 >=1.9mm 给后翼 FPC 走廊!)
+    # 1. ESP32-C3-MINI-1 模组，天线伸出主板挖空区。
+    module_height = MINI_MAX_HEIGHT + MINI_SOLDER_ALLOWANCE
     with BuildPart() as p:
-        with Locations((-1.7, -9.2, 30.65 + 1.15)):
-            Box(13.2, 16.6, 2.30)
+        with Locations((*MINI_CENTER, PCB_TOP_Z + module_height / 2)):
+            Box(*MINI_NOMINAL[:2], module_height)
     chips.append(p.part)
     # 2. PN5321A3HN 双模 NFC 芯片 (HVQFN-40, 6.0 x 6.0 x 0.85mm)
     with BuildPart() as p:
@@ -428,7 +437,7 @@ def build_mainboard_pcba() -> Compound:
     chips.append(p.part)
     # 2b. 27.12MHz NFC 晶振 Y1 (3.2 x 2.5 x 0.80mm，紧邻 PN532 OSCIN/OSCOUT)
     with BuildPart() as p:
-        with Locations((-11.8, 6.2, 30.65 + 0.40)):
+        with Locations((*NFC_CRYSTAL_CENTER, PCB_TOP_Z + 0.40)):
             Box(2.5, 3.2, 0.80)
     chips.append(p.part)
     # 3. LIS2DH12TR IMU (2.0 x 2.0 x 0.90mm，居中抗旋转误触)
@@ -436,10 +445,10 @@ def build_mainboard_pcba() -> Compound:
         with Locations((0.5, 4.2, 30.65 + 0.45)):
             Box(2.0, 2.0, 0.90)
     chips.append(p.part)
-    # 4. PKMCS0909E 超薄贴片蜂鸣器 (9.0 x 9.0 x 1.75mm，X=+9.6 -> X ∈ [+5.1, +14.1]，正对右侧 3 道声学出音槽 Y=-5.2)
+    # 4. PKMCS0909E，声孔中心与 PCB 上实装封装对齐。
     with BuildPart() as p:
-        with Locations((9.6, -5.2, 30.65 + 0.875)):
-            Box(9.0, 9.0, 1.75)
+        with Locations((*BUZZER_CENTER, PCB_TOP_Z + BUZZER_HEIGHT / 2)):
+            Box(9.0, 9.0, BUZZER_HEIGHT)
     chips.append(p.part)
     # 5. PMIC 电源/高边 PMOS 驱动区 (MCP73831 + AP2112K + AO3401A/AO3400A 紧凑阵列，X=+6.9, Y=+7.1)
     for px, py in [(5.2, 5.2), (8.6, 5.2), (5.2, 9.0), (8.6, 9.0)]:
@@ -449,7 +458,7 @@ def build_mainboard_pcba() -> Compound:
         chips.append(p.part)
     # 6. 右侧贴片轻触开关 SW1 (2.6 x 4.2 x 1.60mm，紧邻侧键内顶柱)
     with BuildPart() as p:
-        with Locations((12.5, 1.5, 30.65 + 0.80)):
+        with Locations((*BUTTON_CENTER, PCB_TOP_Z + 0.80)):
             Box(2.6, 4.2, 1.60)
     chips.append(p.part)
 
@@ -458,48 +467,48 @@ def build_mainboard_pcba() -> Compound:
 
 def build_zif_connectors_and_contacts() -> Compound:
     """
-    16_ZIF_Connectors_4Pin: 方案 A 主板端高对比乳白色 LCP 精密电连接器组：
-    - J_LED_F (0.0, +14.6): 前翼 4-pin 0.5mm 间距翻盖式 FPC ZIF 插座（+Y 侧开真实插口，前翼 FPC 排线深入插入 1.4mm!）
-    - J_LED_R (-11.2, -5.8): 后翼 4-pin 0.5mm 间距翻盖式 FPC ZIF 插座（-Y 侧开真实插口，西侧绕行后翼 FPC 深入插入 1.4mm!）
-    - J_NFC_SPRING (-6.8, +11.4): 13.56MHz NFC 线圈 2-pin 双弹片接触座（与顶盖 NFC 铜质下弯排线压接）
+    16_ZIF_Connectors_4Pin: 方案 A 主板端高对比乳白色 LCP 精密电连接器组（严格对齐 EVT-A Hirose FH19C-4S-0.5SH(10) 封装）：
+    - J_LED_F (0.0, +14.6): Hirose FH19C-4S-0.5SH(10) 4-pin 0.5mm 底接触 ZIF 翻盖座（4.0×2.6×0.95mm，+Y 开口直插 2.50×0.20mm 补强舌！）
+    - J_LED_R (-11.2, -5.8): Hirose FH19C-4S-0.5SH(10) 4-pin 0.5mm 底接触 ZIF 翻盖座（-Y 开口直插西侧绕行 2.50×0.20mm 补强舌！）
+    - J_NFC_SPRING (-6.8, +11.4): 13.56MHz NFC 线圈 2-pin 2.00mm 针距双弹片接触座（与顶盖 NFC 铜质下弯排线压接）
     """
     items = []
 
-    # 1. J_LED_F: 前翼 4-pin 0.5mm FPC ZIF 翻盖座 (居中于 X=0.0, Y=+14.6, Z ∈ [30.67, 31.82])
+    # 1. J_LED_F: Hirose FH19C-4S-0.5SH(10) 前翼 ZIF 翻盖座 (居中于 X=0.0, Y=+14.6, Z ∈ [30.67, 31.62])
     with BuildPart() as bp_jf:
-        # 白色 LCP 主壳体 (5.4 x 3.2 x 1.15 mm)
-        with Locations((0.0, 14.6, 30.67 + 0.575)):
-            Box(5.4, 3.2, 1.15)
-        # 两侧贴片固定焊耳 (Ear tabs)
-        for sx in (-2.95, 2.95):
-            with Locations((sx, 14.2, 30.67 + 0.25)):
-                Box(0.50, 1.6, 0.50)
-        # 后侧压紧翻盖锁扣条 (Flip-lock actuator bar, Z ∈ [31.82, 32.12])
-        with Locations((0.0, 13.45, 31.82 + 0.15)):
-            Box(4.4, 0.85, 0.30)
-        # +Y 侧真实 FPC 插入槽口 (宽 2.80 × 深 1.85 × 高 0.48mm，Z ∈ [30.91, 31.39]，与 FPC 排线 0 碰撞咬合!)
-        with Locations((0.0, 15.325, 31.15)):
-            Box(2.80, 1.85, 0.48, mode=Mode.SUBTRACT)
+        # 白色 LCP 主壳体 (4.00 x 2.60 x 0.95 mm，与 KiCad FH19C-4S-0.5SH 封装 1:1 对齐)
+        with Locations((0.0, 14.6, 30.67 + 0.475)):
+            Box(4.00, 2.60, 0.95)
+        # 两侧金属固定焊耳 (MP tabs)
+        for sx in (-2.10, 2.10):
+            with Locations((sx, 15.35, 30.67 + 0.225)):
+                Box(0.45, 0.80, 0.45)
+        # 后侧压紧翻盖锁扣条 (Flip-lock actuator bar, Z ∈ [31.62, 31.86])
+        with Locations((0.0, 13.65, 31.62 + 0.12)):
+            Box(3.20, 0.70, 0.24)
+        # +Y 侧真实 FPC 插入槽口 (宽 2.66 × 深 1.80 × 高 0.36mm，Z ∈ [30.90, 31.26]，容下 2.50×0.20mm 补强接触舌 0 碰撞!)
+        with Locations((0.0, 15.05, 31.08)):
+            Box(2.66, 1.80, 0.36, mode=Mode.SUBTRACT)
     items.append(bp_jf.part)
 
-    # 2. J_LED_R: 后翼 4-pin 0.5mm FPC ZIF 翻盖座 (位于西侧 X=-11.2, Y=-5.8, Z ∈ [30.67, 31.82]，口朝 -Y 直迎西侧绕行 FPC!)
+    # 2. J_LED_R: Hirose FH19C-4S-0.5SH(10) 后翼 ZIF 翻盖座 (位于西侧 X=-11.2, Y=-5.8, Z ∈ [30.67, 31.62]，口朝 -Y!)
     with BuildPart() as bp_jr:
-        # 白色 LCP 主壳体 (4.6 x 3.2 x 1.15 mm -> X ∈ [-13.5, -8.9], 距 ESP32(-8.3) 净空 0.60mm!)
-        with Locations((-11.2, -5.8, 30.67 + 0.575)):
-            Box(4.6, 3.2, 1.15)
-        # 两侧贴片固定焊耳
-        for sx in (-13.75, -8.65):
-            with Locations((sx, -5.4, 30.67 + 0.25)):
-                Box(0.50, 1.6, 0.50)
+        # 白色 LCP 主壳体 (4.00 x 2.60 x 0.95 mm -> X ∈ [-13.2, -9.2], 距 ESP32(-8.3) 净空 0.90mm!)
+        with Locations((-11.2, -5.8, 30.67 + 0.475)):
+            Box(4.00, 2.60, 0.95)
+        # 两侧金属固定焊耳
+        for sx in (-13.30, -9.10):
+            with Locations((sx, -6.55, 30.67 + 0.225)):
+                Box(0.45, 0.80, 0.45)
         # 后侧 (+Y) 压紧翻盖锁扣条
-        with Locations((-11.2, -4.65, 31.82 + 0.15)):
-            Box(3.8, 0.85, 0.30)
-        # -Y 侧真实 FPC 插入槽口 (宽 2.80 × 深 1.85 × 高 0.48mm，Z ∈ [30.91, 31.39])
-        with Locations((-11.2, -6.525, 31.15)):
-            Box(2.80, 1.85, 0.48, mode=Mode.SUBTRACT)
+        with Locations((-11.2, -4.85, 31.62 + 0.12)):
+            Box(3.20, 0.70, 0.24)
+        # -Y 侧真实 FPC 插入槽口 (宽 2.66 × 深 1.80 × 高 0.36mm，Z ∈ [30.90, 31.26])
+        with Locations((-11.2, -6.25, 31.08)):
+            Box(2.66, 1.80, 0.36, mode=Mode.SUBTRACT)
     items.append(bp_jr.part)
 
-    # 3. J_NFC_SPRING: NFC 线圈 2-pin 弹片接触底座 (X=-6.8, Y=+11.4, Z ∈ [30.67, 31.32])
+    # 3. J_NFC_SPRING: NFC 线圈 2-pin 2.00mm 针距弹片接触底座 (X=-6.8, Y=+11.4, Z ∈ [30.67, 31.32])
     with BuildPart() as bp_jnfc:
         with Locations((-6.8, 11.4, 30.67 + 0.22)):
             Box(4.2, 2.4, 0.44)
@@ -533,11 +542,15 @@ def build_vibration_motor() -> Part:
 def build_pogo_magnets_hardware() -> Compound:
     """08_Pogo_Magnets_Screws: 全部位于 +Y 侧（彻底远离 -Y BLE 天线净空区 >=22mm！）。"""
     items = []
-    # 4× 镀金 Pogo 触点 (Phi 1.80 x 0.80mm, Y=+14.8, Z ∈ [23.85, 24.65])
-    for px in (-3.81, -1.27, 1.27, 3.81):
+    # Four exposed contacts with short internal solder tails for the flex.
+    for px in POGO_X:
         with BuildPart() as p:
-            with Locations((px, 14.8, Z_POD_BOT + 0.05 + 0.40)):
+            with Locations((px, POGO_Y, Z_POD_BOT + 0.05 + 0.40)):
                 Cylinder(radius=0.90, height=0.80)
+            tail_bottom = Z_POD_BOT + 0.82
+            tail_top = POGO_FLEX_BOTTOM_Z - POGO_FLEX_THICKNESS / 2 - 0.01
+            with Locations((px, POGO_Y, (tail_bottom + tail_top) / 2)):
+                Cylinder(radius=0.40, height=tail_top - tail_bottom)
         items.append(p.part)
     # 2× N52 钕铁硼磁铁 (Phi 4.00 x 0.90mm, X=±8.5, Y=+14.8, Z ∈ [24.10, 25.00])
     for mx in (-8.5, 8.5):
@@ -676,22 +689,25 @@ def build_strap_and_halo_system():
     fpc_front_wing = make_swept_band(lg_front_spine, FPC_W, fpc_in, fpc_out, corner_r=0.0)
     fpc_rear_wing = make_swept_band(lg_rear_spine, FPC_W, fpc_in, fpc_out, corner_r=0.0)
 
-    # 4a. 前翼进仓 4 线回环 FPC 尾带（宽 2.2mm × 厚 0.16mm，从前腕带光学槽平滑穿过 T 型硅胶密封头并深入插入 J_LED_F 槽口 1.4mm!）
+    # 4a. 前翼进仓 4 线回环 FPC 尾带 + 末端 Hirose FH19C 标准 2.50×0.20×3.60mm PI 补强接触舌（深入插入 J_LED_F 1.55mm!）
     fpc_front_tail_pts = [
         Vector(0.0, 23.25, 27.55),
         Vector(0.0, 21.85, 27.85),
         Vector(0.0, 20.20, 29.10),
         Vector(0.0, 18.70, 30.25),
-        Vector(0.0, 17.65, 31.05),
-        Vector(0.0, 16.40, 31.15),
-        Vector(0.0, 14.80, 31.15),
+        Vector(0.0, 17.65, 30.98),
+        Vector(0.0, 16.40, 31.08),
     ]
     fpc_front_tail = make_swept_band(fpc_front_tail_pts, 2.2, -0.08, 0.08, corner_r=0.0)
+    with BuildPart() as bp_ftongue:
+        with Locations((0.0, 16.15, 31.08)):
+            Box(2.50, 3.60, 0.20)  # Y ∈ [14.35, 17.95], Z ∈ [30.98, 31.18]，符合 Hirose 2.50±0.05 × 0.20±0.03 × ≥3.50mm
+    fpc_front_tongue = bp_ftongue.part
     # 在前翼硅胶腕带与 T 型密封头中布尔切出精密内埋 FPC 穿线隧道（留足单边 >=0.25mm 间隙，保证 0.000 mm³ 碰撞！）
     front_tunnel_cut = make_swept_band(fpc_front_tail_pts[:5], 2.8, -0.34, 0.34, corner_r=0.0)
     strap_front = strap_front - front_tunnel_cut
 
-    # 4b. 后翼进仓 4 线可展开 FPC 尾带（三段零扭曲真实 FPC：腕带内横向折弯绕向西侧 X=-9.65 -> 穿西侧防水口进仓 -> 沿西走廊直插 J_LED_R 槽口 1.65mm!）
+    # 4b. 后翼进仓 4 线可展开 FPC 尾带 + 末端 Hirose FH19C 标准 2.50×0.20×3.60mm PI 补强接触舌（深入插入 J_LED_R 1.55mm!）
     rear_dogleg_strap_xy = [
         (0.00, -23.15),
         (-1.60, -22.65),
@@ -705,24 +721,31 @@ def build_strap_and_halo_system():
         Vector(-9.65, -20.75, 28.10),
         Vector(-9.65, -19.65, 29.40),
         Vector(-9.65, -18.40, 30.40),
-        Vector(-9.65, -17.35, 31.05),
-        Vector(-9.65, -16.65, 31.15),
+        Vector(-9.65, -17.35, 30.98),
+        Vector(-9.65, -16.65, 31.08),
     ]
     fpc_rear_seg_c = make_swept_band(rear_sbend_pts, 2.0, -0.08, 0.08, corner_r=0.0)
 
     rear_dogleg_pod_xy = [
         (-9.65, -16.45),
         (-11.20, -14.65),
-        (-11.20, -6.75),
+        (-11.20, -8.35),
     ]
-    fpc_rear_seg_d = make_flat_xy_ribbon(rear_dogleg_pod_xy, 2.0, 31.07, 31.23)
+    fpc_rear_seg_d = make_flat_xy_ribbon(rear_dogleg_pod_xy, 2.0, 31.00, 31.16)
+    with BuildPart() as bp_rtongue:
+        with Locations((-11.20, -7.35, 31.08)):
+            Box(2.50, 3.60, 0.20)  # Y ∈ [-9.15, -5.55], Z ∈ [30.98, 31.18]，深入 J_LED_R 槽口 1.55mm!
+    fpc_rear_tongue = bp_rtongue.part
 
     # 在后翼硅胶腕带肩部与西侧防水密封塞内布尔切出精密 FPC 穿线隧道（确保 0.000 mm³ 碰撞！）
     rear_tunnel_b = make_flat_xy_ribbon(rear_dogleg_strap_xy, 2.6, 27.20, 27.90)
     rear_tunnel_c = make_swept_band(rear_sbend_pts[:4], 2.5, -0.34, 0.34, corner_r=0.0)
     strap_rear = strap_rear - rear_tunnel_b - rear_tunnel_c
 
-    led_bodies = [fpc_front_wing, fpc_front_tail, fpc_rear_wing, fpc_rear_seg_b, fpc_rear_seg_c, fpc_rear_seg_d]
+    led_bodies = [
+        fpc_front_wing, fpc_front_tail, fpc_front_tongue,
+        fpc_rear_wing, fpc_rear_seg_b, fpc_rear_seg_c, fpc_rear_seg_d, fpc_rear_tongue,
+    ]
     led_h = 0.62
     for spine_pts in (lg_front_spine, lg_rear_spine):
         idxs = np.linspace(2, len(spine_pts) - 3, 6).astype(int)
@@ -791,7 +814,7 @@ def build_strap_and_halo_system():
 
 
 def build_assembly() -> list[PartSpec]:
-    print("[CAD 1/4] 正在构建 16 个 B-Rep 参数化实体零件（含方案A内埋FPC进仓尾带、ZIF翻盖座、T型防水密封锁扣与NFC引出弹片）...")
+    print("[CAD 1/4] 正在构建机电装配体（含双翼灯带与磁吸四线转接）...")
     top_shell = build_top_shell()
     bot_shell = build_bottom_shell()
     side_btn = build_side_button()
@@ -820,6 +843,7 @@ def build_assembly() -> list[PartSpec]:
         PartSpec("14", "Tang_Buckle_Aluminum", "6061-T6 Anodized Dark", 2.70, (0.32, 0.35, 0.40, 1.0), buckle, (0.0, 0.0, -24.0)),
         PartSpec("15", "Silicone_Keeper_Loop", "LSR Silicone 60A Charcoal", 1.14, (0.20, 0.22, 0.25, 1.0), keeper, (0.0, 14.0, -20.0)),
         PartSpec("16", "ZIF_Connectors_4Pin", "LCP Ivory White + Contacts", 1.65, (0.94, 0.92, 0.87, 1.0), zif_conns, (0.0, 0.0, 11.0)),
+        PartSpec("17", "Pogo_Flex_Interposer", "Copper-polyimide flex", 2.25, (0.91, 0.52, 0.16, 1.0), pogo_flex_envelope(), (0.0, 12.0, -8.0)),
     ]
     return parts
 

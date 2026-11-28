@@ -1,0 +1,985 @@
+{
+  "sheet_uuid": "30acd06c-d450-46f7-aff8-068251a07cc8",
+  "parts": {
+    "J1": {
+      "symbol_uuid": "8f640a10-0aba-4727-82e4-7676a33db3d5",
+      "footprint": "CatMouse_StrapHalo:Pogo_4x2.54_Flat",
+      "value": "POGO: +5V / GND / D- / D+",
+      "nets": {
+        "1": "+5V",
+        "2": "GND",
+        "3": "USB_DN_EXT",
+        "4": "USB_DP_EXT"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "U4": {
+      "symbol_uuid": "2e6f4174-1d69-49ec-b157-af64f911d908",
+      "footprint": "CatMouse_StrapHalo:SOT-23-5",
+      "value": "MCP73831T-2ACI/OT",
+      "nets": {
+        "1": "CHG_STAT",
+        "2": "GND",
+        "3": "+BATT",
+        "4": "+5V",
+        "5": "CHG_PROG"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "J2": {
+      "symbol_uuid": "1ea6780a-47a6-4528-9a38-605cf000b07f",
+      "footprint": "CatMouse_StrapHalo:Wire_Pads_2x2.54",
+      "value": "Protected LiPo pack",
+      "nets": {
+        "1": "+BATT",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "U5": {
+      "symbol_uuid": "43d56e5c-ba54-4cab-bae6-707fec9e6ff7",
+      "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+      "value": "AP2112K-3.3TRG1",
+      "nets": {
+        "1": "+BATT",
+        "2": "GND",
+        "3": "+BATT",
+        "5": "+3V3"
+      },
+      "lcsc": "C51118",
+      "assembly": true
+    },
+    "R7": {
+      "symbol_uuid": "605600ff-cdcd-49d9-9e38-fee1b82d3422",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "10k",
+      "nets": {
+        "1": "CHG_PROG",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R8": {
+      "symbol_uuid": "3e543cab-16b4-4c1c-ba2e-f6d18aff8e5c",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "1k",
+      "nets": {
+        "1": "+5V",
+        "2": "CHG_LED_A"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "D13": {
+      "symbol_uuid": "5da8a7ee-fc9b-4b7c-98f5-198c56d6ebc2",
+      "footprint": "LED_SMD:LED_0603_1608Metric",
+      "value": "Red charge LED",
+      "nets": {
+        "1": "CHG_STAT",
+        "2": "CHG_LED_A"
+      },
+      "lcsc": "C2286",
+      "assembly": true
+    },
+    "C4": {
+      "symbol_uuid": "befe5065-f40f-445a-a4e7-d273c4c4a239",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "value": "4.7uF",
+      "nets": {
+        "1": "+5V",
+        "2": "GND"
+      },
+      "lcsc": "C7419425",
+      "assembly": true
+    },
+    "C5": {
+      "symbol_uuid": "2e1691b0-882c-4a7f-9c20-74af988b35ef",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "value": "4.7uF",
+      "nets": {
+        "1": "+BATT",
+        "2": "GND"
+      },
+      "lcsc": "C7419425",
+      "assembly": true
+    },
+    "C6": {
+      "symbol_uuid": "0aee4554-79de-445d-a8d2-4a02033cf680",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "value": "10uF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C193747",
+      "assembly": true
+    },
+    "C7": {
+      "symbol_uuid": "a8a3f537-1516-4935-98f2-6ddccc3698c5",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "R9": {
+      "symbol_uuid": "4893433b-78d0-4bd6-9856-8e2080c9ee27",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "200k 1%",
+      "nets": {
+        "1": "+BATT",
+        "2": "BATT_ADC"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R10": {
+      "symbol_uuid": "09c456d2-e6b4-4130-8bd6-e7c30bed75ca",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "200k 1%",
+      "nets": {
+        "1": "BATT_ADC",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C8": {
+      "symbol_uuid": "3443e177-62fe-41c9-9904-968e66ca3d81",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "BATT_ADC",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "U1": {
+      "symbol_uuid": "11bb6f4c-ed97-4986-8ffe-c61d8b41478f",
+      "footprint": "CatMouse_StrapHalo:ESP32-C3-MINI-1",
+      "value": "ESP32-C3-MINI-1-N4X",
+      "nets": {
+        "1": "GND",
+        "2": "GND",
+        "11": "GND",
+        "14": "GND",
+        "36": "GND",
+        "37": "GND",
+        "38": "GND",
+        "39": "GND",
+        "40": "GND",
+        "41": "GND",
+        "42": "GND",
+        "43": "GND",
+        "44": "GND",
+        "45": "GND",
+        "46": "GND",
+        "47": "GND",
+        "48": "GND",
+        "49": "GND",
+        "50": "GND",
+        "51": "GND",
+        "52": "GND",
+        "53": "GND",
+        "3": "+3V3",
+        "8": "ESP_EN",
+        "12": "IO0_EXT",
+        "13": "IO1_EXT",
+        "5": "BATT_ADC",
+        "6": "IMU_INT",
+        "18": "BTN_USER",
+        "19": "MOTOR_PWM",
+        "20": "I2C_SDA",
+        "21": "I2C_SCL",
+        "22": "LED_PWR_EN",
+        "23": "BOOT_SW",
+        "16": "NFC_RST",
+        "26": "USB_DN",
+        "27": "USB_DP",
+        "30": "BUZZER_PWM",
+        "31": "LED_DATA"
+      },
+      "lcsc": "C9900263492",
+      "assembly": true
+    },
+    "R1": {
+      "symbol_uuid": "2c3c5c79-60dd-4745-88df-906f7a4e09b0",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "10k",
+      "nets": {
+        "1": "+3V3",
+        "2": "ESP_EN"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C1": {
+      "symbol_uuid": "1a2cabe8-0d20-42d4-9597-23c61b0daebc",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "1uF",
+      "nets": {
+        "1": "ESP_EN",
+        "2": "GND"
+      },
+      "lcsc": "C5142580",
+      "assembly": true
+    },
+    "C2": {
+      "symbol_uuid": "95cc00c5-04fb-44ff-9a15-25b77783a3a4",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "value": "10uF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C193747",
+      "assembly": true
+    },
+    "C3": {
+      "symbol_uuid": "618951f6-bbd6-489f-b868-0efa6392a711",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "R2": {
+      "symbol_uuid": "d78f61e6-b4af-415c-a373-af60c52ef608",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "10k",
+      "nets": {
+        "1": "+3V3",
+        "2": "BOOT_SW"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R3": {
+      "symbol_uuid": "75a3fc03-30a5-4a20-a654-6ed9f5ec7ac9",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "3.3k",
+      "nets": {
+        "1": "+3V3",
+        "2": "I2C_SDA"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R4": {
+      "symbol_uuid": "59bcd67b-22c6-4d75-a7f8-23dcb5130a21",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "3.3k",
+      "nets": {
+        "1": "+3V3",
+        "2": "I2C_SCL"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R5": {
+      "symbol_uuid": "10aac0ec-bf05-4f9e-9aff-6dd462004e64",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "22R",
+      "nets": {
+        "1": "USB_DN",
+        "2": "USB_DN_EXT"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R6": {
+      "symbol_uuid": "30bc799b-594c-4ff5-9912-9bfb0a2fa29e",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "22R",
+      "nets": {
+        "1": "USB_DP",
+        "2": "USB_DP_EXT"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "D15": {
+      "symbol_uuid": "f7613c4d-2e50-43d8-81f5-87eb3d1070bf",
+      "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+      "value": "USBLC6-2SC6",
+      "nets": {
+        "1": "USB_DN_EXT",
+        "2": "GND",
+        "3": "USB_DP_EXT",
+        "4": "USB_DP_EXT",
+        "5": "+5V",
+        "6": "USB_DN_EXT"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "TP1": {
+      "symbol_uuid": "be711046-f7d1-47aa-bbca-5e5b607e56a3",
+      "footprint": "TestPoint:TestPoint_Pad_D1.5mm",
+      "value": "BOOT_SW",
+      "nets": {
+        "1": "BOOT_SW"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "TP2": {
+      "symbol_uuid": "5d6befb9-dbc5-4e70-8924-5e1d7dbb325d",
+      "footprint": "TestPoint:TestPoint_Pad_D1.5mm",
+      "value": "IO0_EXT",
+      "nets": {
+        "1": "IO0_EXT"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "TP3": {
+      "symbol_uuid": "a26f3107-177b-4f07-a487-011652accdaa",
+      "footprint": "TestPoint:TestPoint_Pad_D1.5mm",
+      "value": "IO1_EXT",
+      "nets": {
+        "1": "IO1_EXT"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "U2": {
+      "symbol_uuid": "fa47f2e3-7eee-4f91-82c7-c2aef2d4ac4a",
+      "footprint": "Package_DFN_QFN:HVQFN-40-1EP_6x6mm_P0.5mm_EP4.1x4.1mm",
+      "value": "PN5321A3HN/C106,55",
+      "nets": {
+        "1": "GND",
+        "3": "GND",
+        "4": "NFC_TX1",
+        "5": "NFC_DVDD",
+        "6": "NFC_TX2",
+        "7": "GND",
+        "8": "NFC_DVDD",
+        "9": "NFC_VMID",
+        "10": "NFC_RX",
+        "11": "GND",
+        "14": "NFC_OSCIN",
+        "15": "NFC_OSCOUT",
+        "16": "NFC_DVDD",
+        "17": "GND",
+        "18": "GND",
+        "23": "+3V3",
+        "27": "I2C_SCL",
+        "28": "I2C_SDA",
+        "38": "NFC_RST",
+        "39": "NFC_DVDD",
+        "40": "+3V3",
+        "41": "GND"
+      },
+      "lcsc": "C28925",
+      "assembly": true
+    },
+    "C9": {
+      "symbol_uuid": "c0d7f984-cd07-4e8f-992f-7488e9dac69c",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "value": "4.7uF",
+      "nets": {
+        "1": "NFC_DVDD",
+        "2": "GND"
+      },
+      "lcsc": "C7419425",
+      "assembly": true
+    },
+    "C10": {
+      "symbol_uuid": "7875f949-44b0-452c-88b3-3feadf67f9d2",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "NFC_DVDD",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C11": {
+      "symbol_uuid": "682fc686-d912-417c-a8a4-9779a76f74a5",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "NFC_DVDD",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C12": {
+      "symbol_uuid": "08e4283a-48be-48dc-bbe3-da8cccc5245a",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "NFC_DVDD",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C13": {
+      "symbol_uuid": "c12e9ce3-6f89-4e7a-921b-d4b781a0594c",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "NFC_VMID",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C28": {
+      "symbol_uuid": "bb03759c-8072-4814-8a91-a2e13e7b7735",
+      "footprint": "Capacitor_SMD:C_0805_2012Metric",
+      "value": "10uF",
+      "nets": {
+        "1": "NFC_DVDD",
+        "2": "GND"
+      },
+      "lcsc": "C669099",
+      "assembly": true
+    },
+    "C29": {
+      "symbol_uuid": "0371b857-e240-496e-b2ce-aa3585dc2fd4",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C30": {
+      "symbol_uuid": "11047046-5a82-4847-bcbe-1ebb2fe499ab",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "R11": {
+      "symbol_uuid": "93279415-b9d8-4613-95f7-7b52b4f5461f",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "100k",
+      "nets": {
+        "1": "NFC_RST",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "Y1": {
+      "symbol_uuid": "e0d7c20b-0754-483d-b196-4c609d5d0051",
+      "footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+      "value": "27.12MHz CL=12pF",
+      "nets": {
+        "1": "NFC_OSCIN",
+        "2": "GND",
+        "3": "NFC_OSCOUT",
+        "4": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C14": {
+      "symbol_uuid": "2ae5ca7e-3615-4e09-81e8-2a7a8ed037d5",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "22pF",
+      "nets": {
+        "1": "NFC_OSCIN",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C15": {
+      "symbol_uuid": "dc9eaca4-58f9-434e-86a9-1995e62b82ae",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "22pF",
+      "nets": {
+        "1": "NFC_OSCOUT",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "L1": {
+      "symbol_uuid": "7b568739-2b13-4c04-9bf3-2f7e7db6345f",
+      "footprint": "Inductor_SMD:L_0603_1608Metric",
+      "value": "560nH",
+      "nets": {
+        "1": "NFC_TX1",
+        "2": "NFC_EMC1"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C16": {
+      "symbol_uuid": "dda6c663-b391-4a4b-abe2-7a516befccf4",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "150pF C0G",
+      "nets": {
+        "1": "NFC_EMC1",
+        "2": "GND"
+      },
+      "lcsc": "C541423",
+      "assembly": true
+    },
+    "C18": {
+      "symbol_uuid": "31f5ce96-cbe2-4a5b-bbd4-db89459d25f8",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "47pF C0G",
+      "nets": {
+        "1": "NFC_EMC1",
+        "2": "NFC_ANT1"
+      },
+      "lcsc": "C2169042",
+      "assembly": true
+    },
+    "L2": {
+      "symbol_uuid": "a2357e3b-18ff-4e98-92d8-71101b4c5751",
+      "footprint": "Inductor_SMD:L_0603_1608Metric",
+      "value": "560nH",
+      "nets": {
+        "1": "NFC_TX2",
+        "2": "NFC_EMC2"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C17": {
+      "symbol_uuid": "bfa8762b-3288-49cf-82db-7b29977ef665",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "150pF C0G",
+      "nets": {
+        "1": "NFC_EMC2",
+        "2": "GND"
+      },
+      "lcsc": "C541423",
+      "assembly": true
+    },
+    "C19": {
+      "symbol_uuid": "0dd97459-b27a-42cb-bcc9-753cfffb4e15",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "47pF C0G",
+      "nets": {
+        "1": "NFC_EMC2",
+        "2": "NFC_ANT2"
+      },
+      "lcsc": "C2169042",
+      "assembly": true
+    },
+    "J3": {
+      "symbol_uuid": "db01f63e-da97-4fc1-b86e-16dcdf06aa03",
+      "footprint": "CatMouse_StrapHalo:NFC_Spring_2x2.00",
+      "value": "J_NFC_SPRING",
+      "nets": {
+        "1": "NFC_ANT1",
+        "2": "NFC_ANT2"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "C20": {
+      "symbol_uuid": "fdaf5a06-e4a9-4f24-ad80-d10bcc2c0262",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "1nF",
+      "nets": {
+        "1": "NFC_RX_AC",
+        "2": "NFC_RX"
+      },
+      "lcsc": "C599568",
+      "assembly": true
+    },
+    "R12": {
+      "symbol_uuid": "0fb246cc-7467-4967-a631-21ece3e19e21",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "2.7k",
+      "nets": {
+        "1": "NFC_EMC1",
+        "2": "NFC_RX_AC"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R21": {
+      "symbol_uuid": "f22f3e93-6afc-4521-b460-61fc9c0d9fa8",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "1k",
+      "nets": {
+        "1": "NFC_VMID",
+        "2": "NFC_RX"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "U3": {
+      "symbol_uuid": "702f37be-f7e9-4ea3-b500-fb0e14f05e57",
+      "footprint": "Package_LGA:LGA-12_2x2mm_P0.5mm",
+      "value": "LIS2DH12TR",
+      "nets": {
+        "1": "I2C_SCL",
+        "2": "+3V3",
+        "3": "IMU_SA0",
+        "4": "I2C_SDA",
+        "5": "GND",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "+3V3",
+        "10": "+3V3",
+        "12": "IMU_INT"
+      },
+      "lcsc": "C110926",
+      "assembly": true
+    },
+    "R19": {
+      "symbol_uuid": "4a994efb-c569-4ca9-8f9f-173478347b57",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "10k",
+      "nets": {
+        "1": "+3V3",
+        "2": "IMU_SA0"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C21": {
+      "symbol_uuid": "9803b743-30b5-405f-97ec-d7857565c799",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C31": {
+      "symbol_uuid": "4d8e41f9-d74b-4fa4-9918-6be65388eb10",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "SW1": {
+      "symbol_uuid": "172f262f-301a-4fcf-8c93-ff288ece5ab4",
+      "footprint": "CatMouse_StrapHalo:SW_SPST_B3U-3000P",
+      "value": "B3U-3000P",
+      "nets": {
+        "1": "BTN_USER",
+        "2": "GND"
+      },
+      "lcsc": "C963349",
+      "assembly": true
+    },
+    "C22": {
+      "symbol_uuid": "4460103f-648b-425a-b8b8-2dd1123c93e2",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "BTN_USER",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "R22": {
+      "symbol_uuid": "51bf3f6b-de9a-4711-b8f4-ac3d58131788",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "47k",
+      "nets": {
+        "1": "+3V3",
+        "2": "BTN_USER"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R13": {
+      "symbol_uuid": "6edab992-a82d-45dd-9ba8-5ed9f31f671e",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "100R",
+      "nets": {
+        "1": "MOTOR_PWM",
+        "2": "MOT_G"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R14": {
+      "symbol_uuid": "a3e80de4-d7b5-4700-90f9-1c479626a6b5",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "100k",
+      "nets": {
+        "1": "MOT_G",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "Q2": {
+      "symbol_uuid": "ee92eea4-38cd-4327-bc9c-367b84176c2f",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "value": "AO3400A",
+      "nets": {
+        "1": "MOT_G",
+        "2": "GND",
+        "3": "MOT_NEG"
+      },
+      "lcsc": "C20917",
+      "assembly": true
+    },
+    "D14": {
+      "symbol_uuid": "91832929-777c-483c-94df-6702571e7fe2",
+      "footprint": "Diode_SMD:D_SOD-323",
+      "value": "1N4148WS",
+      "nets": {
+        "1": "+BATT",
+        "2": "MOT_NEG"
+      },
+      "lcsc": "C2128",
+      "assembly": true
+    },
+    "J4": {
+      "symbol_uuid": "675716d2-2259-4b55-b1dd-49e4f7ad2c71",
+      "footprint": "CatMouse_StrapHalo:Wire_Pads_2x2.54",
+      "value": "1027 motor wires",
+      "nets": {
+        "1": "+BATT",
+        "2": "MOT_NEG"
+      },
+      "lcsc": null,
+      "assembly": false
+    },
+    "R15": {
+      "symbol_uuid": "c78e5785-180c-4d31-baa9-9db6cd5976f6",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "100R",
+      "nets": {
+        "1": "BUZZER_PWM",
+        "2": "BUZZ_G"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R16": {
+      "symbol_uuid": "f6cae721-8e6f-452f-8954-d0d94bb34bba",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "100k",
+      "nets": {
+        "1": "BUZZ_G",
+        "2": "GND"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "Q3": {
+      "symbol_uuid": "b8e7766d-c1e6-47c7-9822-02ea49cbe6f8",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "value": "AO3400A",
+      "nets": {
+        "1": "BUZZ_G",
+        "2": "GND",
+        "3": "BUZZ_NEG"
+      },
+      "lcsc": "C20917",
+      "assembly": true
+    },
+    "LS1": {
+      "symbol_uuid": "615a1573-e32d-4a2f-8e43-106fe582dc69",
+      "footprint": "CatMouse_StrapHalo:Buzzer_Murata_PKMCS0909E",
+      "value": "PKMCS0909E4000-R1",
+      "nets": {
+        "1": "+BATT",
+        "2": "BUZZ_NEG"
+      },
+      "lcsc": "C910763",
+      "assembly": true
+    },
+    "R23": {
+      "symbol_uuid": "2f70b497-06cd-42a0-8452-6460b82cff9b",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "4.7k",
+      "nets": {
+        "1": "+BATT",
+        "2": "BUZZ_NEG"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "Q1": {
+      "symbol_uuid": "19ec7a5c-80bf-44d5-872a-6a7e7ece5fb6",
+      "footprint": "Package_TO_SOT_SMD:SOT-23",
+      "value": "AO3401A",
+      "nets": {
+        "1": "LED_PWR_GATE",
+        "2": "+BATT",
+        "3": "VLED"
+      },
+      "lcsc": "C15127",
+      "assembly": true
+    },
+    "U6": {
+      "symbol_uuid": "8487db15-27cf-483b-b137-5487aa02c36c",
+      "footprint": "Package_TO_SOT_SMD:SOT-353_SC-70-5",
+      "value": "SN74LVC1G07DCKR",
+      "nets": {
+        "2": "LED_PWR_EN",
+        "3": "GND",
+        "4": "LED_PWR_GATE",
+        "5": "+3V3"
+      },
+      "lcsc": "C7830",
+      "assembly": true
+    },
+    "R17": {
+      "symbol_uuid": "f54925b7-556d-4e0c-bf8a-1aca39fc36a6",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "100k",
+      "nets": {
+        "1": "+BATT",
+        "2": "LED_PWR_GATE"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R20": {
+      "symbol_uuid": "31f7a4b7-375e-47b4-b9c9-9dc7a5045d85",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "10k",
+      "nets": {
+        "1": "+3V3",
+        "2": "LED_PWR_EN"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C23": {
+      "symbol_uuid": "99d4a54b-725e-4fef-9e13-782ee3bef72c",
+      "footprint": "Capacitor_SMD:C_0603_1608Metric",
+      "value": "10uF",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      },
+      "lcsc": "C193747",
+      "assembly": true
+    },
+    "C24": {
+      "symbol_uuid": "7941ede0-8cfd-4168-909c-0b9a53e22660",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "U7": {
+      "symbol_uuid": "31149ca2-5f40-4d80-a0d6-0ded65123902",
+      "footprint": "Package_TO_SOT_SMD:SOT-23-6",
+      "value": "SN74LVC1T45DBVR",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND",
+        "3": "LED_DATA",
+        "4": "LED_DATA_BUF",
+        "5": "+3V3",
+        "6": "VLED"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "C25": {
+      "symbol_uuid": "9557345d-1187-4503-a346-fb7e6900875f",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "VLED",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "C26": {
+      "symbol_uuid": "34cdbabe-15a5-47ed-bbb9-1a26be3a1020",
+      "footprint": "Capacitor_SMD:C_0402_1005Metric",
+      "value": "100nF",
+      "nets": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "lcsc": "C387958",
+      "assembly": true
+    },
+    "R18": {
+      "symbol_uuid": "bf705b16-a020-4939-8db0-554f7b7f5a3c",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "330R",
+      "nets": {
+        "1": "LED_DATA_BUF",
+        "2": "LED_DIN_F"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "R24": {
+      "symbol_uuid": "ceb2c1be-ecef-4404-9254-5bfa8eaf371c",
+      "footprint": "Resistor_SMD:R_0402_1005Metric",
+      "value": "330R",
+      "nets": {
+        "1": "LED_DOUT_RET",
+        "2": "LED_DIN_R"
+      },
+      "lcsc": null,
+      "assembly": true
+    },
+    "J5": {
+      "symbol_uuid": "6827bb96-25bb-4278-8b98-a79e461036d7",
+      "footprint": "CatMouse_StrapHalo:FH19C-4S-0.5SH",
+      "value": "J_LED_F",
+      "nets": {
+        "1": "VLED",
+        "2": "GND",
+        "3": "LED_DIN_F",
+        "4": "LED_DOUT_RET"
+      },
+      "lcsc": "C424650",
+      "assembly": true
+    },
+    "J6": {
+      "symbol_uuid": "a129e94a-b9cf-42bd-a31e-82d43d54c862",
+      "footprint": "CatMouse_StrapHalo:FH19C-4S-0.5SH",
+      "value": "J_LED_R",
+      "nets": {
+        "1": "VLED",
+        "2": "GND",
+        "3": "LED_DIN_R",
+        "4": "NC"
+      },
+      "lcsc": "C424650",
+      "assembly": true
+    }
+  }
+}

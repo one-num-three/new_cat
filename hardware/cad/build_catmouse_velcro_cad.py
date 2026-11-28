@@ -183,11 +183,14 @@ def build_velcro_strap_and_halo_system():
         Vector(0.0, 21.85, 27.85),
         Vector(0.0, 20.20, 29.10),
         Vector(0.0, 18.70, 30.25),
-        Vector(0.0, 17.65, 31.05),
-        Vector(0.0, 16.40, 31.15),
-        Vector(0.0, 14.80, 31.15),
+        Vector(0.0, 17.65, 30.98),
+        Vector(0.0, 16.40, 31.08),
     ]
     fpc_front_tail = base.make_swept_band(fpc_front_tail_pts, 2.2, -0.08, 0.08, corner_r=0.0)
+    with BuildPart() as bp_ftongue:
+        with Locations((0.0, 16.15, 31.08)):
+            Box(2.50, 3.60, 0.20)
+    fpc_front_tongue = bp_ftongue.part
     front_tunnel_cut = base.make_swept_band(fpc_front_tail_pts[:5], 2.8, -0.34, 0.34, corner_r=0.0)
     strap_front = strap_front - front_tunnel_cut
 
@@ -204,23 +207,30 @@ def build_velcro_strap_and_halo_system():
         Vector(-9.65, -20.75, 28.10),
         Vector(-9.65, -19.65, 29.40),
         Vector(-9.65, -18.40, 30.40),
-        Vector(-9.65, -17.35, 31.05),
-        Vector(-9.65, -16.65, 31.15),
+        Vector(-9.65, -17.35, 30.98),
+        Vector(-9.65, -16.65, 31.08),
     ]
     fpc_rear_seg_c = base.make_swept_band(rear_sbend_pts, 2.0, -0.08, 0.08, corner_r=0.0)
 
     rear_dogleg_pod_xy = [
         (-9.65, -16.45),
         (-11.20, -14.65),
-        (-11.20, -6.75),
+        (-11.20, -8.35),
     ]
-    fpc_rear_seg_d = base.make_flat_xy_ribbon(rear_dogleg_pod_xy, 2.0, 31.07, 31.23)
+    fpc_rear_seg_d = base.make_flat_xy_ribbon(rear_dogleg_pod_xy, 2.0, 31.00, 31.16)
+    with BuildPart() as bp_rtongue:
+        with Locations((-11.20, -7.35, 31.08)):
+            Box(2.50, 3.60, 0.20)
+    fpc_rear_tongue = bp_rtongue.part
 
     rear_tunnel_b = base.make_flat_xy_ribbon(rear_dogleg_strap_xy, 2.6, 27.20, 27.90)
     rear_tunnel_c = base.make_swept_band(rear_sbend_pts[:4], 2.5, -0.34, 0.34, corner_r=0.0)
     strap_rear = strap_rear - rear_tunnel_b - rear_tunnel_c
 
-    led_bodies = [fpc_front_wing, fpc_front_tail, fpc_rear_wing, fpc_rear_seg_b, fpc_rear_seg_c, fpc_rear_seg_d]
+    led_bodies = [
+        fpc_front_wing, fpc_front_tail, fpc_front_tongue,
+        fpc_rear_wing, fpc_rear_seg_b, fpc_rear_seg_c, fpc_rear_seg_d, fpc_rear_tongue,
+    ]
     led_h = 0.62
     for spine_pts in (lg_front_spine, lg_rear_spine):
         idxs = np.linspace(2, len(spine_pts) - 3, 6).astype(int)
@@ -251,7 +261,7 @@ def build_velcro_strap_and_halo_system():
 
 
 def build_velcro_assembly() -> list[base.PartSpec]:
-    print("[VELCRO CAD 1/4] 正在构建 V1.5-Lite 魔术贴简版 16 个 B-Rep 实体零件...")
+    print("[VELCRO CAD 1/4] 正在构建 V1.5-Lite 魔术贴版机电装配体...")
     top_shell = base.build_top_shell()
     bot_shell = base.build_bottom_shell()
     side_btn = base.build_side_button()
@@ -280,6 +290,7 @@ def build_velcro_assembly() -> list[base.PartSpec]:
         base.PartSpec("14", "Velcro_Loop_Pad_Front", "Nylon Velcro Loop (Soft)", 0.65, (0.30, 0.36, 0.46, 1.0), velcro_loop, (0.0, 8.0, -18.0)),
         base.PartSpec("15", "Velcro_Hook_Pad_Rear", "Nylon Velcro Hook (Grip)", 0.70, (0.48, 0.42, 0.34, 1.0), velcro_hook, (0.0, -4.0, -26.0)),
         base.PartSpec("16", "ZIF_Connectors_4Pin", "LCP Ivory White + Contacts", 1.65, (0.94, 0.92, 0.87, 1.0), zif_conns, (0.0, 0.0, 11.0)),
+        base.PartSpec("17", "Pogo_Flex_Interposer", "Copper-polyimide flex", 2.25, (0.91, 0.52, 0.16, 1.0), base.pogo_flex_envelope(), (0.0, 12.0, -8.0)),
     ]
     return parts
 

@@ -16,7 +16,7 @@ constexpr int PIN_LED_DATA = 21;  // D6  WS2812B DIN
 constexpr int PIN_BUZZER   = 20;  // D7  无源蜂鸣器
 constexpr int PIN_NFC_RST  = 10;  // D10 / IO10 PN532 ~RSTPD
 #ifdef CATMOUSE_EVT_4LAYER_PCB
-constexpr int PIN_LED_PWR  = 8;   // IO8 接 Q1 AO3401A 高边 PMOS 栅极（低电平导通，上电100k上拉默认断电）
+constexpr int PIN_LED_PWR  = 8;   // IO8 低有效。Strap-Halo 经开漏缓冲驱动 Q1，上电默认断灯。
 constexpr uint32_t I2C_FREQ = 400000;  // 定制 4 层板完整地平面，启用 400kHz Fast Mode
 #else
 constexpr int PIN_LED_PWR  = -1;  // 原型直连物理拨动开关设 -1

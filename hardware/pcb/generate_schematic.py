@@ -60,9 +60,9 @@ def _extract_sub_symbols(block: str) -> list[str]:
     return subs
 
 
-def load_kicad_symbol(lib_name: str, sym_name: str) -> tuple[str, dict]:
+def load_kicad_symbol(lib_name: str, sym_name: str, library_dir=None) -> tuple[str, dict]:
     """返回 (完整自包含嵌入 lib_symbols 的 S-expr 文本, {pin_num: (x, y, ang, type, name)})"""
-    lib_text = (KICAD_SYM_DIR / f"{lib_name}.kicad_sym").read_text(encoding="utf-8")
+    lib_text = ((library_dir or KICAD_SYM_DIR) / f"{lib_name}.kicad_sym").read_text(encoding="utf-8")
     raw = _find_top_symbol(lib_text, sym_name)
     ext_m = re.search(r'\(extends "([^"]+)"\)', raw)
 
@@ -120,7 +120,10 @@ def load_kicad_symbol(lib_name: str, sym_name: str) -> tuple[str, dict]:
 
 # ---------------- 原理图构建器 ----------------
 class SchematicBuilder:
-    def __init__(self):
+    def __init__(self, project_name=PROJ_NAME, root_uuid=None, library_dirs=None):
+        self.project_name = project_name
+        self.root_uuid = root_uuid or ROOT_UUID
+        self.library_dirs = library_dirs or {}
         self.lib_blocks: dict[str, str] = {}
         self.lib_pins: dict[str, dict] = {}
         self.items: list[str] = []
@@ -131,7 +134,7 @@ class SchematicBuilder:
     def ensure_lib(self, lib: str, name: str) -> str:
         fid = f"{lib}:{name}"
         if fid not in self.lib_blocks:
-            blk, pins = load_kicad_symbol(lib, name)
+            blk, pins = load_kicad_symbol(lib, name, self.library_dirs.get(lib))
             self.lib_blocks[fid] = blk
             self.lib_pins[fid] = pins
         return fid
@@ -195,7 +198,7 @@ class SchematicBuilder:
             f'\t\t(property "Footprint" "" (at {x:.2f} {y:.2f} 0) (effects (font (size 1.27 1.27))) (hide yes))\n'
             f'\t\t(property "Datasheet" "" (at {x:.2f} {y:.2f} 0) (effects (font (size 1.27 1.27))) (hide yes))\n'
             f'\t\t(pin "1" (uuid "{uid()}"))\n'
-            f'\t\t(instances (project "{PROJ_NAME}" (path "/{ROOT_UUID}" (reference "{ref}") (unit 1))))\n\t)'
+            f'\t\t(instances (project "{self.project_name}" (path "/{self.root_uuid}" (reference "{ref}") (unit 1))))\n\t)'
         )
 
     def place_part(
@@ -211,6 +214,7 @@ class SchematicBuilder:
         pin_nets: dict[str, str] | None = None,
         stub_len: float = 3.81,
         extra_props: dict[str, str] | None = None,
+        in_bom: bool = True,
     ):
         """放置器件，并根据 pin_nets 自动把每个引脚用短导线接到对应的电源符号 / 全局标签 / no_connect！"""
         fid = self.ensure_lib(lib, sym)
@@ -219,21 +223,27 @@ class SchematicBuilder:
         extra_props = extra_props or {}
 
         pin_uuid_lines = "\n".join(f'\t\t(pin "{pnum}" (uuid "{uid()}"))' for pnum in pins.keys())
+        part_uuid = uid()
+        prop_lines = "".join(
+            f'\t\t(property {json.dumps(name)} {json.dumps(text)} (at {x:.2f} {y:.2f} 0) '
+            f'(effects (font (size 1.0 1.0))) (hide yes))\n'
+            for name, text in extra_props.items()
+        )
         # 避免 Reference / Value 重叠，放在器件上方
         self.items.append(
             f'\t(symbol (lib_id "{fid}") (at {x:.4f} {y:.4f} {rot}) (unit 1)\n'
-            f'\t\t(exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)\n'
-            f'\t\t(uuid "{uid()}")\n'
+            f'\t\t(exclude_from_sim no) (in_bom {"yes" if in_bom else "no"}) (on_board yes) (dnp no)\n'
+            f'\t\t(uuid "{part_uuid}")\n'
             f'\t\t(property "Reference" "{ref}" (at {x:.2f} {y - 3.81:.2f} 0) (effects (font (size 1.27 1.27))))\n'
             f'\t\t(property "Value" "{val}" (at {x:.2f} {y + 3.81:.2f} 0) (effects (font (size 1.15 1.15))))\n'
             f'\t\t(property "Footprint" "{fp}" (at {x:.2f} {y:.2f} 0) (effects (font (size 1.0 1.0))) (hide yes))\n'
             f'\t\t(property "Datasheet" "~" (at {x:.2f} {y:.2f} 0) (effects (font (size 1.0 1.0))) (hide yes))\n'
+            f'{prop_lines}'
             f'{pin_uuid_lines}\n'
-            f'\t\t(instances (project "{PROJ_NAME}" (path "/{ROOT_UUID}" (reference "{ref}") (unit 1))))\n\t)'
+            f'\t\t(instances (project "{self.project_name}" (path "/{self.root_uuid}" (reference "{ref}") (unit 1))))\n\t)'
         )
 
         self.components.append({"ref": ref, "val": val, "fp": fp, "lib": fid, "nets": dict(pin_nets)})
-
         # 按引脚朝向向外拉 stub wire 接网络，完全零交叉、零错位！
         # 注意同一坐标上的叠加引脚（如 LIS2HH12 的 GND 6/7/8）只需放一次电源符号！
         handled_coords = set()
@@ -272,24 +282,28 @@ class SchematicBuilder:
                 # 全局标签朝向：左拉用 180，右拉用 0，上下拉也默认横向展开清晰可读
                 lbl_ang = 180 if dx < 0 else 0
                 self.add_global_label(net, ex, ey, angle=lbl_ang)
+        return part_uuid
 
-    def render(self) -> str:
+    def render(self, title_block=None) -> str:
         libs = "\n".join(self.lib_blocks.values())
         body = "\n".join(self.items)
+        title_block = title_block or (
+            '\t\t(title "CatMouse Band V1.5 EVT - 4-Layer Compact Mainboard")\n'
+            '\t\t(date "2026-11-27")\n'
+            '\t\t(rev "V1.5-EVT")\n'
+            '\t\t(company "CatMouse Action (one-num-three/new_cat)")\n'
+            '\t\t(comment 1 "4-Layer 1.0mm Dia 38mm | L1:LED/Sig | L2:GND | L3:PWR | L4:MCU/NFC/IMU")\n'
+            '\t\t(comment 2 "MCU: ESP32-C3-WROOM-02 | NFC: PN5321A3HN | IMU: LIS2DH12TR | LED: 12xWS2812B-2020")\n'
+        )
         return (
             f'(kicad_sch\n'
             f'\t(version 20250114)\n'
             f'\t(generator "catmouse-band-eda")\n'
             f'\t(generator_version "1.5")\n'
-            f'\t(uuid "{ROOT_UUID}")\n'
+            f'\t(uuid "{self.root_uuid}")\n'
             f'\t(paper "A3")\n'
             f'\t(title_block\n'
-            f'\t\t(title "CatMouse Band V1.5 EVT - 4-Layer Compact Mainboard")\n'
-            f'\t\t(date "2026-11-27")\n'
-            f'\t\t(rev "V1.5-EVT")\n'
-            f'\t\t(company "CatMouse Action (one-num-three/new_cat)")\n'
-            f'\t\t(comment 1 "4-Layer 1.0mm Dia 38mm | L1:LED/Sig | L2:GND | L3:PWR | L4:MCU/NFC/IMU")\n'
-            f'\t\t(comment 2 "MCU: ESP32-C3-WROOM-02 | NFC: PN5321A3HN | IMU: LIS2DH12TR | LED: 12xWS2812B-2020")\n'
+            f'{title_block}'
             f'\t)\n'
             f'\t(lib_symbols\n{libs}\n\t)\n'
             f'{body}\n'

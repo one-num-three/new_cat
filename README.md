@@ -8,14 +8,14 @@
 - **对局定位提示、残局清理与 7 日本地战绩页**：对局地图页增加“仅前台定位”提醒横幅及设置引导；首页自动清理已失效 `v2RoomId` 残留；新增分包本地 7 日战绩页（`room-tools/pages/history/`）并自动归档最近战绩；通过 `sitemap.json` 禁止索引调试台/标定等非业务页面。
 - **验证范围与待验项**：本地 WXML/WXSS 编译、包体体积门禁（`rawLocalBytes.main < 1,500,000 B`，各分包 `< 2,097,152 B`）以及客户端/界面自动化回归通过；真机定位/相机/海报导出/安全区实测及微信开发者工具上传发布尚未执行。
 
-## 猫鼠手环硬件 V1.5（2026-11-27，Strap-Halo 腕带光环双版本 3D CAD + 方案 A 内部连接结构 + 4 层 KiCad 10 PCB）
+## 猫鼠手环硬件 V1.5 EVT-A（2026-11-28，Strap-Halo 双版本 17 件 3D CAD + 磁吸四线 FPC + 4 层 KiCad 10 主板）
 
-补齐手环完整硬件方案、**Strap-Halo 腕带光环版双版本 16 件参数化 3D CAD / Autodesk Fusion 360 工程（量产针扣版 + EVT `120–200 mm` 非对称低遮挡魔术贴简版）**、KiCad 10 原生 4 层紧凑主板、嘉立创打样生产包、虚拟烧录与多手环 C++17 硬件在环仿真以及产品报价分析（目录 `hardware/`）。
-- **量产针扣版 & 方案 A 内部连接 (`cad/output/CatMouseBand_V15_StrapHalo.step`)**：12× `WS2812B-2020` 移至双翼腕带内部实现 300° 环腕发光与无屏鹅卵石无遮挡 NFC 顶面；完整建模前/后内埋式 FPC 进仓尾带、主板白色开槽 4-Pin ZIF 翻盖座（`J_LED_F`/`J_LED_R`）、双端硅胶 T 型防拉脱防水密封头与顶盖 NFC 铜质 C 型弹片尾带（16/16 合法 B-Rep，`0.000 mm³` 零碰撞，`32.98 g`）。
-- **EVT `120–200 mm` 非对称低遮挡魔术贴简版 (`cad/output/CatMouseBand_V15_Velcro_Lite.step`)**：100% 复用主机仓与方案 A 内部连接，采用“前翼内侧 `86.5 mm` 长毛面 + 后翼外侧 `24.0 mm` 精简刺面”非对称布局（0 金属表扣/0 冲孔/适合 3D 打印手板，`0.000 mm³` 零碰撞，`34.99 g`），实现 **`136–200 mm` 腕围 0% 零遮光（12/12 全亮）**、**`120 mm` 极细腕仍保 8–9/12 亮灯**且全范围保持 `20–24 mm` 强力粘合，附 5 档腕围遮盖定量分析图。
-- **4 层 PCB 参考与虚拟烧录 (`pcb/` · `firmware/` · `sim/`)**：KiCad 10 官方 ERC（0 违规）、4 层 PCB DRC（0 错误 / 0 未连接飞线）、官方网表与 EVT 固件 12 引脚 100% 对齐及 4 进程全链路虚拟烧录联调通过；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包。
+已完成 **EVT-A 机电变更同步**：包含 **Strap-Halo 腕带光环版双版本 17 零件参数化 3D CAD / Autodesk Fusion 360 工程（量产针扣版 + EVT `120–200 mm` 非对称低遮挡魔术贴简版）**、**磁吸四线 C 弯柔性转接板（0 ERC / 0 DRC，已导出打样 Gerber ZIP）**、**Strap-Halo 28.4×35.4 mm 四层 KiCad 10 主板工程（含 BLE 真实铣空槽）**、虚拟烧录仿真与产品报价分析（目录 `hardware/`）。
+- **EVT-A 双版本 17 零件 3D CAD & Fusion 360 (`cad/output/CatMouseBand_V15_StrapHalo.step` · `CatMouseBand_V15_Velcro_Lite.step`)**：顶壳抬高 `+0.35 mm`（主机厚 `12.15 mm`，`ESP32-C3-MINI-1` 上方留 `0.80 mm` 净空至 NFC 铁氧体）、主板开真实 BLE 天线铣空槽（`X ∈ [-8.9, +5.5], Y ≤ -12.15`）、闭合 Hirose `FH19C-4S-0.5SH(10)` 4-Pin ZIF 与 `2.50×0.20×3.60 mm` PI 补强舌、完整建模 `17_Pogo_Flex_Interposer` 绕开 `1027` 马达（最小名义间隙 `0.125 mm`）。两版均通过 **17/17 合法 B-Rep 与 `0.000 mm³` 零碰撞校验**（针扣版 `33.06 g` / 魔术贴简版 `35.07 g`，后者实现 `136–200 mm` 腕围 `0%` 零遮光）。
+- **EVT-A 磁吸四线 FPC (`pcb/catmouse-band-v15-pogo-flex/`)**：4 线（5V / GND / USB D− / D+）绕开马达，ERC=0、DRC=0、未连通=0，已导出工程打样资料 `Pogo-Flex-EVT-A-Gerber.zip`。
+- **EVT-A 四层主板 (`pcb/catmouse-band-v15-strap-halo/`)**：与 3D 共享 `strap_halo_geometry.py` 轮廓，ERC=0，固件物理引脚 13/13 一致（尚有 10 项布线与 17 项阻值配料待闭合后投板）；已将 `hardware` 纳入 `project.config.json` 打包忽略项，不影响现有小程序主包。
 
-入口：[硬件总览](hardware/README.md) · [PCB 与 3D 结构协同布局规范](hardware/docs/PCB与3D结构协同布局规范.md) · [3D CAD & Fusion 360 双版本工程](hardware/cad/README.md) · [方案 A 内部连接微距详图](hardware/cad/renders/cad_06_fpc_connection_detail.png) · [120–200mm 魔术贴遮盖分析图](hardware/cad/renders/cad_velcro_02_wrist_occlusion_analysis.png) · [产品设计方案](hardware/docs/产品设计方案.md) · [报价与财务分析](hardware/docs/产品报价与财务分析.md)。
+入口：[硬件总览](hardware/README.md) · [EVT-A 机电变更记录](hardware/docs/Strap-Halo-EVT-A-机电变更.md) · [PCB 与 3D 结构协同布局规范](hardware/docs/PCB与3D结构协同布局规范.md) · [3D CAD & Fusion 360 双版本工程](hardware/cad/README.md) · [EVT-A 内部连接微距详图](hardware/cad/renders/cad_06_fpc_connection_detail.png) · [ECAD/MCAD 布局蓝图](hardware/cad/renders/cad_05_ecad_mcad_layout_blueprint.png) · [120–200mm 魔术贴遮盖分析图](hardware/cad/renders/cad_velcro_02_wrist_occlusion_analysis.png) · [磁吸四线 FPC 打样包](hardware/pcb/catmouse-band-v15-pogo-flex/Pogo-Flex-EVT-A-Gerber.zip) · [EVT-A 主板检查报告](hardware/pcb/catmouse-band-v15-strap-halo/review/audit.json)。
 
 ## 当前位置与后台授权（2026-11-04，前端修订）
 

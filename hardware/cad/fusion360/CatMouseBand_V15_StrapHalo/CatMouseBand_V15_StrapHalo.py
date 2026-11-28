@@ -30,7 +30,8 @@ PARAMS_MM = {
     "pod_r": (9.5, "mm", "主机大圆角半径"),
     "z_pod_bot": (23.80, "mm", "主机贴腕底面 Z"),
     "z_split": (30.80, "mm", "上下壳合模分型面 Z"),
-    "z_pod_top": (35.60, "mm", "主机 NFC 顶面 Z (总厚 11.8mm)"),
+    "nfc_stack_lift": (0.35, "mm", "EVT-A 顶腔升高余量 (保留 MINI-1 0.80mm 净空)"),
+    "z_pod_top": (35.95, "mm", "主机 NFC 顶面 Z (EVT-A 总厚 12.15mm)"),
     "wall_side": (1.80, "mm", "主机侧壁厚"),
     "wall_top": (1.20, "mm", "顶盖 NFC 窗壁厚"),
     "wall_bot": (1.30, "mm", "底壳贴肤壁厚"),
@@ -330,6 +331,7 @@ def make_custom_appearances(app: adsk.core.Application, design: adsk.fusion.Desi
         "CM_LiPo_Silver_Foil": (198, 204, 214),
         "CM_Anodized_SpaceGrey": (76, 82, 92),
         "CM_ZIF_Ivory_LCP": (240, 235, 222),
+        "CM_Pogo_Flex_Copper": (232, 133, 41),
     }
     base_app = None
     for lib in app.materialLibraries:
@@ -471,6 +473,58 @@ def sweep_band_new_body(
     return sw_feat.bodies.item(0)
 
 
+def build_pogo_flex_component(root: adsk.fusion.Component, apps: dict) -> adsk.fusion.Occurrence:
+    """17_Pogo_Flex_Interposer: EVT-A 磁吸四线 C 型折弯柔性转接板 (9.60mm 宽 × 0.12mm 厚，绕开 1027 马达，0.125mm 净空)。"""
+    occ_pf, c_pf = new_subcomp(root, "17_Pogo_Flex_Interposer")
+    pln = offset_plane_yz(c_pf, -4.80, "_Pln_PogoFlex")
+    sk = c_pf.sketches.add(pln)
+    sk.name = "_Sk_PogoFlex"
+    sk.isLightBulbOn = False
+
+    r_mid = 1.20
+    t_half = 0.06
+    y_end = 13.80
+    y_riser = 18.55
+    y_tan = y_riser - r_mid
+    z_low = 24.96
+    z_high = 29.58
+
+    def sample_c_side(off_r: float) -> list[tuple[float, float]]:
+        pts_yz = [(y_end, z_low - off_r), (y_tan, z_low - off_r)]
+        rad_arc = r_mid + off_r
+        for k in range(1, 9):
+            a = math.radians(-90.0 + 90.0 * k / 8.0)
+            pts_yz.append((y_tan + rad_arc * math.cos(a), (z_low + r_mid) + rad_arc * math.sin(a)))
+        for k in range(0, 9):
+            a = math.radians(90.0 * k / 8.0)
+            pts_yz.append((y_tan + rad_arc * math.cos(a), (z_high - r_mid) + rad_arc * math.sin(a)))
+        pts_yz.append((y_end, z_high + off_r))
+        return pts_yz
+
+    loop_yz = sample_c_side(+t_half) + list(reversed(sample_c_side(-t_half)))
+    lc = sk.sketchCurves.sketchLines
+    spts = []
+    for y_mm, z_mm in loop_yz:
+        p = sk.modelToSketchSpace(pt(-4.80, y_mm, z_mm))
+        spts.append(adsk.core.Point3D.create(p.x, p.y, 0.0))
+    prev = lc.addByTwoPoints(spts[0], spts[1])
+    first_start = prev.startSketchPoint
+    for i in range(1, len(spts) - 1):
+        prev = lc.addByTwoPoints(prev.endSketchPoint, spts[i + 1])
+    lc.addByTwoPoints(prev.endSketchPoint, first_start)
+
+    extrude_one_side(
+        c_pf,
+        sk.profiles.item(0),
+        9.60,
+        adsk.fusion.FeatureOperations.NewBodyFeatureOperation,
+        positive=_dir_positive(pln, 1.0, 0.0, 0.0),
+        name="Pogo_Flex_C_Fold",
+    )
+    assign_appearance(c_pf, apps, "CM_Pogo_Flex_Copper")
+    return occ_pf
+
+
 def new_subcomp(root: adsk.fusion.Component, name: str) -> tuple[adsk.fusion.Occurrence, adsk.fusion.Component]:
     occ = root.occurrences.addNewComponent(adsk.core.Matrix3D.create())
     comp = occ.component
@@ -502,17 +556,17 @@ def run(context):
         apps = make_custom_appearances(app, design)
         occs: dict[str, adsk.fusion.Occurrence] = {}
 
-        # ---------------- 01_Top_Shell_NFC ----------------
+        # ---------------- 01_Top_Shell_NFC (EVT-A 升高 +0.35mm 至 Z=35.95，总厚 12.15mm，声学槽随蜂鸣器移至 Y=-6.30) ----------------
         step = "01_Top_Shell_NFC"
         occ_top, c_top = new_subcomp(root, "01_Top_Shell_NFC")
         occs["top"] = occ_top
-        f_top = extrude_z_rect(c_top, 0.0, 0.0, 34.0, 42.0, 9.5, 30.80, 35.60, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Top_Body")
+        f_top = extrude_z_rect(c_top, 0.0, 0.0, 34.0, 42.0, 9.5, 30.80, 35.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Top_Body")
         b_top = f_top.bodies.item(0)
-        try_fillet_z_edges(c_top, b_top, 35.60, 2.60, "Fillet_Top_Pebble")
-        # 挖空内部腔体 (侧壁 1.8mm，顶 NFC 窗 1.20mm)
-        extrude_z_rect(c_top, 0.0, 0.0, 30.4, 38.4, 7.7, 30.75, 34.40, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Top_Cavity", [b_top])
+        try_fillet_z_edges(c_top, b_top, 35.95, 2.60, "Fillet_Top_Pebble")
+        # 挖空内部腔体 (侧壁 1.8mm，顶 NFC 窗 1.20mm -> 腔顶 Z=34.75)
+        extrude_z_rect(c_top, 0.0, 0.0, 30.4, 38.4, 7.7, 30.75, 34.75, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Top_Cavity", [b_top])
         # 顶面盲触 NFC 波纹 + 猫爪凹雕 (0.35mm)
-        p_top = offset_plane_xy(c_top, 35.60, "_Pln_Emblem")
+        p_top = offset_plane_xy(c_top, 35.95, "_Pln_Emblem")
         sk_emb = c_top.sketches.add(p_top)
         sk_emb.isLightBulbOn = False
         for w_bar, dy in [(8.8, -2.0), (6.4, -1.0), (4.0, 0.0)]:
@@ -520,17 +574,17 @@ def run(context):
         for px, py in [(-3.8, 3.2), (-1.3, 4.3), (1.3, 4.3), (3.8, 3.2)]:
             draw_circle_xy(sk_emb, px, py, 0.95)
         extrude_one_side(c_top, all_profiles(sk_emb), 0.35, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_top, 0.0, 0.0, -1.0), target_bodies=[b_top], name="Cut_NFC_Emblem")
-        # 右侧按键开口(上) + 3 声学槽（正对蜂鸣器 Y=-5.2）
+        # 右侧按键开口(上) + 3 声学槽（EVT-A 对齐新蜂鸣器中心 Y=-6.30）
         p_sp = offset_plane_xy(c_top, 30.80, "_Pln_Top_SideCuts")
         sk_rc = c_top.sketches.add(p_sp)
         sk_rc.isLightBulbOn = False
         draw_rounded_rect_xy(sk_rc, 16.2, 1.5, 3.4, 10.0, 0.35)
-        for sy in (-6.7, -5.2, -3.7):
+        for sy in (-7.80, -6.30, -4.80):
             draw_rounded_rect_xy(sk_rc, 16.2, sy, 3.2, 0.65, 0.20)
         extrude_one_side(c_top, all_profiles(sk_rc), 2.05, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_sp, 0.0, 0.0, 1.0), target_bodies=[b_top], name="Cut_Top_Btn_Acoustic")
         assign_appearance(c_top, apps, "CM_Obsidian_PC_ABS")
 
-        # ---------------- 02_Bottom_Shell_Pogo ----------------
+        # ---------------- 02_Bottom_Shell_Pogo (EVT-A 增加磁吸四线 FPC 过线凹槽与 1.25mm 触点通孔) ----------------
         step = "02_Bottom_Shell_Pogo"
         occ_bot, c_bot = new_subcomp(root, "02_Bottom_Shell_Pogo")
         occs["bot"] = occ_bot
@@ -541,6 +595,9 @@ def run(context):
         # 前/后端内侧加厚 T 型防拉脱压紧凸台 (Join 到 b_bot)
         for tag_c, sy in (("Front", +1.0), ("Rear", -1.0)):
             extrude_z_rect(c_bot, 0.0, sy * 18.725, 18.4, 1.15, 0.0, 25.10, 30.80, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"Join_TCollar_{tag_c}")
+        # EVT-A 磁吸四线柔性转接板底腔导槽 (Y=13.65..18.75) 与马达前缘竖向过线槽 (Y=17.95..18.75)
+        extrude_z_rect(c_bot, 0.0, 16.20, 10.0, 5.10, 0.0, 24.80, 25.22, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_PogoFlex_Bed", [b_bot])
+        extrude_z_rect(c_bot, 0.0, 18.35, 10.0, 0.80, 0.0, 24.86, 29.94, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_PogoFlex_Riser", [b_bot])
         # 右侧按键开口(下)
         extrude_z_rect(c_bot, 16.2, 1.5, 3.4, 10.0, 0.35, 28.85, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_Bot_Btn", [b_bot])
         # 前/后对称 T 型硅胶腕带防拉脱锁扣槽（顶部敞口至 Z=30.80）
@@ -550,15 +607,19 @@ def run(context):
         # 前翼中心 FPC 过线口 + 后翼西侧独立防水 FPC 过线口 (X=-9.65，绕开 -Y BLE 天线净空区!)
         extrude_z_rect(c_bot, 0.0, 18.50, 3.8, 0.90, 0.0, 29.00, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_FPC_Slot_F", [b_bot])
         extrude_z_rect(c_bot, -9.65, -19.60, 2.7, 3.40, 0.0, 27.00, 30.85, adsk.fusion.FeatureOperations.CutFeatureOperation, "Cut_FPC_Slot_R_West", [b_bot])
-        # 背面 +Y 侧 4-pin 磁吸沉孔 (Y=+14.8) + 2×M2 沉头孔 (X=±12.6, Y=+11.0)
-        p_bh = offset_plane_xy(c_bot, 23.80, "_Pln_Bot_Holes")
-        sk_bh = c_bot.sketches.add(p_bh)
-        sk_bh.isLightBulbOn = False
+        # 背面 +Y 侧 4-pin 磁吸通槽 (1.25mm 容焊尾) + 2×M2 沉头孔 (0.90mm)
+        p_bp = offset_plane_xy(c_bot, 23.80, "_Pln_Bot_Pogo")
+        sk_bp = c_bot.sketches.add(p_bp)
+        sk_bp.isLightBulbOn = False
         for px in (-3.81, -1.27, 1.27, 3.81):
-            draw_circle_xy(sk_bh, px, 14.8, 0.99)
+            draw_circle_xy(sk_bp, px, 14.8, 0.99)
+        extrude_one_side(c_bot, all_profiles(sk_bp), 1.25, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_bp, 0.0, 0.0, 1.0), target_bodies=[b_bot], name="Cut_Bot_Pogo")
+        p_bm = offset_plane_xy(c_bot, 23.80, "_Pln_Bot_M2")
+        sk_bm = c_bot.sketches.add(p_bm)
+        sk_bm.isLightBulbOn = False
         for sx in (-12.6, 12.6):
-            draw_circle_xy(sk_bh, sx, 11.0, 2.05)
-        extrude_one_side(c_bot, all_profiles(sk_bh), 0.90, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_bh, 0.0, 0.0, 1.0), target_bodies=[b_bot], name="Cut_Bot_Pogo_M2")
+            draw_circle_xy(sk_bm, sx, 11.0, 2.05)
+        extrude_one_side(c_bot, all_profiles(sk_bm), 0.90, adsk.fusion.FeatureOperations.CutFeatureOperation, positive=_dir_positive(p_bm, 0.0, 0.0, 1.0), target_bodies=[b_bot], name="Cut_Bot_M2")
         assign_appearance(c_bot, apps, "CM_Obsidian_PC_ABS")
 
         # ---------------- 03_Side_Button_Silicone ----------------
@@ -588,30 +649,29 @@ def run(context):
         extrude_one_side(c_btn, sk_bf.profiles.item(0), 0.80, adsk.fusion.FeatureOperations.JoinFeatureOperation, positive=_dir_positive(p_bf, 1.0, 0.0, 0.0), name="Btn_Flange")
         assign_appearance(c_btn, apps, "CM_Button_Silicone")
 
-        # ---------------- 04_NFC_FPC_Coil_Ferrite (含铜质 C 型下弯触点尾带!) ----------------
+        # ---------------- 04_NFC_FPC_Coil_Ferrite (EVT-A 上移 +0.35mm 至 Z=34.10，含铜质 C 型下弯尾带!) ----------------
         step = "04_NFC_FPC_Coil_Ferrite"
         occ_nfc, c_nfc = new_subcomp(root, "04_NFC_FPC_Coil_Ferrite")
         occs["nfc"] = occ_nfc
-        extrude_z_rect(c_nfc, 0.0, 2.25, 25.0, 24.5, 5.0, 33.75, 33.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "NFC_Ferrite")
-        p_cl = offset_plane_xy(c_nfc, 34.00, "_Pln_NFC_Coil")
+        extrude_z_rect(c_nfc, 0.0, 2.25, 25.0, 24.5, 5.0, 34.10, 34.30, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "NFC_Ferrite")
+        p_cl = offset_plane_xy(c_nfc, 34.35, "_Pln_NFC_Coil")
         sk_c = c_nfc.sketches.add(p_cl)
         sk_c.isLightBulbOn = False
         draw_rounded_rect_xy(sk_c, 0.0, 2.25, 24.6, 24.1, 4.8)
         draw_rounded_rect_xy(sk_c, 0.0, 2.25, 17.2, 16.7, 3.0)
         extrude_one_side(c_nfc, ring_profile(sk_c), 0.25, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_cl, 0.0, 0.0, 1.0), name="NFC_Copper_Coil")
-        # 铜质 C 型柔性下弯触点排线 (X=-6.8，绕过铁氧体前缘压接主板 J_NFC_SPRING 弹片座)
         nfc_tail_yz = [
-            (13.80, 34.12),
-            (14.85, 34.04),
-            (15.35, 33.25),
-            (14.65, 32.15),
+            (13.80, 34.47),
+            (14.85, 34.39),
+            (15.35, 33.60),
+            (14.65, 32.325),
             (13.00, 31.52),
             (11.40, 31.49),
         ]
         sweep_band_new_body(c_nfc, nfc_tail_yz, 3.0, -0.09, 0.09, 0.0, "NFC_Flex_Tail", x_mm=-6.8)
         assign_appearance(c_nfc, apps, "CM_Copper_NFC_FPC")
 
-        # ---------------- 05_Mainboard_4Layer_PCBA (单面 L1 贴片 · RF 净空与分区布局) ----------------
+        # ---------------- 05_Mainboard_4Layer_PCBA (EVT-A 真实 BLE 天线铣空区 + 实测高度与器件对位!) ----------------
         step = "05_Mainboard_4Layer_PCBA"
         occ_pcb, c_pcb = new_subcomp(root, "05_Mainboard_4Layer_PCBA")
         occs["pcb"] = occ_pcb
@@ -619,17 +679,19 @@ def run(context):
         b_pcb = f_pcb.bodies.item(0)
         for sx in (-12.6, 12.6):
             extrude_z_cyl(c_pcb, sx, 11.0, 2.1, 29.55, 30.75, adsk.fusion.FeatureOperations.CutFeatureOperation, f"PCB_M2_Notch_{int(sx)}", [b_pcb])
+        # EVT-A 2.4GHz BLE 天线主板铣空开口 (X ∈ [-8.9, +5.5], Y ∈ [-20.0, -12.15], R=0.6)
+        extrude_z_rect(c_pcb, -1.70, -16.075, 14.40, 7.85, 0.60, 29.55, 30.75, adsk.fusion.FeatureOperations.CutFeatureOperation, "PCB_BLE_Antenna_Cutout", [b_pcb])
         for mname, cx, cy, w, l, h in [
-            ("ESP32_C3_MINI", -1.7, -9.2, 13.2, 16.6, 2.30),
+            ("ESP32_C3_MINI", -1.7, -9.2, 13.2, 16.6, 2.65),
             ("PN532_QFN40", -6.8, 6.2, 6.0, 6.0, 0.85),
-            ("Y1_27M12", -11.8, 6.2, 2.5, 3.2, 0.80),
+            ("Y1_27M12", -12.30, 6.2, 2.5, 3.2, 0.80),
             ("LIS2DH12_IMU", 0.5, 4.2, 2.0, 2.0, 0.90),
-            ("PKMCS0909E_Buzzer", 9.6, -5.2, 9.0, 9.0, 1.75),
+            ("PKMCS0909E_Buzzer", 10.13, -6.30, 9.0, 9.0, 1.90),
             ("PMIC_MCP73831", 5.2, 5.2, 2.9, 2.8, 1.10),
             ("LDO_AP2112K", 8.6, 5.2, 2.9, 2.8, 1.10),
             ("Q1_LED_PMOS", 5.2, 9.0, 2.9, 2.8, 1.10),
             ("Q2Q3_Drivers", 8.6, 9.0, 2.9, 2.8, 1.10),
-            ("SW1_Tactile", 12.5, 1.5, 2.6, 4.2, 1.60),
+            ("SW1_Tactile", 12.25, 1.5, 2.6, 4.2, 1.60),
         ]:
             extrude_z_rect(c_pcb, cx, cy, w, l, 0.20, 30.65, 30.65 + h, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, mname)
         assign_appearance(c_pcb, apps, "CM_PCB_Matte_Green")
@@ -648,12 +710,13 @@ def run(context):
         extrude_z_cyl(c_mot, 0.0, 12.8, 5.0, 25.25, 27.95, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "Motor_1027")
         assign_appearance(c_mot, apps, "CM_LiPo_Silver_Foil")
 
-        # ---------------- 08_Pogo_Magnets_Screws ----------------
+        # ---------------- 08_Pogo_Magnets_Screws (含 4 根内侧磁吸焊尾对接 17_Pogo_Flex_Interposer) ----------------
         step = "08_Pogo_Magnets_Screws"
         occ_hw, c_hw = new_subcomp(root, "08_Pogo_Magnets_Screws")
         occs["hw"] = occ_hw
         for i, px in enumerate((-3.81, -1.27, 1.27, 3.81)):
             extrude_z_cyl(c_hw, px, 14.8, 0.90, 23.85, 24.65, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"Pogo_{i+1}")
+            extrude_z_cyl(c_hw, px, 14.8, 0.40, 24.62, 24.89, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"Pogo_Tail_{i+1}")
         for i, mx in enumerate((-8.5, 8.5)):
             extrude_z_cyl(c_hw, mx, 14.8, 2.00, 24.10, 25.00, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"N52_Mag_{i+1}")
         for i, sx in enumerate((-12.6, 12.6)):
@@ -661,23 +724,22 @@ def run(context):
             extrude_z_cyl(c_hw, sx, 11.0, 0.95, 24.50, 28.90, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, f"M2_Shaft_{i+1}")
         assign_appearance(c_hw, apps, "CM_Gold_Pogo_Brass")
 
-        # 方案 A 前/后翼进仓 FPC 共享路径定义（腕带穿线隧道与 FPC 实体共用同一套坐标，保证 0 干涉！）
+        # 方案 A 前/后翼进仓 FPC 共享路径定义（末端配 Hirose FH19C 标准 2.50×0.20×3.60mm PI 补强接触舌！）
         fpc_front_tail_yz = [
             (23.25, 27.55),
             (21.85, 27.85),
             (20.20, 29.10),
             (18.70, 30.25),
-            (17.65, 31.05),
-            (16.40, 31.15),
-            (14.80, 31.15),
+            (17.65, 30.98),
+            (16.40, 31.08),
         ]
         rear_sbend_yz = [
             (-21.55, 27.55),
             (-20.75, 28.10),
             (-19.65, 29.40),
             (-18.40, 30.40),
-            (-17.35, 31.05),
-            (-16.65, 31.15),
+            (-17.35, 30.98),
+            (-16.65, 31.08),
         ]
         # 单环闭合多边形：后翼腕带肩部横向折弯段 (X: 0 -> -9.65)
         rear_dogleg_strap_poly = [
@@ -688,10 +750,10 @@ def run(context):
             (-10.90, -23.60), (1.30, -23.60), (1.30, -21.30),
             (-8.40, -21.30), (-8.40, -21.05), (-10.90, -21.05),
         ]
-        # 单环闭合多边形：后翼仓内绕行段 (绕开 ESP32 BLE 天线，沿 X=-11.20 直插 J_LED_R 槽口!)
+        # 单环闭合多边形：后翼仓内绕行段 (绕开 ESP32 BLE 天线，沿 X=-11.20 对接末端 2.50mm 补强舌)
         rear_dogleg_pod_poly = [
             (-10.65, -17.05), (-8.65, -17.05), (-8.65, -16.25),
-            (-10.20, -14.45), (-10.20, -5.85), (-12.20, -5.85),
+            (-10.20, -14.45), (-10.20, -8.35), (-12.20, -8.35),
             (-12.20, -14.85), (-10.65, -16.65),
         ]
 
@@ -741,16 +803,18 @@ def run(context):
         sweep_band_new_body(c_lgr, pts_lgr, 7.6, 0.70, 2.05, 0.50, "LGR")
         assign_appearance(c_lgr, apps, "CM_Glow_Mouse_Green")
 
-        # ---------------- 13_LED_FPC_12xWS2812B (双翼灯带 + 方案 A 进仓排线直插 ZIF!) ----------------
+        # ---------------- 13_LED_FPC_12xWS2812B (双翼灯带 + Hirose 2.50×0.20×3.60mm 补强舌直插 ZIF!) ----------------
         step = "13_LED_FPC_12xWS2812B"
         occ_fpc, c_fpc = new_subcomp(root, "13_LED_FPC_12xWS2812B")
         occs["fpc"] = occ_fpc
         sweep_band_new_body(c_fpc, pts_lgf, 4.5, -0.31, -0.15, 0.0, "FPCF_Wing")
         sweep_band_new_body(c_fpc, fpc_front_tail_yz, 2.2, -0.08, 0.08, 0.0, "FPCF_Tail_To_ZIF", x_mm=0.0)
+        extrude_z_rect(c_fpc, 0.0, 16.15, 2.50, 3.60, 0.0, 30.98, 31.18, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCF_Hirose_Tongue_2p5mm")
         sweep_band_new_body(c_fpc, pts_lgr, 4.5, -0.31, -0.15, 0.0, "FPCR_Wing")
         extrude_z_poly(c_fpc, rear_dogleg_strap_poly, 27.47, 27.63, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Strap_Dogleg")
         sweep_band_new_body(c_fpc, rear_sbend_yz, 2.0, -0.08, 0.08, 0.0, "FPCR_West_SBend", x_mm=-9.65)
-        extrude_z_poly(c_fpc, rear_dogleg_pod_poly, 31.07, 31.23, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Pod_To_ZIF")
+        extrude_z_poly(c_fpc, rear_dogleg_pod_poly, 31.00, 31.16, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Pod_To_ZIF")
+        extrude_z_rect(c_fpc, -11.20, -7.35, 2.50, 3.60, 0.0, 30.98, 31.18, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "FPCR_Hirose_Tongue_2p5mm")
         assign_appearance(c_fpc, apps, "CM_Amber_LED_FPC")
 
         # ---------------- 14_Tang_Buckle_Aluminum ----------------
@@ -777,27 +841,31 @@ def run(context):
         extrude_one_side(c_kp, ring_profile(sk_kp), 10.6, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, positive=_dir_positive(p_kp, 0.0, 0.0, 1.0), name="Keeper_Ring")
         assign_appearance(c_kp, apps, "CM_Charcoal_LSR_Silicone")
 
-        # ---------------- 16_ZIF_Connectors_4Pin (高对比白色 4-Pin ZIF 翻盖座 + NFC 弹片座!) ----------------
+        # ---------------- 16_ZIF_Connectors_4Pin (EVT-A Hirose FH19C-4S-0.5SH(10) + NFC 弹片座!) ----------------
         step = "16_ZIF_Connectors_4Pin"
         occ_zif, c_zif = new_subcomp(root, "16_ZIF_Connectors_4Pin")
         occs["zif"] = occ_zif
-        # 1. J_LED_F (+Y 开口直迎前翼 FPC)
-        b_jf = extrude_z_rect(c_zif, 0.0, 14.6, 5.4, 3.2, 0.0, 30.67, 31.82, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_LED_F_Body").bodies.item(0)
-        extrude_z_rect(c_zif, 0.0, 13.45, 4.4, 0.85, 0.0, 31.80, 32.12, adsk.fusion.FeatureOperations.JoinFeatureOperation, "J_LED_F_FlipLock")
-        for tag_e, sx in (("L", -2.90), ("R", 2.90)):
-            extrude_z_rect(c_zif, sx, 14.2, 0.60, 1.6, 0.0, 30.67, 31.17, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_LED_F_Ear_{tag_e}")
-        extrude_z_rect(c_zif, 0.0, 15.325, 2.80, 1.85, 0.0, 30.91, 31.39, adsk.fusion.FeatureOperations.CutFeatureOperation, "J_LED_F_Slot", [b_jf])
-        # 2. J_LED_R (-Y 开口直迎西侧绕行后翼 FPC)
-        b_jr = extrude_z_rect(c_zif, -11.2, -5.8, 4.6, 3.2, 0.0, 30.67, 31.82, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_LED_R_Body").bodies.item(0)
-        extrude_z_rect(c_zif, -11.2, -4.65, 3.8, 0.85, 0.0, 31.80, 32.12, adsk.fusion.FeatureOperations.JoinFeatureOperation, "J_LED_R_FlipLock")
-        for tag_e, sx in (("L", -13.70), ("R", -8.70)):
-            extrude_z_rect(c_zif, sx, -5.4, 0.60, 1.6, 0.0, 30.67, 31.17, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_LED_R_Ear_{tag_e}")
-        extrude_z_rect(c_zif, -11.2, -6.525, 2.80, 1.85, 0.0, 30.91, 31.39, adsk.fusion.FeatureOperations.CutFeatureOperation, "J_LED_R_Slot", [b_jr])
-        # 3. J_NFC_SPRING (13.56MHz 双弹片接触底座)
+        # 1. J_LED_F (Hirose FH19C 4.0×2.6×0.95mm, +Y 开口直迎前翼 2.50mm 补强舌)
+        b_jf = extrude_z_rect(c_zif, 0.0, 14.6, 4.00, 2.60, 0.0, 30.67, 31.62, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_LED_F_Body").bodies.item(0)
+        extrude_z_rect(c_zif, 0.0, 13.65, 3.20, 0.70, 0.0, 31.60, 31.86, adsk.fusion.FeatureOperations.JoinFeatureOperation, "J_LED_F_FlipLock")
+        for tag_e, sx in (("L", -2.10), ("R", 2.10)):
+            extrude_z_rect(c_zif, sx, 15.35, 0.45, 0.80, 0.0, 30.67, 31.12, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_LED_F_Ear_{tag_e}")
+        extrude_z_rect(c_zif, 0.0, 15.05, 2.66, 1.80, 0.0, 30.90, 31.26, adsk.fusion.FeatureOperations.CutFeatureOperation, "J_LED_F_Slot", [b_jf])
+        # 2. J_LED_R (Hirose FH19C 4.0×2.6×0.95mm, -Y 开口直迎西侧绕行 2.50mm 补强舌)
+        b_jr = extrude_z_rect(c_zif, -11.2, -5.8, 4.00, 2.60, 0.0, 30.67, 31.62, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_LED_R_Body").bodies.item(0)
+        extrude_z_rect(c_zif, -11.2, -4.85, 3.20, 0.70, 0.0, 31.60, 31.86, adsk.fusion.FeatureOperations.JoinFeatureOperation, "J_LED_R_FlipLock")
+        for tag_e, sx in (("L", -13.30), ("R", -9.10)):
+            extrude_z_rect(c_zif, sx, -6.55, 0.45, 0.80, 0.0, 30.67, 31.12, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_LED_R_Ear_{tag_e}")
+        extrude_z_rect(c_zif, -11.2, -6.25, 2.66, 1.80, 0.0, 30.90, 31.26, adsk.fusion.FeatureOperations.CutFeatureOperation, "J_LED_R_Slot", [b_jr])
+        # 3. J_NFC_SPRING (13.56MHz 2.00mm 针距双弹片接触底座)
         extrude_z_rect(c_zif, -6.8, 11.4, 4.2, 2.4, 0.0, 30.67, 31.11, adsk.fusion.FeatureOperations.NewBodyFeatureOperation, "J_NFC_Spring_Base")
         for tag_p, dx in (("L", -1.0), ("R", 1.0)):
             extrude_z_rect(c_zif, -6.8 + dx, 11.4, 0.90, 1.50, 0.0, 31.08, 31.32, adsk.fusion.FeatureOperations.JoinFeatureOperation, f"J_NFC_Contact_{tag_p}")
         assign_appearance(c_zif, apps, "CM_ZIF_Ivory_LCP")
+
+        # ---------------- 17_Pogo_Flex_Interposer (EVT-A 磁吸四线 C 型柔性转接板，绕开 1027 马达!) ----------------
+        step = "17_Pogo_Flex_Interposer"
+        occs["pogo_flex"] = build_pogo_flex_component(root, apps)
 
         # ---------------- 2. 刚性装配组 + 右侧按键滑移运动副 ----------------
         step = "joints"
@@ -842,7 +910,7 @@ def run(context):
 
         report = {
             "design_name": root.name,
-            "mode": "100% Native Parametric Fusion 360 Feature Tree (v3 - Plan A Internal FPC/ZIF/T-Anchor)",
+            "mode": "100% Native Parametric Fusion 360 Feature Tree (EVT-A 17-Part: BLE Cutout + Pogo Flex + Hirose FH19C)",
             "user_parameters": param_count,
             "components": root.occurrences.count,
             "appearances": list(apps.keys()),
@@ -853,14 +921,13 @@ def run(context):
         REPORT_PATH.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
         ui.messageBox(
-            f"CatMouse Band V1.5 (Strap-Halo 腕带光环版) 原生参数化工程构建完成！\n\n"
-            f"- 特征树：16 个独立组件（含方案 A 前/后翼内埋 FPC 排线尾带、白色开槽 ZIF 翻盖座、双端 T 型防水锚块与 NFC 下弯弹片）\n"
-            f"- 提示：在左侧浏览器关闭 01_Top_Shell_NFC (眼睛图标)，即可直接透视内部 FPC→ZIF 插接结构！\n"
+            f"CatMouse Band V1.5 EVT-A (Strap-Halo 腕带光环版) 原生参数化工程构建完成！\n\n"
+            f"- 特征树：17 个独立组件（含 EVT-A 顶腔+0.35mm / BLE 天线铣空 / 磁吸四线 C 弯柔性转接板 / Hirose FH19C ZIF + 2.50mm 补强舌）\n"
+            f"- 提示：关闭左侧 01_Top_Shell_NFC 与 04_NFC 即可透视全部内部连接，用 YZ 剖面分析可直观查看 17_Pogo_Flex 绕开马达！\n"
             f"- 用户参数 (fx)：{param_count} 个\n"
-            f"- 外观色板：{len(apps)} 种（按 A 键可拖拽红猫/绿鼠/蓝求救导光环一键换色）\n"
             f"- 实时运动副：{joint_name} (0..0.45 mm)\n"
             f"- 已自动导出 .f3d：{F3D_PATH}",
-            "CatMouse Band V1.5 — Fusion 360",
+            "CatMouse Band V1.5 EVT-A — Fusion 360",
         )
     except Exception:
         if ui:

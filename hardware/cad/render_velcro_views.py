@@ -45,6 +45,8 @@ def load_velcro_meshes(glow_rgb=(0.08, 0.96, 0.50), clip_x_positive: bool = Fals
         if "LightGuide" in pm["name"]:
             rgba = (*glow_rgb, 1.0)
             emissive, roughness = 0.72, 0.30
+        elif "Pogo_Flex" in pm["name"]:
+            emissive, metallic, roughness = 0.24, 0.42, 0.28
         elif "Pogo" in pm["name"] or "NFC" in pm["name"]:
             metallic, roughness = 0.75, 0.25
         elif "Motor" in pm["name"] or "Battery" in pm["name"]:
@@ -115,10 +117,10 @@ def main():
     fig, axes = plt.subplots(2, 2, figsize=(16.0, 12.2), dpi=140)
     fig.patch.set_facecolor("#F4F7FC")
     panels = [
-        (im_iso, "① 轴测实模 · 120–200 mm 非对称低遮挡魔术贴版（136–200 mm 0% 遮光！）"),
-        (im_side, "② 右侧轮廓 · 前翼内侧 86.5mm 长毛面轨道 + 后翼外侧 24mm 精简刺面"),
+        (im_iso, "① 轴测实模 · EVT-A 120–200 mm 非对称低遮挡魔术贴版（136–200 mm 0% 遮光！）"),
+        (im_side, "② 右侧轮廓 · 12.15mm EVT-A 主机 + 前翼 86.5mm 长毛面 + 后翼 24mm 刺面"),
         (im_velcro, "③ 魔术贴搭接特写 · 刺面(暖褐)紧扣毛面轨道(蓝灰) + 末端微翘易撕拉手"),
-        (im_sec, "④ X=0 纵剖校验 · 双翼 12 颗灯珠高密分布 + 方案A连接 + 魔术贴 0 碰撞"),
+        (im_sec, "④ X=0 纵剖校验 · 17 号磁吸四线 FPC 绕马达 + FH19C ZIF + 魔术贴 0 碰撞"),
     ]
     for ax, (im, title) in zip(axes.flat, panels):
         ax.imshow(im)
@@ -126,8 +128,8 @@ def main():
         ax.axis("off")
 
     fig.suptitle(
-        f"CatMouse Band V1.5-Lite (120–200 mm 非对称低遮挡魔术贴版) — 16 零件 | 整机 {mass_g:.2f} g | 0.000 mm³ 碰撞",
-        fontsize=13.8, fontweight="bold", color="#0F172A", y=0.98,
+        f"CatMouse Band V1.5-Lite EVT-A (120–200 mm 非对称低遮挡魔术贴版) — 17 零件 | 整机 {mass_g:.2f} g | 0.000 mm³ 碰撞",
+        fontsize=13.5, fontweight="bold", color="#0F172A", y=0.98,
     )
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     out_p = RENDER_DIR / "cad_velcro_01_overview.png"
