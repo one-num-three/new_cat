@@ -20,11 +20,11 @@ for(const type of ['wxml','wxss']){
  fs.writeFileSync(path.join(out,'compile-'+type+'.json'),JSON.stringify(compilation[type],null,2));
 }
 const syntaxFiles=[...pages.map(p=>p+'.js'),...components.map(p=>p+'.js'),'app.js','utils/location-v2.js','utils/venue-boundary.js','utils/qr-protocol.js','utils/capture-flow.js','utils/room-live.js','utils/snapshot-v2.js','utils/model-map.js','utils/v2.js','cat-mouse-server/shared/venue-boundary.js','cat-mouse-server/v2/service.js','cat-mouse-server/v2/server.js','cat-mouse-server/v2/store.js','cat-mouse-server/v2/map-catalog.js','cat-mouse-server/v2/acceptance.cjs','cat-mouse-server/v2/venue-boundary.test.js','scripts/verify-venue-boundary.cjs'];
-syntaxFiles.push('utils/track-export.js','utils/track-poster.js','cat-mouse-server/v2/visibility.js','cat-mouse-server/v2/tracks.js','cat-mouse-server/v2/tracks-vision.test.js','scripts/mcp-tracks-fixture.cjs','scripts/mcp-tracks-vision.cjs');
+syntaxFiles.push('room-tools/utils/track-export.js','room-tools/utils/track-poster.js','cat-mouse-server/v2/visibility.js','cat-mouse-server/v2/tracks.js','cat-mouse-server/v2/tracks-vision.test.js','scripts/mcp-tracks-fixture.cjs','scripts/mcp-tracks-vision.cjs');
 syntaxFiles.push('scripts/mcp-track-poster.cjs');
-syntaxFiles.push('utils/track-highlights.js','cat-mouse-server/v2/track-highlights.js');
+syntaxFiles.push('room-tools/utils/track-highlights.js','cat-mouse-server/v2/track-highlights.js');
 syntaxFiles.push('scripts/render-track-highlights.cjs');
-syntaxFiles.push('utils/track-bubble-placement.js','utils/track-bubble-assets.js');
+syntaxFiles.push('room-tools/utils/track-bubble-placement.js','room-tools/utils/track-bubble-assets.js');
 syntaxFiles.push('scripts/build-track-highlights-evidence.cjs');
 syntaxFiles.push('scripts/verify-track-layering.cjs','scripts/build-track-layer-evidence.cjs');
 const syntax=syntaxFiles.map(file=>{const r=cp.spawnSync(process.execPath,['--check',file],{cwd:root,encoding:'utf8'});assert.equal(r.status,0,file+' '+r.stderr);return {file,status:r.status};});

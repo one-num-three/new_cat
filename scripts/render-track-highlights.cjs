@@ -2,7 +2,7 @@
 // Desktop Canvas verification of the SAME product painter. Not a WeChat
 // simulator screenshot. All tracks originate from the isolated test API.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),cp=require('node:child_process');
-const root=path.resolve(__dirname,'..'),out=path.resolve(process.argv[2]),meta=JSON.parse(fs.readFileSync(path.join(out,'fixture.json'))),bundle='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules',canvasLib=require(require.resolve('@napi-rs/canvas',{paths:[bundle]})),poster=require('../utils/track-poster'),catalog=require('../utils/venue-catalog');
+const root=path.resolve(__dirname,'..'),out=path.resolve(process.argv[2]),meta=JSON.parse(fs.readFileSync(path.join(out,'fixture.json'))),bundle='C:/Users/Keke_/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules',canvasLib=require(require.resolve('@napi-rs/canvas',{paths:[bundle]})),poster=require('../room-tools/utils/track-poster'),catalog=require('../utils/venue-catalog');
 assert.ok(/^http:\/\/127\.0\.0\.1:\d+$/.test(meta.base));assert.equal(meta.productionDataWritten,false);
 const save=(name,data)=>fs.writeFileSync(path.join(out,name+'.json'),JSON.stringify(data,null,2));
 async function request(url,body,token){const r=await fetch(meta.base+url,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',Connection:'close',...(token?{Authorization:'Bearer '+token}:{})},...(body?{body:JSON.stringify(body)}:{})});const data=await r.json();assert.equal(r.status,200,url+': '+(data.error||r.status));return data;}

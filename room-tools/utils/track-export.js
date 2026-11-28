@@ -1,4 +1,4 @@
-const {gcjToWgs}=require('./osm-art-registration');
+const {gcjToWgs}=require('../../utils/osm-art-registration');
 function segments(points){const result=[];let last=null,part;
  for(const p of points||[]){if(!p||![p.lat,p.lng,p.sampledAt,p.recordedAt].every(Number.isFinite)||Math.abs(p.lat)>=85||Math.abs(p.lng)>180){last=null;continue;}
   if(!last||p.segment!==last.segment||p.phase!==last.phase||p.recordedAt-last.recordedAt>10000||p.recordedAt<=last.recordedAt||p.sampledAt-last.sampledAt>10000||p.sampledAt<=last.sampledAt){part=[];result.push(part);}part.push(p);last=p;
