@@ -9,8 +9,9 @@
   </view>
 </nav-bar>
 <view wx:if="{{!match}}" class="sdvWoodCard emptyState">
-  <text class="emptyTitle">正在同步状态</text>
+  <text class="emptyTitle">{{error?'尚未开始活动':'正在同步状态'}}</text>
   <text class="bodyCopy">{{error || '请稍候…'}}</text>
+  <button wx:if="{{roomId && error}}" class="sdvBtn sdvBtnGreen sdvBtnSm" bindtap="backToRoom">返回准备房间</button>
   <button class="sdvBtn sdvBtnWood sdvBtnSm" bindtap="goHome">返回首页</button>
 </view>
 
@@ -61,8 +62,8 @@
         <text>场地范围</text>
       </view>
       <view class="resultMap">
-        <map wx:if="{{venueMapId==='native-gcj02-v1'}}" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" polygons="{{venuePolygons}}" />
-        <venue-art wx:else class="venueArt" image-id="{{venueMapId}}" src="{{parkArt}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" />
+        <map wx:if="{{venueMapId==='native-gcj02-v1'}}" class="gameMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{mapScale}}" circles="{{circles}}" markers="{{markers}}" polygons="{{venuePolygons}}" />
+        <venue-art wx:else class="venueArt" image-id="{{venueMapId}}" src="{{parkArt}}" registration="{{mapCalibration}}" osm-reference="{{true}}" geo-data="{{geoData}}" auto-tour="{{false}}" compact="{{true}}" layout-key="{{viewportWidth+'x'+viewportHeight+'-'+fontScale}}" />
       </view>
     </view>
 

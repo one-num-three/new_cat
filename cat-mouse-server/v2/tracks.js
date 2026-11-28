@@ -1,5 +1,6 @@
 'use strict';
 const {closestCat}=require('./track-highlights');
+const {isUuid}=require('./store');
 const SAMPLE_MS=2000,RETENTION_MS=7*86400000;
 async function record(db,room,actor,point,now){
  const m=room.state.match,p=m?.participants.find(p=>p.id===actor);
@@ -10,6 +11,7 @@ async function record(db,room,actor,point,now){
 }
 async function read(store,matchId,actor,scope,now){
  if(!['self','all'].includes(scope))throw Error('INVALID_TRACK_SCOPE');
+ if(!isUuid(matchId))throw Error('MATCH_NOT_FINISHED');
  const row=(await store.query('SELECT result FROM match_results WHERE match_id=$1',[matchId])).rows[0];
  if(!row)throw Error('MATCH_NOT_FINISHED');const result=row.result;
  if(!result.participants?.some(p=>p.id===actor))throw Error('FORBIDDEN');
@@ -25,5 +27,5 @@ async function read(store,matchId,actor,scope,now){
  for(const p of players)p.highlights={schema:'track-highlights-v1',closestCat:p.role==='mouse'?closestCat(p.points,cats):null};
  return {schema:'tracks-v1',matchId,scope,coordinateSystem:'gcj02',startedAt:result.startedAt,endedAt:result.endedAt,expiresAt:result.endedAt+RETENTION_MS,sampleIntervalMs:SAMPLE_MS,venue:result.venue,mapCalibration:result.mapCalibration||null,outcome:result.outcome,players};
 }
-const purge=(store,now)=>store.query("DELETE FROM match_track_points WHERE match_id IN (SELECT match_id FROM match_results WHERE (result->>'endedAt')::bigint<$1)",[now-RETENTION_MS]);
+const purge=(store,now)=>store.query("DELETE FROM match_track_points WHERE recorded_at<$1 OR match_id IN (SELECT match_id FROM match_results WHERE (result->>'endedAt')::bigint<$1)",[now-RETENTION_MS]);
 module.exports={record,read,purge,SAMPLE_MS,RETENTION_MS};

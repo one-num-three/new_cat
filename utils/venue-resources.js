@@ -24,4 +24,4 @@ function ensure(id){
  return promise;
 }
 function markLoaded(name){if(!catalog.options.some(x=>catalog.get(x.id).subpackage===name))return;loaded.add(name);const record=pending.get(name);if(record){pending.delete(name);record.resolve();}if(active?.name===name)active=null;next();}
-module.exports={ensure,ready,markLoaded};
+module.exports={ensure,ready,markLoaded,isBootstrapping:()=>active!==null||pending.size>0};

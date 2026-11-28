@@ -1,6 +1,6 @@
 const api=require('./v2');
 let activeRoom=null,handler=null,timer=null,watchdog=null,owner=null;
-let generation=0,fallbackToken=0,lastSentAt=0,streamBusy=false,foreground=true;
+let generation=0,fallbackToken=0,lastSentAt=0,streamBusy=false,foreground=true,modalOpen=false;
 let backgroundReady=false,mode='off',notice='',controlVersion=-1,blockedKey=null,auditing=false,lastAudit=0;
 let quality=null,qualitySequence=0;
 let seq=Number(wx.getStorageSync('v2SampleSeq'))||0;
@@ -30,7 +30,9 @@ function syncMatch(s){
 }
 function submit(roomId,p,matchId,receivedAt=Date.now()){
  if(!p||![p.latitude,p.longitude,p.accuracy].every(Number.isFinite))return Promise.reject(new Error('LOCATION_UNAVAILABLE'));
- seq++;wx.setStorageSync('v2SampleSeq',seq);
+ seq++;
+ if('setStorage' in wx && typeof wx.setStorage==='function')wx.setStorage({key:'v2SampleSeq',data:seq,fail:()=>{}});
+ else if('setStorageSync' in wx)wx.setStorageSync('v2SampleSeq',seq);
  return api.location(roomId,{lat:p.latitude,lng:p.longitude,accuracy:p.accuracy,sampledAt:receivedAt,sampleSeq:seq,coordinateSystem:'gcj02',...(matchId?{matchId}:{})});
 }
 function once(roomId,isCurrent,onQuality){
@@ -106,10 +108,12 @@ function stop(){
  clearInterval(timer);clearTimeout(watchdog);handler=null;timer=null;watchdog=null;
  if(owned)wx.stopLocationUpdate({fail:()=>{}});
 }
+function setModalOpen(value){modalOpen=!!value;}
 function setForeground(value){
+ if(!value&&modalOpen)return;
  const wasForeground=foreground;foreground=!!value;
  if(!foreground){if(watchdog){fallbackToken++;clearTimeout(watchdog);watchdog=null;streamBusy=false;}if(activeRoom&&!backgroundReady)halt('BACKGROUND_UNAVAILABLE');}
  else if(!wasForeground&&activeRoom)fallback(activeRoom,owner?.onError,generation);
 }
 function canBackground(roomId,matchId){return activeRoom===roomId&&owner?.matchId===matchId&&backgroundReady&&sameIdentity(owner.identity);}
-module.exports={once,start,stop,setForeground,canBackground,syncMatch,status};
+module.exports={once,start,stop,setForeground,setModalOpen,canBackground,syncMatch,status};

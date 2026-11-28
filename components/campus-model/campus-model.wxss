@@ -3,7 +3,7 @@
 .modelCanvas{display:block;width:100%;height:100%}
 .modelPin{position:absolute;pointer-events:none;z-index:2;filter:var(--venue-overlay-filter,none)}
 .modelPin image{width:48px;height:48px;image-rendering:pixelated}
-.modelPin .pinLabel{position:absolute;top:44px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;color:#3b1d0b;background:#fae3b2;border:2px solid #4f2710;border-radius:0;padding:1px 5px}
+.modelPin .pinLabel{position:absolute;top:45px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;line-height:14px;color:#3b1d0b;background:#fff4d4;border:2px solid #4f2710;box-shadow:inset 0 1px 0 #fffaf0,0 2px 0 rgba(59,29,11,.35);border-radius:0;padding:1px 6px}
 .modelCaption{position:absolute;left:8px;bottom:8px;max-width:calc(100% - 80px);pointer-events:none;background:#fae3b2;border:2px solid #4f2710;border-radius:0;color:#3b1d0b;padding:4px 6px;font-size:10px;line-height:1.5;z-index:3;filter:var(--venue-overlay-filter,none)}
 .modelCaption view{display:block}
 .attribution{font-size:8px}

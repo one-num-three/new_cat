@@ -10,13 +10,15 @@
           </view>
           <text class="resumeAction">{{resumeKind==='unavailable'?'重试':resumeKind==='checking'?'稍候':'继续 ›'}}</text>
         </button>
-        <button wx:if="{{resumeKind==='unavailable'}}" class="sdvIconBtn sdvIconBtnSm sdvBtnPaper resumeDismiss" hover-class="sdvPressed" bindtap="dismissResume" aria-label="清除失效房间记录">×</button>
+        <button wx:if="{{resumeKind==='unavailable' || resumeKind==='result'}}" class="sdvIconBtn sdvIconBtnSm sdvBtnPaper resumeDismiss" hover-class="sdvPressed" bindtap="dismissResume" aria-label="清除失效房间记录">×</button>
       </view>
 
       <view class="sdvWoodCard bulletinBoard">
         <view class="boardGroundShadow" aria-hidden="true"></view>
         <view class="heroStage">
-          <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
+          <view class="heroMedia">
+            <image class="homeHero" src="/assets/sdv-v1/header-banner.png" mode="widthFix" aria-label="猫鼠行动户外活动工具横幅" />
+          </view>
           <view class="heroCaption"><text>猫追鼠躲</text><view class="sdvDot" aria-hidden="true"></view><text>户外定位</text><view class="sdvDot" aria-hidden="true"></view><text>扫码核验</text></view>
         </view>
 
@@ -105,7 +107,10 @@
 
       <button wx:if="{{devAvailable}}" class="devLink" bindtap="openDev">界面调试台</button>
     </view>
-    <image class="sdvMeadowFooter meadowBleed22" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+    <view class="homeFenceDock meadowBleed22" aria-hidden="true">
+      <image class="sdvMeadowFooter" src="/assets/sdv-v1/meadow-strip.png" mode="widthFix" aria-hidden="true" />
+      <view class="homeFenceApron"></view>
+    </view>
   </view>
 
   <sdv-modal

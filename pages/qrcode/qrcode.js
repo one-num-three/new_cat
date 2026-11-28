@@ -1,13 +1,13 @@
 const presentation=require('../../utils/presentation');
 const api=require('../../utils/v2'); const loc=require('../../utils/location-v2'); const preview=require('../../utils/dev-preview');
 const proof=require('../../utils/capture-proof').create(api,wx);
-function boostBrightness(ctx){if(ctx.devPreview)return;ctx._wantBright=true;if(ctx._brightBoosted)return;if(typeof wx!=='undefined'&&'getScreenBrightness' in wx&&'setScreenBrightness' in wx){try{wx.getScreenBrightness({success:r=>{if(Number.isFinite(r?.value))ctx._savedBrightness=r.value;},complete:()=>{if(!ctx._wantBright)return;try{wx.setScreenBrightness({value:0.9});ctx._brightBoosted=true;}catch{}}});}catch{}}}
-function restoreBrightness(ctx){ctx._wantBright=false;if(!ctx._brightBoosted)return;ctx._brightBoosted=false;const v=ctx._savedBrightness;ctx._savedBrightness=null;if(Number.isFinite(v)&&typeof wx!=='undefined'&&'setScreenBrightness' in wx){try{wx.setScreenBrightness({value:v});}catch{}}}
+function boostBrightness(ctx){presentation.boostBrightness?.(ctx);}
+function restoreBrightness(ctx){presentation.restoreBrightness?.(ctx);}
 Page({
   onResize(e) { this.setData(presentation.resize(e)); },
   data:{fontScale:1,themeMode:'day',nightMode:false,roomId:'',image:'',seconds:0,error:'',devPreview:false},
-  onLoad(o){this.setData(presentation.metrics());this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}this.setData({roomId:this.devPreview?'dev-preview-room':o.roomId,devPreview:this.devPreview});},
-  onShow(){if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const raw=wx.getStorageSync('sdvTheme'),mode=raw==='night'||raw==='dusk'?raw:'day',n=mode!=='day';if(mode!==this.data.themeMode||n!==!!this.data.nightMode)this.setData({themeMode:mode,nightMode:n});}}catch{}if(this.devPreview){this.setData({image:'',seconds:15,error:''});return;}boostBrightness(this);this.expiresAt=0;this.nextRetryAt=0;this.setData({image:'',seconds:0,error:''});this.checkStatus();this.refresh();clearInterval(this.timer);clearInterval(this.statusTimer);this.timer=setInterval(()=>{if(!this.active)return;if(!this.expiresAt){if(!this.refreshing && Date.now()>=this.nextRetryAt)this.refresh();return;}const seconds=Math.max(0,Math.ceil((this.expiresAt-Date.now())/1000));this.setData({seconds});if(seconds<=2 && !this.refreshing)this.refresh();},1000);this.statusTimer=setInterval(()=>this.checkStatus(),3000);},
+  onLoad(o){this.setData(presentation.metrics());this.devPreview=preview.accepts(o.devPreview);if(o.devPreview && !this.devPreview){this.previewDenied=true;wx.reLaunch({url:'/pages/index/index'});return;}const fallbackId=typeof wx!=='undefined'&&'getStorageSync' in wx?wx.getStorageSync('v2RoomId'):'';this.setData({roomId:this.devPreview?'dev-preview-room':(o.roomId||fallbackId||''),devPreview:this.devPreview});},
+  onShow(){if(this.previewDenied)return;this.active=true;this.lifecycle=(this.lifecycle||0)+1;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const raw=wx.getStorageSync('sdvTheme'),mode=raw==='night'||raw==='dusk'?raw:'day',n=mode!=='day';if(mode!==this.data.themeMode||n!==!!this.data.nightMode)this.setData({themeMode:mode,nightMode:n});}}catch{}if(this.devPreview){this.setData({image:'',seconds:15,error:''});return;}if(!this.data.roomId){this.setData({image:'',seconds:0,error:'缺少活动房间信息，请返回地图重试'});return;}boostBrightness(this);this.expiresAt=0;this.nextRetryAt=0;this.setData({image:'',seconds:0,error:''});this.checkStatus();this.refresh();clearInterval(this.timer);clearInterval(this.statusTimer);this.timer=setInterval(()=>{if(!this.active)return;if(!this.expiresAt){if(!this.refreshing && Date.now()>=this.nextRetryAt)this.refresh();return;}const seconds=Math.max(0,Math.ceil((this.expiresAt-Date.now())/1000));this.setData({seconds});if(seconds<=2 && !this.refreshing)this.refresh();},1000);this.statusTimer=setInterval(()=>this.checkStatus(),3000);},
   onHide(){this.stop(!this.devPreview&&!!loc.canBackground?.(this.data.roomId,loc.status?.().matchId));},onUnload(){this.stop();},
   removeImage:proof.removeImage,
   stopProof(){this.stop();},
@@ -27,5 +27,5 @@ Page({
   },
   refresh:proof.refresh,
   backToDev(){if(this.devPreview)wx.reLaunch({url:'/pages/dev/dev'});},
-  back(){if(this.devPreview)wx.redirectTo({url:'/pages/map/map?devPreview=mouse'});else wx.navigateBack();}
+  back(){if(this.devPreview)wx.redirectTo({url:'/pages/map/map?devPreview=mouse'});else if(typeof getCurrentPages==='function'&&getCurrentPages().length<=1)wx.reLaunch({url:'/pages/index/index'});else wx.navigateBack({delta:1,fail:()=>wx.reLaunch({url:'/pages/index/index'})});}
 });

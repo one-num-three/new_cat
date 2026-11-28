@@ -20,8 +20,14 @@ services:
       HOST: 0.0.0.0
       PORT: 4000
       DATABASE_URL: postgres://catmouse:${POSTGRES_PASSWORD}@db:5432/catmouse
-      WECHAT_APP_ID: ${WECHAT_APP_ID:-}
-      WECHAT_APP_SECRET: ${WECHAT_APP_SECRET:-}
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: catmouse
+      PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      PGDATABASE: catmouse
+      WECHAT_APP_ID: ${WECHAT_APP_ID:?set WECHAT_APP_ID}
+      WECHAT_APP_SECRET: ${WECHAT_APP_SECRET:?set WECHAT_APP_SECRET}
+      IDENTITY_HMAC_SECRET: ${IDENTITY_HMAC_SECRET:-}
     depends_on:
       db:
         condition: service_healthy

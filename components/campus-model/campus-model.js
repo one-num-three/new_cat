@@ -13,7 +13,7 @@ Component({
  methods:{
   initialize(){const run=++this._serial;this.setData({status:'loading',error:''});this.createSelectorQuery().select('#campusCanvas').fields({node:true,size:true}).exec(async r=>{
    if(!this._alive||run!==this._serial)return;
-   try{const item=r[0];if(!item?.node||!item.width||!item.height)throw Error('画布尚未就绪');this._canvas=item.node;this._width=item.width;this._height=item.height;
+   try{const item=r[0];if(!item?.node||!item.width||!item.height)throw Error('画布尚未就绪');this.dispose();this._canvas=item.node;this._width=item.width;this._height=item.height;
     this._output=item.node.getContext('2d');this._surface=wx.createOffscreenCanvas({type:'webgl',width:Math.round(item.width*1.5),height:Math.round(item.height*1.5)});const gl=this._gl=this._surface.getContext('webgl',{alpha:false,antialias:true,preserveDrawingBuffer:true});if(!gl)throw Error('此设备暂不支持3D画布');
     // JSON is compiled as mini-program configuration, not a readable asset.
     const [text,blob]=await Promise.all([read('campus-meta.bin','utf8'),read('campus.bin')]);if(!this._alive||run!==this._serial)return;
@@ -48,6 +48,6 @@ Component({
   tilt(){if(this._ready){this._camera={...this._camera,pitch:this._camera.pitch>1.4?.88:Math.PI/2-.001};this.schedule();}},
   focusSelf(){const p=this._world?.points.find(p=>p.tone==='self');if(!this._ready||!p)return false;this._camera=camera.constrain({...this._camera,x:p.x,z:p.z,size:1000});this.schedule();return true;},
   fail(e){this._ready=false;this.cancelFrame();this.dispose();this.setData({status:'error',error:e?.message||e?.errMsg||'请切换图层后重试',pins:[],previewSrc:''});this.triggerEvent('failure');},onCanvasError(){if(this._alive)this.fail(Error('画布初始化失败'));},fallback(){this.triggerEvent('fallback');},
-  dispose(){this._output?.clearRect(0,0,this._canvas?.width||0,this._canvas?.height||0);const gl=this._gl;if(gl){for(const b of this._gpu||[])gl.deleteBuffer(b);if(this._texture)gl.deleteTexture(this._texture);if(this._program)gl.deleteProgram(this._program);}this._gpu=[];this._texture=null;this._program=null;this._gl=null;if(this._image){this._image.onload=null;this._image.onerror=null;}this._image=null;this._parts=[];this._ready=false;if(this._surface){this._surface.width=1;this._surface.height=1;}this._output=null;this._surface=null;}
+  dispose(){this._output?.clearRect(0,0,this._canvas?.width||0,this._canvas?.height||0);const gl=this._gl;if(gl){for(const b of this._gpu||[])gl.deleteBuffer(b);if(this._texture)gl.deleteTexture(this._texture);if(this._program)gl.deleteProgram(this._program);try{gl.getExtension('WEBGL_lose_context')?.loseContext();}catch{}}this._gpu=[];this._texture=null;this._program=null;this._gl=null;if(this._image){this._image.onload=null;this._image.onerror=null;}this._image=null;this._parts=[];this._ready=false;if(this._surface){this._surface.width=1;this._surface.height=1;}this._output=null;this._surface=null;}
  }
 });

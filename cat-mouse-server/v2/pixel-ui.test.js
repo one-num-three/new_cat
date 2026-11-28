@@ -117,15 +117,16 @@ test('all pixel controls bind existing handlers with an accessible label and sca
 });
 
 test('dynamic room and terminal action labels use native text when source-button copy would be wrong',()=>{
+  const roomWxml=read('pages/room/room.wxml');
+  assert.ok(control('room','openVenueActionSheet'));
+  assert.match(roomWxml,/bindtap="openVenueActionSheet"[\s\S]*?{{venue\?'调整范围':'设定范围'}}/);
   const cases=[
-    ['room','chooseVenue',{venue:null},'确认位置',true],
-    ['room','chooseVenue',{venue:{confirmed:true}},'重选位置',false],
-    ['room','start',{canStart:false},'等待所有人准备',true],
-    ['room','start',{canStart:true},'开始30秒躲藏',false],
-    ['room','toggleReady',{ready:false},'定位并准备',true],
+    ['room','start',{canStart:false},'等待就绪',true],
+    ['room','start',{canStart:true},'开始活动',false],
+    ['room','toggleReady',{ready:false},'定位准备',true],
     ['room','toggleReady',{ready:true},'取消准备',false],
-    ['map','leave',{terminal:true},'返回首页',true],
-    ['map','leave',{terminal:false},'退出本局',false]
+    ['map','leave',{terminal:true},'回首页',true],
+    ['map','leave',{terminal:false},'退出活动',false]
   ];
   for(const [page,action,data,label,dynamic]of cases){
     const tag=control(page,action);assert.equal(expr(attr(tag,'label'),data),label);assert.equal(expr(attr(tag,'dynamic'),data),dynamic,page+' '+action);
@@ -237,12 +238,12 @@ test('pixel font embeds exactly the retained 107816-byte variable WOFF with its 
 });
 
 
-test('offline and paused headers cannot imply active pursuit, and large-code action stays blue',()=>{
+test('offline and paused headers cannot imply active pursuit, and large-code action stays neutral',()=>{
  const w=read('pages/map/map.wxml'),label=w.match(/<text class="phaseName">({{[\s\S]*?}})<\/text>/)[1];
- for(const [data,expected] of [[{offline:true,uiState:'offline',phaseText:'追逐中'},'重连中'],[{offline:false,uiState:'paused',phaseText:'追逐中'},'本局暂停'],[{offline:false,uiState:'captured',phaseText:'本轮出局'},'已出局'],[{offline:false,uiState:'hiding',phaseText:'躲藏阶段'},'躲藏阶段']])assert.equal(expr(label,data),expected);
- assert.equal(attr(control('qrcode','back'),'tone'),'blue');
- assert.match(read('pages/qrcode/qrcode.wxml'),/class="demoArt"[^>]*src="\/assets\/pixel-v1\/code-demo-art.png"[^>]*mode="widthFix"/);
- for(const asset of ['drawer-cat-avatar','drawer-mouse-avatar','drawer-title-icon','drawer-event-icon','drawer-rules-icon'])assert.ok(w.includes('/assets/pixel-v1/'+asset+'.png'));
+ for(const [data,expected] of [[{offline:true,uiState:'offline',phaseText:'追逐中'},'重连中'],[{offline:false,uiState:'paused',phaseText:'追逐中'},'已暂停'],[{offline:false,uiState:'captured',phaseText:'已核验'},'已核验'],[{offline:false,uiState:'hiding',phaseText:'躲藏阶段'},'躲藏阶段']])assert.equal(expr(label,data),expected);
+ assert.equal(attr(control('qrcode','back'),'tone'),'plain');
+ assert.match(read('pages/qrcode/qrcode.wxml'),/class="demoArt"[^>]*src="\/assets\/sdv-v1\/demo-cat-mouse.png"[^>]*mode="widthFix"/);
+ for(const asset of ['drawer-title','hud-cat','hud-mouse'])assert.ok(w.includes('/assets/sdv-v1/'+asset+'.png'));
  assert.doesNotMatch(w,/ready-avatar-/);
 });
 

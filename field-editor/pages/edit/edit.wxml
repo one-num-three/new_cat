@@ -65,9 +65,12 @@
         <text>删除顶点 {{selected+1}}</text>
       </button>
 
-      <view wx:if="{{error || validation}}" class="sdvError sdvErrorRow fieldError" bindtap="clearError" role="alert">
-        <text class="errorText">{{error || validation}}</text>
+      <view wx:if="{{error}}" class="sdvError sdvErrorRow fieldError" bindtap="clearError" role="alert">
+        <text class="errorText">{{error}}</text>
         <text class="errorClose" aria-hidden="true">×</text>
+      </view>
+      <view wx:if="{{validation}}" class="sdvError fieldError" role="status">
+        <text class="errorText">{{validation}}</text>
       </view>
       <button wx:if="{{needSetting}}" class="sdvBtn sdvBtnBlue sdvBtnSm permLinkBtn" hover-class="sdvPressed" bindtap="openPermSettings">去开启定位权限</button>
       <button wx:if="{{!editable && !loading}}" class="sdvBtn sdvBtnPaper sdvBtnSm" hover-class="sdvPressed" bindtap="loadRoom">重试</button>
@@ -75,8 +78,8 @@
   </scroll-view>
 
   <view class="fieldFooter">
-    <view class="fieldFooterRow {{points.length>=3 && !meeting?'hasAutoMeeting':''}}">
-      <button wx:if="{{points.length>=3 && !meeting}}" class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="autoMeeting" disabled="{{busy || !editable}}">
+    <view class="fieldFooterRow {{points.length>=3 && (!meeting || mode==='meeting' || validation==='集合点需要在活动范围内')?'hasAutoMeeting':''}}">
+      <button wx:if="{{points.length>=3 && (!meeting || mode==='meeting' || validation==='集合点需要在活动范围内')}}" class="sdvBtn sdvBtnGreen sdvBtnSm" hover-class="sdvPressed" bindtap="autoMeeting" disabled="{{busy || !editable}}">
         <map-icon kind="pin" size="14" color="#fffdf6" />
         <text>一键中心集合点</text>
       </button>

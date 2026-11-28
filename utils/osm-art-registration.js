@@ -30,7 +30,7 @@ function region(p,width,height,imageId=catalog.DEFAULT_ID){
  const corners=[[-1,-1],[-1,1],[1,-1],[1,1]].map(([x,y])=>[c[0]+x*r,c[1]+y*r]);
  if(corners.some(p=>!raw(p,m)))return null; // Never truncate a clue at the hull.
  const pixels=[];
- for(const t of m.triangles){let poly=t.map(i=>m.world[i]);for(const [axis,bound,sign] of [[0,c[0]-r,1],[0,c[0]+r,-1],[1,c[1]-r,1],[1,c[1]+r,-1]])poly=clip(poly,axis,bound,sign);for(const p of poly)pixels.push(transfer(p,t,m));}
+ for(const t of m.triangles){let poly=t.map(i=>m.world[i]);for(const [axis,bound,sign] of [[0,c[0]-r,1],[0,c[0]+r,-1],[1,c[1]-r,1],[1,c[1]+r,-1]])poly=clip(poly,axis,bound,sign);for(const p of poly){const px=transfer(p,t,m);if(px)pixels.push(px);}}
  if(!pixels.length)return null;
  const xs=pixels.map(p=>p[0]*width/m.image.width),ys=pixels.map(p=>p[1]*height/m.image.height),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);
  return {x:(left+right)/2,y:(top+bottom)/2,rx:(right-left)/Math.SQRT2,ry:(bottom-top)/Math.SQRT2,angle:0};

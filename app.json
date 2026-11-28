@@ -94,6 +94,12 @@
         "field-editor",
         "venue-xuanwu"
       ]
+    },
+    "pages/venue/venue": {
+      "network": "all",
+      "packages": [
+        "venue-maps"
+      ]
     }
   }
 }

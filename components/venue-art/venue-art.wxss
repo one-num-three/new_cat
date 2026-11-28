@@ -14,15 +14,19 @@
 .venueScene{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
 .geoAnchor{position:absolute;pointer-events:none;filter:var(--venue-overlay-filter,none)}
 .geoBadge{position:absolute;width:0;height:0;transform-origin:0 0}
-.geoMarker{position:absolute;display:block;max-width:none!important;z-index:1;image-rendering:pixelated;filter:drop-shadow(0 1px 0 #fffdf6) drop-shadow(0 2px 3px rgba(27,16,8,.55))}
-.geoDot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;box-sizing:border-box;border-radius:50%;background:#2274c4;border:2px solid #fffdf6;box-shadow:0 0 0 1.5px #103966,0 0 0 5px rgba(34,116,196,.38);z-index:2;pointer-events:none}
+.geoMarker{position:absolute;display:block;max-width:none!important;z-index:1;image-rendering:pixelated;filter:drop-shadow(0 1px 0 rgba(255,253,246,.85)) drop-shadow(0 2px 3px rgba(32,16,6,.52))}
+.geoDot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;box-sizing:border-box;border-radius:50%;background:#2274c4;border:2px solid #fffdf6;box-shadow:0 0 0 1.5px #103966,0 0 0 5px rgba(34,116,196,.34);z-index:2;pointer-events:none}
+.geo-self .geoDot::after,.geo-enemy .geoDot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(56,152,245,.82);animation:geoPulse 2.1s ease-out infinite;pointer-events:none}
+.geo-enemy .geoDot::after{border-color:rgba(217,38,38,.84)}
+@keyframes geoPulse{0%{transform:scale(.85);opacity:.85}75%{transform:scale(2.1);opacity:0}100%{transform:scale(2.1);opacity:0}}
 .geo-ally .geoDot{left:-6px;top:-6px;width:12px;height:12px;background:#3f8f34;box-shadow:0 0 0 1.5px #1b4714,0 0 0 4px rgba(63,143,52,.36)}
-.geo-enemy .geoDot{left:-6px;top:-6px;width:12px;height:12px;background:#d92626;box-shadow:0 0 0 1.5px #4f170c,0 0 0 4px rgba(217,38,38,.32)}
-.geo-venue .geoDot{left:-4.5px;top:-4.5px;width:9px;height:9px;border-width:1.5px;background:#f09c1a;box-shadow:0 0 0 1.5px #4f2710}
-.geoLabel{position:absolute;left:0;top:10px;transform:translateX(-50%);white-space:nowrap;padding:0 5px;background:rgba(255,253,246,.94);border:1.5px solid #4f2710;font-size:11px;line-height:15px;color:#332012;text-shadow:none;z-index:3}
-.geo-self .geoLabel{background:#2274c4;border-color:#103966;color:#fffdf6}
+.geo-enemy .geoDot{left:-6px;top:-6px;width:12px;height:12px;background:#d92626;box-shadow:0 0 0 1.5px #4f170c,0 0 0 4px rgba(217,38,38,.36)}
+.geo-venue .geoDot{left:-5px;top:-5px;width:10px;height:10px;border-width:1.5px;background:#f09c1a;box-shadow:0 0 0 1.5px #4f2710,0 0 0 3px rgba(240,156,26,.28)}
+.geoLabel{position:absolute;left:0;top:11px;transform:translateX(-50%);white-space:nowrap;padding:1px 6px;background:rgba(255,249,232,.96);border:2px solid #7b3c14;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 0 rgba(59,29,11,.28);font-size:11px;line-height:14px;color:#3b1d0b;text-shadow:none;z-index:3}
+.geo-self .geoLabel{background:#1e64a8;border-color:#0e355e;color:#fffdf6}
 .geo-ally .geoLabel{background:#2c6122;border-color:#163811;color:#fffdf6}
-.geo-enemy .geoLabel{background:#d92626;border-color:#4f170c;color:#fffdf6}
-.geoRegion{position:absolute;border:2.5px dashed #e87f24;background:rgba(232,127,36,.18);box-shadow:0 0 0 1.5px rgba(255,253,246,.55),inset 0 0 0 1px rgba(79,39,16,.28);box-sizing:border-box;border-radius:50%;pointer-events:none;filter:var(--venue-overlay-filter,none)}
+.geo-enemy .geoLabel{background:#c73322;border-color:#5c140c;color:#fffdf6}
+.geo-venue .geoLabel{background:#fff2cc;border-color:#8a4d12;color:#4f2710}
+.geoRegion{position:absolute;border:2.5px dashed #e27b20;background:rgba(244,162,54,.2);box-shadow:0 0 0 1.5px rgba(255,253,246,.58),inset 0 0 0 1px rgba(79,39,16,.28);box-sizing:border-box;border-radius:50%;pointer-events:none;filter:var(--venue-overlay-filter,none)}
 .geoPin{display:block;width:24px;height:24px;line-height:24px;text-align:center;background:#e87f24;color:#fffdf6;border:2px solid #4f2710;border-radius:50%;font-size:12px;pointer-events:none}
 .venueBoundaryLine{position:absolute;height:3px;background:#4a943b;border-top:1px solid #fffdf6;border-bottom:1px solid #fffdf6;transform-origin:0 50%;pointer-events:none;box-sizing:border-box;filter:var(--venue-overlay-filter,none)}
