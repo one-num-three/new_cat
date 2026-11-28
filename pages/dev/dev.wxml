@@ -1,4 +1,4 @@
-<view wx:if="{{available}}" class="screen devScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view wx:if="{{available}}" class="screen devScreen {{themeMode==='night'?'sdvNight sdvDeepNight':themeMode==='dusk'?'sdvNight sdvDusk':nightMode?'sdvNight sdvDeepNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="猫鼠行动" back="{{true}}" />
 
   <view class="devWrap">

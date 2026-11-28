@@ -568,6 +568,26 @@ page,.sdvScreen{
   --venue-attr-bg:rgba(30,43,77,.86);
   --venue-attr-border:rgba(181,119,60,.65);
   --venue-attr-color:#faecd0;
+  --modal-panel-bi:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAABMCAMAAADwSaEZAAAAYFBMVEVEMSEUCwVXMRKMVSUnFQrCg0IzIxZzRBsAAAD1xngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMVioAAAAIHRSTlP//////////wD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHWLUo4AAACJSURBVHja7dhBDoAgDETRClX0/he2JE5iJMEiOzt/qfIWurGV/WqZCIYEwuqFdSKAUTBAh5WvkpU73e/XcwCjYWqlD9VzUTG8WB0IH4KY6uaIWIvJS/W5YuEcMWLEiBEjRoyYFxNH7h+XIBjnAB/2HMRKp+Gp7qcY9xp+DIulNFGzpQqAcU87hJ35oT8B2ZIGEwAAAABJRU5ErkJggg==");
+  --modal-header-bg:#242a4a;
+  --modal-header-border:#0e1529;
+  --modal-header-shadow:inset 0 2px 0 #394575,inset 0 -3px 0 #3f7a34,inset 0 -5px 0 #62a851;
+  --modal-title-color:#faecd0;
+  --modal-body-bg:#3b2b1d;
+  --modal-copy-color:#faecd0;
+  --modal-footer-bg:#2f2116;
+  --modal-footer-border:#9c6430;
+  --modal-sheet-bw:2px;
+  --modal-sheet-bg:#4d3826;
+  --modal-sheet-bc:#a36a35;
+  --modal-sheet-bi:none;
+  --modal-sheet-shadow:inset 0 1px 0 #6b4d34;
+  --modal-sheet-color:#faecd0;
+  --modal-sheet-hint:#d8c29e;
+  --modal-sheet-active-color:#9be889;
+  --modal-sheet-arrow:#9be889;
+  --modal-btn-plain-color:#faecd0;
+  --modal-btn-plain-bi:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEVOOCQUCwUtHhK1dzwAAADywnIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSb205AAAAIHRSTlP/////AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL+SNhkAAABVSURBVHja7dfLCgAgCERRe/3/L6eQELRJocXQ3F3EcWtJ10oicwKK/dAuqis3yNguhiYX7QPQsQQiJiYmJiYmfo99YaeWOziOhI6jA45XLxj+8F81AcFQDTFN3LbYAAAAAElFTkSuQmCC");
 }
 
 .sdvNight .pinnedNav{
@@ -865,7 +885,7 @@ page,.sdvScreen{
 .sdvNight .sdvIconBtn.sdvBtnWood map-icon,
 .sdvNight .edgeButton pixel-glyph,
 .sdvNight .dockSecondary pixel-glyph,
-.sdvNight .sheetCloseButton pixel-glyph,
+.sdvNight .sheetCloseButton:not(.drawerNightBtn) pixel-glyph,
 .sdvNight .venueNavChip pixel-glyph,
 .sdvNight .resumeLeft map-icon,
 .sdvNight .identityLabelWrap map-icon,
@@ -941,4 +961,739 @@ page,.sdvScreen{
   border-image-repeat:round;
   image-rendering:pixelated;
   color:#ffd8cf;
+}
+
+/* 傍晚档（.sdvNight.sdvDusk）：共用夜间 UI 骨架，整体暖暮压暗、按钮与头像柔和降亮 */
+.sdvNight.sdvDusk,.sdvNight.sdvDusk.sdvScreen,.sdvNight.sdvDusk.screen,.sdvNight.sdvDusk.mapPage{
+  background-color:#323d69;
+  background-image:none;
+  --nav-logo-filter:brightness(.82) saturate(.88);
+  --venue-art-filter:brightness(.78) saturate(.90) contrast(1.04) sepia(.10) hue-rotate(-6deg);
+  --venue-vp-bg:#21294a;
+  --venue-attr-bg:rgba(50,61,105,.86);
+  --venue-overlay-filter:brightness(.86) saturate(.90);
+  --venue-ctrl-filter:brightness(.82) saturate(.86);
+  --action-filter:brightness(.82) saturate(.86);
+  --modal-btn-filter:brightness(.82) saturate(.86);
+}
+
+.sdvNight.sdvDusk .pinnedNav{
+  background-color:#263057;
+  background-image:none;
+  border-bottom-color:#171e38;
+}
+
+.sdvNight.sdvDusk .homeHero,.sdvNight.sdvDusk .createHeroImg,.sdvNight.sdvDusk .resultHero,.sdvNight.sdvDusk .sdvMeadowFooter,.sdvNight.sdvDusk .fenceMascot{
+  filter:brightness(.78) saturate(.90) contrast(1.04) sepia(.10) hue-rotate(-6deg);
+}
+
+.sdvNight.sdvDusk .hudAvatar,.sdvNight.sdvDusk .victoryMascot,.sdvNight.sdvDusk .drawerLogo,.sdvNight.sdvDusk .squadHead image,.sdvNight.sdvDusk .teamMember image,.sdvNight.sdvDusk .teamSpriteIcon,.sdvNight.sdvDusk .chipSprite,.sdvNight.sdvDusk .playerAvatar,.sdvNight.sdvDusk .venueGuideImage,.sdvNight.sdvDusk .historyRoleImg,.sdvNight.sdvDusk .trackRoleIcon,.sdvNight.sdvDusk .demoArt,.sdvNight.sdvDusk .historyEmptyArt,.sdvNight.sdvDusk .shareEmptyArt,.sdvNight.sdvDusk .codePlaceholder image,.sdvNight.sdvDusk .avatar-img,.sdvNight.sdvDusk .sectionHeading image{
+  filter:brightness(.82) saturate(.88);
+}
+
+.sdvNight.sdvDusk .sdvBtnGreen,.sdvNight.sdvDusk .sdvBtnAmber,.sdvNight.sdvDusk .sdvBtnBlue,.sdvNight.sdvDusk .sdvBtnRed,.sdvNight.sdvDusk .dockPrimary,.sdvNight.sdvDusk .sdvPillActive,.sdvNight.sdvDusk .clipSuggestAction,.sdvNight.sdvDusk .clipManualAction,.sdvNight.sdvDusk .fgLocationBtn,.sdvNight.sdvDusk .compactButton{
+  filter:brightness(.82) saturate(.86);
+}
+
+/* 夜晚档（.sdvNight.sdvDeepNight）：全元素统一柔暗护眼亮度，消除局部刺眼高光 */
+.sdvNight.sdvDeepNight,.sdvNight.sdvDeepNight.sdvScreen,.sdvNight.sdvDeepNight.screen,.sdvNight.sdvDeepNight.mapPage{
+  background-color:#101521;
+  color:#9a9182;
+  --signal-bg:#141210;
+  --signal-border:2px solid #3f3224;
+  --signal-border-image:none;
+  --signal-shadow:none;
+  --signal-color:#9a9182;
+  --signal-bar-off:#332b23;
+  --signal-bar-good:#416e3a;
+  --signal-bar-fair:#8f5d24;
+  --signal-bar-weak:#853b31;
+  --nav-brand-border-image:none;
+  --nav-back-border-image:none;
+  --nav-title-color:#9a9182;
+  --nav-logo-filter:brightness(.71) saturate(.86);
+  --nav-preview-bg:#261d12;
+  --nav-preview-bc:#594020;
+  --nav-preview-color:#a88656;
+  --venue-art-filter:brightness(.44) saturate(.64) contrast(1.12) hue-rotate(-14deg);
+  --venue-vp-bg:#090c14;
+  --venue-attr-bg:rgba(14,18,28,.9);
+  --venue-attr-border:rgba(82,64,46,.55);
+  --venue-attr-color:#8a8275;
+  --venue-overlay-filter:brightness(.58) saturate(.72);
+  --venue-ctrl-filter:brightness(.58) saturate(.72);
+  --action-bw:3px;
+  --action-filter:none;
+  --action-orange-bi:none;
+  --action-orange-bg:#18130e;
+  --action-orange-bc:#543619;
+  --action-orange-shadow:inset 0 2px 0 #241c15,inset 0 -2px 0 #0c0907;
+  --action-orange-color:#a88656;
+  --action-green-bi:none;
+  --action-green-bg:#101711;
+  --action-green-bc:#284726;
+  --action-green-shadow:inset 0 2px 0 #18241a,inset 0 -2px 0 #080c08;
+  --action-green-color:#6b9464;
+  --action-blue-bi:none;
+  --action-blue-bg:#10161f;
+  --action-blue-bc:#253d54;
+  --action-blue-shadow:inset 0 2px 0 #17202e,inset 0 -2px 0 #070a0f;
+  --action-blue-color:#6787a1;
+  --action-red-bi:none;
+  --action-red-bg:#181010;
+  --action-red-bc:#52231e;
+  --action-red-shadow:inset 0 2px 0 #261717,inset 0 -2px 0 #0c0707;
+  --action-red-color:#a3675f;
+  --action-plain-bi:none;
+  --action-plain-bg:#14171f;
+  --action-plain-bc:#2f3647;
+  --action-plain-shadow:inset 0 2px 0 #1d222e,inset 0 -2px 0 #0a0c10;
+  --action-plain-color:#9a9182;
+  --modal-panel-bi:none;
+  --modal-panel-bw:4px;
+  --modal-panel-bg:#171412;
+  --modal-panel-bc:#3d3023;
+  --modal-panel-shadow:inset 0 2px 0 #241e18;
+  --modal-header-bg:#131826;
+  --modal-header-border:#090c14;
+  --modal-header-shadow:inset 0 2px 0 #1f273d,inset 0 -3px 0 #264a1f;
+  --modal-title-color:#9a9182;
+  --modal-body-bg:#1b1612;
+  --modal-copy-color:#9a9182;
+  --modal-footer-bg:#15110e;
+  --modal-footer-border:#423120;
+  --modal-sheet-bw:2px;
+  --modal-sheet-bi:none;
+  --modal-sheet-bg:#1e1915;
+  --modal-sheet-bc:#453526;
+  --modal-sheet-shadow:inset 0 1px 0 #2b231c;
+  --modal-sheet-color:#9a9182;
+  --modal-sheet-hint:#736b5f;
+  --modal-sheet-active-color:#6b9464;
+  --modal-sheet-arrow:#6b9464;
+  --modal-badge-bg:#1b301c;
+  --modal-badge-bc:#2f542d;
+  --modal-badge-color:#6b9464;
+  --modal-close-bw:2px;
+  --modal-btn-bw:3px;
+  --modal-btn-filter:none;
+  --modal-btn-plain-bi:none;
+  --modal-btn-plain-bg:#14171f;
+  --modal-btn-plain-bc:#2f3647;
+  --modal-btn-plain-shadow:inset 0 2px 0 #1d222e,inset 0 -2px 0 #0a0c10;
+  --modal-btn-plain-color:#9a9182;
+  --modal-btn-green-bi:none;
+  --modal-btn-green-bg:#101711;
+  --modal-btn-green-bc:#284726;
+  --modal-btn-green-shadow:inset 0 2px 0 #18241a,inset 0 -2px 0 #080c08;
+  --modal-btn-green-color:#6b9464;
+  --modal-btn-amber-bi:none;
+  --modal-btn-amber-bg:#18130e;
+  --modal-btn-amber-bc:#543619;
+  --modal-btn-amber-shadow:inset 0 2px 0 #241c15,inset 0 -2px 0 #0c0907;
+  --modal-btn-amber-color:#a88656;
+  --modal-btn-red-bi:none;
+  --modal-btn-red-bg:#181010;
+  --modal-btn-red-bc:#52231e;
+  --modal-btn-red-shadow:inset 0 2px 0 #261717,inset 0 -2px 0 #0c0707;
+  --modal-btn-red-color:#a3675f;
+}
+
+.sdvNight.sdvDeepNight .pinnedNav{
+  background-color:#0b0f18;
+  border-bottom-color:#06090f;
+  box-shadow:inset 0 2px 0 #171f30,inset 0 -4px 0 #24451e,inset 0 -6px 0 #355e2c,0 2px 0 #070a10;
+  filter:brightness(.76) saturate(.78);
+}
+
+.sdvNight.sdvDeepNight .floatingNav .navTitle,.sdvNight.sdvDeepNight .floatingNav .navBack{
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .pinnedNav .navTitle,.sdvNight.sdvDeepNight .pinnedNav .navBack{
+  color:#c7bcae;
+}
+
+.sdvNight.sdvDeepNight .navBack{
+  background:#14171f;
+  border:2px solid #2f3647;
+  border-image-source:none;
+  box-shadow:inset 0 1px 0 #1d222e;
+}
+
+.sdvNight.sdvDeepNight .homeHero,.sdvNight.sdvDeepNight .createHeroImg,.sdvNight.sdvDeepNight .resultHero,.sdvNight.sdvDeepNight .sdvMeadowFooter,.sdvNight.sdvDeepNight .fenceMascot{
+  filter:brightness(.46) saturate(.66) contrast(1.08) hue-rotate(-14deg);
+}
+
+.sdvNight.sdvDeepNight .hudAvatar,.sdvNight.sdvDeepNight .victoryMascot,.sdvNight.sdvDeepNight .drawerLogo,.sdvNight.sdvDeepNight .squadHead image,.sdvNight.sdvDeepNight .teamMember image,.sdvNight.sdvDeepNight .teamSpriteIcon,.sdvNight.sdvDeepNight .chipSprite,.sdvNight.sdvDeepNight .playerAvatar,.sdvNight.sdvDeepNight .venueGuideImage,.sdvNight.sdvDeepNight .historyRoleImg,.sdvNight.sdvDeepNight .trackRoleIcon,.sdvNight.sdvDeepNight .demoArt,.sdvNight.sdvDeepNight .historyEmptyArt,.sdvNight.sdvDeepNight .shareEmptyArt,.sdvNight.sdvDeepNight .codePlaceholder image,.sdvNight.sdvDeepNight .avatar-img,.sdvNight.sdvDeepNight .sectionHeading image{
+  filter:brightness(.54) saturate(.74) contrast(1.04);
+}
+
+.sdvNight.sdvDeepNight .qr,.sdvNight.sdvDeepNight .roomQr,.sdvNight.sdvDeepNight .inlineQr image{
+  filter:brightness(.76);
+}
+
+.sdvNight.sdvDeepNight .qrCard,.sdvNight.sdvDeepNight .qrBox,.sdvNight.sdvDeepNight .inlineQr{
+  background:#b8b1a4;
+  border-color:#3c3024;
+  box-shadow:none;
+}
+
+.sdvNight.sdvDeepNight .roomQr{
+  background:#b8b1a4;
+}
+
+.sdvNight.sdvDeepNight .sdvWoodCard,.sdvNight.sdvDeepNight .sdvPlankSky,.sdvNight.sdvDeepNight .sdvPlankWood{
+  background:#171412;
+  border:4px solid #3c3024;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #241e18,inset 0 -2px 0 #0c0a09;
+  filter:none;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .bulletinBoard,.sdvNight.sdvDeepNight .createHeroCard,.sdvNight.sdvDeepNight .summaryHeroCard,.sdvNight.sdvDeepNight .codeCard,.sdvNight.sdvDeepNight .invitation{
+  padding:0;
+}
+
+.sdvNight.sdvDeepNight .codeCard{
+  padding:0 0 14px;
+}
+
+.sdvNight.sdvDeepNight .sdvPaperCard,.sdvNight.sdvDeepNight .sdvNotice{
+  background:#191613;
+  border:3px solid #3a2f24;
+  border-image-source:none;
+  box-shadow:inset 0 1px 0 #241e18;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .sdvPlank,.sdvNight.sdvDeepNight .sdvGuideTip{
+  background:#131d14;
+  border:3px solid #2b472a;
+  border-image-source:none;
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .resumeBand{
+  background:#1a1510;
+  border:3px solid #4a3723;
+  border-image-source:none;
+  box-shadow:inset 0 1px 0 #292118;
+  padding:8px 10px;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .sdvInput{
+  background:#110f0d;
+  border:3px solid #3a2f24;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #090807;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .sdvError{
+  background:#211312;
+  border:3px solid #592721;
+  border-image-source:none;
+  color:#a3675f;
+}
+
+.sdvNight.sdvDeepNight .sdvSheetDanger{
+  background:#211312;
+  border-color:#592721;
+  border-image-source:none;
+  color:#a3675f;
+}
+
+.sdvNight.sdvDeepNight .hudPlaque,.sdvNight.sdvDeepNight .floatingNav .navBrand{
+  background:#161310;
+  border:3px solid #3d3023;
+  border-image-source:none;
+  box-shadow:inset 0 1px 0 #241e18;
+  filter:drop-shadow(0 2px 0 rgba(5,8,14,.55));
+  color:#9a9182;
+  padding:4px 8px;
+}
+
+.sdvNight.sdvDeepNight .navRolePlaque{
+  padding:0 8px 0 6px;
+}
+
+.sdvNight.sdvDeepNight .sdvStickyBar,.sdvNight.sdvDeepNight .fieldPanel,.sdvNight.sdvDeepNight .fieldFooter{
+  background:#1a1511;
+  border-color:#0c0907;
+  box-shadow:inset 0 3px 0 #284726,inset 0 -2px 0 #0e0b09;
+}
+
+.sdvNight.sdvDeepNight .drawer,.sdvNight.sdvDeepNight .codeSheet{
+  background:#171412;
+  border-color:#453526;
+  box-shadow:none;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .drawerHeader,.sdvNight.sdvDeepNight .sheetGrip,.sdvNight.sdvDeepNight .codeSheetHeader{
+  background:#201a15;
+  border-bottom-color:#3d3024;
+  box-shadow:none;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .drawerHandle{
+  background:#544230;
+}
+
+.sdvNight.sdvDeepNight .drawerTabs{
+  background:#13100d;
+  border-bottom-color:#3d3024;
+}
+
+.sdvNight.sdvDeepNight .drawerTabs>.selected{
+  background:#171412;
+  border-bottom-color:#3a6b38;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .heroCaption{
+  background:#131e15;
+  border-top-color:#0b0908;
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .boardDivider,.sdvNight.sdvDeepNight .codePlank{
+  border-color:#3d3023;
+}
+
+.sdvNight.sdvDeepNight .codePlank{
+  background:#201a15;
+}
+
+.sdvNight.sdvDeepNight .createHeroStage,.sdvNight.sdvDeepNight .venueFrame{
+  background:#101521;
+  border-color:#0c0907;
+  box-shadow:none;
+}
+
+.sdvNight.sdvDeepNight .identityCompactBtn,.sdvNight.sdvDeepNight .sdvInfoChip,.sdvNight.sdvDeepNight .teamSpriteStrip,.sdvNight.sdvDeepNight .venueGuide,.sdvNight.sdvDeepNight .sdvPillGroup,.sdvNight.sdvDeepNight .squad,.sdvNight.sdvDeepNight .rulesBox,.sdvNight.sdvDeepNight .mapStatus,.sdvNight.sdvDeepNight .playerCard,.sdvNight.sdvDeepNight .calPickBar,.sdvNight.sdvDeepNight .trackLegendBar,.sdvNight.sdvDeepNight .trackFileBadge,.sdvNight.sdvDeepNight .demoCard,.sdvNight.sdvDeepNight .resultMetricSky,.sdvNight.sdvDeepNight .codeRow,.sdvNight.sdvDeepNight .codePlate,.sdvNight.sdvDeepNight .safetyNote,.sdvNight.sdvDeepNight .venueDropInner,.sdvNight.sdvDeepNight .summaryRibbon,.sdvNight.sdvDeepNight .resultVictoryBanner,.sdvNight.sdvDeepNight .guideStepCard,.sdvNight.sdvDeepNight .consentCard,.sdvNight.sdvDeepNight .shareEmpty,.sdvNight.sdvDeepNight .historyStatBox,.sdvNight.sdvDeepNight .venuePickerValue,.sdvNight.sdvDeepNight .fieldNamePill,.sdvNight.sdvDeepNight .venueNavChip,.sdvNight.sdvDeepNight .hudGuideInline,.sdvNight.sdvDeepNight .demoArtFrame,.sdvNight.sdvDeepNight .calStepTabs,.sdvNight.sdvDeepNight .captureRetryBar{
+  background:#1d1814;
+  border-color:#3d3024;
+  box-shadow:none;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .squadHead{
+  background:#241c15;
+  border-bottom-color:#4d3824;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .miceGroup .squadHead{
+  background:#152417;
+  border-bottom-color:#2d4f2c;
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .resultMetric,.sdvNight.sdvDeepNight .victory-mouseWin,.sdvNight.sdvDeepNight .inviteBanner{
+  background:#142116;
+  border-color:#2d4f2c;
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .victory-catWin{
+  background:#211912;
+  border-color:#543a1f;
+}
+
+.sdvNight.sdvDeepNight .victory-cancelled{
+  background:#1d1915;
+  border-color:#3f352b;
+}
+
+.sdvNight.sdvDeepNight .statusReconnect{
+  border-left-color:#592721;
+}
+
+.sdvNight.sdvDeepNight .proximityWarning{
+  background:#1e1711;
+  border-color:#543a1f;
+  border-left-color:#7d491c;
+  color:#a88656;
+}
+
+.sdvNight.sdvDeepNight .teamField text{
+  color:#736b5f;
+}
+
+.sdvNight.sdvDeepNight .teamField input{
+  background:#110f0d;
+  border-color:#3a2f24;
+  box-shadow:none;
+}
+
+.sdvNight.sdvDeepNight .teamField input.editing,.sdvNight.sdvDeepNight .teamField .teamValue{
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .locationPin{
+  background:#1d1814;
+  border-color:#544230;
+}
+
+.sdvNight.sdvDeepNight .locationPin.confirmed{
+  background:#2d4f2c;
+}
+
+.sdvNight.sdvDeepNight .locationPin::after{
+  background:#9a9182;
+  border-color:#3a2f24;
+}
+
+.sdvNight.sdvDeepNight .hostMark{
+  background:#261d12;
+  border-color:#594020;
+}
+
+.sdvNight.sdvDeepNight .readyMark.isReady{
+  background:#142116;
+  border-color:#2d4f2c;
+}
+
+.sdvNight.sdvDeepNight .readyMark.isWaiting{
+  background:#1c1a18;
+  border-color:#3d3832;
+}
+
+.sdvNight.sdvDeepNight .readyDot{
+  color:#736b5f;
+}
+
+.sdvNight.sdvDeepNight .safetyMark{
+  background:#3d2b15;
+  border-color:#543a1f;
+  color:#a88656;
+}
+
+.sdvNight.sdvDeepNight .qrStateMark{
+  background:#4f211c;
+  border-color:#70312a;
+  color:#ad8b85;
+}
+
+.sdvNight.sdvDeepNight .loadingPixels view{
+  background:#2d4f2c;
+  border-color:#182b18;
+}
+
+.sdvNight.sdvDeepNight .eventRow{
+  color:#9a9182;
+  border-left-color:#7d491c;
+}
+
+.sdvNight.sdvDeepNight .advancedRules{
+  border-top-color:#303d2e;
+}
+
+.sdvNight.sdvDeepNight .legendItem{
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .legendSwatch{
+  filter:brightness(.62) saturate(.72);
+}
+
+.sdvNight.sdvDeepNight .previewItem{
+  background:#161922;
+  border:2px solid #30374a;
+  border-image-source:none;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .mapLocationSignal,.sdvNight.sdvDeepNight .roomLocationSignal{
+  --signal-bg:#141210;
+  --signal-border:2px solid #3f3224;
+  --signal-border-image:none;
+  --signal-shadow:none;
+  --signal-color:#9a9182;
+  --signal-bar-off:#332b23;
+}
+
+.sdvNight.sdvDeepNight .mapLoading{
+  background:rgba(16,18,26,.94);
+  color:#9a9182;
+}
+
+/* 统一全站文字与标签亮度 */
+.sdvNight.sdvDeepNight .sdvIconTitle,.sdvNight.sdvDeepNight .identityLabel,.sdvNight.sdvDeepNight .identityCompactLabel,.sdvNight.sdvDeepNight .playerName,.sdvNight.sdvDeepNight .roomCode,.sdvNight.sdvDeepNight .inviteCode,.sdvNight.sdvDeepNight .venueTitle,.sdvNight.sdvDeepNight .summaryVenue,.sdvNight.sdvDeepNight .compactClock,.sdvNight.sdvDeepNight .bodyCopy,.sdvNight.sdvDeepNight .drawerHeaderTitle,.sdvNight.sdvDeepNight .toolLabel,.sdvNight.sdvDeepNight .teamSpriteText,.sdvNight.sdvDeepNight .rosterName,.sdvNight.sdvDeepNight .settingsCopy,.sdvNight.sdvDeepNight .statsValue,.sdvNight.sdvDeepNight .instruction,.sdvNight.sdvDeepNight .demoTitle,.sdvNight.sdvDeepNight .devTitle,.sdvNight.sdvDeepNight .entryTitle,.sdvNight.sdvDeepNight .venueReference,.sdvNight.sdvDeepNight .tracksTitle,.sdvNight.sdvDeepNight .guideStepDesc,.sdvNight.sdvDeepNight .shareEmptyTitle,.sdvNight.sdvDeepNight .consentCopy,.sdvNight.sdvDeepNight .historyVenue,.sdvNight.sdvDeepNight .historyEmptyTitle,.sdvNight.sdvDeepNight .statVenue,.sdvNight.sdvDeepNight .emptyTitle,.sdvNight.sdvDeepNight .statusTitle,.sdvNight.sdvDeepNight .resumeText,.sdvNight.sdvDeepNight .sectionHeading,.sdvNight.sdvDeepNight .heading{
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .drawerTabs>button,.sdvNight.sdvDeepNight .sdvPill,.sdvNight.sdvDeepNight .resultReason,.sdvNight.sdvDeepNight .createParamHint,.sdvNight.sdvDeepNight .progressTag,.sdvNight.sdvDeepNight .progressSep,.sdvNight.sdvDeepNight .fieldPlaceholder,.sdvNight.sdvDeepNight .venueHint,.sdvNight.sdvDeepNight .legendFoot,.sdvNight.sdvDeepNight .demoCaption,.sdvNight.sdvDeepNight .inviteNote,.sdvNight.sdvDeepNight .settingsNote,.sdvNight.sdvDeepNight .statLabel,.sdvNight.sdvDeepNight .statDenom,.sdvNight.sdvDeepNight .eventTime,.sdvNight.sdvDeepNight .createParamBar,.sdvNight.sdvDeepNight .devNote,.sdvNight.sdvDeepNight .gpsCoordinates,.sdvNight.sdvDeepNight .tracksSub,.sdvNight.sdvDeepNight .vibeMuted .toolLabel,.sdvNight.sdvDeepNight .shareEmptySub,.sdvNight.sdvDeepNight .historyStatLabel,.sdvNight.sdvDeepNight .historyMeta,.sdvNight.sdvDeepNight .historyExpiredTip,.sdvNight.sdvDeepNight .historyEmptyCopy,.sdvNight.sdvDeepNight .rosterState,.sdvNight.sdvDeepNight .waitingHost,.sdvNight.sdvDeepNight .recordNote,.sdvNight.sdvDeepNight .emptyRoster,.sdvNight.sdvDeepNight .stickyHint,.sdvNight.sdvDeepNight .devLink,.sdvNight.sdvDeepNight .codeHint,.sdvNight.sdvDeepNight .qrLoading,.sdvNight.sdvDeepNight .codeFooter,.sdvNight.sdvDeepNight .codeFootnote,.sdvNight.sdvDeepNight .codePlaceholder{
+  color:#736b5f;
+}
+
+.sdvNight.sdvDeepNight .identityCompactName,.sdvNight.sdvDeepNight .victoryTitle,.sdvNight.sdvDeepNight .role-cat .roleName,.sdvNight.sdvDeepNight .signpostLink,.sdvNight.sdvDeepNight .resumeAction,.sdvNight.sdvDeepNight .venueDropValue,.sdvNight.sdvDeepNight .safetyCopy,.sdvNight.sdvDeepNight .codePlankTitle,.sdvNight.sdvDeepNight .entryNumber,.sdvNight.sdvDeepNight .venuePickerArrow,.sdvNight.sdvDeepNight .fieldArrow,.sdvNight.sdvDeepNight .consentLinkBtn,.sdvNight.sdvDeepNight .historyStatNum,.sdvNight.sdvDeepNight .orangeNumber,.sdvNight.sdvDeepNight .venueDropArrow{
+  color:#a88656;
+}
+
+.sdvNight.sdvDeepNight .victory-mouseWin .victoryTitle,.sdvNight.sdvDeepNight .role-mouse .roleName,.sdvNight.sdvDeepNight .phaseName,.sdvNight.sdvDeepNight .vibeActive .toolLabel,.sdvNight.sdvDeepNight .guideStepTitle,.sdvNight.sdvDeepNight .consentTitle,.sdvNight.sdvDeepNight .summaryPlankTitle,.sdvNight.sdvDeepNight .inviteTitle,.sdvNight.sdvDeepNight .inviteLandingHint{
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .victory-cancelled .victoryTitle{color:#7d7569;}
+.sdvNight.sdvDeepNight .navRoleDot{background:#594f44;}
+.sdvNight.sdvDeepNight .signpostDivider{color:#4a3e32;}
+.sdvNight.sdvDeepNight .compactProgress{border-left-color:#423528;}
+
+.sdvNight.sdvDeepNight .compactClock.clock-urgent{
+  background:#4f211c;
+  border-color:#70312a;
+  color:#ad8b85;
+}
+
+.sdvNight.sdvDeepNight .compactClock.clock-warn{
+  background:#3d2b15;
+  border-color:#634521;
+  color:#a88656;
+}
+
+.sdvNight.sdvDeepNight .dockBadge{
+  background:#59241e;
+  border-color:#170a08;
+  color:#ad8b85;
+}
+
+.sdvNight.sdvDeepNight .sdvBadge{
+  background:#1f1b16;
+  border-color:#45392c;
+  box-shadow:none;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .navPreviewTag,.sdvNight.sdvDeepNight .sdvBadgeAmber,.sdvNight.sdvDeepNight .victoryMedal,.sdvNight.sdvDeepNight .paramToggleTag{
+  background:#261d12;
+  border-color:#594020;
+  box-shadow:none;
+  color:#a88656;
+}
+
+.sdvNight.sdvDeepNight .sdvBadgeGreen{
+  background:#142116;
+  border-color:#2d4f2c;
+  box-shadow:none;
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .sdvBadgeBlue{
+  background:#131d26;
+  border-color:#2a4257;
+  box-shadow:none;
+  color:#6787a1;
+}
+
+.sdvNight.sdvDeepNight .sdvBadgeRed{
+  background:#241414;
+  border-color:#542621;
+  box-shadow:none;
+  color:#a3675f;
+}
+
+.sdvNight.sdvDeepNight .sdvBadgeGray{
+  background:#1c1a18;
+  border-color:#3d3832;
+  box-shadow:none;
+  color:#7d7569;
+}
+
+.sdvNight.sdvDeepNight .sdvBtnGreen{
+  background:#101711;
+  border:3px solid #284726;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #18241a,inset 0 -2px 0 #080c08;
+  color:#6b9464;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .sdvBtnAmber{
+  background:#18130e;
+  border:3px solid #543619;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #241c15,inset 0 -2px 0 #0c0907;
+  color:#a88656;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .sdvBtnBlue{
+  background:#10161f;
+  border:3px solid #253d54;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #17202e,inset 0 -2px 0 #070a0f;
+  color:#6787a1;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .sdvBtnRed{
+  background:#181010;
+  border:3px solid #52231e;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #261717,inset 0 -2px 0 #0c0707;
+  color:#a3675f;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .sdvBtnPaper,.sdvNight.sdvDeepNight .sdvBtnWood{
+  background:#14171f;
+  border:3px solid #2f3647;
+  border-image-source:none;
+  box-shadow:inset 0 2px 0 #1d222e,inset 0 -2px 0 #0a0c10;
+  color:#9a9182;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .sdvBtnSm{
+  border-width:2px;
+  padding:4px 8px;
+}
+
+.sdvNight.sdvDeepNight .sdvIconBtn,.sdvNight.sdvDeepNight .edgeButton,.sdvNight.sdvDeepNight .sheetCloseButton,.sdvNight.sdvDeepNight .drawerNightBtn{
+  background:#14171f;
+  border:2px solid #2f3647;
+  border-image-source:none;
+  box-shadow:inset 0 1px 0 #1d222e;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .edgeButton.vibeActive{
+  background:#101711;
+  border-color:#284726;
+  border-image-source:none;
+}
+
+.sdvNight.sdvDeepNight .dockPrimary,.sdvNight.sdvDeepNight .dockSecondary{
+  border-width:3px;
+  padding:6px 10px!important;
+  filter:drop-shadow(0 2px 0 rgba(5,8,14,.6));
+}
+
+.sdvNight.sdvDeepNight .sdvPillActive{
+  background:#101711;
+  border-color:#284726;
+  box-shadow:inset 0 2px 0 #18241a;
+  color:#6b9464;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .clipSuggestChip{
+  background:#121b14;
+  border-color:#284726;
+  color:#6b9464;
+}
+
+.sdvNight.sdvDeepNight .clipSuggestAction{
+  background:#172619;
+  border-color:#355e33;
+  color:#79a672;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .clipManualChip{
+  background:#14171f;
+  border-color:#2f3647;
+  color:#9a9182;
+}
+
+.sdvNight.sdvDeepNight .clipManualAction{
+  background:#1c1611;
+  border-color:#543619;
+  color:#a88656;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .fgLocationBanner{
+  background:#18130e;
+  border-color:#543619;
+  color:#a88656;
+}
+
+.sdvNight.sdvDeepNight .fgLocationBtn{
+  background:#101711;
+  border-color:#284726;
+  color:#6b9464;
+  filter:none;
+}
+
+.sdvNight.sdvDeepNight .fgLocationClose,.sdvNight.sdvDeepNight .clearCodeBtn,.sdvNight.sdvDeepNight .compactButton{
+  background:#14171f;
+  border-color:#2f3647;
+  color:#9a9182;
+  box-shadow:none;
+  filter:none;
+}
+
+/* 统一全站 map-icon 与 pixel-glyph 亮度（通过 filter 覆盖内联颜色） */
+.sdvNight.sdvDeepNight .sdvIconBtn.sdvBtnPaper map-icon,
+.sdvNight.sdvDeepNight .sdvIconBtn.sdvBtnWood map-icon,
+.sdvNight.sdvDeepNight .sdvIconBtn map-icon,
+.sdvNight.sdvDeepNight .edgeButton pixel-glyph,
+.sdvNight.sdvDeepNight .dockSecondary pixel-glyph,
+.sdvNight.sdvDeepNight .sheetCloseButton:not(.drawerNightBtn) pixel-glyph,
+.sdvNight.sdvDeepNight .venueNavChip pixel-glyph,
+.sdvNight.sdvDeepNight .resumeLeft map-icon,
+.sdvNight.sdvDeepNight .identityLabelWrap map-icon,
+.sdvNight.sdvDeepNight .identityCompactBtn map-icon,
+.sdvNight.sdvDeepNight .sdvIconTitle map-icon,
+.sdvNight.sdvDeepNight .sdvIconTitle pixel-glyph,
+.sdvNight.sdvDeepNight .settingRuleRow map-icon,
+.sdvNight.sdvDeepNight .ruleItem pixel-glyph,
+.sdvNight.sdvDeepNight .guideIcon map-icon,
+.sdvNight.sdvDeepNight .sdvPill:not(.sdvPillActive) map-icon,
+.sdvNight.sdvDeepNight .sdvBtnPaper map-icon,
+.sdvNight.sdvDeepNight .sdvBtnWood map-icon,
+.sdvNight.sdvDeepNight .sdvBtnPaper pixel-glyph,
+.sdvNight.sdvDeepNight .sdvBtnWood pixel-glyph,
+.sdvNight.sdvDeepNight .clipManualChip map-icon,
+.sdvNight.sdvDeepNight .drawerTabs pixel-glyph,
+.sdvNight.sdvDeepNight .venueDropInner map-icon,
+.sdvNight.sdvDeepNight .venueGuideLoading map-icon,
+.sdvNight.sdvDeepNight .sdvInfoChip map-icon,
+.sdvNight.sdvDeepNight .hostMark map-icon,
+.sdvNight.sdvDeepNight .readyMark map-icon,
+.sdvNight.sdvDeepNight .statIconHead pixel-glyph,
+.sdvNight.sdvDeepNight .victoryMedal pixel-glyph,
+.sdvNight.sdvDeepNight .hudGuideInline pixel-glyph,
+.sdvNight.sdvDeepNight .resultVictoryBanner pixel-glyph,
+.sdvNight.sdvDeepNight .codeSheetHeader pixel-glyph,
+.sdvNight.sdvDeepNight .signpostLink:not(:last-child) map-icon{
+  filter:brightness(0) invert(.50) sepia(.22) saturate(.85);
+}
+
+.sdvNight.sdvDeepNight .clipSuggestChip map-icon,
+.sdvNight.sdvDeepNight .sdvBtnGreen map-icon,
+.sdvNight.sdvDeepNight .sdvBtnGreen pixel-glyph,
+.sdvNight.sdvDeepNight .dockBtn.sdvBtnGreen pixel-glyph,
+.sdvNight.sdvDeepNight .sdvPillActive map-icon,
+.sdvNight.sdvDeepNight .edgeButton.vibeActive pixel-glyph{
+  filter:brightness(0) invert(.44) sepia(.34) saturate(1.25) hue-rotate(65deg);
+}
+
+.sdvNight.sdvDeepNight .sdvBtnAmber map-icon,
+.sdvNight.sdvDeepNight .sdvBtnAmber pixel-glyph,
+.sdvNight.sdvDeepNight .dockBtn.sdvBtnAmber pixel-glyph{
+  filter:brightness(0) invert(.52) sepia(.40) saturate(1.20) hue-rotate(-4deg);
+}
+
+.sdvNight.sdvDeepNight .sdvBtnBlue map-icon,
+.sdvNight.sdvDeepNight .sdvBtnBlue pixel-glyph,
+.sdvNight.sdvDeepNight .signpostLink:last-child map-icon,
+.sdvNight.sdvDeepNight .drawerNightBtn pixel-glyph{
+  filter:brightness(.56) saturate(.68);
+}
+
+.sdvNight.sdvDeepNight .sdvBtnRed map-icon,
+.sdvNight.sdvDeepNight .sdvBtnRed pixel-glyph{
+  filter:brightness(0) invert(.50) sepia(.35) saturate(1.35) hue-rotate(328deg);
+}
+
+.sdvNight.sdvDeepNight .edgeButton.vibeMuted pixel-glyph{
+  filter:brightness(0) invert(.42) sepia(.14) saturate(.70);
 }

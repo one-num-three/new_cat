@@ -3,9 +3,9 @@ const tapHaptic=(type='light')=>{try{if(typeof wx!=='undefined'&&'vibrateShort' 
 function boostBrightness(ctx){ctx._wantBright=true;if(ctx._brightBoosted)return;if(typeof wx!=='undefined'&&'getScreenBrightness' in wx&&'setScreenBrightness' in wx){try{wx.getScreenBrightness({success:r=>{if(Number.isFinite(r?.value))ctx._savedBrightness=r.value;},complete:()=>{if(!ctx._wantBright)return;try{wx.setScreenBrightness({value:0.9});ctx._brightBoosted=true;}catch{}}});}catch{}}}
 function restoreBrightness(ctx){ctx._wantBright=false;if(!ctx._brightBoosted)return;ctx._brightBoosted=false;const v=ctx._savedBrightness;ctx._savedBrightness=null;if(Number.isFinite(v)&&typeof wx!=='undefined'&&'setScreenBrightness' in wx){try{wx.setScreenBrightness({value:v});}catch{}}}
 Page({
- data:{fontScale:1,navHeight:64,nightMode:false,roomId:'',code:'',image:'',path:'/pages/index/index',error:'',loading:false,joinHint:'',copied:false},
+ data:{fontScale:1,navHeight:64,themeMode:'day',nightMode:false,roomId:'',code:'',image:'',path:'/pages/index/index',error:'',loading:false,joinHint:'',copied:false},
  onLoad(o){this.serial=0;this.setData({...presentation.metrics(),roomId:o.roomId||''});},
- onShow(){this.active=true;this.serial++;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night';if(n!==!!this.data.nightMode)this.setData({nightMode:n});}}catch{}boostBrightness(this);this.load();},onHide(){this.stop();},onUnload(){this.stop();},
+ onShow(){this.active=true;this.serial++;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const raw=wx.getStorageSync('sdvTheme'),mode=raw==='night'||raw==='dusk'?raw:'day',n=mode!=='day';if(mode!==this.data.themeMode||n!==!!this.data.nightMode)this.setData({themeMode:mode,nightMode:n});}}catch{}boostBrightness(this);this.load();},onHide(){this.stop();},onUnload(){this.stop();},
  onResize(e){this.setData(presentation.resize(e));},
  removeImage(){if(this.imagePath)try{wx.getFileSystemManager().unlinkSync(this.imagePath);}catch{}this.imagePath=null;},
  stop(){restoreBrightness(this);this.active=false;this.serial++;try{clearTimeout(this.copyTimer);}catch{}this.copyTimer=null;this.removeImage();this.setData({image:'',loading:false,copied:false});},

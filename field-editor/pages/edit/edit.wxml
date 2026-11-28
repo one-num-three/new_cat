@@ -1,4 +1,4 @@
-<view class="screen fieldScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="screen fieldScreen {{themeMode==='night'?'sdvNight sdvDeepNight':themeMode==='dusk'?'sdvNight sdvDusk':nightMode?'sdvNight sdvDeepNight':''}} {{fontScale>1.15?'large':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="集合点与活动范围" back="{{true}}" preview="{{devPreview}}" />
 
   <view class="editorTopBar">

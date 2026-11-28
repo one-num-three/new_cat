@@ -29,8 +29,8 @@
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:10rpx;
-  padding:4rpx 0 6rpx;
+  gap:16rpx;
+  padding:8rpx 0 8rpx;
   box-sizing:border-box;
 }
 
@@ -79,22 +79,22 @@
 }
 
 .boardBody{
-  padding:8rpx 8rpx 6rpx;
+  padding:14rpx 14rpx 12rpx;
   display:flex;
   flex-direction:column;
-  gap:6rpx;
+  gap:12rpx;
 }
 
 .boardDivider{
   height:0;
   border-top:2px dashed #b58447;
-  margin:2rpx 0;
+  margin:4rpx 0;
 }
 
 .joinSection{
   display:flex;
   flex-direction:column;
-  gap:6rpx;
+  gap:12rpx;
 }
 
 .homeHero{
@@ -167,14 +167,14 @@
 .identityBar{
   display:flex;
   align-items:center;
-  gap:8rpx;
+  gap:12rpx;
   padding:0;
 }
 
 .identityCompact{
   display:flex;
   align-items:center;
-  gap:8rpx;
+  gap:12rpx;
 }
 
 .identityCompactBtn{
@@ -241,7 +241,7 @@
 }
 
 .secondaryActionWrap{
-  padding:2rpx 0;
+  padding:4rpx 0;
 }
 
 .cardHead{
@@ -254,7 +254,7 @@
 .codeEntryRow{
   display:flex;
   align-items:center;
-  gap:8rpx;
+  gap:12rpx;
 }
 
 .codeInputWrap{
@@ -368,18 +368,18 @@
   color:#2c6122;
 }
 
-.cardAction{margin-top:2rpx}
+.cardAction{margin-top:6rpx}
 .homeError{margin:0}
 
 .signpostBar{
-  padding:2rpx 8rpx;
+  padding:4rpx 10rpx;
 }
 
 .signpostRow{
   display:flex;
   align-items:center;
   justify-content:space-evenly;
-  gap:4rpx;
+  gap:6rpx;
 }
 
 .signpostLink{
@@ -390,7 +390,7 @@
   width:auto!important;
   min-height:34px;
   margin:0!important;
-  padding:3px 4px!important;
+  padding:4px 6px!important;
   background:transparent;
   color:#5e3616;
   font-family:CatMouseFusionUI,ParkReplicaUI,sans-serif;

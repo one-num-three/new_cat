@@ -3,8 +3,8 @@
 .signalChip::after{border:0}
 .signalBars{display:flex;align-items:flex-end;gap:2px;height:16px;flex:none}
 .signalBar{width:3px;background:var(--signal-bar-off,#cfb582)}
-.good .lit{background:#4a943b}
-.fair .lit{background:#e87f24}
-.weak .lit{background:#d1503a}
+.good .lit{background:var(--signal-bar-good,#4a943b)}
+.fair .lit{background:var(--signal-bar-fair,#e87f24)}
+.weak .lit{background:var(--signal-bar-weak,#d1503a)}
 .muted{color:var(--signal-color,#5e3616);border-image-source:var(--signal-border-image,url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAYFBMVEX13Kt9SB7atnj/78nr0JsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABT5iN4AAAAIHRSTlP//////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOIKAJ8AAABRSURBVHja7dc7DgAgCETB9Xf/KyuJVDZoYrG6ryNmqBFtlA4yB1LsQwmUZ26YsT3UQJj5ghcwggkLCwsLCwvfxzZgI2FO7AuiLVcvGf7wX9UBdf0PoUQKOGgAAAAASUVORK5CYII="))}
 .signalChip text{font-variant-numeric:tabular-nums}

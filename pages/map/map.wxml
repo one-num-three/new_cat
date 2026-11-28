@@ -1,4 +1,4 @@
-<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
+<view bindlayout="remeasureVenue" class="mapPage state-{{uiState}} {{terminal?'documentPage':'playPage'}} {{themeMode==='night'?'sdvNight sdvDeepNight':themeMode==='dusk'?'sdvNight sdvDusk':nightMode?'sdvNight sdvDeepNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--safe-bottom:{{safeBottom}}px;--tray-duration:{{devPreview && motionPreviewMs?motionPreviewMs:260}}ms">
 <nav-bar title="猫鼠行动" pinned="{{terminal}}" preview="{{devPreview}}" custom="{{!!(match && !terminal)}}">
   <view wx:if="{{match && !terminal}}" class="hudPlaque navRolePlaque role-{{match.myRole}}" aria-label="阵营与状态">
     <image class="hudAvatar" src="{{(match && match.myRole==='mouse')?'/assets/sdv-v1/hud-mouse.png':'/assets/sdv-v1/hud-cat.png'}}" mode="aspectFit" aria-hidden="true" />
@@ -219,7 +219,7 @@
   <view class="drawerHeader">
     <image class="drawerLogo" src="/assets/sdv-v1/drawer-title.png" mode="aspectFit" />
     <text class="drawerHeaderTitle">活动战况</text>
-    <button class="sheetCloseButton drawerNightBtn" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{nightMode?'切换日间模式':'切换夜间营火模式'}}"><pixel-glyph kind="{{nightMode?'sun':'moon'}}" size="15" color="{{nightMode?'#ffd269':'#5e3616'}}" /></button>
+    <button class="sheetCloseButton drawerNightBtn" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{themeMode==='night'?'切换白天模式':themeMode==='dusk'?'切换夜晚模式':'切换傍晚模式'}}"><pixel-glyph kind="{{themeMode==='night'?'moon':themeMode==='dusk'?'dusk':'sun'}}" size="15" color="{{themeMode==='night'?'#b9d0ff':themeMode==='dusk'?'#ffb86c':'#5e3616'}}" /></button>
     <view class="drawerClose">
       <button class="sheetCloseButton" bindtap="closeDrawer" aria-label="关闭战况"><pixel-glyph kind="close" size="16" color="#332012" /></button>
     </view>

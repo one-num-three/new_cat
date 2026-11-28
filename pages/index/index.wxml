@@ -1,4 +1,4 @@
-<view class="sdvScreen homeScreen {{nightMode?'sdvNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
+<view class="sdvScreen homeScreen {{themeMode==='night'?'sdvNight sdvDeepNight':themeMode==='dusk'?'sdvNight sdvDusk':nightMode?'sdvNight sdvDeepNight':''}} {{fontScale>1.15?'fontLarge':''}} {{viewportWidth<350?'narrowCanvas':''}}" style="--nav-height:{{navHeight}}px;--font-scale:{{fontScale}};--vw:{{viewportWidth}}px;--vh:{{viewportHeight}}px;--safe-bottom:{{safeBottom}}px">
   <nav-bar pinned="{{true}}" title="猫鼠行动" preview="{{devPreview}}" />
   <view class="homeMain">
     <view class="homeContent">
@@ -96,9 +96,9 @@
             <text>说明</text>
           </button>
           <text class="signpostDivider" aria-hidden="true">|</text>
-          <button class="signpostLink" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{nightMode?'切换日间模式':'切换夜间营火模式'}}">
-            <map-icon kind="{{nightMode?'sun':'moon'}}" size="14" color="{{nightMode?'#ffd269':'#5e3616'}}" />
-            <text>{{nightMode?'日间':'夜间'}}</text>
+          <button class="signpostLink" hover-class="sdvPressed" bindtap="toggleNightMode" aria-label="{{themeMode==='night'?'切换白天模式':themeMode==='dusk'?'切换夜晚模式':'切换傍晚模式'}}">
+            <map-icon kind="{{themeMode==='night'?'moon':themeMode==='dusk'?'dusk':'sun'}}" size="15" color="{{themeMode==='night'?'#b9d0ff':themeMode==='dusk'?'#ffb86c':'#5e3616'}}" />
+            <text>{{themeMode==='night'?'夜晚':themeMode==='dusk'?'傍晚':'白天'}}</text>
           </button>
         </view>
       </view>

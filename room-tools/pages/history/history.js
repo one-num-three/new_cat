@@ -26,20 +26,22 @@ function enrich(list){
   });
 }
 Page({
-  data:{fontScale:1,navHeight:64,viewportWidth:390,viewportHeight:844,safeBottom:0,nightMode:false,records:[],totalCount:0,winCount:0,captureSum:0,clearModalOpen:false},
+  data:{fontScale:1,navHeight:64,viewportWidth:390,viewportHeight:844,safeBottom:0,themeMode:'day',nightMode:false,records:[],totalCount:0,winCount:0,captureSum:0,clearModalOpen:false},
   onLoad(){this.setData(presentation.metrics());},
   onShow(){
-    let nightMode=false,raw=[];
+    let themeMode='day',nightMode=false,raw=[];
     try{
       if(typeof wx!=='undefined'&&'getStorageSync' in wx){
-        nightMode=wx.getStorageSync('sdvTheme')==='night';
+        const t=wx.getStorageSync('sdvTheme');
+        themeMode=t==='night'||t==='dusk'?t:'day';
+        nightMode=themeMode!=='day';
         raw=wx.getStorageSync('v2MatchHistory');
       }
     }catch{}
     const records=enrich(raw);
     const winCount=records.filter(r=>(r.myRole==='cat'&&r.outcome==='cat_win')||(r.myRole==='mouse'&&r.outcome==='mouse_win')).length;
     const captureSum=records.reduce((acc,r)=>acc+(Number(r.captured)||0),0);
-    this.setData({nightMode,records,totalCount:records.length,winCount,captureSum});
+    this.setData({themeMode,nightMode,records,totalCount:records.length,winCount,captureSum});
   },
   onResize(e){this.setData(presentation.resize(e));},
   openTracks(e){

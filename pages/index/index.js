@@ -6,11 +6,11 @@ const tapHaptic=(type='light')=>{try{if(typeof wx!=='undefined'&&'vibrateShort' 
 const FUN_NAMES=['小橘','田鼠','松果','青苔','风铃','溪石','橡果','星露','草帽','露珠','树莓','薄荷','山雀','麦穗','云朵','向日葵'];
 Page({
   onResize(e) { this.setData(presentation.resize(e)); },
-  data: { fontScale:1, nickname:'', editingName:false, code:'', clipCode:'', loading:false, error:'', resumeKind:'', devAvailable:false, devPreview:false, guideOpen:false, nightMode:false, consentAccepted:false, consentOpen:false, needWxPrivacy:false, privacyContractName:'《猫鼠行动小程序隐私保护指引》' },
+  data: { fontScale:1, nickname:'', editingName:false, code:'', clipCode:'', loading:false, error:'', resumeKind:'', devAvailable:false, devPreview:false, guideOpen:false, themeMode:'day', nightMode:false, consentAccepted:false, consentOpen:false, needWxPrivacy:false, privacyContractName:'《猫鼠行动小程序隐私保护指引》' },
   onLoad(options={}) { this.unloaded=false;this.setData({...presentation.metrics(),code:invitation.launch(options),inviteHint:invitation.launch(options)?'已填邀请码，点下方加入':''}); this.devPreview=preview.accepts(options.devPreview);this.setData({devPreview:this.devPreview,devAvailable:preview.enabled()}); },
   async onShow() {
     if(this.devPreview){this.setData({nickname:'',editingName:false,code:'',clipCode:'',resumeKind:''});return;}
-    try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night',agreed=wx.getStorageSync('sdvSafetyPrivacyV1')==='1';if(n!==!!this.data.nightMode||agreed!==!!this.data.consentAccepted)this.setData({nightMode:n,consentAccepted:agreed});}}catch{}
+    try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const raw=wx.getStorageSync('sdvTheme'),mode=raw==='night'||raw==='dusk'?raw:'day',n=mode!=='day',agreed=wx.getStorageSync('sdvSafetyPrivacyV1')==='1';if(mode!==this.data.themeMode||n!==!!this.data.nightMode||agreed!==!!this.data.consentAccepted)this.setData({themeMode:mode,nightMode:n,consentAccepted:agreed});}}catch{}
     if(typeof wx!=='undefined'&&'getPrivacySetting' in wx){try{wx.getPrivacySetting({success:r=>{if(!this.unloaded&&r)this.setData({needWxPrivacy:!!r.needAuthorization,privacyContractName:r.privacyContractName||'《猫鼠行动小程序隐私保护指引》'});},fail:()=>{}});}catch{}}
     this.setData({ nickname: wx.getStorageSync('nickname') || '', editingName:false });
     const roomId = wx.getStorageSync('v2RoomId');
@@ -73,7 +73,7 @@ Page({
       fail:()=>{if(!this.unloaded)this.setData({error:'无法读取剪贴板，请直接输入或扫码'});}
     });
   },
-  toggleNightMode(){tapHaptic();const next=!this.data.nightMode;this.setData({nightMode:next});try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('sdvTheme',next?'night':'day');}catch{}},
+  toggleNightMode(){tapHaptic();const cur=this.data.themeMode||(this.data.nightMode?'night':'day');const next=cur==='day'?'dusk':cur==='dusk'?'night':'day';this.setData({themeMode:next,nightMode:next!=='day'});try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('sdvTheme',next);}catch{}},
   randomNickname(){tapHaptic();const cur=(this.data.nickname||'').trim();const pool=FUN_NAMES.filter(n=>n!==cur);const next=pool[Math.floor(Math.random()*pool.length)]||FUN_NAMES[0];this.setData({nickname:next,error:''});if(!this.devPreview){try{if(typeof wx!=='undefined'&&'setStorageSync' in wx)wx.setStorageSync('nickname',next);}catch{}}},
   pasteClipCode(){if(!this.data.clipCode)return;tapHaptic();this.setData({code:this.data.clipCode,clipCode:'',inviteHint:'已填入剪贴板房间码',error:''});},
   joinOrScan(){if(this.data.code.trim()||this.devPreview)this.join();else this.scanInvite();},
@@ -86,9 +86,12 @@ Page({
   async create() {
     if(!this.ensureConsent('create'))return;
     if(this.devPreview){wx.navigateTo({url:'/pages/room/room?devPreview=create'});return;}
-    if (this.data.loading) return; this.setData({loading:true,error:''});
-    try { await this.prepare(); wx.navigateTo({url:'/pages/room/room?mode=create'}); }
-    catch(e) { this.setData({error:e.message || '连接失败'}); } finally { this.setData({loading:false}); }
+    if (this.data.loading) return;
+    let nickname=this.data.nickname.trim();
+    if (!nickname){nickname=FUN_NAMES[Math.floor(Math.random()*FUN_NAMES.length)]||FUN_NAMES[0];this.setData({nickname,editingName:false});}
+    try{wx.setStorageSync('nickname',nickname);}catch{}
+    if(typeof api.session==='function'){try{const p=api.session();if(p&&typeof p.catch==='function')p.catch(()=>{});}catch{}}
+    wx.navigateTo({url:'/pages/room/room?mode=create'});
   },
   async join() {
     if(!this.ensureConsent('join'))return;

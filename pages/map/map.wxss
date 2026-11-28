@@ -244,19 +244,19 @@
 .trackResultActions{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:12px;
 }
 
 .resultActions{
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:14px;
 }
 
 .resultSubActions{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:14px;
 }
 
 .waitingHost{
@@ -558,11 +558,11 @@ campus-model{display:block;width:100%;height:100%}
   position:absolute;
   z-index:4;
   right:10px;
-  bottom:calc(84px + max(var(--safe-bottom),env(safe-area-inset-bottom)));
+  bottom:calc(92px + max(var(--safe-bottom),env(safe-area-inset-bottom)));
   display:flex;
   flex-direction:column;
   align-items:flex-end;
-  gap:8px;
+  gap:12px;
   pointer-events:none;
 }
 
@@ -693,7 +693,7 @@ campus-model{display:block;width:100%;height:100%}
   display:flex;
   align-items:stretch;
   justify-content:center;
-  gap:10px;
+  gap:14px;
   padding:0;
   background:transparent;
   border:0;
@@ -802,7 +802,7 @@ campus-model{display:block;width:100%;height:100%}
 .drawerHeader{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:12px;
   padding:4px 14px 10px;
   background:#f2cf94;
   border-bottom:2px solid #7b3c14;
@@ -937,14 +937,14 @@ campus-model{display:block;width:100%;height:100%}
 .drawerActionStack{
   display:flex;
   flex-direction:column;
-  gap:10px;
-  margin-top:10px;
+  gap:14px;
+  margin-top:12px;
 }
 
 .drawerSubActions{
   display:flex;
   align-items:stretch;
-  gap:8px;
+  gap:12px;
 }
 
 .drawerSubActions>button{

@@ -3,7 +3,7 @@ const catalog=require('../../utils/venue-catalog');
 const hints={CALIBRATION_IMAGE_OR_CRS:'图片或坐标系不匹配，请从当前房间重新进入标定',CALIBRATION_POINTS:'请补齐至少3控制点和2核验点',CALIBRATION_CHECKS_REQUIRED:'请补充2个不参与拟合的核验点',CALIBRATION_DUPLICATE:'两点太近或重复，请改选分散地标',CALIBRATION_DEGENERATE:'控制点共线或覆盖太小，请向四周分散选点',CALIBRATION_ERROR:'配准误差超标，请复查图片与真实地标是否相同',CALIBRATION_CHECK_OUTSIDE:'核验点应位于控制点围成的区域内',CALIBRATION_SPREAD:'地标跨度过大，请检查是否选错场地'};
 const uuid=()=> 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.floor(Math.random()*16);return(c==='x'?r:(r&3|8)).toString(16);});
 Page({
- data:{nightMode:false,calStep:'pick',mapId:catalog.DEFAULT_ID,venueSource:catalog.get().src,venueName:catalog.get().label,scrollTop:0,points:[],pins:[],pending:null,pendingLabel:'',kind:'control',error:'',summary:'至少3个控制点 + 2个独立核验点',ready:false,busy:false,canSave:false,owner:false,roomId:'',version:0,devPreview:false,centerLat:32.073,centerLng:118.789},
+ data:{themeMode:'day',nightMode:false,calStep:'pick',mapId:catalog.DEFAULT_ID,venueSource:catalog.get().src,venueName:catalog.get().label,scrollTop:0,points:[],pins:[],pending:null,pendingLabel:'',kind:'control',error:'',summary:'至少3个控制点 + 2个独立核验点',ready:false,busy:false,canSave:false,owner:false,roomId:'',version:0,devPreview:false,centerLat:32.073,centerLng:118.789},
  async onLoad(options){this.active=true;this.serial=0;this.setData({...presentation.metrics(),roomId:options.roomId||''});
   const dev=options.devPreview==='calibrate'&&preview.enabled();if(options.devPreview&&!dev){wx.reLaunch({url:'/pages/index/index'});return;}this.setData({devPreview:dev});
   if(dev){this.setVenue(options.mapId||catalog.DEFAULT_ID);this.setData({owner:true,error:'演示仅验证交互，不读取真实GPS、不提交服务器'});return;}
@@ -14,7 +14,7 @@ Page({
  persistDraft(){if(this.data.devPreview||!this.data.owner)return;try{wx.setStorageSync(this.draftKey(),{baseCalibrationId:this.baseCalibrationId,points:this.data.points});}catch{this.setData({error:'本机草稿保存失败，请勿关闭标定页，先完成服务器保存'});}},
  onPageScroll(e){if(this.active)this.setData({scrollTop:e.scrollTop});},
  onResize(e){this.setData(presentation.resize(e));wx.nextTick(()=>{if(this.active)this.selectComponent('.venueArt')?.remeasure();});},
- onUnload(){this.active=false;this.serial++;},onHide(){this.active=false;this.serial++;},onShow(){this.active=true;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const n=wx.getStorageSync('sdvTheme')==='night';if(n!==!!this.data.nightMode)this.setData({nightMode:n});}}catch{}this.setData({busy:false});},
+ onUnload(){this.active=false;this.serial++;},onHide(){this.active=false;this.serial++;},onShow(){this.active=true;try{if(typeof wx!=='undefined'&&'getStorageSync' in wx){const raw=wx.getStorageSync('sdvTheme'),mode=raw==='night'||raw==='dusk'?raw:'day',n=mode!=='day';if(mode!==this.data.themeMode||n!==!!this.data.nightMode)this.setData({themeMode:mode,nightMode:n});}}catch{}this.setData({busy:false});},
  chooseStep(e){const s=e.currentTarget.dataset.step;if(s){this.setData({calStep:s});if(s==='pick')wx.nextTick(()=>{if(this.active)this.selectComponent('.venueArt')?.remeasure();});}},
  picked(e){if(this.data.busy)return;this.setData({pending:e.detail,pendingLabel:Math.round(e.detail.u*(this.image||geo.IMAGE).width)+', '+Math.round(e.detail.v*(this.image||geo.IMAGE).height),pins:[...this.data.points,e.detail],error:''});},
  chooseKind(e){if(this.data.busy)return;this.setData({kind:e.currentTarget.dataset.kind});},

@@ -80,5 +80,20 @@
         "pages/open/open"
       ]
     }
-  ]
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "field-editor"
+      ]
+    },
+    "pages/room/room": {
+      "network": "all",
+      "packages": [
+        "field-editor",
+        "venue-xuanwu"
+      ]
+    }
+  }
 }
